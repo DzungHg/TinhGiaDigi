@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C04A920-C70F-4E02-8A98-E4686C61BCF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TinhGiaInDAL</RootNamespace>
+    <AssemblyName>TinhGiaInDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="RepoTinhGia\BangGiaDanhThiepDAO.cs" />
+    <Compile Include="RepoTinhGia\BANG_GIA_DANH_THIEP.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\EpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\CanGapDAO.cs" />
+    <Compile Include="RepoTinhGia\DongCuonDAO.cs" />
+    <Compile Include="RepoTinhGia\CanPhuDAO.cs" />
+    <Compile Include="RepoTinhGia\CAN_GAP.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\CAN_PHU.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\DONG_CUON.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\EP_KIM.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\IBangGiaDanhThiepDAO.cs" />
+    <Compile Include="RepoTinhGia\IYeuCauTinhGiaInDAO.cs" />
+    <Compile Include="RepoTinhGia\IN_OFFSET_GIA_CONG.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\IOffsetGiaCongDAO.cs" />
+    <Compile Include="RepoTinhGia\KhuonEpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\TINH_GIA_IN.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\YeuCauTinhGiaInDAO.cs" />
+    <Compile Include="RepoTinhGia\NhuEpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\IEpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\IKhuonEpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\INhuEpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\IKetQuaTinhGiaInDAO.cs" />
+    <Compile Include="RepoTinhGia\KHUON_EP_KIM.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\NHU_EP_KIM.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\KetQuaTinhGiaInDAO.cs" />
+    <Compile Include="RepoTinhGia\ICanGapDAO.cs" />
+    <Compile Include="RepoTinhGia\IDongCuonDAO.cs" />
+    <Compile Include="RepoTinhGia\ICanPhuDAO.cs" />
+    <Compile Include="RepoTinhGia\MarkUpLoiNhuanGiayDAO.cs" />
+    <Compile Include="RepoTinhGia\HangKhachHangDAO.cs" />
+    <Compile Include="RepoTinhGia\BangGiaInNhanhDAO.cs" />
+    <Compile Include="RepoTinhGia\BANG_GIA_IN_NHANH.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\DanhMucGiayDAO.cs" />
+    <Compile Include="RepoTinhGia\GiayDAO.cs" />
+    <Compile Include="RepoTinhGia\HANG_KHACH_HANG.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\IMarkUpLoiNhuanGiay.cs" />
+    <Compile Include="RepoTinhGia\IHangKhachHangDAO.cs" />
+    <Compile Include="RepoTinhGia\IBangGiaInNhanhDAO.cs" />
+    <Compile Include="RepoTinhGia\IDanhMucGiayDAO.cs" />
+    <Compile Include="RepoTinhGia\IGiayDAO.cs" />
+    <Compile Include="RepoTinhGia\DANH_MUC_GIAY.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\GIAY.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\IToChayDigiDAO.cs" />
+    <Compile Include="RepoTinhGia\IKhoSanPhamDAO.cs" />
+    <Compile Include="RepoTinhGia\KhoSanPhamDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoTinhGia\KHO_SAN_PHAM.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\MARK_UP_LOI_NHUAN_GIAY.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\MAY_IN_DIGI.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\QLyGiaInModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLyGiaInModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\QLyGiaInModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\QLyGiaInModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLyGiaInModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\OffsetGiaCongDAO.cs" />
+    <Compile Include="RepoTinhGia\ToChayDigiDAO.cs" />
+    <Compile Include="RepoTinhGia\TO_IN_MAY_DIGI.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\YEU_CAU_TINH_GIA_IN.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinhGiaInBDO\TinhGiaInBDO.csproj">
+      <Project>{4730b3aa-6791-4a68-a7e4-cc1e805d15b8}</Project>
+      <Name>TinhGiaInBDO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="RepoTinhGia\QLyGiaInModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLyGiaInModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="RepoTinhGia\QLyGiaInModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLyGiaInModel.edmx</DependentUpon>
+      <LastGenOutput>QLyGiaInModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="RepoTinhGia\QLyGiaInModel.edmx.diagram">
+      <DependentUpon>QLyGiaInModel.edmx</DependentUpon>
+    </None>
+    <None Include="RepoTinhGia\QLyGiaInModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QLyGiaInModel.edmx</DependentUpon>
+      <LastGenOutput>QLyGiaInModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

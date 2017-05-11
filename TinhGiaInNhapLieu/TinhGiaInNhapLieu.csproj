@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D68963DA-4E13-4D70-8B8F-18873BECD825}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TinhGiaInNhapLieu</RootNamespace>
+    <AssemblyName>TinhGiaInNhapLieu</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GiayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiayForm.designer.cs">
+      <DependentUpon>GiayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\GiayPresenter.cs" />
+    <Compile Include="QuanLyGiayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyGiayForm.Designer.cs">
+      <DependentUpon>QuanLyGiayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\QuanLyGiayPresenter.cs" />
+    <Compile Include="NhapLieuMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhapLieuMainForm.designer.cs">
+      <DependentUpon>NhapLieuMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarkUpLoiNhuanGiayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarkUpLoiNhuanGiayForm.Designer.cs">
+      <DependentUpon>MarkUpLoiNhuanGiayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMucGiayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMucGiayForm.designer.cs">
+      <DependentUpon>DanhMucGiayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\DanhMucGiayPresenter.cs" />
+    <Compile Include="Presenter\QuanLyDMGiayPresenter.cs" />
+    <Compile Include="QuanLyDanhMucGiayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyDanhMucGiayForm.designer.cs">
+      <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyMarkUpLoiNhuanGiayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyMarkUpLoiNhuanGiayForm.Designer.cs">
+      <DependentUpon>QuanLyMarkUpLoiNhuanGiayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\IViewDanhMucGiay.cs" />
+    <Compile Include="View\IViewGiay.cs" />
+    <Compile Include="View\IViewQuanLyGiay.cs" />
+    <Compile Include="View\IViewQuanLyDMGiay.cs" />
+    <EmbeddedResource Include="GiayForm.resx">
+      <DependentUpon>GiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyGiayForm.resx">
+      <DependentUpon>QuanLyGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapLieuMainForm.resx">
+      <DependentUpon>NhapLieuMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarkUpLoiNhuanGiayForm.resx">
+      <DependentUpon>MarkUpLoiNhuanGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMucGiayForm.resx">
+      <DependentUpon>DanhMucGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyDanhMucGiayForm.resx">
+      <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyMarkUpLoiNhuanGiayForm.resx">
+      <DependentUpon>QuanLyMarkUpLoiNhuanGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TinhGiaInClient\TinhGiaInClient.csproj">
+      <Project>{8e9c6969-1a2e-4bb4-ac12-5b20e318326d}</Project>
+      <Name>TinhGiaInClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TinhGiaInLogic\TinhGiaInLogic.csproj">
+      <Project>{7b67c203-490d-4e56-b69f-67c3a3355028}</Project>
+      <Name>TinhGiaInLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

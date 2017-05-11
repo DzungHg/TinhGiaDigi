@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6785aad7725f440cb27abf3e13a062ce" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyGiaInModel.DANH_MUC_GIAY" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.KHO_SAN_PHAM" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.GIAY" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TO_IN_MAY_DIGI" Width="1.5" PointX="8.875" PointY="1.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_IN_DIGI" Width="1.5" PointX="10.75" PointY="0.875" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_TO_IN_MAY_DIGI_MAY_IN_DIGI" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.BANG_GIA_IN_NHANH" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.HANG_KHACH_HANG" Width="1.5" PointX="2.875" PointY="5.375" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.MARK_UP_LOI_NHUAN_GIAY" Width="1.5" PointX="5.25" PointY="4.5" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_MARK_UP_LOI_NHUAN_GIAY_DANH_MUC_GIAY" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_MARK_UP_LOI_NHUAN_GIAY_HANG_KHACH_HANG" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_GIAY_DANH_MUC_GIAY" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.CAN_GAP" Width="1.5" PointX="5.125" PointY="7.125" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.CAN_PHU" Width="1.5" PointX="7.125" PointY="6.125" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.DONG_CUON" Width="1.5" PointX="9.125" PointY="6.5" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.EP_KIM" Width="1.5" PointX="0.5" PointY="10" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.KHUON_EP_KIM" Width="1.5" PointX="2.75" PointY="11.5" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.NHU_EP_KIM" Width="1.5" PointX="2.875" PointY="8.5" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_KHUON_EP_KIM_EP_KIM" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_NHU_EP_KIM_EP_KIM" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.IN_OFFSET_GIA_CONG" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.BANG_GIA_DANH_THIEP" Width="1.5" PointX="0.75" PointY="7" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TINH_GIA_IN" Width="1.5" PointX="9.625" PointY="11.25" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" Width="1.5" PointX="7.375" PointY="11" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

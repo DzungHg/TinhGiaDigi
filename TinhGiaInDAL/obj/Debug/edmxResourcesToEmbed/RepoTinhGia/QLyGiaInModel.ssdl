@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyGiaInModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BANG_GIA_DANH_THIEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten_bang_gia" Type="nvarchar" MaxLength="50" />
+    <Property Name="mo_ta" Type="nvarchar" MaxLength="150" />
+    <Property Name="day_so_luong" Type="nvarchar" MaxLength="50" />
+    <Property Name="day_gia" Type="nvarchar" MaxLength="50" />
+    <Property Name="so_hop_toi_da" Type="int" />
+    <Property Name="khong_con" Type="bit" />
+    <Property Name="in_hai_mat" Type="bit" />
+    <Property Name="noi_dung_bang_gia" Type="nvarchar(max)" />
+    <Property Name="giay_bao_gom" Type="nvarchar" MaxLength="20" />
+    <Property Name="thu_tu" Type="int" />
+    <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
+    <Property Name="ID_HANG_KHACH_HANG" Type="int" />
+  </EntityType>
+  <EntityType Name="BANG_GIA_IN_NHANH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten_bang_gia" Type="nvarchar" MaxLength="50" />
+    <Property Name="mo_ta" Type="nvarchar" MaxLength="255" />
+    <Property Name="day_so_luong" Type="varchar" MaxLength="50" />
+    <Property Name="day_gia" Type="varchar" MaxLength="50" />
+    <Property Name="noi_dung_bang_gia" Type="nvarchar(max)" />
+    <Property Name="thu_tu" Type="int" />
+    <Property Name="ID_HANG_KHACH_HANG" Type="int" />
+    <Property Name="so_trang_toi_da" Type="int" />
+    <Property Name="khong_su_dung" Type="bit" />
+  </EntityType>
+  <EntityType Name="CAN_GAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="money" />
+    <Property Name="Toc_do_con" Type="int" />
+    <Property Name="Thoi_gian_chuan_bi" Type="float" />
+    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="CAN_PHU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="Toc_do_met" Type="int" />
+    <Property Name="Thoi_gian_chuan_bi" Type="float" />
+    <Property Name="Phi_ngvl_m2" Type="int" />
+    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="DANH_MUC_GIAY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nha_cung_cap" Type="nvarchar" MaxLength="50" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="DONG_CUON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="Toc_do_cuon" Type="int" />
+    <Property Name="Thoi_gian_chuan_bi" Type="float" />
+    <Property Name="Phi_ngvl_cuon" Type="int" />
+    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="EP_KIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="Toc_do_con" Type="int" />
+    <Property Name="Thoi_gian_chuan_bi" Type="float" />
+    <Property Name="Phi_ngvl_chuan_bi" Type="int" />
+    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Gia_khuon_cm2" Type="int" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="La_vi_tinh" Type="bit" />
+  </EntityType>
+  <EntityType Name="GIAY">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma_giay_ncc" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ma_giay_tu_dat" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ten_giay" Type="nvarchar" MaxLength="100" />
+    <Property Name="Dien_giai" Type="nvarchar" MaxLength="500" />
+    <Property Name="Dinh_luong" Type="int" />
+    <Property Name="Kho_giay" Type="nvarchar" MaxLength="50" />
+    <Property Name="Chieu_ngan" Type="float" />
+    <Property Name="Chieu_dai" Type="float" />
+    <Property Name="ten_mo_rong" Type="nvarchar" MaxLength="100" />
+    <Property Name="Gia_mua" Type="int" />
+    <Property Name="ID_DANH_MUC_GIAY" Type="int" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="Ton_kho" Type="bit" />
+    <Property Name="Khong_con" Type="bit" />
+  </EntityType>
+  <EntityType Name="HANG_KHACH_HANG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dien_giai" Type="nvarchar" MaxLength="150" />
+    <Property Name="Hang_khach_hang" Type="int" />
+    <Property Name="Loi_nhuan_chenh_lech" Type="int" />
+    <Property Name="Loi_nhuan_offset_gia_cong" Type="int" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="IN_OFFSET_GIA_CONG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten_may_in" Type="nvarchar" MaxLength="30" />
+    <Property Name="ten_nha_cung_cap" Type="nvarchar" MaxLength="30" />
+    <Property Name="ten_kho_in" Type="nvarchar" MaxLength="20" />
+    <Property Name="kho_in_rong_max" Type="int" />
+    <Property Name="kho_in_dai_max" Type="int" />
+    <Property Name="kho_in_rong_min" Type="int" />
+    <Property Name="kho_in_dai_min" Type="int" />
+    <Property Name="tu_tro_nhip" Type="bit" />
+    <Property Name="gia_cong_in" Type="int" />
+    <Property Name="so_mat_in_co_ban" Type="int" />
+    <Property Name="gia_in_moi_mat_vuot" Type="int" />
+    <Property Name="so_to_chay_bu_hao_co_ban" Type="int" />
+    <Property Name="thong_tin_nguoi_dung_may" Type="nvarchar" MaxLength="50" />
+    <Property Name="ghi_chu" Type="nvarchar" MaxLength="200" />
+    <Property Name="thu_tu" Type="int" />
+    <Property Name="khong_dung" Type="bit" />
+  </EntityType>
+  <EntityType Name="KHO_SAN_PHAM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="20" />
+    <Property Name="Chieu_cat_rong" Type="float" />
+    <Property Name="Chieu_cat_cao" Type="float" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="KHUON_EP_KIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" />
+    <Property Name="Dien_giai" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gia_mua" Type="int" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="ID_EP_KIM" Type="int" />
+  </EntityType>
+  <EntityType Name="MARK_UP_LOI_NHUAN_GIAY">
+    <Key>
+      <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      <PropertyRef Name="ID_DANH_MUC_GIAY" />
+    </Key>
+    <Property Name="ID_HANG_KHACH_HANG" Type="int" Nullable="false" />
+    <Property Name="ID_DANH_MUC_GIAY" Type="int" Nullable="false" />
+    <Property Name="Ty_le_mark_up" Type="int" />
+  </EntityType>
+  <EntityType Name="MAY_IN_DIGI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="Thong_tin_toc_do" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="Click4C20PCTA3" Type="int" />
+    <Property Name="Click1C20PCTA3" Type="int" />
+    <Property Name="Click6C20PCTA3" Type="int" />
+    <Property Name="Click_A4_4M" Type="int" />
+    <Property Name="Click_A4_1M" Type="int" />
+    <Property Name="Click_A4_6M" Type="int" />
+    <Property Name="Phi_phe_pham_san_sang" Type="int" />
+    <Property Name="Thoi_gian_san_sang" Type="float" />
+    <Property Name="Thoi_gian_du_lieu_bien_doi" Type="float" />
+  </EntityType>
+  <EntityType Name="NHU_EP_KIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="Ma_nha_cung_cap" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dien_giai" Type="nvarchar" MaxLength="100" />
+    <Property Name="Gia_mua_cm2" Type="int" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="ID_EP_KIM" Type="int" />
+  </EntityType>
+  <EntityType Name="TINH_GIA_IN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NGUOI_DUNG" Type="int" />
+    <Property Name="ten_nguoi_dung" Type="nvarchar" MaxLength="20" />
+    <Property Name="ngay_tinh_gia" Type="date" />
+    <Property Name="tieu_de_tinh_gia" Type="nvarchar" MaxLength="50" />
+    <Property Name="Noi_dung_chao_gia" Type="nvarchar(max)" />
+    <Property Name="noi_dung_chao_gia_noi_bo" Type="nvarchar(max)" />
+    <Property Name="ID_YEU_CAU_TINH_GIA_IN" Type="int" />
+  </EntityType>
+  <EntityType Name="TO_IN_MAY_DIGI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="Rong" Type="float" />
+    <Property Name="Cao" Type="float" />
+    <Property Name="Vung_in_rong" Type="float" />
+    <Property Name="Vung_in_cao" Type="float" />
+    <Property Name="Toc_do" Type="int" />
+    <Property Name="In_tu_tro" Type="bit" />
+    <Property Name="La_in_kho_dai" Type="bit" />
+    <Property Name="La_hp_indigo" Type="bit" />
+    <Property Name="Click_mot_mau" Type="int" />
+    <Property Name="Click_bon_mau" Type="int" />
+    <Property Name="Click_sau_mau" Type="int" />
+    <Property Name="Qui_a4" Type="int" />
+    <Property Name="ID_MAY_IN" Type="int" />
+    <Property Name="So_trang_toi_da" Type="int" />
+    <Property Name="Kho_to_chay_co_the_in" Type="nvarchar" MaxLength="100" />
+    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="200" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="200" />
+    <Property Name="Thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="YEU_CAU_TINH_GIA_IN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_NGUOI_DUNG" Type="int" />
+    <Property Name="ngay_yeu_cau" Type="date" />
+    <Property Name="ho_ten" Type="nvarchar" MaxLength="30" />
+    <Property Name="cong_ty" Type="nvarchar" MaxLength="50" />
+    <Property Name="so_dien_thoai" Type="nvarchar" MaxLength="20" />
+    <Property Name="email" Type="nvarchar" MaxLength="20" />
+    <Property Name="tham_chieu_ticket" Type="nvarchar" MaxLength="10" />
+    <Property Name="noi_dung" Type="nvarchar" MaxLength="250" />
+    <Property Name="phan_cho_nhan_vien" Type="nvarchar" MaxLength="20" />
+    <Property Name="tinh_trang" Type="int" />
+  </EntityType>
+  <Association Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
+    <End Role="HANG_KHACH_HANG" Type="Self.HANG_KHACH_HANG" Multiplicity="0..1" />
+    <End Role="BANG_GIA_DANH_THIEP" Type="Self.BANG_GIA_DANH_THIEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_KHACH_HANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BANG_GIA_DANH_THIEP">
+        <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
+    <End Role="HANG_KHACH_HANG" Type="Self.HANG_KHACH_HANG" Multiplicity="0..1" />
+    <End Role="BANG_GIA_IN_NHANH" Type="Self.BANG_GIA_IN_NHANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_KHACH_HANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BANG_GIA_IN_NHANH">
+        <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIAY_DANH_MUC_GIAY">
+    <End Role="DANH_MUC_GIAY" Type="Self.DANH_MUC_GIAY" Multiplicity="0..1" />
+    <End Role="GIAY" Type="Self.GIAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANH_MUC_GIAY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIAY">
+        <PropertyRef Name="ID_DANH_MUC_GIAY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KHUON_EP_KIM_EP_KIM">
+    <End Role="EP_KIM" Type="Self.EP_KIM" Multiplicity="0..1" />
+    <End Role="KHUON_EP_KIM" Type="Self.KHUON_EP_KIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EP_KIM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="KHUON_EP_KIM">
+        <PropertyRef Name="ID_EP_KIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARK_UP_LOI_NHUAN_GIAY_DANH_MUC_GIAY">
+    <End Role="DANH_MUC_GIAY" Type="Self.DANH_MUC_GIAY" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MARK_UP_LOI_NHUAN_GIAY" Type="Self.MARK_UP_LOI_NHUAN_GIAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DANH_MUC_GIAY">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MARK_UP_LOI_NHUAN_GIAY">
+        <PropertyRef Name="ID_DANH_MUC_GIAY" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MARK_UP_LOI_NHUAN_GIAY_HANG_KHACH_HANG">
+    <End Role="HANG_KHACH_HANG" Type="Self.HANG_KHACH_HANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MARK_UP_LOI_NHUAN_GIAY" Type="Self.MARK_UP_LOI_NHUAN_GIAY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_KHACH_HANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MARK_UP_LOI_NHUAN_GIAY">
+        <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NHU_EP_KIM_EP_KIM">
+    <End Role="EP_KIM" Type="Self.EP_KIM" Multiplicity="0..1" />
+    <End Role="NHU_EP_KIM" Type="Self.NHU_EP_KIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EP_KIM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NHU_EP_KIM">
+        <PropertyRef Name="ID_EP_KIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN">
+    <End Role="YEU_CAU_TINH_GIA_IN" Type="Self.YEU_CAU_TINH_GIA_IN" Multiplicity="0..1" />
+    <End Role="TINH_GIA_IN" Type="Self.TINH_GIA_IN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEU_CAU_TINH_GIA_IN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TINH_GIA_IN">
+        <PropertyRef Name="ID_YEU_CAU_TINH_GIA_IN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TO_IN_MAY_DIGI_MAY_IN_DIGI">
+    <End Role="MAY_IN_DIGI" Type="Self.MAY_IN_DIGI" Multiplicity="0..1" />
+    <End Role="TO_IN_MAY_DIGI" Type="Self.TO_IN_MAY_DIGI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MAY_IN_DIGI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TO_IN_MAY_DIGI">
+        <PropertyRef Name="ID_MAY_IN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyGiaInModelStoreContainer">
+    <EntitySet Name="BANG_GIA_DANH_THIEP" EntityType="Self.BANG_GIA_DANH_THIEP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANG_GIA_IN_NHANH" EntityType="Self.BANG_GIA_IN_NHANH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAN_GAP" EntityType="Self.CAN_GAP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAN_PHU" EntityType="Self.CAN_PHU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DANH_MUC_GIAY" EntityType="Self.DANH_MUC_GIAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONG_CUON" EntityType="Self.DONG_CUON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EP_KIM" EntityType="Self.EP_KIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAY" EntityType="Self.GIAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HANG_KHACH_HANG" EntityType="Self.HANG_KHACH_HANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IN_OFFSET_GIA_CONG" EntityType="Self.IN_OFFSET_GIA_CONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHO_SAN_PHAM" EntityType="Self.KHO_SAN_PHAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHUON_EP_KIM" EntityType="Self.KHUON_EP_KIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MARK_UP_LOI_NHUAN_GIAY" EntityType="Self.MARK_UP_LOI_NHUAN_GIAY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAY_IN_DIGI" EntityType="Self.MAY_IN_DIGI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHU_EP_KIM" EntityType="Self.NHU_EP_KIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TINH_GIA_IN" EntityType="Self.TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TO_IN_MAY_DIGI" EntityType="Self.TO_IN_MAY_DIGI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="Self.YEU_CAU_TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" Association="Self.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
+      <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
+      <End Role="BANG_GIA_DANH_THIEP" EntitySet="BANG_GIA_DANH_THIEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG" Association="Self.FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
+      <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
+      <End Role="BANG_GIA_IN_NHANH" EntitySet="BANG_GIA_IN_NHANH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIAY_DANH_MUC_GIAY" Association="Self.FK_GIAY_DANH_MUC_GIAY">
+      <End Role="DANH_MUC_GIAY" EntitySet="DANH_MUC_GIAY" />
+      <End Role="GIAY" EntitySet="GIAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KHUON_EP_KIM_EP_KIM" Association="Self.FK_KHUON_EP_KIM_EP_KIM">
+      <End Role="EP_KIM" EntitySet="EP_KIM" />
+      <End Role="KHUON_EP_KIM" EntitySet="KHUON_EP_KIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARK_UP_LOI_NHUAN_GIAY_DANH_MUC_GIAY" Association="Self.FK_MARK_UP_LOI_NHUAN_GIAY_DANH_MUC_GIAY">
+      <End Role="DANH_MUC_GIAY" EntitySet="DANH_MUC_GIAY" />
+      <End Role="MARK_UP_LOI_NHUAN_GIAY" EntitySet="MARK_UP_LOI_NHUAN_GIAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MARK_UP_LOI_NHUAN_GIAY_HANG_KHACH_HANG" Association="Self.FK_MARK_UP_LOI_NHUAN_GIAY_HANG_KHACH_HANG">
+      <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
+      <End Role="MARK_UP_LOI_NHUAN_GIAY" EntitySet="MARK_UP_LOI_NHUAN_GIAY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NHU_EP_KIM_EP_KIM" Association="Self.FK_NHU_EP_KIM_EP_KIM">
+      <End Role="EP_KIM" EntitySet="EP_KIM" />
+      <End Role="NHU_EP_KIM" EntitySet="NHU_EP_KIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" Association="Self.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN">
+      <End Role="YEU_CAU_TINH_GIA_IN" EntitySet="YEU_CAU_TINH_GIA_IN" />
+      <End Role="TINH_GIA_IN" EntitySet="TINH_GIA_IN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TO_IN_MAY_DIGI_MAY_IN_DIGI" Association="Self.FK_TO_IN_MAY_DIGI_MAY_IN_DIGI">
+      <End Role="MAY_IN_DIGI" EntitySet="MAY_IN_DIGI" />
+      <End Role="TO_IN_MAY_DIGI" EntitySet="TO_IN_MAY_DIGI" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
