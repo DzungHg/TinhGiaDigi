@@ -22,7 +22,5 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string noi_dung_chao_gia_noi_bo { get; set; }
         public Nullable<int> ID_YEU_CAU_TINH_GIA_IN { get; set; }
         public string ten_nguoi_dung { get; set; }
-    
-        public virtual YEU_CAU_TINH_GIA_IN YEU_CAU_TINH_GIA_IN { get; set; }
     }
 }

@@ -62,10 +62,6 @@
     </AssociationSet>
     <EntitySet Name="TINH_GIA_IN" EntityType="QuanLyGiaInModel.TINH_GIA_IN" />
     <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
-    <AssociationSet Name="FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" Association="QuanLyGiaInModel.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN">
-      <End Role="YEU_CAU_TINH_GIA_IN" EntitySet="YEU_CAU_TINH_GIA_IN" />
-      <End Role="TINH_GIA_IN" EntitySet="TINH_GIA_IN" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -421,7 +417,6 @@
     <Property Name="Noi_dung_chao_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="noi_dung_chao_gia_noi_bo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ID_YEU_CAU_TINH_GIA_IN" Type="Int32" />
-    <NavigationProperty Name="YEU_CAU_TINH_GIA_IN" Relationship="QuanLyGiaInModel.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" FromRole="TINH_GIA_IN" ToRole="YEU_CAU_TINH_GIA_IN" />
     <Property Name="ten_nguoi_dung" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="YEU_CAU_TINH_GIA_IN">
@@ -438,19 +433,6 @@
     <Property Name="tham_chieu_ticket" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="noi_dung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="phan_cho_nhan_vien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="TINH_GIA_IN" Relationship="QuanLyGiaInModel.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" FromRole="YEU_CAU_TINH_GIA_IN" ToRole="TINH_GIA_IN" />
     <Property Name="tinh_trang" Type="Int32" />
   </EntityType>
-  <Association Name="FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN">
-    <End Type="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" Role="YEU_CAU_TINH_GIA_IN" Multiplicity="0..1" />
-    <End Type="QuanLyGiaInModel.TINH_GIA_IN" Role="TINH_GIA_IN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="YEU_CAU_TINH_GIA_IN">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TINH_GIA_IN">
-        <PropertyRef Name="ID_YEU_CAU_TINH_GIA_IN" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

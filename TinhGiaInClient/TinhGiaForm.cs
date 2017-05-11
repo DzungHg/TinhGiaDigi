@@ -26,11 +26,17 @@ namespace TinhGiaInClient
             tinhGiaPres.NoiDungBanDau();
             LoadHangKhachHang();
             cboHangKH.SelectedIndex = 0;
+
+            
             //event
             this.FormClosing += new FormClosingEventHandler(Forms_FormClosing);
 
             lvwBaiIn.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
             lvwDanhThiep.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
+            txtTieuDeTinhGia.TextChanged += new EventHandler(TextBoxe_TextChanged);
+            txtTenNV.TextChanged += new EventHandler(TextBoxe_TextChanged);
+            dtpNgay.ValueChanged += new EventHandler(TextBoxe_TextChanged);
+            //
             
         }
         #region Thi công  IView
@@ -100,8 +106,8 @@ namespace TinhGiaInClient
         {
             return tinhGiaPres.IdHangKH();
         }
-        
-        
+
+        public Boolean FormChanged { get; set; }
        
       
         #endregion
@@ -116,6 +122,7 @@ namespace TinhGiaInClient
         private void TinhGiaForm_Load(object sender, EventArgs e)
         {            
             TrinhBayListView();
+            MakeFormChange(false);
         }
 
         private void trvMucLuc_Click(object sender, EventArgs e)
@@ -475,6 +482,22 @@ namespace TinhGiaInClient
        }
        private void Forms_FormClosing(object sender, FormClosingEventArgs e)
        {
+           if (this.FormChanged)
+           {
+               var dialogeR = MessageBox.Show(this.Text, "Dữ liệu đãy thay đổi, bạn muốn lưu?",
+                    MessageBoxButtons.YesNo);
+               if (dialogeR == System.Windows.Forms.DialogResult.Yes)
+               {
+                   e.Cancel = true;
+                   if (LuuLai())
+                   {
+                       MakeFormChange(false);
+                       e.Cancel = false;
+                   
+                   }
+               }
+               e.Cancel = false;
+           }
            /*
            string ms = "";
            if (!KiemTraHopLe(ref ms))
@@ -490,8 +513,9 @@ namespace TinhGiaInClient
             */
 
        }
-       private void btnLuu_Click(object sender, EventArgs e)
+       private bool LuuLai()
        {
+           var ketQua = true;
            string str = "";
            if (KiemTraHopLe(ref str))
            {
@@ -499,28 +523,25 @@ namespace TinhGiaInClient
                {
                    case FormStates.New:
                        MessageBox.Show(tinhGiaPres.ThemTinhGia());
-                       
+
                        break;
                    case FormStates.Edit:
                        MessageBox.Show(tinhGiaPres.CapNhatTinhGia());
-                      
-                       break;
-               }
 
-               this.Close();
+                       break;
+               }              
            }
            else
            {
-               var dialogeR = MessageBox.Show(str, "Nội dung thiếu, bạn muốn làm tiêp?",
-                        MessageBoxButtons.YesNo);
-               if (dialogeR == System.Windows.Forms.DialogResult.Yes)
-                   this.Focus();
-               else
-               {
-                   this.FormClosing -= Forms_FormClosing;
-                   this.Close();
-               }
+               ketQua = false;
+               MessageBox.Show(str, "...là nội dung thiếu, bạn cần điền vô");               
            }
+           return ketQua;
+       }
+       private void btnLuu_Click(object sender, EventArgs e)
+       {
+           if (LuuLai())
+               MakeFormChange(false);
        }
 
        private void btnCopy_Click(object sender, EventArgs e)
@@ -548,12 +569,38 @@ namespace TinhGiaInClient
        {
 
        }
+       private void MakeFormChange(bool ketQua)
+       {
+           this.FormChanged = ketQua;
+           btnLuu.Enabled = this.FormChanged;
+       }
 
        private void cboHangKH_SelectedIndexChanged(object sender, EventArgs e)
        {
            txtDienGiaiHangKH.Text = tinhGiaPres.DienGiaiHangKH();
+           MakeFormChange(true);
        }
-
-  
+       private void TextBoxe_TextChanged(object sender, EventArgs e)
+       {
+           TextBox tb;
+           if (sender is TextBox)
+           {
+               tb = (TextBox)sender;
+               if (tb == txtTenNV || tb == txtTieuDeTinhGia )
+               {
+                   MakeFormChange(true);
+               }
+           }
+           DateTimePicker dtp;
+           if (sender is DateTimePicker)
+           {
+               dtp = (DateTimePicker)sender;
+               if (dtp == dtpNgay)
+               {
+                   MakeFormChange(true);
+               }
+           }
+       }
+       
     }
 }

@@ -130,3 +130,15 @@ D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.csprojResolveAssemblyReference.cache
 D:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.dll
 D:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.dll.config
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInBDO.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInBDO.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.xml
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.csprojResolveAssemblyReference.cache
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.pdb

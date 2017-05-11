@@ -14,11 +14,6 @@ namespace TinhGiaInDAL.RepoTinhGia
     
     public partial class YEU_CAU_TINH_GIA_IN
     {
-        public YEU_CAU_TINH_GIA_IN()
-        {
-            this.TINH_GIA_IN = new HashSet<TINH_GIA_IN>();
-        }
-    
         public int ID { get; set; }
         public Nullable<int> ID_NGUOI_DUNG { get; set; }
         public Nullable<System.DateTime> ngay_yeu_cau { get; set; }
@@ -30,7 +25,5 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string noi_dung { get; set; }
         public string phan_cho_nhan_vien { get; set; }
         public Nullable<int> tinh_trang { get; set; }
-    
-        public virtual ICollection<TINH_GIA_IN> TINH_GIA_IN { get; set; }
     }
 }

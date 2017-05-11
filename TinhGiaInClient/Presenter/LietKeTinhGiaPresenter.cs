@@ -22,14 +22,14 @@ namespace TinhGiaInClient.Presenter
             List<KetQuaTinhGiaIn> nguon = null;
             switch (View.KieuSapXep)
             {
-                case (int)Enumss.SapXepTinhGia.TheoNgay:
-                    nguon = KetQuaTinhGiaIn.DocTatCaSX_Ngay(View.IdChieuSapXep);
+                case SapXepTinhGia.TheoNgay:
+                    nguon = KetQuaTinhGiaIn.DocTatCaSX_Ngay(View.ChieuSapXep);
                     break;
-                case (int)Enumss.SapXepTinhGia.TheoNhanVien:
-                    nguon = KetQuaTinhGiaIn.DocTatCaSX_NhanVien(View.IdChieuSapXep);
+                case SapXepTinhGia.TheoNhanVien:
+                    nguon = KetQuaTinhGiaIn.DocTatCaSX_NhanVien(View.ChieuSapXep);
                     break;
-                case (int)Enumss.SapXepTinhGia.TheoKhachHang:
-                    nguon = KetQuaTinhGiaIn.DocTatCaSX_KhachHang(View.IdChieuSapXep);
+                case SapXepTinhGia.TheoTieuDe:
+                    nguon = KetQuaTinhGiaIn.DocTatCaSX_TieuDe(View.ChieuSapXep);
                     break;
                 default:
                     nguon = KetQuaTinhGiaIn.DocTatCa();

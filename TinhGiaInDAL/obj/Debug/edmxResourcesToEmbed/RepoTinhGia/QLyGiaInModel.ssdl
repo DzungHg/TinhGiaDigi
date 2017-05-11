@@ -355,18 +355,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN">
-    <End Role="YEU_CAU_TINH_GIA_IN" Type="Self.YEU_CAU_TINH_GIA_IN" Multiplicity="0..1" />
-    <End Role="TINH_GIA_IN" Type="Self.TINH_GIA_IN" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="YEU_CAU_TINH_GIA_IN">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="TINH_GIA_IN">
-        <PropertyRef Name="ID_YEU_CAU_TINH_GIA_IN" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_TO_IN_MAY_DIGI_MAY_IN_DIGI">
     <End Role="MAY_IN_DIGI" Type="Self.MAY_IN_DIGI" Multiplicity="0..1" />
     <End Role="TO_IN_MAY_DIGI" Type="Self.TO_IN_MAY_DIGI" Multiplicity="*" />
@@ -425,10 +413,6 @@
     <AssociationSet Name="FK_NHU_EP_KIM_EP_KIM" Association="Self.FK_NHU_EP_KIM_EP_KIM">
       <End Role="EP_KIM" EntitySet="EP_KIM" />
       <End Role="NHU_EP_KIM" EntitySet="NHU_EP_KIM" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" Association="Self.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN">
-      <End Role="YEU_CAU_TINH_GIA_IN" EntitySet="YEU_CAU_TINH_GIA_IN" />
-      <End Role="TINH_GIA_IN" EntitySet="TINH_GIA_IN" />
     </AssociationSet>
     <AssociationSet Name="FK_TO_IN_MAY_DIGI_MAY_IN_DIGI" Association="Self.FK_TO_IN_MAY_DIGI_MAY_IN_DIGI">
       <End Role="MAY_IN_DIGI" EntitySet="MAY_IN_DIGI" />

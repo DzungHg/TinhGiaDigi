@@ -164,7 +164,7 @@ namespace TinhGiaInClient.Presenter
             var ketQua = new KetQuaTinhGiaIn();
             ketQua.NgayTinhGia = View.NgayTinhGia;
             ketQua.IdNguoiDung = View.IdNguoiDung;
-           
+            ketQua.TieuDe = View.TieuDeTinhGia;
            
             ketQua.TenNguoiDung = View.TenNhanVien;
             //Tạo nội dung chào giá từ List sang 1 chuỗi string

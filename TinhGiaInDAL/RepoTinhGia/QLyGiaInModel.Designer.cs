@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\C_Sharp Projects\QuanLyGiaIn_n17th02_13\TinhGiaInApp04_05_digi\TinhGiaInDAL\RepoTinhGia\QLyGiaInModel.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\GitHub\TinhGiaDigi\TinhGiaInDAL\RepoTinhGia\QLyGiaInModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

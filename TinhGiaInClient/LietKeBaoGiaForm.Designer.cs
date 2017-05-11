@@ -41,7 +41,7 @@
             this.lvwTinhGia = new System.Windows.Forms.ListView();
             this.pnlHeaderDanhSachTinhGia = new System.Windows.Forms.Panel();
             this.btnCopyTinhGia = new System.Windows.Forms.Button();
-            this.btnThemTinhGia = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.txtNoiDungTinhGia = new System.Windows.Forms.TextBox();
             this.pnlBottomMain.SuspendLayout();
             this.pnlHeaderNoiDung.SuspendLayout();
@@ -125,7 +125,7 @@
             "Không",
             "Ngày",
             "Nhân viên",
-            "Khách hàng"});
+            "Tiêu đề"});
             this.cboSapXepTheo.Location = new System.Drawing.Point(50, 19);
             this.cboSapXepTheo.Margin = new System.Windows.Forms.Padding(2);
             this.cboSapXepTheo.Name = "cboSapXepTheo";
@@ -192,7 +192,7 @@
             // 
             this.pnlHeaderDanhSachTinhGia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHeaderDanhSachTinhGia.Controls.Add(this.btnCopyTinhGia);
-            this.pnlHeaderDanhSachTinhGia.Controls.Add(this.btnThemTinhGia);
+            this.pnlHeaderDanhSachTinhGia.Controls.Add(this.btnRefresh);
             this.pnlHeaderDanhSachTinhGia.Controls.Add(this.grbSapXep);
             this.pnlHeaderDanhSachTinhGia.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeaderDanhSachTinhGia.Location = new System.Drawing.Point(0, 0);
@@ -210,15 +210,15 @@
             this.btnCopyTinhGia.UseVisualStyleBackColor = true;
             this.btnCopyTinhGia.Click += new System.EventHandler(this.btnCopyTinhGia_Click);
             // 
-            // btnThemTinhGia
+            // btnRefresh
             // 
-            this.btnThemTinhGia.Location = new System.Drawing.Point(322, 23);
-            this.btnThemTinhGia.Name = "btnThemTinhGia";
-            this.btnThemTinhGia.Size = new System.Drawing.Size(93, 23);
-            this.btnThemTinhGia.TabIndex = 4;
-            this.btnThemTinhGia.Text = "Thêm Tính giá";
-            this.btnThemTinhGia.UseVisualStyleBackColor = true;
-            this.btnThemTinhGia.Click += new System.EventHandler(this.btnThemTinhGia_Click);
+            this.btnRefresh.Location = new System.Drawing.Point(322, 23);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(93, 23);
+            this.btnRefresh.TabIndex = 4;
+            this.btnRefresh.Text = "Refesh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnThemTinhGia_Click);
             // 
             // txtNoiDungTinhGia
             // 
@@ -273,6 +273,6 @@
         private System.Windows.Forms.Panel pnlHeaderDanhSachTinhGia;
         private System.Windows.Forms.ListView lvwTinhGia;
         private System.Windows.Forms.Button btnCopyTinhGia;
-        private System.Windows.Forms.Button btnThemTinhGia;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

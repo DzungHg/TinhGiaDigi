@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace TinhGiaInClient
 {
     public enum FormStates { View = 0, New = 1, Edit = 2, Get = 3 }
+    public enum SapXepTinhGia { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoTieuDe = 3 }
+    public enum ChieuSapXep { Ascending = 0, Descending = 1 }
     public static class Enumss
     {
 
@@ -21,9 +23,9 @@ namespace TinhGiaInClient
         public enum LoaiBangGia { InNhanh = 0, InNhanhTheoMay = 1, InOffset = 2, InKhoLon = 3 }
         public enum PhuongPhapIn { Toner = 1, HPIndigo = 2, Offset = 3, KhoLon = 4, KhongIn = 0}
         public enum LoaiThanhPham { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4, Be = 5 }
-        public enum SapXepTinhGia { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoKhachHang = 3 }
+        
         public enum KieuInOffset { MotMat = 0, TuTro = 1, TuTroNhip = 2, AB = 3 }
-        public enum ChieuSapXep { Ascending = 0, Descending = 1}
+       
     }
 }
   

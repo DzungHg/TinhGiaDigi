@@ -31,7 +31,6 @@
         <AssociationConnector Association="QuanLyGiaInModel.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.TINH_GIA_IN" Width="1.5" PointX="9.625" PointY="11.25" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" Width="1.5" PointX="7.375" PointY="11" />
-        <AssociationConnector Association="QuanLyGiaInModel.FK_TINH_GIA_IN_YEU_CAU_TINH_GIA_IN" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

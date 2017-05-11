@@ -19,7 +19,7 @@ namespace TinhGiaInClient.View
         string TenHangKH { get; set; }
         FormStates TinhTrangForm { get; set; }
        //Danh sách sp
-
+        Boolean FormChanged { get; set; }
 
         int IdDanhThiepChon { get; set; }
         int IdBaiInChon { get; set; }

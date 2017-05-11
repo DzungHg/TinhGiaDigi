@@ -35,8 +35,8 @@ namespace TinhGiaInClient.UI
         {
             if (frmLietKeTinhGia == null)
             {
-                frmLietKeTinhGia = new LietKeTinhGiaForm(null);
-                frmLietKeTinhGia.KieuSapXep = (int)Enumss.SapXepTinhGia.Khong;
+                frmLietKeTinhGia = new LietKeTinhGiaForm();
+                frmLietKeTinhGia.KieuSapXep = SapXepTinhGia.Khong;
                 frmLietKeTinhGia.FormClosed += new FormClosedEventHandler(ByByWindows);
                 //frmLietKeTinhGia.MdiParent = this;
                 frmLietKeTinhGia.Show();

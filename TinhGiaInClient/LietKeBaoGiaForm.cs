@@ -15,10 +15,10 @@ namespace TinhGiaInClient
 {
     public partial class LietKeTinhGiaForm : Form, IViewLietKeTinhGia
     {
-        public LietKeTinhGiaForm(ClientMainForm parentMDIform)
+        public LietKeTinhGiaForm()
         {
             InitializeComponent();
-            this.MDIForm = parentMDIform;
+            
             lietKeTGPres = new LietKeTinhGiaPresenter(this);
 
             cboSapXepTheo.SelectedIndex = 0;
@@ -28,7 +28,7 @@ namespace TinhGiaInClient
           
             cboSapXepTheo.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);
         }
-        private ClientMainForm MDIForm { get; set; }
+       
 
         LietKeTinhGiaPresenter lietKeTGPres;
         int _idTinhGiaChon = 0;
@@ -43,35 +43,49 @@ namespace TinhGiaInClient
 
         }
      
-        public int KieuSapXep
+        public SapXepTinhGia KieuSapXep
         {
             get
             {
+                var ketQua = SapXepTinhGia.Khong;
                 if (cboSapXepTheo.SelectedIndex >= 0)
-                    return cboSapXepTheo.SelectedIndex;
-                else
-                    return 0;
+                    
+                    switch (cboSapXepTheo.SelectedIndex)
+                    {
+                        case 0:
+                            ketQua = SapXepTinhGia.Khong;
+                            break;
+                        case 1:
+                            ketQua = SapXepTinhGia.TheoNgay;
+                            break;
+                        case 2:
+                            ketQua = SapXepTinhGia.TheoNhanVien;
+                            break;                      
+                    }
+                return ketQua;                  
             }
             set
             {
-                cboSapXepTheo.SelectedIndex = value;                                
+                cboSapXepTheo.SelectedIndex = (int)value;                                
             }
         }
-        int _chieuSapXep = 0;
-        public int IdChieuSapXep {
+        
+        public ChieuSapXep ChieuSapXep {
             get {
                 if (rdbNguoc.Checked)
-                    _chieuSapXep = (int)Enumss.ChieuSapXep.Descending;
+                    return ChieuSapXep.Descending;
                 else
-                    _chieuSapXep = (int)Enumss.ChieuSapXep.Ascending;
+                    return ChieuSapXep.Ascending;
                
-                return _chieuSapXep;
+               
             }
-            set { _chieuSapXep = value;
-            if (_chieuSapXep == (int)Enumss.ChieuSapXep.Descending)
-                rdbNguoc.Checked = true;
-            else
-                rdbXuoi.Checked = true;
+            set
+            {
+                ChieuSapXep = value;
+                if (ChieuSapXep == ChieuSapXep.Descending)
+                    rdbNguoc.Checked = true;
+                else
+                    rdbXuoi.Checked = true;
             }
         }
         public string NoiDungTinhGia
@@ -155,9 +169,9 @@ namespace TinhGiaInClient
             lblTieuDeNoiDung.Left = (pnlHeaderNoiDung.Width - lblTieuDeNoiDung.Width) / 2;
             grbSapXep.Left = pnlHeaderDanhSachTinhGia.Left + 5;
             grbSapXep.Top = pnlHeaderDanhSachTinhGia.Top + 5;
-            btnThemTinhGia.Left = grbSapXep.Left + grbSapXep.Width + 5;
-            btnCopyTinhGia.Left = btnThemTinhGia.Left + btnThemTinhGia.Width + 5;
-            btnCopyTinhGia.Top = btnThemTinhGia.Top;
+            btnRefresh.Left = grbSapXep.Left + grbSapXep.Width + 5;
+            btnCopyTinhGia.Left = btnRefresh.Left + btnRefresh.Width + 5;
+            btnCopyTinhGia.Top = btnRefresh.Top;
 
         }
 
@@ -168,8 +182,8 @@ namespace TinhGiaInClient
 
         private void btnThemTinhGia_Click(object sender, EventArgs e)
         {
-            MDIForm.ThemTinhGia(MDIForm);
-            this.Close();
+            LoadTinhGia();
+
         }
 
 
