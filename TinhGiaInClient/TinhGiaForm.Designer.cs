@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenNV = new System.Windows.Forms.TextBox();
             this.dtpNgay = new System.Windows.Forms.DateTimePicker();
-            this.txtTenKhachHang = new System.Windows.Forms.TextBox();
+            this.txtTieuDeTinhGia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,12 +66,12 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtTenNV);
             this.groupBox1.Controls.Add(this.dtpNgay);
-            this.groupBox1.Controls.Add(this.txtTenKhachHang);
+            this.groupBox1.Controls.Add(this.txtTieuDeTinhGia);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(781, 167);
+            this.groupBox1.Size = new System.Drawing.Size(781, 136);
             this.groupBox1.TabIndex = 195;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tính giá, thông tin tổng quát";
@@ -89,7 +89,7 @@
             // 
             this.txtDienGiaiHangKH.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDienGiaiHangKH.ForeColor = System.Drawing.Color.Black;
-            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(88, 127);
+            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(397, 52);
             this.txtDienGiaiHangKH.Multiline = true;
             this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
             this.txtDienGiaiHangKH.ReadOnly = true;
@@ -99,7 +99,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 103);
+            this.label5.Location = new System.Drawing.Point(333, 28);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 232;
@@ -109,7 +109,7 @@
             // 
             this.cboHangKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHangKH.FormattingEnabled = true;
-            this.cboHangKH.Location = new System.Drawing.Point(88, 100);
+            this.cboHangKH.Location = new System.Drawing.Point(397, 25);
             this.cboHangKH.Name = "cboHangKH";
             this.cboHangKH.Size = new System.Drawing.Size(106, 21);
             this.cboHangKH.TabIndex = 231;
@@ -126,6 +126,7 @@
             // 
             // txtTenNV
             // 
+            this.txtTenNV.Enabled = false;
             this.txtTenNV.Location = new System.Drawing.Point(88, 74);
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(205, 20);
@@ -138,12 +139,12 @@
             this.dtpNgay.Size = new System.Drawing.Size(205, 20);
             this.dtpNgay.TabIndex = 194;
             // 
-            // txtTenKhachHang
+            // txtTieuDeTinhGia
             // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(88, 47);
-            this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(205, 20);
-            this.txtTenKhachHang.TabIndex = 196;
+            this.txtTieuDeTinhGia.Location = new System.Drawing.Point(88, 47);
+            this.txtTieuDeTinhGia.Name = "txtTieuDeTinhGia";
+            this.txtTieuDeTinhGia.Size = new System.Drawing.Size(205, 20);
+            this.txtTieuDeTinhGia.TabIndex = 196;
             // 
             // label2
             // 
@@ -331,7 +332,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenNV;
         private System.Windows.Forms.DateTimePicker dtpNgay;
-        private System.Windows.Forms.TextBox txtTenKhachHang;
+        private System.Windows.Forms.TextBox txtTieuDeTinhGia;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;

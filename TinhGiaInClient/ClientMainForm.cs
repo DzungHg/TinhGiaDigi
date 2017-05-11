@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient
 {
@@ -240,8 +240,12 @@ namespace TinhGiaInClient
         }
         public void ThemTinhGia(ClientMainForm parentMDIForm)
         {
+            var thongTinBanDau = new ThongTinBanDauChoTinhGia();
+            thongTinBanDau.TenNguoiDung = "";
+            thongTinBanDau.TinhTrangForm = FormStates.New;
+
             this.WindowState = FormWindowState.Maximized;
-            var frm = new TinhGiaForm((int)FormStates.New);
+            var frm = new TinhGiaForm(thongTinBanDau);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.MdiParent = parentMDIForm;

@@ -44,9 +44,6 @@
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.spcChiTietBaiIn = new System.Windows.Forms.SplitContainer();
             this.trvMucLucBaiIn = new System.Windows.Forms.TreeView();
-            this.lblTomTatBaiIn = new System.Windows.Forms.Label();
-            this.txtTomTatBaiIn = new System.Windows.Forms.TextBox();
-            this.tabCtrl01 = new System.Windows.Forms.TabControl();
             this.cmuTabBaiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,6 +56,9 @@
             this.cmnuThPh_DongCuon = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTomTatBaiIn = new System.Windows.Forms.Label();
+            this.txtTomTatBaiIn = new System.Windows.Forms.TextBox();
+            this.tabCtrl01 = new System.Windows.Forms.TabControl();
             this.tabSanPham = new System.Windows.Forms.TabPage();
             this.txtCauHinhSP = new System.Windows.Forms.TextBox();
             this.btnXoaCauHinhSP = new System.Windows.Forms.Button();
@@ -85,8 +85,6 @@
             this.btnXoaThanhPham = new System.Windows.Forms.Button();
             this.btnSuaThanhPham = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtYeuCauTinhGia = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblHangKhachHang = new System.Windows.Forms.Label();
             this.lblIDBaiIn = new System.Windows.Forms.Label();
             this.pnlFooter.SuspendLayout();
@@ -94,8 +92,8 @@
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
             this.spcChiTietBaiIn.Panel2.SuspendLayout();
             this.spcChiTietBaiIn.SuspendLayout();
-            this.tabCtrl01.SuspendLayout();
             this.cmuTabBaiIn.SuspendLayout();
+            this.tabCtrl01.SuspendLayout();
             this.tabSanPham.SuspendLayout();
             this.tabGiay.SuspendLayout();
             this.tabGiaIn.SuspendLayout();
@@ -109,7 +107,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(254, 49);
+            this.label7.Location = new System.Drawing.Point(29, 39);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 219;
@@ -117,7 +115,7 @@
             // 
             // txtTieuDe
             // 
-            this.txtTieuDe.Location = new System.Drawing.Point(321, 46);
+            this.txtTieuDe.Location = new System.Drawing.Point(96, 36);
             this.txtTieuDe.Name = "txtTieuDe";
             this.txtTieuDe.Size = new System.Drawing.Size(192, 20);
             this.txtTieuDe.TabIndex = 1;
@@ -134,7 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(254, 75);
+            this.label1.Location = new System.Drawing.Point(29, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 222;
@@ -142,7 +140,7 @@
             // 
             // txtDienGiai
             // 
-            this.txtDienGiai.Location = new System.Drawing.Point(321, 72);
+            this.txtDienGiai.Location = new System.Drawing.Point(96, 62);
             this.txtDienGiai.Multiline = true;
             this.txtDienGiai.Name = "txtDienGiai";
             this.txtDienGiai.Size = new System.Drawing.Size(192, 46);
@@ -170,7 +168,7 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(321, 124);
+            this.txtSoLuong.Location = new System.Drawing.Point(96, 114);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(78, 20);
             this.txtSoLuong.TabIndex = 3;
@@ -178,7 +176,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(254, 126);
+            this.label3.Location = new System.Drawing.Point(29, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 226;
@@ -186,7 +184,7 @@
             // 
             // txtDonVi
             // 
-            this.txtDonVi.Location = new System.Drawing.Point(449, 123);
+            this.txtDonVi.Location = new System.Drawing.Point(224, 113);
             this.txtDonVi.Name = "txtDonVi";
             this.txtDonVi.Size = new System.Drawing.Size(64, 20);
             this.txtDonVi.TabIndex = 4;
@@ -194,7 +192,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(405, 126);
+            this.label4.Location = new System.Drawing.Point(180, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 228;
@@ -203,7 +201,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(530, 72);
+            this.label5.Location = new System.Drawing.Point(305, 62);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 13);
             this.label5.TabIndex = 230;
@@ -248,41 +246,6 @@
             this.trvMucLucBaiIn.Size = new System.Drawing.Size(178, 250);
             this.trvMucLucBaiIn.TabIndex = 103;
             this.trvMucLucBaiIn.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvMucLuc_AfterSelect);
-            // 
-            // lblTomTatBaiIn
-            // 
-            this.lblTomTatBaiIn.AutoSize = true;
-            this.lblTomTatBaiIn.Location = new System.Drawing.Point(397, 8);
-            this.lblTomTatBaiIn.Name = "lblTomTatBaiIn";
-            this.lblTomTatBaiIn.Size = new System.Drawing.Size(72, 13);
-            this.lblTomTatBaiIn.TabIndex = 196;
-            this.lblTomTatBaiIn.Text = "Tóm tắt Bài in";
-            // 
-            // txtTomTatBaiIn
-            // 
-            this.txtTomTatBaiIn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTomTatBaiIn.ForeColor = System.Drawing.Color.Black;
-            this.txtTomTatBaiIn.Location = new System.Drawing.Point(393, 24);
-            this.txtTomTatBaiIn.Multiline = true;
-            this.txtTomTatBaiIn.Name = "txtTomTatBaiIn";
-            this.txtTomTatBaiIn.ReadOnly = true;
-            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 219);
-            this.txtTomTatBaiIn.TabIndex = 212;
-            // 
-            // tabCtrl01
-            // 
-            this.tabCtrl01.ContextMenuStrip = this.cmuTabBaiIn;
-            this.tabCtrl01.Controls.Add(this.tabSanPham);
-            this.tabCtrl01.Controls.Add(this.tabGiay);
-            this.tabCtrl01.Controls.Add(this.tabGiaIn);
-            this.tabCtrl01.Controls.Add(this.tabTruocIn);
-            this.tabCtrl01.Controls.Add(this.tabThanhPham);
-            this.tabCtrl01.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabCtrl01.Location = new System.Drawing.Point(0, 0);
-            this.tabCtrl01.Name = "tabCtrl01";
-            this.tabCtrl01.SelectedIndex = 0;
-            this.tabCtrl01.Size = new System.Drawing.Size(391, 250);
-            this.tabCtrl01.TabIndex = 94;
             // 
             // cmuTabBaiIn
             // 
@@ -370,6 +333,41 @@
             this.cmnuThPh_EpKim.Size = new System.Drawing.Size(148, 22);
             this.cmnuThPh_EpKim.Text = "Ép kim";
             this.cmnuThPh_EpKim.Click += new System.EventHandler(this.cmnuThPh_EpKim_Click);
+            // 
+            // lblTomTatBaiIn
+            // 
+            this.lblTomTatBaiIn.AutoSize = true;
+            this.lblTomTatBaiIn.Location = new System.Drawing.Point(397, 8);
+            this.lblTomTatBaiIn.Name = "lblTomTatBaiIn";
+            this.lblTomTatBaiIn.Size = new System.Drawing.Size(72, 13);
+            this.lblTomTatBaiIn.TabIndex = 196;
+            this.lblTomTatBaiIn.Text = "Tóm tắt Bài in";
+            // 
+            // txtTomTatBaiIn
+            // 
+            this.txtTomTatBaiIn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTomTatBaiIn.ForeColor = System.Drawing.Color.Black;
+            this.txtTomTatBaiIn.Location = new System.Drawing.Point(393, 24);
+            this.txtTomTatBaiIn.Multiline = true;
+            this.txtTomTatBaiIn.Name = "txtTomTatBaiIn";
+            this.txtTomTatBaiIn.ReadOnly = true;
+            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 219);
+            this.txtTomTatBaiIn.TabIndex = 212;
+            // 
+            // tabCtrl01
+            // 
+            this.tabCtrl01.ContextMenuStrip = this.cmuTabBaiIn;
+            this.tabCtrl01.Controls.Add(this.tabSanPham);
+            this.tabCtrl01.Controls.Add(this.tabGiay);
+            this.tabCtrl01.Controls.Add(this.tabGiaIn);
+            this.tabCtrl01.Controls.Add(this.tabTruocIn);
+            this.tabCtrl01.Controls.Add(this.tabThanhPham);
+            this.tabCtrl01.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabCtrl01.Location = new System.Drawing.Point(0, 0);
+            this.tabCtrl01.Name = "tabCtrl01";
+            this.tabCtrl01.SelectedIndex = 0;
+            this.tabCtrl01.Size = new System.Drawing.Size(391, 250);
+            this.tabCtrl01.TabIndex = 94;
             // 
             // tabSanPham
             // 
@@ -636,28 +634,10 @@
             this.label2.TabIndex = 234;
             this.label2.Text = "Triển khai chi tiết:";
             // 
-            // txtYeuCauTinhGia
-            // 
-            this.txtYeuCauTinhGia.Location = new System.Drawing.Point(15, 62);
-            this.txtYeuCauTinhGia.Multiline = true;
-            this.txtYeuCauTinhGia.Name = "txtYeuCauTinhGia";
-            this.txtYeuCauTinhGia.ReadOnly = true;
-            this.txtYeuCauTinhGia.Size = new System.Drawing.Size(233, 82);
-            this.txtYeuCauTinhGia.TabIndex = 235;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
-            this.label6.TabIndex = 236;
-            this.label6.Text = "Yêu cầu tính giá";
-            // 
             // lblHangKhachHang
             // 
             this.lblHangKhachHang.AutoSize = true;
-            this.lblHangKhachHang.Location = new System.Drawing.Point(590, 72);
+            this.lblHangKhachHang.Location = new System.Drawing.Point(365, 62);
             this.lblHangKhachHang.Name = "lblHangKhachHang";
             this.lblHangKhachHang.Size = new System.Drawing.Size(93, 13);
             this.lblHangKhachHang.TabIndex = 238;
@@ -666,7 +646,7 @@
             // lblIDBaiIn
             // 
             this.lblIDBaiIn.AutoSize = true;
-            this.lblIDBaiIn.Location = new System.Drawing.Point(530, 46);
+            this.lblIDBaiIn.Location = new System.Drawing.Point(305, 36);
             this.lblIDBaiIn.Name = "lblIDBaiIn";
             this.lblIDBaiIn.Size = new System.Drawing.Size(18, 13);
             this.lblIDBaiIn.TabIndex = 239;
@@ -680,8 +660,6 @@
             this.ClientSize = new System.Drawing.Size(830, 484);
             this.Controls.Add(this.lblIDBaiIn);
             this.Controls.Add(this.lblHangKhachHang);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtYeuCauTinhGia);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.spcChiTietBaiIn);
             this.Controls.Add(this.pnlFooter);
@@ -705,8 +683,8 @@
             this.spcChiTietBaiIn.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).EndInit();
             this.spcChiTietBaiIn.ResumeLayout(false);
-            this.tabCtrl01.ResumeLayout(false);
             this.cmuTabBaiIn.ResumeLayout(false);
+            this.tabCtrl01.ResumeLayout(false);
             this.tabSanPham.ResumeLayout(false);
             this.tabSanPham.PerformLayout();
             this.tabGiay.ResumeLayout(false);
@@ -768,8 +746,6 @@
         private System.Windows.Forms.Button btnXoaThanhPham;
         private System.Windows.Forms.Button btnSuaThanhPham;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtYeuCauTinhGia;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ContextMenuStrip cmuTabBaiIn;
         private System.Windows.Forms.ToolStripMenuItem cmnuGanCauHinhSP;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;

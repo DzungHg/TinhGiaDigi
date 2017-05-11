@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
+using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient.UI
 {
@@ -17,9 +18,19 @@ namespace TinhGiaInClient.UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Text = "Tính giá In";
+            this.TenNguoiDung = TenMayTinhHienTai();
         }
         LietKeTinhGiaForm frmLietKeTinhGia;
         BangGiaGiayForm frmBangGiaGiay;
+        private string TenMayTinhHienTai()
+        {
+            return System.Environment.MachineName;
+        }
+        public string TenNguoiDung
+        {
+            get { return txtTenNguoiDung.Text; }
+            set { txtTenNguoiDung.Text = value; }
+        }
         private void btnKeQuaChaoGia_Click(object sender, EventArgs e)
         {
             if (frmLietKeTinhGia == null)
@@ -62,8 +73,16 @@ namespace TinhGiaInClient.UI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-           
-            var frm = new TinhGiaForm((int)FormStates.New);
+            if (string.IsNullOrEmpty(this.TenNguoiDung.Trim()))
+            {
+                MessageBox.Show("Bạn cần điền tên người dùng");
+                return;
+            }
+            var thongTinBanDau = new ThongTinBanDauChoTinhGia();
+            thongTinBanDau.TenNguoiDung = this.TenNguoiDung;
+            thongTinBanDau.TinhTrangForm = FormStates.New;
+
+            var frm = new TinhGiaForm(thongTinBanDau);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
            

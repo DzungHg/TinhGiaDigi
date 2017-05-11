@@ -17,11 +17,7 @@ namespace TinhGiaInClient
     public partial class BaiInForm : Form, IViewBaiIn
     {
         #region Implement IView
-        public string YeuCauTinhGia 
-        {
-            get { return txtYeuCauTinhGia.Text; }
-            set { txtYeuCauTinhGia.Text = value; }
-        }
+        
         public int ID
         {
             get { return int.Parse(lblIDBaiIn.Text); }
@@ -116,7 +112,7 @@ namespace TinhGiaInClient
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
             this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;
-            this.YeuCauTinhGia = thongTinBanDau.YeuCauTinhGia;
+           
             this.ID = idBaiIn;
             
             TaoCayDanhMucTab();

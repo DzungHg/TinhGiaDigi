@@ -125,6 +125,7 @@
     <Compile Include="Model\GiaGiay.cs" />
     <Compile Include="Model\GiaInOffsetGiaCong.cs" />
     <Compile Include="Model\GiaInMayDigi.cs" />
+    <Compile Include="Model\ThongTinBanDauChoTinhGia.cs" />
     <Compile Include="Model\YeuCauTinhGiaIn.cs" />
     <Compile Include="Model\NhuEpKim.cs" />
     <Compile Include="Model\KhuonEpKim.cs" />

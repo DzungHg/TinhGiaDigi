@@ -8,7 +8,7 @@ namespace TinhGiaInClient.View
 {
     public interface IViewBaiIn
     {
-        string YeuCauTinhGia { get; set; }
+        
         int ID
         {
             get;
