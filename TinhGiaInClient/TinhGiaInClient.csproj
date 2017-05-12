@@ -125,6 +125,7 @@
     <Compile Include="Model\GiaGiay.cs" />
     <Compile Include="Model\GiaInOffsetGiaCong.cs" />
     <Compile Include="Model\GiaInMayDigi.cs" />
+    <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\ThongTinBanDauChoTinhGia.cs" />
     <Compile Include="Model\YeuCauTinhGiaIn.cs" />
     <Compile Include="Model\NhuEpKim.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Model\TinhToan.cs" />
     <Compile Include="Model\OffsetGiaCong.cs" />
     <Compile Include="Model\ToChayDigi.cs" />
+    <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
     <Compile Include="Presenter\GiaDanhThiepPresenter.cs" />
@@ -210,6 +212,7 @@
     <Compile Include="UI\NavForm.Designer.cs">
       <DependentUpon>NavForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IViewBangGiaThanhPham.cs" />
     <Compile Include="View\IViewBaiIn.cs" />
     <Compile Include="View\IViewBangGiaGiay.cs" />
     <Compile Include="View\IViewGiaDanhThiep.cs" />

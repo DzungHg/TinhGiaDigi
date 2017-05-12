@@ -88,6 +88,19 @@
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
           <Property Name="Thu_tu" Type="int" />
         </EntityType>
+        <EntityType Name="DS_THANH_PHAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="30" />
+          <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+          <Property Name="ma_02" Type="nvarchar" MaxLength="30" />
+          <Property Name="ma_03" Type="nvarchar" MaxLength="30" />
+          <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="day_so_luong" Type="nvarchar" MaxLength="200" />
+          <Property Name="thu_tu" Type="int" />
+        </EntityType>
         <EntityType Name="EP_KIM">
           <Key>
             <PropertyRef Name="ID" />
@@ -379,6 +392,7 @@
           <EntitySet Name="CAN_PHU" EntityType="Self.CAN_PHU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DANH_MUC_GIAY" EntityType="Self.DANH_MUC_GIAY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONG_CUON" EntityType="Self.DONG_CUON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DS_THANH_PHAM" EntityType="Self.DS_THANH_PHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EP_KIM" EntityType="Self.EP_KIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GIAY" EntityType="Self.GIAY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HANG_KHACH_HANG" EntityType="Self.HANG_KHACH_HANG" Schema="dbo" store:Type="Tables" />
@@ -490,6 +504,7 @@
           </AssociationSet>
           <EntitySet Name="TINH_GIA_IN" EntityType="QuanLyGiaInModel.TINH_GIA_IN" />
           <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
+          <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
         </EntityContainer>
         <EntityType Name="KHO_SAN_PHAM">
           <Key>
@@ -863,6 +878,19 @@
           <Property Name="phan_cho_nhan_vien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="tinh_trang" Type="Int32" />
         </EntityType>
+        <EntityType Name="DS_THANH_PHAM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ma_02" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ma_03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="thu_tu" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1149,6 +1177,20 @@
                 <ScalarProperty Name="ho_ten" ColumnName="ho_ten" />
                 <ScalarProperty Name="ngay_yeu_cau" ColumnName="ngay_yeu_cau" />
                 <ScalarProperty Name="ID_NGUOI_DUNG" ColumnName="ID_NGUOI_DUNG" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DS_THANH_PHAM">
+            <EntityTypeMapping TypeName="QuanLyGiaInModel.DS_THANH_PHAM">
+              <MappingFragment StoreEntitySet="DS_THANH_PHAM">
+                <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+                <ScalarProperty Name="day_so_luong" ColumnName="day_so_luong" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_03" ColumnName="ma_03" />
+                <ScalarProperty Name="ma_02" ColumnName="ma_02" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

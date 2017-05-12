@@ -83,6 +83,19 @@
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
+  <EntityType Name="DS_THANH_PHAM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="30" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="ma_02" Type="nvarchar" MaxLength="30" />
+    <Property Name="ma_03" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong" Type="nvarchar" MaxLength="200" />
+    <Property Name="thu_tu" Type="int" />
+  </EntityType>
   <EntityType Name="EP_KIM">
     <Key>
       <PropertyRef Name="ID" />
@@ -374,6 +387,7 @@
     <EntitySet Name="CAN_PHU" EntityType="Self.CAN_PHU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DANH_MUC_GIAY" EntityType="Self.DANH_MUC_GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DONG_CUON" EntityType="Self.DONG_CUON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DS_THANH_PHAM" EntityType="Self.DS_THANH_PHAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EP_KIM" EntityType="Self.EP_KIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GIAY" EntityType="Self.GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HANG_KHACH_HANG" EntityType="Self.HANG_KHACH_HANG" Schema="dbo" store:Type="Tables" />

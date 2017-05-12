@@ -62,6 +62,7 @@
     </AssociationSet>
     <EntitySet Name="TINH_GIA_IN" EntityType="QuanLyGiaInModel.TINH_GIA_IN" />
     <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
+    <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -434,5 +435,18 @@
     <Property Name="noi_dung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="phan_cho_nhan_vien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="tinh_trang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DS_THANH_PHAM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ma_02" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ma_03" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
   </EntityType>
 </Schema>
