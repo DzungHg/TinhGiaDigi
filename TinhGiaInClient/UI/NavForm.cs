@@ -22,6 +22,7 @@ namespace TinhGiaInClient.UI
         }
         LietKeTinhGiaForm frmLietKeTinhGia;
         BangGiaGiayForm frmBangGiaGiay;
+        BangGiaThanhPhamForm frmBangGiaThanhPham;
         private string TenMayTinhHienTai()
         {
             return System.Environment.MachineName;
@@ -66,6 +67,8 @@ namespace TinhGiaInClient.UI
                     frmLietKeTinhGia = null;
                 if (frm == frmBangGiaGiay)
                     frmBangGiaGiay = null;
+                if (frm == frmBangGiaThanhPham)
+                    frmBangGiaThanhPham = null;
             }
            
                 
@@ -94,6 +97,28 @@ namespace TinhGiaInClient.UI
         private void btnThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void radMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dbtnBangGia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBangGiaThanhPham_Click(object sender, EventArgs e)
+        {
+            if (frmBangGiaThanhPham == null)
+            {
+                frmBangGiaThanhPham = new BangGiaThanhPhamForm();
+                frmBangGiaThanhPham.FormClosed += new FormClosedEventHandler(ByByWindows);
+                frmBangGiaThanhPham.Show();
+
+            }
+            else frmBangGiaThanhPham.Focus();
         }
     }
 }

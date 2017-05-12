@@ -1260,5 +1260,10 @@ namespace TinhGiaInClient
 
         }
 
+        private void btnCopyToClipBoardNoiDungMucChon_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtTomTatBaiIn.Text);
+        }
+
     }
 }

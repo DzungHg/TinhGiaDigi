@@ -601,6 +601,11 @@ namespace TinhGiaInClient
                }
            }
        }
+
+       private void btnCopyToClipboardMucTinh_Click(object sender, EventArgs e)
+       {
+           Clipboard.SetText(txtTomTatBaiIn.Text);
+       }
        
     }
 }

@@ -51,6 +51,7 @@
             this.tabDanhThiep = new System.Windows.Forms.TabPage();
             this.lvwDanhThiep = new System.Windows.Forms.ListView();
             this.tabInTheoBai = new System.Windows.Forms.TabPage();
+            this.btnCopyToClipboardMucTinh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
@@ -166,11 +167,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(541, 223);
+            this.label4.Location = new System.Drawing.Point(541, 228);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(112, 13);
             this.label4.TabIndex = 194;
-            this.label4.Text = "Tóm tắt";
+            this.label4.Text = "Tóm tắt từng mục tính";
             // 
             // btnXoaSachBaiIn
             // 
@@ -219,11 +220,11 @@
             // 
             this.txtTomTatBaiIn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTomTatBaiIn.ForeColor = System.Drawing.Color.Black;
-            this.txtTomTatBaiIn.Location = new System.Drawing.Point(541, 245);
+            this.txtTomTatBaiIn.Location = new System.Drawing.Point(541, 248);
             this.txtTomTatBaiIn.Multiline = true;
             this.txtTomTatBaiIn.Name = "txtTomTatBaiIn";
             this.txtTomTatBaiIn.ReadOnly = true;
-            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 213);
+            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 210);
             this.txtTomTatBaiIn.TabIndex = 212;
             // 
             // btnClose
@@ -291,11 +292,22 @@
             this.tabInTheoBai.TabIndex = 11;
             this.tabInTheoBai.Text = "In theo bài";
             // 
+            // btnCopyToClipboardMucTinh
+            // 
+            this.btnCopyToClipboardMucTinh.Location = new System.Drawing.Point(716, 223);
+            this.btnCopyToClipboardMucTinh.Name = "btnCopyToClipboardMucTinh";
+            this.btnCopyToClipboardMucTinh.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyToClipboardMucTinh.TabIndex = 214;
+            this.btnCopyToClipboardMucTinh.Text = "Sao chép";
+            this.btnCopyToClipboardMucTinh.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboardMucTinh.Click += new System.EventHandler(this.btnCopyToClipboardMucTinh_Click);
+            // 
             // TinhGiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 506);
+            this.Controls.Add(this.btnCopyToClipboardMucTinh);
             this.Controls.Add(this.tabCtrl01);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtTomTatBaiIn);
@@ -344,6 +356,7 @@
         private System.Windows.Forms.ComboBox cboHangKH;
         private System.Windows.Forms.TextBox txtDienGiaiHangKH;
         private System.Windows.Forms.Label lblIdTinhGia;
+        private System.Windows.Forms.Button btnCopyToClipboardMucTinh;
 
     }
 }

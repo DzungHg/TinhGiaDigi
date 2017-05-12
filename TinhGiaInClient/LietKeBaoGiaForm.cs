@@ -177,7 +177,10 @@ namespace TinhGiaInClient
 
         private void btnCopyTinhGia_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(lietKeTGPres.NoiDungToanBoChaoGia_KH());
+            if (this.IdTinhGiaChon > 0)
+                Clipboard.SetText(lietKeTGPres.NoiDungToanBoChaoGia_KH());
+            else
+                MessageBox.Show("Bạn cần chọn 1 mục tin");
         }
 
         private void btnThemTinhGia_Click(object sender, EventArgs e)

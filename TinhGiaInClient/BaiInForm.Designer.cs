@@ -87,6 +87,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblHangKhachHang = new System.Windows.Forms.Label();
             this.lblIDBaiIn = new System.Windows.Forms.Label();
+            this.btnCopyToClipBoardNoiDungMucChon = new System.Windows.Forms.Button();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -230,6 +231,7 @@
             // 
             // spcChiTietBaiIn.Panel2
             // 
+            this.spcChiTietBaiIn.Panel2.Controls.Add(this.btnCopyToClipBoardNoiDungMucChon);
             this.spcChiTietBaiIn.Panel2.Controls.Add(this.lblTomTatBaiIn);
             this.spcChiTietBaiIn.Panel2.Controls.Add(this.txtTomTatBaiIn);
             this.spcChiTietBaiIn.Panel2.Controls.Add(this.tabCtrl01);
@@ -337,21 +339,21 @@
             // lblTomTatBaiIn
             // 
             this.lblTomTatBaiIn.AutoSize = true;
-            this.lblTomTatBaiIn.Location = new System.Drawing.Point(397, 8);
+            this.lblTomTatBaiIn.Location = new System.Drawing.Point(397, 22);
             this.lblTomTatBaiIn.Name = "lblTomTatBaiIn";
-            this.lblTomTatBaiIn.Size = new System.Drawing.Size(72, 13);
+            this.lblTomTatBaiIn.Size = new System.Drawing.Size(117, 13);
             this.lblTomTatBaiIn.TabIndex = 196;
-            this.lblTomTatBaiIn.Text = "Tóm tắt Bài in";
+            this.lblTomTatBaiIn.Text = "Tóm tắt theo mục chọn";
             // 
             // txtTomTatBaiIn
             // 
             this.txtTomTatBaiIn.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTomTatBaiIn.ForeColor = System.Drawing.Color.Black;
-            this.txtTomTatBaiIn.Location = new System.Drawing.Point(393, 24);
+            this.txtTomTatBaiIn.Location = new System.Drawing.Point(393, 41);
             this.txtTomTatBaiIn.Multiline = true;
             this.txtTomTatBaiIn.Name = "txtTomTatBaiIn";
             this.txtTomTatBaiIn.ReadOnly = true;
-            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 219);
+            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 202);
             this.txtTomTatBaiIn.TabIndex = 212;
             // 
             // tabCtrl01
@@ -652,6 +654,16 @@
             this.lblIDBaiIn.TabIndex = 239;
             this.lblIDBaiIn.Text = "ID";
             // 
+            // btnCopyToClipBoardNoiDungMucChon
+            // 
+            this.btnCopyToClipBoardNoiDungMucChon.Location = new System.Drawing.Point(568, 17);
+            this.btnCopyToClipBoardNoiDungMucChon.Name = "btnCopyToClipBoardNoiDungMucChon";
+            this.btnCopyToClipBoardNoiDungMucChon.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyToClipBoardNoiDungMucChon.TabIndex = 102;
+            this.btnCopyToClipBoardNoiDungMucChon.Text = "Sao chép";
+            this.btnCopyToClipBoardNoiDungMucChon.UseVisualStyleBackColor = true;
+            this.btnCopyToClipBoardNoiDungMucChon.Click += new System.EventHandler(this.btnCopyToClipBoardNoiDungMucChon_Click);
+            // 
             // BaiInForm
             // 
             this.AcceptButton = this.btnOK;
@@ -760,5 +772,6 @@
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_EpKim;
         private System.Windows.Forms.Label lblHangKhachHang;
         private System.Windows.Forms.Label lblIDBaiIn;
+        private System.Windows.Forms.Button btnCopyToClipBoardNoiDungMucChon;
     }
 }
