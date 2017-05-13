@@ -27,6 +27,9 @@ namespace TinhGiaInDAL.RepoTinhGia
                     LaViTinh = (bool)x.La_vi_tinh,
                     PhiNguyenVatLieuChuanBi = (int)x.Phi_ngvl_chuan_bi,
                     GiaKhuonCm2 = (int)x.Gia_khuon_cm2,
+                    Ma_01 = x.ma_01,
+                    DonViTinh = x.don_vi_tinh,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.Thu_tu
                 });
                 list = nguon.ToList();
@@ -55,6 +58,9 @@ namespace TinhGiaInDAL.RepoTinhGia
                     LaViTinh = (bool)x.La_vi_tinh,
                     PhiNguyenVatLieuChuanBi = (int)x.Phi_ngvl_chuan_bi,
                     GiaKhuonCm2 = (int)x.Gia_khuon_cm2,
+                    Ma_01 = x.ma_01,
+                    DonViTinh = x.don_vi_tinh,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.Thu_tu
                 }).SingleOrDefault();
                 dm = nguon;

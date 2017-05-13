@@ -23,5 +23,8 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string Day_so_luong { get; set; }
         public string Day_loi_nhuan { get; set; }
         public Nullable<int> Thu_tu { get; set; }
+        public string ma_01 { get; set; }
+        public string don_vi_tinh { get; set; }
+        public string day_so_luong_niem_yet { get; set; }
     }
 }

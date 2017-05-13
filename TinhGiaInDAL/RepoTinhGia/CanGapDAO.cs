@@ -24,6 +24,9 @@ namespace TinhGiaInDAL.RepoTinhGia
                     ThoiGianChuanBi = (float)x.Thoi_gian_chuan_bi,                   
                     DaySoLuong = x.Day_so_luong,
                     DayLoiNhuan = x.Day_loi_nhuan,
+                    Ma_01 = x.ma_01,
+                    DonViTinh = x.don_vi_tinh,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.Thu_tu
                 });
                 list = nguon.ToList();
@@ -49,6 +52,9 @@ namespace TinhGiaInDAL.RepoTinhGia
                     ThoiGianChuanBi = (float)x.Thoi_gian_chuan_bi,                   
                     DaySoLuong = x.Day_so_luong,
                     DayLoiNhuan = x.Day_loi_nhuan,
+                    Ma_01 = x.ma_01,
+                    DonViTinh = x.don_vi_tinh,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.Thu_tu
                 }).SingleOrDefault();
                 dm = nguon;

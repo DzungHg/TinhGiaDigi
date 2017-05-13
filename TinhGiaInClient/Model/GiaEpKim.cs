@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model
 {
-    public class GiaEpKim
+    public class GiaEpKim: IGiaThanhPham
     {
         public int SoLuong { get; set; }
         public float KhoEpRong { get; set; }
@@ -24,10 +24,10 @@ namespace TinhGiaInClient.Model
             this.NhuEp = nhuEp;
             this.TyLeMarkUp = mucLoiNhuan;
         }
-        public decimal ChiPhiChay ()
+        public decimal ChiPhiChay (int soLuong)
         {
             decimal result = 0;
-            float soGioChay = (float)this.SoLuong / this.EpKim.TocDoConGio;
+            float soGioChay = (float)soLuong / this.EpKim.TocDoConGio;
             decimal phiChay = this.EpKim.BHR * (decimal)soGioChay;
             decimal phiChuanBi = this.EpKim.BHR * (decimal)this.EpKim.ThoiGianChuanBi;
             decimal phiNgVLChuanBi = this.EpKim.PhiNVLChuanBi;
@@ -53,31 +53,31 @@ namespace TinhGiaInClient.Model
 
             return result;
         }
-        private decimal TongChiPhi()
+        public decimal ChiPhi(int soLuong)
         {
-            return this.ChiPhiChay() + this.ChiPhiKhuon() + this.ChiPhiPhiNhuEp();
+            return this.ChiPhiChay(soLuong) + this.ChiPhiKhuon() + this.ChiPhiPhiNhuEp();
         }
-        public decimal ThanhTienCoBan()
+        public decimal ThanhTienCoBan(int soLuong)
         {  //Giá đại lý         
           
             decimal result = 0;
             float tyLeLNCoBan = (float)TinhToan.GiaTriTheoKhoang(this.EpKim.DaySoLuong, this.EpKim.DayLoiNhuan, this.SoLuong) / 100;
-            
-            result = this.TongChiPhi() + this.TongChiPhi() * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
+
+            result = this.ChiPhi(soLuong) + this.ChiPhi(soLuong) * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
             return result;
         }
-        public decimal ThanhTien_EpKim()
+        public decimal ThanhTienSales()
         {
             decimal result = 0;
             decimal tyLeMK = (decimal)this.TyLeMarkUp / 100;
-            result = this.ThanhTienCoBan() + this.ThanhTienCoBan() * tyLeMK / (1 - tyLeMK);
+            result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
             return result;
         }
-        public decimal GiaTBTrenDonVitinh()
+        public decimal GiaTBTrenDonVi()
         {
             if (this.SoLuong <= 0)
                 return 0;
-            return this.ThanhTien_EpKim() / this.SoLuong;
+            return this.ThanhTienSales() / this.SoLuong;
         }
     }
 }

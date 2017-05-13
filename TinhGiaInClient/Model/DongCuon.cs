@@ -27,7 +27,10 @@ namespace TinhGiaInClient.Model
                 ThoiGianChuanBi = x.ThoiGianChuanBi,
                 DayLoiNhuan = x.DayLoiNhuan,
                 DaySoLuong = x.DaySoLuong,
-                PhiNgVLCuon = x.PhiNgVLCuon,              
+                PhiNgVLCuon = x.PhiNgVLCuon,
+                Ma_01 = x.Ma_01,
+                DaySoLuongNiemYet = x.DaySoLuongNiemYet,
+                DonViTinh = x.DonViTinh,
                 ThuTu = x.ThuTu
             }).OrderBy(x => x.ThuTu).ToList();
 
@@ -48,17 +51,20 @@ namespace TinhGiaInClient.Model
             }
             return dongCuon;
         }
-        private static void ChuyenDoiGiayBDOThanhDTO(DongCuonBDO canPhuBDO, DongCuon canPhuDTO)
+        private static void ChuyenDoiGiayBDOThanhDTO(DongCuonBDO dongCuonBDO, DongCuon dongCuonDTO)
         {
-            canPhuDTO.ID = canPhuBDO.ID;
-            canPhuDTO.Ten = canPhuBDO.Ten;
-            canPhuDTO.BHR = canPhuBDO.BHR;
-            canPhuDTO.TocDoCuonGio = canPhuBDO.TocDoCuonGio;
-            canPhuDTO.ThoiGianChuanBi = canPhuBDO.ThoiGianChuanBi;
-            canPhuDTO.DayLoiNhuan = canPhuBDO.DayLoiNhuan;
-            canPhuDTO.DaySoLuong = canPhuBDO.DaySoLuong;
-            canPhuDTO.PhiNgVLCuon = canPhuBDO.PhiNgVLCuon;                   
-            canPhuDTO.ThuTu = canPhuBDO.ThuTu;
+            dongCuonDTO.ID = dongCuonBDO.ID;
+            dongCuonDTO.Ten = dongCuonBDO.Ten;
+            dongCuonDTO.BHR = dongCuonBDO.BHR;
+            dongCuonDTO.TocDoCuonGio = dongCuonBDO.TocDoCuonGio;
+            dongCuonDTO.ThoiGianChuanBi = dongCuonBDO.ThoiGianChuanBi;
+            dongCuonDTO.DayLoiNhuan = dongCuonBDO.DayLoiNhuan;
+            dongCuonDTO.DaySoLuong = dongCuonBDO.DaySoLuong;
+            dongCuonDTO.PhiNgVLCuon = dongCuonBDO.PhiNgVLCuon;
+            dongCuonDTO.Ma_01 = dongCuonBDO.Ma_01;
+            dongCuonDTO.DaySoLuongNiemYet = dongCuonBDO.DaySoLuongNiemYet;
+            dongCuonDTO.DonViTinh = dongCuonBDO.DonViTinh;
+            dongCuonDTO.ThuTu = dongCuonBDO.ThuTu;
         }
     }
    

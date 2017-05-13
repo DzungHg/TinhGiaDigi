@@ -25,7 +25,10 @@ namespace TinhGiaInClient.Model
                 TocDoConGio = x.TocDoConGio,
                 ThoiGianChuanBi = x.ThoiGianChuanBi,
                 DayLoiNhuan = x.DayLoiNhuan,
-                DaySoLuong = x.DaySoLuong,                         
+                DaySoLuong = x.DaySoLuong,    
+                Ma_01 = x.Ma_01,     
+                DonViTinh = x.DonViTinh,
+                DaySoLuongNiemYet = x.DaySoLuongNiemYet,
                 ThuTu = x.ThuTu
             }).OrderBy(x => x.ThuTu).ToList();
 
@@ -54,7 +57,10 @@ namespace TinhGiaInClient.Model
             canGapDTO.TocDoConGio = canGapBDO.TocDoConGio;
             canGapDTO.ThoiGianChuanBi = canGapBDO.ThoiGianChuanBi;
             canGapDTO.DayLoiNhuan = canGapBDO.DayLoiNhuan;
-            canGapDTO.DaySoLuong = canGapBDO.DaySoLuong;                            
+            canGapDTO.DaySoLuong = canGapBDO.DaySoLuong;
+            canGapDTO.Ma_01 = canGapBDO.Ma_01;
+            canGapDTO.DonViTinh = canGapBDO.DonViTinh;
+            canGapDTO.DaySoLuongNiemYet = canGapBDO.DaySoLuongNiemYet;
             canGapDTO.ThuTu = canGapBDO.ThuTu;
         }
     }

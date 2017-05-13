@@ -14,6 +14,9 @@ namespace TinhGiaInBDO
         public float ThoiGianChuanBi { get; set; }
         public string DaySoLuong { get; set; }
         public string DayLoiNhuan { get; set; }
+        public string Ma_01 { get; set; }
+        public string DonViTinh { get; set; }
+        public string DaySoLuongNiemYet { get; set; }
         public int ThuTu { get; set; }
     }
 }

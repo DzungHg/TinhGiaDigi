@@ -146,7 +146,7 @@
     <Compile Include="Model\BangGiaInNhanh.cs" />
     <Compile Include="Model\Giay.cs" />
     <Compile Include="Model\GiayDeIn.cs" />
-    <Compile Include="Model\IThanhPham.cs" />
+    <Compile Include="Model\IGiaThanhPham.cs" />
     <Compile Include="Model\KhoSanPham.cs" />
     <Compile Include="KhoSanPhamSForm.cs">
       <SubType>Form</SubType>

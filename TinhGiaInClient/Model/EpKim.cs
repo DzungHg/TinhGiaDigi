@@ -33,7 +33,10 @@ namespace TinhGiaInClient.Model
                 DayLoiNhuan = x.DayLoiNhuan,
                 DaySoLuong = x.DaySoLuong,    
                 GiaKhuonCm2 = x.GiaKhuonCm2,
-                LaNhuViTinh = x.LaViTinh,     
+                LaNhuViTinh = x.LaViTinh,
+                Ma_01 = x.Ma_01,
+                DonViTinh = x.DonViTinh,
+                DaySoLuongNiemYet = x.DaySoLuongNiemYet,
                 ThuTu = x.ThuTu
             }).OrderBy(x => x.ThuTu).ToList();
 
@@ -66,6 +69,9 @@ namespace TinhGiaInClient.Model
             epKimDTO.DaySoLuong = epKimBDO.DaySoLuong;
             epKimDTO.LaNhuViTinh = epKimBDO.LaViTinh;
             epKimDTO.GiaKhuonCm2 = epKimBDO.GiaKhuonCm2;
+            epKimDTO.Ma_01 = epKimBDO.Ma_01;
+            epKimDTO.DonViTinh = epKimBDO.DonViTinh;
+            epKimDTO.DaySoLuongNiemYet = epKimBDO.DaySoLuongNiemYet;
             epKimDTO.ThuTu = epKimBDO.ThuTu;
         }
         private static void ChuyenDoiEpKimDTOThanhBDO(EpKim epKimDTO, EpKimBDO epKimBDO)
@@ -80,6 +86,9 @@ namespace TinhGiaInClient.Model
             epKimBDO.DaySoLuong = epKimDTO.DaySoLuong;
             epKimBDO.LaViTinh = epKimDTO.LaNhuViTinh;
             epKimBDO.GiaKhuonCm2 = epKimDTO.GiaKhuonCm2;
+            epKimBDO.Ma_01 = epKimDTO.Ma_01;
+            epKimBDO.DonViTinh = epKimDTO.DonViTinh;
+            epKimBDO.DaySoLuongNiemYet = epKimDTO.DaySoLuongNiemYet;
             epKimBDO.ThuTu = epKimDTO.ThuTu;
         }
         #endregion

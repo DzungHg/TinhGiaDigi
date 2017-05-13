@@ -72,8 +72,8 @@ namespace TinhGiaInClient.Presenter
             
             decimal tyLeMK = (decimal)this.TyLeMarkUp(View.IdHangKhachHang) / 100;           
 
-            result = giaEpKim.ThanhTienCoBan() +
-                giaEpKim.ThanhTienCoBan() * tyLeMK / (1 - tyLeMK);
+            result = giaEpKim.ThanhTienCoBan(View.SoLuong) +
+                giaEpKim.ThanhTienCoBan(View.SoLuong) * tyLeMK / (1 - tyLeMK);
 
             return result;
         }

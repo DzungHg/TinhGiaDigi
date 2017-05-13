@@ -26,7 +26,10 @@ namespace TinhGiaInClient.Model
                 ThoiGianChuanBi = x.ThoiGianChuanBi,
                 DayLoiNhuan = x.DayLoiNhuan,
                 DaySoLuong = x.DaySoLuong,
-                PhiNgVLM2 = x.PhiNgVLM2,                
+                PhiNgVLM2 = x.PhiNgVLM2,
+                Ma_01 = x.Ma_01,
+                DonViTinh = x.DonViTinh,
+                DaySoLuongNiemYet = x.DaySoLuongNiemYet,
                 ThuTu = x.ThuTu
             }).OrderBy(x => x.ThuTu).ToList();
 
@@ -56,7 +59,10 @@ namespace TinhGiaInClient.Model
             canPhuDTO.ThoiGianChuanBi = canPhuBDO.ThoiGianChuanBi;
             canPhuDTO.DayLoiNhuan = canPhuBDO.DayLoiNhuan;
             canPhuDTO.DaySoLuong = canPhuBDO.DaySoLuong;
-            canPhuDTO.PhiNgVLM2 = canPhuBDO.PhiNgVLM2;                   
+            canPhuDTO.PhiNgVLM2 = canPhuBDO.PhiNgVLM2;
+            canPhuDTO.Ma_01 = canPhuBDO.Ma_01;
+            canPhuDTO.DonViTinh = canPhuBDO.DonViTinh;
+            canPhuDTO.DaySoLuongNiemYet = canPhuBDO.DaySoLuongNiemYet;
             canPhuDTO.ThuTu = canPhuBDO.ThuTu;
         }
     }

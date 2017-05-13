@@ -11,7 +11,7 @@ namespace TinhGiaInClient.Model
         private static int _lastId = 0;
         public int ID { get; set; }
         public int IdBaiIn { get; set; }
-        public int LoaiThPh { get; set; }
+        public LoaiThanhPham LoaiThPh { get; set; }
         public string TenThPh { get; set; }
         public string TenThPhMoRong { get; set; }
         public string ThongTinBoSung { get; set; }

@@ -129,6 +129,9 @@
     <EntitySetMapping Name="CAN_GAP">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_GAP">
         <MappingFragment StoreEntitySet="CAN_GAP">
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
           <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
@@ -143,6 +146,9 @@
     <EntitySetMapping Name="CAN_PHU">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_PHU">
         <MappingFragment StoreEntitySet="CAN_PHU">
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
           <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
@@ -158,6 +164,9 @@
     <EntitySetMapping Name="DONG_CUON">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.DONG_CUON">
         <MappingFragment StoreEntitySet="DONG_CUON">
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
           <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
@@ -173,6 +182,9 @@
     <EntitySetMapping Name="EP_KIM">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.EP_KIM">
         <MappingFragment StoreEntitySet="EP_KIM">
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
           <ScalarProperty Name="Gia_khuon_cm2" ColumnName="Gia_khuon_cm2" />
           <ScalarProperty Name="La_vi_tinh" ColumnName="La_vi_tinh" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />

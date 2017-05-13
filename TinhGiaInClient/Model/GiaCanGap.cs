@@ -8,7 +8,7 @@ using TinhGiaInLogic;
 
 namespace TinhGiaInClient.Model
 {
-    public class GiaCanGap
+    public class GiaCanGap: IGiaThanhPham
     {
         /// <summary>
         ///Chưa cần thiết để thừa kế MucThanhPham để chỉnh sửa nâng cấp sau này
@@ -24,37 +24,38 @@ namespace TinhGiaInClient.Model
             this.TyLeMarkUp = tyLeMarkUp;
             this.DonViTinh = donViTinh;
         }
-        public decimal ChiPhi()
+        
+        public decimal ChiPhi(int soLuong)
         {
             decimal result = 0;
-            float soGioChay = (float)this.SoLuong / this.CanGap.TocDoConGio;
+            float soGioChay = (float)soLuong / this.CanGap.TocDoConGio;
             decimal phiChay = this.CanGap.BHR * (decimal)soGioChay;
             decimal phiChuanBi = this.CanGap.BHR * (decimal)this.CanGap.ThoiGianChuanBi;
             result = phiChay + phiChuanBi;
             return result;
         }
         
-        public decimal ThanhTienCoBan()
+        public decimal ThanhTienCoBan(int soLuong)
         {  // số trang a4, Giá đại lý         
             decimal result = 0;
             float tyLeLNCoBan = (float)TinhToan.GiaTriTheoKhoang(this.CanGap.DaySoLuong, this.CanGap.DayLoiNhuan, this.SoLuong) / 100;
-            
-            result = this.ChiPhi() + (this.ChiPhi() *(decimal)tyLeLNCoBan) / (decimal)(1 - tyLeLNCoBan);
+
+            result = this.ChiPhi(soLuong) + (this.ChiPhi(soLuong) * (decimal)tyLeLNCoBan) / (decimal)(1 - tyLeLNCoBan);
             return result;
         }
-        public decimal ThanhTien_CanGap()
+        public decimal ThanhTienSales()
         {
             decimal result = 0;            
             decimal tyLeMK = (decimal)this.TyLeMarkUp / 100;
-            result = this.ThanhTienCoBan() + this.ThanhTienCoBan() * tyLeMK / (1 - tyLeMK);
+            result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
             return result;
         }
-        public decimal GiaTBTrenDonViTinh()
+        public decimal GiaTBTrenDonVi()
         {            
             if (this.SoLuong <= 0)
                 return 0;
 
-            return this.ThanhTien_CanGap() / this.SoLuong;
+            return this.ThanhTienSales() / this.SoLuong;
         }
     }
    

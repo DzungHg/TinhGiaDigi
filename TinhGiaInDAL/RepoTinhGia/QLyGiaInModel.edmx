@@ -49,6 +49,9 @@
           <Property Name="Thoi_gian_chuan_bi" Type="float" />
           <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+          <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+          <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="Thu_tu" Type="int" />
         </EntityType>
         <EntityType Name="CAN_PHU">
@@ -63,6 +66,9 @@
           <Property Name="Phi_ngvl_m2" Type="int" />
           <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+          <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+          <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="Thu_tu" Type="int" />
         </EntityType>
         <EntityType Name="DANH_MUC_GIAY">
@@ -86,6 +92,9 @@
           <Property Name="Phi_ngvl_cuon" Type="int" />
           <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+          <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+          <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="Thu_tu" Type="int" />
         </EntityType>
         <EntityType Name="DS_THANH_PHAM">
@@ -114,8 +123,11 @@
           <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
           <Property Name="Gia_khuon_cm2" Type="int" />
-          <Property Name="Thu_tu" Type="int" />
           <Property Name="La_vi_tinh" Type="bit" />
+          <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+          <Property Name="Thu_tu" Type="int" />
+          <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="GIAY">
           <Key>
@@ -700,6 +712,9 @@
           <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Thu_tu" Type="Int32" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CAN_PHU">
           <Key>
@@ -714,6 +729,9 @@
           <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Thu_tu" Type="Int32" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DONG_CUON">
           <Key>
@@ -728,6 +746,9 @@
           <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Thu_tu" Type="Int32" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="EP_KIM">
           <Key>
@@ -746,6 +767,9 @@
           <NavigationProperty Name="KHUON_EP_KIM" Relationship="QuanLyGiaInModel.FK_KHUON_EP_KIM_EP_KIM" FromRole="EP_KIM" ToRole="KHUON_EP_KIM" />
           <NavigationProperty Name="NHU_EP_KIM" Relationship="QuanLyGiaInModel.FK_NHU_EP_KIM_EP_KIM" FromRole="EP_KIM" ToRole="NHU_EP_KIM" />
           <Property Name="Gia_khuon_cm2" Type="Int32" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="KHUON_EP_KIM">
           <Key>
@@ -1025,6 +1049,9 @@
           <EntitySetMapping Name="CAN_GAP">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_GAP">
               <MappingFragment StoreEntitySet="CAN_GAP">
+                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
                 <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
                 <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
                 <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
@@ -1039,6 +1066,9 @@
           <EntitySetMapping Name="CAN_PHU">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_PHU">
               <MappingFragment StoreEntitySet="CAN_PHU">
+                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
                 <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
                 <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
                 <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
@@ -1054,6 +1084,9 @@
           <EntitySetMapping Name="DONG_CUON">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.DONG_CUON">
               <MappingFragment StoreEntitySet="DONG_CUON">
+                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
                 <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
                 <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
                 <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
@@ -1069,6 +1102,9 @@
           <EntitySetMapping Name="EP_KIM">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.EP_KIM">
               <MappingFragment StoreEntitySet="EP_KIM">
+                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
                 <ScalarProperty Name="Gia_khuon_cm2" ColumnName="Gia_khuon_cm2" />
                 <ScalarProperty Name="La_vi_tinh" ColumnName="La_vi_tinh" />
                 <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />

@@ -60,7 +60,7 @@ namespace TinhGiaInClient.Presenter
                 View.IdHangKhachHang,View.ThongTinHangKH,tyLeMK, View.ThongTinTyLeMarkUp,
                 View.SoLuong, View.DonViTinh, View.ThongTinHoTro, View.TenCanPhuMoRong, View.KieuCanPhu, canPhu);
 
-            result = giaCanPhu.ThanhTien_CanPhu();
+            result = giaCanPhu.ThanhTienSales();
 
             return result;
         }

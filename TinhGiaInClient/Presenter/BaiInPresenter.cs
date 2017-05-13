@@ -254,7 +254,7 @@ namespace TinhGiaInClient.Presenter
                 var tenTP = "";
                 switch (mucThPh.LoaiThPh)
                 {
-                    case (int)Enumss.LoaiThanhPham.CanPhu:
+                    case LoaiThanhPham.CanPhu:
                         tenTP = mucThPh.TenThPhMoRong;
                         break;
                     default:

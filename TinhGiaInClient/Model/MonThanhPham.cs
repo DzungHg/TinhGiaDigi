@@ -8,6 +8,33 @@ using TinhGiaInLogic;
 
 namespace TinhGiaInClient.Model
 {
+    public class DichVuThanhPham
+    {
+
+        public int ID
+        {
+            get;
+            set;
+        }
+        public string Ma { get; set; }
+        public string Ten { get; set; }
+        public int ID_DV { get; set; }
+        public string DonViTinh { get; set; }
+        public string DaySoLuongNiemYet { get; set; }
+        public LoaiThanhPham LoaiThPham { get; set; }
+        public DichVuThanhPham(int iD, string ten, int iD_DV, string donViTinh,
+            string daySoLuongNiemYet, LoaiThanhPham loaiThPh)
+        {
+
+            this.ID = iD;
+            this.Ten = ten;
+            this.ID_DV = iD_DV;
+            this.LoaiThPham = loaiThPh;
+            this.DonViTinh = donViTinh;
+            this.DaySoLuongNiemYet = daySoLuongNiemYet;
+
+        }
+    }
     public class MonThanhPham
     {
         public int ID { get; set; }
@@ -72,6 +99,53 @@ namespace TinhGiaInClient.Model
             monTP_DTO.DonViTinh = monTP_BDO.DonViTinh;
             monTP_DTO.ThuTu = monTP_BDO.ThuTu;
         }
+        #region Làm thêm dịch vụ thành phẩm
+        public static List<DichVuThanhPham>DocTatCaDichVuThanhPham()
+        {
+            var lst = new List<DichVuThanhPham>();
+            var i = 0;
+            DichVuThanhPham dvTP;
+            //Cán phủ
+            foreach (CanPhu cp in CanPhu.DocTatCa())
+            {
+                i += 1;
+                dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
+                    cp.DaySoLuongNiemYet, LoaiThanhPham.CanPhu);
+               
+                lst.Add(dvTP);
+            }
+            //Cân gấp
+            foreach (CanGap cp in CanGap.DocTatCa())
+            {
+                i += 1;
+                dvTP = dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
+                    cp.DaySoLuongNiemYet, LoaiThanhPham.CanGap);
+                lst.Add(dvTP);
+            }
+            //Đóng cuốn
+            foreach (DongCuon cp in DongCuon.DocTatCa())
+            {
+                i += 1;
+                dvTP = dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
+                    cp.DaySoLuongNiemYet, LoaiThanhPham.DongCuon);
+                lst.Add(dvTP);
+            }
+            //Ép kim
+            foreach (EpKim cp in EpKim.DocTatCa())
+            {
+                i += 1;
+                dvTP = dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
+                    cp.DaySoLuongNiemYet, LoaiThanhPham.EpKim);
+                lst.Add(dvTP);
+            }
+
+            return lst.OrderBy(x => x.ID).ToList();
+        }
+        public static DichVuThanhPham DocDVThanhPhamTheoId(int iDDVTP)
+        {
+            return MonThanhPham.DocTatCaDichVuThanhPham().FirstOrDefault(x => x.ID == iDDVTP);
+        }
+        #endregion
     }
    
 }

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model
 {
-    public interface IThanhPham
+    public interface IGiaThanhPham
     {
         decimal ChiPhi(int soLuong);
         decimal ThanhTienCoBan(int soLuong);
+        decimal ThanhTienSales();
+        decimal GiaTBTrenDonVi();
 
     }
 }

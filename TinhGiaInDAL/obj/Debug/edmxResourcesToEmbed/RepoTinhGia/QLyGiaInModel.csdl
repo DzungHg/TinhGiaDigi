@@ -258,6 +258,9 @@
     <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Thu_tu" Type="Int32" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CAN_PHU">
     <Key>
@@ -272,6 +275,9 @@
     <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Thu_tu" Type="Int32" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DONG_CUON">
     <Key>
@@ -286,6 +292,9 @@
     <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="Thu_tu" Type="Int32" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="EP_KIM">
     <Key>
@@ -304,6 +313,9 @@
     <NavigationProperty Name="KHUON_EP_KIM" Relationship="QuanLyGiaInModel.FK_KHUON_EP_KIM_EP_KIM" FromRole="EP_KIM" ToRole="KHUON_EP_KIM" />
     <NavigationProperty Name="NHU_EP_KIM" Relationship="QuanLyGiaInModel.FK_NHU_EP_KIM_EP_KIM" FromRole="EP_KIM" ToRole="NHU_EP_KIM" />
     <Property Name="Gia_khuon_cm2" Type="Int32" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="KHUON_EP_KIM">
     <Key>

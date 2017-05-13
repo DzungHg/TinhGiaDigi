@@ -72,28 +72,38 @@ namespace TinhGiaInClient.UI
         {
             lstDichVuThanhPham.DisplayMember = "Ten";
             lstDichVuThanhPham.ValueMember = "ID";
-            lstDichVuThanhPham.DataSource = bangGiaThPhPres.MonThanhPhamS();
+            lstDichVuThanhPham.DataSource = bangGiaThPhPres.DichVuThanhPhamS();
+        }
+        private void LoadSoLuongTinh()
+        {
+            lstSoLuongTinh.DataSource = bangGiaThPhPres.SoLuongTinhS();
+            lstSoLuongTinh.ValueMember = "ID";
+            lstSoLuongTinh.DisplayMember = "SoLuong";
         }
 
         private void lstDichVuThanhPham_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             bangGiaThPhPres.TrinhBayDuLieuThanhPhamTheoMon();
+            LoadSoLuongTinh();
         }
         private void TrinhBaySoLuong_Gia()
         {
-            Telerik.WinControls.UI.CardViewItem cardItem;
-            Telerik.WinControls.UI.LayoutControlItem layOutItem;
+           
             Telerik.WinControls.UI.RadLabel lb;
-            
+            flowLayOut.Controls.Clear();
+
+            if (bangGiaThPhPres.SoLuong_GiaS().Length <= 0)
+                return;
+
             for (int i = 0; i < bangGiaThPhPres.SoLuong_GiaS().Length; ++i)
             {
-                cardItem = new Telerik.WinControls.UI.CardViewItem();
-                cardItem.Text = bangGiaThPhPres.SoLuong_GiaS()[i].SoLuong.ToString();
-                cardItem.Text = bangGiaThPhPres.SoLuong_GiaS()[i].Gia.ToString();
-                layOutItem = new Telerik.WinControls.UI.LayoutControlItem();
+                
                 lb = new Telerik.WinControls.UI.RadLabel();
-                lb.Text = string.Format("{0}" + '\r' + '\n' + "{1:0,0.00}", bangGiaThPhPres.SoLuong_GiaS()[i].SoLuong,
-                    bangGiaThPhPres.SoLuong_GiaS()[i].Gia);
+                lb.Text = string.Format("{0}" + '\r' + '\n' + "{1:0,0.00}" + '\r' + '\n' + "{2:0,0.00}/{3}",
+                    bangGiaThPhPres.SoLuong_GiaS()[i].SoLuong,
+                    bangGiaThPhPres.SoLuong_GiaS()[i].Gia,
+                    bangGiaThPhPres.SoLuong_GiaS()[i].GiaTrungBinhDonVi(),
+                    this.DonViTinh);
                 flowLayOut.Controls.Add(lb);
             }
         }
@@ -101,6 +111,41 @@ namespace TinhGiaInClient.UI
         private void btnTinhGia_Click(object sender, EventArgs e)
         {
             TrinhBaySoLuong_Gia();
+        }
+        private void TrinhBayGiaTheoSoLuong(int soLuong)
+        {
+
+            Telerik.WinControls.UI.RadLabel lb;
+            //flowLayOut.Controls.Clear();
+
+            if (bangGiaThPhPres.SoLuongTinhS().Length <= 0)
+                return;
+
+            lb = new Telerik.WinControls.UI.RadLabel();
+            lb.Text = string.Format("{0}" + '\r' + '\n' + "{1:0,0.00}" + '\r' + '\n' + "{2:0,0.00}/{3}",
+                bangGiaThPhPres.KetQuaSoLuongGia(soLuong).SoLuong,
+                bangGiaThPhPres.KetQuaSoLuongGia(soLuong).Gia,
+                bangGiaThPhPres.KetQuaSoLuongGia(soLuong).GiaTrungBinhDonVi(),
+                this.DonViTinh);
+            flowLayOut.Controls.Add(lb);
+
+        }
+        private void lstSoLuongTinh_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+
+            var idSoLuong = 0;
+            if (lstSoLuongTinh.SelectedValue != null)
+                int.TryParse(lstSoLuongTinh.SelectedValue.ToString(), out idSoLuong);
+            {
+                //MessageBox.Show(idSoLuong.ToString());
+                TrinhBayGiaTheoSoLuong(bangGiaThPhPres.DocSoLuongTinhTheoId(idSoLuong).SoLuong);
+            }
+
+        }
+
+        private void btnXoaBang_Click(object sender, EventArgs e)
+        {
+            flowLayOut.Controls.Clear();
         }
     }
 }

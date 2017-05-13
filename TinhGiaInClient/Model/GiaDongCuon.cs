@@ -8,7 +8,7 @@ using TinhGiaInLogic;
 
 namespace TinhGiaInClient.Model
 {
-    public class GiaDongCuon
+    public class GiaDongCuon: IGiaThanhPham
     {
         /// <summary>
         ///Chưa cần thiết để thừa kế MucThanhPham để chỉnh sửa nâng cấp sau này
@@ -24,7 +24,7 @@ namespace TinhGiaInClient.Model
             this.TyLeMarkUp = tyLeMarkUp;
             this.DonViTinh = donViTinh;
         }
-        public decimal ChiPhi()
+        public decimal ChiPhi(int soLuong)
         {
             
             decimal result = 0;
@@ -36,27 +36,27 @@ namespace TinhGiaInClient.Model
             return result;
         }
         
-        public decimal ThanhTienCoBan()
+        public decimal ThanhTienCoBan(int soLuong)
         {  // số trang a4, Giá đại lý         
             decimal result = 0;
             float tyLeLNCoBan = (float)TinhToan.GiaTriTheoKhoang(this.DongCuon.DaySoLuong, this.DongCuon.DayLoiNhuan, this.SoLuong) / 100;
 
-            result = this.ChiPhi() + this.ChiPhi() * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
+            result = this.ChiPhi(soLuong) + this.ChiPhi(soLuong) * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
             return result;
         }
-        public decimal ThanhTien_DongCuon()
+        public decimal ThanhTienSales()
         {
             decimal result = 0;            
             decimal tyLeMK = (decimal)this.TyLeMarkUp / 100;
-            result = this.ThanhTienCoBan() + this.ThanhTienCoBan() * tyLeMK / (1 - tyLeMK);
+            result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
             return result;
         }
-        public decimal GiaTBTrenDonViTinh()
+        public decimal GiaTBTrenDonVi()
         {            
             if (this.SoLuong <= 0)
                 return 0;
 
-            return this.ThanhTien_DongCuon() / this.SoLuong;
+            return this.ThanhTienSales() / this.SoLuong;
         }
     }
    

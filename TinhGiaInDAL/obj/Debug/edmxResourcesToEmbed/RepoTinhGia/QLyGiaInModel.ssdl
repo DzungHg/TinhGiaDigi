@@ -44,6 +44,9 @@
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
     <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="CAN_PHU">
@@ -58,6 +61,9 @@
     <Property Name="Phi_ngvl_m2" Type="int" />
     <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="DANH_MUC_GIAY">
@@ -81,6 +87,9 @@
     <Property Name="Phi_ngvl_cuon" Type="int" />
     <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="DS_THANH_PHAM">
@@ -109,8 +118,11 @@
     <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
     <Property Name="Gia_khuon_cm2" Type="int" />
-    <Property Name="Thu_tu" Type="int" />
     <Property Name="La_vi_tinh" Type="bit" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="Thu_tu" Type="int" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="GIAY">
     <Key>

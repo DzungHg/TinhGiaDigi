@@ -31,6 +31,9 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> Thu_tu { get; set; }
         public Nullable<bool> La_vi_tinh { get; set; }
         public Nullable<int> Gia_khuon_cm2 { get; set; }
+        public string ma_01 { get; set; }
+        public string don_vi_tinh { get; set; }
+        public string day_so_luong_niem_yet { get; set; }
     
         public virtual ICollection<KHUON_EP_KIM> KHUON_EP_KIM { get; set; }
         public virtual ICollection<NHU_EP_KIM> NHU_EP_KIM { get; set; }
