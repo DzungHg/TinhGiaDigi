@@ -25,6 +25,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhongSuDung = (bool)x.khong_su_dung,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
+                    NoiDungBangGia = x.noi_dung_bang_gia,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -48,6 +50,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhongSuDung = (bool)x.khong_su_dung,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
+                    NoiDungBangGia = x.noi_dung_bang_gia,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -72,6 +76,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhongSuDung = (bool)x.khong_su_dung,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
+                    NoiDungBangGia = x.noi_dung_bang_gia,
+                    DaySoLuongNiemYet = x.day_so_luong_niem_yet,
                     ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
                 
@@ -86,14 +92,62 @@ namespace TinhGiaInDAL.RepoTinhGia
             throw new NotImplementedException();
         }
 
-        public void Sua(BangGiaInNhanhBDO entityBDO)
+        public bool Sua(ref string thongDiep, BangGiaInNhanhBDO entityBDO)
         {
-            throw new NotImplementedException();
+            var entity = db.BANG_GIA_IN_NHANH.Where(x => x.ID == entityBDO.ID).SingleOrDefault();
+            var kq = true;
+            if (entity != null)
+            {
+                try
+                {
+                    var kqKiemTrung = KiemTraTrung(entityBDO.TenBangGia, entityBDO.ID);
+                    if (kqKiemTrung != "")
+                    {
+                        thongDiep = kqKiemTrung;
+                        return false;
+                    }
+                    ChuyenBDOThanhDAO(entityBDO, entity);
+                    db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    thongDiep = string.Format("Lưu mục tin {0} thành công", entity.ID);//trả về số Id
+                }
+                catch
+                {
+                    thongDiep = string.Format("Sửa mục tin {0} không thành công!", entity.ID);
+                }
+            }
+            else
+            {
+                thongDiep = string.Format("Mục tin {0} không tồn tại!", entity.ID);
+                return false;
+            }
+            return kq;
         }
-
         public void Xoa(int iD)
         {
             throw new NotImplementedException();
+        }
+        private string KiemTraTrung(string value, int id = 0)
+        {
+            string kq = "";
+            var entity = db.BANG_GIA_IN_NHANH.SingleOrDefault(x => x.ten_bang_gia == value);
+            if (entity != null && entity.ID != id)
+                kq = string.Format("Tên {0} đã có rồi!", value);
+            return kq;
+        }
+        private void ChuyenBDOThanhDAO(BangGiaInNhanhBDO entityBDO, BANG_GIA_IN_NHANH entityDAO)
+        {
+            entityDAO.ID = entityBDO.ID;
+            entityDAO.ten_bang_gia = entityBDO.TenBangGia;
+            entityDAO.mo_ta = entityBDO.MoTa;
+            entityDAO.day_gia = entityBDO.DayGia;
+            entityDAO.day_so_luong = entityBDO.DaySoLuong;
+            entityDAO.khong_su_dung = entityBDO.KhongSuDung;
+            entityDAO.ID_HANG_KHACH_HANG = entityBDO.IdHangKhachHang;
+            entityDAO.so_trang_toi_da = entityBDO.SoTrangToiDa;
+            entityDAO.noi_dung_bang_gia = entityBDO.NoiDungBangGia;
+            entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
+            entityDAO.thu_tu = entityBDO.ThuTu;
         }
     }
 }

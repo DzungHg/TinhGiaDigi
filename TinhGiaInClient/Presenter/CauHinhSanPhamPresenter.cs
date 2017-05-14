@@ -91,7 +91,7 @@ namespace TinhGiaInClient.Presenter
             switch (View.IdPhuongPhapIn)
             {
                 case (int)Enumss.PhuongPhapIn.Toner:
-                    foreach (ToChayDigi tCh in ToChayDigi.DocTatCa())
+                    foreach (ToInMayDigi tCh in ToInMayDigi.DocTatCa())
                     {
                         var thTinToChay = new ThongTinToChay();
                         thTinToChay.ID = tCh.ID;

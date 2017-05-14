@@ -123,9 +123,16 @@
     <Compile Include="Model\CanGap.cs" />
     <Compile Include="Model\GiaEpKim.cs" />
     <Compile Include="Model\GiaGiay.cs" />
+    <Compile Include="Model\GiaInNhanhKetHopBangGia_May.cs" />
+    <Compile Include="Model\GiaInNhanhTheoMay.cs" />
+    <Compile Include="Model\GiaInNhanhTheoBang.cs" />
     <Compile Include="Model\GiaInOffsetGiaCong.cs" />
     <Compile Include="Model\GiaInMayDigi.cs" />
+    <Compile Include="Model\IGiaIn.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
+    <Compile Include="Model\Support\DuLieuTinhGiaInNhanhTheoMay.cs" />
+    <Compile Include="Model\Support\SoLuongTinh.cs" />
+    <Compile Include="Model\Support\SoLuong_Gia.cs" />
     <Compile Include="Model\ThongTinBanDauChoTinhGia.cs" />
     <Compile Include="Model\YeuCauTinhGiaIn.cs" />
     <Compile Include="Model\NhuEpKim.cs" />
@@ -157,11 +164,13 @@
     <Compile Include="Model\MarkUpLoiNhuanGiay.cs" />
     <Compile Include="Model\MucThanhPham.cs" />
     <Compile Include="Model\NhaCungCapGiay.cs" />
-    <Compile Include="Model\GiaIn.cs" />
+    <Compile Include="Model\MucTinGiaIn.cs" />
     <Compile Include="Model\ThanhPhamBase.cs" />
     <Compile Include="Model\TinhToan.cs" />
     <Compile Include="Model\OffsetGiaCong.cs" />
-    <Compile Include="Model\ToChayDigi.cs" />
+    <Compile Include="Model\ToInMayDigi.cs" />
+    <Compile Include="Presenter\BangGiaInNhanhMayPresenter.cs" />
+    <Compile Include="Presenter\BangGiaInNhanhPresenter.cs" />
     <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
@@ -200,6 +209,18 @@
     <Compile Include="ThPhCanPhuForm.Designer.cs">
       <DependentUpon>ThPhCanPhuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\BangGiaInNhanhForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BangGiaInNhanhForm.Designer.cs">
+      <DependentUpon>BangGiaInNhanhForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BangGiaInNhanhMayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BangGiaInNhanhMayForm.Designer.cs">
+      <DependentUpon>BangGiaInNhanhMayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\BangGiaThanhPhamForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +233,8 @@
     <Compile Include="UI\NavForm.Designer.cs">
       <DependentUpon>NavForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IViewBangGiaInNhanhMay.cs" />
+    <Compile Include="View\IViewBangGiaInNhanh.cs" />
     <Compile Include="View\IViewBangGiaThanhPham.cs" />
     <Compile Include="View\IViewBaiIn.cs" />
     <Compile Include="View\IViewBangGiaGiay.cs" />
@@ -315,6 +338,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CauHinhSPForm.resx">
       <DependentUpon>CauHinhSPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BangGiaInNhanhForm.resx">
+      <DependentUpon>BangGiaInNhanhForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\BangGiaInNhanhMayForm.resx">
+      <DependentUpon>BangGiaInNhanhMayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\BangGiaThanhPhamForm.resx">
       <DependentUpon>BangGiaThanhPhamForm.cs</DependentUpon>

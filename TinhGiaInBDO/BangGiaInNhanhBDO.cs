@@ -13,8 +13,10 @@ namespace TinhGiaInBDO
         public string MoTa { get; set; }
         public string DaySoLuong { get; set; }
         public string DayGia { get; set; }
+        public string NoiDungBangGia { get; set; }
         public int IdHangKhachHang { get; set; }
         public int SoTrangToiDa { get; set; }
+        public string DaySoLuongNiemYet { get; set; } 
         public int ThuTu { get; set; }
         public bool KhongSuDung { get; set; }
     }

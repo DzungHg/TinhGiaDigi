@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 
+
 namespace TinhGiaInClient.UI
 {
     
@@ -85,6 +86,12 @@ namespace TinhGiaInClient.UI
         {
             bangGiaThPhPres.TrinhBayDuLieuThanhPhamTheoMon();
             LoadSoLuongTinh();
+            btnXoaBang_Click(btnXoaBang, e);
+            //Trường hợp đặc biệt ép kim
+            if (bangGiaThPhPres.DocLoaiThanhPham() == LoaiThanhPham.EpKim)
+            {
+                ShowFormEpKim();
+            }
         }
         private void TrinhBaySoLuong_Gia()
         {
@@ -146,6 +153,69 @@ namespace TinhGiaInClient.UI
         private void btnXoaBang_Click(object sender, EventArgs e)
         {
             flowLayOut.Controls.Clear();
+        }
+
+        private void btnLuuSoLuongMacDinh_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.DaySoluong.Trim()) || chkLuuSoLuong.Checked)
+            {
+                MessageBox.Show(bangGiaThPhPres.LuuDaySoLuong());
+                chkLuuSoLuong.Checked = false;
+                btnLuuSoLuongMacDinh.Enabled = chkLuuSoLuong.Checked;
+                //LoadSoLuongTinh();
+                //btnXoaBang_Click(btnXoaBang, e);
+            }
+        }
+
+        private void btnRefreshDaySoLuong_Click(object sender, EventArgs e)
+        {
+            LoadSoLuongTinh();
+            btnXoaBang_Click(btnXoaBang, e);
+        }
+
+        private void drpHangKH_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            btnXoaBang_Click(btnXoaBang, e);
+            //MessageBox.Show(bangGiaThPhPres.TiLeMarkUpTheoHangKH().ToString());
+        }
+
+        private void chkLuuSoLuong_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+
+            btnLuuSoLuongMacDinh.Enabled = chkLuuSoLuong.Checked;
+        }
+
+        private void BangGiaThanhPhamForm_Resize(object sender, EventArgs e)
+        {
+            txtDaySoLuong.Width = 6 * (this.Width / 12);
+            btnRefreshDaySoLuong.Left = txtDaySoLuong.Left + txtDaySoLuong.Width + 5;
+            btnXoaBang.Left = btnRefreshDaySoLuong.Left + btnRefreshDaySoLuong.Width + 5;
+            flowLayOut.Width = txtDaySoLuong.Width;
+            flowLayOut.Left = lstSoLuongTinh.Left + lstSoLuongTinh.Width + 5;
+            btnDong.Left = (this.ClientSize.Width - btnDong.Width) / 2;
+        }
+
+        private void txtDaySoLuong_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDaySoLuong.Text.Trim()))
+            {
+                txtDaySoLuong.Text = "10;11";
+            }
+        }
+        private void ShowFormEpKim()
+        {
+            var frm = new ThPhEpKimForm("");
+            frm.TinhTrangForm = (int)FormStates.View;
+            frm.LoaiThPh = LoaiThanhPham.EpKim;
+            frm.Text = "Ép kim [Tính thử]";
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            //Data gởi qua form
+
+            frm.IdHangKhachHang = this.IdHangKHChon;
+            frm.IdBaiIn = 1;//Lừa để tính được.
+            frm.ShowDialog();
         }
     }
 }

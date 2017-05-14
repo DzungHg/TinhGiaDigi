@@ -65,9 +65,9 @@ namespace TinhGiaInClient.Model
         public decimal ThanhTienSales()
         {
             decimal result = 0;
-            decimal tyLeMK = this.TyLeMarkUp / 100;
+            var tyLeMK = (decimal)this.TyLeMarkUp / 100;
             result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
-            return result;
+            return Math.Round(result);
         }
         public decimal GiaTBTrenDonVi()
         {            

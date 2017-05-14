@@ -28,9 +28,9 @@ namespace TinhGiaInClient.Presenter
             }
             return dict;
         }
-        public List<ToChayDigi>ToChayDigiS()
+        public List<ToInMayDigi>ToChayDigiS()
         {
-            return ToChayDigi.DocTatCa();
+            return ToInMayDigi.DocTatCa();
         }
         public int TyLeLoiNhuanTheoHangKH()
         {
@@ -43,12 +43,12 @@ namespace TinhGiaInClient.Presenter
         }
         public int SoA4TheoToInDigi()
         {
-            return ToChayDigi.DocTheoId(View.IdToInDigiChon).QuiA4;
+            return ToInMayDigi.DocTheoId(View.IdToInDigiChon).QuiA4;
         }
       
         public int SoTrangA4 ()
         {            
-            var toChayDigi = ToChayDigi.DocTheoId(View.IdToInDigiChon);
+            var toChayDigi = ToInMayDigi.DocTheoId(View.IdToInDigiChon);
             int result = 0;
             switch (View.KieuIn)
             {
@@ -129,9 +129,9 @@ namespace TinhGiaInClient.Presenter
                 result = GiaInNhanhTheoBang(ref giaTBTrang);
             } else //Vượt ngoài giới hạn
             {
-                var toChayDigi = ToChayDigi.DocTheoId(View.IdToInDigiChon);
+                var toChayDigi = ToInMayDigi.DocTheoId(View.IdToInDigiChon);
                 var giaInTheoToDiGi = new GiaInMayDigi(toChayDigi, View.SoTrangA4,
-                    this.TyLeLoiNhuanTheoHangKH(), (int)Enumss.MauIn.BonMau);
+                    this.TyLeLoiNhuanTheoHangKH(), MauIn.BonMau);
                 result = giaInTheoToDiGi.ThanhTienCoBan();
                 giaTBTrang = result / View.SoTrangA4;
             }

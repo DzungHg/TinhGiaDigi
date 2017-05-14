@@ -3,57 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using TinhGiaInClient.Model;
 using TinhGiaInClient.View;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient.Presenter
 {
-    public struct SoLuong_Gia 
-    {
-        public int SoLuong
-        {
-            get { return _soLuong; }
-            set { _soLuong = value; }
-        }
-        public decimal Gia
-        {
-            get { return _gia; }
-            set { _gia = value; }
-        }
-        public decimal GiaTrungBinhDonVi()
-        {
-            return _gia / _soLuong;
-        }
-        public SoLuong_Gia(int soLuong, decimal gia)
-        {
-            _soLuong = soLuong;
-            _gia = gia;
-        }
-        private int _soLuong;
-        private decimal _gia;
-    }
-    public struct SoLuongTinh
-    {
-        public int SoLuong
-        {
-            get { return _soLuong; }
-            set { _soLuong = value; }
-        }
-        public int ID
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
-        
-        public SoLuongTinh(int iD, int soLuong)
-        {
-            _soLuong = soLuong;
-            _id = iD;
-        }
-        private int _soLuong;
-        private int _id;
-    }
+  
     public class BangGiaThanhPhamPresenter
     {
         /// <summary>
@@ -86,7 +42,11 @@ namespace TinhGiaInClient.Presenter
         {
             return MonThanhPham.DocTatCaDichVuThanhPham();
         }
-       
+        public LoaiThanhPham DocLoaiThanhPham ()
+        {
+            var monThPh = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham);
+            return monThPh.LoaiThPham;
+        }
         public void TrinhBayDuLieuThanhPhamTheoMon()
         {
             var monThPh = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham);
@@ -165,34 +125,36 @@ namespace TinhGiaInClient.Presenter
             }
             return kQSoluong_gia;
         }
-       private void LuuDaySoLuong()
+        public string LuuDaySoLuong()
         {
-            decimal ketQua = 0;
+            var mg = "";
             var iDThanhPham = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham).ID_DV;
             var LoaiTP = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham).LoaiThPham;
             switch (LoaiTP)
             {
                 case LoaiThanhPham.CanPhu:
-                    var canPhu = new CanPhu();
+                    var canPhu = CanPhu.DocTheoId(iDThanhPham);
                     canPhu.DaySoLuongNiemYet = View.DaySoluong;
-                    
-                        (soLuong, View.DonViTinh, TiLeMarkUpTheoHangKH(), CanPhu.DocTheoId(iDThanhPham));
-                    ketQua = canPhu.ThanhTienSales();
+                    mg = CanPhu.Sua(canPhu);
                     break;
                 case LoaiThanhPham.CanGap:
-                    var giaCanGap = new GiaCanGap(soLuong, TiLeMarkUpTheoHangKH(), View.DonViTinh, CanGap.DocTheoId(iDThanhPham));
-                    ketQua = giaCanGap.ThanhTienSales();
+                    var canGap = CanGap.DocTheoId(iDThanhPham);
+                    canGap.DaySoLuongNiemYet = View.DaySoluong;
+                    mg = CanGap.Sua(canGap);
                     break;
                 case LoaiThanhPham.DongCuon:
-                    var giaDongCuon = new GiaDongCuon(soLuong, TiLeMarkUpTheoHangKH(), View.DonViTinh, DongCuon.DocTheoId(iDThanhPham));
-                    ketQua = giaDongCuon.ThanhTienSales();
+                    var dongCuon = DongCuon.DocTheoId(iDThanhPham);
+                    dongCuon.DaySoLuongNiemYet = View.DaySoluong;
+                    mg = DongCuon.Sua(dongCuon);
                     break;
                 case LoaiThanhPham.EpKim:
-                    //var giaEpKim = new GiaEpKim(soLuong, 5,5, 10, CanPhu.DocTheoId(iDThanhPham));
-                    ketQua = 0;
+                    var epKim = EpKim.DocTheoId(iDThanhPham);
+                    epKim.DaySoLuongNiemYet = View.DaySoluong;
+                    mg = EpKim.Sua(epKim);
                     break;
             }
-            return ketQua;
+            return mg;
+        }
     }
 
 }

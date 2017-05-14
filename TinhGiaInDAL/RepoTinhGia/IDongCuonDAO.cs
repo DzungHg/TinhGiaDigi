@@ -13,8 +13,8 @@ namespace TinhGiaInDAL.RepoTinhGia
         IEnumerable<DongCuonBDO> LayTatCa();
 
         DongCuonBDO LayTheoId(int iD);
-        void Them(DongCuonBDO entityBDO);
-        void Sua(DongCuonBDO entityBDO);
-        void Xoa(int iD);     
+        string Them(DongCuonBDO entityBDO);
+        string Sua(DongCuonBDO entityBDO);
+        string Xoa(int iD);     
     }
 }

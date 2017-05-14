@@ -296,7 +296,7 @@ namespace TinhGiaInClient
 
         private void btnGetProdTemplate_Click(object sender, EventArgs e)
         {
-            KhoSanPhamSForm frm = new KhoSanPhamSForm(this.TinhTrangForm);
+            KhoSanPhamSForm frm = new KhoSanPhamSForm(FormStates.Get);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Lấy khổ SP";

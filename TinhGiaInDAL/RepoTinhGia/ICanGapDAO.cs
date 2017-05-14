@@ -14,8 +14,8 @@ namespace TinhGiaInDAL.RepoTinhGia
 
 
         CanGapBDO LayTheoId(int iD);
-        void Them(CanGapBDO entityBDO);
-        void Sua(CanGapBDO entityBDO);
-        void Xoa(int iD);     
+        string Them(CanGapBDO entityBDO);
+        string Sua(CanGapBDO entityBDO);
+        string Xoa(int iD);     
     }
 }

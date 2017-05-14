@@ -10,16 +10,20 @@ namespace TinhGiaInLogic
 {
     public class DongCuonLogic
     {
-        DongCuonDAO dMucGiayDAO = new DongCuonDAO();
+        DongCuonDAO dongCuonDAO = new DongCuonDAO();
         public List<DongCuonBDO> DocTatCa()
         {
-            var nguon = dMucGiayDAO.LayTatCa();
+            var nguon = dongCuonDAO.LayTatCa();
             return nguon.ToList();
         }
 
         public DongCuonBDO DocTheoId(int iD)
         {
-            return dMucGiayDAO.LayTheoId(iD);
+            return dongCuonDAO.LayTheoId(iD);
+        }
+        public string Sua(DongCuonBDO dongCuonBDO)
+        {
+            return dongCuonDAO.Sua(dongCuonBDO);
         }
     }
 }

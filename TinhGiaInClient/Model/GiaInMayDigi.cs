@@ -3,22 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient.Model
 {
     public class GiaInMayDigi
     {
-        public ToChayDigi ToChayDigi { get; set; }
+        public ToInMayDigi ToChayDigi { get; set; }
         public int SoTrangA4 { get; set; }
         public int TyLeMarkUp { get; set; }
-        public int MauIn { get; set; }
-        public GiaInMayDigi(ToChayDigi toChayDigi, int soLuongA4, int tyLeMarkUp, int mauIn)
+        public MauIn MauInChon { get; set; }
+
+        private DuLieuTinhGiaInNhanhTheoMay duLieuTinhGia;
+        public GiaInMayDigi(ToInMayDigi toChayDigi, int soLuongA4, int tyLeMarkUp, MauIn mauIn)
         {
             this.ToChayDigi = toChayDigi;
             this.SoTrangA4 = soLuongA4;
             this.TyLeMarkUp = tyLeMarkUp;
-            this.MauIn = mauIn;
-
+            this.MauInChon = mauIn;
+            //
+            duLieuTinhGia = new DuLieuTinhGiaInNhanhTheoMay();//struct 
+            if (this.ToChayDigi != null && this.SoTrangA4 >0 )
+            {
+                duLieuTinhGia.BHR = this.ToChayDigi.BHR;
+                duLieuTinhGia.TocDo = this.ToChayDigi.TocDo; //Tờ trên giờ
+                duLieuTinhGia.ThoiGianDuLieuBienDoi = this.ToChayDigi.ThoiGianDuLieuBienDoi;
+                duLieuTinhGia.ThoiGianSanSang = this.ToChayDigi.ThoiGianSanSang;
+                duLieuTinhGia.InTuTro = this.ToChayDigi.InTuTro;
+                duLieuTinhGia.PhiPhePhamSanSang = this.ToChayDigi.PhiPhePhamSanSang;
+                duLieuTinhGia.DaySoLuong = this.ToChayDigi.DaySoLuong;
+                duLieuTinhGia.DayLoiNhuan = this.ToChayDigi.DayLoiNhuan;
+            }
         }
         private decimal PhiIn()
         {
@@ -26,6 +41,7 @@ namespace TinhGiaInClient.Model
                 return 0;
             //--qua
             decimal result = 0;
+            /*
             var BHR = this.ToChayDigi.BHR;
             var tocDo = this.ToChayDigi.TocDo; //Tờ trên giờ
             var click4M = this.ToChayDigi.ClickA4BonMau;//PHí trang A4
@@ -39,38 +55,36 @@ namespace TinhGiaInClient.Model
             var phiChay =  thoiGianChay * BHR;
             //Phí mực theo click của từng tờ in
             decimal phiMuc = 0;
-            switch (this.MauIn)
+             */
+            switch (this.MauInChon)
             {
-                case (int)Enumss.MauIn.BonMau:
-                    phiMuc =  click4M * this.SoTrangA4;
+                case MauIn.BonMau:
+                    duLieuTinhGia.ClickTrangA4 = this.ToChayDigi.ClickA4BonMau * this.SoTrangA4;
                     break;
-                case (int)Enumss.MauIn.MotMau:
-                    phiMuc = click1M * this.SoTrangA4;
+                case MauIn.MotMau:
+                    duLieuTinhGia.ClickTrangA4 = this.ToChayDigi.ClickA4MotMau * this.SoTrangA4;
                     break;
-                case (int)Enumss.MauIn.SauMau:
-                    phiMuc = click6M * this.SoTrangA4;
+                case MauIn.SauMau:
+                    duLieuTinhGia.ClickTrangA4 = this.ToChayDigi.ClickA4SauMau * this.SoTrangA4;
                     break;
             }
 
-            result = phiSetup + phiGiaySanSang + phiChay + phiMuc;
+            result = new GiaInNhanhTheoMay(this.duLieuTinhGia, this.SoTrangA4, this.TyLeMarkUp).ChiPhi(this.SoTrangA4);
 
             return result;
         }
         public decimal ThanhTienCoBan()
         {  //Giá đại lý         
-
-            decimal result = 0;
-            float tyLeLNCoBan = (float)TinhToan.GiaTriTheoKhoang(this.ToChayDigi.DaySoLuong, this.ToChayDigi.DayLoiNhuan, this.SoTrangA4) / 100;
-
-            result = this.PhiIn() + this.PhiIn() * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
-            return result;
+            if (this.ToChayDigi == null || this.SoTrangA4 <= 0)
+                return 0;
+            
+            return new GiaInNhanhTheoMay(this.duLieuTinhGia, this.SoTrangA4, this.TyLeMarkUp).ThanhTienCoBan(this.SoTrangA4);
         }
         public decimal ThanhTien_In()
         {
-            decimal result = 0;
-            decimal tyLeMK = (decimal)this.TyLeMarkUp / 100;
-            result = this.ThanhTienCoBan() + this.ThanhTienCoBan() * tyLeMK / (1 - tyLeMK);
-            return result;
+            if (this.ToChayDigi == null || this.SoTrangA4 <= 0)
+                return 0;
+            return new GiaInNhanhTheoMay(this.duLieuTinhGia, this.SoTrangA4, this.TyLeMarkUp).ThanhTienSales();
         }
     }
 }

@@ -66,19 +66,65 @@ namespace TinhGiaInDAL.RepoTinhGia
             return dm;
         }
         #region Them, sưa, xoa
-        public void Them(DongCuonBDO entityBDO)
+        public string Them(DongCuonBDO entityBDO)
         {
             throw new NotImplementedException();
         }
 
-        public void Sua(DongCuonBDO entityBDO)
+        public string Sua(DongCuonBDO entityBDO)
+        {
+            DONG_CUON entity = db.DONG_CUON.Where(x => x.ID == entityBDO.ID).SingleOrDefault();
+            var kq = "";
+            if (entity != null)
+            {
+                try
+                {
+                    kq = KiemTraTrung(entityBDO.Ten, entityBDO.ID);
+                    if (kq != "")
+                        return kq;
+
+                    ChuyenBDOThanhDAO(entityBDO, entity);
+                    db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    kq = string.Format("Lưu mục tin {0} thành công", entity.ID);//trả về số Id
+                }
+                catch
+                {
+                    kq = string.Format("Sửa mục tin {0} không thành công!", entity.ID);
+                }
+            }
+            else
+            {
+                return kq = string.Format("Mục tin {0} không tồn tại!", entity.ID);
+            }
+            return kq;
+        }
+
+        public string Xoa(int iD)
         {
             throw new NotImplementedException();
         }
-
-        public void Xoa(int iD)
+        private string KiemTraTrung(string value, int id = 0)
         {
-            throw new NotImplementedException();
+            string kq = "";
+            var entity = db.DONG_CUON.SingleOrDefault(x => x.Ten == value);
+            if (entity != null && entity.ID != id)
+                kq = string.Format("Tên {0} đã có rồi!", value);
+            return kq;
+        }
+        private void ChuyenBDOThanhDAO(DongCuonBDO entityBDO, DONG_CUON entityDAO)
+        {
+            entityDAO.ID = entityBDO.ID;
+            entityDAO.Ten = entityBDO.Ten;
+            entityDAO.BHR = entityBDO.BHR;
+            entityDAO.Toc_do_cuon = entityBDO.TocDoCuonGio;
+            entityDAO.Thoi_gian_chuan_bi = entityBDO.ThoiGianChuanBi;
+            entityDAO.Day_so_luong = entityBDO.DaySoLuong;
+            entityDAO.Day_loi_nhuan = entityBDO.DayLoiNhuan;
+            entityDAO.ma_01 = entityBDO.Ma_01;
+            entityDAO.don_vi_tinh = entityBDO.DonViTinh;
+            entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
+            entityDAO.Thu_tu = entityBDO.ThuTu;
         }
         #endregion
     }

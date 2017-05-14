@@ -13,8 +13,8 @@ namespace TinhGiaInDAL.RepoTinhGia
         IEnumerable<CanPhuBDO> LayTatCa();
 
         CanPhuBDO LayTheoId(int iD);
-        void Them(CanPhuBDO entityBDO);
-        void Sua(CanPhuBDO entityBDO);
-        void Xoa(int iD);     
+        string Them(CanPhuBDO entityBDO);
+        string Sua(CanPhuBDO entityBDO);
+        string Xoa(int iD);     
     }
 }

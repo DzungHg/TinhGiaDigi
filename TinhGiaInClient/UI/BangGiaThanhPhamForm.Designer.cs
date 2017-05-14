@@ -41,6 +41,8 @@
             this.flowLayOut = new System.Windows.Forms.FlowLayoutPanel();
             this.lstSoLuongTinh = new Telerik.WinControls.UI.RadListControl();
             this.btnXoaBang = new Telerik.WinControls.UI.RadButton();
+            this.btnRefreshDaySoLuong = new Telerik.WinControls.UI.RadButton();
+            this.chkLuuSoLuong = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpHangKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
@@ -53,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDonViTinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstSoLuongTinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaBang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRefreshDaySoLuong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkLuuSoLuong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,10 +71,12 @@
             // 
             // drpHangKH
             // 
+            this.drpHangKH.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             this.drpHangKH.Location = new System.Drawing.Point(520, 54);
             this.drpHangKH.Name = "drpHangKH";
             this.drpHangKH.Size = new System.Drawing.Size(125, 20);
             this.drpHangKH.TabIndex = 4;
+            this.drpHangKH.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.drpHangKH_SelectedIndexChanged);
             // 
             // radLabel3
             // 
@@ -83,7 +89,7 @@
             // btnDong
             // 
             this.btnDong.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnDong.Location = new System.Drawing.Point(282, 354);
+            this.btnDong.Location = new System.Drawing.Point(273, 360);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(110, 24);
             this.btnDong.TabIndex = 5;
@@ -93,30 +99,33 @@
             // 
             this.txtDaySoLuong.Location = new System.Drawing.Point(137, 84);
             this.txtDaySoLuong.Name = "txtDaySoLuong";
-            this.txtDaySoLuong.Size = new System.Drawing.Size(322, 20);
+            this.txtDaySoLuong.Size = new System.Drawing.Size(329, 20);
             this.txtDaySoLuong.TabIndex = 6;
+            this.txtDaySoLuong.TextChanged += new System.EventHandler(this.txtDaySoLuong_TextChanged);
             // 
             // lblTieuDeDaySoLuong
             // 
-            this.lblTieuDeDaySoLuong.Location = new System.Drawing.Point(157, 62);
+            this.lblTieuDeDaySoLuong.Location = new System.Drawing.Point(137, 62);
             this.lblTieuDeDaySoLuong.Name = "lblTieuDeDaySoLuong";
-            this.lblTieuDeDaySoLuong.Size = new System.Drawing.Size(133, 18);
+            this.lblTieuDeDaySoLuong.Size = new System.Drawing.Size(147, 18);
             this.lblTieuDeDaySoLuong.TabIndex = 7;
-            this.lblTieuDeDaySoLuong.Text = "Dãy số lượng cần cách \";\"";
+            this.lblTieuDeDaySoLuong.Text = "Cấn ít nhất 2 số! vd: 100;101";
             // 
             // btnLuuSoLuongMacDinh
             // 
-            this.btnLuuSoLuongMacDinh.Location = new System.Drawing.Point(349, 56);
+            this.btnLuuSoLuongMacDinh.Enabled = false;
+            this.btnLuuSoLuongMacDinh.Location = new System.Drawing.Point(12, 316);
             this.btnLuuSoLuongMacDinh.Name = "btnLuuSoLuongMacDinh";
             this.btnLuuSoLuongMacDinh.Size = new System.Drawing.Size(110, 24);
             this.btnLuuSoLuongMacDinh.TabIndex = 9;
             this.btnLuuSoLuongMacDinh.Text = "Lưu lại Số lượng";
+            this.btnLuuSoLuongMacDinh.Click += new System.EventHandler(this.btnLuuSoLuongMacDinh_Click);
             // 
             // lstDichVuThanhPham
             // 
             this.lstDichVuThanhPham.Location = new System.Drawing.Point(11, 81);
             this.lstDichVuThanhPham.Name = "lstDichVuThanhPham";
-            this.lstDichVuThanhPham.Size = new System.Drawing.Size(120, 259);
+            this.lstDichVuThanhPham.Size = new System.Drawing.Size(120, 229);
             this.lstDichVuThanhPham.TabIndex = 10;
             this.lstDichVuThanhPham.Text = "radListControl1";
             this.lstDichVuThanhPham.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstDichVuThanhPham_SelectedIndexChanged);
@@ -139,9 +148,9 @@
             // 
             // flowLayOut
             // 
-            this.flowLayOut.Location = new System.Drawing.Point(273, 110);
+            this.flowLayOut.Location = new System.Drawing.Point(263, 110);
             this.flowLayOut.Name = "flowLayOut";
-            this.flowLayOut.Size = new System.Drawing.Size(372, 230);
+            this.flowLayOut.Size = new System.Drawing.Size(382, 230);
             this.flowLayOut.TabIndex = 11;
             // 
             // lstSoLuongTinh
@@ -154,18 +163,38 @@
             // 
             // btnXoaBang
             // 
-            this.btnXoaBang.Location = new System.Drawing.Point(535, 84);
+            this.btnXoaBang.Location = new System.Drawing.Point(535, 82);
             this.btnXoaBang.Name = "btnXoaBang";
             this.btnXoaBang.Size = new System.Drawing.Size(110, 24);
             this.btnXoaBang.TabIndex = 10;
             this.btnXoaBang.Text = "Xóa bảng";
             this.btnXoaBang.Click += new System.EventHandler(this.btnXoaBang_Click);
             // 
+            // btnRefreshDaySoLuong
+            // 
+            this.btnRefreshDaySoLuong.Location = new System.Drawing.Point(472, 82);
+            this.btnRefreshDaySoLuong.Name = "btnRefreshDaySoLuong";
+            this.btnRefreshDaySoLuong.Size = new System.Drawing.Size(42, 24);
+            this.btnRefreshDaySoLuong.TabIndex = 10;
+            this.btnRefreshDaySoLuong.Text = "R";
+            this.btnRefreshDaySoLuong.Click += new System.EventHandler(this.btnRefreshDaySoLuong_Click);
+            // 
+            // chkLuuSoLuong
+            // 
+            this.chkLuuSoLuong.Location = new System.Drawing.Point(372, 62);
+            this.chkLuuSoLuong.Name = "chkLuuSoLuong";
+            this.chkLuuSoLuong.Size = new System.Drawing.Size(85, 18);
+            this.chkLuuSoLuong.TabIndex = 13;
+            this.chkLuuSoLuong.Text = "Lưu số lượng";
+            this.chkLuuSoLuong.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.chkLuuSoLuong_ToggleStateChanged);
+            // 
             // BangGiaThanhPhamForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 396);
+            this.Controls.Add(this.chkLuuSoLuong);
+            this.Controls.Add(this.btnRefreshDaySoLuong);
             this.Controls.Add(this.btnXoaBang);
             this.Controls.Add(this.lstSoLuongTinh);
             this.Controls.Add(this.flowLayOut);
@@ -185,6 +214,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "BangGiaThanhPhamForm";
+            this.Resize += new System.EventHandler(this.BangGiaThanhPhamForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpHangKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
@@ -197,6 +227,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDonViTinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstSoLuongTinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaBang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRefreshDaySoLuong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkLuuSoLuong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -218,5 +250,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayOut;
         private Telerik.WinControls.UI.RadListControl lstSoLuongTinh;
         private Telerik.WinControls.UI.RadButton btnXoaBang;
+        private Telerik.WinControls.UI.RadButton btnRefreshDaySoLuong;
+        private Telerik.WinControls.UI.RadCheckBox chkLuuSoLuong;
     }
 }

@@ -76,7 +76,7 @@ public QuanLyDanhMucGiayForm()
                     DanhMucGiayForm frm = new DanhMucGiayForm();
                     frm.MaximizeBox = false;
                     frm.MinimizeBox = false;
-                    frm.TinhTrangForm = (int)Enumss.FormState.New;
+                    frm.TinhTrangForm = (int)FormStates.New;
                     frm.IdDanhMucgiay = 0;
                     frm.TenDanhMuc = "Cần tên danh mục";
                     frm.TenNhaCungCapChon = lbxNhaCungCap.Text;
@@ -94,7 +94,7 @@ public QuanLyDanhMucGiayForm()
                         frm.IdDanhMucgiay = int.Parse(lvwDanhMucGiay.SelectedItems[0].Text);
                         frm.MaximizeBox = false;
                         frm.MinimizeBox = false;
-                        frm.TinhTrangForm = (int)Enumss.FormState.Edit;
+                        frm.TinhTrangForm = (int)FormStates.Edit;
                         frm.IdDanhMucgiay = IdDanhMucGiayChon;
                         frm.TenDanhMuc = lvwDanhMucGiay.SelectedItems[0].SubItems[1].Text;
                         frm.TenNhaCungCapChon = lbxNhaCungCap.Text;
@@ -157,7 +157,7 @@ public QuanLyDanhMucGiayForm()
             LoadDanhMucGiay();
             switch (FormState)
             {
-                case (int)Enumss.FormState.View:
+                case (int)FormStates.View:
                     btnClose.Text = "Chọn";
                     break;
             }

@@ -95,7 +95,7 @@ namespace TinhGiaInNhapLieu
 
         private void cmnuThem_Click(object sender, EventArgs e)
         {
-            MarkUpLoiNhuanGiayForm frm = new MarkUpLoiNhuanGiayForm((int)Enumss.FormState.New);
+            MarkUpLoiNhuanGiayForm frm = new MarkUpLoiNhuanGiayForm((int)FormStates.New);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Lợi nhuận theo";
@@ -113,7 +113,7 @@ namespace TinhGiaInNhapLieu
         {
             if (this.IdDanhMucGiayChon <= 0 || this.IdHangKHChon <= 0)
                 return;
-            MarkUpLoiNhuanGiayForm frm = new MarkUpLoiNhuanGiayForm((int)Enumss.FormState.Edit);
+            MarkUpLoiNhuanGiayForm frm = new MarkUpLoiNhuanGiayForm((int)FormStates.Edit);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Lợi nhuận theo";

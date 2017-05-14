@@ -23,8 +23,8 @@ namespace TinhGiaInClient.Model
         public string TenHangKH { get; set; }
         public CauHinhSanPham CauHinhSP { get; set; }
         public GiayDeIn GiayDeInIn { get; set; }
-        private List<GiaIn> _giaInS;
-        public List<GiaIn> GiaInS
+        private List<MucTinGiaIn> _giaInS;
+        public List<MucTinGiaIn> GiaInS
         {
             get { return _giaInS; }
             set { _giaInS = value;}
@@ -61,7 +61,7 @@ namespace TinhGiaInClient.Model
         public BaiIn(string tenBai)
         {
             _mucTPs = new List<MucThanhPham>();
-            _giaInS = new List<GiaIn>();
+            _giaInS = new List<MucTinGiaIn>();
             //---
             this.TieuDe = tenBai;
             _lastId +=1;
@@ -78,11 +78,11 @@ namespace TinhGiaInClient.Model
            return this.ThanhPhamS.Count();
        }
         #region thêm sửa, xóa giá In
-        public void Them_GiaIn(GiaIn giaIn)
+        public void Them_GiaIn(MucTinGiaIn giaIn)
        {
            _giaInS.Add(giaIn);
        }
-        public void Sua_GiaIn (GiaIn giaIn)
+        public void Sua_GiaIn (MucTinGiaIn giaIn)
         {
             var giaInSua = this.GiaInS.Find(x => x.ID == giaIn.ID);
             giaInSua.IdBaiIn = giaIn.IdBaiIn;
@@ -92,11 +92,11 @@ namespace TinhGiaInClient.Model
             giaInSua.TienIn = giaIn.TienIn;
 
         }
-        public void Xoa_GiaIn (GiaIn giaIn)
+        public void Xoa_GiaIn (MucTinGiaIn giaIn)
         {
             this.GiaInS.Remove(giaIn);
         }
-        public GiaIn DocGiaInTheoID (int idGiaIn)
+        public MucTinGiaIn DocGiaInTheoID (int idGiaIn)
         {
             return this.GiaInS.Find(x => x.ID == idGiaIn);
         }
@@ -189,7 +189,7 @@ namespace TinhGiaInClient.Model
             }
             //Chi tiết in và Tính in
             var tenPPIn = "";
-            foreach(GiaIn giaIn in this.GiaInS)
+            foreach(MucTinGiaIn giaIn in this.GiaInS)
             {
                 tenPPIn += giaIn.TenPhuongPhapIn + ",";
             }

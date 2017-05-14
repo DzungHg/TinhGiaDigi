@@ -59,7 +59,7 @@ namespace TinhGiaInClient.Model
                         khoMayIn = OffsetGiaCong.DocTheoId(this.IdMayIn).TenKhoIn;
                         break;
                     case (int)Enumss.PhuongPhapIn.Toner:
-                        khoMayIn = ToChayDigi.DocTheoId(this.IdMayIn).Ten;
+                        khoMayIn = ToInMayDigi.DocTheoId(this.IdMayIn).Ten;
                         break;
                     default:
                         khoMayIn = "";

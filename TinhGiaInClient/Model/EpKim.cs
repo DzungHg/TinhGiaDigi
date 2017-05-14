@@ -57,6 +57,13 @@ namespace TinhGiaInClient.Model
             }
             return canPhu;
         }
+        public static string Sua(EpKim canGap)
+        {
+            var epKimLogic = new EpKimLogic();
+            var itemBDO = new EpKimBDO();
+            ChuyenDoiEpKimDTOThanhBDO(canGap, itemBDO);
+            return epKimLogic.Sua(itemBDO);
+        }
         private static void ChuyenDoiEpKimBDOThanhDTO(EpKimBDO epKimBDO, EpKim epKimDTO)
         {
             epKimDTO.ID = epKimBDO.ID;

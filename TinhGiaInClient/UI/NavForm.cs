@@ -23,6 +23,8 @@ namespace TinhGiaInClient.UI
         LietKeTinhGiaForm frmLietKeTinhGia;
         BangGiaGiayForm frmBangGiaGiay;
         BangGiaThanhPhamForm frmBangGiaThanhPham;
+        BangGiaInNhanhForm frmBangGiaInNhanh;
+        BangGiaInNhanhMayForm frmBangGiaInNhanhMay;
         private string TenMayTinhHienTai()
         {
             return System.Environment.MachineName;
@@ -69,6 +71,10 @@ namespace TinhGiaInClient.UI
                     frmBangGiaGiay = null;
                 if (frm == frmBangGiaThanhPham)
                     frmBangGiaThanhPham = null;
+                if (frm == frmBangGiaInNhanh)
+                    frmBangGiaInNhanh = null;
+                if (frm == frmBangGiaInNhanhMay)
+                    frmBangGiaInNhanhMay = null;
             }
            
                 
@@ -114,11 +120,41 @@ namespace TinhGiaInClient.UI
             if (frmBangGiaThanhPham == null)
             {
                 frmBangGiaThanhPham = new BangGiaThanhPhamForm();
+                frmBangGiaThanhPham.MinimizeBox = false;
+                frmBangGiaThanhPham.MaximizeBox = false;                
                 frmBangGiaThanhPham.FormClosed += new FormClosedEventHandler(ByByWindows);
                 frmBangGiaThanhPham.Show();
 
             }
             else frmBangGiaThanhPham.Focus();
+        }
+
+        private void btnBangGiaInNhanh_Click(object sender, EventArgs e)
+        {
+            if (frmBangGiaInNhanh == null)
+            {
+                frmBangGiaInNhanh = new BangGiaInNhanhForm();
+                frmBangGiaInNhanh.MinimizeBox = false;
+                frmBangGiaInNhanh.MaximizeBox = false;
+                frmBangGiaInNhanh.FormClosed += new FormClosedEventHandler(ByByWindows);
+                frmBangGiaInNhanh.Show();
+
+            }
+            else frmBangGiaInNhanh.Focus();
+        }
+
+        private void btnInNhanhTheoMay_Click(object sender, EventArgs e)
+        {
+            if (frmBangGiaInNhanhMay == null)
+            {
+                frmBangGiaInNhanhMay = new BangGiaInNhanhMayForm();
+                frmBangGiaInNhanhMay.MinimizeBox = false;
+                frmBangGiaInNhanhMay.MaximizeBox = false;
+                frmBangGiaInNhanhMay.FormClosed += new FormClosedEventHandler(ByByWindows);
+                frmBangGiaInNhanhMay.Show();
+
+            }
+            else frmBangGiaInNhanhMay.Focus();
         }
     }
 }

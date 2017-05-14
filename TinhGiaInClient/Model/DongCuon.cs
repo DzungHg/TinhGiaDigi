@@ -51,6 +51,15 @@ namespace TinhGiaInClient.Model
             }
             return dongCuon;
         }
+        #region Thêm sủa xóa
+        public static string Sua(DongCuon canGap)
+        {
+            var dongCuonLogic = new DongCuonLogic();
+            var itemBDO = new DongCuonBDO();
+            ChuyenDoiGiayDTOThanhBDO(canGap, itemBDO);
+            return dongCuonLogic.Sua(itemBDO);
+        }
+        #endregion
         private static void ChuyenDoiGiayBDOThanhDTO(DongCuonBDO dongCuonBDO, DongCuon dongCuonDTO)
         {
             dongCuonDTO.ID = dongCuonBDO.ID;
@@ -65,6 +74,20 @@ namespace TinhGiaInClient.Model
             dongCuonDTO.DaySoLuongNiemYet = dongCuonBDO.DaySoLuongNiemYet;
             dongCuonDTO.DonViTinh = dongCuonBDO.DonViTinh;
             dongCuonDTO.ThuTu = dongCuonBDO.ThuTu;
+        }
+        private static void ChuyenDoiGiayDTOThanhBDO(DongCuon dongCuonDTO, DongCuonBDO dongCuonBDO)
+        {
+            dongCuonBDO.ID = dongCuonDTO.ID;
+            dongCuonBDO.Ten = dongCuonDTO.Ten;
+            dongCuonBDO.BHR = dongCuonDTO.BHR;
+            dongCuonBDO.TocDoCuonGio = dongCuonDTO.TocDoCuonGio;
+            dongCuonBDO.ThoiGianChuanBi = dongCuonDTO.ThoiGianChuanBi;
+            dongCuonBDO.DayLoiNhuan = dongCuonDTO.DayLoiNhuan;
+            dongCuonBDO.DaySoLuong = dongCuonDTO.DaySoLuong;
+            dongCuonBDO.Ma_01 = dongCuonDTO.Ma_01;
+            dongCuonBDO.DonViTinh = dongCuonDTO.DonViTinh;
+            dongCuonBDO.DaySoLuongNiemYet = dongCuonDTO.DaySoLuongNiemYet;
+            dongCuonBDO.ThuTu = dongCuonDTO.ThuTu;
         }
     }
    

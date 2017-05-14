@@ -9,11 +9,11 @@ namespace TinhGiaInDAL.RepoTinhGia
 {
     interface IToChayDigiDAO
     {
-        IEnumerable<ToChayDigiBDO> LayTatCa();
-        ToChayDigiBDO LayTheoId(int iD);
-        void Them(ToChayDigiBDO entityBDO);
-        void Sua(ToChayDigiBDO entityBDO);
-        void Xoa(int iD);     
+        IEnumerable<ToInMayDigiBDO> LayTatCa();
+        ToInMayDigiBDO LayTheoId(int iD);
+        bool Them(ToInMayDigiBDO entityBDO);
+        bool Sua( ref string thongDiep, ToInMayDigiBDO entityBDO);
+        bool Xoa(int iD);     
         
     }
 }

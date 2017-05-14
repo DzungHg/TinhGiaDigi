@@ -10,16 +10,20 @@ namespace TinhGiaInLogic
 {
     public class CanPhuLogic
     {
-        CanPhuDAO dMucGiayDAO = new CanPhuDAO();
+        CanPhuDAO canPhuDAO = new CanPhuDAO();
         public List<CanPhuBDO> LayTatCa()
         {
-            var nguon = dMucGiayDAO.LayTatCa();
+            var nguon = canPhuDAO.LayTatCa();
             return nguon.ToList();
         }
 
         public CanPhuBDO LayTheoId(int iD)
         {
-            return dMucGiayDAO.LayTheoId(iD);
+            return canPhuDAO.LayTheoId(iD);
+        }
+        public string Sua(CanPhuBDO canPhuBDO)
+        {
+            return canPhuDAO.Sua(canPhuBDO);
         }
     }
 }

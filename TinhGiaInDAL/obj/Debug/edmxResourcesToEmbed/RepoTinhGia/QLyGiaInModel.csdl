@@ -120,6 +120,7 @@
     <Property Name="Kho_to_chay_co_the_in" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Day_so_luong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Day_loi_nhuan" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="MAY_IN_DIGI">
     <Key>
@@ -167,6 +168,7 @@
     <NavigationProperty Name="HANG_KHACH_HANG" Relationship="QuanLyGiaInModel.FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG" FromRole="BANG_GIA_IN_NHANH" ToRole="HANG_KHACH_HANG" />
     <Property Name="so_trang_toi_da" Type="Int32" />
     <Property Name="noi_dung_bang_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="HANG_KHACH_HANG">
     <Key>

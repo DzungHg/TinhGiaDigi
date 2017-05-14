@@ -32,6 +32,7 @@
     <Property Name="ID_HANG_KHACH_HANG" Type="int" />
     <Property Name="so_trang_toi_da" Type="int" />
     <Property Name="khong_su_dung" Type="bit" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="CAN_GAP">
     <Key>
@@ -274,6 +275,7 @@
     <Property Name="Kho_to_chay_co_the_in" Type="nvarchar" MaxLength="100" />
     <Property Name="Day_so_luong" Type="nvarchar" MaxLength="200" />
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="200" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="YEU_CAU_TINH_GIA_IN">

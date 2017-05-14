@@ -28,7 +28,7 @@ namespace TinhGiaInNhapLieu.Presenter
         {
             switch (View.TinhTrangForm)
             {
-                case (int)Enumss.FormState.New:
+                case (int)FormStates.New:
                     View.DinhLuong = 0;
                     View.KhoGiay = "Khổ";
                     View.DienGiai = "Diễn giải";
@@ -45,7 +45,7 @@ namespace TinhGiaInNhapLieu.Presenter
                     //View.TenDanhMucGiayChon = DanhMucGiay.DocTheoId(View.IdDanhMucGiay).Ten;
                     break;
 
-                case (int)Enumss.FormState.Edit:
+                case (int)FormStates.Edit:
                     var giay = Giay.DocGiayTheoId(View.IdGiay);
                     View.MaGiayNhaCungCap = giay.MaGiayNCC;
                     View.MaTuDat = giay.MaGiayTuDat;
@@ -111,10 +111,10 @@ namespace TinhGiaInNhapLieu.Presenter
             string thongDiep = "";
             switch (View.TinhTrangForm)
             {
-                case (int)Enumss.FormState.New:
+                case (int)FormStates.New:
                     thongDiep = Giay.Them(giay);
                     break;
-                case (int)Enumss.FormState.Edit:
+                case (int)FormStates.Edit:
                     thongDiep = Giay.Sua(giay);
                     break;
             }

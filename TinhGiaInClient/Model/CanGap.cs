@@ -49,6 +49,13 @@ namespace TinhGiaInClient.Model
             }
             return canPhu;
         }
+        public static string Sua(CanGap canGap)
+        {
+            CanGapLogic canGapLogic = new CanGapLogic();
+            var itemBDO = new CanGapBDO();
+            ChuyenDoiGiayDTOThanhBDO(canGap, itemBDO);
+            return canGapLogic.Sua(itemBDO);
+        }
         private static void ChuyenDoiGiayBDOThanhDTO(CanGapBDO canGapBDO, CanGap canGapDTO)
         {
             canGapDTO.ID = canGapBDO.ID;
@@ -62,6 +69,20 @@ namespace TinhGiaInClient.Model
             canGapDTO.DonViTinh = canGapBDO.DonViTinh;
             canGapDTO.DaySoLuongNiemYet = canGapBDO.DaySoLuongNiemYet;
             canGapDTO.ThuTu = canGapBDO.ThuTu;
+        }
+        private static void ChuyenDoiGiayDTOThanhBDO(CanGap canGapDTO, CanGapBDO canGapBDO)
+        {
+            canGapBDO.ID = canGapDTO.ID;
+            canGapBDO.Ten = canGapDTO.Ten;
+            canGapBDO.BHR = canGapDTO.BHR;
+            canGapBDO.TocDoConGio = canGapDTO.TocDoConGio;
+            canGapBDO.ThoiGianChuanBi = canGapDTO.ThoiGianChuanBi;
+            canGapBDO.DayLoiNhuan = canGapDTO.DayLoiNhuan;
+            canGapBDO.DaySoLuong = canGapDTO.DaySoLuong;
+            canGapBDO.Ma_01 = canGapDTO.Ma_01;
+            canGapBDO.DonViTinh = canGapDTO.DonViTinh;
+            canGapBDO.DaySoLuongNiemYet = canGapDTO.DaySoLuongNiemYet;
+            canGapBDO.ThuTu = canGapDTO.ThuTu;
         }
     }
    

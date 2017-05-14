@@ -10,6 +10,7 @@ namespace TinhGiaInClient
     public enum SapXepTinhGia { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoTieuDe = 3 }
     public enum ChieuSapXep { Ascending = 0, Descending = 1 }
     public enum LoaiThanhPham { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4, Be = 5 }
+    public enum MauIn { BonMau = 0, MotMau = 1, SauMau = 2 }
     public static class Enumss
     {
 
@@ -20,7 +21,7 @@ namespace TinhGiaInClient
         public enum BindingType { None = 0, Saddle = 1, Perfect = 2, Wire = 3, Pur = 4 }
         public enum BindingOption { NoneTrim = 0, FrontTrim = 1, ThreeFrontTrim = 2 }
         public enum PrintSides { FourFour = 1, FourOne = 2, FourZero = 3, OneOne = 4, OneZero = 5 }
-        public enum MauIn { BonMau = 0, MotMau = 1, SauMau = 2}
+        
         public enum LoaiBangGia { InNhanh = 0, InNhanhTheoMay = 1, InOffset = 2, InKhoLon = 3 }
         public enum PhuongPhapIn { Toner = 1, HPIndigo = 2, Offset = 3, KhoLon = 4, KhongIn = 0}
         

@@ -72,7 +72,7 @@ namespace TinhGiaInClient.Model
                 switch (this.IdPhapIn)
                 {
                     case (int)Enumss.PhuongPhapIn.Toner:
-                        var toChayDigi = ToChayDigi.DocTheoId(this.IdMayIn);
+                        var toChayDigi = ToInMayDigi.DocTheoId(this.IdMayIn);
                         str += "**In Nhanh: " + '\r' + '\n';
                         str += string.Format("Khổ chạy Max: {0} x {1}cm",
                             toChayDigi.Rong, toChayDigi.Cao) + '\r' + '\n';

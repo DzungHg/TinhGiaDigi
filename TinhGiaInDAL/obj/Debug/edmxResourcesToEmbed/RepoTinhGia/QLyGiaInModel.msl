@@ -46,6 +46,7 @@
     <EntitySetMapping Name="TO_IN_MAY_DIGI">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.TO_IN_MAY_DIGI">
         <MappingFragment StoreEntitySet="TO_IN_MAY_DIGI">
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
           <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
           <ScalarProperty Name="Kho_to_chay_co_the_in" ColumnName="Kho_to_chay_co_the_in" />
@@ -91,6 +92,7 @@
     <EntitySetMapping Name="BANG_GIA_IN_NHANH">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_IN_NHANH">
         <MappingFragment StoreEntitySet="BANG_GIA_IN_NHANH">
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="noi_dung_bang_gia" ColumnName="noi_dung_bang_gia" />
           <ScalarProperty Name="so_trang_toi_da" ColumnName="so_trang_toi_da" />
           <ScalarProperty Name="ID_HANG_KHACH_HANG" ColumnName="ID_HANG_KHACH_HANG" />

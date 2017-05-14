@@ -34,6 +34,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string Kho_to_chay_co_the_in { get; set; }
         public string Day_so_luong { get; set; }
         public string Day_loi_nhuan { get; set; }
+        public string day_so_luong_niem_yet { get; set; }
     
         public virtual MAY_IN_DIGI MAY_IN_DIGI { get; set; }
     }

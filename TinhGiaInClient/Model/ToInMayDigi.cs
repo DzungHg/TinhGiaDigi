@@ -8,7 +8,7 @@ using TinhGiaInLogic;
 
 namespace TinhGiaInClient.Model
 {
-    public class ToChayDigi
+    public class ToInMayDigi
     {
         #region Lớp thật
         public int ID { get; set; }
@@ -34,13 +34,14 @@ namespace TinhGiaInClient.Model
         public string KhoToChayCoTheIn { get; set; }
         public string DaySoLuong { get; set; }
         public string DayLoiNhuan { get; set; }
+        public string DaySoLuongNiemYet { get; set; }
         public int ThuTu { get; set; }        
         #endregion
         //Các hàm static
-        public static List<ToChayDigi> DocTatCa()
+        public static List<ToInMayDigi> DocTatCa()
         {
             var toChayDigiLogic = new ToChayDigiLogic();
-            var nguon = toChayDigiLogic.DocTatCa().Select(x => new ToChayDigi
+            var nguon = toChayDigiLogic.DocTatCa().Select(x => new ToInMayDigi
             {
                 ID = x.ID,
                 Ten = x.Ten,
@@ -64,30 +65,38 @@ namespace TinhGiaInClient.Model
                 ThoiGianDuLieuBienDoi = (float)x.ThoiGianDuLieuBienDoi,
                 DaySoLuong = x.DaySoLuong,
                 DayLoiNhuan = x.DayLoiNhuan,
+                DaySoLuongNiemYet = x.DaySoLuongNiemYet,
                 ThuTu = (int)x.ThuTu
             }).OrderBy(x => x.ThuTu);
 
             return nguon.ToList() ;
         }
          
-        public static ToChayDigi DocTheoId(int idToDigi)
+        public static ToInMayDigi DocTheoId(int idToDigi)
         {
             var toChayDigiLogic = new ToChayDigiLogic();   
             //
-            ToChayDigi toChayDTO = new ToChayDigi();
+            ToInMayDigi toChayDTO = new ToInMayDigi();
             try
             {
                 var toChayBDO = toChayDigiLogic.DocTheoId(idToDigi);
                 //Chuyen
-                ToChayDigi.ChuyenBDOThanhDTO(toChayBDO, toChayDTO);
+                ToInMayDigi.ChuyenBDOThanhDTO(toChayBDO, toChayDTO);
             }
             catch
             {
             }
             return toChayDTO;
         }
+        public static bool Sua (ref string thongDiep, ToInMayDigi toInMayDigi)
+        {
+            var toInMayDigiLogic = new ToChayDigiLogic();
+            var itemBDO = new ToInMayDigiBDO();
+            ChuyenDTOThanhBDO(toInMayDigi, itemBDO);
+            return toInMayDigiLogic.Sua(ref thongDiep, itemBDO);
+        }
         //--Hàm Chuyển
-        private static void ChuyenBDOThanhDTO(ToChayDigiBDO toChayDigiBDO, ToChayDigi toChayDigiDTO)
+        private static void ChuyenBDOThanhDTO(ToInMayDigiBDO toChayDigiBDO, ToInMayDigi toChayDigiDTO)
         {
             toChayDigiDTO.ID = toChayDigiBDO.ID;
             toChayDigiDTO.Ten = toChayDigiBDO.Ten;
@@ -109,11 +118,12 @@ namespace TinhGiaInClient.Model
             toChayDigiDTO.ThoiGianSanSang = toChayDigiBDO.ThoiGianSanSang;
             toChayDigiDTO.PhiPhePhamSanSang = toChayDigiBDO.PhiPhePhamSanSang;
             toChayDigiDTO.ThoiGianDuLieuBienDoi = toChayDigiBDO.ThoiGianDuLieuBienDoi;
-            toChayDigiDTO.DaySoLuong = toChayDigiDTO.DaySoLuong;
-            toChayDigiDTO.DayLoiNhuan = toChayDigiDTO.DayLoiNhuan;
+            toChayDigiDTO.DaySoLuong = toChayDigiBDO.DaySoLuong;
+            toChayDigiDTO.DayLoiNhuan = toChayDigiBDO.DayLoiNhuan;
+            toChayDigiDTO.DaySoLuongNiemYet = toChayDigiBDO.DaySoLuongNiemYet;
             toChayDigiDTO.ThuTu = toChayDigiBDO.ThuTu;
         }
-        private static void ChuyenDTOThanhBDO(ToChayDigi toChayDigiDTO, ToChayDigiBDO toChayDigiBDO)
+        private static void ChuyenDTOThanhBDO(ToInMayDigi toChayDigiDTO, ToInMayDigiBDO toChayDigiBDO)
         {
             toChayDigiBDO.ID = toChayDigiDTO.ID;
             toChayDigiBDO.Ten = toChayDigiDTO.Ten;
@@ -137,6 +147,7 @@ namespace TinhGiaInClient.Model
             toChayDigiBDO.ThoiGianDuLieuBienDoi = toChayDigiDTO.ThoiGianDuLieuBienDoi;
             toChayDigiBDO.DaySoLuong = toChayDigiBDO.DaySoLuong;
             toChayDigiBDO.DayLoiNhuan = toChayDigiBDO.DayLoiNhuan;
+            toChayDigiBDO.DaySoLuongNiemYet = toChayDigiDTO.DaySoLuongNiemYet;
             toChayDigiBDO.ThuTu = toChayDigiDTO.ThuTu;
         }
         #region Tính phí giá

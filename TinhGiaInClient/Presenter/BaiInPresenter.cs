@@ -71,7 +71,7 @@ namespace TinhGiaInClient.Presenter
       
 
         #region Phần giá In
-        public List<GiaIn> GiaInS()
+        public List<MucTinGiaIn> GiaInS()
         {
             return baiIn.GiaInS;
         }
@@ -80,7 +80,7 @@ namespace TinhGiaInClient.Presenter
             var dict = new Dictionary<int, List<string>>();
             var donViTrang = "";
             var phuongPhapIn = "";
-            foreach (GiaIn giaIn in this.GiaInS())
+            foreach (MucTinGiaIn giaIn in this.GiaInS())
             {
                 var lst = new List<string>();
                 lst.Add(giaIn.IdBaiIn.ToString());
@@ -111,11 +111,11 @@ namespace TinhGiaInClient.Presenter
             }
             return dict;
         }
-        public void ThemGiaIn(GiaIn giaIn)
+        public void ThemGiaIn(MucTinGiaIn giaIn)
         {
             baiIn.Them_GiaIn(giaIn);
         }
-        public void SuaGiaIn(GiaIn giaIn)
+        public void SuaGiaIn(MucTinGiaIn giaIn)
         {
             baiIn.Sua_GiaIn(giaIn);
         }
@@ -128,7 +128,7 @@ namespace TinhGiaInClient.Presenter
         {
             baiIn.XoaTatCa_GiaIn();
         }
-        public GiaIn LayGiaInTheoId(int idGiaIn)
+        public MucTinGiaIn LayGiaInTheoId(int idGiaIn)
         {
             return baiIn.DocGiaInTheoID(idGiaIn);
         }

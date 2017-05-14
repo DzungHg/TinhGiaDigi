@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model
 {
-    public class GiaIn
+    public class MucTinGiaIn
     {
         static int _prevId = 0;
         public int ID { get; set; }
@@ -26,7 +26,7 @@ namespace TinhGiaInClient.Model
                 return _giaTBTrang;
             }
         }
-        public GiaIn(int phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
+        public MucTinGiaIn(int phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
             decimal tienIn, string giaTBTrang)
         {
             
@@ -50,7 +50,7 @@ namespace TinhGiaInClient.Model
                     switch (this.PhuongPhapIn)
                     {
                         case (int)Enumss.PhuongPhapIn.Toner:
-                            _dienGiaiMayIn = ToChayDigi.DocTheoId(IdMayIn_IdBangGia).Ten;
+                            _dienGiaiMayIn = ToInMayDigi.DocTheoId(IdMayIn_IdBangGia).Ten;
                             break;
                         case (int)Enumss.PhuongPhapIn.Offset:
                             _dienGiaiMayIn = OffsetGiaCong.DocTheoId(IdMayIn_IdBangGia).Ten;

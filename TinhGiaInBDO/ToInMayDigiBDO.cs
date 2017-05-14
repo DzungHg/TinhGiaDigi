@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInBDO
 {
-    public class ToChayDigiBDO
+    public class ToInMayDigiBDO
     {
         public int ID { get; set; }
         public string Ten { get; set; }
@@ -31,6 +31,7 @@ namespace TinhGiaInBDO
         public string KhoToChayCoTheIn { get; set; }
         public string DaySoLuong { get; set; }
         public string DayLoiNhuan { get; set; }
+        public string DaySoLuongNiemYet { get; set; } 
         public int ThuTu { get; set; }
     }
 }

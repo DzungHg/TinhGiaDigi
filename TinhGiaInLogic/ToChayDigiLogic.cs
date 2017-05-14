@@ -11,14 +11,18 @@ namespace TinhGiaInLogic
     public class ToChayDigiLogic
     {
         ToChayDigiDAO toChayDigiDAO = new ToChayDigiDAO();
-        public List<ToChayDigiBDO> DocTatCa()
+        public List<ToInMayDigiBDO> DocTatCa()
         {
             var nguon = toChayDigiDAO.LayTatCa();
             return nguon.ToList();
         }
-        public ToChayDigiBDO DocTheoId(int iD)
+        public ToInMayDigiBDO DocTheoId(int iD)
         {
             return toChayDigiDAO.LayTheoId(iD);
+        }
+        public bool Sua (ref string thongDiep, ToInMayDigiBDO toMayInDigi)
+        {
+            return toChayDigiDAO.Sua(ref thongDiep, toMayInDigi);
         }
     }
 }

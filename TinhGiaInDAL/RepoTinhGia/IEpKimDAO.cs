@@ -14,8 +14,8 @@ namespace TinhGiaInDAL.RepoTinhGia
 
 
         EpKimBDO DocTheoId(int iD);
-        void Them(EpKimBDO entityBDO);
-        void Sua(EpKimBDO entityBDO);
-        void Xoa(int iD);     
+        string Them(EpKimBDO entityBDO);
+        string Sua(EpKimBDO entityBDO);
+        string Xoa(int iD);     
     }
 }

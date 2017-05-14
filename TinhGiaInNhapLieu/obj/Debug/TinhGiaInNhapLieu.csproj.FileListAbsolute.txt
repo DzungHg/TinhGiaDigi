@@ -301,3 +301,30 @@ D:\C_Sharp Projects\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04\TinhGiaInNhapLieu\o
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp04_05\TinhGiaInNhapLieu\bin\Debug\TinhGiaInNhapLieu.exe.config
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp04_05\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.exe
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp04_05\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInNhapLieu.exe.config
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.exe
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.csprojResolveAssemblyReference.cache
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.GiayForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyGiayForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.NhapLieuMainForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.MarkUpLoiNhuanGiayForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.DanhMucGiayForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyDanhMucGiayForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyMarkUpLoiNhuanGiayForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.Properties.Resources.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.csproj.GenerateResource.Cache
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInNhapLieu.exe
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInNhapLieu.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\EntityFramework.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInClient.exe
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInLogic.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInBDO.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInDAL.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInClient.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInLogic.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\EntityFramework.xml
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInBDO.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TinhGiaInDAL.pdb

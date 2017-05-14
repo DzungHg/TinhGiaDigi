@@ -115,7 +115,7 @@ namespace TinhGiaInClient.Presenter
                 switch (ppIn)
                 {
                     case (int)Enumss.PhuongPhapIn.Toner:
-                        var toChay = ToChayDigi.DocTheoId(idToIn_MayIn);
+                        var toChay = ToInMayDigi.DocTheoId(idToIn_MayIn);
                         result = string.Format("{0} x {1}cm", toChay.Rong, toChay.Cao) ;
                         break;
                     case (int)Enumss.PhuongPhapIn.Offset:

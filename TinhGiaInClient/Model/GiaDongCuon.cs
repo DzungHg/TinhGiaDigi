@@ -49,7 +49,7 @@ namespace TinhGiaInClient.Model
             decimal result = 0;            
             decimal tyLeMK = (decimal)this.TyLeMarkUp / 100;
             result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
-            return result;
+            return Math.Round(result);
         }
         public decimal GiaTBTrenDonVi()
         {            
