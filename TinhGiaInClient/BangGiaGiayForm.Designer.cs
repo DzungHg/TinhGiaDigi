@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtDienGiaiHangKH = new System.Windows.Forms.TextBox();
             this.cboHangKhachHang = new System.Windows.Forms.ComboBox();
             this.lblTieuDeForm = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,7 +42,7 @@
             this.lvwGiay = new System.Windows.Forms.ListView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtDienGiaiHangKH = new System.Windows.Forms.TextBox();
+            this.btnNhan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitCont2)).BeginInit();
@@ -63,6 +64,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(641, 50);
             this.panel1.TabIndex = 0;
+            // 
+            // txtDienGiaiHangKH
+            // 
+            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(359, 11);
+            this.txtDienGiaiHangKH.Multiline = true;
+            this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
+            this.txtDienGiaiHangKH.ReadOnly = true;
+            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(269, 32);
+            this.txtDienGiaiHangKH.TabIndex = 6;
             // 
             // cboHangKhachHang
             // 
@@ -86,6 +96,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnNhan);
             this.panel2.Controls.Add(this.btnHuy);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 404);
@@ -96,7 +107,7 @@
             // btnHuy
             // 
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHuy.Location = new System.Drawing.Point(272, 5);
+            this.btnHuy.Location = new System.Drawing.Point(174, 5);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 0;
@@ -190,14 +201,15 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Giấy theo Danh mục và giá bán theo Hạng  KH";
             // 
-            // txtDienGiaiHangKH
+            // btnNhan
             // 
-            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(359, 11);
-            this.txtDienGiaiHangKH.Multiline = true;
-            this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
-            this.txtDienGiaiHangKH.ReadOnly = true;
-            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(269, 32);
-            this.txtDienGiaiHangKH.TabIndex = 6;
+            this.btnNhan.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnNhan.Location = new System.Drawing.Point(333, 5);
+            this.btnNhan.Name = "btnNhan";
+            this.btnNhan.Size = new System.Drawing.Size(75, 23);
+            this.btnNhan.TabIndex = 1;
+            this.btnNhan.Text = "Nhận";
+            this.btnNhan.UseVisualStyleBackColor = true;
             // 
             // BangGiaGiayForm
             // 
@@ -208,7 +220,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "BangGiaGiayForm";
-            this.Text = "ChuanBiGiayForm";
+            this.Text = "Bảng giá Giấy";
             this.Load += new System.EventHandler(this.ChuanBiGiayForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -241,6 +253,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboHangKhachHang;
         private System.Windows.Forms.TextBox txtDienGiaiHangKH;
+        private System.Windows.Forms.Button btnNhan;
 
     }
 }

@@ -16,19 +16,28 @@ namespace TinhGiaInClient
     public partial class BangGiaGiayForm : Form, IViewBangGiaGiay
     {
         BangGiaGiayPresenter bangGiaGiayPres;
-        public BangGiaGiayForm()
+        public BangGiaGiayForm(FormStates tinhTrangForm, int idHangKh = 0)
         {
             InitializeComponent();
+            this.TinhTrangForm = tinhTrangForm;
+            
             bangGiaGiayPres = new BangGiaGiayPresenter(this);
             LoadHangKhachHang();
+            this.IdHangKHChon = idHangKh;//Bẩy thử
             LoadNhaCungCapGiay();
           
         }
         #region Implement Iview..
-
+        int _idHangKH = 0;
         public int IdHangKHChon
         {
-            get { return int.Parse(cboHangKhachHang.SelectedValue.ToString()); }
+            get { _idHangKH = int.Parse(cboHangKhachHang.SelectedValue.ToString());
+                return _idHangKH; }
+            set { _idHangKH = value;
+                //Select combo 
+                if (_idHangKH > 0)
+                cboHangKhachHang.SelectedValue = _idHangKH;
+            }
         }
 
         int _idDanhMucGiayChon = 0;
@@ -52,8 +61,8 @@ namespace TinhGiaInClient
             get {return cboNhaCC.Text; }
             set { cboNhaCC.Text = value; }
         }
-       
-       
+
+        public FormStates TinhTrangForm { get; set; }
       
         #endregion
         public void LoadNhaCungCapGiay()
@@ -86,6 +95,17 @@ namespace TinhGiaInClient
             LoadNhaCungCapGiay();
 
             lblTieuDeForm.Text = this.Text;
+            switch (this.TinhTrangForm)
+            {
+                case FormStates.Get:
+                    btnNhan.Visible = true;
+                    cboHangKhachHang.Enabled = false;
+                    break;
+                default:
+                    btnNhan.Visible = false;
+                    cboHangKhachHang.Enabled = true;
+                    break;
+            }
         }
 
         private void cboNhaCC_SelectedIndexChanged(object sender, EventArgs e)

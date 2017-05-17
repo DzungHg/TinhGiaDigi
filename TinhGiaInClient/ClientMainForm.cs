@@ -288,7 +288,7 @@ namespace TinhGiaInClient
 
         private void mnuBangGiaGiay_Click(object sender, EventArgs e)
         {
-            BangGiaGiayForm frm = new BangGiaGiayForm();
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStates.View);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Bảng giá giấy theo hạng KH ";

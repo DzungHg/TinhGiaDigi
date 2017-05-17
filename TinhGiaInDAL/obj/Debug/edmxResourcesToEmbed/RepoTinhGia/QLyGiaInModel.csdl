@@ -40,7 +40,6 @@
       <End Role="DANH_MUC_GIAY" EntitySet="DANH_MUC_GIAY" />
       <End Role="GIAY" EntitySet="GIAYs" />
     </AssociationSet>
-    <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
     <EntitySet Name="CAN_PHU" EntityType="QuanLyGiaInModel.CAN_PHU" />
     <EntitySet Name="DONG_CUON" EntityType="QuanLyGiaInModel.DONG_CUON" />
     <EntitySet Name="EP_KIM" EntityType="QuanLyGiaInModel.EP_KIM" />
@@ -63,6 +62,7 @@
     <EntitySet Name="TINH_GIA_IN" EntityType="QuanLyGiaInModel.TINH_GIA_IN" />
     <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
     <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
+    <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -248,23 +248,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="CAN_GAP">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="BHR" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Toc_do_con" Type="Int32" />
-    <Property Name="Thoi_gian_chuan_bi" Type="Double" />
-    <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Thu_tu" Type="Int32" />
-    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="mot_duong_tang_tgcb" Type="Int32" />
-  </EntityType>
   <EntityType Name="CAN_PHU">
     <Key>
       <PropertyRef Name="ID" />
@@ -463,5 +446,22 @@
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="thu_tu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CAN_GAP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BHR" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Toc_do_con" Type="Int32" />
+    <Property Name="Thoi_gian_chuan_bi" Type="Double" />
+    <Property Name="mot_duong_tang_tgcb" Type="Double" />
+    <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Thu_tu" Type="Int32" />
   </EntityType>
 </Schema>

@@ -37,16 +37,16 @@
             this.splitCont2 = new System.Windows.Forms.SplitContainer();
             this.lbxDanhMucGiay = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnQuanLyDanhMuc = new System.Windows.Forms.Button();
             this.cboNhaCC = new System.Windows.Forms.ComboBox();
             this.lvwGiay = new System.Windows.Forms.ListView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.cmu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmuThemGiay = new System.Windows.Forms.ToolStripMenuItem();
             this.cmuSuaGiay = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.cmuXoaGiay = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnQuanLyDanhMuc = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitCont2)).BeginInit();
@@ -54,8 +54,8 @@
             this.splitCont2.Panel2.SuspendLayout();
             this.splitCont2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.cmu.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,6 +148,16 @@
             this.panel3.Size = new System.Drawing.Size(209, 39);
             this.panel3.TabIndex = 0;
             // 
+            // btnQuanLyDanhMuc
+            // 
+            this.btnQuanLyDanhMuc.Location = new System.Drawing.Point(3, 8);
+            this.btnQuanLyDanhMuc.Name = "btnQuanLyDanhMuc";
+            this.btnQuanLyDanhMuc.Size = new System.Drawing.Size(53, 23);
+            this.btnQuanLyDanhMuc.TabIndex = 3;
+            this.btnQuanLyDanhMuc.Text = "NCC...";
+            this.btnQuanLyDanhMuc.UseVisualStyleBackColor = true;
+            this.btnQuanLyDanhMuc.Click += new System.EventHandler(this.btnQuanLyDanhMuc_Click);
+            // 
             // cboNhaCC
             // 
             this.cboNhaCC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -167,6 +177,43 @@
             this.lvwGiay.Size = new System.Drawing.Size(428, 270);
             this.lvwGiay.TabIndex = 2;
             this.lvwGiay.UseCompatibleStateImageBehavior = false;
+            this.lvwGiay.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvwGiay_MouseDoubleClick);
+            // 
+            // cmu
+            // 
+            this.cmu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmuThemGiay,
+            this.cmuSuaGiay,
+            this.toolStripMenuItem1,
+            this.cmuXoaGiay});
+            this.cmu.Name = "cmu";
+            this.cmu.Size = new System.Drawing.Size(132, 76);
+            this.cmu.Opening += new System.ComponentModel.CancelEventHandler(this.cmu_Opening);
+            // 
+            // cmuThemGiay
+            // 
+            this.cmuThemGiay.Name = "cmuThemGiay";
+            this.cmuThemGiay.Size = new System.Drawing.Size(131, 22);
+            this.cmuThemGiay.Text = "Thêm Giấy";
+            this.cmuThemGiay.Click += new System.EventHandler(this.cmuThemGiay_Click);
+            // 
+            // cmuSuaGiay
+            // 
+            this.cmuSuaGiay.Name = "cmuSuaGiay";
+            this.cmuSuaGiay.Size = new System.Drawing.Size(131, 22);
+            this.cmuSuaGiay.Text = "Sửa Giấy";
+            this.cmuSuaGiay.Click += new System.EventHandler(this.cmuSuaGiay_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(128, 6);
+            // 
+            // cmuXoaGiay
+            // 
+            this.cmuXoaGiay.Name = "cmuXoaGiay";
+            this.cmuXoaGiay.Size = new System.Drawing.Size(131, 22);
+            this.cmuXoaGiay.Text = "Xóa Giấy";
             // 
             // panel4
             // 
@@ -187,52 +234,6 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Giấy theo Danh mục";
             // 
-            // cmu
-            // 
-            this.cmu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmuThemGiay,
-            this.cmuSuaGiay,
-            this.toolStripMenuItem1,
-            this.cmuXoaGiay});
-            this.cmu.Name = "cmu";
-            this.cmu.Size = new System.Drawing.Size(153, 98);
-            this.cmu.Opening += new System.ComponentModel.CancelEventHandler(this.cmu_Opening);
-            // 
-            // cmuThemGiay
-            // 
-            this.cmuThemGiay.Name = "cmuThemGiay";
-            this.cmuThemGiay.Size = new System.Drawing.Size(152, 22);
-            this.cmuThemGiay.Text = "Thêm Giấy";
-            this.cmuThemGiay.Click += new System.EventHandler(this.cmuThemGiay_Click);
-            // 
-            // cmuSuaGiay
-            // 
-            this.cmuSuaGiay.Name = "cmuSuaGiay";
-            this.cmuSuaGiay.Size = new System.Drawing.Size(152, 22);
-            this.cmuSuaGiay.Text = "Sửa Giấy";
-            this.cmuSuaGiay.Click += new System.EventHandler(this.cmuSuaGiay_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(128, 6);
-            // 
-            // cmuXoaGiay
-            // 
-            this.cmuXoaGiay.Name = "cmuXoaGiay";
-            this.cmuXoaGiay.Size = new System.Drawing.Size(131, 22);
-            this.cmuXoaGiay.Text = "Xóa Giấy";
-            // 
-            // btnQuanLyDanhMuc
-            // 
-            this.btnQuanLyDanhMuc.Location = new System.Drawing.Point(3, 8);
-            this.btnQuanLyDanhMuc.Name = "btnQuanLyDanhMuc";
-            this.btnQuanLyDanhMuc.Size = new System.Drawing.Size(53, 23);
-            this.btnQuanLyDanhMuc.TabIndex = 3;
-            this.btnQuanLyDanhMuc.Text = "NCC...";
-            this.btnQuanLyDanhMuc.UseVisualStyleBackColor = true;
-            this.btnQuanLyDanhMuc.Click += new System.EventHandler(this.btnQuanLyDanhMuc_Click);
-            // 
             // QuanLyGiayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,9 +253,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitCont2)).EndInit();
             this.splitCont2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.cmu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.cmu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

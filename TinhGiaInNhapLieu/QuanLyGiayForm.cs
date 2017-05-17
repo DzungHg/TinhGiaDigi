@@ -159,8 +159,7 @@ namespace TinhGiaInNhapLieu
 
             }
         }
-
-        private void cmuSuaGiay_Click(object sender, EventArgs e)
+        private void SuaGiay()
         {
             if (this.IdGiayChon <= 0)
                 return;
@@ -178,10 +177,19 @@ namespace TinhGiaInNhapLieu
 
             }
         }
+        private void cmuSuaGiay_Click(object sender, EventArgs e)
+        {
+            SuaGiay();
+        }
 
         private void cmu_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void lvwGiay_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            SuaGiay();
         }
 
        

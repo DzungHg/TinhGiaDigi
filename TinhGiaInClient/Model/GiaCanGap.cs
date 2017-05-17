@@ -28,12 +28,11 @@ namespace TinhGiaInClient.Model
         }
         private float thoiGianChuanBiTheoSoDuongCan()
         {
-            float kq = 0;
-            float thoiGianThemCho1DuongCan = this.CanGap.ThoiGianChuanBi * 
-                (this.CanGap.MotDuongCanTangThoiGianChuanBi) /100;
+            float kq = 0;            
             //Nếu số đường >1 thì tăng tương dương thời gian
-            var soDuongTam = this.SoDuongCan - 1;
-            kq = this.CanGap.ThoiGianChuanBi +  (soDuongTam * thoiGianThemCho1DuongCan);
+            var soDuongThem = this.SoDuongCan - 1;
+            kq = this.CanGap.ThoiGianChuanBi + 
+                (soDuongThem * this.CanGap.MotDuongCanTangThoiGianChuanBi);
             
             return kq;
         }

@@ -34,7 +34,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<BANG_GIA_IN_NHANH> BANG_GIA_IN_NHANH { get; set; }
         public virtual DbSet<HANG_KHACH_HANG> HANG_KHACH_HANG { get; set; }
         public virtual DbSet<MARK_UP_LOI_NHUAN_GIAY> MARK_UP_LOI_NHUAN_GIAY { get; set; }
-        public virtual DbSet<CAN_GAP> CAN_GAP { get; set; }
         public virtual DbSet<CAN_PHU> CAN_PHU { get; set; }
         public virtual DbSet<DONG_CUON> DONG_CUON { get; set; }
         public virtual DbSet<EP_KIM> EP_KIM { get; set; }
@@ -45,5 +44,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<TINH_GIA_IN> TINH_GIA_IN { get; set; }
         public virtual DbSet<YEU_CAU_TINH_GIA_IN> YEU_CAU_TINH_GIA_IN { get; set; }
         public virtual DbSet<DS_THANH_PHAM> DS_THANH_PHAM { get; set; }
+        public virtual DbSet<CAN_GAP> CAN_GAP { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace TinhGiaInClient.Model
     public class CanGap : ThanhPhamBase
     {
         public int TocDoConGio { get; set; }
-        public int MotDuongCanTangThoiGianChuanBi { get; set; }
+        public float MotDuongCanTangThoiGianChuanBi { get; set; }
         //Static
         public static List<CanGap> DocTatCa()
         {

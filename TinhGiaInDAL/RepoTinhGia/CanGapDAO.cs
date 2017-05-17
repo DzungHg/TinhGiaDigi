@@ -27,7 +27,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     Ma_01 = x.ma_01,
                     DonViTinh = x.don_vi_tinh,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    MotDuongCanTangThoiGianChuanBi = (int)x.mot_duong_tang_tgcb,
+                    MotDuongCanTangThoiGianChuanBi = (float)x.mot_duong_tang_tgcb,
                     ThuTu = (int)x.Thu_tu
                 });
                 list = nguon.ToList();
@@ -56,7 +56,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     Ma_01 = x.ma_01,
                     DonViTinh = x.don_vi_tinh,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    MotDuongCanTangThoiGianChuanBi = (int)x.mot_duong_tang_tgcb,
+                    MotDuongCanTangThoiGianChuanBi = (float)x.mot_duong_tang_tgcb,
                     ThuTu = (int)x.Thu_tu
                 }).SingleOrDefault();
                 dm = nguon;

@@ -19,12 +19,12 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<decimal> BHR { get; set; }
         public Nullable<int> Toc_do_con { get; set; }
         public Nullable<double> Thoi_gian_chuan_bi { get; set; }
+        public Nullable<double> mot_duong_tang_tgcb { get; set; }
         public string Day_so_luong { get; set; }
         public string Day_loi_nhuan { get; set; }
-        public Nullable<int> Thu_tu { get; set; }
         public string ma_01 { get; set; }
         public string don_vi_tinh { get; set; }
         public string day_so_luong_niem_yet { get; set; }
-        public Nullable<int> mot_duong_tang_tgcb { get; set; }
+        public Nullable<int> Thu_tu { get; set; }
     }
 }

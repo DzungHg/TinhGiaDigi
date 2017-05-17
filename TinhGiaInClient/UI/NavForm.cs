@@ -52,7 +52,7 @@ namespace TinhGiaInClient.UI
         {
             if (frmBangGiaGiay == null)
             {
-                frmBangGiaGiay = new BangGiaGiayForm();              
+                frmBangGiaGiay = new BangGiaGiayForm(FormStates.View);              
                 frmBangGiaGiay.FormClosed += new FormClosedEventHandler(ByByWindows);               
                 frmBangGiaGiay.Show();
 

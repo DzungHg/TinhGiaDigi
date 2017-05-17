@@ -48,7 +48,7 @@
           <Property Name="BHR" Type="money" />
           <Property Name="Toc_do_con" Type="int" />
           <Property Name="Thoi_gian_chuan_bi" Type="float" />
-          <Property Name="mot_duong_tang_tgcb" Type="int" />
+          <Property Name="mot_duong_tang_tgcb" Type="float" />
           <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
           <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
@@ -497,7 +497,6 @@
             <End Role="DANH_MUC_GIAY" EntitySet="DANH_MUC_GIAY" />
             <End Role="GIAY" EntitySet="GIAYs" />
           </AssociationSet>
-          <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
           <EntitySet Name="CAN_PHU" EntityType="QuanLyGiaInModel.CAN_PHU" />
           <EntitySet Name="DONG_CUON" EntityType="QuanLyGiaInModel.DONG_CUON" />
           <EntitySet Name="EP_KIM" EntityType="QuanLyGiaInModel.EP_KIM" />
@@ -520,6 +519,7 @@
           <EntitySet Name="TINH_GIA_IN" EntityType="QuanLyGiaInModel.TINH_GIA_IN" />
           <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
           <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
+          <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
         </EntityContainer>
         <EntityType Name="KHO_SAN_PHAM">
           <Key>
@@ -705,23 +705,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="CAN_GAP">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="BHR" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Toc_do_con" Type="Int32" />
-          <Property Name="Thoi_gian_chuan_bi" Type="Double" />
-          <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Thu_tu" Type="Int32" />
-          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="mot_duong_tang_tgcb" Type="Int32" />
-        </EntityType>
         <EntityType Name="CAN_PHU">
           <Key>
             <PropertyRef Name="ID" />
@@ -921,6 +904,23 @@
           <Property Name="day_so_luong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="thu_tu" Type="Int32" />
         </EntityType>
+        <EntityType Name="CAN_GAP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BHR" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Toc_do_con" Type="Int32" />
+          <Property Name="Thoi_gian_chuan_bi" Type="Double" />
+          <Property Name="mot_duong_tang_tgcb" Type="Double" />
+          <Property Name="Day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Day_loi_nhuan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Thu_tu" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1051,24 +1051,6 @@
                 <ScalarProperty Name="Ty_le_mark_up" ColumnName="Ty_le_mark_up" />
                 <ScalarProperty Name="ID_DANH_MUC_GIAY" ColumnName="ID_DANH_MUC_GIAY" />
                 <ScalarProperty Name="ID_HANG_KHACH_HANG" ColumnName="ID_HANG_KHACH_HANG" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CAN_GAP">
-            <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_GAP">
-              <MappingFragment StoreEntitySet="CAN_GAP">
-                <ScalarProperty Name="mot_duong_tang_tgcb" ColumnName="mot_duong_tang_tgcb" />
-                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
-                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
-                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
-                <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
-                <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
-                <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
-                <ScalarProperty Name="Thoi_gian_chuan_bi" ColumnName="Thoi_gian_chuan_bi" />
-                <ScalarProperty Name="Toc_do_con" ColumnName="Toc_do_con" />
-                <ScalarProperty Name="BHR" ColumnName="BHR" />
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1236,6 +1218,24 @@
                 <ScalarProperty Name="ma_02" ColumnName="ma_02" />
                 <ScalarProperty Name="ma_01" ColumnName="ma_01" />
                 <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAN_GAP">
+            <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_GAP">
+              <MappingFragment StoreEntitySet="CAN_GAP">
+                <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
+                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
+                <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
+                <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
+                <ScalarProperty Name="mot_duong_tang_tgcb" ColumnName="mot_duong_tang_tgcb" />
+                <ScalarProperty Name="Thoi_gian_chuan_bi" ColumnName="Thoi_gian_chuan_bi" />
+                <ScalarProperty Name="Toc_do_con" ColumnName="Toc_do_con" />
+                <ScalarProperty Name="BHR" ColumnName="BHR" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

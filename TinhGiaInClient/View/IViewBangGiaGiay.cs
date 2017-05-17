@@ -9,9 +9,9 @@ namespace TinhGiaInClient.View
 {
     public interface IViewBangGiaGiay
     {
-        
-        int IdHangKHChon { get; }
 
+        int IdHangKHChon { get; set; }
+        FormStates TinhTrangForm { get; set; }
         int IdDanhMucGiayChon { get; }
         string MaNhaCungCapChon { get; set; }
     }

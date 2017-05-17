@@ -43,7 +43,7 @@
     <Property Name="BHR" Type="money" />
     <Property Name="Toc_do_con" Type="int" />
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
-    <Property Name="mot_duong_tang_tgcb" Type="int" />
+    <Property Name="mot_duong_tang_tgcb" Type="float" />
     <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
     <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
