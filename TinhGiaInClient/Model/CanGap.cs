@@ -11,8 +11,7 @@ namespace TinhGiaInClient.Model
     public class CanGap : ThanhPhamBase
     {
         public int TocDoConGio { get; set; }
-        
-        
+        public int MotDuongCanTangThoiGianChuanBi { get; set; }
         //Static
         public static List<CanGap> DocTatCa()
         {
@@ -29,6 +28,7 @@ namespace TinhGiaInClient.Model
                 Ma_01 = x.Ma_01,     
                 DonViTinh = x.DonViTinh,
                 DaySoLuongNiemYet = x.DaySoLuongNiemYet,
+                MotDuongCanTangThoiGianChuanBi = x.MotDuongCanTangThoiGianChuanBi,
                 ThuTu = x.ThuTu
             }).OrderBy(x => x.ThuTu).ToList();
 
@@ -68,6 +68,7 @@ namespace TinhGiaInClient.Model
             canGapDTO.Ma_01 = canGapBDO.Ma_01;
             canGapDTO.DonViTinh = canGapBDO.DonViTinh;
             canGapDTO.DaySoLuongNiemYet = canGapBDO.DaySoLuongNiemYet;
+            canGapDTO.MotDuongCanTangThoiGianChuanBi = canGapBDO.MotDuongCanTangThoiGianChuanBi;
             canGapDTO.ThuTu = canGapBDO.ThuTu;
         }
         private static void ChuyenDoiGiayDTOThanhBDO(CanGap canGapDTO, CanGapBDO canGapBDO)
@@ -82,6 +83,7 @@ namespace TinhGiaInClient.Model
             canGapBDO.Ma_01 = canGapDTO.Ma_01;
             canGapBDO.DonViTinh = canGapDTO.DonViTinh;
             canGapBDO.DaySoLuongNiemYet = canGapDTO.DaySoLuongNiemYet;
+            canGapBDO.MotDuongCanTangThoiGianChuanBi = canGapDTO.MotDuongCanTangThoiGianChuanBi;
             canGapBDO.ThuTu = canGapDTO.ThuTu;
         }
     }

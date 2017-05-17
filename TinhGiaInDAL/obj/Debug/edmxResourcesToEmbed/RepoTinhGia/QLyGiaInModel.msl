@@ -131,6 +131,7 @@
     <EntitySetMapping Name="CAN_GAP">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_GAP">
         <MappingFragment StoreEntitySet="CAN_GAP">
+          <ScalarProperty Name="mot_duong_tang_tgcb" ColumnName="mot_duong_tang_tgcb" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
           <ScalarProperty Name="ma_01" ColumnName="ma_01" />

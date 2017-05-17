@@ -12,8 +12,8 @@ namespace TinhGiaInClient.Presenter
 
     public class CanGapPresenter : IThanhPhamPresenter
     {
-        IViewThanhPham View = null;
-        public CanGapPresenter(IViewThanhPham view)
+        IViewGiaCanGap View = null;
+        public CanGapPresenter(IViewGiaCanGap view)
         {
             View = view;
 
@@ -22,6 +22,7 @@ namespace TinhGiaInClient.Presenter
         {
             View.SoLuong = 50;
             View.DonViTinh = "Con";
+            View.SoDuongCan = 1;
         }
 
 
@@ -50,10 +51,10 @@ namespace TinhGiaInClient.Presenter
         {
             decimal result = 0;
 
-            var idCanPhu = this.ThanhPhamS().FirstOrDefault(x => x.Value == View.TenThPhChon).Key;
-            var canGap = CanGap.DocTheoId(idCanPhu);
+            var idCanGap = this.ThanhPhamS().FirstOrDefault(x => x.Value == View.TenThPhChon).Key;
+            var canGap = CanGap.DocTheoId(idCanGap);
             var tyLeMK = this.TyLeMarkUp(View.IdHangKhachHang);
-            var giaCanGap = new GiaCanGap(View.SoLuong, tyLeMK, View.DonViTinh, canGap);
+            var giaCanGap = new GiaCanGap(View.SoLuong, View.SoDuongCan, tyLeMK, View.DonViTinh, canGap);
             result = giaCanGap.ThanhTienSales();
             return result;
         }

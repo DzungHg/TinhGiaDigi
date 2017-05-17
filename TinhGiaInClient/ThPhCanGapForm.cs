@@ -12,7 +12,7 @@ using TinhGiaInClient.Presenter;
 
 namespace TinhGiaInClient
 {
-    public partial class ThPhCanGapForm : Form, IViewThanhPham
+    public partial class ThPhCanGapForm : Form, IViewGiaCanGap
     {
         CanGapPresenter canGapPres;
         public ThPhCanGapForm(string thongTinHoTro)
@@ -21,13 +21,13 @@ namespace TinhGiaInClient
 
             this.ThongTinHoTro = thongTinHoTro;
             canGapPres = new CanGapPresenter(this);
-            LoadThanhPham();
             canGapPres.KhoiTaoBanDau();
+            LoadThanhPham();
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-           
-            txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);           
-
+            txtSoDuongCan.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoDuongCan.KeyPress += new KeyPressEventHandler(InputValidator);     
             lbxThanhPham.SelectedIndexChanged += new EventHandler(ListBoxes_SelectedIndex_Changed);
             
         }
@@ -71,7 +71,17 @@ namespace TinhGiaInClient
                  txtDonViTinh.Text = value;
              }
          }
-       
+         public int SoDuongCan
+         {
+             get
+             {
+                 return int.Parse(txtSoDuongCan.Text);
+             }
+             set
+             {
+                 txtSoDuongCan.Text = value.ToString();
+             }
+         }
         public string TenThPhChon 
         {
             get { return lbxThanhPham.Text; }
@@ -126,12 +136,18 @@ namespace TinhGiaInClient
                 if (tb == txtSoLuong)
                 {
                     //xử lý khi user xóa hết
-                    if (string.IsNullOrEmpty(txtSoLuong.Text))
-                        this.SoLuong = 0;
-                    lblThanhTien.Text = string.Format("{0:0,0.00}đ", canGapPres.ThanhTien_ThPh());
-                    lblGiaTB.Text = string.Format("{0:0,0.00}đ", canGapPres.GiaTB_ThPh());
+                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        txtSoLuong.Text = "1";
+                   
                 }
-               
+                if (tb == txtSoLuong)
+                {
+                    if (string.IsNullOrEmpty(txtSoDuongCan.Text.Trim()))
+                        txtSoDuongCan.Text = "1";
+                }
+                //Cập nhật thông tin
+                lblThanhTien.Text = string.Format("{0:0,0.00}đ", canGapPres.ThanhTien_ThPh());
+                lblGiaTB.Text = string.Format("{0:0,0.00}đ", canGapPres.GiaTB_ThPh());
             }
 
         }
@@ -141,13 +157,17 @@ namespace TinhGiaInClient
             if (sender is TextBox)
             {
                 t = (TextBox)sender;
-                //Paper tab prod paper
+                
                 if (t == txtSoLuong )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
-
+                if (t == txtSoDuongCan)//chỉ được nhập số chẵn 
+                {
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
+                        e.Handled = true;
+                }
             }
         }
         private void ListBoxes_SelectedIndex_Changed(object sender, EventArgs e)
@@ -160,6 +180,7 @@ namespace TinhGiaInClient
                 {
                     txtSoLuong.Enabled = true;
                     txtDonViTinh.Enabled = true;
+                    txtSoDuongCan.Enabled = true;
                 }
                
             }
@@ -171,6 +192,7 @@ namespace TinhGiaInClient
         {
             txtSoLuong.Enabled = false;
             txtDonViTinh.Enabled = false;
+            txtSoDuongCan.Enabled = false;
           
         }
         private bool KiemTraHopLe(ref string errorMessage)

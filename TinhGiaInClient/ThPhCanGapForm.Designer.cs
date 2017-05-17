@@ -40,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.txtThongTinBoSung = new System.Windows.Forms.TextBox();
+            this.txtSoDuongCan = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnOK
@@ -65,7 +67,7 @@
             // lblGiaTB
             // 
             this.lblGiaTB.AutoSize = true;
-            this.lblGiaTB.Location = new System.Drawing.Point(282, 158);
+            this.lblGiaTB.Location = new System.Drawing.Point(319, 179);
             this.lblGiaTB.Name = "lblGiaTB";
             this.lblGiaTB.Size = new System.Drawing.Size(60, 13);
             this.lblGiaTB.TabIndex = 101;
@@ -74,7 +76,7 @@
             // lblThanhTien
             // 
             this.lblThanhTien.AutoSize = true;
-            this.lblThanhTien.Location = new System.Drawing.Point(180, 158);
+            this.lblThanhTien.Location = new System.Drawing.Point(182, 179);
             this.lblThanhTien.Name = "lblThanhTien";
             this.lblThanhTien.Size = new System.Drawing.Size(58, 13);
             this.lblThanhTien.TabIndex = 100;
@@ -92,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(178, 100);
+            this.label2.Location = new System.Drawing.Point(182, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 98;
@@ -150,11 +152,29 @@
             this.txtThongTinBoSung.TabIndex = 105;
             this.txtThongTinBoSung.TextChanged += new System.EventHandler(this.txtThongTinBoSung_TextChanged);
             // 
+            // txtSoDuongCan
+            // 
+            this.txtSoDuongCan.Location = new System.Drawing.Point(246, 142);
+            this.txtSoDuongCan.Name = "txtSoDuongCan";
+            this.txtSoDuongCan.Size = new System.Drawing.Size(37, 20);
+            this.txtSoDuongCan.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(182, 145);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 107;
+            this.label4.Text = "Số đường";
+            // 
             // ThPhCanGapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 265);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtSoDuongCan);
             this.Controls.Add(this.txtThongTinBoSung);
             this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.label3);
@@ -190,5 +210,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.TextBox txtThongTinBoSung;
+        private System.Windows.Forms.TextBox txtSoDuongCan;
+        private System.Windows.Forms.Label label4;
     }
 }

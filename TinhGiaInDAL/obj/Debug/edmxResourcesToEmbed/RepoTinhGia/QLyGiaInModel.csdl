@@ -263,6 +263,7 @@
     <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="mot_duong_tang_tgcb" Type="Int32" />
   </EntityType>
   <EntityType Name="CAN_PHU">
     <Key>

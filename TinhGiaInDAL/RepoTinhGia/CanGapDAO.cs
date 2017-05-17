@@ -27,6 +27,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     Ma_01 = x.ma_01,
                     DonViTinh = x.don_vi_tinh,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
+                    MotDuongCanTangThoiGianChuanBi = (int)x.mot_duong_tang_tgcb,
                     ThuTu = (int)x.Thu_tu
                 });
                 list = nguon.ToList();
@@ -55,6 +56,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     Ma_01 = x.ma_01,
                     DonViTinh = x.don_vi_tinh,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
+                    MotDuongCanTangThoiGianChuanBi = (int)x.mot_duong_tang_tgcb,
                     ThuTu = (int)x.Thu_tu
                 }).SingleOrDefault();
                 dm = nguon;
@@ -123,6 +125,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ma_01 = entityBDO.Ma_01;
             entityDAO.don_vi_tinh = entityBDO.DonViTinh;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
+            entityDAO.mot_duong_tang_tgcb = entityBDO.MotDuongCanTangThoiGianChuanBi;
             entityDAO.Thu_tu = entityBDO.ThuTu;
         }
         #endregion

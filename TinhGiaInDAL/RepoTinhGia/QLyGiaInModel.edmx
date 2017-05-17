@@ -48,6 +48,7 @@
           <Property Name="BHR" Type="money" />
           <Property Name="Toc_do_con" Type="int" />
           <Property Name="Thoi_gian_chuan_bi" Type="float" />
+          <Property Name="mot_duong_tang_tgcb" Type="int" />
           <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
           <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
           <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
@@ -719,6 +720,7 @@
           <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="mot_duong_tang_tgcb" Type="Int32" />
         </EntityType>
         <EntityType Name="CAN_PHU">
           <Key>
@@ -1055,6 +1057,7 @@
           <EntitySetMapping Name="CAN_GAP">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.CAN_GAP">
               <MappingFragment StoreEntitySet="CAN_GAP">
+                <ScalarProperty Name="mot_duong_tang_tgcb" ColumnName="mot_duong_tang_tgcb" />
                 <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
                 <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
                 <ScalarProperty Name="ma_01" ColumnName="ma_01" />

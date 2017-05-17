@@ -14,23 +14,35 @@ namespace TinhGiaInClient.Model
         ///Chưa cần thiết để thừa kế MucThanhPham để chỉnh sửa nâng cấp sau này
         /// </summary>
         public int SoLuong { get; set; }
+        public int SoDuongCan { get; set; }
         public int TyLeMarkUp { get; set; }
         public string DonViTinh { get; set; }
         public CanGap CanGap { get; set; }
-        public GiaCanGap(int soLuong,  int tyLeMarkUp, string donViTinh, CanGap canGap)
+        public GiaCanGap(int soLuong, int soDuongCan, int tyLeMarkUp, string donViTinh, CanGap canGap)
         {
             this.SoLuong = soLuong;
+            this.SoDuongCan = soDuongCan;
             this.CanGap = canGap;
             this.TyLeMarkUp = tyLeMarkUp;
             this.DonViTinh = donViTinh;
         }
-        
+        private float thoiGianChuanBiTheoSoDuongCan()
+        {
+            float kq = 0;
+            float thoiGianThemCho1DuongCan = this.CanGap.ThoiGianChuanBi * 
+                (this.CanGap.MotDuongCanTangThoiGianChuanBi) /100;
+            //Nếu số đường >1 thì tăng tương dương thời gian
+            var soDuongTam = this.SoDuongCan - 1;
+            kq = this.CanGap.ThoiGianChuanBi +  (soDuongTam * thoiGianThemCho1DuongCan);
+            
+            return kq;
+        }
         public decimal ChiPhi(int soLuong)
         {
             decimal result = 0;
             float soGioChay = (float)soLuong / this.CanGap.TocDoConGio;
             decimal phiChay = this.CanGap.BHR * (decimal)soGioChay;
-            decimal phiChuanBi = this.CanGap.BHR * (decimal)this.CanGap.ThoiGianChuanBi;
+            decimal phiChuanBi = this.CanGap.BHR * (decimal)thoiGianChuanBiTheoSoDuongCan();
             result = phiChay + phiChuanBi;
             return result;
         }

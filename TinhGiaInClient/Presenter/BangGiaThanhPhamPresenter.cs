@@ -86,7 +86,8 @@ namespace TinhGiaInClient.Presenter
                     ketQua = giaCanPhu.ThanhTienSales();
                     break;
                 case LoaiThanhPham.CanGap:
-                    var giaCanGap = new GiaCanGap(soLuong, TiLeMarkUpTheoHangKH(), View.DonViTinh, CanGap.DocTheoId(iDThanhPham));
+                    //Làm tạm 2 đường
+                    var giaCanGap = new GiaCanGap(soLuong, 2, TiLeMarkUpTheoHangKH(), View.DonViTinh, CanGap.DocTheoId(iDThanhPham));
                     ketQua = giaCanGap.ThanhTienSales();
                     break;
                 case LoaiThanhPham.DongCuon:

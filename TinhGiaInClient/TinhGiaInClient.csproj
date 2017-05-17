@@ -241,6 +241,7 @@
     <Compile Include="View\IViewGiaDanhThiep.cs" />
     <Compile Include="View\IViewGiaInOffset.cs" />
     <Compile Include="View\IViewGiaInNhanhThu.cs" />
+    <Compile Include="View\IViewGiaCanGap.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
     <Compile Include="View\IViewThPhEpKim.cs" />
     <Compile Include="View\IViewLietKeTinhGia.cs" />
