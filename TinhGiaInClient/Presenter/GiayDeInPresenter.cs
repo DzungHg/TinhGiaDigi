@@ -12,7 +12,7 @@ namespace TinhGiaInClient.Presenter
     public class GiayDeInPresenter
     {
         IViewGiayDeIn View;
-        GiayDeIn giayDeIn;
+      
         public GiayDeInPresenter(IViewGiayDeIn view, GiayDeIn giayDeIn = null)
         {
             View = view;
@@ -21,22 +21,18 @@ namespace TinhGiaInClient.Presenter
             {
                 case FormStates.New:
                     this.KhoiTaoGiaTriBanDau();
-                    var quiCachToChay = new QuiCachToChay(View.KhoToChay, View.SoLuongSanPham, View.SoLuongToChayBuHao);
-
-                    giayDeIn = new GiayDeIn(quiCachToChay, null, View.SoToChayTrenToLon);
+                  
                     break;
-                case FormStates.Edit:
+                case FormStates.Edit: //Chắc chắn có giấy
                     View.ID = giayDeIn.ID;
-                    View.IdBaiIn = giayDeIn.IdBaiIn;
-                    View.IdHangKH = giayDeIn.IdHangKhachHang;
-                    View.SoLuongSanPham = giayDeIn.ToChay.SoLuongSanPham;
-                    View.SoConTrenToChay = giayDeIn.ToChay.SoConTrenToChay;
-                    View.SoLuongToChayBuHao = giayDeIn.ToChay.SoToChayBuHao;
-                    View.LaGiayKhachDua = giayDeIn.GiayKhachDua;
-                    View.GiayChon = giayDeIn.GiaGiayChon.Giay;
-                    View.TenGiayInDatLai = giayDeIn.TenGiayIn;
-                    View.KhoToChay = giayDeIn.ToChay.KhoToChay;
+                    View.IdBaiIn = giayDeIn.IdBaiIn;                                        
+                    View.SoConTrenToChay = giayDeIn.SoConTrenToChay;
+                    View.SoLuongToChayBuHao = giayDeIn.SoToChayBuHao;
+                    View.GiayKhachDua = giayDeIn.GiayKhachDua;                    
+                    View.TenGiayIn = giayDeIn.TenGiayIn;
+                    View.KhoToChay = giayDeIn.KhoToChay;
                     View.SoToChayTrenToLon = giayDeIn.SoToChayTrenToLon;
+                    
                     break;
 
             }
@@ -45,8 +41,7 @@ namespace TinhGiaInClient.Presenter
 
         }
         private void KhoiTaoGiaTriBanDau()
-        {
-            
+        {            
             
             View.SoLuongToChayBuHao = 1;
             View.SoConTrenToChay = 1;
@@ -55,14 +50,20 @@ namespace TinhGiaInClient.Presenter
         }
         public int SoToChayLyThuyetTinh()
         {
-            int result = 0;
-           
-            if (View.SoConTrenToChay <= 0 || View.SoLuongSanPham <= 0)
-                return result;
-            //Tiếp nếu quá
-            result = giayDeIn.ToChay.soLuongToChayLyThuyet();
+         
 
-            return result;
+            int kq = 0;
+            if (View.SoConTrenToChay <= 0 || View.SoLuongSanPham <= 0)
+                return kq;
+            //Tiếp nếu quá
+            if (View.SoLuongSanPham % View.SoConTrenToChay > 0)//Chia lẻ
+                kq = View.SoLuongSanPham / View.SoConTrenToChay + 1;
+            else
+                kq = View.SoLuongSanPham / View.SoConTrenToChay;
+
+            return kq;
+
+         
         }
         public int SoToChayTong()
         {
@@ -71,98 +72,67 @@ namespace TinhGiaInClient.Presenter
             if (View.SoConTrenToChay <= 0 || View.SoLuongSanPham <= 0)
                 return result;
             //Tiếp nếu quá
-            result = giayDeIn.ToChay.TongSoToChay();
+            result = SoToChayLyThuyetTinh() + View.SoLuongToChayBuHao;
 
             return result;
 
         }
         public int SoToGiayLon()
         {
-            int result = 0;
-            if (View.SoToChayTrenToLon == 0 || View.SoLuongSanPham <= 0)
-                return result;
-            //Tiếp nếu qua khỏi
-            result = giayDeIn.SoToLonCan();
 
-            return result;
+            int kq = 0;
+            if (View.SoConTrenToChay <= 0 || View.SoLuongSanPham <= 0)
+                return kq;
+            //Tiếp nếu quá
+            if (SoToChayTong()  % View.SoToChayTrenToLon > 0)//Chia lẻ
+                kq = SoToChayTong() % View.SoToChayTrenToLon + 1;
+            else
+                kq = SoToChayTong() % View.SoToChayTrenToLon;
+
+            return kq;
         }
        
     
        
         private int TyLeMarkUp()
         {
-            if (View.GiayChon == null)
-                return 0;
-
             var result = 0;
-            result = MarkUpLoiNhuanGiay.LayTheoId(View.GiayChon.IdDanhMucGiay, View.IdHangKH).TiLeLoiNhuanTrenDoanhThu;
+            if (View.IdGiay > 0)
+            {
+                var giay = Giay.DocGiayTheoId(View.IdGiay);
+                result = MarkUpLoiNhuanGiay.LayTheoId(giay.IdDanhMucGiay, View.IdHangKH).TiLeLoiNhuanTrenDoanhThu;
+            }
             return result;
         }
 
         public decimal GiaBan()
         {
             decimal result = 0;
-            if (!View.LaGiayKhachDua && View.GiayChon != null)
+            if (!View.GiayKhachDua && View.IdGiay > 0)
             {
-                var giaGiay = new GiaGiay(View.GiayChon, TyLeMarkUp());
+                var giay = Giay.DocGiayTheoId(View.IdGiay);
+                var giaGiay = new GiaGiay(giay, TyLeMarkUp());
                 result = giaGiay.GiaBan();
             }
             return result;
         }
         public decimal ThanhTien()
         {
-            decimal result = 0;
-
-            if (!View.LaGiayKhachDua && View.GiayChon != null)
-            {
-                 var giaGiay = new GiaGiay(View.GiayChon, TyLeMarkUp());
-                 result = giaGiay.TienGiaySales(View.SoToGiayLon);
-            }
-
-            return result;
+            return GiaBan() * View.SoToGiayLon;
 
         }
-        public CauHinhGiayIn DocCauHinhGiay()
-        {
-            var cauHinhGiay = new CauHinhGiayIn();
-            cauHinhGiay.GiayChon = View.GiayChon;
-            cauHinhGiay.KhoToChay = View.KhoToChay;
-            cauHinhGiay.SoConTrenToChay = View.SoConTrenToChay;
-            cauHinhGiay.SoLuongToChayLyThuyet = View.SoLuongToChayLyThuyet;
-            cauHinhGiay.SoLuongToChayBuHao = View.SoLuongToChayBuHao;
-            cauHinhGiay.TongSoToChay = this.SoToChayTong();
-            cauHinhGiay.SoToChayTrenToLon = View.SoToChayTrenToLon;
-            cauHinhGiay.SoToGiayLon = this.SoToGiayLon();
-            cauHinhGiay.GiayKhachDua = View.LaGiayKhachDua;
-           
-            cauHinhGiay.TienGiay = this.ThanhTien();
-
-            return cauHinhGiay;
-        }
+       
         public GiayDeIn DocGiayDeIn()
         {
-            var giayDeIn = new GiayDeIn(View.GiayChon);
+            var giayDeIn = new GiayDeIn(View.KhoToChay,
+                View.SoConTrenToChay, View.SoLuongToChayBuHao,
+                View.SoToGiayLon, View.GiayKhachDua, View.IdGiay,
+                View.TenGiayIn, View.IdBaiIn, View.SoToChayTrenToLon,
+                View.SoToGiayLon, this.ThanhTien());
+
             if (View.TinhTrangForm == FormStates.Edit)
                 giayDeIn.ID = View.ID;
-
-            giayDeIn.IdBaiIn = View.IdBaiIn;
-            giayDeIn.IdHangKhachHang = View.IdHangKH;
-            giayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
-            giayDeIn.SoLuongToChayBuHao = View.SoLuongToChayBuHao;
-            giayDeIn.SoLuongSanPham = View.SoLuongSanPham;
-            giayDeIn.GiaGiayChon = View.GiayChon;
-            giayDeIn.TenGiayIn = View.TenGiayInDatLai;
-            giayDeIn.KhoToChay = View.KhoToChay;
-            giayDeIn.SoConTrenToChay = View.SoConTrenToChay;
-            giayDeIn.SoLuongToChayLyThuyet = View.SoLuongToChayLyThuyet;
-            giayDeIn.SoLuongToChayBuHao = View.SoLuongToChayBuHao;
-            giayDeIn.SoToChayTong = this.SoToChayTong();
-            giayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
-            giayDeIn.SoToLonCan = this.SoToGiayLon();
-            giayDeIn.GiayKhachDua = View.LaGiayKhachDua;
-           
-            giayDeIn.ThanhTien = this.ThanhTien();
-            //Về in
+            
 
             return giayDeIn;
         }

@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 
@@ -240,7 +242,7 @@ namespace TinhGiaInClient
             thongTinBanDau.TinhTrangForm = FormStates.New;
             thongTinBanDau.SoLuongSanPham = this.SoLuong * 100;
             thongTinBanDau.IdHangKhachHang = this.IdHangKH;
-            thongTinBanDau.KhoMayIn = giaDanhThiepPres.KhoToChay();
+            thongTinBanDau.IdToIn_MayInChon = this.GiayDeInChon.IdMayIn;
             thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} "  + '\r' + '\n',
                 this.KichThuoc)
                 + string.Format("Số lượng {0} cái ({1} hộp)" + '\r' + '\n',
@@ -270,7 +272,7 @@ namespace TinhGiaInClient
             thongTinBanDau.TinhTrangForm = FormStates.Edit;
             thongTinBanDau.SoLuongSanPham = this.SoLuong;
             thongTinBanDau.IdHangKhachHang = this.IdHangKH;
-            thongTinBanDau.KhoMayIn = this.GiayDeInChon.KhoToChay;
+            thongTinBanDau.IdToIn_MayInChon = this.GiayDeInChon.IdMayIn;
             thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} " + '\r' + '\n',
                 this.KichThuoc)
                 + string.Format("Số lượng {0} cái ({1} hộp)" + '\r' + '\n',

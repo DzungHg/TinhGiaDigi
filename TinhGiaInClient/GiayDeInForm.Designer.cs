@@ -41,8 +41,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtSoToChayBuHao = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtTenGiayDatLai = new System.Windows.Forms.TextBox();
+            this.txtTenGiayIn = new System.Windows.Forms.TextBox();
             this.lblThanhTien = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoToChay = new System.Windows.Forms.TextBox();
@@ -54,7 +53,6 @@
             this.txtSoToChayLyThuyet = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoToChayTrenToLon = new System.Windows.Forms.TextBox();
-            this.lblThongTinGiayChon = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnChonGiay = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -129,7 +127,7 @@
             // chkGiayKhach
             // 
             this.chkGiayKhach.AutoSize = true;
-            this.chkGiayKhach.Location = new System.Drawing.Point(371, 94);
+            this.chkGiayKhach.Location = new System.Drawing.Point(161, 116);
             this.chkGiayKhach.Name = "chkGiayKhach";
             this.chkGiayKhach.Size = new System.Drawing.Size(102, 17);
             this.chkGiayKhach.TabIndex = 5;
@@ -178,21 +176,12 @@
             this.txtSoToChayBuHao.Size = new System.Drawing.Size(50, 20);
             this.txtSoToChayBuHao.TabIndex = 3;
             // 
-            // label11
+            // txtTenGiayIn
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 118);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 13);
-            this.label11.TabIndex = 40;
-            this.label11.Text = "B4. Tên giấy đặt lại";
-            // 
-            // txtTenGiayDatLai
-            // 
-            this.txtTenGiayDatLai.Location = new System.Drawing.Point(162, 117);
-            this.txtTenGiayDatLai.Name = "txtTenGiayDatLai";
-            this.txtTenGiayDatLai.Size = new System.Drawing.Size(260, 20);
-            this.txtTenGiayDatLai.TabIndex = 6;
+            this.txtTenGiayIn.Location = new System.Drawing.Point(164, 90);
+            this.txtTenGiayIn.Name = "txtTenGiayIn";
+            this.txtTenGiayIn.Size = new System.Drawing.Size(260, 20);
+            this.txtTenGiayIn.TabIndex = 6;
             // 
             // lblThanhTien
             // 
@@ -288,16 +277,6 @@
             this.txtSoToChayTrenToLon.Size = new System.Drawing.Size(54, 20);
             this.txtSoToChayTrenToLon.TabIndex = 9;
             // 
-            // lblThongTinGiayChon
-            // 
-            this.lblThongTinGiayChon.AutoSize = true;
-            this.lblThongTinGiayChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThongTinGiayChon.Location = new System.Drawing.Point(163, 93);
-            this.lblThongTinGiayChon.Name = "lblThongTinGiayChon";
-            this.lblThongTinGiayChon.Size = new System.Drawing.Size(120, 13);
-            this.lblThongTinGiayChon.TabIndex = 24;
-            this.lblThongTinGiayChon.Text = "Thông tin giấy chọn";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnChonGiay);
@@ -306,14 +285,12 @@
             this.groupBox1.Controls.Add(this.lblThanhTien);
             this.groupBox1.Controls.Add(this.lblGiaBan);
             this.groupBox1.Controls.Add(this.txtSoToGiayLon);
-            this.groupBox1.Controls.Add(this.txtTenGiayDatLai);
+            this.groupBox1.Controls.Add(this.txtTenGiayIn);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.chkGiayKhach);
-            this.groupBox1.Controls.Add(this.lblThongTinGiayChon);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.lblSoToInTong);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtSoToChayBuHao);
@@ -382,8 +359,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtSoToChayBuHao;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtTenGiayDatLai;
+        private System.Windows.Forms.TextBox txtTenGiayIn;
         private System.Windows.Forms.Label lblThanhTien;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtKhoToChay;
@@ -395,7 +371,6 @@
         private System.Windows.Forms.TextBox txtSoToChayLyThuyet;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSoToChayTrenToLon;
-        private System.Windows.Forms.Label lblThongTinGiayChon;
         private System.Windows.Forms.CheckBox chkGiayKhach;
         private System.Windows.Forms.Label lblSoToInTong;
         private System.Windows.Forms.Label label2;

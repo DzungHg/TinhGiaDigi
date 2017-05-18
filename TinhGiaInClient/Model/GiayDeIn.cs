@@ -11,23 +11,37 @@ namespace TinhGiaInClient.Model
     {
         private static int _id = 0;
         public int ID { get; set; }
-       
+
+        public string KhoToChay { get; set; }
+        
+        public int SoConTrenToChay { get; set; }
+        public int SoToChayBuHao { get; set; }
+        public int SoToChayTong { get; set; }
         public bool GiayKhachDua {get; set; }
         public int IdGiay { get; set; }
-        public string TenGiayIn { get; set; }
-        public string SoLuongTo { get; set; }
+        public string TenGiayIn { get; set; }        
          public int IdBaiIn { get; set; } //Gắn 
-        public int IdHangKhachHang { get; set; }
         public int SoToChayTrenToLon { get; set; }
-        public QuiCachToChay ToChay { get; set; }
-        public GiaGiay GiaGiayChon { get; set; }
+        public int SoToLonTong { get; set; }
+        public decimal ThanhTienGiay { get; set; }
 
-        public GiayDeIn(QuiCachToChay quiCachToChay,  GiaGiay giaGiay, int soToChayTrenToLon)
+        public GiayDeIn(string khoToChay, int soConTrenToChay, int soToChayBuHao,
+                    int soToChayTong, bool giayKhachDua, int idGiay,
+                    string tenGiayIn, int idBaiIn, int soToChayTrenToLon,
+                    int soToLonTong, decimal thanhTienGiay)
         {
-            this.ToChay = quiCachToChay;
-            this.GiaGiayChon = giaGiay;
-            this.SoToChayTrenToLon = SoToChayTrenToLon;
-            //this.TiLeMarkUp = TiLeMarkUp;
+            this.KhoToChay = khoToChay;
+
+            this.SoConTrenToChay = soConTrenToChay;
+            this.SoToChayBuHao = soToChayBuHao;
+            this.SoToChayTong = soToChayTong;
+            this.GiayKhachDua = giayKhachDua;
+            this.IdGiay = idGiay;
+            this.TenGiayIn = tenGiayIn;
+            this.IdBaiIn = idBaiIn; //Gắn 
+            this.SoToChayTrenToLon = soToChayTrenToLon;
+            this.SoToLonTong = soToLonTong;
+            this.ThanhTienGiay = thanhTienGiay;
             //Tăng Id mỗi lần thêm mới để có Id
             _id += 1;
             this.ID = _id;

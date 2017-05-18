@@ -64,31 +64,28 @@ namespace TinhGiaInClient
             get { return txtThongTinBaiIn.Text; }
             set { txtThongTinBaiIn.Text = value; }
         }
+       
         public string ThongTinBaiIn_CauHinh
         {
             get { return txtThongTinBaiIn.Text; }
             set { txtThongTinBaiIn.Text = value; }
         }
-        
-       
-        public Giay GiayChon
-        {
-            get;
-            set;
-        }
-       
-        public string TenGiayInDatLai
+
+
+
+        public int IdGiay { get; set; }
+        public string TenGiayIn
         {
             get
             {
-                return txtTenGiayDatLai.Text;
+                return txtTenGiayIn.Text;
             }
             set
             {
-                txtTenGiayDatLai.Text = value;
+                txtTenGiayIn.Text = value;
             }
         }
-        public bool LaGiayKhachDua
+        public bool GiayKhachDua
         {
             get { return chkGiayKhach.Checked; }
             set { chkGiayKhach.Checked = value; }
@@ -165,10 +162,7 @@ namespace TinhGiaInClient
         }
         public FormStates TinhTrangForm { get; set; }
         #endregion
-        public CauHinhGiayIn DocCauHinhGiayIn()
-        {
-            return giayDeInPres.DocCauHinhGiay();
-        }
+        
         public GiayDeIn DocGiayDeIn()
         {
             return giayDeInPres.DocGiayDeIn();
@@ -299,7 +293,7 @@ namespace TinhGiaInClient
         }
         private void KhoaCacControlsChoView()
         {
-            txtTenGiayDatLai.Enabled = false;
+            txtTenGiayIn.Enabled = false;
             txtKhoToChay.Enabled = false;
             txtSoConTrenToIn.Enabled = false;
             txtSoToChayLyThuyet.Enabled = false;
@@ -311,12 +305,12 @@ namespace TinhGiaInClient
             var result = true;
             List<string> loiS = new List<string>();
 
-            if (!this.LaGiayKhachDua)
+            if (!this.GiayKhachDua)
             {
-                if (this.GiayChon != null)
+                if (this.IdGiay < = 0)
                     loiS.Add("Bạn cần chọn giấy");
             }
-            if (string.IsNullOrEmpty(txtTenGiayDatLai.Text))
+            if (string.IsNullOrEmpty(txtTenGiayIn.Text))
                 loiS.Add("Diễn giải chưa có");
 
             if (string.IsNullOrEmpty(txtKhoToChay.Text))
@@ -364,35 +358,27 @@ namespace TinhGiaInClient
             frm.ShowDialog();
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                this.GiayChon = frm.GiayChon;
-                if (!this.LaGiayKhachDua)
-                {
-                    lblThongTinGiayChon.Text = this.GiayChon.TenGiayMoRong;
-                    this.TenGiayInDatLai = string.Format("{0} {1} gsm", this.GiayChon.TenGiay,
-                                this.GiayChon.DinhLuong);
-                }
-                else
-                {
-                    lblThongTinGiayChon.Text = "Giấy khách đưa";
-                    
-                }
+                this.IdGiay = frm.GiayChon.ID;
+
+                txtTenGiayIn.Text = frm.GiayChon.TenGiayMoRong;
+                
+
                 CapNhatTriGiaVoLabels();
             }
         }
         private void XuLyGiayKhachHangDua()
         {
-            if (this.LaGiayKhachDua)
+            if (this.GiayKhachDua)
             {
-              
-                this.GiayChon = null;
+
+                this.IdGiay = 0;
                 btnChonGiay.Enabled = false;
-                lblThongTinGiayChon.Text = "Giấy khách";
-                txtTenGiayDatLai.Focus();
+                this.TenGiayIn = "Giấy khách";
+                txtTenGiayIn.Focus();
             }
             else
             {
-                btnChonGiay.Enabled = true;
-                lblThongTinGiayChon.Text = "Chọn giấy";
+                btnChonGiay.Enabled = true;                
                 btnChonGiay.Focus();
             }
         }

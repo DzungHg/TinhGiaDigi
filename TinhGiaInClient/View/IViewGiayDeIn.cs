@@ -14,10 +14,9 @@ namespace TinhGiaInClient.View
         int IdHangKH { get; set; }
         string DienGiaiBaiInVaSoLuong { get; set; }
         string ThongTinBaiIn_CauHinh { get; set; }
-        Giay GiayChon { get; set; }
-       
-        string TenGiayInDatLai { get; set; }
-        bool LaGiayKhachDua { get; set; }
+        int IdGiay { get; set; }        
+        string TenGiayIn { get; set; }
+        bool GiayKhachDua { get; set; }
    
         string KhoToChay { get; set; }
         int SoLuongSanPham { get; set; }
