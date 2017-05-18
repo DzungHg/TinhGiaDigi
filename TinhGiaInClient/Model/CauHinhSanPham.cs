@@ -71,7 +71,7 @@ namespace TinhGiaInClient.Model
 
                 switch (this.IdPhapIn)
                 {
-                    case (int)Enumss.PhuongPhapIn.Toner:
+                    case (int)Enumss.PhuongPhapInS.Toner:
                         var toChayDigi = ToInMayDigi.DocTheoId(this.IdMayIn);
                         str += "**In Nhanh: " + '\r' + '\n';
                         str += string.Format("Khổ chạy Max: {0} x {1}cm",
@@ -79,7 +79,7 @@ namespace TinhGiaInClient.Model
                         str += string.Format("Khổ giấy có thể in: {0}",
                             toChayDigi.KhoToChayCoTheIn) + '\r' + '\n';
                         break;
-                    case (int)Enumss.PhuongPhapIn.Offset:
+                    case (int)Enumss.PhuongPhapInS.Offset:
                         var mayInOffset = OffsetGiaCong.DocTheoId(this.IdMayIn);
                         str += "**In Offset: " + '\r' + '\n';
                         str += string.Format("Khổ chạy Max: {0} x {1}cm",
@@ -87,7 +87,7 @@ namespace TinhGiaInClient.Model
                         str += string.Format("Khổ chạy Min: {0} x {1}cm",
                             mayInOffset.KhoInRongMin, mayInOffset.KhoInDaiMin) + '\r' + '\n';
                         break;
-                    case (int)Enumss.PhuongPhapIn.KhongIn:
+                    case (int)Enumss.PhuongPhapInS.KhongIn:
                         str += "**Không In" + '\r' + '\n';                            
                         break;
                 }

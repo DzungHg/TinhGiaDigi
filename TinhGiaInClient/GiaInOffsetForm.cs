@@ -137,7 +137,7 @@ namespace TinhGiaInClient
         }
         public int PhuongPhapIn
         {
-            get { return (int)Enumss.PhuongPhapIn.Offset; }
+            get { return (int)Enumss.PhuongPhapInS.Offset; }
         }
         public MucTinGiaIn DocGiaIn
         {

@@ -123,6 +123,7 @@
     <Compile Include="Model\CanGap.cs" />
     <Compile Include="Model\GiaEpKim.cs" />
     <Compile Include="Model\GiaGiay.cs" />
+    <Compile Include="Model\GiaGiayNiemYet.cs" />
     <Compile Include="Model\GiaInNhanhKetHopBangGia_May.cs" />
     <Compile Include="Model\GiaInNhanhTheoMay.cs" />
     <Compile Include="Model\GiaInNhanhTheoBang.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Model\IGiaIn.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\Support\DuLieuTinhGiaInNhanhTheoMay.cs" />
+    <Compile Include="Model\Support\QuiCachToChay.cs" />
     <Compile Include="Model\Support\SoLuongTinh.cs" />
     <Compile Include="Model\Support\SoLuong_Gia.cs" />
     <Compile Include="Model\ThongTinBanDauChoTinhGia.cs" />
@@ -139,7 +141,7 @@
     <Compile Include="Model\KhuonEpKim.cs" />
     <Compile Include="Model\ThongTinBanDauChoDanhThiep.cs" />
     <Compile Include="Model\ThongTinBanDauChoGiaIn.cs" />
-    <Compile Include="Model\ThongTinBanDauChoGiayIn.cs" />
+    <Compile Include="Model\Support\ThongTinBanDauChoGiayIn.cs" />
     <Compile Include="Model\ThongTinBanDauChoCauHinhSP.cs" />
     <Compile Include="Model\ThongTinBanDauChoBaiIn.cs" />
     <Compile Include="Model\ThongTinToChay.cs" />

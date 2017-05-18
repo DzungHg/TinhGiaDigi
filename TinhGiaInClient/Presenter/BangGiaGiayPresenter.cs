@@ -28,7 +28,7 @@ namespace TinhGiaInClient.Presenter
         public Dictionary<int, List<string>> GiayTheoDanhMucS()
         {           
             Dictionary<int, List<string>> dict = new Dictionary<int, List<string>>();
-            foreach (GiaGiay giaGiay in GiaGiay.DocTheoDanhMucGiay_HangKH(View.IdDanhMucGiayChon,
+            foreach (GiaGiayNiemYet giaGiay in GiaGiayNiemYet.DocTheoDanhMucGiay_HangKH(View.IdDanhMucGiayChon,
                                 View.IdHangKHChon))
             {
                 var lst = new List<string>();
@@ -50,6 +50,13 @@ namespace TinhGiaInClient.Presenter
         {
             return HangKhachHang.LayTheoId(View.IdHangKHChon).DienGiai;
         }
-       
+        public Giay GiayChon ()
+        {
+            Giay giayChon = null;
+            if (View.IdGiayChon > 0)
+                giayChon = Giay.DocGiayTheoId(View.IdGiayChon);
+
+            return giayChon;
+        }
     }
 }

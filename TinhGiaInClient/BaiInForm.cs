@@ -529,7 +529,7 @@ namespace TinhGiaInClient
                 MessageBox.Show("Chưa có cấu hình Sản phẩm. Bạn cần gắn trước");
                 return;
             }
-            if (baiIn.CauHinhSP.IdPhapIn == (int)Enumss.PhuongPhapIn.KhongIn) //Không in
+            if (baiIn.CauHinhSP.IdPhapIn == (int)Enumss.PhuongPhapInS.KhongIn) //Không in
             {
                 MessageBox.Show("Bạn đã đặt Không In");
                 return;
@@ -551,12 +551,12 @@ namespace TinhGiaInClient
             thongTinBanDau.SoLuongToChay = giayIn.SoToChayTong;
             thongTinBanDau.IdToIn_MayIn = baiIn.CauHinhSP.IdMayIn;
             thongTinBanDau.ThongTinGiay = string.Format("{0}/{1}/{2}gm2", giayIn.KhoToChay,
-                                 giayIn.TenGiayIn, giayIn.GiayChon.DinhLuong);
+                                 giayIn.TenGiayIn, giayIn.GiaGiayChon.DinhLuong);
             thongTinBanDau.KhoToChay = baiIn.GiayDeInIn.KhoToChay;
 
             switch (baiIn.CauHinhSP.IdPhapIn)
             {
-                case (int)Enumss.PhuongPhapIn.Toner:
+                case (int)Enumss.PhuongPhapInS.Toner:
                     var frmDigi = new GiaInNhanhForm(thongTinBanDau);
                     frmDigi.TinhTrangForm = FormStates.New;
                     frmDigi.MinimizeBox = false;
@@ -572,9 +572,9 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case (int)Enumss.PhuongPhapIn.KhongIn:
+                case (int)Enumss.PhuongPhapInS.KhongIn:
                     break;
-                case (int)Enumss.PhuongPhapIn.Offset:                   
+                case (int)Enumss.PhuongPhapInS.Offset:                   
                     var frmOffset = new GiaInOffsetForm(thongTinBanDau);                 
                     frmOffset.TinhTrangForm = FormStates.New;
                     frmOffset.MinimizeBox = false;
@@ -604,7 +604,7 @@ namespace TinhGiaInClient
                 var giaIn = baiInPres.LayGiaInTheoId(this.IdGiaInChon);
                 var baiIn = baiInPres.DocBaiIn();
 
-                if (baiIn.CauHinhSP.IdPhapIn == (int)Enumss.PhuongPhapIn.KhongIn) //Không in
+                if (baiIn.CauHinhSP.IdPhapIn == (int)Enumss.PhuongPhapInS.KhongIn) //Không in
                     return;
 
                 //Gắn giấy in
@@ -616,7 +616,7 @@ namespace TinhGiaInClient
                 thongTinBanDau.SoLuongToChay = giayIn.SoToChayTong;
                 thongTinBanDau.IdToIn_MayIn = baiIn.CauHinhSP.IdMayIn;
                 thongTinBanDau.ThongTinGiay = string.Format("{0}/{1}/{2}gm2", giayIn.KhoToChay,
-                                     giayIn.TenGiayIn, giayIn.GiayChon.DinhLuong);
+                                     giayIn.TenGiayIn, giayIn.GiaGiayChon.DinhLuong);
 
                 var frm = new GiaInNhanhForm(thongTinBanDau, giaIn);
                 frm.TinhTrangForm = FormStates.Edit;

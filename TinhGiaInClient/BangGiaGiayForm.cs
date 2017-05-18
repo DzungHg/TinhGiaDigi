@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using TinhGiaInClient.Model;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 
@@ -55,6 +55,29 @@ namespace TinhGiaInClient
                     lbxDanhMucGiay.SelectedValue = _idDanhMucGiayChon.ToString();
                 }
             }
+        }
+        int _idGiayChon;
+        public int IdGiayChon
+        {
+            get
+            {
+                if(lvwGiay.SelectedItems.Count > 0)
+                {                   
+                    int.TryParse(lvwGiay.SelectedItems[0].Text, out _idGiayChon);
+                   
+                }
+                return _idGiayChon;
+            }
+            set
+            {
+                _idGiayChon = value;
+            }
+        }
+
+        public Giay GiayChon
+        {
+            get;
+            set;
         }
         public string MaNhaCungCapChon
         {
@@ -243,6 +266,16 @@ namespace TinhGiaInClient
         {
             txtDienGiaiHangKH.Text = bangGiaGiayPres.DienGiaiHangKH();
             LoadGiayTheoDanhMuc();
+        }
+
+        private void lvwGiay_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //MessageBox.Show(bangGiaGiayPres.GiayChon().TenGiay + bangGiaGiayPres);
+        }
+
+        private void btnNhan_Click(object sender, EventArgs e)
+        {
+            this.GiayChon = bangGiaGiayPres.GiayChon();
         }
        
         

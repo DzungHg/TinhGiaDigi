@@ -15,19 +15,19 @@ namespace TinhGiaInClient.View
         string DienGiaiBaiInVaSoLuong { get; set; }
         string ThongTinBaiIn_CauHinh { get; set; }
         Giay GiayChon { get; set; }
-        int IdDanhMucGiayChon { get; set; }
-        string TenNhaCC { get; set; }
-        string TenGiayIn { get; set; }
-        bool GiayKhachDua { get; set; }
+       
+        string TenGiayInDatLai { get; set; }
+        bool LaGiayKhachDua { get; set; }
+   
         string KhoToChay { get; set; }
         int SoLuongSanPham { get; set; }
         int SoConTrenToChay { get; set; }
-        int SoLuongToChayLyThuyet { get; set; }
+        int SoLuongToChayLyThuyet { get; }
         int SoLuongToChayBuHao { get; set; }
-        int SoLuongToChayTong { get; set; }
+        int SoLuongToChayTong { get; }
         int SoToChayTrenToLon { get; set; }
         decimal GiaBan { get; }
-        int SoToGiayLon { get; set; }
+        int SoToGiayLon { get; }
         decimal ThanhTien { get; }
         FormStates TinhTrangForm { get; set; }
     }

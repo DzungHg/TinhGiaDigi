@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TinhGiaInClient.Model;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient
 {
@@ -25,10 +26,9 @@ namespace TinhGiaInClient
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;
             
           
-            giayDeInPres = new GiayDeInPresenter(this, giayDeIn);
-                           
+            giayDeInPres = new GiayDeInPresenter(this, giayDeIn);                          
            
-                //cập nhật khổ in
+              //cập nhật khổ in đỡ
 
             this.KhoToChay = thongTinBanDau.KhoMayIn;
           
@@ -43,8 +43,10 @@ namespace TinhGiaInClient
             txtSoToChayTrenToLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToChayLyThuyet.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoConTrenToIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoToGiayLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
             chkGiayKhach.CheckedChanged += new EventHandler(TextBoxes_TextChanged);
-            lblGiaMua.TextChanged += new EventHandler(TextBoxes_TextChanged);
+           
             lblSoToInTong.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
         }
@@ -74,43 +76,24 @@ namespace TinhGiaInClient
             get;
             set;
         }
-        int _idDanhMucGiayChon = 0;
-        public int IdDanhMucGiayChon
+       
+        public string TenGiayInDatLai
         {
             get
             {
-                if (lbxDanhMucGiay.SelectedValue != null)
-                    int.TryParse(lbxDanhMucGiay.SelectedValue.ToString(), out _idDanhMucGiayChon);
-                return _idDanhMucGiayChon;
-            }
-            set { _idDanhMucGiayChon = value;
-                if (_idDanhMucGiayChon >0)
-                {
-                    lbxDanhMucGiay.SelectedValue = _idDanhMucGiayChon.ToString();
-                }
-            }
-        }
-        public string TenNhaCC
-        {
-            get {return cboNhaCC.Text; }
-            set { cboNhaCC.Text = value; }
-        }
-        public string TenGiayIn
-        {
-            get
-            {
-                return txtTenGiayDienGiai.Text;
+                return txtTenGiayDatLai.Text;
             }
             set
             {
-                txtTenGiayDienGiai.Text = value;
+                txtTenGiayDatLai.Text = value;
             }
         }
-        public bool GiayKhachDua
+        public bool LaGiayKhachDua
         {
             get { return chkGiayKhach.Checked; }
             set { chkGiayKhach.Checked = value; }
         }
+        
         public int SoLuongSanPham { get; set; }
         public string KhoToChay
         {
@@ -134,10 +117,7 @@ namespace TinhGiaInClient
             {
                 return giayDeInPres.SoToChayLyThuyetTinh();
             }
-            set
-            {
-                txtSoToChayLyThuyet.Text = value.ToString();
-            }
+           
         }
 
         public int SoLuongToChayBuHao
@@ -168,10 +148,7 @@ namespace TinhGiaInClient
             {
                 return giayDeInPres.SoToGiayLon();
             }
-            set
-            {
-                txtSoToGiayLon.Text = value.ToString();
-            }
+         
         }
         public decimal GiaBan
         {
@@ -179,8 +156,7 @@ namespace TinhGiaInClient
         }
         public int SoLuongToChayTong
         {
-            get { return giayDeInPres.SoToChayTong(); }
-            set { lblSoToInTong.Text = string.Format("{0:0,0} tờ", value); }
+            get { return giayDeInPres.SoToChayTong(); }          
         }
 
         public decimal ThanhTien
@@ -197,183 +173,20 @@ namespace TinhGiaInClient
         {
             return giayDeInPres.DocGiayDeIn();
         }
-        public void LoadNhaCungCapGiay()
-        {
-            cboNhaCC.DisplayMember = "Ten";
-            cboNhaCC.ValueMember = "Ten";
-            cboNhaCC.DataSource = NhaCungCapGiay.DanhSachNCC();
-
-            //MessageBox.Show(NhaCungCap.DanhSachNCC().Count().ToString());
-        }
-        public void LoadDanhMucTheoNhaCungCap()
-        {
-            lbxDanhMucGiay.DisplayMember = "Ten";
-            lbxDanhMucGiay.ValueMember = "ID";
-            lbxDanhMucGiay.DataSource = giayDeInPres.DanhMucTheoNhaCC();
-
-        }
+     
+      
         private void ChuanBiGiayForm_Load(object sender, EventArgs e)
         {
-            LoadNhaCungCapGiay();
+           
             //Khóa nếu view
             if (this.TinhTrangForm == FormStates.View)
                 KhoaCacControlsChoView();
 
             lblTieuDeForm.Text = this.Text;
+            XuLyGiayKhachHangDua();//Swicth
         }
 
-        private void cboNhaCC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadDanhMucTheoNhaCungCap();
-        }
-        private void LoadGiayTheoDanhMuc(int maDM)
-        {
-            //Listview Sản phẩm
-            lvwGiay.Clear();
-            lvwGiay.Columns.Add("Id");
-            lvwGiay.Columns.Add("Tên giấy");
-            lvwGiay.Columns.Add("Định lượng");
-            lvwGiay.Columns.Add("Khổ");
-            lvwGiay.Columns.Add("Giá mua");
-            lvwGiay.Columns.Add("Tồn kho");
-            lvwGiay.Columns.Add("Còn hàng?");
-            lvwGiay.View = System.Windows.Forms.View.Details;
-            lvwGiay.HideSelection = false;
-            lvwGiay.FullRowSelect = true;
-            //Xóa;
-            if (this.IdDanhMucGiayChon <= 0)
-                return;
-
-            ListViewItem item;
-            foreach (KeyValuePair<int, List<string>> kvp in giayDeInPres.GiayTheoDanhMucS())
-            {
-                item = new ListViewItem();
-                item.Text = kvp.Key.ToString();
-
-                item.SubItems.AddRange(kvp.Value.ToArray());                
-                lvwGiay.Items.Add(item);
-            }
-            lvwGiay.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lvwGiay.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-            lvwGiay.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-            lvwGiay.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-            lvwGiay.Columns[4].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-            lvwGiay.Columns[5].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-
-
-        }
-        
-        private void lbxDanhMucGiay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int tmpID = 0;
-            int.TryParse(lbxDanhMucGiay.SelectedValue.ToString(), out tmpID);
-            LoadGiayTheoDanhMuc(tmpID);
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblGiaBanChoKH_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTriGia_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtThongTinSanPham_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblChonGiay_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTenDienGiai_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSoToChayLyThuyet_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtKhoToChay_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSoToChayBuHao_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSoToGiayLon_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lvwGiay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lvwGiay.SelectedItems.Count <= 0)
-            {
-                this.GiayChon = null;
-                lblChonGiay.Text = "";
-                lblThanhTien.Text = "";
-                lblGiaBanChoKH.Text = "";
-                
-                return;
-            }
-            int _tmpIdGiay = 0;
-            int.TryParse(lvwGiay.SelectedItems[0].Text, out _tmpIdGiay);
-            this.GiayChon = Giay.DocGiayTheoId(_tmpIdGiay);
-            lblChonGiay.Text = string.Format("{0}/{1}/{2}gsm",
-                        this.GiayChon.TenGiay, this.GiayChon.KhoGiay,
-                        this.GiayChon.DinhLuong);
-            lblGiaMua.Text = string.Format("{0:0,0.00}đ/tờ", this.GiayChon.GiaMua);
-            txtTenGiayDienGiai.Text = lblChonGiay.Text;
-            //txtKhoToChay.Text = _giayChon.KhoGiay;
-            //Cập nhật 
-            CapNhatKetQuaVoLabels();
-           
-        }
+      
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
             TextBox t;
@@ -408,23 +221,16 @@ namespace TinhGiaInClient
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
            
-
             TextBox tb;
             CheckBox chk;
             Label lb;
             if (sender is Label)
             {
                 lb = (Label)sender;
-                if (lb == lblGiaMua)
-                {
-                    if (this.GiayChon != null)
-                    {
-                        CapNhatKetQuaVoLabels();
-                    }
-                }
+               
                 if (lb == lblSoToInTong)
                 {
-                    this.SoToGiayLon = giayDeInPres.SoToGiayLon();
+                    ;
                 }
             }
             if (sender is TextBox)
@@ -437,12 +243,13 @@ namespace TinhGiaInClient
                         txtSoConTrenToIn.Text = "1";
 
                     }
-                    this.SoLuongToChayLyThuyet = giayDeInPres.SoToChayLyThuyetTinh();
+                    txtSoToChayLyThuyet.Text = giayDeInPres.SoToChayLyThuyetTinh().ToString() ;
                 }
                 if (tb == txtSoToChayLyThuyet)
                 {
-                    this.SoToGiayLon = giayDeInPres.SoToGiayLon();
-                    this.SoLuongToChayTong = giayDeInPres.SoToChayTong();
+                    lblSoToInTong.Text = giayDeInPres.SoToChayTong().ToString();
+                   
+                    CapNhatTriGiaVoLabels();
                 }
                 if (tb == txtSoToChayBuHao)
                 {
@@ -450,7 +257,7 @@ namespace TinhGiaInClient
                     {
                         txtSoToChayBuHao.Text = "0";
                     }
-                    this.SoLuongToChayTong = giayDeInPres.SoToChayTong();
+                    lblSoToInTong.Text = giayDeInPres.SoToChayTong().ToString();
                 }
                 if (tb == txtSoToChayTrenToLon)
                 {
@@ -458,14 +265,12 @@ namespace TinhGiaInClient
                     {
                         txtSoToChayTrenToLon.Text = "1";
                     }
-                    this.SoToGiayLon = giayDeInPres.SoToGiayLon();
+                    txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
+                    
                 }
-                
-
-                if (this.GiayChon != null)
+                if (tb == txtSoToGiayLon)
                 {
-                    CapNhatKetQuaVoLabels();
-
+                    CapNhatTriGiaVoLabels();
                 }
 
             }
@@ -476,25 +281,25 @@ namespace TinhGiaInClient
                 {
                     if (this.GiayChon != null)
                     {
-                        CapNhatKetQuaVoLabels();
+                        CapNhatTriGiaVoLabels();
                         
                     }
                 }
 
             }
-
+            CapNhatTriGiaVoLabels();
         }
-        private void CapNhatKetQuaVoLabels()
+        private void CapNhatTriGiaVoLabels()
         {
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             //Console.WriteLine(String.Format(info, "{0:c}", value));
-            lblGiaBanChoKH.Text = string.Format(info, "{0:c}/tờ", this.GiaBan);
+            lblGiaBan.Text = string.Format(info, "{0:c}/tờ", this.GiaBan);
             lblThanhTien.Text = string.Format(info, "{0:c}/tờ", this.ThanhTien);
-            lblSoToInTong.Text = string.Format("{0:0,0}", this.SoLuongToChayTong);
+           
         }
         private void KhoaCacControlsChoView()
         {
-            txtTenGiayDienGiai.Enabled = false;
+            txtTenGiayDatLai.Enabled = false;
             txtKhoToChay.Enabled = false;
             txtSoConTrenToIn.Enabled = false;
             txtSoToChayLyThuyet.Enabled = false;
@@ -506,10 +311,12 @@ namespace TinhGiaInClient
             var result = true;
             List<string> loiS = new List<string>();
 
-            if (this.GiayChon.ID <= 0)
-                loiS.Add("Bạn cần chọn giấy");
-
-            if (string.IsNullOrEmpty(txtTenGiayDienGiai.Text))
+            if (!this.LaGiayKhachDua)
+            {
+                if (this.GiayChon != null)
+                    loiS.Add("Bạn cần chọn giấy");
+            }
+            if (string.IsNullOrEmpty(txtTenGiayDatLai.Text))
                 loiS.Add("Diễn giải chưa có");
 
             if (string.IsNullOrEmpty(txtKhoToChay.Text))
@@ -548,6 +355,53 @@ namespace TinhGiaInClient
             }
         }
 
+        private void btnChonGiay_Click(object sender, EventArgs e)
+        {
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStates.Get, this.IdHangKH);
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Bảng giá giấy theo hạng KH ";
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                this.GiayChon = frm.GiayChon;
+                if (!this.LaGiayKhachDua)
+                {
+                    lblThongTinGiayChon.Text = this.GiayChon.TenGiayMoRong;
+                    this.TenGiayInDatLai = string.Format("{0} {1} gsm", this.GiayChon.TenGiay,
+                                this.GiayChon.DinhLuong);
+                }
+                else
+                {
+                    lblThongTinGiayChon.Text = "Giấy khách đưa";
+                    
+                }
+                CapNhatTriGiaVoLabels();
+            }
+        }
+        private void XuLyGiayKhachHangDua()
+        {
+            if (this.LaGiayKhachDua)
+            {
+              
+                this.GiayChon = null;
+                btnChonGiay.Enabled = false;
+                lblThongTinGiayChon.Text = "Giấy khách";
+                txtTenGiayDatLai.Focus();
+            }
+            else
+            {
+                btnChonGiay.Enabled = true;
+                lblThongTinGiayChon.Text = "Chọn giấy";
+                btnChonGiay.Focus();
+            }
+        }
+
+        private void chkGiayKhach_CheckedChanged(object sender, EventArgs e)
+        {
+            XuLyGiayKhachHangDua();
+        }
+      
        
     }
 

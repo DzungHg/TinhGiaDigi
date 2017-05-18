@@ -49,10 +49,10 @@ namespace TinhGiaInClient.Model
                 {
                     switch (this.PhuongPhapIn)
                     {
-                        case (int)Enumss.PhuongPhapIn.Toner:
+                        case (int)Enumss.PhuongPhapInS.Toner:
                             _dienGiaiMayIn = ToInMayDigi.DocTheoId(IdMayIn_IdBangGia).Ten;
                             break;
-                        case (int)Enumss.PhuongPhapIn.Offset:
+                        case (int)Enumss.PhuongPhapInS.Offset:
                             _dienGiaiMayIn = OffsetGiaCong.DocTheoId(IdMayIn_IdBangGia).Ten;
                             break;
                     }
@@ -71,10 +71,10 @@ namespace TinhGiaInClient.Model
                 {
                     switch (this.PhuongPhapIn)
                     {
-                        case (int)Enumss.PhuongPhapIn.Toner:
+                        case (int)Enumss.PhuongPhapInS.Toner:
                             _tenPhuongPhapIn = "KTS";
                             break;
-                        case (int)Enumss.PhuongPhapIn.Offset:
+                        case (int)Enumss.PhuongPhapInS.Offset:
                             _tenPhuongPhapIn = "Offset";
                             break;
                     }

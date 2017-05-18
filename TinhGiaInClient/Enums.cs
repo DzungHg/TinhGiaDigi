@@ -11,6 +11,7 @@ namespace TinhGiaInClient
     public enum ChieuSapXep { Ascending = 0, Descending = 1 }
     public enum LoaiThanhPham { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4, Be = 5 }
     public enum MauIn { BonMau = 0, MotMau = 1, SauMau = 2 }
+    public enum PhuongPhapInS { Toner = 1, HPIndigo = 2, Offset = 3, KhoLon = 4, KhongIn = 0 }
     public static class Enumss
     {
 
@@ -23,7 +24,7 @@ namespace TinhGiaInClient
         public enum PrintSides { FourFour = 1, FourOne = 2, FourZero = 3, OneOne = 4, OneZero = 5 }
         
         public enum LoaiBangGia { InNhanh = 0, InNhanhTheoMay = 1, InOffset = 2, InKhoLon = 3 }
-        public enum PhuongPhapIn { Toner = 1, HPIndigo = 2, Offset = 3, KhoLon = 4, KhongIn = 0}
+       
         
         
         public enum KieuInOffset { MotMat = 0, TuTro = 1, TuTroNhip = 2, AB = 3 }

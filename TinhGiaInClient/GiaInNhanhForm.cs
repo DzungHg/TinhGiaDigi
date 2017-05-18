@@ -142,7 +142,7 @@ namespace TinhGiaInClient
         }
         public int PhuongPhapIn
         { 
-            get { return (int)Enumss.PhuongPhapIn.Toner; }
+            get { return (int)Enumss.PhuongPhapInS.Toner; }
         }
         public FormStates TinhTrangForm
         {

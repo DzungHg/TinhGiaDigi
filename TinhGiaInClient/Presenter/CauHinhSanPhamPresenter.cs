@@ -52,7 +52,7 @@ namespace TinhGiaInClient.Presenter
             View.LeTrong = 0.2f;
             View.LeNgoai = 0.2f;
             View.SoLuong = 1;
-            View.IdPhuongPhapIn = (int)Enumss.PhuongPhapIn.Toner;
+            View.IdPhuongPhapIn = (int)Enumss.PhuongPhapInS.Toner;
 
         }
         public void KiemTraTranLe_vs_Le()
@@ -90,7 +90,7 @@ namespace TinhGiaInClient.Presenter
             var lst = new List<ThongTinToChay>();
             switch (View.IdPhuongPhapIn)
             {
-                case (int)Enumss.PhuongPhapIn.Toner:
+                case (int)Enumss.PhuongPhapInS.Toner:
                     foreach (ToInMayDigi tCh in ToInMayDigi.DocTatCa())
                     {
                         var thTinToChay = new ThongTinToChay();
@@ -106,7 +106,7 @@ namespace TinhGiaInClient.Presenter
                         lst.Add(thTinToChay);
                     }
                     break;
-                case (int)Enumss.PhuongPhapIn.Offset:
+                case (int)Enumss.PhuongPhapInS.Offset:
                     foreach (OffsetGiaCong tCh in OffsetGiaCong.DocTatCa())
                     {
                         var thTinToChay = new ThongTinToChay();
@@ -179,13 +179,13 @@ namespace TinhGiaInClient.Presenter
             var tChay = this.ToChayS().Find(x => x.ID == View.IdToInChon);
             switch (tChay.Loai)
             {
-                case (int)Enumss.PhuongPhapIn.Offset:
+                case (int)Enumss.PhuongPhapInS.Offset:
                     result = "In Offset";
                     break;
-                case (int)Enumss.PhuongPhapIn.Toner:
+                case (int)Enumss.PhuongPhapInS.Toner:
                     result = "In Nhanh";
                     break;
-                case (int)Enumss.PhuongPhapIn.KhongIn:
+                case (int)Enumss.PhuongPhapInS.KhongIn:
                     result = "Không in";
                     break;
             }            

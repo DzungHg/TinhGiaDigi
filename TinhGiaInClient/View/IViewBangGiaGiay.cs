@@ -14,5 +14,7 @@ namespace TinhGiaInClient.View
         FormStates TinhTrangForm { get; set; }
         int IdDanhMucGiayChon { get; }
         string MaNhaCungCapChon { get; set; }
+        int IdGiayChon { get; set; }
+        Giay GiayChon { get; set; }
     }
 }

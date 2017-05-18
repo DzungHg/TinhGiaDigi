@@ -8,71 +8,37 @@ namespace TinhGiaInClient.Model
 {
     public class GiaGiay
     {
-        public int ID { get; set; }
-        public string Ten { get; set; }
-        public int GiaMua { get; set; }
-        public int IdDanhMucGiay { get; set; }
-        public int IdHangKhachHang { get; set; }
-        public int MucLoiNhuan { get; set; }
-
+        public Giay Giay { get; set; }
+        public int TyLeMarkUpSales { get; set; }
+        public bool GiayKhachDua { get; set; }
+        public GiaGiay (Giay giay, int tyLeMarkUpSales, bool giayKhachDua = false)
+        {
+            Giay = giay;
+            TyLeMarkUpSales = tyLeMarkUpSales;
+            GiayKhachDua = giayKhachDua;
+        }
+        public decimal GiaMua()
+        {
+            decimal kq = 0;
+            if (this.GiayKhachDua)
+                kq = 0;
+            else
+                kq = this.Giay.GiaMua;
+            return kq;
+        }
         public decimal GiaBan()
         {
-            decimal tyLeMK = (decimal)this.MucLoiNhuan / 100;
-            return this.GiaMua + this.GiaMua * tyLeMK / (1 - tyLeMK);
-        }
-        public string TenHangKhachHang()
-        {
-            return HangKhachHang.LayTheoId(this.IdHangKhachHang).Ten;
-        }
-        //hàm static
-        public static List<GiaGiay> DocTatCa()
-        {/*var result=products.Join(
-            categories,
-            p=>p.CategoryID,
-            c=>c.CategoryID,
-            (p,c) => new
-            {
-                ProductName=p.ProductName,
-                CategoryName=c.CategoryName
-            });*/
+            decimal kq = 0;
+            decimal tiLeMarkUp = (decimal)this.TyLeMarkUpSales / 100;
 
-            //Đọc những cái Còn
-            var nguonGiayMoi = Giay.DocTatCa().Where(x => !x.KhongCon).Join(MarkUpLoiNhuanGiay.LayTatCa(), g => g.IdDanhMucGiay,
-                            m => m.IdDanhMucGiay, (g, m) => new
-                            {
-                                ID = g.ID,
-                                Ten = g.TenGiayMoRong,
-                                GiaMua = g.GiaMua,
-                                IdDanhMucGiay = g.IdDanhMucGiay,
-                                IdHangKhachHang = m.IdHangKhachHang,
-                                MucLoiNhuan = m.TiLeLoiNhuanTrenDoanhThu                           
-                            });
-
-            var nguon = nguonGiayMoi.Select(x => new GiaGiay
-            {
-                ID = x.ID,
-                Ten = x.Ten,
-                GiaMua = x.GiaMua,
-                IdDanhMucGiay = x.IdDanhMucGiay,
-                IdHangKhachHang = x.IdHangKhachHang,
-                MucLoiNhuan = x.MucLoiNhuan
-            }).ToList();
-         
-            return nguon;
+            kq = this.Giay.GiaMua + this.Giay.GiaMua * tiLeMarkUp /
+                    (1 - tiLeMarkUp);
+            return kq;
         }
-        public static List<GiaGiay> DocTheoDanhMucGiay_HangKH(int idDanhMucGiay, int idHangKH)
+        public decimal TienGiaySales(int soTo)
         {
-            var nguon = GiaGiay.DocTatCa().Where((x => (x.IdDanhMucGiay == idDanhMucGiay) &&
-                                                (x.IdHangKhachHang == idHangKH)));
-                                
-            return nguon.ToList();
-        }
-        public static List<GiaGiay> DocTheoHangKhachHang(int idHangKH)
-        {
-            var nguon = GiaGiay.DocTatCa().Where(x => x.IdHangKhachHang == idHangKH);
-            return nguon.ToList();
+            return soTo * GiaBan();
         }
 
     }
-
 }

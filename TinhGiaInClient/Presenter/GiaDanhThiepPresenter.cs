@@ -84,11 +84,11 @@ namespace TinhGiaInClient.Presenter
         public string TenGiayChon()
         {
             var ketQua = "";
-            if (View.GiayInChon == null)
+            if (View.GiayDeInChon == null)
                 ketQua = BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).GiayBaoGom;
             else
             {
-                ketQua = Giay.DocGiayTheoId(View.GiayInChon.GiayChon.ID).TenGiay;
+                ketQua = Giay.DocGiayTheoId(View.GiayDeInChon.GiaGiayChon.ID).TenGiay;
             }
             
             return ketQua;
@@ -96,10 +96,10 @@ namespace TinhGiaInClient.Presenter
         public decimal TienGiay()
         {
             var result = 0m;
-            if (View.GiayInChon == null)
+            if (View.GiayDeInChon == null)
                 return result;
             else
-                result = View.GiayInChon.ThanhTien;
+                result = View.GiayDeInChon.ThanhTien;
 
             return result;
         }

@@ -33,6 +33,7 @@
             this.cboHangKhachHang = new System.Windows.Forms.ComboBox();
             this.lblTieuDeForm = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnNhan = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.splitCont2 = new System.Windows.Forms.SplitContainer();
             this.lbxDanhMucGiay = new System.Windows.Forms.ListBox();
@@ -42,7 +43,6 @@
             this.lvwGiay = new System.Windows.Forms.ListView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnNhan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitCont2)).BeginInit();
@@ -103,6 +103,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(641, 40);
             this.panel2.TabIndex = 1;
+            // 
+            // btnNhan
+            // 
+            this.btnNhan.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnNhan.Location = new System.Drawing.Point(333, 5);
+            this.btnNhan.Name = "btnNhan";
+            this.btnNhan.Size = new System.Drawing.Size(75, 23);
+            this.btnNhan.TabIndex = 1;
+            this.btnNhan.Text = "Nhận";
+            this.btnNhan.UseVisualStyleBackColor = true;
+            this.btnNhan.Click += new System.EventHandler(this.btnNhan_Click);
             // 
             // btnHuy
             // 
@@ -181,6 +192,7 @@
             this.lvwGiay.Size = new System.Drawing.Size(428, 315);
             this.lvwGiay.TabIndex = 2;
             this.lvwGiay.UseCompatibleStateImageBehavior = false;
+            this.lvwGiay.SelectedIndexChanged += new System.EventHandler(this.lvwGiay_SelectedIndexChanged_1);
             // 
             // panel4
             // 
@@ -200,16 +212,6 @@
             this.label3.Size = new System.Drawing.Size(231, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giấy theo Danh mục và giá bán theo Hạng  KH";
-            // 
-            // btnNhan
-            // 
-            this.btnNhan.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnNhan.Location = new System.Drawing.Point(333, 5);
-            this.btnNhan.Name = "btnNhan";
-            this.btnNhan.Size = new System.Drawing.Size(75, 23);
-            this.btnNhan.TabIndex = 1;
-            this.btnNhan.Text = "Nhận";
-            this.btnNhan.UseVisualStyleBackColor = true;
             // 
             // BangGiaGiayForm
             // 

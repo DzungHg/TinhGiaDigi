@@ -8,8 +8,9 @@ namespace TinhGiaInClient.Model
 {
     public class CauHinhGiayIn //Dùng cho giấy in danh thiếp
     {
-        public int IdGiayChon { get; set; }
+        public Giay GiayChon { get; set; }
         public bool GiayKhachDua { get; set; }
+        public string DienGiaiGiayKhach { get; set; }
         public string KhoToChay { get; set; }
         public int SoLuongSanPham { get; set; }
         public int SoConTrenToChay { get; set; }

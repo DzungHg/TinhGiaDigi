@@ -88,11 +88,11 @@ namespace TinhGiaInClient.Presenter
                 
                 switch (giaIn.PhuongPhapIn)
                 {
-                    case (int)Enumss.PhuongPhapIn.Toner:
+                    case (int)Enumss.PhuongPhapInS.Toner:
                         donViTrang = "A4";
                         phuongPhapIn = "KTS";
                         break;
-                    case (int)Enumss.PhuongPhapIn.Offset:
+                    case (int)Enumss.PhuongPhapInS.Offset:
                         donViTrang = "mặt";
                         phuongPhapIn = "Offset";
                         break;
@@ -195,13 +195,13 @@ namespace TinhGiaInClient.Presenter
             if (item != null)
             {
                 item.ID = giayDeIn.ID;
-                item.GiayChon = giayDeIn.GiayChon;
+                item.GiaGiayChon = giayDeIn.GiaGiayChon;
                 item.GiayKhachDua = giayDeIn.GiayKhachDua;
                 item.KhoToChay = giayDeIn.KhoToChay;
                 item.SoConTrenToChay = giayDeIn.SoConTrenToChay;
                 item.SoLuongToChayLyThuyet = giayDeIn.SoLuongToChayLyThuyet;
                 item.SoLuongToChayBuHao = giayDeIn.SoLuongToChayBuHao;
-                item.SoLuongToLonCan = giayDeIn.SoLuongToLonCan;
+                item.SoToLonCan = giayDeIn.SoToLonCan;
                 item.TenGiayIn = giayDeIn.TenGiayIn;
                 item.IdBaiIn = giayDeIn.IdBaiIn;
 
@@ -217,15 +217,15 @@ namespace TinhGiaInClient.Presenter
             var giayDeIn = baiIn.GiayDeInIn;
             if (giayDeIn != null)
             {
-                lst.Add(string.Format("Giấy chọn: {0} ", giayDeIn.GiayChon.TenGiay));
+                lst.Add(string.Format("Giấy chọn: {0} ", giayDeIn.GiaGiayChon.TenGiay));
                 lst.Add(string.Format("Giấy tên theo bài: {0}", giayDeIn.TenGiayIn));
-                lst.Add(string.Format("Định lượng: {0}g/m2", giayDeIn.GiayChon.DinhLuong));
+                lst.Add(string.Format("Định lượng: {0}g/m2", giayDeIn.GiaGiayChon.DinhLuong));
                 lst.Add(string.Format("Khổ tờ chạy {0}", giayDeIn.KhoToChay));
                 lst.Add(string.Format("Số con / tờ chạy: {0}", giayDeIn.SoConTrenToChay));
                 lst.Add(string.Format("Số lượng tờ chạy tính: {0} tờ", giayDeIn.SoLuongToChayLyThuyet));
                 lst.Add(string.Format("Số lượng tờ chạy bù hao: {0} tờ", giayDeIn.SoLuongToChayBuHao));
                 lst.Add(string.Format("Số lượng tờ chạy tổng: {0} tờ", giayDeIn.SoToChayTong));
-                lst.Add(string.Format("Số lượng tờ lớn: {0} tờ", giayDeIn.SoLuongToLonCan));
+                lst.Add(string.Format("Số lượng tờ lớn: {0} tờ", giayDeIn.SoToLonCan));
                 lst.Add(string.Format("Tiền giấy: {0:0,0.00đ}", giayDeIn.ThanhTien));
                 lst.Add(string.Format("Giấy khách đưa? {0}", giayDeIn.GiayKhachDua));
             }

@@ -79,7 +79,7 @@ namespace TinhGiaInClient
                 cboBangGia.Text = value;
             }
         }
-        public GiayDeIn GiayInChon
+        public GiayDeIn GiayDeInChon
         {
             get;
             set;
@@ -264,19 +264,19 @@ namespace TinhGiaInClient
         }
         private void SuaGiayIn()
         {
-            if (this.GiayInChon == null)
+            if (this.GiayDeInChon == null)
                 return;
             var thongTinBanDau = new ThongTinBanDauChoGiayIn();
             thongTinBanDau.TinhTrangForm = FormStates.Edit;
             thongTinBanDau.SoLuongSanPham = this.SoLuong;
             thongTinBanDau.IdHangKhachHang = this.IdHangKH;
-            thongTinBanDau.KhoMayIn = this.GiayInChon.KhoToChay;
+            thongTinBanDau.KhoMayIn = this.GiayDeInChon.KhoToChay;
             thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} " + '\r' + '\n',
                 this.KichThuoc)
                 + string.Format("Số lượng {0} cái ({1} hộp)" + '\r' + '\n',
                 this.SoLuong * 100, this.SoLuong)
                 + "Cần cẩn thận chọn khổ giấy";
-            var frm = new GiayDeInForm(thongTinBanDau, this.GiayInChon);
+            var frm = new GiayDeInForm(thongTinBanDau, this.GiayDeInChon);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -302,14 +302,14 @@ namespace TinhGiaInClient
             switch (frm.TinhTrangForm)
             {
                 case FormStates.New:
-                    this.GiayInChon = frm.DocGiayDeIn();
+                    this.GiayDeInChon = frm.DocGiayDeIn();
                     this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
                     this.TienGiay = giaDanhThiepPres.TienGiay();
                     txtSoLuong.Enabled = false;//Lock lại
                     break;
                 case FormStates.Edit:
                     //Đổi ID vì thêm mới là có id mới
-                    this.GiayInChon = frm.DocGiayDeIn();
+                    this.GiayDeInChon = frm.DocGiayDeIn();
                     this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
                     this.TienGiay = giaDanhThiepPres.TienGiay();
                     txtSoLuong.Enabled = false;//Lock lại
@@ -325,7 +325,7 @@ namespace TinhGiaInClient
 
         private void btnChonGiayKhac_Click(object sender, EventArgs e)
         {
-            if (this.GiayInChon != null)
+            if (this.GiayDeInChon != null)
                 SuaGiayIn();
             else
                 DoiGiayMoi();
@@ -333,7 +333,7 @@ namespace TinhGiaInClient
 
         private void btnResetGiay_Click(object sender, EventArgs e)
         {
-            this.GiayInChon = null;
+            this.GiayDeInChon = null;
             this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
             this.TienGiay = giaDanhThiepPres.TienGiay();
             txtSoLuong.Enabled = true;

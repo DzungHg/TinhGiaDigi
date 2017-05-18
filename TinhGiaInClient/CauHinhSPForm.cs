@@ -228,13 +228,13 @@ namespace TinhGiaInClient
             get
             {
                 if (rdbToner.Checked)
-                    _phPhapIn = (int) Enumss.PhuongPhapIn.Toner;
+                    _phPhapIn = (int) Enumss.PhuongPhapInS.Toner;
 
                 else if (rdbOffset.Checked)
-                    _phPhapIn = (int)Enumss.PhuongPhapIn.Offset;
+                    _phPhapIn = (int)Enumss.PhuongPhapInS.Offset;
 
                 else if (rdbKhongIn.Checked)
-                    _phPhapIn = (int)Enumss.PhuongPhapIn.KhongIn;
+                    _phPhapIn = (int)Enumss.PhuongPhapInS.KhongIn;
 
                 return _phPhapIn;
             }
@@ -243,13 +243,13 @@ namespace TinhGiaInClient
                 _phPhapIn = value;
                 switch (_phPhapIn)
                 {
-                    case (int) Enumss.PhuongPhapIn.Toner:
+                    case (int) Enumss.PhuongPhapInS.Toner:
                         rdbToner.Checked = true;
                         break;
-                    case (int)Enumss.PhuongPhapIn.Offset:
+                    case (int)Enumss.PhuongPhapInS.Offset:
                         rdbOffset.Checked = true;
                         break;
-                    case (int)Enumss.PhuongPhapIn.KhongIn:
+                    case (int)Enumss.PhuongPhapInS.KhongIn:
                         rdbKhongIn.Checked = true;
                         break;
                 }
@@ -465,7 +465,7 @@ namespace TinhGiaInClient
             //==đền dữ liệu
             switch (this.IdPhuongPhapIn)
             {
-                case (int)Enumss.PhuongPhapIn.Toner:
+                case (int)Enumss.PhuongPhapInS.Toner:
                     foreach (KeyValuePair<int, List<string>> kvp in cauHinhSanPhamPres.TrinhBayToChayDiGiS())
                     {
                         var item = new ListViewItem();
@@ -476,7 +476,7 @@ namespace TinhGiaInClient
                         lstMayIn.Items.Add(item);
                     }                    
                     break;
-                case (int)Enumss.PhuongPhapIn.Offset:
+                case (int)Enumss.PhuongPhapInS.Offset:
                     foreach (KeyValuePair<int, List<string>> kvp in cauHinhSanPhamPres.TrinhBayToChayOffsetS())
                     {
                         var item = new ListViewItem();
@@ -485,7 +485,7 @@ namespace TinhGiaInClient
                         lstMayIn.Items.Add(item);
                     }
                     break;
-                case (int)Enumss.PhuongPhapIn.KhongIn: //Không in gì cả
+                case (int)Enumss.PhuongPhapInS.KhongIn: //Không in gì cả
                     lstMayIn.Items.Clear();                    
                     break;
             }
