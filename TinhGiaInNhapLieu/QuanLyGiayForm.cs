@@ -146,7 +146,7 @@ namespace TinhGiaInNhapLieu
 
         private void cmuThemGiay_Click(object sender, EventArgs e)
         {
-            GiayForm frm = new GiayForm((int)FormStates.New, this.NhaCungCapChon,
+            GiayForm frm = new GiayForm((int)FormStateS.New, this.NhaCungCapChon,
                         this.IdDanhMucGiayChon);
             frm.Text = "Giấy [Thêm mới]";
             frm.MaximizeBox = false;
@@ -164,7 +164,7 @@ namespace TinhGiaInNhapLieu
             if (this.IdGiayChon <= 0)
                 return;
 
-            GiayForm frm = new GiayForm((int)FormStates.Edit, this.NhaCungCapChon,
+            GiayForm frm = new GiayForm((int)FormStateS.Edit, this.NhaCungCapChon,
                         this.IdDanhMucGiayChon, this.IdGiayChon);
             frm.Text = string.Format("Giấy [Sửa: {0}]", this.IdGiayChon);
             frm.MaximizeBox = false;

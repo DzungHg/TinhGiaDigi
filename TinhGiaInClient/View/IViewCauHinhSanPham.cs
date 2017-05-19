@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.View;
 
+
 namespace TinhGiaInClient.View
 {
     public interface IViewCauHinhSanPham
@@ -29,10 +30,10 @@ namespace TinhGiaInClient.View
         string ThongTinBaiIn { get; set; }
         //Thêm về máy in
         int IdToInChon { get; set; }
-        int IdPhuongPhapIn { get; set; }
+        PhuongPhapInS PhuongPhapIn { get; set; }
         string TenPhuongPhapIn { get; }
         string KhoInChon { get; }
-        FormStates TinhTrangForm { get; set; }
+        FormStateS TinhTrangForm { get; set; }
        
     }
 }

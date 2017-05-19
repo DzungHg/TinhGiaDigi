@@ -114,10 +114,10 @@ namespace TinhGiaInNhapLieu
 
             switch (this.TinhTrangForm)
             {
-                case (int)FormStates.New:
+                case (int)FormStateS.New:
                     danhMucGiayPres.ThemDanhMucGiay();
                     break;
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     danhMucGiayPres.SuaDanhMucGiay();
                     break;                
             }

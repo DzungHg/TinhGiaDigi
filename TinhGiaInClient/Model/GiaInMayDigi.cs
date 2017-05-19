@@ -12,10 +12,10 @@ namespace TinhGiaInClient.Model
         public ToInMayDigi ToChayDigi { get; set; }
         public int SoTrangA4 { get; set; }
         public int TyLeMarkUp { get; set; }
-        public MauIn MauInChon { get; set; }
+        public MauInS MauInChon { get; set; }
 
         private DuLieuTinhGiaInNhanhTheoMay duLieuTinhGia;
-        public GiaInMayDigi(ToInMayDigi toChayDigi, int soLuongA4, int tyLeMarkUp, MauIn mauIn)
+        public GiaInMayDigi(ToInMayDigi toChayDigi, int soLuongA4, int tyLeMarkUp, MauInS mauIn)
         {
             this.ToChayDigi = toChayDigi;
             this.SoTrangA4 = soLuongA4;
@@ -58,13 +58,13 @@ namespace TinhGiaInClient.Model
              */
             switch (this.MauInChon)
             {
-                case MauIn.BonMau:
+                case MauInS.BonMau:
                     duLieuTinhGia.ClickTrangA4 = this.ToChayDigi.ClickA4BonMau * this.SoTrangA4;
                     break;
-                case MauIn.MotMau:
+                case MauInS.MotMau:
                     duLieuTinhGia.ClickTrangA4 = this.ToChayDigi.ClickA4MotMau * this.SoTrangA4;
                     break;
-                case MauIn.SauMau:
+                case MauInS.SauMau:
                     duLieuTinhGia.ClickTrangA4 = this.ToChayDigi.ClickA4SauMau * this.SoTrangA4;
                     break;
             }

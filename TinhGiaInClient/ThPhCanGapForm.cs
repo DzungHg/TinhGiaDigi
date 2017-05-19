@@ -95,7 +95,7 @@ namespace TinhGiaInClient
         }
 
 
-        public LoaiThanhPham LoaiThPh
+        public LoaiThanhPhamS LoaiThPh
         {
             get;
             set;

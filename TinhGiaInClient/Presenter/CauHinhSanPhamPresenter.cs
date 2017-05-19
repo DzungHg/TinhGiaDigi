@@ -29,13 +29,13 @@ namespace TinhGiaInClient.Presenter
                 View.LeDuoi = cauHinhSP.LeDuoi;
                 View.LeTrong = cauHinhSP.LeTrong;
                 View.LeNgoai = cauHinhSP.LeNgoai;
-                View.IdPhuongPhapIn = cauHinhSP.IdPhapIn;
+                View.PhuongPhapIn = cauHinhSP.PhuongPhapIn;
                 View.IdToInChon = cauHinhSP.IdMayIn;
                 //this.SoLuong = cauHinhSP.SoLuong;
 
 
             }
-            if (View.TinhTrangForm == FormStates.New)
+            if (View.TinhTrangForm == FormStateS.New)
                 this.TrinhBayMacDinh();
         }
         private void TrinhBayMacDinh()
@@ -52,7 +52,7 @@ namespace TinhGiaInClient.Presenter
             View.LeTrong = 0.2f;
             View.LeNgoai = 0.2f;
             View.SoLuong = 1;
-            View.IdPhuongPhapIn = (int)Enumss.PhuongPhapInS.Toner;
+            View.PhuongPhapIn = PhuongPhapInS.Toner;
 
         }
         public void KiemTraTranLe_vs_Le()
@@ -88,14 +88,14 @@ namespace TinhGiaInClient.Presenter
         public List<ThongTinToChay> ToChayS()
         {
             var lst = new List<ThongTinToChay>();
-            switch (View.IdPhuongPhapIn)
+            switch (View.PhuongPhapIn)
             {
-                case (int)Enumss.PhuongPhapInS.Toner:
+                case PhuongPhapInS.Toner:
                     foreach (ToInMayDigi tCh in ToInMayDigi.DocTatCa())
                     {
                         var thTinToChay = new ThongTinToChay();
                         thTinToChay.ID = tCh.ID;
-                        thTinToChay.Loai = View.IdPhuongPhapIn;
+                        thTinToChay.PhuongPhapIn = View.PhuongPhapIn;
                         thTinToChay.Ten = tCh.Ten;
                         thTinToChay.Rong = tCh.Rong;
                         thTinToChay.Dai = tCh.Cao;
@@ -106,12 +106,12 @@ namespace TinhGiaInClient.Presenter
                         lst.Add(thTinToChay);
                     }
                     break;
-                case (int)Enumss.PhuongPhapInS.Offset:
+                case PhuongPhapInS.Offset:
                     foreach (OffsetGiaCong tCh in OffsetGiaCong.DocTatCa())
                     {
                         var thTinToChay = new ThongTinToChay();
                         thTinToChay.ID = tCh.ID;
-                        thTinToChay.Loai = View.IdPhuongPhapIn;
+                        thTinToChay.PhuongPhapIn = View.PhuongPhapIn;
                         thTinToChay.Ten = string.Format("[{0}] {1}", tCh.TenNhaCungCap, tCh.Ten);
                         thTinToChay.Rong = tCh.KhoInRongMax;
                         thTinToChay.Dai = tCh.KhoInDaiMax;
@@ -177,15 +177,15 @@ namespace TinhGiaInClient.Presenter
                 return result;
 
             var tChay = this.ToChayS().Find(x => x.ID == View.IdToInChon);
-            switch (tChay.Loai)
+            switch (tChay.PhuongPhapIn)
             {
-                case (int)Enumss.PhuongPhapInS.Offset:
+                case PhuongPhapInS.Offset:
                     result = "In Offset";
                     break;
-                case (int)Enumss.PhuongPhapInS.Toner:
+                case PhuongPhapInS.Toner:
                     result = "In Nhanh";
                     break;
-                case (int)Enumss.PhuongPhapInS.KhongIn:
+                case PhuongPhapInS.KhongIn:
                     result = "Không in";
                     break;
             }            
@@ -215,10 +215,10 @@ namespace TinhGiaInClient.Presenter
             },
                 View.TranLeTren, View.TranLeDuoi, View.TranLeTrong, View.TranLeNgoai,
                 View.LeTren, View.LeDuoi, View.TranLeTrong, View.LeNgoai, View.IdBaiIn,
-                View.IdPhuongPhapIn, View.IdToInChon, this.TenPhuongPhapIn(),
+                View.PhuongPhapIn, View.IdToInChon, this.TenPhuongPhapIn(),
                 this.KhoMayInChon());
 
-            if (View.TinhTrangForm == FormStates.Edit)
+            if (View.TinhTrangForm == FormStateS.Edit)
                 ketQua.IDCauHinh = View.IdCauHinhSP; //Tránh tự tăng id khi tạo mới
 
             return ketQua;

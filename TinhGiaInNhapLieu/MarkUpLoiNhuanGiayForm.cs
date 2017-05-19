@@ -58,7 +58,7 @@ namespace TinhGiaInNhapLieu
             var idHangKH = 0;  
             switch (this.TinhTrangForm)
             {
-                case (int)FormStates.New:                           
+                case (int)FormStateS.New:                           
                     idHangKH = nguonHangKH.FirstOrDefault(x=>x.Value == cboHangKH.Text).Key;                    
                     MarkUpLoiNhuanGiay.Them(new MarkUpLoiNhuanGiay {
                         IdDanhMucGiay = this.IdDanhMuc,
@@ -66,7 +66,7 @@ namespace TinhGiaInNhapLieu
                         TiLeLoiNhuanTrenDoanhThu = this.TiLeLoiNhuan                                                
                     });
                     break;
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     idHangKH = nguonHangKH.FirstOrDefault(x => x.Value == cboHangKH.Text).Key;
                     MarkUpLoiNhuanGiay.Sua(new MarkUpLoiNhuanGiay
                     {
@@ -125,7 +125,7 @@ namespace TinhGiaInNhapLieu
             switch (this.TinhTrangForm)
             {
               
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     var tenHangKH = nguonHangKH.FirstOrDefault(x => x.Key == this.IdHangKH).Value;
                     cboHangKH.SelectedIndex = cboHangKH.Items.IndexOf(tenHangKH);
                     break;

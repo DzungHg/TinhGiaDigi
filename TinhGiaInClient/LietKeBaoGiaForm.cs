@@ -43,23 +43,23 @@ namespace TinhGiaInClient
 
         }
      
-        public SapXepTinhGia KieuSapXep
+        public SapXepTinhGiaS KieuSapXep
         {
             get
             {
-                var ketQua = SapXepTinhGia.Khong;
+                var ketQua = SapXepTinhGiaS.Khong;
                 if (cboSapXepTheo.SelectedIndex >= 0)
                     
                     switch (cboSapXepTheo.SelectedIndex)
                     {
                         case 0:
-                            ketQua = SapXepTinhGia.Khong;
+                            ketQua = SapXepTinhGiaS.Khong;
                             break;
                         case 1:
-                            ketQua = SapXepTinhGia.TheoNgay;
+                            ketQua = SapXepTinhGiaS.TheoNgay;
                             break;
                         case 2:
-                            ketQua = SapXepTinhGia.TheoNhanVien;
+                            ketQua = SapXepTinhGiaS.TheoNhanVien;
                             break;                      
                     }
                 return ketQua;                  
@@ -70,19 +70,19 @@ namespace TinhGiaInClient
             }
         }
         
-        public ChieuSapXep ChieuSapXep {
+        public ChieuSapXepS ChieuSapXep {
             get {
                 if (rdbNguoc.Checked)
-                    return ChieuSapXep.Descending;
+                    return ChieuSapXepS.Descending;
                 else
-                    return ChieuSapXep.Ascending;
+                    return ChieuSapXepS.Ascending;
                
                
             }
             set
             {
                 ChieuSapXep = value;
-                if (ChieuSapXep == ChieuSapXep.Descending)
+                if (ChieuSapXep == ChieuSapXepS.Descending)
                     rdbNguoc.Checked = true;
                 else
                     rdbXuoi.Checked = true;

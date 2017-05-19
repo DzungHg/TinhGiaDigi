@@ -39,7 +39,7 @@ namespace TinhGiaInClient.UI
             if (frmLietKeTinhGia == null)
             {
                 frmLietKeTinhGia = new LietKeTinhGiaForm();
-                frmLietKeTinhGia.KieuSapXep = SapXepTinhGia.Khong;
+                frmLietKeTinhGia.KieuSapXep = SapXepTinhGiaS.Khong;
                 frmLietKeTinhGia.FormClosed += new FormClosedEventHandler(ByByWindows);
                 //frmLietKeTinhGia.MdiParent = this;
                 frmLietKeTinhGia.Show();
@@ -52,7 +52,7 @@ namespace TinhGiaInClient.UI
         {
             if (frmBangGiaGiay == null)
             {
-                frmBangGiaGiay = new BangGiaGiayForm(FormStates.View);              
+                frmBangGiaGiay = new BangGiaGiayForm(FormStateS.View);              
                 frmBangGiaGiay.FormClosed += new FormClosedEventHandler(ByByWindows);               
                 frmBangGiaGiay.Show();
 
@@ -89,7 +89,7 @@ namespace TinhGiaInClient.UI
             }
             var thongTinBanDau = new ThongTinBanDauChoTinhGia();
             thongTinBanDau.TenNguoiDung = this.TenNguoiDung;
-            thongTinBanDau.TinhTrangForm = FormStates.New;
+            thongTinBanDau.TinhTrangForm = FormStateS.New;
 
             var frm = new TinhGiaForm(thongTinBanDau);
             frm.MaximizeBox = false;

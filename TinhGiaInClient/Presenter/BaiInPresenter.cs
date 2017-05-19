@@ -21,9 +21,9 @@ namespace TinhGiaInClient.Presenter
             //Để nếu sửa bài in thì lấy Id cũ
             switch (View.TinhTrangForm)
             {
-                case FormStates.New:                   
+                case FormStateS.New:                   
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     baiIn.ID = View.ID;                   
                     break;
             }
@@ -41,14 +41,14 @@ namespace TinhGiaInClient.Presenter
         {
             switch(View.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     View.SoLuong = 10;
                     View.TieuDe = "Bài in";
                     View.DienGiai = "Diễn giải bài in";
                     View.DonViTinh = "??";
                    
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     //Không có trong database nên làm sau
                     
                     break;
@@ -88,11 +88,11 @@ namespace TinhGiaInClient.Presenter
                 
                 switch (giaIn.PhuongPhapIn)
                 {
-                    case (int)Enumss.PhuongPhapInS.Toner:
+                    case (int)PhuongPhapInS.Toner:
                         donViTrang = "A4";
                         phuongPhapIn = "KTS";
                         break;
-                    case (int)Enumss.PhuongPhapInS.Offset:
+                    case (int)PhuongPhapInS.Offset:
                         donViTrang = "mặt";
                         phuongPhapIn = "Offset";
                         break;
@@ -158,7 +158,7 @@ namespace TinhGiaInClient.Presenter
                 item.LeNgoai = cauHinhSP.LeNgoai;
                 item.IdBaiIn = cauHinhSP.IdBaiIn;
                 item.IdMayIn = cauHinhSP.IdMayIn;
-                item.IdPhapIn = cauHinhSP.IdPhapIn;
+                item.PhuongPhapIn = cauHinhSP.PhuongPhapIn;
 
             }
 
@@ -191,21 +191,8 @@ namespace TinhGiaInClient.Presenter
         }
         public void CapNhatGiayDeIn(GiayDeIn giayDeIn)
         {
-            var item = baiIn.GiayDeInIn;
-            if (item != null)
-            {
-                item.ID = giayDeIn.ID;
-                item.GiaGiayChon = giayDeIn.GiaGiayChon;
-                item.GiayKhachDua = giayDeIn.GiayKhachDua;
-                item.KhoToChay = giayDeIn.KhoToChay;
-                item.SoConTrenToChay = giayDeIn.SoConTrenToChay;
-                item.SoLuongToChayLyThuyet = giayDeIn.SoLuongToChayLyThuyet;
-                item.SoLuongToChayBuHao = giayDeIn.SoLuongToChayBuHao;
-                item.SoToLonCan = giayDeIn.SoToLonCan;
-                item.TenGiayIn = giayDeIn.TenGiayIn;
-                item.IdBaiIn = giayDeIn.IdBaiIn;
-
-            }
+            baiIn.GiayDeInIn = giayDeIn;
+           
         }
         public void XoaGiayDeIn()
         {
@@ -217,17 +204,24 @@ namespace TinhGiaInClient.Presenter
             var giayDeIn = baiIn.GiayDeInIn;
             if (giayDeIn != null)
             {
-                lst.Add(string.Format("Giấy chọn: {0} ", giayDeIn.GiaGiayChon.TenGiay));
+                var giay = Giay.DocGiayTheoId(giayDeIn.IdGiay);
+                lst.Add(string.Format("Giấy chọn: {0} ", giay.TenGiay));
                 lst.Add(string.Format("Giấy tên theo bài: {0}", giayDeIn.TenGiayIn));
-                lst.Add(string.Format("Định lượng: {0}g/m2", giayDeIn.GiaGiayChon.DinhLuong));
+                lst.Add(string.Format("Định lượng: {0}g/m2", giay.DinhLuong));
                 lst.Add(string.Format("Khổ tờ chạy {0}", giayDeIn.KhoToChay));
                 lst.Add(string.Format("Số con / tờ chạy: {0}", giayDeIn.SoConTrenToChay));
-                lst.Add(string.Format("Số lượng tờ chạy tính: {0} tờ", giayDeIn.SoLuongToChayLyThuyet));
-                lst.Add(string.Format("Số lượng tờ chạy bù hao: {0} tờ", giayDeIn.SoLuongToChayBuHao));
+                lst.Add(string.Format("Số lượng tờ chạy tính: {0} tờ", giayDeIn.SoToChayLyThuyet));
+                lst.Add(string.Format("Số lượng tờ chạy bù hao: {0} tờ", giayDeIn.SoToChayBuHao));
                 lst.Add(string.Format("Số lượng tờ chạy tổng: {0} tờ", giayDeIn.SoToChayTong));
-                lst.Add(string.Format("Số lượng tờ lớn: {0} tờ", giayDeIn.SoToLonCan));
-                lst.Add(string.Format("Tiền giấy: {0:0,0.00đ}", giayDeIn.ThanhTien));
-                lst.Add(string.Format("Giấy khách đưa? {0}", giayDeIn.GiayKhachDua));
+                lst.Add(string.Format("Số lượng tờ lớn: {0} tờ", giayDeIn.SoToLonTong));
+                lst.Add(string.Format("Tiền giấy: {0:0,0.00đ}", giayDeIn.ThanhTienGiay));
+                var giayKhach = "";
+                if (giayDeIn.GiayKhachDua)
+                    giayKhach = "Giấy khách";
+                else
+                    giayKhach = "123in";
+
+                lst.Add(string.Format("Giấy khách đưa? {0}", giayKhach));
             }
             return lst;
         }
@@ -254,7 +248,7 @@ namespace TinhGiaInClient.Presenter
                 var tenTP = "";
                 switch (mucThPh.LoaiThPh)
                 {
-                    case LoaiThanhPham.CanPhu:
+                    case LoaiThanhPhamS.CanPhu:
                         tenTP = mucThPh.TenThPhMoRong;
                         break;
                     default:

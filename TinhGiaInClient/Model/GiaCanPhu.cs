@@ -15,7 +15,7 @@ namespace TinhGiaInClient.Model
         public int KieuCanPhu { get; set; }
         
         public CanPhu CanPhu { get; set; }
-        public GiaCanPhu(int idBaiIn, LoaiThanhPham loaiThanhPham, string tenCanPhu, int idHangKH,
+        public GiaCanPhu(int idBaiIn, LoaiThanhPhamS loaiThanhPham, string tenCanPhu, int idHangKH,
                 string thongTinHangKH, int tyLeMarkUp, string thongTinTyLeMarkUp, int soLuong,
                 string donViTinh, string thongTinBoSung, string tenCanPhuMoRong,
                 int kieuCanPhu, CanPhu canPhu)

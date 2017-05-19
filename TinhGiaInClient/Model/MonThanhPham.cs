@@ -21,9 +21,9 @@ namespace TinhGiaInClient.Model
         public int ID_DV { get; set; }
         public string DonViTinh { get; set; }
         public string DaySoLuongNiemYet { get; set; }
-        public LoaiThanhPham LoaiThPham { get; set; }
+        public LoaiThanhPhamS LoaiThPham { get; set; }
         public DichVuThanhPham(int iD, string ten, int iD_DV, string donViTinh,
-            string daySoLuongNiemYet, LoaiThanhPham loaiThPh)
+            string daySoLuongNiemYet, LoaiThanhPhamS loaiThPh)
         {
 
             this.ID = iD;
@@ -110,7 +110,7 @@ namespace TinhGiaInClient.Model
             {
                 i += 1;
                 dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
-                    cp.DaySoLuongNiemYet, LoaiThanhPham.CanPhu);
+                    cp.DaySoLuongNiemYet, LoaiThanhPhamS.CanPhu);
                
                 lst.Add(dvTP);
             }
@@ -119,7 +119,7 @@ namespace TinhGiaInClient.Model
             {
                 i += 1;
                 dvTP = dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
-                    cp.DaySoLuongNiemYet, LoaiThanhPham.CanGap);
+                    cp.DaySoLuongNiemYet, LoaiThanhPhamS.CanGap);
                 lst.Add(dvTP);
             }
             //Đóng cuốn
@@ -127,7 +127,7 @@ namespace TinhGiaInClient.Model
             {
                 i += 1;
                 dvTP = dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
-                    cp.DaySoLuongNiemYet, LoaiThanhPham.DongCuon);
+                    cp.DaySoLuongNiemYet, LoaiThanhPhamS.DongCuon);
                 lst.Add(dvTP);
             }
             //Ép kim
@@ -135,7 +135,7 @@ namespace TinhGiaInClient.Model
             {
                 i += 1;
                 dvTP = dvTP = new DichVuThanhPham(i, cp.Ten, cp.ID, cp.DonViTinh,
-                    cp.DaySoLuongNiemYet, LoaiThanhPham.EpKim);
+                    cp.DaySoLuongNiemYet, LoaiThanhPhamS.EpKim);
                 lst.Add(dvTP);
             }
 

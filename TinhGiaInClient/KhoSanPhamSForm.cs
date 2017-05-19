@@ -71,10 +71,10 @@ namespace TinhGiaInClient
             }
         }
 
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
         #endregion
         
-        public KhoSanPhamSForm(FormStates formState)
+        public KhoSanPhamSForm(FormStateS formState)
         {
             InitializeComponent();
             cmnu_AddNew.Click += new EventHandler(MenuItems_Click);
@@ -207,7 +207,7 @@ namespace TinhGiaInClient
             LoadStdProdSizeList();
             switch (this.TinhTrangForm)
             {
-                case FormStates.Get:
+                case FormStateS.Get:
                     btnClose.Text = "Nhận";
                     btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
                     break;

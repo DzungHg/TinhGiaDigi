@@ -28,9 +28,9 @@ namespace TinhGiaInClient.Presenter
             //Xem vấn đề mới và sửa
             switch (View.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     giaIn.ID = View.ID;
                     break;
             }
@@ -92,7 +92,7 @@ namespace TinhGiaInClient.Presenter
                 _giaIn.IdMayIn_IdBangGia = View.IdMayIn;
                 _giaIn.SoTrangIn = View.SoTrangIn;
                 _giaIn.TienIn = this.GiaInOffset();
-                if (View.TinhTrangForm == FormStates.Edit)
+                if (View.TinhTrangForm == FormStateS.Edit)
                     _giaIn.ID = View.ID;//Phòng tạo mới
 
                 return _giaIn;

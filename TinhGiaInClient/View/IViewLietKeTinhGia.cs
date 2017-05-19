@@ -10,8 +10,8 @@ namespace TinhGiaInClient.View
     {
         
         int IdTinhGiaChon { get;}
-        SapXepTinhGia KieuSapXep { get; set; }
-        ChieuSapXep ChieuSapXep { get; set; }
+        SapXepTinhGiaS KieuSapXep { get; set; }
+        ChieuSapXepS ChieuSapXep { get; set; }
         string NoiDungTinhGia { get; set; }
     }
 }

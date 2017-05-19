@@ -44,6 +44,6 @@ namespace TinhGiaInClient.View
         
         string TomTatCauHinhSP { get; set; }
         List<string> TomTatBaiIn_ChaoKH { get; set; }
-        FormStates TinhTrangForm { get; set; }
+        FormStateS TinhTrangForm { get; set; }
     }
 }

@@ -137,13 +137,13 @@ namespace TinhGiaInClient
         }
         public int PhuongPhapIn
         {
-            get { return (int)Enumss.PhuongPhapInS.Offset; }
+            get { return (int)PhuongPhapInS.Offset; }
         }
         public MucTinGiaIn DocGiaIn
         {
             get { return giaInPres.DocGiaIn; }
         }
-        public FormStates TinhTrangForm
+        public FormStateS TinhTrangForm
         {
             get;
             set;
@@ -193,7 +193,7 @@ namespace TinhGiaInClient
             rdbTuTroNhip.Checked = true;
             rdbTuTro.Checked = true;
             //Để thủe
-            if (this.TinhTrangForm == FormStates.View)
+            if (this.TinhTrangForm == FormStateS.View)
             {
                 txtSoLuongToChay.Enabled = true;
                 txtSoLuongToChay.ReadOnly = false;

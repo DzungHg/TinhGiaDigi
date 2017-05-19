@@ -9,7 +9,7 @@ namespace TinhGiaInClient.Model
     public class ThongTinToChay
     {
         public int ID { get; set; }
-        public int Loai { get; set; }
+        public PhuongPhapInS PhuongPhapIn { get; set; }
         public string Ten { get; set; }
         public float Rong { get; set; }
         public float Dai { get; set; }

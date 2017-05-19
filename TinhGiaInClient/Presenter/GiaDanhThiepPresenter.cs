@@ -88,7 +88,7 @@ namespace TinhGiaInClient.Presenter
                 ketQua = BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).GiayBaoGom;
             else
             {
-                ketQua = Giay.DocGiayTheoId(View.GiayDeInChon.GiaGiayChon.ID).TenGiay;
+                ketQua = Giay.DocGiayTheoId(View.GiayDeInChon.IdGiay).TenGiay;
             }
             
             return ketQua;
@@ -99,7 +99,7 @@ namespace TinhGiaInClient.Presenter
             if (View.GiayDeInChon == null)
                 return result;
             else
-                result = View.GiayDeInChon.ThanhTien;
+                result = View.GiayDeInChon.ThanhTienGiay;
 
             return result;
         }
@@ -129,7 +129,7 @@ namespace TinhGiaInClient.Presenter
             baiInDanhThiep.TienIn = this.GiaDanhThiepTheoBang();
             baiInDanhThiep.TienGiay = this.TienGiay();
 
-            if (View.TinhTrangForm == FormStates.Edit)
+            if (View.TinhTrangForm == FormStateS.Edit)
                 baiInDanhThiep.ID = View.ID; //Do sửa lấy I di cũ
            
             return baiInDanhThiep;

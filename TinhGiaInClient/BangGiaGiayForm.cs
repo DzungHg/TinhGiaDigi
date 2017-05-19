@@ -16,7 +16,7 @@ namespace TinhGiaInClient
     public partial class BangGiaGiayForm : Form, IViewBangGiaGiay
     {
         BangGiaGiayPresenter bangGiaGiayPres;
-        public BangGiaGiayForm(FormStates tinhTrangForm, int idHangKh = 0)
+        public BangGiaGiayForm(FormStateS tinhTrangForm, int idHangKh = 0)
         {
             InitializeComponent();
             this.TinhTrangForm = tinhTrangForm;
@@ -85,7 +85,7 @@ namespace TinhGiaInClient
             set { cboNhaCC.Text = value; }
         }
 
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
       
         #endregion
         public void LoadNhaCungCapGiay()
@@ -120,7 +120,7 @@ namespace TinhGiaInClient
             lblTieuDeForm.Text = this.Text;
             switch (this.TinhTrangForm)
             {
-                case FormStates.Get:
+                case FormStateS.Get:
                     btnNhan.Visible = true;
                     cboHangKhachHang.Enabled = false;
                     break;

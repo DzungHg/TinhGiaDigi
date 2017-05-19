@@ -88,7 +88,7 @@ namespace TinhGiaInClient.UI
             LoadSoLuongTinh();
             btnXoaBang_Click(btnXoaBang, e);
             //Trường hợp đặc biệt ép kim
-            if (bangGiaThPhPres.DocLoaiThanhPham() == LoaiThanhPham.EpKim)
+            if (bangGiaThPhPres.DocLoaiThanhPham() == LoaiThanhPhamS.EpKim)
             {
                 ShowFormEpKim();
             }
@@ -205,8 +205,8 @@ namespace TinhGiaInClient.UI
         private void ShowFormEpKim()
         {
             var frm = new ThPhEpKimForm("");
-            frm.TinhTrangForm = (int)FormStates.View;
-            frm.LoaiThPh = LoaiThanhPham.EpKim;
+            frm.TinhTrangForm = (int)FormStateS.View;
+            frm.LoaiThPh = LoaiThanhPhamS.EpKim;
             frm.Text = "Ép kim [Tính thử]";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;

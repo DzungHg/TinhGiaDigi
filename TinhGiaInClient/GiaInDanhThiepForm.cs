@@ -159,7 +159,7 @@ namespace TinhGiaInClient
             }
         }
 
-        public FormStates TinhTrangForm
+        public FormStateS TinhTrangForm
         {
             get;
             set;
@@ -236,22 +236,29 @@ namespace TinhGiaInClient
 
         }
         #region đổi giấy 
-        private void DoiGiayMoi()
+        private ThongTinBanDauChoGiayIn thongTinBanDauChoGiayIn(FormStateS tinhTrangForm)
         {
             var thongTinBanDau = new ThongTinBanDauChoGiayIn();
-            thongTinBanDau.TinhTrangForm = FormStates.New;
+            thongTinBanDau.TinhTrangForm = tinhTrangForm;
             thongTinBanDau.SoLuongSanPham = this.SoLuong * 100;
             thongTinBanDau.IdHangKhachHang = this.IdHangKH;
-            thongTinBanDau.IdToIn_MayInChon = this.GiayDeInChon.IdMayIn;
-            thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} "  + '\r' + '\n',
+            thongTinBanDau.IdToIn_MayInChon = 1; //Đưa tượng trưng
+            thongTinBanDau.PhuongPhapIn = PhuongPhapInS.Toner;
+            thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} " + '\r' + '\n',
                 this.KichThuoc)
                 + string.Format("Số lượng {0} cái ({1} hộp)" + '\r' + '\n',
                 this.SoLuong * 100, this.SoLuong)
                 + "Cần cẩn thận chọn khổ giấy";
 
+            return thongTinBanDau;
+
+        }
+        private void DoiGiayMoi()
+        {
+           
             //Tiến hành gắn
-            var frm = new GiayDeInForm(thongTinBanDau);
-            frm.Text = "[Đổi] Giấy In";
+            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(FormStateS.New));
+            frm.Text = "[Đổi] Giấy in Danh thiếp";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -268,17 +275,8 @@ namespace TinhGiaInClient
         {
             if (this.GiayDeInChon == null)
                 return;
-            var thongTinBanDau = new ThongTinBanDauChoGiayIn();
-            thongTinBanDau.TinhTrangForm = FormStates.Edit;
-            thongTinBanDau.SoLuongSanPham = this.SoLuong;
-            thongTinBanDau.IdHangKhachHang = this.IdHangKH;
-            thongTinBanDau.IdToIn_MayInChon = this.GiayDeInChon.IdMayIn;
-            thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} " + '\r' + '\n',
-                this.KichThuoc)
-                + string.Format("Số lượng {0} cái ({1} hộp)" + '\r' + '\n',
-                this.SoLuong * 100, this.SoLuong)
-                + "Cần cẩn thận chọn khổ giấy";
-            var frm = new GiayDeInForm(thongTinBanDau, this.GiayDeInChon);
+
+            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(FormStateS.Edit), this.GiayDeInChon);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -303,13 +301,13 @@ namespace TinhGiaInClient
             
             switch (frm.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     this.GiayDeInChon = frm.DocGiayDeIn();
                     this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
                     this.TienGiay = giaDanhThiepPres.TienGiay();
                     txtSoLuong.Enabled = false;//Lock lại
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     //Đổi ID vì thêm mới là có id mới
                     this.GiayDeInChon = frm.DocGiayDeIn();
                     this.TenGiayChon = giaDanhThiepPres.TenGiayChon();

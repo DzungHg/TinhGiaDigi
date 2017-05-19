@@ -131,7 +131,7 @@ namespace TinhGiaInClient.Presenter
             {
                 var toChayDigi = ToInMayDigi.DocTheoId(View.IdToInDigiChon);
                 var giaInTheoToDiGi = new GiaInMayDigi(toChayDigi, View.SoTrangA4,
-                    this.TyLeLoiNhuanTheoHangKH(), MauIn.BonMau);
+                    this.TyLeLoiNhuanTheoHangKH(), MauInS.BonMau);
                 result = giaInTheoToDiGi.ThanhTienCoBan();
                 giaTBTrang = result / View.SoTrangA4;
             }

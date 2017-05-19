@@ -49,29 +49,29 @@ namespace TinhGiaInClient.Model
             catch { }
             return nguon;
         }
-        public static List<YeuCauTinhGiaIn> DocTatCaSX_Ngay(ChieuSapXep chieuSapXep)
+        public static List<YeuCauTinhGiaIn> DocTatCaSX_Ngay(ChieuSapXepS chieuSapXep)
          {
              var nguon = YeuCauTinhGiaIn.DocTatCa().OrderBy(x => x.NgayYeuCau);
 
-             if (chieuSapXep == ChieuSapXep.Descending)
+             if (chieuSapXep == ChieuSapXepS.Descending)
                  nguon = YeuCauTinhGiaIn.DocTatCa().OrderByDescending(x => x.NgayYeuCau);
 
              return nguon.ToList();
          }
-        public static List<YeuCauTinhGiaIn> DocTatCaSX_NhanVien(ChieuSapXep chieuSapXep)
+        public static List<YeuCauTinhGiaIn> DocTatCaSX_NhanVien(ChieuSapXepS chieuSapXep)
         {
             var nguon = YeuCauTinhGiaIn.DocTatCa().OrderBy(x => x.PhanChoNhanVien);
 
-            if (chieuSapXep == ChieuSapXep.Descending)
+            if (chieuSapXep == ChieuSapXepS.Descending)
                 nguon = YeuCauTinhGiaIn.DocTatCa().OrderByDescending(x => x.PhanChoNhanVien);
 
             return nguon.ToList();
         }
-        public static List<YeuCauTinhGiaIn> DocTatCaSX_KhachHang(ChieuSapXep chieuSapXep)
+        public static List<YeuCauTinhGiaIn> DocTatCaSX_KhachHang(ChieuSapXepS chieuSapXep)
         {
             var nguon = YeuCauTinhGiaIn.DocTatCa().OrderBy(x => x.HoTen);
 
-            if (chieuSapXep == ChieuSapXep.Descending)
+            if (chieuSapXep == ChieuSapXepS.Descending)
                 nguon = YeuCauTinhGiaIn.DocTatCa().OrderByDescending(x => x.HoTen);
 
             return nguon.ToList();

@@ -155,7 +155,7 @@ namespace TinhGiaInNhapLieu
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BangGiaGiayForm frm = new BangGiaGiayForm(FormStates.View);
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.View);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Bảng giá giấy theo hạng KH ";
@@ -165,8 +165,8 @@ namespace TinhGiaInNhapLieu
         private void btnTinhThu_CanPhu_Click(object sender, EventArgs e)
         {
             var frm = new ThPhCanPhuForm("");
-            frm.TinhTrangForm = (int)FormStates.View;
-            frm.LoaiThPh = LoaiThanhPham.CanPhu;
+            frm.TinhTrangForm = (int)FormStateS.View;
+            frm.LoaiThPh = LoaiThanhPhamS.CanPhu;
             frm.Text = "Cán Phủ [Tính thử]";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -181,8 +181,8 @@ namespace TinhGiaInNhapLieu
         private void btnTinhThu_CanGap_Click(object sender, EventArgs e)
         {
             var frm = new ThPhCanGapForm("");
-            frm.TinhTrangForm = (int)FormStates.View;
-            frm.LoaiThPh = LoaiThanhPham.CanGap;
+            frm.TinhTrangForm = (int)FormStateS.View;
+            frm.LoaiThPh = LoaiThanhPhamS.CanGap;
             frm.Text = "Cấn gấp [Tính thử]";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -197,8 +197,8 @@ namespace TinhGiaInNhapLieu
         private void btnTinhThu_DongCuon_Click(object sender, EventArgs e)
         {
             var frm = new ThPhDongCuonForm("");
-            frm.TinhTrangForm = (int)FormStates.View;
-            frm.LoaiThPh = LoaiThanhPham.DongCuon;
+            frm.TinhTrangForm = (int)FormStateS.View;
+            frm.LoaiThPh = LoaiThanhPhamS.DongCuon;
             frm.Text = "Đóng cuốn [Tính thử]";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -213,8 +213,8 @@ namespace TinhGiaInNhapLieu
         private void btnTinhThu_EpKim_Click(object sender, EventArgs e)
         {
             var frm = new ThPhEpKimForm("");
-            frm.TinhTrangForm = (int)FormStates.View;
-            frm.LoaiThPh = LoaiThanhPham.EpKim;
+            frm.TinhTrangForm = (int)FormStateS.View;
+            frm.LoaiThPh = LoaiThanhPhamS.EpKim;
             frm.Text = "Ép kim [Tính thử]";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -229,7 +229,7 @@ namespace TinhGiaInNhapLieu
         private void btnGiaInNhanh_Click(object sender, EventArgs e)
         {
 
-            var frm = new GiaInNhanhThuForm((int)FormStates.View,
+            var frm = new GiaInNhanhThuForm((int)FormStateS.View,
                 int.Parse(cboHangKH.SelectedValue.ToString()));
             frm.Text = "Tính thử " + cboHangKH.Text;
             frm.MinimizeBox = false;

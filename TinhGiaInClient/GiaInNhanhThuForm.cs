@@ -16,7 +16,7 @@ namespace TinhGiaInClient
     public partial class GiaInNhanhThuForm : Form, IViewGiaInNhanhThu
     {
         GiaInNhanhThuPresenter giaInPres;
-        public GiaInNhanhThuForm(FormStates tinhTrangForm, int idHangKH)
+        public GiaInNhanhThuForm(FormStateS tinhTrangForm, int idHangKH)
         {
             InitializeComponent();
             //
@@ -133,9 +133,9 @@ namespace TinhGiaInClient
         }
         public int PhuongPhapIn
         {
-            get { return (int)Enumss.PhuongPhapInS.Toner; }
+            get { return (int)PhuongPhapInS.Toner; }
         }
-        public FormStates TinhTrangForm
+        public FormStateS TinhTrangForm
         {
             get;
             set;
@@ -187,7 +187,7 @@ namespace TinhGiaInClient
             rdbIn4_0.Checked = true;
             rdbIn4_4.Checked = true;
             //Để thủe
-            if (this.TinhTrangForm == FormStates.View)
+            if (this.TinhTrangForm == FormStateS.View)
             {
                 txtSoLuongToChay.Enabled = true;
                 txtSoLuongToChay.ReadOnly = false;

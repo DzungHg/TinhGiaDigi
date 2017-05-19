@@ -11,7 +11,7 @@ namespace TinhGiaInClient.Model
         public string YeuCauBaiIn { get; set; }
         public int SoLuongSanPham { get; set; }
         public string DonViTinh { get; set; }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
        
     }
 }

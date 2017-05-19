@@ -10,7 +10,7 @@ namespace TinhGiaInClient.View
     {
         int IdBaiIn { get; set; }
         string TenThPhChon { get; set; }
-        LoaiThanhPham LoaiThPh { get; set; }
+        LoaiThanhPhamS LoaiThPh { get; set; }
         int IdHangKhachHang { get; set; }
         string ThongTinHangKH { get; }
         string ThongTinTyLeMarkUp { get; }

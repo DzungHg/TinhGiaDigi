@@ -222,19 +222,19 @@ namespace TinhGiaInClient
             }
         }
 
-        int _phPhapIn = 0;
-        public int IdPhuongPhapIn
+        PhuongPhapInS _phPhapIn;
+        public PhuongPhapInS PhuongPhapIn
         {
             get
             {
                 if (rdbToner.Checked)
-                    _phPhapIn = (int) Enumss.PhuongPhapInS.Toner;
+                    _phPhapIn = PhuongPhapInS.Toner;
 
                 else if (rdbOffset.Checked)
-                    _phPhapIn = (int)Enumss.PhuongPhapInS.Offset;
+                    _phPhapIn = PhuongPhapInS.Offset;
 
                 else if (rdbKhongIn.Checked)
-                    _phPhapIn = (int)Enumss.PhuongPhapInS.KhongIn;
+                    _phPhapIn = PhuongPhapInS.KhongIn;
 
                 return _phPhapIn;
             }
@@ -243,13 +243,13 @@ namespace TinhGiaInClient
                 _phPhapIn = value;
                 switch (_phPhapIn)
                 {
-                    case (int) Enumss.PhuongPhapInS.Toner:
+                    case PhuongPhapInS.Toner:
                         rdbToner.Checked = true;
                         break;
-                    case (int)Enumss.PhuongPhapInS.Offset:
+                    case PhuongPhapInS.Offset:
                         rdbOffset.Checked = true;
                         break;
-                    case (int)Enumss.PhuongPhapInS.KhongIn:
+                    case PhuongPhapInS.KhongIn:
                         rdbKhongIn.Checked = true;
                         break;
                 }
@@ -263,7 +263,7 @@ namespace TinhGiaInClient
         {
             get { return cauHinhSanPhamPres.KhoMayInChon(); } 
         }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
         #endregion
         //Field Form
         public CauHinhSanPham DocCauHinhSanPham()
@@ -296,7 +296,7 @@ namespace TinhGiaInClient
 
         private void btnGetProdTemplate_Click(object sender, EventArgs e)
         {
-            KhoSanPhamSForm frm = new KhoSanPhamSForm(FormStates.Get);
+            KhoSanPhamSForm frm = new KhoSanPhamSForm(FormStateS.Get);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Lấy khổ SP";
@@ -463,9 +463,9 @@ namespace TinhGiaInClient
             //List view Giá In:            
             lstMayIn.Items.Clear();
             //==đền dữ liệu
-            switch (this.IdPhuongPhapIn)
+            switch (this.PhuongPhapIn)
             {
-                case (int)Enumss.PhuongPhapInS.Toner:
+                case PhuongPhapInS.Toner:
                     foreach (KeyValuePair<int, List<string>> kvp in cauHinhSanPhamPres.TrinhBayToChayDiGiS())
                     {
                         var item = new ListViewItem();
@@ -476,7 +476,7 @@ namespace TinhGiaInClient
                         lstMayIn.Items.Add(item);
                     }                    
                     break;
-                case (int)Enumss.PhuongPhapInS.Offset:
+                case PhuongPhapInS.Offset:
                     foreach (KeyValuePair<int, List<string>> kvp in cauHinhSanPhamPres.TrinhBayToChayOffsetS())
                     {
                         var item = new ListViewItem();
@@ -485,7 +485,7 @@ namespace TinhGiaInClient
                         lstMayIn.Items.Add(item);
                     }
                     break;
-                case (int)Enumss.PhuongPhapInS.KhongIn: //Không in gì cả
+                case PhuongPhapInS.KhongIn: //Không in gì cả
                     lstMayIn.Items.Clear();                    
                     break;
             }
@@ -509,8 +509,7 @@ namespace TinhGiaInClient
 
         private void btnThongTinGiay_Click(object sender, EventArgs e)
         {
-            var thongtinBanDau = new ThongTinBanDauChoGiayIn();
-            var frm = new GiayDeInForm(thongtinBanDau);
+            var frm = new BangGiaGiayForm(FormStateS.View);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.Text = "Thông tin Giấy";

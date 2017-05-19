@@ -19,11 +19,11 @@ namespace TinhGiaInClient.Presenter
             //Việc đặt dữ liệu ban đầu do 
             switch (View.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     this.KhoiTaoGiaTriBanDau();
                   
                     break;
-                case FormStates.Edit: //Chắc chắn có giấy
+                case FormStateS.Edit: //Chắc chắn có giấy
                     View.ID = giayDeIn.ID;
                     View.IdBaiIn = giayDeIn.IdBaiIn;                                        
                     View.SoConTrenToChay = giayDeIn.SoConTrenToChay;
@@ -129,8 +129,8 @@ namespace TinhGiaInClient.Presenter
                 View.SoToGiayLon, View.GiayKhachDua, View.IdGiay,
                 View.TenGiayIn, View.IdBaiIn, View.SoToChayTrenToLon,
                 View.SoToGiayLon, this.ThanhTien());
-
-            if (View.TinhTrangForm == FormStates.Edit)
+            giayDeIn.SoToChayLyThuyet = this.SoToChayLyThuyetTinh();
+            if (View.TinhTrangForm == FormStateS.Edit)
                 giayDeIn.ID = View.ID;
             
 

@@ -23,7 +23,7 @@ namespace TinhGiaInClient.View
         decimal TienIn { get; set; }
         string GiaTBTrangInfo { get; }
         int PhuongPhapIn { get; }
-        FormStates TinhTrangForm { get; set; }
+        FormStateS TinhTrangForm { get; set; }
         /*
         List<ToChayDigi> ToChayDigiS { get; set; }
         List<BangGiaInNhanh> BangGiaInNhanhS { get; set; }

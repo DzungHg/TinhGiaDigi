@@ -102,7 +102,7 @@ namespace TinhGiaInClient
         {
             return baiInPres.DocBaiIn();
         }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
         #endregion
         BaiInPresenter baiInPres;
         public BaiInForm(ThongTinBanDauChoBaiIn thongTinBanDau,  int idBaiIn = 0)
@@ -121,8 +121,8 @@ namespace TinhGiaInClient
             //Trình bày theo tình trạng form
             switch (this.TinhTrangForm)
             {
-                case FormStates.Edit:
-                case FormStates.New:
+                case FormStateS.Edit:
+                case FormStateS.New:
                     //Khóa
                     spcChiTietBaiIn.Enabled = true;                    
                     break;
@@ -264,7 +264,16 @@ namespace TinhGiaInClient
       
         
         #region Cấu hình SP
-
+        private ThongTinBanDauChoCauHinhSP thongTinCauHinhBanDau(BaiIn baiIn, FormStateS tinhTrangForm)
+        {
+            var thongTinChoCauHinh = new ThongTinBanDauChoCauHinhSP();
+            thongTinChoCauHinh.TinhTrangForm = tinhTrangForm;
+            thongTinChoCauHinh.YeuCauBaiIn = baiIn.TieuDe + '\r' + '\n'
+               + baiIn.DienGiai;
+            thongTinChoCauHinh.SoLuongSanPham = baiIn.SoLuong;
+            thongTinChoCauHinh.DonViTinh = baiIn.DonVi;
+            return thongTinChoCauHinh;
+        }
         private void GanCauHinhVoBaiIn()
         {
            
@@ -273,16 +282,11 @@ namespace TinhGiaInClient
                 return;
             //Tìm bài in, gắn vô với đk sp chưa có trong danh sách cấu hình
             var baiIn = baiInPres.DocBaiIn();
-            var thongTinChoCauHinh = new ThongTinBanDauChoCauHinhSP();
-            thongTinChoCauHinh.YeuCauBaiIn = baiIn.TieuDe + '\r' + '\n'
-                + baiIn.DienGiai;
-            thongTinChoCauHinh.SoLuongSanPham = baiIn.SoLuong;
-            thongTinChoCauHinh.DonViTinh = baiIn.DonVi;
-            thongTinChoCauHinh.TinhTrangForm = FormStates.New;
+            
             if (baiIn.CoCauHinh) //Đã có cấu hình
                 return;
             //Gắn
-            var frm = new CauHinhSPForm(thongTinChoCauHinh);
+            var frm = new CauHinhSPForm(thongTinCauHinhBanDau(baiIn, FormStateS.New));
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -304,23 +308,10 @@ namespace TinhGiaInClient
             if (!baiIn.CoCauHinh)
                 return;
 
-
-            //Tiếp tục gắn thêm dữ liệu
-
-            var thongTinChoCauHinh = new ThongTinBanDauChoCauHinhSP();
-            thongTinChoCauHinh.YeuCauBaiIn = baiIn.TieuDe + '\r' + '\n'
-                + baiIn.DienGiai;
-            thongTinChoCauHinh.SoLuongSanPham = baiIn.SoLuong;
-            thongTinChoCauHinh.DonViTinh = baiIn.DonVi;
-            thongTinChoCauHinh.TinhTrangForm = FormStates.Edit;
-
-            var frm = new CauHinhSPForm(thongTinChoCauHinh, baiIn.CauHinhSP);
-
-
+            var frm = new CauHinhSPForm(this.thongTinCauHinhBanDau(baiIn, FormStateS.Edit));
             //Điền giữ liệu:                
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
-
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
             //Xử Bấm click //trường hợp edit
@@ -352,12 +343,12 @@ namespace TinhGiaInClient
 
             switch (frm.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     //Add
                     baiInPres.GanCHSPVoBaiIn(frm.DocCauHinhSanPham());
                     this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     //cauHinhSP.IDCauHinh = frm.IdCauHinhSP;
                     baiInPres.CapNhatCHSPVoBaiIn(frm.DocCauHinhSanPham());
                     this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
@@ -391,20 +382,9 @@ namespace TinhGiaInClient
             {
                 MessageBox.Show("Chưa có cấu hình Sản phẩm. Bạn cần gắn trước");
                 return;
-            }
-            var thongTinBanDau = new ThongTinBanDauChoGiayIn();
-            thongTinBanDau.KhoMayIn = baiIn.CauHinhSP.KhoMayIn;
-            thongTinBanDau.IdHangKhachHang = baiIn.IdHangKH;
-            thongTinBanDau.TinhTrangForm = FormStates.New;
-            thongTinBanDau.SoLuongSanPham = baiIn.SoLuong;
-            thongTinBanDau.ThongTinCanThiet = baiIn.TieuDe + '\r' + '\n'
-                 + baiIn.DienGiai + '\r' + '\n'
-                 + string.Format(" *Số lượng: {0} {1}" + '\r' + '\n', baiIn.SoLuong, baiIn.DonVi)
-                 + baiIn.DienGiai + '\r' + '\n'
-                 + baiIn.CauHinhSP.TenPhuongPhapIn + '\r' + '\n'
-                 + "--Khổ máy: " + baiIn.CauHinhSP.KhoMayIn + '\r' + '\n';
+            }           
             //Tiến hành gắn
-            var frm = new GiayDeInForm(thongTinBanDau, null);
+            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(baiIn, FormStateS.New), null);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;           
@@ -418,6 +398,24 @@ namespace TinhGiaInClient
             }
 
         }
+        private ThongTinBanDauChoGiayIn thongTinBanDauChoGiayIn(BaiIn baiIn, FormStateS tinhTrangForm)
+        {
+            var thongTinBanDau = new ThongTinBanDauChoGiayIn();
+            thongTinBanDau.IdToIn_MayInChon = baiIn.CauHinhSP.IdMayIn;
+            thongTinBanDau.PhuongPhapIn = baiIn.CauHinhSP.PhuongPhapIn;
+            thongTinBanDau.IdHangKhachHang = baiIn.IdHangKH;
+            thongTinBanDau.TinhTrangForm = tinhTrangForm;
+            thongTinBanDau.SoLuongSanPham = baiIn.SoLuong;
+            thongTinBanDau.ThongTinCanThiet = baiIn.TieuDe + '\r' + '\n'
+                + baiIn.DienGiai + '\r' + '\n'
+                + string.Format(" *Số lượng: {0} {1}" + '\r' + '\n', baiIn.SoLuong, baiIn.DonVi)
+                + baiIn.DienGiai + '\r' + '\n'
+                + baiIn.CauHinhSP.TenPhuongPhapIn + '\r' + '\n'
+                + "--Khổ máy: " + baiIn.CauHinhSP.KhoMayIn + '\r' + '\n';
+
+            return thongTinBanDau;
+
+        }
         private void SuaGiayIn()
         {
             if (this.ID <= 0)
@@ -429,18 +427,8 @@ namespace TinhGiaInClient
             if (giayIn == null)
                 return;
 
-             var thongTinBanDau = new ThongTinBanDauChoGiayIn();
-            thongTinBanDau.KhoMayIn = baiIn.CauHinhSP.KhoMayIn;
-            thongTinBanDau.IdHangKhachHang = baiIn.IdHangKH;
-            thongTinBanDau.TinhTrangForm = FormStates.New;
-            thongTinBanDau.SoLuongSanPham = baiIn.SoLuong;
-            thongTinBanDau.ThongTinCanThiet = baiIn.TieuDe + '\r' + '\n'
-                 + baiIn.DienGiai + '\r' + '\n'
-                 + string.Format(" *Số lượng: {0} {1}" + '\r' + '\n', baiIn.SoLuong, baiIn.DonVi)
-                 + baiIn.DienGiai + '\r' + '\n'
-                 + baiIn.CauHinhSP.TenPhuongPhapIn + '\r' + '\n'
-                 + "--Khổ máy: " + baiIn.CauHinhSP.KhoMayIn + '\r' + '\n';
-            var frm = new GiayDeInForm(thongTinBanDau, baiIn.GiayDeInIn);
+            
+            var frm = new GiayDeInForm(this.thongTinBanDauChoGiayIn(baiIn,FormStateS.Edit), baiIn.GiayDeInIn);
                     
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -461,12 +449,12 @@ namespace TinhGiaInClient
            
             switch (frm.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     //Add                                   
                     baiInPres.GanGiayDeIn(frm.DocGiayDeIn());
                     this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     baiInPres.CapNhatGiayDeIn(frm.DocGiayDeIn());
                     this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
                     break;
@@ -514,7 +502,20 @@ namespace TinhGiaInClient
               
             }
         }
-
+        private ThongTinBanDauChoGiaIn thongTinBanDauChoGiaIn (BaiIn baiIn, FormStateS tinhTrangForm)
+        {
+            //Bắt đầu
+            var thongTinBanDau = new ThongTinBanDauChoGiaIn();
+            thongTinBanDau.TinhTrangForm = tinhTrangForm;
+            thongTinBanDau.IdHangKhachHang = IdHangKhachHang;
+            thongTinBanDau.IdBaiIn = baiIn.ID;
+            thongTinBanDau.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
+            thongTinBanDau.IdToIn_MayIn = baiIn.CauHinhSP.IdMayIn;
+            thongTinBanDau.ThongTinGiay = string.Format("{0}/{1}", baiIn.GiayDeInIn.KhoToChay,
+                                 baiIn.GiayDeInIn.TenGiayIn);
+            thongTinBanDau.KhoToChay = baiIn.GiayDeInIn.KhoToChay;
+            return thongTinBanDau;
+        }
         private void ThemGiaIn()
         {
 
@@ -530,7 +531,7 @@ namespace TinhGiaInClient
                 MessageBox.Show("Chưa có cấu hình Sản phẩm. Bạn cần gắn trước");
                 return;
             }
-            if (baiIn.CauHinhSP.IdPhapIn == (int)Enumss.PhuongPhapInS.KhongIn) //Không in
+            if (baiIn.CauHinhSP.PhuongPhapIn == (int)PhuongPhapInS.KhongIn) //Không in
             {
                 MessageBox.Show("Bạn đã đặt Không In");
                 return;
@@ -542,24 +543,14 @@ namespace TinhGiaInClient
                 return;
             }
             //Tiến hành gắn
-            //Gắn giấy in
-            var giayIn = baiInPres.LayGiayDeInTheoBaiIn();
-            //Bắt đầu
-            var thongTinBanDau = new ThongTinBanDauChoGiaIn();
-            thongTinBanDau.TinhTrangForm = FormStates.New;
-            thongTinBanDau.IdHangKhachHang = IdHangKhachHang;
-            thongTinBanDau.IdBaiIn = baiIn.ID;
-            thongTinBanDau.SoLuongToChay = giayIn.SoToChayTong;
-            thongTinBanDau.IdToIn_MayIn = baiIn.CauHinhSP.IdMayIn;
-            thongTinBanDau.ThongTinGiay = string.Format("{0}/{1}/{2}gm2", giayIn.KhoToChay,
-                                 giayIn.TenGiayIn, giayIn.GiaGiayChon.DinhLuong);
-            thongTinBanDau.KhoToChay = baiIn.GiayDeInIn.KhoToChay;
+         
+           
 
-            switch (baiIn.CauHinhSP.IdPhapIn)
+            switch (baiIn.CauHinhSP.PhuongPhapIn)
             {
-                case (int)Enumss.PhuongPhapInS.Toner:
-                    var frmDigi = new GiaInNhanhForm(thongTinBanDau);
-                    frmDigi.TinhTrangForm = FormStates.New;
+                case PhuongPhapInS.Toner:
+                    var frmDigi = new GiaInNhanhForm(this.thongTinBanDauChoGiaIn(baiIn, FormStateS.New));
+                    frmDigi.TinhTrangForm = FormStateS.New;
                     frmDigi.MinimizeBox = false;
                     frmDigi.MaximizeBox = false;
                     frmDigi.StartPosition = FormStartPosition.CenterParent;
@@ -573,11 +564,11 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case (int)Enumss.PhuongPhapInS.KhongIn:
+                case PhuongPhapInS.KhongIn:
                     break;
-                case (int)Enumss.PhuongPhapInS.Offset:                   
-                    var frmOffset = new GiaInOffsetForm(thongTinBanDau);                 
-                    frmOffset.TinhTrangForm = FormStates.New;
+                case PhuongPhapInS.Offset:                   
+                    var frmOffset = new GiaInOffsetForm(this.thongTinBanDauChoGiaIn(baiIn, FormStateS.New));                 
+                    frmOffset.TinhTrangForm = FormStateS.New;
                     frmOffset.MinimizeBox = false;
                     frmOffset.MaximizeBox = false;
                     frmOffset.StartPosition = FormStartPosition.CenterParent;
@@ -605,22 +596,11 @@ namespace TinhGiaInClient
                 var giaIn = baiInPres.LayGiaInTheoId(this.IdGiaInChon);
                 var baiIn = baiInPres.DocBaiIn();
 
-                if (baiIn.CauHinhSP.IdPhapIn == (int)Enumss.PhuongPhapInS.KhongIn) //Không in
+                if (baiIn.CauHinhSP.PhuongPhapIn == PhuongPhapInS.KhongIn) //Không in
                     return;
-
-                //Gắn giấy in
-                var giayIn = baiInPres.LayGiayDeInTheoBaiIn();
-                var thongTinBanDau = new ThongTinBanDauChoGiaIn();
-                thongTinBanDau.TinhTrangForm = FormStates.New;
-                thongTinBanDau.IdBaiIn = baiIn.ID;
-                thongTinBanDau.IdHangKhachHang = IdHangKhachHang;
-                thongTinBanDau.SoLuongToChay = giayIn.SoToChayTong;
-                thongTinBanDau.IdToIn_MayIn = baiIn.CauHinhSP.IdMayIn;
-                thongTinBanDau.ThongTinGiay = string.Format("{0}/{1}/{2}gm2", giayIn.KhoToChay,
-                                     giayIn.TenGiayIn, giayIn.GiaGiayChon.DinhLuong);
-
-                var frm = new GiaInNhanhForm(thongTinBanDau, giaIn);
-                frm.TinhTrangForm = FormStates.Edit;
+     
+                var frm = new GiaInNhanhForm(this.thongTinBanDauChoGiaIn(baiIn, FormStateS.Edit), giaIn);
+                frm.TinhTrangForm = FormStateS.Edit;
                 //Điền giữ liệu: 
 
                 frm.MinimizeBox = false;
@@ -643,14 +623,14 @@ namespace TinhGiaInClient
             
             switch (frm.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     //Add
                     ; //Id tự tạo
 
                     baiInPres.ThemGiaIn(frm.DocGiaIn);
 
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                     //Tạo                     
                     baiInPres.SuaGiaIn(frm.DocGiaIn);
 
@@ -664,14 +644,14 @@ namespace TinhGiaInClient
             
             switch (frm.TinhTrangForm)
             {
-                case FormStates.New:
+                case FormStateS.New:
                     //Add
                     ; //Id tự tạo
 
                     baiInPres.ThemGiaIn(frm.DocGiaIn);
 
                     break;
-                case FormStates.Edit:
+                case FormStateS.Edit:
                                                            
                     baiInPres.SuaGiaIn(frm.DocGiaIn);
 
@@ -721,7 +701,18 @@ namespace TinhGiaInClient
                
             }
         }
-        private void ThemThanhPham(int idBaiIn, LoaiThanhPham loaiThPh)
+        
+        private ThongTinBanDauChoThanhPham thongTinBanDauChoThanhPham(int soLuongSP, int soToChay, LoaiThanhPhamS loaiThPh, string thongDiepThem, FormStateS tinhTrangForm)
+        {
+            var thongTinBanDau = new ThongTinBanDauChoThanhPham ();
+            thongTinBanDau.ThongDiepCanThiet = thongDiepThem;
+            thongTinBanDau.TinhTrangForm = tinhTrangForm;
+            thongTinBanDau.SoLuongSanPham = soLuongSP;
+            thongTinBanDau.SoLuongToChay = soToChay;
+            thongTinBanDau.LoaiThanhPham = loaiThPh;
+            return thongTinBanDau;
+        }
+        private void ThemThanhPham(int idBaiIn, LoaiThanhPhamS loaiThPh)
         {
             if (idBaiIn <= 0)
                 return;
@@ -743,10 +734,10 @@ namespace TinhGiaInClient
             //Tiến hành gắn
             switch (loaiThPh)
             {
-                case LoaiThanhPham.CanPhu:
+                case LoaiThanhPhamS.CanPhu:
                     var frm = new ThPhCanPhuForm(string.Format("Số tờ giấy in {0} khổ: {1}",
                         baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay));
-                    frm.TinhTrangForm = (int)FormStates.New;
+                    frm.TinhTrangForm = (int)FormStateS.New;
                     frm.LoaiThPh = loaiThPh;
                     frm.Text = "Cán Phủ [Mới]";
                     frm.MinimizeBox = false;
@@ -768,10 +759,10 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case LoaiThanhPham.CanGap:
+                case LoaiThanhPhamS.CanGap:
                     var frm2 = new ThPhCanGapForm(string.Format("Số lượng SP: {0} / Số lượng tờ chạy: {1}",
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay));
-                    frm2.TinhTrangForm = (int)FormStates.New;
+                    frm2.TinhTrangForm = (int)FormStateS.New;
                     frm2.LoaiThPh = loaiThPh;
                     frm2.Text = "Cấn gấp [Mới]";
                     frm2.MinimizeBox = false;
@@ -790,10 +781,10 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case LoaiThanhPham.DongCuon:
+                case LoaiThanhPhamS.DongCuon:
                     var frm3 = new ThPhDongCuonForm(string.Format("Số lượng {0} {1}",
                         baiIn.SoLuong, baiIn.DonVi));
-                    frm3.TinhTrangForm = (int)FormStates.New;
+                    frm3.TinhTrangForm = (int)FormStateS.New;
                     frm3.LoaiThPh = loaiThPh;
                     frm3.Text = "Đóng cuốn [Mới]";
                     frm3.MinimizeBox = false;
@@ -812,10 +803,10 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case LoaiThanhPham.EpKim:
+                case LoaiThanhPhamS.EpKim:
                     var frm4 = new ThPhEpKimForm(string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
                         baiIn.SoLuong,  baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong));
-                    frm4.TinhTrangForm = (int)FormStates.New;
+                    frm4.TinhTrangForm = (int)FormStateS.New;
                     frm4.LoaiThPh = loaiThPh;
                     frm4.Text = "Ép kim [Mới]";
                     frm4.MinimizeBox = false;
@@ -845,11 +836,11 @@ namespace TinhGiaInClient
             var loaiThanhPham = mucThPh.LoaiThPh;
             switch (loaiThanhPham)
             {
-                case LoaiThanhPham.CanPhu:
+                case LoaiThanhPhamS.CanPhu:
                     var frm1 = new ThPhCanPhuForm(string.Format("Số tờ giấy in {0} khổ: {1}",
                         baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay));
-                    frm1.TinhTrangForm = (int)FormStates.Edit;
-                    frm1.LoaiThPh = LoaiThanhPham.CanPhu;
+                    frm1.TinhTrangForm = (int)FormStateS.Edit;
+                    frm1.LoaiThPh = LoaiThanhPhamS.CanPhu;
                     frm1.Text = "Cán Phủ [Sửa]";
                     frm1.MinimizeBox = false;
                     frm1.MaximizeBox = false;
@@ -875,11 +866,11 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case LoaiThanhPham.CanGap:
+                case LoaiThanhPhamS.CanGap:
                     var frm2 = new ThPhCanGapForm(string.Format("Số lượng {0} / Số tờ chạy: {1}",
                         baiIn.SoLuong, baiIn.GiayDeInIn.SoToChayTong));
-                    frm2.TinhTrangForm = (int)FormStates.Edit;
-                    frm2.LoaiThPh = LoaiThanhPham.CanGap;
+                    frm2.TinhTrangForm = (int)FormStateS.Edit;
+                    frm2.LoaiThPh = LoaiThanhPhamS.CanGap;
                     frm2.Text = "Cấn gấp [Sửa]";
                     frm2.MinimizeBox = false;
                     frm2.MaximizeBox = false;
@@ -902,11 +893,11 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case LoaiThanhPham.DongCuon:
+                case LoaiThanhPhamS.DongCuon:
                     var frm3 = new ThPhDongCuonForm(string.Format("Số lượng {0} {1}",
                         baiIn.SoLuong, baiIn.DonVi));
-                    frm3.TinhTrangForm = (int)FormStates.Edit;
-                    frm3.LoaiThPh = LoaiThanhPham.DongCuon;
+                    frm3.TinhTrangForm = (int)FormStateS.Edit;
+                    frm3.LoaiThPh = LoaiThanhPhamS.DongCuon;
                     frm3.Text = "Đóng cuốn [Sửa]";
                     frm3.MinimizeBox = false;
                     frm3.MaximizeBox = false;
@@ -930,11 +921,11 @@ namespace TinhGiaInClient
                     }
                     break;
 
-                case LoaiThanhPham.EpKim:
+                case LoaiThanhPhamS.EpKim:
                     var frm4 = new ThPhEpKimForm(string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong));
-                    frm4.TinhTrangForm = (int)FormStates.Edit;
-                    frm4.LoaiThPh = LoaiThanhPham.EpKim;
+                    frm4.TinhTrangForm = (int)FormStateS.Edit;
+                    frm4.LoaiThPh = LoaiThanhPhamS.EpKim;
                     frm4.Text = "Đóng cuốn [Sửa]";
                     frm4.MinimizeBox = false;
                     frm4.MaximizeBox = false;
@@ -984,11 +975,11 @@ namespace TinhGiaInClient
             };
             switch (frm.TinhTrangForm)
             {
-                case (int)FormStates.New:
+                case (int)FormStateS.New:
                     //Add                             
                     baiInPres.ThemThanhPham(mucCanPhu);
                     break;
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     //Refer
                     mucCanPhu = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucCanPhu.IdBaiIn = frm.IdBaiIn;
@@ -1015,7 +1006,7 @@ namespace TinhGiaInClient
             MucThanhPham mucThPh = null;
             switch (frm.TinhTrangForm)
             {
-                case (int)FormStates.New:
+                case (int)FormStateS.New:
                     //Add
                     mucThPh = new MucThanhPham
                     {
@@ -1031,7 +1022,7 @@ namespace TinhGiaInClient
                     };
                     baiInPres.ThemThanhPham(mucThPh);
                     break;
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     //Tạo 
                     mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucThPh.IdBaiIn = frm.IdBaiIn;
@@ -1057,7 +1048,7 @@ namespace TinhGiaInClient
             MucThanhPham mucThPh = null;
             switch (frm.TinhTrangForm)
             {
-                case (int)FormStates.New:
+                case (int)FormStateS.New:
                     //Add
                     mucThPh = new MucThanhPham
                     {
@@ -1073,7 +1064,7 @@ namespace TinhGiaInClient
                     };
                     baiInPres.ThemThanhPham(mucThPh);
                     break;
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     //Tạo 
                     mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucThPh.IdBaiIn = frm.IdBaiIn;
@@ -1099,7 +1090,7 @@ namespace TinhGiaInClient
             MucThanhPham mucThPh = null;
             switch (frm.TinhTrangForm)
             {
-                case (int)FormStates.New:
+                case (int)FormStateS.New:
                     //Add
                     mucThPh = new MucThanhPham
                     {
@@ -1115,7 +1106,7 @@ namespace TinhGiaInClient
                     };
                     baiInPres.ThemThanhPham(mucThPh);
                     break;
-                case (int)FormStates.Edit:
+                case (int)FormStateS.Edit:
                     //Tạo 
                     mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucThPh.IdBaiIn = frm.IdBaiIn;
@@ -1178,17 +1169,17 @@ namespace TinhGiaInClient
 
         private void cmnuThanhPham_Click(object sender, EventArgs e)
         {
-            ThemThanhPham(this.ID, LoaiThanhPham.CanPhu);
+            ThemThanhPham(this.ID, LoaiThanhPhamS.CanPhu);
         }
 
         private void cmnuThPh_CanGap_Click(object sender, EventArgs e)
         {
-            ThemThanhPham(this.ID, LoaiThanhPham.CanGap);
+            ThemThanhPham(this.ID, LoaiThanhPhamS.CanGap);
         }
 
         private void cmnuThPh_DongCuon_Click(object sender, EventArgs e)
         {
-            ThemThanhPham(this.ID, LoaiThanhPham.DongCuon);
+            ThemThanhPham(this.ID, LoaiThanhPhamS.DongCuon);
         }
 
         private void btnSuaThanhPham_Click(object sender, EventArgs e)
@@ -1239,7 +1230,7 @@ namespace TinhGiaInClient
         }
         private void cmnuThPh_EpKim_Click(object sender, EventArgs e)
         {
-            ThemThanhPham(this.ID, LoaiThanhPham.EpKim);
+            ThemThanhPham(this.ID, LoaiThanhPhamS.EpKim);
         }
 
       

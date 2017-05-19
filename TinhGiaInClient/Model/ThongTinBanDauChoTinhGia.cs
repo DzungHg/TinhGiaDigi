@@ -9,7 +9,7 @@ namespace TinhGiaInClient.Model
     public struct ThongTinBanDauChoTinhGia
     {        
         public string TenNguoiDung { get; set; }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
       
        
     }

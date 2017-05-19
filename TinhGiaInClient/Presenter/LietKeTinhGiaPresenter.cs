@@ -22,13 +22,13 @@ namespace TinhGiaInClient.Presenter
             List<KetQuaTinhGiaIn> nguon = null;
             switch (View.KieuSapXep)
             {
-                case SapXepTinhGia.TheoNgay:
+                case SapXepTinhGiaS.TheoNgay:
                     nguon = KetQuaTinhGiaIn.DocTatCaSX_Ngay(View.ChieuSapXep);
                     break;
-                case SapXepTinhGia.TheoNhanVien:
+                case SapXepTinhGiaS.TheoNhanVien:
                     nguon = KetQuaTinhGiaIn.DocTatCaSX_NhanVien(View.ChieuSapXep);
                     break;
-                case SapXepTinhGia.TheoTieuDe:
+                case SapXepTinhGiaS.TheoTieuDe:
                     nguon = KetQuaTinhGiaIn.DocTatCaSX_TieuDe(View.ChieuSapXep);
                     break;
                 default:

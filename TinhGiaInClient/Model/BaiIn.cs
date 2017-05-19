@@ -146,7 +146,7 @@ namespace TinhGiaInClient.Model
             if (this.GiayDeInIn != null)
             {                
                 
-                tienGiay = this.GiayDeInIn.ThanhTien;
+                tienGiay = this.GiayDeInIn.ThanhTienGiay;
                 
             }
             //Tính in
@@ -184,7 +184,7 @@ namespace TinhGiaInClient.Model
             if (this.GiayDeInIn != null)
             {                
                 dict.Add("Giấy in:", this.GiayDeInIn.TenGiayIn);
-                tienGiay = this.GiayDeInIn.ThanhTien;
+                tienGiay = this.GiayDeInIn.ThanhTienGiay;
                 dict.Add("Tiền giấy:", string.Format("{0:0,00.00}đ", tienGiay));
             }
             //Chi tiết in và Tính in

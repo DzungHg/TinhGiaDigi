@@ -67,7 +67,7 @@ namespace TinhGiaInClient
             get { return txtTenNV.Text; }
             set { txtTenNV.Text = value; }
         }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
       
         public string TomTatChaoKH
         {
@@ -205,7 +205,7 @@ namespace TinhGiaInClient
         {
             var thongTinChoBaiIn = new ThongTinBanDauChoBaiIn{
                 IdHangKhachHang = this.IdHangKhachHang(),
-                TinhTrangForm = FormStates.New,
+                TinhTrangForm = FormStateS.New,
                 YeuCauTinhGia = ""
             };
 
@@ -286,8 +286,8 @@ namespace TinhGiaInClient
 
             switch (frm.TinhTrangForm)
             {
-                case FormStates.Edit:
-                case FormStates.New:
+                case FormStateS.Edit:
+                case FormStateS.New:
                     tinhGiaPres.Them_BaiIn(frm.DocKetQuaBaiIn());
                     break;                                  
             }
@@ -331,7 +331,7 @@ namespace TinhGiaInClient
             var thongTinBanDau = new ThongTinBanDauChoDanhThiep
             {
                 IdHangKhachHang = this.IdHangKhachHang(),
-                TinhTrangForm = FormStates.New
+                TinhTrangForm = FormStateS.New
             };
 
 
@@ -362,8 +362,8 @@ namespace TinhGiaInClient
 
             switch (frm.TinhTrangForm)
             {
-                case FormStates.Edit:
-                case FormStates.New:
+                case FormStateS.Edit:
+                case FormStateS.New:
                     tinhGiaPres.Them_DanhThiep(frm.DocBaiInDanhThiep());
                     break;
             }
@@ -521,11 +521,11 @@ namespace TinhGiaInClient
            {
                switch (this.TinhTrangForm)
                {
-                   case FormStates.New:
+                   case FormStateS.New:
                        MessageBox.Show(tinhGiaPres.ThemTinhGia());
 
                        break;
-                   case FormStates.Edit:
+                   case FormStateS.Edit:
                        MessageBox.Show(tinhGiaPres.CapNhatTinhGia());
 
                        break;

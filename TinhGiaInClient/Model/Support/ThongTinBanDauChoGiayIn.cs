@@ -13,7 +13,8 @@ namespace TinhGiaInClient.Model.Support
         public int IdHangKhachHang { get; set; }
         public int IdToIn_MayInChon { get; set; }
         public PhuongPhapInS PhuongPhapIn { get; set; }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
+  
         public string KhoMayIn
         {
             get

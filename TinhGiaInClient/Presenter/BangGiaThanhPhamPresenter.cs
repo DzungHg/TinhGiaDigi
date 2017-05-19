@@ -42,7 +42,7 @@ namespace TinhGiaInClient.Presenter
         {
             return MonThanhPham.DocTatCaDichVuThanhPham();
         }
-        public LoaiThanhPham DocLoaiThanhPham ()
+        public LoaiThanhPhamS DocLoaiThanhPham ()
         {
             var monThPh = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham);
             return monThPh.LoaiThPham;
@@ -81,20 +81,20 @@ namespace TinhGiaInClient.Presenter
             var LoaiTP = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham).LoaiThPham;
             switch (LoaiTP)
             {
-                case LoaiThanhPham.CanPhu:
+                case LoaiThanhPhamS.CanPhu:
                     var giaCanPhu = new GiaCanPhu(soLuong, View.DonViTinh, TiLeMarkUpTheoHangKH(), CanPhu.DocTheoId(iDThanhPham));
                     ketQua = giaCanPhu.ThanhTienSales();
                     break;
-                case LoaiThanhPham.CanGap:
+                case LoaiThanhPhamS.CanGap:
                     //Làm tạm 2 đường
                     var giaCanGap = new GiaCanGap(soLuong, 2, TiLeMarkUpTheoHangKH(), View.DonViTinh, CanGap.DocTheoId(iDThanhPham));
                     ketQua = giaCanGap.ThanhTienSales();
                     break;
-                case LoaiThanhPham.DongCuon:
+                case LoaiThanhPhamS.DongCuon:
                     var giaDongCuon = new GiaDongCuon(soLuong, TiLeMarkUpTheoHangKH(), View.DonViTinh, DongCuon.DocTheoId(iDThanhPham));
                     ketQua = giaDongCuon.ThanhTienSales();
                     break;
-                case LoaiThanhPham.EpKim:
+                case LoaiThanhPhamS.EpKim:
                     //var giaEpKim = new GiaEpKim(soLuong, 5,5, 10, CanPhu.DocTheoId(iDThanhPham));
                     ketQua = 0;
                     break;
@@ -133,22 +133,22 @@ namespace TinhGiaInClient.Presenter
             var LoaiTP = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham).LoaiThPham;
             switch (LoaiTP)
             {
-                case LoaiThanhPham.CanPhu:
+                case LoaiThanhPhamS.CanPhu:
                     var canPhu = CanPhu.DocTheoId(iDThanhPham);
                     canPhu.DaySoLuongNiemYet = View.DaySoluong;
                     mg = CanPhu.Sua(canPhu);
                     break;
-                case LoaiThanhPham.CanGap:
+                case LoaiThanhPhamS.CanGap:
                     var canGap = CanGap.DocTheoId(iDThanhPham);
                     canGap.DaySoLuongNiemYet = View.DaySoluong;
                     mg = CanGap.Sua(canGap);
                     break;
-                case LoaiThanhPham.DongCuon:
+                case LoaiThanhPhamS.DongCuon:
                     var dongCuon = DongCuon.DocTheoId(iDThanhPham);
                     dongCuon.DaySoLuongNiemYet = View.DaySoluong;
                     mg = DongCuon.Sua(dongCuon);
                     break;
-                case LoaiThanhPham.EpKim:
+                case LoaiThanhPhamS.EpKim:
                     var epKim = EpKim.DocTheoId(iDThanhPham);
                     epKim.DaySoLuongNiemYet = View.DaySoluong;
                     mg = EpKim.Sua(epKim);

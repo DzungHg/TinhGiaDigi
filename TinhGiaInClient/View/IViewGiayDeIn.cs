@@ -28,6 +28,6 @@ namespace TinhGiaInClient.View
         decimal GiaBan { get; }
         int SoToGiayLon { get; }
         decimal ThanhTien { get; }
-        FormStates TinhTrangForm { get; set; }
+        FormStateS TinhTrangForm { get; set; }
     }
 }

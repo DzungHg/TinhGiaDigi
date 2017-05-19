@@ -160,7 +160,7 @@ namespace TinhGiaInClient
         {
             get { return giayDeInPres.ThanhTien(); }
         }
-        public FormStates TinhTrangForm { get; set; }
+        public FormStateS TinhTrangForm { get; set; }
         #endregion
         
         public GiayDeIn DocGiayDeIn()
@@ -173,7 +173,7 @@ namespace TinhGiaInClient
         {
            
             //Khóa nếu view
-            if (this.TinhTrangForm == FormStates.View)
+            if (this.TinhTrangForm == FormStateS.View)
                 KhoaCacControlsChoView();
 
             lblTieuDeForm.Text = this.Text;
@@ -273,11 +273,10 @@ namespace TinhGiaInClient
                 chk = (CheckBox)sender;
                 if (chk == chkGiayKhach)
                 {
-                    if (this.GiayChon != null)
-                    {
+                   
                         CapNhatTriGiaVoLabels();
                         
-                    }
+                    
                 }
 
             }
@@ -307,7 +306,7 @@ namespace TinhGiaInClient
 
             if (!this.GiayKhachDua)
             {
-                if (this.IdGiay < = 0)
+                if (this.IdGiay <= 0)
                     loiS.Add("Bạn cần chọn giấy");
             }
             if (string.IsNullOrEmpty(txtTenGiayIn.Text))
@@ -351,7 +350,7 @@ namespace TinhGiaInClient
 
         private void btnChonGiay_Click(object sender, EventArgs e)
         {
-            BangGiaGiayForm frm = new BangGiaGiayForm(FormStates.Get, this.IdHangKH);
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.Get, this.IdHangKH);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Bảng giá giấy theo hạng KH ";

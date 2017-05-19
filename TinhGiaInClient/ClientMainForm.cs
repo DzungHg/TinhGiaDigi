@@ -36,7 +36,7 @@ namespace TinhGiaInClient
             if (frmLietKeTinhGia == null)
             {
                 frmLietKeTinhGia = new LietKeTinhGiaForm();
-                frmLietKeTinhGia.KieuSapXep = SapXepTinhGia.Khong;
+                frmLietKeTinhGia.KieuSapXep = SapXepTinhGiaS.Khong;
                 frmLietKeTinhGia.FormClosed += new FormClosedEventHandler(ByByWindows);
                 frmLietKeTinhGia.MdiParent = this;
                 frmLietKeTinhGia.Show();
@@ -242,7 +242,7 @@ namespace TinhGiaInClient
         {
             var thongTinBanDau = new ThongTinBanDauChoTinhGia();
             thongTinBanDau.TenNguoiDung = "";
-            thongTinBanDau.TinhTrangForm = FormStates.New;
+            thongTinBanDau.TinhTrangForm = FormStateS.New;
 
             this.WindowState = FormWindowState.Maximized;
             var frm = new TinhGiaForm(thongTinBanDau);
@@ -288,7 +288,7 @@ namespace TinhGiaInClient
 
         private void mnuBangGiaGiay_Click(object sender, EventArgs e)
         {
-            BangGiaGiayForm frm = new BangGiaGiayForm(FormStates.View);
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.View);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Bảng giá giấy theo hạng KH ";
