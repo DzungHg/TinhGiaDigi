@@ -18,7 +18,7 @@ namespace TinhGiaInClient.View
         string DonViTinh { get; set; }
         decimal ThanhTien { get; }
         string ThongTinHoTro { get; set; }
-        int TinhTrangForm { get; set; }
+        FormStateS TinhTrangForm { get; set; }
       
        
     }

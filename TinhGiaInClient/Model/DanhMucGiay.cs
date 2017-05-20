@@ -57,26 +57,27 @@ namespace TinhGiaInClient.Model
             return nguon;
         }
         #region thêm sửa xóa
-          public static void Them(DanhMucGiay item)
+          public static string Them(DanhMucGiay item)
         {
             DanhMucGiayLogic dMucGiayLogic = new DanhMucGiayLogic();
             var itemBDO = new DanhMucGiayBDO();
             ChuyenDoiDMGiayDTOThanhBDO(item, itemBDO);
-            dMucGiayLogic.Them(itemBDO);
+            return dMucGiayLogic.Them(itemBDO);
         }
 
-        public static void Sua(DanhMucGiay item)
+          public static string Sua(DanhMucGiay item)
         {
             DanhMucGiayLogic dMucGiayLogic = new DanhMucGiayLogic();
             var itemBDO = new DanhMucGiayBDO();
             ChuyenDoiDMGiayDTOThanhBDO(item, itemBDO);
-            dMucGiayLogic.Sua(itemBDO);
+            return dMucGiayLogic.Sua(itemBDO);
+            
         }
-        public static void Xoa(int idDanhMucGiay)
+        public static string Xoa(int idDanhMucGiay)
         {
             DanhMucGiayLogic dMucGiayLogic = new DanhMucGiayLogic();
             
-            dMucGiayLogic.Xoa(idDanhMucGiay);
+            return dMucGiayLogic.Xoa(idDanhMucGiay);
         }
 
         #endregion

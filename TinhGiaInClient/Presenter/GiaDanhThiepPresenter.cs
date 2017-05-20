@@ -113,17 +113,19 @@ namespace TinhGiaInClient.Presenter
         }
         public BaiInDanhThiep DocBaiInDanhThiep()
         {
+            var soMatIn = MotHaiMat.MotMat;
+            var bangGiaDanhThiep = BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon);
+            if (bangGiaDanhThiep.InHaiMat)
+                soMatIn = MotHaiMat.HaiMat;
+
             var baiInDanhThiep = new BaiInDanhThiep(View.IdBangGiaChon, View.TenBangGiaChon,
-                View.KichThuoc, View.SoLuong);
+                View.KichThuoc, View.SoLuong, soMatIn);
            
             //Điền thêm dữ liệu
             baiInDanhThiep.IdBangGia = View.IdBangGiaChon;
             baiInDanhThiep.TenBangGia = View.TenBangGiaChon;
-            baiInDanhThiep.TenGiayIn = this.TenGiayChon();
-            if (BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).InHaiMat)
-                baiInDanhThiep.SoMatIn = 2;
-            else
-                baiInDanhThiep.SoMatIn = 1;
+            baiInDanhThiep.TenGiayIn = this.TenGiayChon();           
+             
             baiInDanhThiep.KichThuoc = View.KichThuoc;
             baiInDanhThiep.SoLuongHop = View.SoLuong;            
             baiInDanhThiep.TienIn = this.GiaDanhThiepTheoBang();

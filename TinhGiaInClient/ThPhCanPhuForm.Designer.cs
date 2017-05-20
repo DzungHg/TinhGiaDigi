@@ -122,7 +122,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(121, 9);
+            this.label1.Location = new System.Drawing.Point(143, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 102;
@@ -160,10 +160,10 @@
             this.groupBox1.Controls.Add(this.rdbMotMat);
             this.groupBox1.Location = new System.Drawing.Point(168, 134);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(204, 41);
+            this.groupBox1.Size = new System.Drawing.Size(178, 44);
             this.groupBox1.TabIndex = 105;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Kiểu cán phủ";
+            this.groupBox1.Text = "Cán";
             // 
             // rdbHaiMat
             // 

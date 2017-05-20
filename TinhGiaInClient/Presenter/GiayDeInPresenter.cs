@@ -32,7 +32,7 @@ namespace TinhGiaInClient.Presenter
                     View.TenGiayIn = giayDeIn.TenGiayIn;
                     View.KhoToChay = giayDeIn.KhoToChay;
                     View.SoToChayTrenToLon = giayDeIn.SoToChayTrenToLon;
-                    
+                   
                     break;
 
             }
@@ -85,9 +85,9 @@ namespace TinhGiaInClient.Presenter
                 return kq;
             //Tiếp nếu quá
             if (SoToChayTong()  % View.SoToChayTrenToLon > 0)//Chia lẻ
-                kq = SoToChayTong() % View.SoToChayTrenToLon + 1;
+                kq = SoToChayTong() / View.SoToChayTrenToLon + 1;
             else
-                kq = SoToChayTong() % View.SoToChayTrenToLon;
+                kq = SoToChayTong() / View.SoToChayTrenToLon;
 
             return kq;
         }
@@ -129,7 +129,9 @@ namespace TinhGiaInClient.Presenter
                 View.SoToGiayLon, View.GiayKhachDua, View.IdGiay,
                 View.TenGiayIn, View.IdBaiIn, View.SoToChayTrenToLon,
                 View.SoToGiayLon, this.ThanhTien());
+
             giayDeIn.SoToChayLyThuyet = this.SoToChayLyThuyetTinh();
+
             if (View.TinhTrangForm == FormStateS.Edit)
                 giayDeIn.ID = View.ID;
             

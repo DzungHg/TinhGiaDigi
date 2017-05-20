@@ -604,7 +604,8 @@ namespace TinhGiaInClient
 
        private void btnCopyToClipboardMucTinh_Click(object sender, EventArgs e)
        {
-           Clipboard.SetText(txtTomTatBaiIn.Text);
+           if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text.Trim()))
+               Clipboard.SetText(txtTomTatBaiIn.Text);
        }
        
     }

@@ -79,7 +79,7 @@ namespace TinhGiaInDAL.RepoTinhGia
              string kq = "";
             try
             {
-                kq = KiemTraTrung(entityBDO.Ten, entityBDO.ID);
+                kq = KiemTraTrung(entityBDO.Ten, entityBDO.NhaCungCap);
                 if (kq != "")
                     return kq;
                 DANH_MUC_GIAY entity = new DANH_MUC_GIAY();
@@ -95,7 +95,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             return kq;
         }
 
-        public string   Sua(TinhGiaInBDO.DanhMucGiayBDO entityBDO)
+        public string Sua(TinhGiaInBDO.DanhMucGiayBDO entityBDO)
         {
             DANH_MUC_GIAY entity = db.DANH_MUC_GIAY.Where(x => (x.ID == entityBDO.ID)).SingleOrDefault();
             string kq = "";
@@ -103,7 +103,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             {
                 try
                 {
-                    kq = KiemTraTrung(entityBDO.Ten, entityBDO.ID);
+                    kq = KiemTraTrung(entityBDO.Ten, entityBDO.NhaCungCap, entityBDO.ID);
                     if (kq != "")
                         return kq;
                      
@@ -151,12 +151,12 @@ namespace TinhGiaInDAL.RepoTinhGia
 
         }
         #endregion
-        private string KiemTraTrung(string value, int id = 0)
+        private string KiemTraTrung(string tenDanhMuc, string tenNhaCC, int id = 0)
         {
             string kq = "";
-            var entity = db.DANH_MUC_GIAY.SingleOrDefault(x => x.Ten == value);
+            var entity = db.DANH_MUC_GIAY.SingleOrDefault(x => (x.Ten == tenDanhMuc) && (x.Nha_cung_cap == tenNhaCC));
             if (entity != null && entity.ID != id)
-                kq = string.Format("Tên Danh mục {0} đã có rồi!", value);
+                kq = string.Format("Tên Danh mục {0} đã có rồi!", tenDanhMuc);
             return kq;
         }
         private void ChuyenBDOThanhDAO(DanhMucGiayBDO entityBDO, DANH_MUC_GIAY entityDAO)

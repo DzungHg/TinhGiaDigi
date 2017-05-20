@@ -62,19 +62,21 @@
             this.cmnuSuaDM,
             this.cmnuXoaDM});
             this.cmnu.Name = "cmnu";
-            this.cmnu.Size = new System.Drawing.Size(164, 70);
+            this.cmnu.Size = new System.Drawing.Size(164, 92);
             // 
             // cmnuThemDM
             // 
             this.cmnuThemDM.Name = "cmnuThemDM";
             this.cmnuThemDM.Size = new System.Drawing.Size(163, 22);
             this.cmnuThemDM.Text = "Thêm Danh mục";
+            this.cmnuThemDM.Click += new System.EventHandler(this.cmnuThemDM_Click);
             // 
             // cmnuSuaDM
             // 
             this.cmnuSuaDM.Name = "cmnuSuaDM";
             this.cmnuSuaDM.Size = new System.Drawing.Size(163, 22);
             this.cmnuSuaDM.Text = "Sửa Danh mục";
+            this.cmnuSuaDM.Click += new System.EventHandler(this.cmnuSuaDM_Click);
             // 
             // cmnuXoaDM
             // 

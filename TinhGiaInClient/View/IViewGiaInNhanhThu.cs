@@ -10,7 +10,7 @@ namespace TinhGiaInClient.View
     public interface IViewGiaInNhanhThu
     {
         
-        int KieuIn { get; set; }
+        PrintSideColorS KieuIn { get; set; }
         int IdToInDigiChon { get; }
         int IdHangKH { get; set; }
         string TenBangGiaChon { get; set; }
@@ -19,7 +19,7 @@ namespace TinhGiaInClient.View
         int SoTrangToiDaTheoBangGia { get; set; }
         decimal TienIn { get; set; }
         string GiaTBTrangInfo { get; set; }
-        int PhuongPhapIn { get; }
+        PhuongPhapInS PhuongPhapIn { get; }
 
         FormStateS TinhTrangForm { get; set; }
         /*

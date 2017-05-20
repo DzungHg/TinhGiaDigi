@@ -9,17 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient
 {
     public partial class ThPhDongCuonForm : Form, IViewThanhPham
     {
         DongCuonPresenter dongCuonPres;
-        public ThPhDongCuonForm(string thongTinHoTro)
+        public ThPhDongCuonForm(ThongTinBanDauChoThanhPham thongTinBanDau)
         {
             InitializeComponent();
 
-            this.ThongTinHoTro = thongTinHoTro;
+            this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
+            this.Text = thongTinBanDau.TieuDeForm;
+            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
+            this.DonViTinh = thongTinBanDau.DonViTinh;
+            this.SoLuong = thongTinBanDau.SoLuongSanPham;
+            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
+            this.IdBaiIn = thongTinBanDau.IdBaiIn;
+            this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
+
             dongCuonPres = new DongCuonPresenter(this);
             dongCuonPres.KhoiTaoBanDau();
             LoadThanhPham();
@@ -96,7 +105,7 @@ namespace TinhGiaInClient
             get { return txtThongTinHoTro.Text; }
             set { txtThongTinHoTro.Text = value; }
         }
-        public int TinhTrangForm
+        public FormStateS TinhTrangForm
         {
             get;
             set;
@@ -162,6 +171,7 @@ namespace TinhGiaInClient
                 {
                     txtSoLuong.Enabled = true;
                     txtDonViTinh.Enabled = true;
+                    btnOK.Enabled = true;
                 }
                
             }
@@ -173,7 +183,7 @@ namespace TinhGiaInClient
         {
             txtSoLuong.Enabled = false;
             txtDonViTinh.Enabled = false;
-          
+            btnOK.Enabled = false;
         }
 
         private bool KiemTraHopLe(ref string errorMessage)

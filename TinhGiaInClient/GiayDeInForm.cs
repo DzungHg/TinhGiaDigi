@@ -24,7 +24,7 @@ namespace TinhGiaInClient
             this.ThongTinBaiIn_CauHinh = thongTinBanDau.ThongTinCanThiet;
             this.SoLuongSanPham = thongTinBanDau.SoLuongSanPham;
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;
-            
+            this.PhuongPhapIn = thongTinBanDau.PhuongPhapIn;
           
             giayDeInPres = new GiayDeInPresenter(this, giayDeIn);                          
            
@@ -44,6 +44,7 @@ namespace TinhGiaInClient
             txtSoToChayLyThuyet.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoConTrenToIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToGiayLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtTenGiayIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             chkGiayKhach.CheckedChanged += new EventHandler(TextBoxes_TextChanged);
            
@@ -58,6 +59,7 @@ namespace TinhGiaInClient
             get;
             set;
         }
+        public PhuongPhapInS PhuongPhapIn { get; set; }
         public int IdHangKH { get; set; }
         public string DienGiaiBaiInVaSoLuong
         {
@@ -178,6 +180,8 @@ namespace TinhGiaInClient
 
             lblTieuDeForm.Text = this.Text;
             XuLyGiayKhachHangDua();//Swicth
+            if (this.PhuongPhapIn == PhuongPhapInS.KhongIn)
+                this.KhoToChay = "Khổ tờ chạy";
         }
 
       
@@ -238,6 +242,15 @@ namespace TinhGiaInClient
 
                     }
                     txtSoToChayLyThuyet.Text = giayDeInPres.SoToChayLyThuyetTinh().ToString() ;
+                }
+                if (tb == txtTenGiayIn)
+                {
+                    //Bẩy để cập nhật label
+                    this.SoConTrenToChay += 1;
+                    this.SoConTrenToChay -= 1;
+                    this.SoToChayTrenToLon += 1;
+                    this.SoToChayTrenToLon -= 1; //Bẩy
+
                 }
                 if (tb == txtSoToChayLyThuyet)
                 {

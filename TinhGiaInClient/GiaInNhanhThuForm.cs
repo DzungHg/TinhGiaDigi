@@ -55,20 +55,20 @@ namespace TinhGiaInClient
             set;
         }
 
-        int _kieuIn = 0;
-        public int KieuIn
+        PrintSideColorS _kieuIn = PrintSideColorS.FourFour;
+        public PrintSideColorS KieuIn
         {
             get {
                 if (rdbIn4_4.Checked)
-                    _kieuIn = (int)Enumss.PrintSides.FourFour;
+                    _kieuIn = PrintSideColorS.FourFour;
                 if (rdbIn4_1.Checked)
-                    _kieuIn = (int)Enumss.PrintSides.FourOne;
+                    _kieuIn = PrintSideColorS.FourOne;
                 if (rdbIn4_0.Checked)
-                    _kieuIn = (int)Enumss.PrintSides.FourZero;
+                    _kieuIn = PrintSideColorS.FourZero;
                 if (rdbIn1_1.Checked)
-                    _kieuIn = (int)Enumss.PrintSides.OneOne;
+                    _kieuIn = PrintSideColorS.OneOne;
                 if (rdbIn1_0.Checked)
-                    _kieuIn = (int)Enumss.PrintSides.OneZero;
+                    _kieuIn = PrintSideColorS.OneZero;
 
                     return _kieuIn;
 
@@ -131,9 +131,9 @@ namespace TinhGiaInClient
             get { return lblGiaTB_A4.Text; }
             set { lblGiaTB_A4.Text = value; }
         }
-        public int PhuongPhapIn
+        public PhuongPhapInS PhuongPhapIn
         {
-            get { return (int)PhuongPhapInS.Toner; }
+            get { return PhuongPhapInS.Toner; }
         }
         public FormStateS TinhTrangForm
         {

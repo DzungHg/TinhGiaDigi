@@ -9,17 +9,25 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient
 {
     public partial class ThPhEpKimForm : Form, IViewThPhEpKim
     {
         ThPhEpKimPresenter epKimPres;
-        public ThPhEpKimForm(string thongTinHoTro)
+        public ThPhEpKimForm(ThongTinBanDauChoThanhPham thongTinBanDau)
         {
             InitializeComponent();
 
-            this.ThongTinHoTro = thongTinHoTro;
+            this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
+            this.IdBaiIn = thongTinBanDau.IdBaiIn;
+            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
+            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
+            this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
+            this.SoLuong = thongTinBanDau.SoLuongSanPham;
+            this.DonViTinh = thongTinBanDau.DonViTinh;
+
             epKimPres = new ThPhEpKimPresenter(this);
             LoadEpKim();
             epKimPres.KhoiTaoBanDau();
@@ -107,7 +115,7 @@ namespace TinhGiaInClient
             get { return txtThongTinHoTro.Text; }
             set { txtThongTinHoTro.Text = value; }
         }
-        public int TinhTrangForm
+        public FormStateS TinhTrangForm
         {
             get;
             set;
@@ -257,12 +265,11 @@ namespace TinhGiaInClient
             
         }
         
-
         private void ThanhPhamForm_Load(object sender, EventArgs e)
         {
             txtSoLuong.Enabled = false;
             txtDonViTinh.Enabled = false;
-          
+            btnOK.Enabled = false;
         }
 
         private bool KiemTraHopLe(ref string errorMessage)
@@ -333,6 +340,14 @@ namespace TinhGiaInClient
 
             }
 
+            CapNhatLabelGia();
+        }
+
+        private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtSoLuong.Enabled = true;
+            txtDonViTinh.Enabled = true;
+            btnOK.Enabled = true;
             CapNhatLabelGia();
         }
         

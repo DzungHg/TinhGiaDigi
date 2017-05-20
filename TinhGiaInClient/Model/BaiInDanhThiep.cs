@@ -11,7 +11,7 @@ namespace TinhGiaInClient.Model
         static int _prevId = 0;
         public int ID { get; set; }
      
-        public int SoMatIn { get; set; }
+        public MotHaiMat SoMatIn { get; set; }
                
         public int IdBangGia { get; set; }
         public string TenBangGia { get; set; }
@@ -34,14 +34,14 @@ namespace TinhGiaInClient.Model
                 return _giaTBHop;
             }
         }
-        public BaiInDanhThiep(int idBangGia, string tenBangGia, string kichthuoc, int soLuong)
+        public BaiInDanhThiep(int idBangGia, string tenBangGia, string kichthuoc, int soLuong, MotHaiMat soMatIn)
         {
-            
-            this.SoMatIn = idBangGia;
+            this.IdBangGia = idBangGia;            
             this.SoLuongHop = soLuong;
             this.KichThuoc = kichthuoc;
             this.IdBangGia = idBangGia;
             this.TenBangGia = tenBangGia;
+            this.SoMatIn = soMatIn;
             //Tạo Id mới tăng dần
             _prevId += 1;
             this.ID = _prevId;            
@@ -55,7 +55,7 @@ namespace TinhGiaInClient.Model
             dict.Add("Tên", "Danh Thiếp " + this.KichThuoc);
             dict.Add("Số lượng:", string.Format("{0:0,0}", this.SoLuongHop));
             dict.Add("ĐV tính:", "hộp");
-            dict.Add("In:", string.Format("{0} mặt ", this.SoMatIn));
+            dict.Add("In:", string.Format("{0} mặt ", (int)this.SoMatIn));
             dict.Add("Giấy:", this.TenGiayIn);
             
             dict.Add("Trị giá: ", string.Format("{0:0,0.00}đ", this.ThanhTien));

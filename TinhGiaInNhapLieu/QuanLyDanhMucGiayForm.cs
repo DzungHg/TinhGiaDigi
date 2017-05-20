@@ -67,51 +67,7 @@ public QuanLyDanhMucGiayForm()
         }
         private void AcctingButtons_Click(object sender, EventArgs e)
         {
-            ToolStripMenuItem btn;
-            if (sender is ToolStripMenuItem)
-            {
-                btn = (ToolStripMenuItem)sender;
-                if (btn == cmnuThemDM)
-                {
-                    DanhMucGiayForm frm = new DanhMucGiayForm();
-                    frm.MaximizeBox = false;
-                    frm.MinimizeBox = false;
-                    frm.TinhTrangForm = (int)FormStateS.New;
-                    frm.IdDanhMucgiay = 0;
-                    frm.TenDanhMuc = "Cần tên danh mục";
-                    frm.TenNhaCungCapChon = lbxNhaCungCap.Text;
-                    frm.ThuTu = 99;
-                    frm.ShowDialog();
-                    frm.Dispose();
-                    
-                }
-                if (btn == cmnuSuaDM)
-                {
-                    if (lvwDanhMucGiay.SelectedItems.Count > 0)
-                    {
-
-                        DanhMucGiayForm frm = new DanhMucGiayForm();
-                        frm.IdDanhMucgiay = int.Parse(lvwDanhMucGiay.SelectedItems[0].Text);
-                        frm.MaximizeBox = false;
-                        frm.MinimizeBox = false;
-                        frm.TinhTrangForm = (int)FormStateS.Edit;
-                        frm.IdDanhMucgiay = IdDanhMucGiayChon;
-                        frm.TenDanhMuc = lvwDanhMucGiay.SelectedItems[0].SubItems[1].Text;
-                        frm.TenNhaCungCapChon = lbxNhaCungCap.Text;
-                        frm.ThuTu = int.Parse(lvwDanhMucGiay.SelectedItems[0].SubItems[3].Text);
-                        frm.ShowDialog();
-                        frm.Dispose();
-                    }
-                    
-                }
-
-                if (btn == cmnuXoaDM)
-                {
-                }
-                
-            }
-            LoadDanhMucGiay();
-
+          
         }
 
         private void btnAddNewPaperCate_Click(object sender, EventArgs e)
@@ -171,6 +127,49 @@ public QuanLyDanhMucGiayForm()
         private void lbxNhaCungCap_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDanhMucGiay();//Chạy theo nhà CC:
+        }
+
+        private void cmnuThemDM_Click(object sender, EventArgs e)
+        {
+           
+                var frm = new DanhMucGiayForm();
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.TinhTrangForm = (int)FormStateS.New;
+                frm.IdDanhMucgiay = 0;
+                frm.TenDanhMuc = "Cần tên danh mục";
+                frm.TenNhaCungCapChon = lbxNhaCungCap.Text;
+                frm.ThuTu = 99;
+                frm.ShowDialog();
+                if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+                {
+                    LoadDanhMucGiay();
+                }
+
+            
+        }
+
+        private void cmnuSuaDM_Click(object sender, EventArgs e)
+        {
+
+            if (lvwDanhMucGiay.SelectedItems.Count > 0)
+            {
+
+                DanhMucGiayForm frm = new DanhMucGiayForm();
+                frm.IdDanhMucgiay = int.Parse(lvwDanhMucGiay.SelectedItems[0].Text);
+                frm.MaximizeBox = false;
+                frm.MinimizeBox = false;
+                frm.TinhTrangForm = (int)FormStateS.Edit;
+                frm.IdDanhMucgiay = IdDanhMucGiayChon;
+                frm.TenDanhMuc = lvwDanhMucGiay.SelectedItems[0].SubItems[1].Text;
+                frm.TenNhaCungCapChon = lbxNhaCungCap.Text;
+                frm.ThuTu = int.Parse(lvwDanhMucGiay.SelectedItems[0].SubItems[3].Text);
+                frm.ShowDialog();
+                if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+                {
+                    LoadDanhMucGiay();
+                }
+            }
         }
     
 

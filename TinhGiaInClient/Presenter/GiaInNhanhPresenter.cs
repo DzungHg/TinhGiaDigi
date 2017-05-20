@@ -71,13 +71,13 @@ namespace TinhGiaInClient.Presenter
             int result = 0;
             switch (View.KieuIn)
             {
-                case (int)Enumss.PrintSides.FourFour:
-                case (int)Enumss.PrintSides.FourOne:
-                case (int)Enumss.PrintSides.OneOne:
+                case PrintSideColorS.FourFour:
+                case PrintSideColorS.FourOne:
+                case PrintSideColorS.OneOne:
                     result = toChayDigi.QuiA4 * View.SoToChay * 2;
                     break;
-                case (int)Enumss.PrintSides.FourZero:
-                case (int)Enumss.PrintSides.OneZero:
+                case PrintSideColorS.FourZero:
+                case PrintSideColorS.OneZero:
                     result = toChayDigi.QuiA4 * View.SoToChay * 1;
                     break;
             }

@@ -169,6 +169,7 @@
             this.lstNhuEpKim.TabIndex = 2;
             this.lstNhuEpKim.UseCompatibleStateImageBehavior = false;
             this.lstNhuEpKim.View = System.Windows.Forms.View.Details;
+            this.lstNhuEpKim.SelectedIndexChanged += new System.EventHandler(this.lstNhuEpKim_SelectedIndexChanged);
             // 
             // txtRong
             // 

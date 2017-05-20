@@ -14,7 +14,7 @@ namespace TinhGiaInClient.View
         int IdHangKH { get; set; }
         string TenHangKH { get; set; }
         int TyLeLoiNhuanTheoHangKH { get; set; }
-        int KieuIn { get; set; }
+        PrintSideColorS KieuIn { get; set; }
         int IdToInDigiChon { get; set; }       
         string TenBangGiaChon { get; set; }
         int SoToChay { get; set; }

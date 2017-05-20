@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Model.Support;
 
 
 namespace TinhGiaInClient.UI
@@ -204,17 +205,30 @@ namespace TinhGiaInClient.UI
         }
         private void ShowFormEpKim()
         {
-            var frm = new ThPhEpKimForm("");
+            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            {
+                IdBaiIn = 1,
+                IdHangKhachHang = this.IdHangKHChon,
+                LoaiThanhPham = LoaiThanhPhamS.EpKim,
+                DonViTinh = "Con",
+                SoLuongSanPham = 50,
+                TieuDeForm = "Ép kim [Tính thử]",
+                SoLuongToChay = 0,
+                TinhTrangForm = FormStateS.View,
+                ThongDiepCanThiet = "Chỉ tính toán thử"
+
+            };
+
+            var frm = new ThPhEpKimForm(thongTinBanDau);
             frm.TinhTrangForm = (int)FormStateS.View;
-            frm.LoaiThPh = LoaiThanhPhamS.EpKim;
-            frm.Text = "Ép kim [Tính thử]";
+            
+          
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
             //Data gởi qua form
 
-            frm.IdHangKhachHang = this.IdHangKHChon;
-            frm.IdBaiIn = 1;//Lừa để tính được.
+           
             frm.ShowDialog();
         }
     }

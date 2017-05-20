@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinhGiaInClient;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInNhapLieu
 {
@@ -125,6 +126,24 @@ namespace TinhGiaInNhapLieu
         {
             
         }
+        private ThongTinBanDauChoThanhPham thongTinBanDauChoThPh(int idHangKH, LoaiThanhPhamS loaiThPham,
+                        FormStateS tinhTrangForm, string tieuDeForm, string donViTinh)
+        {
+            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            {
+                IdBaiIn = 1,
+                IdHangKhachHang = idHangKH,
+                LoaiThanhPham = loaiThPham,
+                DonViTinh = donViTinh,
+                SoLuongSanPham = 50,
+                TieuDeForm = tieuDeForm,
+                SoLuongToChay = 1,
+                TinhTrangForm = tinhTrangForm,
+                ThongDiepCanThiet = "Chỉ tính toán thử",
+
+            };
+            return thongTinBanDau;
+        }
 
         private void btnPhoto_Click(object sender, EventArgs e)
         {
@@ -164,65 +183,55 @@ namespace TinhGiaInNhapLieu
 
         private void btnTinhThu_CanPhu_Click(object sender, EventArgs e)
         {
-            var frm = new ThPhCanPhuForm("");
-            frm.TinhTrangForm = (int)FormStateS.View;
-            frm.LoaiThPh = LoaiThanhPhamS.CanPhu;
-            frm.Text = "Cán Phủ [Tính thử]";
+            var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.CanPhu,
+                FormStateS.View,"Cán Phủ [Tính thử]", "Mặt" );
+            var frm = new ThPhCanPhuForm( thongTinBanDau );
+            
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
-            //Data gởi qua form
-
-            frm.IdHangKhachHang = int.Parse(cboHangKH.SelectedValue.ToString());
-            frm.IdBaiIn = 1;//Lừa để tính được.
             frm.ShowDialog();
         }
 
         private void btnTinhThu_CanGap_Click(object sender, EventArgs e)
         {
-            var frm = new ThPhCanGapForm("");
-            frm.TinhTrangForm = (int)FormStateS.View;
-            frm.LoaiThPh = LoaiThanhPhamS.CanGap;
-            frm.Text = "Cấn gấp [Tính thử]";
+             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.CanGap,
+                FormStateS.View,"Cấn gấp [Tính thử]", "con" );
+            var frm = new ThPhCanGapForm( thongTinBanDau );
+            
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
-            frm.StartPosition = FormStartPosition.CenterParent;
-            //Data gởi qua form
-
-            frm.IdHangKhachHang = int.Parse(cboHangKH.SelectedValue.ToString());
-            frm.IdBaiIn = 1;//Lừa để tính được.
+            frm.StartPosition = FormStartPosition.CenterParent;           
             frm.ShowDialog();
         }
 
         private void btnTinhThu_DongCuon_Click(object sender, EventArgs e)
         {
-            var frm = new ThPhDongCuonForm("");
-            frm.TinhTrangForm = (int)FormStateS.View;
-            frm.LoaiThPh = LoaiThanhPhamS.DongCuon;
-            frm.Text = "Đóng cuốn [Tính thử]";
+            var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.DongCuon,
+                FormStateS.View, "Đóng cuốn [Tính thử]", "Cuốn");
+            var frm = new ThPhDongCuonForm(thongTinBanDau);
+            
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
             //Data gởi qua form
-
-            frm.IdHangKhachHang = int.Parse(cboHangKH.SelectedValue.ToString());
-            frm.IdBaiIn = 1;//Lừa để tính được.
             frm.ShowDialog();
         }
 
         private void btnTinhThu_EpKim_Click(object sender, EventArgs e)
         {
-            var frm = new ThPhEpKimForm("");
-            frm.TinhTrangForm = (int)FormStateS.View;
-            frm.LoaiThPh = LoaiThanhPhamS.EpKim;
-            frm.Text = "Ép kim [Tính thử]";
+            var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.EpKim,
+                FormStateS.View, "Ép kim [Tính thử]", "Con");
+            var frm = new ThPhEpKimForm(thongTinBanDau);
+           
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
             //Data gởi qua form
-
-            frm.IdHangKhachHang = int.Parse(cboHangKH.SelectedValue.ToString());
-            frm.IdBaiIn = 1;//Lừa để tính được.
             frm.ShowDialog();
         }
 

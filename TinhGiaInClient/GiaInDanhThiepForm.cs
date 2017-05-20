@@ -303,15 +303,15 @@ namespace TinhGiaInClient
             {
                 case FormStateS.New:
                     this.GiayDeInChon = frm.DocGiayDeIn();
-                    this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
-                    this.TienGiay = giaDanhThiepPres.TienGiay();
+                    this.TenGiayChon = this.GiayDeInChon.TenGiayIn;
+                    this.TienGiay = this.GiayDeInChon.ThanhTienGiay;
                     txtSoLuong.Enabled = false;//Lock lại
                     break;
                 case FormStateS.Edit:
                     //Đổi ID vì thêm mới là có id mới
                     this.GiayDeInChon = frm.DocGiayDeIn();
-                    this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
-                    this.TienGiay = giaDanhThiepPres.TienGiay();
+                    this.TenGiayChon = this.GiayDeInChon.TenGiayIn;
+                    this.TienGiay = this.GiayDeInChon.ThanhTienGiay;
                     txtSoLuong.Enabled = false;//Lock lại
                     break;
             }

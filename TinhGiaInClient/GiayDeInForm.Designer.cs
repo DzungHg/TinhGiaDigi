@@ -94,7 +94,7 @@
             this.txtSoToGiayLon.Name = "txtSoToGiayLon";
             this.txtSoToGiayLon.ReadOnly = true;
             this.txtSoToGiayLon.Size = new System.Drawing.Size(54, 20);
-            this.txtSoToGiayLon.TabIndex = 10;
+            this.txtSoToGiayLon.TabIndex = 8;
             // 
             // label7
             // 
@@ -130,7 +130,7 @@
             this.chkGiayKhach.Location = new System.Drawing.Point(161, 116);
             this.chkGiayKhach.Name = "chkGiayKhach";
             this.chkGiayKhach.Size = new System.Drawing.Size(102, 17);
-            this.chkGiayKhach.TabIndex = 5;
+            this.chkGiayKhach.TabIndex = 6;
             this.chkGiayKhach.Text = "Giấy khách đưa";
             this.chkGiayKhach.UseVisualStyleBackColor = true;
             this.chkGiayKhach.CheckedChanged += new System.EventHandler(this.chkGiayKhach_CheckedChanged);
@@ -181,7 +181,7 @@
             this.txtTenGiayIn.Location = new System.Drawing.Point(164, 90);
             this.txtTenGiayIn.Name = "txtTenGiayIn";
             this.txtTenGiayIn.Size = new System.Drawing.Size(260, 20);
-            this.txtTenGiayIn.TabIndex = 6;
+            this.txtTenGiayIn.TabIndex = 5;
             // 
             // lblThanhTien
             // 
@@ -275,7 +275,7 @@
             this.txtSoToChayTrenToLon.Location = new System.Drawing.Point(163, 143);
             this.txtSoToChayTrenToLon.Name = "txtSoToChayTrenToLon";
             this.txtSoToChayTrenToLon.Size = new System.Drawing.Size(54, 20);
-            this.txtSoToChayTrenToLon.TabIndex = 9;
+            this.txtSoToChayTrenToLon.TabIndex = 7;
             // 
             // groupBox1
             // 
