@@ -81,7 +81,7 @@ namespace TinhGiaInClient.Presenter
                 duLieuDeTinh.BHR = toInDiGi.BHR;
                 duLieuDeTinh.PhiPhePhamSanSang = toInDiGi.PhiPhePhamSanSang;
                 duLieuDeTinh.ThoiGianSanSang = toInDiGi.ThoiGianSanSang;
-                duLieuDeTinh.ThoiGianDuLieuBienDoi = toInDiGi.ThoiGianDuLieuBienDoi;
+               
                 duLieuDeTinh.DaySoLuong = toInDiGi.DaySoLuong;
                 duLieuDeTinh.DayLoiNhuan = toInDiGi.DayLoiNhuan;
 

@@ -50,6 +50,18 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\Telerik.WinControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.WinControls.UI, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\Telerik.WinControls.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TelerikCommon, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\TelerikCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GiayForm.cs">
@@ -59,6 +71,9 @@
       <DependentUpon>GiayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenter\GiayPresenter.cs" />
+    <Compile Include="Presenter\QuanLyKhoSanPhamPresenter.cs" />
+    <Compile Include="Presenter\QuanLyToInMayDigiPresenter.cs" />
+    <Compile Include="Presenter\QuanLyMayInDigiPresenter.cs" />
     <Compile Include="QuanLyGiayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,13 +115,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLyKhoSanPhamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyKhoSanPhamForm.Designer.cs">
+      <DependentUpon>QuanLyKhoSanPhamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyToInMayDigiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyToInMayDigiForm.Designer.cs">
+      <DependentUpon>QuanLyToInMayDigiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyMayInDigiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyMayInDigiForm.Designer.cs">
+      <DependentUpon>QuanLyMayInDigiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IViewDanhMucGiay.cs" />
     <Compile Include="View\IViewGiay.cs" />
     <Compile Include="View\IViewQuanLyGiay.cs" />
     <Compile Include="View\IViewQuanLyDMGiay.cs" />
+    <Compile Include="View\IViewQuanLyKhoSanPham.cs" />
+    <Compile Include="View\IViewQuanLyToInMayDigi.cs" />
+    <Compile Include="View\IViewQuanLyMayInDigi.cs" />
     <EmbeddedResource Include="GiayForm.resx">
       <DependentUpon>GiayForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QuanLyGiayForm.resx">
       <DependentUpon>QuanLyGiayForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +171,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuanLyKhoSanPhamForm.resx">
+      <DependentUpon>QuanLyKhoSanPhamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyToInMayDigiForm.resx">
+      <DependentUpon>QuanLyToInMayDigiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyMayInDigiForm.resx">
+      <DependentUpon>QuanLyMayInDigiForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

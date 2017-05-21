@@ -7,7 +7,7 @@ using TinhGiaInBDO;
 
 namespace TinhGiaInDAL.RepoTinhGia
 {
-    public class ToChayDigiDAO: IToChayDigiDAO
+    public class ToInMayDigiDAO: IToChayDigiDAO
     {
         QuanLyGiaInDBContext db = new QuanLyGiaInDBContext();
         public IEnumerable<ToInMayDigiBDO> LayTatCa()
@@ -36,11 +36,12 @@ namespace TinhGiaInDAL.RepoTinhGia
                     BHR = (int)x.MAY_IN_DIGI.BHR,
                     ThoiGianSanSang = (float)x.MAY_IN_DIGI.Thoi_gian_san_sang,
                     PhiPhePhamSanSang = (int)x.MAY_IN_DIGI.Phi_phe_pham_san_sang,
-                    ThoiGianDuLieuBienDoi = (float)x.MAY_IN_DIGI.Thoi_gian_du_lieu_bien_doi,
+                    
                     DaySoLuong = x.Day_so_luong,
                     DayLoiNhuan = x.Day_loi_nhuan,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    ThuTu = (int)x.Thu_tu
+                    ThuTu = (int)x.Thu_tu,
+                    KhongSuDung = (bool)x.khong_su_dung
                 });
                 list = nguon.ToList();
             }
@@ -75,11 +76,12 @@ namespace TinhGiaInDAL.RepoTinhGia
                     BHR = (int)x.MAY_IN_DIGI.BHR,
                     ThoiGianSanSang = (float)x.MAY_IN_DIGI.Thoi_gian_san_sang,
                     PhiPhePhamSanSang = (int)x.MAY_IN_DIGI.Phi_phe_pham_san_sang,
-                    ThoiGianDuLieuBienDoi = (float)x.MAY_IN_DIGI.Thoi_gian_du_lieu_bien_doi,
+                   
                     DaySoLuong = x.Day_so_luong,
                     DayLoiNhuan = x.Day_loi_nhuan,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    ThuTu = (int)x.Thu_tu
+                    ThuTu = (int)x.Thu_tu,
+                    KhongSuDung = (bool)x.khong_su_dung
                 }).SingleOrDefault();
                 
             }
@@ -87,9 +89,30 @@ namespace TinhGiaInDAL.RepoTinhGia
         return toChay;
         }
 
-        public bool Them(ToInMayDigiBDO entityBDO)
+        public bool Them(ref string thongDiep, ToInMayDigiBDO entityBDO)
         {
-            throw new NotImplementedException();
+            var kq = true;
+
+            try
+            {
+                var kqKiemTrung = KiemTraTrung(entityBDO.Ten);
+                if (kqKiemTrung != "")
+                {
+                    thongDiep = kqKiemTrung;
+                    return false;
+                }
+                TO_IN_MAY_DIGI entity = new TO_IN_MAY_DIGI();
+                ChuyenBDOThanhDAO(entityBDO, entity);
+                db.TO_IN_MAY_DIGI.Add(entity);
+                db.SaveChanges();
+                thongDiep = string.Format("Lưu mục tin {0} thành công", entity.ID);//trả về số Id
+            }
+            catch
+            {
+                thongDiep = string.Format("Thêm mục tin {0} không thành công!", entityBDO.ID);
+            }
+
+            return kq;
         }
 
         public bool Sua(ref string thongDiep, ToInMayDigiBDO entityBDO)
@@ -140,12 +163,13 @@ namespace TinhGiaInDAL.RepoTinhGia
         {
             entityDAO.ID = entityBDO.ID;
             entityDAO.Ten = entityBDO.Ten;
-            entityDAO.Rong = entityDAO.Rong;
+            entityDAO.Rong = entityBDO.Rong;
             entityDAO.Cao = entityBDO.Cao;
             entityDAO.Vung_in_rong = entityBDO.VungInRong;
             entityDAO.Vung_in_cao = entityBDO.VungInCao;
             entityDAO.Kho_to_chay_co_the_in = entityBDO.KhoToChayCoTheIn;
             entityDAO.Toc_do = entityBDO.TocDo;
+           
             entityDAO.In_tu_tro = entityBDO.InTuTro;
             entityDAO.La_in_kho_dai = entityBDO.LaInKhoDai;
             entityDAO.La_hp_indigo = entityBDO.LaHPIndigo;
@@ -158,6 +182,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.Day_loi_nhuan = entityBDO.DayLoiNhuan;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
             entityDAO.Thu_tu = entityBDO.ThuTu;
+            entityDAO.khong_su_dung = entityBDO.KhongSuDung;
         }
     }
 }

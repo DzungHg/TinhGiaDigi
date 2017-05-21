@@ -1262,7 +1262,8 @@ namespace TinhGiaInClient
 
         private void btnCopyToClipBoardNoiDungMucChon_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(txtTomTatBaiIn.Text);
+            if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text))
+                Clipboard.SetText(txtTomTatBaiIn.Text);
         }
 
     }

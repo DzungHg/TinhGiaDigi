@@ -19,6 +19,7 @@ namespace TinhGiaInClient.Model
         public float VungInCao {get;set;}
 
         public int TocDo { get; set; }
+     
         public bool InTuTro { get; set; }
         public bool LaInKhoDai { get; set; }
         public bool LaHPIndigo { get; set; }
@@ -30,17 +31,18 @@ namespace TinhGiaInClient.Model
         public int BHR { get; set; }
         public int PhiPhePhamSanSang { get; set; }
         public float ThoiGianSanSang { get; set; }
-        public float ThoiGianDuLieuBienDoi { get; set; }
+        
         public string KhoToChayCoTheIn { get; set; }
         public string DaySoLuong { get; set; }
         public string DayLoiNhuan { get; set; }
         public string DaySoLuongNiemYet { get; set; }
+        public bool KhongSuDung { get; set; }
         public int ThuTu { get; set; }        
         #endregion
         //Các hàm static
         public static List<ToInMayDigi> DocTatCa()
         {
-            var toChayDigiLogic = new ToChayDigiLogic();
+            var toChayDigiLogic = new ToInMayDigiLogic();
             var nguon = toChayDigiLogic.DocTatCa().Select(x => new ToInMayDigi
             {
                 ID = x.ID,
@@ -51,6 +53,7 @@ namespace TinhGiaInClient.Model
                 VungInCao = (float)x.VungInCao,
                 KhoToChayCoTheIn = x.KhoToChayCoTheIn,   
                 TocDo = (int)x.TocDo,
+              
                 InTuTro = (bool)x.InTuTro,
                 LaInKhoDai = (bool)x.LaInKhoDai,
                 LaHPIndigo = (bool)x.LaHPIndigo,
@@ -62,10 +65,11 @@ namespace TinhGiaInClient.Model
                 BHR = (int)x.BHR,
                 ThoiGianSanSang = (float)x.ThoiGianSanSang,
                 PhiPhePhamSanSang = (int)x.PhiPhePhamSanSang,
-                ThoiGianDuLieuBienDoi = (float)x.ThoiGianDuLieuBienDoi,
+                
                 DaySoLuong = x.DaySoLuong,
                 DayLoiNhuan = x.DayLoiNhuan,
                 DaySoLuongNiemYet = x.DaySoLuongNiemYet,
+                KhongSuDung = x.KhongSuDung,
                 ThuTu = (int)x.ThuTu
             }).OrderBy(x => x.ThuTu);
 
@@ -74,7 +78,7 @@ namespace TinhGiaInClient.Model
          
         public static ToInMayDigi DocTheoId(int idToDigi)
         {
-            var toChayDigiLogic = new ToChayDigiLogic();   
+            var toChayDigiLogic = new ToInMayDigiLogic();   
             //
             ToInMayDigi toChayDTO = new ToInMayDigi();
             try
@@ -88,13 +92,21 @@ namespace TinhGiaInClient.Model
             }
             return toChayDTO;
         }
+        public static bool Them(ref string thongDiep, ToInMayDigi toInMayDigi)
+        {
+            var toInMayDigiLogic = new ToInMayDigiLogic();
+            var itemBDO = new ToInMayDigiBDO();
+            ChuyenDTOThanhBDO(toInMayDigi, itemBDO);
+            return toInMayDigiLogic.Them(ref thongDiep, itemBDO);
+        }
         public static bool Sua (ref string thongDiep, ToInMayDigi toInMayDigi)
         {
-            var toInMayDigiLogic = new ToChayDigiLogic();
+            var toInMayDigiLogic = new ToInMayDigiLogic();
             var itemBDO = new ToInMayDigiBDO();
             ChuyenDTOThanhBDO(toInMayDigi, itemBDO);
             return toInMayDigiLogic.Sua(ref thongDiep, itemBDO);
         }
+        
         //--Hàm Chuyển
         private static void ChuyenBDOThanhDTO(ToInMayDigiBDO toChayDigiBDO, ToInMayDigi toChayDigiDTO)
         {
@@ -106,6 +118,7 @@ namespace TinhGiaInClient.Model
             toChayDigiDTO.VungInCao = toChayDigiBDO.VungInCao;
             toChayDigiDTO.KhoToChayCoTheIn = toChayDigiBDO.KhoToChayCoTheIn;
             toChayDigiDTO.TocDo = toChayDigiBDO.TocDo;
+          
             toChayDigiDTO.InTuTro = toChayDigiBDO.InTuTro;
             toChayDigiDTO.LaInKhoDai = toChayDigiBDO.LaInKhoDai;
             toChayDigiDTO.LaHPIndigo = toChayDigiBDO.LaHPIndigo;
@@ -117,10 +130,11 @@ namespace TinhGiaInClient.Model
             toChayDigiDTO.BHR = toChayDigiBDO.BHR;
             toChayDigiDTO.ThoiGianSanSang = toChayDigiBDO.ThoiGianSanSang;
             toChayDigiDTO.PhiPhePhamSanSang = toChayDigiBDO.PhiPhePhamSanSang;
-            toChayDigiDTO.ThoiGianDuLieuBienDoi = toChayDigiBDO.ThoiGianDuLieuBienDoi;
+           
             toChayDigiDTO.DaySoLuong = toChayDigiBDO.DaySoLuong;
             toChayDigiDTO.DayLoiNhuan = toChayDigiBDO.DayLoiNhuan;
             toChayDigiDTO.DaySoLuongNiemYet = toChayDigiBDO.DaySoLuongNiemYet;
+            toChayDigiDTO.KhongSuDung = toChayDigiBDO.KhongSuDung;
             toChayDigiDTO.ThuTu = toChayDigiBDO.ThuTu;
         }
         private static void ChuyenDTOThanhBDO(ToInMayDigi toChayDigiDTO, ToInMayDigiBDO toChayDigiBDO)
@@ -133,6 +147,7 @@ namespace TinhGiaInClient.Model
             toChayDigiBDO.VungInCao = toChayDigiDTO.VungInCao;
             toChayDigiBDO.KhoToChayCoTheIn = toChayDigiDTO.KhoToChayCoTheIn;
             toChayDigiBDO.TocDo = toChayDigiDTO.TocDo;
+        
             toChayDigiBDO.InTuTro = toChayDigiDTO.InTuTro;
             toChayDigiBDO.LaInKhoDai = toChayDigiDTO.LaInKhoDai;
             toChayDigiBDO.LaHPIndigo = toChayDigiDTO.LaHPIndigo;
@@ -144,15 +159,14 @@ namespace TinhGiaInClient.Model
             toChayDigiBDO.BHR = toChayDigiDTO.BHR;
             toChayDigiBDO.ThoiGianSanSang = toChayDigiDTO.ThoiGianSanSang;
             toChayDigiBDO.PhiPhePhamSanSang = toChayDigiDTO.PhiPhePhamSanSang;
-            toChayDigiBDO.ThoiGianDuLieuBienDoi = toChayDigiDTO.ThoiGianDuLieuBienDoi;
-            toChayDigiBDO.DaySoLuong = toChayDigiBDO.DaySoLuong;
-            toChayDigiBDO.DayLoiNhuan = toChayDigiBDO.DayLoiNhuan;
+           
+            toChayDigiBDO.DaySoLuong = toChayDigiDTO.DaySoLuong;
+            toChayDigiBDO.DayLoiNhuan = toChayDigiDTO.DayLoiNhuan;
             toChayDigiBDO.DaySoLuongNiemYet = toChayDigiDTO.DaySoLuongNiemYet;
             toChayDigiBDO.ThuTu = toChayDigiDTO.ThuTu;
-        }
-        #region Tính phí giá
-       
+            toChayDigiBDO.KhongSuDung = toChayDigiDTO.KhongSuDung;
 
-        #endregion
+        }
+    
     }
 }

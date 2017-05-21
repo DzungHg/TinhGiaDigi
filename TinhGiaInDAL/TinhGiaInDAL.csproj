@@ -72,12 +72,14 @@
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\IBangGiaDanhThiepDAO.cs" />
+    <Compile Include="RepoTinhGia\IMayInDigiDAO.cs" />
     <Compile Include="RepoTinhGia\IMonThanhPhamDAO.cs" />
     <Compile Include="RepoTinhGia\IYeuCauTinhGiaInDAO.cs" />
     <Compile Include="RepoTinhGia\IN_OFFSET_GIA_CONG.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\IOffsetGiaCongDAO.cs" />
+    <Compile Include="RepoTinhGia\MayInDigiDAO.cs" />
     <Compile Include="RepoTinhGia\MonThanhPhamDAO.cs" />
     <Compile Include="RepoTinhGia\KhuonEpKimDAO.cs" />
     <Compile Include="RepoTinhGia\TINH_GIA_IN.cs">
@@ -150,7 +152,7 @@
       <DependentUpon>QLyGiaInModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\OffsetGiaCongDAO.cs" />
-    <Compile Include="RepoTinhGia\ToChayDigiDAO.cs" />
+    <Compile Include="RepoTinhGia\ToInMayDigiDAO.cs" />
     <Compile Include="RepoTinhGia\TO_IN_MAY_DIGI.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>

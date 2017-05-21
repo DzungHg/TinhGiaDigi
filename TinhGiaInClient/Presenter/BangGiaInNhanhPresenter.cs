@@ -34,7 +34,7 @@ namespace TinhGiaInClient.Presenter
             return HangKhachHang.LayTheoId(View.IdHangKHChon).Ten;
 
         }
-        public int TiLeMarkUpTheoHangKH ()
+        public int TyLeMarkUpTheoHangKH ()
         {
             return HangKhachHang.LayTheoId(View.IdHangKHChon).LoiNhuanChenhLech;
         }
@@ -80,7 +80,9 @@ namespace TinhGiaInClient.Presenter
         private decimal GiaInNhanhTheoSLuong( int soLuong)
         {          
             decimal ketQua = 0;
-            ketQua = new GiaInNhanhTheoBang(soLuong, View.IdBangGiaChon).ThanhTienSales();            
+            //ketQua = new GiaInNhanhTheoBang(soLuong, View.IdBangGiaChon).ThanhTienSales();            
+            ketQua = new GiaInNhanhKetHopBangGia_May(soLuong, View.IdBangGiaChon, 1,
+                this.TyLeMarkUpTheoHangKH()).GiaBan(); //Mã tờ in chọn 1 vì chuẩn luôn            
             return ketQua;
         }
         public SoLuong_Gia KetQuaSoLuongGia(int soLuong)

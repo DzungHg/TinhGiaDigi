@@ -8,9 +8,9 @@ using TinhGiaInDAL.RepoTinhGia;
 
 namespace TinhGiaInLogic
 {
-    public class ToChayDigiLogic
+    public class ToInMayDigiLogic
     {
-        ToChayDigiDAO toChayDigiDAO = new ToChayDigiDAO();
+        ToInMayDigiDAO toChayDigiDAO = new ToInMayDigiDAO();
         public List<ToInMayDigiBDO> DocTatCa()
         {
             var nguon = toChayDigiDAO.LayTatCa();
@@ -23,6 +23,10 @@ namespace TinhGiaInLogic
         public bool Sua (ref string thongDiep, ToInMayDigiBDO toMayInDigi)
         {
             return toChayDigiDAO.Sua(ref thongDiep, toMayInDigi);
+        }
+        public bool Them(ref string thongDiep, ToInMayDigiBDO toMayInDigi)
+        {
+            return toChayDigiDAO.Them(ref thongDiep, toMayInDigi);
         }
     }
 }

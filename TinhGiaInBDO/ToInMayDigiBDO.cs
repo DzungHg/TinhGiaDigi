@@ -27,11 +27,12 @@ namespace TinhGiaInBDO
         public int BHR { get; set; }
         public int PhiPhePhamSanSang { get; set; }
         public float ThoiGianSanSang { get; set; }
-        public float ThoiGianDuLieuBienDoi { get; set; }
+      
         public string KhoToChayCoTheIn { get; set; }
         public string DaySoLuong { get; set; }
         public string DayLoiNhuan { get; set; }
         public string DaySoLuongNiemYet { get; set; } 
         public int ThuTu { get; set; }
+        public bool KhongSuDung { get; set; }
     }
 }

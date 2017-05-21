@@ -38,6 +38,7 @@ namespace TinhGiaInNhapLieu.Presenter
                     View.GiaMua = 250;
                     View.ChieuNgan = 32;
                     View.ChieuDai = 47;
+                    View.TenGiayMoRong = "";
                     View.ThuTu = 0;
                     View.GiaMua = 0;
                     View.KhongCon = false;
@@ -52,7 +53,8 @@ namespace TinhGiaInNhapLieu.Presenter
                     View.TenGiay = giay.TenGiay;
                     View.DienGiai = giay.DienGiai;
                     View.DinhLuong = giay.DinhLuong;
-                    View.KhoGiay = giay.KhoGiay;                    
+                    View.KhoGiay = giay.KhoGiay;
+                    View.TenGiayMoRong = giay.TenGiayMoRong;
                     View.ThuTu = giay.ThuTu;
                     View.GiaMua = giay.GiaMua;
                     View.ChieuNgan = giay.ChieuNgan;

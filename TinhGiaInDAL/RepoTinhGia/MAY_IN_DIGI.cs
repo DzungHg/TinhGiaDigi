@@ -32,6 +32,10 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> Click_A4_4M { get; set; }
         public Nullable<int> Click_A4_1M { get; set; }
         public Nullable<int> Click_A4_6M { get; set; }
+        public Nullable<int> toc_do_hieu_qua { get; set; }
+        public Nullable<int> thu_tu { get; set; }
+        public string kho_in_min { get; set; }
+        public string kho_in_max { get; set; }
     
         public virtual ICollection<TO_IN_MAY_DIGI> TO_IN_MAY_DIGI { get; set; }
     }

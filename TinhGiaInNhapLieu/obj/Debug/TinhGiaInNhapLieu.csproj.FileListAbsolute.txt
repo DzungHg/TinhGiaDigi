@@ -355,3 +355,12 @@ D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyDanhMu
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyMarkUpLoiNhuanGiayForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.Properties.Resources.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.csproj.GenerateResource.Cache
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\Telerik.WinControls.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\Telerik.WinControls.UI.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\TelerikCommon.dll
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\Telerik.WinControls.xml
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\bin\Debug\Telerik.WinControls.UI.xml
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.exe.licenses
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyToInMayDigiForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyMayInDigiForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyKhoSanPhamForm.resources

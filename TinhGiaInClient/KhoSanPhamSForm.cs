@@ -22,9 +22,9 @@ namespace TinhGiaInClient
         {
             get
             {
-                if (lvwProductList.SelectedItems.Count > 0)
+                if (lvwKhoSanPham.SelectedItems.Count > 0)
                 {
-                    int.TryParse(lvwProductList.SelectedItems[0].Text, out _id);
+                    int.TryParse(lvwKhoSanPham.SelectedItems[0].Text, out _id);
                 }
                 return _id;
                 
@@ -37,9 +37,9 @@ namespace TinhGiaInClient
         {
             get
             {
-                if (lvwProductList.SelectedItems.Count > 0)
+                if (lvwKhoSanPham.SelectedItems.Count > 0)
                 {
-                    float.TryParse(lvwProductList.SelectedItems[0].SubItems[2].Text, out _rong);
+                    float.TryParse(lvwKhoSanPham.SelectedItems[0].SubItems[2].Text, out _rong);
                 }
                 return _rong;
             }
@@ -50,9 +50,9 @@ namespace TinhGiaInClient
         {
             get
             {
-                if (lvwProductList.SelectedItems.Count > 0)
+                if (lvwKhoSanPham.SelectedItems.Count > 0)
                 {
-                    float.TryParse(lvwProductList.SelectedItems[0].SubItems[3].Text, out _cao);
+                    float.TryParse(lvwKhoSanPham.SelectedItems[0].SubItems[3].Text, out _cao);
                 }
                 return _cao;
             }
@@ -63,9 +63,9 @@ namespace TinhGiaInClient
         {
             get
             {
-                if (lvwProductList.SelectedItems.Count > 0)
+                if (lvwKhoSanPham.SelectedItems.Count > 0)
                 {
-                    _ten = lvwProductList.SelectedItems[0].SubItems[1].Text;
+                    _ten = lvwKhoSanPham.SelectedItems[0].SubItems[1].Text;
                 }
                 return _ten;
             }
@@ -139,19 +139,20 @@ namespace TinhGiaInClient
         }
         private void LoadStdProdSizeList()
         {
-            lvwProductList.Clear();
-            lvwProductList.Columns.Add("Id");
-            lvwProductList.Columns.Add("Tên");
-            lvwProductList.Columns.Add("Rộng");
-            lvwProductList.Columns.Add("Cao");
-            lvwProductList.View = System.Windows.Forms.View.Details;
-            lvwProductList.HideSelection = false;
-            lvwProductList.FullRowSelect = true;
+            lvwKhoSanPham.Clear();
+            lvwKhoSanPham.Columns.Add("Id");
+            lvwKhoSanPham.Columns.Add("Tên");
+            lvwKhoSanPham.Columns.Add("Rộng");
+            lvwKhoSanPham.Columns.Add("Cao");
+            lvwKhoSanPham.Columns.Add("Diễn giải");
+            lvwKhoSanPham.View = System.Windows.Forms.View.Details;
+            lvwKhoSanPham.HideSelection = false;
+            lvwKhoSanPham.FullRowSelect = true;
 
-            if (KhoSanPham.LayTatCa().Count() > 0)
+            if (KhoSanPham.DocTatCa().Count() > 0)
             {
                 ListViewItem item;
-                foreach (KhoSanPham kho in KhoSanPham.LayTatCa())
+                foreach (KhoSanPham kho in KhoSanPham.DocTatCa())
                 {
                     item = new ListViewItem();
                     item.Text = kho.ID.ToString();
@@ -159,13 +160,14 @@ namespace TinhGiaInClient
                     item.SubItems.Add(kho.Ten);
                     item.SubItems.Add(kho.KhoCatRong.ToString());
                     item.SubItems.Add(kho.KhoCatCao.ToString());
-                    lvwProductList.Items.Add(item);
+                    item.SubItems.Add(kho.DienGiai);
+                    lvwKhoSanPham.Items.Add(item);
                     
                 }
-                lvwProductList.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwProductList.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-                lvwProductList.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-              
+                lvwKhoSanPham.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lvwKhoSanPham.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+                lvwKhoSanPham.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lvwKhoSanPham.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
         }
         private void PaperCateManForm_Load(object sender, EventArgs e)
@@ -178,9 +180,9 @@ namespace TinhGiaInClient
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            if (lvwProductList.SelectedItems.Count > 0)
+            if (lvwKhoSanPham.SelectedItems.Count > 0)
             {
-                SelProdSizeId = int.Parse(lvwProductList.SelectedItems[0].Text);
+                SelProdSizeId = int.Parse(lvwKhoSanPham.SelectedItems[0].Text);
                 //prodSizeManPres.DisplayProdSize();//Cập nhật các thuộc tính
             }
             else { SelProdSizeId = -1; }

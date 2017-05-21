@@ -15,9 +15,10 @@ namespace TinhGiaInClient.Model
         public string Ten { get; set; }
         public float KhoCatRong { get; set; }
         public float KhoCatCao { get; set; }
+        public string DienGiai { get; set; }
         public int ThuTu { get; set; }  
    //Hàm static
-        public static List<KhoSanPham> LayTatCa()
+        public static List<KhoSanPham> DocTatCa()
         {
             //Sắp xếp theo thứ tự
             var khoSanPhamLogic = new KhoSanPhamLogic();
@@ -30,13 +31,14 @@ namespace TinhGiaInClient.Model
                         Ten = x.Ten,
                         KhoCatCao = (float)x.KhoCatCao,
                         KhoCatRong = (float)x.KhoCatRong,
+                        DienGiai = x.DienGiai,
                         ThuTu = (int)x.ThuTu
                     }).OrderBy(x => x.ThuTu).ToList();
             }
             catch { }
             return nguon;
         }
-        public static KhoSanPham LayTheoId(int iD)
+        public static KhoSanPham DocTheoId(int iD)
         {
             var khoSanPhamLogic = new KhoSanPhamLogic();
             KhoSanPhamBDO khoSP_BDO = null;
@@ -55,6 +57,24 @@ namespace TinhGiaInClient.Model
             catch {}
             return khoSP_DTO;
         }
+        #region them, sua
+        public static string Them(KhoSanPham item)
+        {
+            var khoSanPhamLogic = new KhoSanPhamLogic();
+            var itemBDO = new KhoSanPhamBDO();
+            ChuyenDTOThanhBDO(item, itemBDO);
+            return khoSanPhamLogic.Them(itemBDO);
+        }
+
+        public static string Sua(KhoSanPham item)
+        {
+            var khoSanPhamLogic = new KhoSanPhamLogic();
+            var itemBDO = new KhoSanPhamBDO();
+            ChuyenDTOThanhBDO(item, itemBDO);
+            return khoSanPhamLogic.Sua(itemBDO);
+        }
+        #endregion
+
         //--Hàm Chuyển
         public static void ChuyenBDOThanhDTO(KhoSanPhamBDO khoSP_BDO, KhoSanPham khoSP_DTO )
         {
@@ -62,7 +82,17 @@ namespace TinhGiaInClient.Model
             khoSP_DTO.Ten = khoSP_BDO.Ten;
             khoSP_DTO.KhoCatRong = khoSP_BDO.KhoCatRong;
             khoSP_DTO.KhoCatCao = khoSP_BDO.KhoCatCao;
+            khoSP_DTO.DienGiai = khoSP_BDO.DienGiai;
             khoSP_DTO.ThuTu = khoSP_BDO.ThuTu;
+        }
+        public static void ChuyenDTOThanhBDO(KhoSanPham khoSP_DTO, KhoSanPhamBDO khoSP_BDO)
+        {
+            khoSP_BDO.ID = khoSP_DTO.ID;
+            khoSP_BDO.Ten = khoSP_DTO.Ten;
+            khoSP_BDO.KhoCatRong = khoSP_DTO.KhoCatRong;
+            khoSP_BDO.KhoCatCao = khoSP_DTO.KhoCatCao;
+            khoSP_BDO.DienGiai = khoSP_DTO.DienGiai;
+            khoSP_BDO.ThuTu = khoSP_DTO.ThuTu;
         }
         
     }

@@ -12,6 +12,7 @@ namespace TinhGiaInBDO
         public string Ten { get; set; }
         public float KhoCatRong { get; set; }
         public float KhoCatCao { get; set; }
+        public string DienGiai { get; set; }
         public int ThuTu { get; set; }      
     }
 }

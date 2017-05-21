@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lvwProductList = new System.Windows.Forms.ListView();
+            this.lvwKhoSanPham = new System.Windows.Forms.ListView();
             this.cmnu_Main = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnu_AddNew = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnu_Edit = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,17 +38,17 @@
             this.cmnu_Main.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lvwProductList
+            // lvwKhoSanPham
             // 
-            this.lvwProductList.ContextMenuStrip = this.cmnu_Main;
-            this.lvwProductList.GridLines = true;
-            this.lvwProductList.Location = new System.Drawing.Point(12, 12);
-            this.lvwProductList.MultiSelect = false;
-            this.lvwProductList.Name = "lvwProductList";
-            this.lvwProductList.Size = new System.Drawing.Size(216, 188);
-            this.lvwProductList.TabIndex = 0;
-            this.lvwProductList.UseCompatibleStateImageBehavior = false;
-            this.lvwProductList.View = System.Windows.Forms.View.Details;
+            this.lvwKhoSanPham.ContextMenuStrip = this.cmnu_Main;
+            this.lvwKhoSanPham.GridLines = true;
+            this.lvwKhoSanPham.Location = new System.Drawing.Point(12, 12);
+            this.lvwKhoSanPham.MultiSelect = false;
+            this.lvwKhoSanPham.Name = "lvwKhoSanPham";
+            this.lvwKhoSanPham.Size = new System.Drawing.Size(216, 188);
+            this.lvwKhoSanPham.TabIndex = 0;
+            this.lvwKhoSanPham.UseCompatibleStateImageBehavior = false;
+            this.lvwKhoSanPham.View = System.Windows.Forms.View.Details;
             // 
             // cmnu_Main
             // 
@@ -96,7 +96,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(238, 241);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lvwProductList);
+            this.Controls.Add(this.lvwKhoSanPham);
             this.Name = "KhoSanPhamSForm";
             this.Text = "Khổ sản phẩm";
             this.Load += new System.EventHandler(this.KhoSanPhamSForm_Load);
@@ -107,7 +107,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView lvwProductList;
+        private System.Windows.Forms.ListView lvwKhoSanPham;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ContextMenuStrip cmnu_Main;
         private System.Windows.Forms.ToolStripMenuItem cmnu_AddNew;

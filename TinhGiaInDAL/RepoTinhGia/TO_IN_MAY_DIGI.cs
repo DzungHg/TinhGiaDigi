@@ -28,13 +28,13 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> Qui_a4 { get; set; }
         public Nullable<int> ID_MAY_IN { get; set; }
         public Nullable<int> Thu_tu { get; set; }
-        public Nullable<int> So_trang_toi_da { get; set; }
         public Nullable<double> Vung_in_rong { get; set; }
         public Nullable<double> Vung_in_cao { get; set; }
         public string Kho_to_chay_co_the_in { get; set; }
         public string Day_so_luong { get; set; }
         public string Day_loi_nhuan { get; set; }
         public string day_so_luong_niem_yet { get; set; }
+        public Nullable<bool> khong_su_dung { get; set; }
     
         public virtual MAY_IN_DIGI MAY_IN_DIGI { get; set; }
     }

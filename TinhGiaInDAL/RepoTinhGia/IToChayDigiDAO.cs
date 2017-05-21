@@ -11,7 +11,7 @@ namespace TinhGiaInDAL.RepoTinhGia
     {
         IEnumerable<ToInMayDigiBDO> LayTatCa();
         ToInMayDigiBDO LayTheoId(int iD);
-        bool Them(ToInMayDigiBDO entityBDO);
+        bool Them(ref string thongDiep, ToInMayDigiBDO entityBDO);
         bool Sua( ref string thongDiep, ToInMayDigiBDO entityBDO);
         bool Xoa(int iD);     
         

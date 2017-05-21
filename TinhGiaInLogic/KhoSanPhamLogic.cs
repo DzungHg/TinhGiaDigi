@@ -20,5 +20,13 @@ namespace TinhGiaInLogic
         {
             return khoSanPhamDAO.LayTheoId(iD);
         }
+        public string Them(KhoSanPhamBDO khoSanPham)
+        {
+            return khoSanPhamDAO.Them(khoSanPham);
+        }
+        public string Sua(KhoSanPhamBDO khoSanPham)
+        {
+            return khoSanPhamDAO.Sua(khoSanPham);
+        }
     }
 }

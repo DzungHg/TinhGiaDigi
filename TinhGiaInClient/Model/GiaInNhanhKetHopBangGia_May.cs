@@ -10,7 +10,7 @@ namespace TinhGiaInClient.Model
     public class GiaInNhanhKetHopBangGia_May
     {
         public int SoLuongA4 { get; set; }
-        public int TyLeMarkUpSales { get; set; }
+        private int TyLeMarkUpSales { get; set; }
         private int IdBangGiaInNhanh { get; set; }
         private int IdToInDiGi { get; set; }
         
@@ -27,13 +27,12 @@ namespace TinhGiaInClient.Model
             {
                 duLieuInDigi = new DuLieuTinhGiaInNhanhTheoMay();
                 var toInDiGi = ToInMayDigi.DocTheoId(idToInDigi);
-                duLieuInDigi.TocDo = toInDiGi.TocDo;
+                duLieuInDigi.TocDo = toInDiGi.TocDo * toInDiGi.QuiA4;
                 duLieuInDigi.InTuTro = toInDiGi.InTuTro;
                 duLieuInDigi.ClickTrangA4 = toInDiGi.ClickA4BonMau;
                 duLieuInDigi.BHR = toInDiGi.BHR;
                 duLieuInDigi.PhiPhePhamSanSang = toInDiGi.PhiPhePhamSanSang;
-                duLieuInDigi.ThoiGianSanSang = toInDiGi.ThoiGianSanSang;
-                duLieuInDigi.ThoiGianDuLieuBienDoi = toInDiGi.ThoiGianDuLieuBienDoi;
+                duLieuInDigi.ThoiGianSanSang = toInDiGi.ThoiGianSanSang;                
                 duLieuInDigi.DaySoLuong = toInDiGi.DaySoLuong;
                 duLieuInDigi.DayLoiNhuan = toInDiGi.DayLoiNhuan;
             }

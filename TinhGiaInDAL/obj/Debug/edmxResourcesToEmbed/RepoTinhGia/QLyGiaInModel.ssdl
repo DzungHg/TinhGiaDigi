@@ -44,8 +44,8 @@
     <Property Name="Toc_do_con" Type="int" />
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
     <Property Name="mot_duong_tang_tgcb" Type="float" />
-    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
-    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_so_luong" Type="nvarchar(max)" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar(max)" />
     <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
@@ -61,8 +61,8 @@
     <Property Name="Toc_do_met" Type="int" />
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
     <Property Name="Phi_ngvl_m2" Type="int" />
-    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
-    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_so_luong" Type="nvarchar(max)" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar(max)" />
     <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
@@ -87,8 +87,8 @@
     <Property Name="Toc_do_cuon" Type="int" />
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
     <Property Name="Phi_ngvl_cuon" Type="int" />
-    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
-    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_so_luong" Type="nvarchar(max)" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar(max)" />
     <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
@@ -117,8 +117,8 @@
     <Property Name="Toc_do_con" Type="int" />
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
     <Property Name="Phi_ngvl_chuan_bi" Type="int" />
-    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="150" />
-    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="150" />
+    <Property Name="Day_so_luong" Type="nvarchar(max)" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar(max)" />
     <Property Name="Gia_khuon_cm2" Type="int" />
     <Property Name="La_vi_tinh" Type="bit" />
     <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
@@ -188,6 +188,7 @@
     <Property Name="Ten" Type="nvarchar" MaxLength="20" />
     <Property Name="Chieu_cat_rong" Type="float" />
     <Property Name="Chieu_cat_cao" Type="float" />
+    <Property Name="dien_giai" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="KHUON_EP_KIM">
@@ -217,6 +218,9 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ten" Type="nvarchar" MaxLength="100" />
     <Property Name="Thong_tin_toc_do" Type="nvarchar" MaxLength="100" />
+    <Property Name="toc_do_hieu_qua" Type="int" />
+    <Property Name="kho_in_min" Type="nvarchar" MaxLength="20" />
+    <Property Name="kho_in_max" Type="nvarchar" MaxLength="20" />
     <Property Name="BHR" Type="int" />
     <Property Name="Click4C20PCTA3" Type="int" />
     <Property Name="Click1C20PCTA3" Type="int" />
@@ -227,6 +231,7 @@
     <Property Name="Phi_phe_pham_san_sang" Type="int" />
     <Property Name="Thoi_gian_san_sang" Type="float" />
     <Property Name="Thoi_gian_du_lieu_bien_doi" Type="float" />
+    <Property Name="thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="NHU_EP_KIM">
     <Key>
@@ -272,12 +277,12 @@
     <Property Name="Click_sau_mau" Type="int" />
     <Property Name="Qui_a4" Type="int" />
     <Property Name="ID_MAY_IN" Type="int" />
-    <Property Name="So_trang_toi_da" Type="int" />
     <Property Name="Kho_to_chay_co_the_in" Type="nvarchar" MaxLength="100" />
-    <Property Name="Day_so_luong" Type="nvarchar" MaxLength="200" />
-    <Property Name="Day_loi_nhuan" Type="nvarchar" MaxLength="200" />
+    <Property Name="Day_so_luong" Type="nvarchar(max)" />
+    <Property Name="Day_loi_nhuan" Type="nvarchar(max)" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
+    <Property Name="khong_su_dung" Type="bit" />
   </EntityType>
   <EntityType Name="YEU_CAU_TINH_GIA_IN">
     <Key>

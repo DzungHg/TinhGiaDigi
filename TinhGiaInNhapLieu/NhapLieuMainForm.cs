@@ -247,5 +247,35 @@ namespace TinhGiaInNhapLieu
             frm.Show();
            
         }
+
+        private void btnMayInDigi_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyMayInDigiForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Máy in Digital";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnQLyToInMayDigi_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyToInMayDigiForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản ký Tờ in máy Digital";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnKhoSanPham_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyKhoSanPhamForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản ký Khổ Sản phẩm";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

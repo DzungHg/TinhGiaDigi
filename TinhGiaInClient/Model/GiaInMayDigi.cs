@@ -27,7 +27,7 @@ namespace TinhGiaInClient.Model
             {
                 duLieuTinhGia.BHR = this.ToChayDigi.BHR;
                 duLieuTinhGia.TocDo = this.ToChayDigi.TocDo; //Tờ trên giờ
-                duLieuTinhGia.ThoiGianDuLieuBienDoi = this.ToChayDigi.ThoiGianDuLieuBienDoi;
+                
                 duLieuTinhGia.ThoiGianSanSang = this.ToChayDigi.ThoiGianSanSang;
                 duLieuTinhGia.InTuTro = this.ToChayDigi.InTuTro;
                 duLieuTinhGia.PhiPhePhamSanSang = this.ToChayDigi.PhiPhePhamSanSang;

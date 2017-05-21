@@ -14,6 +14,7 @@
     <EntitySetMapping Name="KHO_SAN_PHAM">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.KHO_SAN_PHAM">
         <MappingFragment StoreEntitySet="KHO_SAN_PHAM">
+          <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="Chieu_cat_cao" ColumnName="Chieu_cat_cao" />
           <ScalarProperty Name="Chieu_cat_rong" ColumnName="Chieu_cat_rong" />
@@ -46,13 +47,13 @@
     <EntitySetMapping Name="TO_IN_MAY_DIGI">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.TO_IN_MAY_DIGI">
         <MappingFragment StoreEntitySet="TO_IN_MAY_DIGI">
+          <ScalarProperty Name="khong_su_dung" ColumnName="khong_su_dung" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="Day_loi_nhuan" ColumnName="Day_loi_nhuan" />
           <ScalarProperty Name="Day_so_luong" ColumnName="Day_so_luong" />
           <ScalarProperty Name="Kho_to_chay_co_the_in" ColumnName="Kho_to_chay_co_the_in" />
           <ScalarProperty Name="Vung_in_cao" ColumnName="Vung_in_cao" />
           <ScalarProperty Name="Vung_in_rong" ColumnName="Vung_in_rong" />
-          <ScalarProperty Name="So_trang_toi_da" ColumnName="So_trang_toi_da" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="ID_MAY_IN" ColumnName="ID_MAY_IN" />
           <ScalarProperty Name="Qui_a4" ColumnName="Qui_a4" />
@@ -73,6 +74,10 @@
     <EntitySetMapping Name="MAY_IN_DIGI">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.MAY_IN_DIGI">
         <MappingFragment StoreEntitySet="MAY_IN_DIGI">
+          <ScalarProperty Name="kho_in_max" ColumnName="kho_in_max" />
+          <ScalarProperty Name="kho_in_min" ColumnName="kho_in_min" />
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="toc_do_hieu_qua" ColumnName="toc_do_hieu_qua" />
           <ScalarProperty Name="Click_A4_6M" ColumnName="Click_A4_6M" />
           <ScalarProperty Name="Click_A4_1M" ColumnName="Click_A4_1M" />
           <ScalarProperty Name="Click_A4_4M" ColumnName="Click_A4_4M" />
