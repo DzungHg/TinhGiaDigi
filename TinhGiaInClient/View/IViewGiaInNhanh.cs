@@ -14,7 +14,7 @@ namespace TinhGiaInClient.View
         int IdHangKH { get; set; }
         string TenHangKH { get; set; }
         int TyLeLoiNhuanTheoHangKH { get; set; }
-        PrintSideColorS KieuIn { get; set; }
+        MotHaiMat MatIn { get; set; }
         int IdToInDigiChon { get; set; }       
         string TenBangGiaChon { get; set; }
         int SoToChay { get; set; }
@@ -23,7 +23,7 @@ namespace TinhGiaInClient.View
         decimal TienIn { get; set; }
         string GiaTBTrangInfo { get; set; }
         string ThongTinGiay { get; set; }
-        int PhuongPhapIn { get; }
+        PhuongPhapInS PhuongPhapIn { get; }
         FormStateS TinhTrangForm { get; set; }
         /*
         List<ToChayDigi> ToChayDigiS { get; set; }

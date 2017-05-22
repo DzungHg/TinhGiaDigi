@@ -11,7 +11,7 @@ namespace TinhGiaInClient.Model
         static int _prevId = 0;
         public int ID { get; set; }
         public int IdBaiIn { get; set; }               
-        public int PhuongPhapIn { get; set; }
+        public PhuongPhapInS PhuongPhapIn { get; set; }
                
         public int IdMayIn_IdBangGia { get; set; }
         public int SoTrangIn { get; set; }
@@ -26,7 +26,7 @@ namespace TinhGiaInClient.Model
                 return _giaTBTrang;
             }
         }
-        public MucTinGiaIn(int phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
+        public MucTinGiaIn(PhuongPhapInS phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
             decimal tienIn, string giaTBTrang)
         {
             
@@ -49,10 +49,10 @@ namespace TinhGiaInClient.Model
                 {
                     switch (this.PhuongPhapIn)
                     {
-                        case (int)PhuongPhapInS.Toner:
+                        case PhuongPhapInS.Toner:
                             _dienGiaiMayIn = ToInMayDigi.DocTheoId(IdMayIn_IdBangGia).Ten;
                             break;
-                        case (int)PhuongPhapInS.Offset:
+                        case PhuongPhapInS.Offset:
                             _dienGiaiMayIn = OffsetGiaCong.DocTheoId(IdMayIn_IdBangGia).Ten;
                             break;
                     }
@@ -67,18 +67,20 @@ namespace TinhGiaInClient.Model
         {
             get
             {
-                if (this.PhuongPhapIn > 0)
+
+                switch (this.PhuongPhapIn)
                 {
-                    switch (this.PhuongPhapIn)
-                    {
-                        case (int)PhuongPhapInS.Toner:
-                            _tenPhuongPhapIn = "KTS";
-                            break;
-                        case (int)PhuongPhapInS.Offset:
-                            _tenPhuongPhapIn = "Offset";
-                            break;
-                    }
+                    case PhuongPhapInS.Toner:
+                        _tenPhuongPhapIn = "KTS";
+                        break;
+                    case PhuongPhapInS.Offset:
+                        _tenPhuongPhapIn = "Offset";
+                        break;
+                    case PhuongPhapInS.KhongIn:
+                        _tenPhuongPhapIn = "Không In";
+                        break;
                 }
+
                 return _tenPhuongPhapIn;
             }
             set { _tenPhuongPhapIn = value; }

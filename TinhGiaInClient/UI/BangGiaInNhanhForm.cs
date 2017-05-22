@@ -78,7 +78,7 @@ namespace TinhGiaInClient.UI
         {
             lstBangGiaInNhanh.DisplayMember = "TenBangGia";
             lstBangGiaInNhanh.ValueMember = "ID";
-            lstBangGiaInNhanh.DataSource = bangGiaInNhanhPres.BanGiaInNhanhS();
+            lstBangGiaInNhanh.DataSource = bangGiaInNhanhPres.BangGiaInNhanhS();
         }
         private void LoadSoLuongTinh()
         {

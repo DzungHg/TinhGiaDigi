@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.grbMatIn = new System.Windows.Forms.GroupBox();
-            this.rdbIn1_0 = new System.Windows.Forms.RadioButton();
-            this.rdbIn1_1 = new System.Windows.Forms.RadioButton();
-            this.rdbIn4_0 = new System.Windows.Forms.RadioButton();
-            this.rdbIn4_4 = new System.Windows.Forms.RadioButton();
-            this.rdbIn4_1 = new System.Windows.Forms.RadioButton();
+            this.rdbInMotMat = new System.Windows.Forms.RadioButton();
+            this.rdbInHaiMat = new System.Windows.Forms.RadioButton();
             this.cboBangGia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
@@ -60,73 +57,37 @@
             // 
             // grbMatIn
             // 
-            this.grbMatIn.Controls.Add(this.rdbIn1_0);
-            this.grbMatIn.Controls.Add(this.rdbIn1_1);
-            this.grbMatIn.Controls.Add(this.rdbIn4_0);
-            this.grbMatIn.Controls.Add(this.rdbIn4_4);
-            this.grbMatIn.Controls.Add(this.rdbIn4_1);
+            this.grbMatIn.Controls.Add(this.rdbInMotMat);
+            this.grbMatIn.Controls.Add(this.rdbInHaiMat);
             this.grbMatIn.Location = new System.Drawing.Point(272, 146);
             this.grbMatIn.Name = "grbMatIn";
-            this.grbMatIn.Size = new System.Drawing.Size(301, 46);
+            this.grbMatIn.Size = new System.Drawing.Size(199, 46);
             this.grbMatIn.TabIndex = 3;
             this.grbMatIn.TabStop = false;
             this.grbMatIn.Text = "Mặt in";
             // 
-            // rdbIn1_0
+            // rdbInMotMat
             // 
-            this.rdbIn1_0.AutoSize = true;
-            this.rdbIn1_0.Location = new System.Drawing.Point(253, 19);
-            this.rdbIn1_0.Name = "rdbIn1_0";
-            this.rdbIn1_0.Size = new System.Drawing.Size(42, 17);
-            this.rdbIn1_0.TabIndex = 88;
-            this.rdbIn1_0.TabStop = true;
-            this.rdbIn1_0.Text = "1/0";
-            this.rdbIn1_0.UseVisualStyleBackColor = true;
+            this.rdbInMotMat.AutoSize = true;
+            this.rdbInMotMat.Location = new System.Drawing.Point(109, 19);
+            this.rdbInMotMat.Name = "rdbInMotMat";
+            this.rdbInMotMat.Size = new System.Drawing.Size(52, 17);
+            this.rdbInMotMat.TabIndex = 2;
+            this.rdbInMotMat.TabStop = true;
+            this.rdbInMotMat.Text = "1 Mặt";
+            this.rdbInMotMat.UseVisualStyleBackColor = true;
             // 
-            // rdbIn1_1
+            // rdbInHaiMat
             // 
-            this.rdbIn1_1.AutoSize = true;
-            this.rdbIn1_1.Location = new System.Drawing.Point(191, 19);
-            this.rdbIn1_1.Name = "rdbIn1_1";
-            this.rdbIn1_1.Size = new System.Drawing.Size(42, 17);
-            this.rdbIn1_1.TabIndex = 87;
-            this.rdbIn1_1.TabStop = true;
-            this.rdbIn1_1.Text = "1/1";
-            this.rdbIn1_1.UseVisualStyleBackColor = true;
-            // 
-            // rdbIn4_0
-            // 
-            this.rdbIn4_0.AutoSize = true;
-            this.rdbIn4_0.Location = new System.Drawing.Point(68, 19);
-            this.rdbIn4_0.Name = "rdbIn4_0";
-            this.rdbIn4_0.Size = new System.Drawing.Size(42, 17);
-            this.rdbIn4_0.TabIndex = 2;
-            this.rdbIn4_0.TabStop = true;
-            this.rdbIn4_0.Text = "4/0";
-            this.rdbIn4_0.UseVisualStyleBackColor = true;
-            // 
-            // rdbIn4_4
-            // 
-            this.rdbIn4_4.AutoSize = true;
-            this.rdbIn4_4.Checked = true;
-            this.rdbIn4_4.Location = new System.Drawing.Point(12, 19);
-            this.rdbIn4_4.Name = "rdbIn4_4";
-            this.rdbIn4_4.Size = new System.Drawing.Size(42, 17);
-            this.rdbIn4_4.TabIndex = 1;
-            this.rdbIn4_4.TabStop = true;
-            this.rdbIn4_4.Text = "4/4";
-            this.rdbIn4_4.UseVisualStyleBackColor = true;
-            // 
-            // rdbIn4_1
-            // 
-            this.rdbIn4_1.AutoSize = true;
-            this.rdbIn4_1.Location = new System.Drawing.Point(131, 19);
-            this.rdbIn4_1.Name = "rdbIn4_1";
-            this.rdbIn4_1.Size = new System.Drawing.Size(42, 17);
-            this.rdbIn4_1.TabIndex = 0;
-            this.rdbIn4_1.TabStop = true;
-            this.rdbIn4_1.Text = "4/1";
-            this.rdbIn4_1.UseVisualStyleBackColor = true;
+            this.rdbInHaiMat.AutoSize = true;
+            this.rdbInHaiMat.Checked = true;
+            this.rdbInHaiMat.Location = new System.Drawing.Point(12, 19);
+            this.rdbInHaiMat.Name = "rdbInHaiMat";
+            this.rdbInHaiMat.Size = new System.Drawing.Size(52, 17);
+            this.rdbInHaiMat.TabIndex = 1;
+            this.rdbInHaiMat.TabStop = true;
+            this.rdbInHaiMat.Text = "2 Mặt";
+            this.rdbInHaiMat.UseVisualStyleBackColor = true;
             // 
             // cboBangGia
             // 
@@ -141,11 +102,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(248, 9);
+            this.label1.Location = new System.Drawing.Point(241, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 91;
-            this.label1.Text = "GIÁ IN";
+            this.label1.Text = "GIÁ IN NHANH";
             // 
             // btnClose
             // 
@@ -320,7 +281,7 @@
             this.txtSoLuongToChay.TabIndex = 111;
             this.txtSoLuongToChay.Text = "0";
             // 
-            // GiaInForm
+            // GiaInNhanhForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,7 +309,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboBangGia);
             this.Controls.Add(this.grbMatIn);
-            this.Name = "GiaInForm";
+            this.Name = "GiaInNhanhForm";
             this.Text = "TinhGiaInForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GiaInForm_FormClosing);
             this.Load += new System.EventHandler(this.GiaInForm_Load);
@@ -362,11 +323,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grbMatIn;
-        private System.Windows.Forms.RadioButton rdbIn1_0;
-        private System.Windows.Forms.RadioButton rdbIn1_1;
-        private System.Windows.Forms.RadioButton rdbIn4_0;
-        private System.Windows.Forms.RadioButton rdbIn4_4;
-        private System.Windows.Forms.RadioButton rdbIn4_1;
+        private System.Windows.Forms.RadioButton rdbInMotMat;
+        private System.Windows.Forms.RadioButton rdbInHaiMat;
         private System.Windows.Forms.ComboBox cboBangGia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;

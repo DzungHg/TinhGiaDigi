@@ -87,9 +87,35 @@ namespace TinhGiaInDAL.RepoTinhGia
             return item;
         }
 
-        public void Them(BangGiaInNhanhBDO entityBDO)
+        public string Them(BangGiaInNhanhBDO entityBDO)
         {
-            throw new NotImplementedException();
+            var entity = new BANG_GIA_IN_NHANH();
+            var kq = "";
+            if (entity != null)
+            {
+                try
+                {
+                    kq = KiemTraTrung(entityBDO.TenBangGia);
+                    if (kq != "")
+                    {                        
+                        return kq;
+                    }
+                    ChuyenBDOThanhDAO(entityBDO, entity);
+                    db.BANG_GIA_IN_NHANH.Add(entity);
+                    db.SaveChanges();
+                    kq = string.Format("Thêm mục tin {0} thành công", entity.ID);//trả về số Id
+                }
+                catch
+                {
+                    kq = string.Format("Thêm mục tin {0} không thành công!", entity.ID);
+                }
+            }
+            else
+            {
+                
+                return string.Format("Mục tin {0} không tồn tại!", entity.ID);
+            }
+            return kq;
         }
 
         public bool Sua(ref string thongDiep, BangGiaInNhanhBDO entityBDO)
@@ -123,7 +149,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             }
             return kq;
         }
-        public void Xoa(int iD)
+        public string Xoa(int iD)
         {
             throw new NotImplementedException();
         }

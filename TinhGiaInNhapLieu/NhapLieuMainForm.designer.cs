@@ -38,6 +38,7 @@
             this.btnBangGiaGiay = new System.Windows.Forms.Button();
             this.btnMayInDigi = new System.Windows.Forms.Button();
             this.btnQLyToInMayDigi = new System.Windows.Forms.Button();
+            this.btnKhoSanPham = new System.Windows.Forms.Button();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabTinhThu = new System.Windows.Forms.TabPage();
@@ -50,7 +51,7 @@
             this.btnTinhThu_DongCuon = new System.Windows.Forms.Button();
             this.btnTinhThu_EpKim = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
-            this.btnKhoSanPham = new System.Windows.Forms.Button();
+            this.btnBangGiaInNhanh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabCtrl.SuspendLayout();
@@ -94,6 +95,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnMayInDigi);
             this.flowLayoutPanel1.Controls.Add(this.btnQLyToInMayDigi);
             this.flowLayoutPanel1.Controls.Add(this.btnKhoSanPham);
+            this.flowLayoutPanel1.Controls.Add(this.btnBangGiaInNhanh);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -159,6 +161,16 @@
             this.btnQLyToInMayDigi.Text = "Tờ in máy Digital";
             this.btnQLyToInMayDigi.UseVisualStyleBackColor = true;
             this.btnQLyToInMayDigi.Click += new System.EventHandler(this.btnQLyToInMayDigi_Click);
+            // 
+            // btnKhoSanPham
+            // 
+            this.btnKhoSanPham.Location = new System.Drawing.Point(199, 46);
+            this.btnKhoSanPham.Name = "btnKhoSanPham";
+            this.btnKhoSanPham.Size = new System.Drawing.Size(92, 37);
+            this.btnKhoSanPham.TabIndex = 11;
+            this.btnKhoSanPham.Text = "Khổ Sản phẩm";
+            this.btnKhoSanPham.UseVisualStyleBackColor = true;
+            this.btnKhoSanPham.Click += new System.EventHandler(this.btnKhoSanPham_Click);
             // 
             // tabCtrl
             // 
@@ -285,15 +297,15 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // btnKhoSanPham
+            // btnBangGiaInNhanh
             // 
-            this.btnKhoSanPham.Location = new System.Drawing.Point(199, 46);
-            this.btnKhoSanPham.Name = "btnKhoSanPham";
-            this.btnKhoSanPham.Size = new System.Drawing.Size(92, 37);
-            this.btnKhoSanPham.TabIndex = 11;
-            this.btnKhoSanPham.Text = "Khổ Sản phẩm";
-            this.btnKhoSanPham.UseVisualStyleBackColor = true;
-            this.btnKhoSanPham.Click += new System.EventHandler(this.btnKhoSanPham_Click);
+            this.btnBangGiaInNhanh.Location = new System.Drawing.Point(297, 46);
+            this.btnBangGiaInNhanh.Name = "btnBangGiaInNhanh";
+            this.btnBangGiaInNhanh.Size = new System.Drawing.Size(92, 37);
+            this.btnBangGiaInNhanh.TabIndex = 12;
+            this.btnBangGiaInNhanh.Text = "Bảng giá In nhanh";
+            this.btnBangGiaInNhanh.UseVisualStyleBackColor = true;
+            this.btnBangGiaInNhanh.Click += new System.EventHandler(this.btnBangGiaInNhanh_Click);
             // 
             // NhapLieuMainForm
             // 
@@ -347,6 +359,7 @@
         private System.Windows.Forms.Button btnMayInDigi;
         private System.Windows.Forms.Button btnQLyToInMayDigi;
         private System.Windows.Forms.Button btnKhoSanPham;
+        private System.Windows.Forms.Button btnBangGiaInNhanh;
 
     }
 }

@@ -135,9 +135,9 @@ namespace TinhGiaInClient
             get {return string.Format("{0:0,0.00}đ/trang",
                 giaInPres.GiaInOffset() / giaInPres.SoMatIn());}
         }
-        public int PhuongPhapIn
+        public PhuongPhapInS PhuongPhapIn
         {
-            get { return (int)PhuongPhapInS.Offset; }
+            get { return PhuongPhapInS.Offset; }
         }
         public MucTinGiaIn DocGiaIn
         {

@@ -277,5 +277,15 @@ namespace TinhGiaInNhapLieu
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void btnBangGiaInNhanh_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyBangGiaInNhanhForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản ký Bảng giá In nhanh";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

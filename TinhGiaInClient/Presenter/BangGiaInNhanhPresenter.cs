@@ -38,9 +38,9 @@ namespace TinhGiaInClient.Presenter
         {
             return HangKhachHang.LayTheoId(View.IdHangKHChon).LoiNhuanChenhLech;
         }
-        public List<BangGiaInNhanh> BanGiaInNhanhS()
+        public List<BangGiaInNhanh> BangGiaInNhanhS()
         {
-            return BangGiaInNhanh.DocTheoIdHangKH(View.IdHangKHChon);
+            return BangGiaInNhanh.DocConDungTheoIdHangKH(View.IdHangKHChon);
         }
        
         public void TrinhBayDuLieuInNhanhChon()

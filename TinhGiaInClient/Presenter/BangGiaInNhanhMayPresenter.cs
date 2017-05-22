@@ -75,13 +75,12 @@ namespace TinhGiaInClient.Presenter
             decimal ketQua = 0;
             var toInDiGi = ToInMayDigi.DocTheoId(View.IdToInDigiChon);
             var duLieuDeTinh = new DuLieuTinhGiaInNhanhTheoMay();
-             duLieuDeTinh.TocDo = toInDiGi.TocDo;
+             duLieuDeTinh.TocDo = toInDiGi.TocDo * toInDiGi.QuiA4;//Quan trọng qui A4
                 duLieuDeTinh.InTuTro = toInDiGi.InTuTro;
-                duLieuDeTinh.ClickTrangA4 = toInDiGi.ClickA4BonMau;
+                duLieuDeTinh.ClickTrangA4 = toInDiGi.ClickA4BonMau; //Chọn 4 màu
                 duLieuDeTinh.BHR = toInDiGi.BHR;
                 duLieuDeTinh.PhiPhePhamSanSang = toInDiGi.PhiPhePhamSanSang;
-                duLieuDeTinh.ThoiGianSanSang = toInDiGi.ThoiGianSanSang;
-               
+                duLieuDeTinh.ThoiGianSanSang = toInDiGi.ThoiGianSanSang;               
                 duLieuDeTinh.DaySoLuong = toInDiGi.DaySoLuong;
                 duLieuDeTinh.DayLoiNhuan = toInDiGi.DayLoiNhuan;
 

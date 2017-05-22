@@ -49,7 +49,7 @@ namespace TinhGiaInClient.Presenter
         public Dictionary<int, string>BangGiaInNhanhS()
         {
             Dictionary<int, string> dict = new Dictionary<int, string>();
-            foreach (BangGiaInNhanh bg in BangGiaInNhanh.DocTheoIdHangKH(View.IdHangKH))
+            foreach (BangGiaInNhanh bg in BangGiaInNhanh.DocConDungTheoIdHangKH(View.IdHangKH))
             {
                 dict.Add(bg.ID, bg.TenBangGia);
             }
@@ -69,18 +69,12 @@ namespace TinhGiaInClient.Presenter
         {            
             var toChayDigi = ToInMayDigi.DocTheoId(View.IdToInDigiChon);
             int result = 0;
-            switch (View.KieuIn)
-            {
-                case PrintSideColorS.FourFour:
-                case PrintSideColorS.FourOne:
-                case PrintSideColorS.OneOne:
-                    result = toChayDigi.QuiA4 * View.SoToChay * 2;
-                    break;
-                case PrintSideColorS.FourZero:
-                case PrintSideColorS.OneZero:
-                    result = toChayDigi.QuiA4 * View.SoToChay * 1;
-                    break;
-            }
+
+            var soMatIn = 2;
+            if (View.MatIn == MotHaiMat.MotMat)
+                soMatIn = 1;
+
+            result = View.SoToChay * toChayDigi.QuiA4 * soMatIn;            
             return result;
         }
        

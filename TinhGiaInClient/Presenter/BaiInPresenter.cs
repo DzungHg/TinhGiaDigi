@@ -88,11 +88,11 @@ namespace TinhGiaInClient.Presenter
                 
                 switch (giaIn.PhuongPhapIn)
                 {
-                    case (int)PhuongPhapInS.Toner:
+                    case PhuongPhapInS.Toner:
                         donViTrang = "A4";
                         phuongPhapIn = "KTS";
                         break;
-                    case (int)PhuongPhapInS.Offset:
+                    case PhuongPhapInS.Offset:
                         donViTrang = "mặt";
                         phuongPhapIn = "Offset";
                         break;

@@ -26,7 +26,11 @@ namespace TinhGiaInLogic
         {
             return bangGiaInNhanhDAO.LayTheoId(iD);
         }
-        public bool Sua (ref string thongDiep, BangGiaInNhanhBDO bangGiaBDO)
+        public string Them (BangGiaInNhanhBDO bangGiaBDO)
+        {
+            return bangGiaInNhanhDAO.Them(bangGiaBDO);
+        }
+        public bool Sua(ref string thongDiep, BangGiaInNhanhBDO bangGiaBDO)
         {
             return bangGiaInNhanhDAO.Sua(ref thongDiep, bangGiaBDO);
         }

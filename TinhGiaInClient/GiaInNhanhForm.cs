@@ -34,11 +34,10 @@ namespace TinhGiaInClient
             //-event            
             txtSoTrangA4.TextChanged += new EventHandler(TextBoxes_TextedChanged);
             txtSoLuongToChay.KeyPress += new KeyPressEventHandler(InputValidator);
+           
+            rdbInMotMat.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
+            rdbInHaiMat.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
 
-            rdbIn1_0.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
-            rdbIn1_1.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
-            rdbIn4_1.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
-            rdbIn4_0.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
             cboBangGia.SelectedIndexChanged += new EventHandler(TextBoxes_TextedChanged);
             
         }
@@ -55,26 +54,18 @@ namespace TinhGiaInClient
             set;
         }
 
-        PrintSideColorS _kieuIn = PrintSideColorS.FourFour;
-        public PrintSideColorS KieuIn
+        
+        public MotHaiMat MatIn
         {
             get {
-                if (rdbIn4_4.Checked)
-                    _kieuIn = PrintSideColorS.FourFour;
-                if (rdbIn4_1.Checked)
-                    _kieuIn = PrintSideColorS.FourOne;
-                if (rdbIn4_0.Checked)
-                    _kieuIn = PrintSideColorS.FourZero;
-                if (rdbIn1_1.Checked)
-                    _kieuIn = PrintSideColorS.OneOne;
-                if (rdbIn1_0.Checked)
-                    _kieuIn = PrintSideColorS.OneZero;
-
-                    return _kieuIn;
+                if (rdbInMotMat.Checked)
+                    return  MotHaiMat.MotMat;
+                else
+                    return MotHaiMat.HaiMat;                
 
             }
 
-            set { _kieuIn = value; }
+            set { ; }
         }
 
         public int IdHangKH
@@ -140,9 +131,9 @@ namespace TinhGiaInClient
             get { return txtThongTinGiay.Text; }
             set { txtThongTinGiay.Text = value; }
         }
-        public int PhuongPhapIn
+        public PhuongPhapInS PhuongPhapIn
         { 
-            get { return (int)PhuongPhapInS.Toner; }
+            get { return PhuongPhapInS.Toner; }
         }
         public FormStateS TinhTrangForm
         {
@@ -195,8 +186,8 @@ namespace TinhGiaInClient
             TrinhBayBangGia();
 
             txtToInDigiChon.Text = giaInPres.TenToInDigiChon();
-            rdbIn4_0.Checked = true;
-            rdbIn4_4.Checked = true;
+            rdbInMotMat.Checked = true;
+            rdbInHaiMat.Checked = true;
             //Để thủe
             if (this.TinhTrangForm == FormStateS.View)
             {
@@ -281,6 +272,7 @@ namespace TinhGiaInClient
         }
         private void RadioButtons_CheckChanged(object sender, EventArgs e)
         {
+            //MessageBox.Show(giaInPres.SoTrangA4().ToString());
             txtSoTrangA4.Text = string.Format("{0} trang", giaInPres.SoTrangA4());
             //
            

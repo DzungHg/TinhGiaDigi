@@ -47,13 +47,43 @@ namespace TinhGiaInClient.Model
             catch { }
             return nguon;
         }
-        public static List<BangGiaInNhanh> DocTheoIdHangKH(int idHangKH)
+        public static List<BangGiaInNhanh> DocTatCaConDung()
+        {
+            var nguon = DocTatCa().Where(x => !x.KhongSuDung).OrderBy(x => x.ThuTu);
+            return nguon.ToList();
+        }
+       
+        public static List<BangGiaInNhanh> DocConDungTheoIdHangKH(int idHangKH)
         {
             var giayLogic = new BangGiaInNhanhLogic();
             List<BangGiaInNhanh> nguon = null;
             try
             {
                 nguon = giayLogic.LayTatCa().Where(x => (x.IdHangKhachHang == idHangKH) && (x.KhongSuDung == false)).Select(x => new BangGiaInNhanh
+                {
+                    ID = x.ID,
+                    TenBangGia = x.TenBangGia,
+                    MoTa = x.MoTa,
+                    DaySoLuong = x.DaySoLuong,
+                    DayGia = x.DayGia,
+                    KhongSuDung = x.KhongSuDung,
+                    IdHangKhachHang = x.IdHangKhachHang,
+                    SoTrangToiDa = x.SoTrangToiDa,
+                    NoiDungBangGia = x.NoiDungBangGia,
+                    ThuTu = x.ThuTu
+
+                }).OrderBy(x => x.ThuTu).ToList();
+            }
+            catch { }
+            return nguon;
+        }
+        public static List<BangGiaInNhanh> DocTheoIdHangKH(int idHangKH)
+        {
+            var giayLogic = new BangGiaInNhanhLogic();
+            List<BangGiaInNhanh> nguon = null;
+            try
+            {
+                nguon = giayLogic.LayTatCa().Where(x => (x.IdHangKhachHang == idHangKH)).Select(x => new BangGiaInNhanh
                 {
                     ID = x.ID,
                     TenBangGia = x.TenBangGia,
@@ -87,6 +117,13 @@ namespace TinhGiaInClient.Model
             return bGiaInNhanh;
         }
         #region them sua xoa
+        public static string Them(BangGiaInNhanh toInMayDigi)
+        {
+            var bangGiaInNhanhLogic = new BangGiaInNhanhLogic();
+            var itemBDO = new BangGiaInNhanhBDO();
+            ChuyenDoiBangGiaInNhanhDTOThanhBDO(toInMayDigi, itemBDO);
+            return bangGiaInNhanhLogic.Them(itemBDO);
+        }
         public static bool Sua(ref string thongDiep, BangGiaInNhanh toInMayDigi)
         {
             var bangGiaInNhanhLogic = new BangGiaInNhanhLogic();
