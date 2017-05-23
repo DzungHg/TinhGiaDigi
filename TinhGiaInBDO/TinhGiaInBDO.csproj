@@ -48,6 +48,7 @@
     <Compile Include="DanhMucGiayBDO.cs" />
     <Compile Include="KhuonEpKimBDO.cs" />
     <Compile Include="MonThanhPhamBDO.cs" />
+    <Compile Include="NguoiDungBDO.cs" />
     <Compile Include="YeuCauTinhGiaInBDO.cs" />
     <Compile Include="NhuEpKimBDO.cs" />
     <Compile Include="OffsetGiaCongBDO.cs" />

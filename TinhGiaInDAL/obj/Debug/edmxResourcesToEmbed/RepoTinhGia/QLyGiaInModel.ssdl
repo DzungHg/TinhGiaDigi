@@ -157,6 +157,7 @@
     <Property Name="Loi_nhuan_chenh_lech" Type="int" />
     <Property Name="Loi_nhuan_offset_gia_cong" Type="int" />
     <Property Name="Thu_tu" Type="int" />
+    <Property Name="ma_hieu" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="IN_OFFSET_GIA_CONG">
     <Key>
@@ -232,6 +233,15 @@
     <Property Name="Thoi_gian_san_sang" Type="float" />
     <Property Name="Thoi_gian_du_lieu_bien_doi" Type="float" />
     <Property Name="thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="NGUOI_DUNG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="varchar" MaxLength="50" />
+    <Property Name="cho_hang_khach_hang" Type="varchar" MaxLength="50" />
+    <Property Name="hieu_luc" Type="bit" />
   </EntityType>
   <EntityType Name="NHU_EP_KIM">
     <Key>
@@ -416,6 +426,7 @@
     <EntitySet Name="KHUON_EP_KIM" EntityType="Self.KHUON_EP_KIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MARK_UP_LOI_NHUAN_GIAY" EntityType="Self.MARK_UP_LOI_NHUAN_GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MAY_IN_DIGI" EntityType="Self.MAY_IN_DIGI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGUOI_DUNG" EntityType="Self.NGUOI_DUNG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHU_EP_KIM" EntityType="Self.NHU_EP_KIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINH_GIA_IN" EntityType="Self.TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TO_IN_MAY_DIGI" EntityType="Self.TO_IN_MAY_DIGI" Schema="dbo" store:Type="Tables" />

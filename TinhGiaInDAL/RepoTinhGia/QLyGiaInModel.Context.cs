@@ -45,5 +45,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<YEU_CAU_TINH_GIA_IN> YEU_CAU_TINH_GIA_IN { get; set; }
         public virtual DbSet<DS_THANH_PHAM> DS_THANH_PHAM { get; set; }
         public virtual DbSet<CAN_GAP> CAN_GAP { get; set; }
+        public virtual DbSet<NGUOI_DUNG> NGUOI_DUNG { get; set; }
     }
 }

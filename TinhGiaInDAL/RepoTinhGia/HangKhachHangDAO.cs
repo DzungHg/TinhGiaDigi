@@ -24,6 +24,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     HangHangKhachHang = (int)x.Hang_khach_hang,
                     LoiNhuanChenhLech = (int)x.Loi_nhuan_chenh_lech,         
                     LoiNhuanOffsetGiaCong = (int)x.Loi_nhuan_offset_gia_cong,
+                    MaHieu = x.ma_hieu,
                     ThuTu = (int)x.Thu_tu
                 });
                 list = nguon.ToList();
@@ -47,6 +48,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     HangHangKhachHang = (int)x.Hang_khach_hang,
                     LoiNhuanChenhLech = (int)x.Loi_nhuan_chenh_lech,
                     LoiNhuanOffsetGiaCong = (int)x.Loi_nhuan_offset_gia_cong,
+                    MaHieu = x.ma_hieu,
                     ThuTu = (int)x.Thu_tu
                 }).SingleOrDefault();
                 

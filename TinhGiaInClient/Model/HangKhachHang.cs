@@ -16,6 +16,7 @@ namespace TinhGiaInClient.Model
         public int GiaTriHang { get; set; }
         public int LoiNhuanChenhLech { get; set; }
         public int LoiNhuanOffsetGiaCong { get; set; }
+        public string MaHieu { get; set; }
         public int ThuTu { get; set; }
         //==
         #region Các hàm static
@@ -33,6 +34,7 @@ namespace TinhGiaInClient.Model
                     GiaTriHang = x.HangHangKhachHang,
                     LoiNhuanChenhLech = x.LoiNhuanChenhLech,
                     LoiNhuanOffsetGiaCong = x.LoiNhuanOffsetGiaCong,
+                    MaHieu = x.MaHieu,
                     ThuTu = x.ThuTu
 
                 }).OrderBy(x => x.ThuTu).ToList();
@@ -49,14 +51,14 @@ namespace TinhGiaInClient.Model
             {
                 var hangKHBDO = bGiaInNhanhLogic.LayTheoId(idHangKH);
                 //Chuyen
-                ChuyenDoiGiayBDOThanhDTO(hangKHBDO, hangKH);
+                ChuyenDoiBDOThanhDTO(hangKHBDO, hangKH);
             }
                 catch {
                 }
             return hangKH;
         }
         //Chuyển đổi
-        private static void ChuyenDoiGiayBDOThanhDTO(HangKhachHangBDO hangKHBDO, HangKhachHang hangKH)
+        private static void ChuyenDoiBDOThanhDTO(HangKhachHangBDO hangKHBDO, HangKhachHang hangKH)
         {
             hangKH.ID = hangKHBDO.ID;
             hangKH.Ten = hangKHBDO.Ten;
@@ -64,8 +66,21 @@ namespace TinhGiaInClient.Model
             hangKH.GiaTriHang = hangKHBDO.HangHangKhachHang;
             hangKH.LoiNhuanChenhLech = hangKHBDO.LoiNhuanChenhLech;
             hangKH.LoiNhuanOffsetGiaCong = hangKHBDO.LoiNhuanOffsetGiaCong;
+            hangKH.MaHieu = hangKHBDO.MaHieu;
             hangKH.ThuTu = hangKHBDO.ThuTu;
             
+        }
+        private static void ChuyenDoiDTOThanhBDO(HangKhachHang hangKH, HangKhachHangBDO hangKHBDO)
+        {
+            hangKHBDO.ID = hangKH.ID;
+            hangKHBDO.Ten = hangKH.Ten;
+            hangKHBDO.DienGiai = hangKH.DienGiai;
+            hangKHBDO.HangHangKhachHang = hangKH.GiaTriHang;
+            hangKHBDO.LoiNhuanChenhLech = hangKH.LoiNhuanChenhLech;
+            hangKHBDO.LoiNhuanOffsetGiaCong = hangKH.LoiNhuanOffsetGiaCong;
+            hangKHBDO.MaHieu = hangKH.MaHieu;
+            hangKHBDO.ThuTu = hangKH.ThuTu;
+
         }
         #endregion
         #region  hàm tính giá in nhanh

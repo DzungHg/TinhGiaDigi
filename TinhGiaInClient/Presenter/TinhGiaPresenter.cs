@@ -25,8 +25,13 @@ namespace TinhGiaInClient.Presenter
         }
         public Dictionary<int, string> HangKhachHangS()
         {
+            var hangKHTheoUser = NguoiDung.DocTheoTenDangNhap(View.TenNhanVien.Trim().ToLower()).ChoHangKhachHang.Trim().Split(';');
+            var nguonHangKH = HangKhachHang.LayTatCa().Where(x => hangKHTheoUser.Contains(x.MaHieu.Trim())).ToList();
+            //var so = nguonHangKH.Count();
+
+            //var so = nguonHangKH.Count();
             Dictionary<int, string> dict = new Dictionary<int, string>();
-            foreach (HangKhachHang hkh in HangKhachHang.LayTatCa())
+            foreach (HangKhachHang hkh in nguonHangKH)
             {
                 dict.Add(hkh.ID, hkh.Ten);
 

@@ -14,6 +14,7 @@ namespace TinhGiaInBDO
         public int HangHangKhachHang { get; set; }
         public int LoiNhuanChenhLech { get; set; }
         public int LoiNhuanOffsetGiaCong { get; set; }
+        public string MaHieu { get; set; }
         public int ThuTu { get; set; }
     }
 }

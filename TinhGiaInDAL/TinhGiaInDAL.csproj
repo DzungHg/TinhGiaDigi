@@ -52,6 +52,7 @@
     <Compile Include="RepoTinhGia\BANG_GIA_DANH_THIEP.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\NguoiDungDAO.cs" />
     <Compile Include="RepoTinhGia\CAN_GAP.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
@@ -72,6 +73,7 @@
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\IBangGiaDanhThiepDAO.cs" />
+    <Compile Include="RepoTinhGia\INguoiDungDAO.cs" />
     <Compile Include="RepoTinhGia\IMayInDigiDAO.cs" />
     <Compile Include="RepoTinhGia\IMonThanhPhamDAO.cs" />
     <Compile Include="RepoTinhGia\IYeuCauTinhGiaInDAO.cs" />
@@ -82,6 +84,9 @@
     <Compile Include="RepoTinhGia\MayInDigiDAO.cs" />
     <Compile Include="RepoTinhGia\MonThanhPhamDAO.cs" />
     <Compile Include="RepoTinhGia\KhuonEpKimDAO.cs" />
+    <Compile Include="RepoTinhGia\NGUOI_DUNG.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RepoTinhGia\TINH_GIA_IN.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>

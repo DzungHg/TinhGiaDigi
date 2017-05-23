@@ -31,7 +31,7 @@ namespace TinhGiaInClient.UI
         }
         public string TenNguoiDung
         {
-            get { return txtTenNguoiDung.Text; }
+            get { return txtTenNguoiDung.Text.Trim(); }
             set { txtTenNguoiDung.Text = value; }
         }
         private void btnKeQuaChaoGia_Click(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace TinhGiaInClient.UI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.TenNguoiDung.Trim()))
+            if (string.IsNullOrEmpty(this.TenNguoiDung))
             {
                 MessageBox.Show("Bạn cần điền tên người dùng");
                 return;
@@ -90,7 +90,15 @@ namespace TinhGiaInClient.UI
             var thongTinBanDau = new ThongTinBanDauChoTinhGia();
             thongTinBanDau.TenNguoiDung = this.TenNguoiDung;
             thongTinBanDau.TinhTrangForm = FormStateS.New;
+            //Kiểm tra người dùng có trong database không
+            var nguoiDung = NguoiDung.DocTheoTenDangNhap(thongTinBanDau.TenNguoiDung);
 
+            if (nguoiDung.ID == 0)
+            {
+                MessageBox.Show("Bạn chưa có tài khoản sử dụng");
+                return;
+            }
+            
             var frm = new TinhGiaForm(thongTinBanDau);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;

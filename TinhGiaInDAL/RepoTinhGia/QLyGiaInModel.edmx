@@ -162,6 +162,7 @@
           <Property Name="Loi_nhuan_chenh_lech" Type="int" />
           <Property Name="Loi_nhuan_offset_gia_cong" Type="int" />
           <Property Name="Thu_tu" Type="int" />
+          <Property Name="ma_hieu" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="IN_OFFSET_GIA_CONG">
           <Key>
@@ -237,6 +238,15 @@
           <Property Name="Thoi_gian_san_sang" Type="float" />
           <Property Name="Thoi_gian_du_lieu_bien_doi" Type="float" />
           <Property Name="thu_tu" Type="int" />
+        </EntityType>
+        <EntityType Name="NGUOI_DUNG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="varchar" MaxLength="50" />
+          <Property Name="cho_hang_khach_hang" Type="varchar" MaxLength="50" />
+          <Property Name="hieu_luc" Type="bit" />
         </EntityType>
         <EntityType Name="NHU_EP_KIM">
           <Key>
@@ -421,6 +431,7 @@
           <EntitySet Name="KHUON_EP_KIM" EntityType="Self.KHUON_EP_KIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MARK_UP_LOI_NHUAN_GIAY" EntityType="Self.MARK_UP_LOI_NHUAN_GIAY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MAY_IN_DIGI" EntityType="Self.MAY_IN_DIGI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUOI_DUNG" EntityType="Self.NGUOI_DUNG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NHU_EP_KIM" EntityType="Self.NHU_EP_KIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINH_GIA_IN" EntityType="Self.TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO_IN_MAY_DIGI" EntityType="Self.TO_IN_MAY_DIGI" Schema="dbo" store:Type="Tables" />
@@ -525,6 +536,7 @@
           <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
           <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
           <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
+          <EntitySet Name="NGUOI_DUNG" EntityType="QuanLyGiaInModel.NGUOI_DUNG" />
         </EntityContainer>
         <EntityType Name="KHO_SAN_PHAM">
           <Key>
@@ -651,6 +663,7 @@
           <NavigationProperty Name="MARK_UP_LOI_NHUAN_GIAY" Relationship="QuanLyGiaInModel.FK_MARK_UP_LOI_NHUAN_GIAY_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="MARK_UP_LOI_NHUAN_GIAY" />
           <Property Name="Loi_nhuan_offset_gia_cong" Type="Int32" />
           <NavigationProperty Name="BANG_GIA_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="BANG_GIA_DANH_THIEP" />
+          <Property Name="ma_hieu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
           <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -931,6 +944,15 @@
           <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Thu_tu" Type="Int32" />
         </EntityType>
+        <EntityType Name="NGUOI_DUNG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cho_hang_khach_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="hieu_luc" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1050,6 +1072,7 @@
           <EntitySetMapping Name="HANG_KHACH_HANG">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.HANG_KHACH_HANG">
               <MappingFragment StoreEntitySet="HANG_KHACH_HANG">
+                <ScalarProperty Name="ma_hieu" ColumnName="ma_hieu" />
                 <ScalarProperty Name="Loi_nhuan_offset_gia_cong" ColumnName="Loi_nhuan_offset_gia_cong" />
                 <ScalarProperty Name="Dien_giai" ColumnName="Dien_giai" />
                 <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
@@ -1251,6 +1274,16 @@
                 <ScalarProperty Name="Toc_do_con" ColumnName="Toc_do_con" />
                 <ScalarProperty Name="BHR" ColumnName="BHR" />
                 <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NGUOI_DUNG">
+            <EntityTypeMapping TypeName="QuanLyGiaInModel.NGUOI_DUNG">
+              <MappingFragment StoreEntitySet="NGUOI_DUNG">
+                <ScalarProperty Name="hieu_luc" ColumnName="hieu_luc" />
+                <ScalarProperty Name="cho_hang_khach_hang" ColumnName="cho_hang_khach_hang" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

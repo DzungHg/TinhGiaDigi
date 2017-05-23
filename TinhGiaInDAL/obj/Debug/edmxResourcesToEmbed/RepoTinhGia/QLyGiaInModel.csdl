@@ -63,6 +63,7 @@
     <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="QuanLyGiaInModel.YEU_CAU_TINH_GIA_IN" />
     <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
     <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
+    <EntitySet Name="NGUOI_DUNG" EntityType="QuanLyGiaInModel.NGUOI_DUNG" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -189,6 +190,7 @@
     <NavigationProperty Name="MARK_UP_LOI_NHUAN_GIAY" Relationship="QuanLyGiaInModel.FK_MARK_UP_LOI_NHUAN_GIAY_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="MARK_UP_LOI_NHUAN_GIAY" />
     <Property Name="Loi_nhuan_offset_gia_cong" Type="Int32" />
     <NavigationProperty Name="BANG_GIA_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="BANG_GIA_DANH_THIEP" />
+    <Property Name="ma_hieu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <Association Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
     <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -468,5 +470,14 @@
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Thu_tu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="NGUOI_DUNG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cho_hang_khach_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="hieu_luc" Type="Boolean" />
   </EntityType>
 </Schema>

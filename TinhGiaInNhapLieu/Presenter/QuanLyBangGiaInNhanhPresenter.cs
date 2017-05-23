@@ -86,7 +86,7 @@ namespace TinhGiaInNhapLieu.Presenter
             toInMayDigi.DayGia = View.DayGiaTrang;
             toInMayDigi.DaySoLuongNiemYet = View.DaySoLuongNiemYet;                 
             toInMayDigi.ThuTu = View.ThuTu;
-            View.KhongSuDung = View.KhongSuDung;
+            toInMayDigi.KhongSuDung = View.KhongSuDung;
             switch (View.TinhTrangForm)
             {
                 case TinhGiaInClient.FormStateS.Edit:

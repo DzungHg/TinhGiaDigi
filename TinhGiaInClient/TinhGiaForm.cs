@@ -22,6 +22,7 @@ namespace TinhGiaInClient
             InitializeComponent();
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.TenNhanVien = thongTinBanDau.TenNguoiDung;
+            //Rồi mới tiếp tục
             tinhGiaPres = new TinhGiaPresenter(this);
             tinhGiaPres.NoiDungBanDau();
             LoadHangKhachHang();

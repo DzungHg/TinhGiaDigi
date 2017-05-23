@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Model\BaiIn.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
+    <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Model\CauHinhGiayIn.cs" />
     <Compile Include="Model\GiaDongCuon.cs" />
     <Compile Include="Model\GiaCanGap.cs" />

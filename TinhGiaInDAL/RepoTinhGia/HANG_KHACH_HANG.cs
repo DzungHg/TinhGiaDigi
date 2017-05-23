@@ -28,6 +28,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> Thu_tu { get; set; }
         public string Dien_giai { get; set; }
         public Nullable<int> Loi_nhuan_offset_gia_cong { get; set; }
+        public string ma_hieu { get; set; }
     
         public virtual ICollection<BANG_GIA_IN_NHANH> BANG_GIA_IN_NHANH { get; set; }
         public virtual ICollection<MARK_UP_LOI_NHUAN_GIAY> MARK_UP_LOI_NHUAN_GIAY { get; set; }

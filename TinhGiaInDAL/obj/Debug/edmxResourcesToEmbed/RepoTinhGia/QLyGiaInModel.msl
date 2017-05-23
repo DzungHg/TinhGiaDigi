@@ -114,6 +114,7 @@
     <EntitySetMapping Name="HANG_KHACH_HANG">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.HANG_KHACH_HANG">
         <MappingFragment StoreEntitySet="HANG_KHACH_HANG">
+          <ScalarProperty Name="ma_hieu" ColumnName="ma_hieu" />
           <ScalarProperty Name="Loi_nhuan_offset_gia_cong" ColumnName="Loi_nhuan_offset_gia_cong" />
           <ScalarProperty Name="Dien_giai" ColumnName="Dien_giai" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
@@ -315,6 +316,16 @@
           <ScalarProperty Name="Toc_do_con" ColumnName="Toc_do_con" />
           <ScalarProperty Name="BHR" ColumnName="BHR" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NGUOI_DUNG">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.NGUOI_DUNG">
+        <MappingFragment StoreEntitySet="NGUOI_DUNG">
+          <ScalarProperty Name="hieu_luc" ColumnName="hieu_luc" />
+          <ScalarProperty Name="cho_hang_khach_hang" ColumnName="cho_hang_khach_hang" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

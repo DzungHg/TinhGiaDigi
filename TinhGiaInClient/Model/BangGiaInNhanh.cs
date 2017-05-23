@@ -29,7 +29,7 @@ namespace TinhGiaInClient.Model
             List<BangGiaInNhanh> nguon = null;
             try
             {
-                nguon = giayLogic.LayTatCa().Where(x => x.KhongSuDung == false).Select(x => new BangGiaInNhanh
+                nguon = giayLogic.LayTatCa().Select(x => new BangGiaInNhanh
                 {
                     ID = x.ID,
                     TenBangGia = x.TenBangGia,
