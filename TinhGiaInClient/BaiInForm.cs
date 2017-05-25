@@ -509,7 +509,7 @@ namespace TinhGiaInClient
             thongTinBanDau.TinhTrangForm = tinhTrangForm;
             thongTinBanDau.IdHangKhachHang = IdHangKhachHang;
             thongTinBanDau.IdBaiIn = baiIn.ID;
-            thongTinBanDau.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
+            thongTinBanDau.SoToChay = baiIn.GiayDeInIn.SoToChayTong;
             thongTinBanDau.IdToIn_MayIn = baiIn.CauHinhSP.IdMayIn;
             thongTinBanDau.ThongTinGiay = string.Format("{0}/{1}", baiIn.GiayDeInIn.KhoToChay,
                                  baiIn.GiayDeInIn.TenGiayIn);

@@ -142,7 +142,7 @@
     <Compile Include="Model\NhuEpKim.cs" />
     <Compile Include="Model\KhuonEpKim.cs" />
     <Compile Include="Model\ThongTinBanDauChoDanhThiep.cs" />
-    <Compile Include="Model\ThongTinBanDauChoGiaIn.cs" />
+    <Compile Include="Model\Support\ThongTinBanDauChoGiaIn.cs" />
     <Compile Include="Model\Support\ThongTinBanDauChoGiayIn.cs" />
     <Compile Include="Model\ThongTinBanDauChoCauHinhSP.cs" />
     <Compile Include="Model\ThongTinBanDauChoBaiIn.cs" />

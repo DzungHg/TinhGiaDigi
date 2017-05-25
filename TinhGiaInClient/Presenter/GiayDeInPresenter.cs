@@ -126,11 +126,11 @@ namespace TinhGiaInClient.Presenter
         {
             var giayDeIn = new GiayDeIn(View.KhoToChay,
                 View.SoConTrenToChay, View.SoLuongToChayBuHao,
-                View.SoToGiayLon, View.GiayKhachDua, View.IdGiay,
+                this.SoToChayLyThuyetTinh(), this.SoToChayTong(),
+                View.GiayKhachDua, View.IdGiay,
                 View.TenGiayIn, View.IdBaiIn, View.SoToChayTrenToLon,
                 View.SoToGiayLon, this.ThanhTien());
-
-            giayDeIn.SoToChayLyThuyet = this.SoToChayLyThuyetTinh();
+            
 
             if (View.TinhTrangForm == FormStateS.Edit)
                 giayDeIn.ID = View.ID;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 
@@ -21,7 +22,7 @@ namespace TinhGiaInClient
             InitializeComponent();
             //
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;
-            this.SoToChay = thongTinBanDau.SoLuongToChay;
+            this.SoToChay = thongTinBanDau.SoToChay;
             this.IdMayIn = thongTinBanDau.IdToIn_MayIn;
             this.IdBaiIn = thongTinBanDau.IdBaiIn;
             this.KhoToChay = thongTinBanDau.KhoToChay;

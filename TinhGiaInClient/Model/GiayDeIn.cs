@@ -27,7 +27,8 @@ namespace TinhGiaInClient.Model
         public decimal ThanhTienGiay { get; set; }
 
         public GiayDeIn(string khoToChay, int soConTrenToChay, int soToChayBuHao,
-                    int soToChayTong, bool giayKhachDua, int idGiay,
+                    int soToChayLyThuyet, int soToChayTong,
+                    bool giayKhachDua, int idGiay,
                     string tenGiayIn, int idBaiIn, int soToChayTrenToLon,
                     int soToLonTong, decimal thanhTienGiay)
         {
@@ -35,6 +36,7 @@ namespace TinhGiaInClient.Model
 
             this.SoConTrenToChay = soConTrenToChay;
             this.SoToChayBuHao = soToChayBuHao;
+            this.SoToChayLyThuyet = soToChayLyThuyet;
             this.SoToChayTong = soToChayTong;
             this.GiayKhachDua = giayKhachDua;
             this.IdGiay = idGiay;

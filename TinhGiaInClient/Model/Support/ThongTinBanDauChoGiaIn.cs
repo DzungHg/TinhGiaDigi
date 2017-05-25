@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TinhGiaInClient.Model
+namespace TinhGiaInClient.Model.Support
 {
-    public class ThongTinBanDauChoGiaIn
+    public struct ThongTinBanDauChoGiaIn
     {
         public string ThongTinCanThiet { get; set; }
-        public int SoLuongToChay { get; set; }
+        public int SoToChay { get; set; }
         public int IdHangKhachHang { get; set; }
         public int IdToIn_MayIn { get; set; }
         public int IdBaiIn { get; set; }
