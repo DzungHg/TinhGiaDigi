@@ -13,6 +13,7 @@ namespace TinhGiaInClient.Model
         public int ID { get; set; }
         public string Ten { get; set; }
         public string MaNhaCungCap { get; set; }
+        public string TenNhaCungCap { get; set; }
         public string DienGiai { get; set; }
         public int GiaMuaCm2 { get; set; }
         public int ThuTu { get; set; }
@@ -30,6 +31,7 @@ namespace TinhGiaInClient.Model
                     ID = x.ID,
                     Ten = x.Ten,            
                     MaNhaCungCap = x.MaNhaCungCap,
+                    TenNhaCungCap = x.TenNhaCungCap,
                     DienGiai = x.DienGiai,                     
                     GiaMuaCm2 = x.GiaMuaCm2,
                     IDEPKIM = x.IDEPKIM,
@@ -51,6 +53,7 @@ namespace TinhGiaInClient.Model
                     ID = x.ID,
                     Ten = x.Ten,
                     MaNhaCungCap = x.MaNhaCungCap,
+                    TenNhaCungCap = x.TenNhaCungCap,
                     DienGiai = x.DienGiai,
                     GiaMuaCm2 = x.GiaMuaCm2,
                     IDEPKIM = x.IDEPKIM,
@@ -108,6 +111,7 @@ namespace TinhGiaInClient.Model
             nhuEpKim.DienGiai = nhuEpKimBDO.DienGiai;          
             nhuEpKim.GiaMuaCm2 = nhuEpKimBDO.GiaMuaCm2;
             nhuEpKim.MaNhaCungCap = nhuEpKimBDO.MaNhaCungCap;
+            nhuEpKim.TenNhaCungCap = nhuEpKimBDO.TenNhaCungCap;
             nhuEpKim.IDEPKIM = nhuEpKimBDO.IDEPKIM;                        
             nhuEpKim.ThuTu = nhuEpKimBDO.ThuTu;
         }
@@ -117,6 +121,7 @@ namespace TinhGiaInClient.Model
             nhuEpKimBDO.Ten = nhuEpKim.Ten;         
             nhuEpKimBDO.GiaMuaCm2 = nhuEpKim.GiaMuaCm2;
             nhuEpKimBDO.MaNhaCungCap = nhuEpKim.MaNhaCungCap;
+            nhuEpKimBDO.TenNhaCungCap = nhuEpKim.TenNhaCungCap;
             nhuEpKimBDO.IDEPKIM = nhuEpKim.IDEPKIM;            
             nhuEpKimBDO.ThuTu = nhuEpKim.ThuTu;
         }

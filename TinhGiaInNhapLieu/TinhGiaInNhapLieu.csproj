@@ -71,10 +71,38 @@
       <DependentUpon>GiayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenter\GiayPresenter.cs" />
+    <Compile Include="Presenter\QuanLyCanGapPresenter.cs" />
+    <Compile Include="Presenter\QuanLyEpKimPresenter.cs" />
+    <Compile Include="Presenter\QuanLyDongCuonPresenter.cs" />
+    <Compile Include="Presenter\QuanLyCanPhuPresenter.cs" />
     <Compile Include="Presenter\QuanLyKhoSanPhamPresenter.cs" />
     <Compile Include="Presenter\QuanLyBangGiaInNhanhPresenter.cs" />
     <Compile Include="Presenter\QuanLyToInMayDigiPresenter.cs" />
     <Compile Include="Presenter\QuanLyMayInDigiPresenter.cs" />
+    <Compile Include="QuanLyCanGapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyCanGapForm.Designer.cs">
+      <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyEpKimForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyEpKimForm.Designer.cs">
+      <DependentUpon>QuanLyEpKimForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDongCuonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyDongCuonForm.Designer.cs">
+      <DependentUpon>QuanLyDongCuonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyCanPhuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyCanPhuForm.Designer.cs">
+      <DependentUpon>QuanLyCanPhuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyGiayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +170,10 @@
     </Compile>
     <Compile Include="View\IViewDanhMucGiay.cs" />
     <Compile Include="View\IViewGiay.cs" />
+    <Compile Include="View\IViewQuanLyCanPhu.cs" />
+    <Compile Include="View\IViewQuanLyEpKim.cs" />
+    <Compile Include="View\IViewQuanLyDongCuon.cs" />
+    <Compile Include="View\IViewQuanLyCanGap.cs" />
     <Compile Include="View\IViewQuanLyGiay.cs" />
     <Compile Include="View\IViewQuanLyDMGiay.cs" />
     <Compile Include="View\IViewQuanLyKhoSanPham.cs" />
@@ -152,6 +184,18 @@
       <DependentUpon>GiayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="QuanLyCanGapForm.resx">
+      <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyEpKimForm.resx">
+      <DependentUpon>QuanLyEpKimForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyDongCuonForm.resx">
+      <DependentUpon>QuanLyDongCuonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyCanPhuForm.resx">
+      <DependentUpon>QuanLyCanPhuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuanLyGiayForm.resx">
       <DependentUpon>QuanLyGiayForm.cs</DependentUpon>
     </EmbeddedResource>

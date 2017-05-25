@@ -24,10 +24,7 @@ namespace TinhGiaInNhapLieu.View
         string DaySoLuongNiemYet { get; set; }
         bool InTuTro { get; set; }
         bool HPIndigo { get; set; }
-        int QuiSoTrangA4 { get; set; }
-        int ClickA4_4M { get; set; }
-        int ClickA4_1M { get; set; }
-        int ClickA4_6M { get; set; }
+        int QuiSoTrangA4 { get; set; }        
         int ThuTu { get; set; }
         bool KhongSuDung { get; set; }
         FormStateS TinhTrangForm { get; set; }

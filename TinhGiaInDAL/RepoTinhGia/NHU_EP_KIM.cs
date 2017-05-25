@@ -21,6 +21,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> Gia_mua_cm2 { get; set; }
         public Nullable<int> Thu_tu { get; set; }
         public Nullable<int> ID_EP_KIM { get; set; }
+        public string ten_nha_cung_cap { get; set; }
     
         public virtual EP_KIM EP_KIM { get; set; }
     }

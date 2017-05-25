@@ -37,9 +37,7 @@ namespace TinhGiaInNhapLieu.Presenter
          
             View.IdMayInDigi = 0;
             View.QuiSoTrangA4 = 1;
-            View.ClickA4_4M = 0;
-            View.ClickA4_1M = 0;
-            View.ClickA4_6M = 0;           
+                 
             View.DaySoLuongCoBan = ";";
             View.DayLoiNhuanCoBan = ";";
             View.DaySoLuongNiemYet = ";";
@@ -64,9 +62,7 @@ namespace TinhGiaInNhapLieu.Presenter
           
             View.IdMayInDigi = toInMayDigi.IdMayIn;
             View.KhoToChayCoTheIn = toInMayDigi.KhoToChayCoTheIn;
-            View.ClickA4_4M = toInMayDigi.ClickA4BonMau;
-            View.ClickA4_1M = toInMayDigi.ClickA4MotMau;
-            View.ClickA4_6M = toInMayDigi.ClickA4SauMau;
+         
             View.QuiSoTrangA4 = toInMayDigi.QuiA4;
             View.DaySoLuongCoBan = toInMayDigi.DaySoLuong;
             View.DayLoiNhuanCoBan = toInMayDigi.DayLoiNhuan;
@@ -98,9 +94,7 @@ namespace TinhGiaInNhapLieu.Presenter
            
             toInMayDigi.IdMayIn = View.IdMayInDigi;
             toInMayDigi.KhoToChayCoTheIn = View.KhoToChayCoTheIn;
-            toInMayDigi.ClickA4BonMau = View.ClickA4_4M;
-            toInMayDigi.ClickA4MotMau = View.ClickA4_1M;
-            toInMayDigi.ClickA4SauMau = View.ClickA4_6M;
+         
             toInMayDigi.QuiA4 = View.QuiSoTrangA4;
             toInMayDigi.DaySoLuong = View.DaySoLuongCoBan;
             toInMayDigi.DayLoiNhuan = View.DayLoiNhuanCoBan;
@@ -108,7 +102,7 @@ namespace TinhGiaInNhapLieu.Presenter
             toInMayDigi.LaHPIndigo = View.HPIndigo;
             toInMayDigi.InTuTro = View.InTuTro;
             toInMayDigi.ThuTu = View.ThuTu;
-            View.KhongSuDung = View.KhongSuDung;
+            toInMayDigi.KhongSuDung = View.KhongSuDung;
             switch (View.TinhTrangForm)
             {
                 case TinhGiaInClient.FormStateS.Edit:                                     

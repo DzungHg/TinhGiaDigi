@@ -39,8 +39,15 @@
             this.btnMayInDigi = new System.Windows.Forms.Button();
             this.btnQLyToInMayDigi = new System.Windows.Forms.Button();
             this.btnKhoSanPham = new System.Windows.Forms.Button();
+            this.btnBangGiaInNhanh = new System.Windows.Forms.Button();
             this.tabCtrl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabChung = new System.Windows.Forms.TabPage();
+            this.tabThanhPham = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCanPhu = new System.Windows.Forms.Button();
+            this.btnCanGap = new System.Windows.Forms.Button();
+            this.btnDongCuon = new System.Windows.Forms.Button();
+            this.btnEpKim = new System.Windows.Forms.Button();
             this.tabTinhThu = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.cboHangKH = new System.Windows.Forms.ComboBox();
@@ -51,11 +58,12 @@
             this.btnTinhThu_DongCuon = new System.Windows.Forms.Button();
             this.btnTinhThu_EpKim = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
-            this.btnBangGiaInNhanh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabCtrl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabChung.SuspendLayout();
+            this.tabThanhPham.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.tabTinhThu.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -172,9 +180,20 @@
             this.btnKhoSanPham.UseVisualStyleBackColor = true;
             this.btnKhoSanPham.Click += new System.EventHandler(this.btnKhoSanPham_Click);
             // 
+            // btnBangGiaInNhanh
+            // 
+            this.btnBangGiaInNhanh.Location = new System.Drawing.Point(297, 46);
+            this.btnBangGiaInNhanh.Name = "btnBangGiaInNhanh";
+            this.btnBangGiaInNhanh.Size = new System.Drawing.Size(92, 37);
+            this.btnBangGiaInNhanh.TabIndex = 12;
+            this.btnBangGiaInNhanh.Text = "Bảng giá In nhanh";
+            this.btnBangGiaInNhanh.UseVisualStyleBackColor = true;
+            this.btnBangGiaInNhanh.Click += new System.EventHandler(this.btnBangGiaInNhanh_Click);
+            // 
             // tabCtrl
             // 
-            this.tabCtrl.Controls.Add(this.tabPage1);
+            this.tabCtrl.Controls.Add(this.tabChung);
+            this.tabCtrl.Controls.Add(this.tabThanhPham);
             this.tabCtrl.Controls.Add(this.tabTinhThu);
             this.tabCtrl.Location = new System.Drawing.Point(12, 27);
             this.tabCtrl.Name = "tabCtrl";
@@ -182,16 +201,79 @@
             this.tabCtrl.Size = new System.Drawing.Size(459, 325);
             this.tabCtrl.TabIndex = 3;
             // 
-            // tabPage1
+            // tabChung
             // 
-            this.tabPage1.Controls.Add(this.flowLayoutPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(451, 299);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Quản lý";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabChung.Controls.Add(this.flowLayoutPanel1);
+            this.tabChung.Location = new System.Drawing.Point(4, 22);
+            this.tabChung.Name = "tabChung";
+            this.tabChung.Padding = new System.Windows.Forms.Padding(3);
+            this.tabChung.Size = new System.Drawing.Size(451, 299);
+            this.tabChung.TabIndex = 0;
+            this.tabChung.Text = "Chung";
+            this.tabChung.UseVisualStyleBackColor = true;
+            // 
+            // tabThanhPham
+            // 
+            this.tabThanhPham.Controls.Add(this.flowLayoutPanel3);
+            this.tabThanhPham.Location = new System.Drawing.Point(4, 22);
+            this.tabThanhPham.Name = "tabThanhPham";
+            this.tabThanhPham.Size = new System.Drawing.Size(451, 299);
+            this.tabThanhPham.TabIndex = 2;
+            this.tabThanhPham.Text = "Thành phẩm";
+            this.tabThanhPham.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel3.Controls.Add(this.btnCanPhu);
+            this.flowLayoutPanel3.Controls.Add(this.btnCanGap);
+            this.flowLayoutPanel3.Controls.Add(this.btnDongCuon);
+            this.flowLayoutPanel3.Controls.Add(this.btnEpKim);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(451, 299);
+            this.flowLayoutPanel3.TabIndex = 3;
+            // 
+            // btnCanPhu
+            // 
+            this.btnCanPhu.Location = new System.Drawing.Point(3, 3);
+            this.btnCanPhu.Name = "btnCanPhu";
+            this.btnCanPhu.Size = new System.Drawing.Size(92, 37);
+            this.btnCanPhu.TabIndex = 6;
+            this.btnCanPhu.Text = "Cán phủ";
+            this.btnCanPhu.UseVisualStyleBackColor = true;
+            this.btnCanPhu.Click += new System.EventHandler(this.btnCanPhu_Click);
+            // 
+            // btnCanGap
+            // 
+            this.btnCanGap.Location = new System.Drawing.Point(101, 3);
+            this.btnCanGap.Name = "btnCanGap";
+            this.btnCanGap.Size = new System.Drawing.Size(92, 37);
+            this.btnCanGap.TabIndex = 7;
+            this.btnCanGap.Text = "Cấn gấp";
+            this.btnCanGap.UseVisualStyleBackColor = true;
+            this.btnCanGap.Click += new System.EventHandler(this.btnCanGap_Click);
+            // 
+            // btnDongCuon
+            // 
+            this.btnDongCuon.Location = new System.Drawing.Point(199, 3);
+            this.btnDongCuon.Name = "btnDongCuon";
+            this.btnDongCuon.Size = new System.Drawing.Size(92, 37);
+            this.btnDongCuon.TabIndex = 4;
+            this.btnDongCuon.Text = "Đóng cuốn";
+            this.btnDongCuon.UseVisualStyleBackColor = true;
+            this.btnDongCuon.Click += new System.EventHandler(this.btnDongCuon_Click);
+            // 
+            // btnEpKim
+            // 
+            this.btnEpKim.Location = new System.Drawing.Point(297, 3);
+            this.btnEpKim.Name = "btnEpKim";
+            this.btnEpKim.Size = new System.Drawing.Size(92, 37);
+            this.btnEpKim.TabIndex = 8;
+            this.btnEpKim.Text = "Ép kim";
+            this.btnEpKim.UseVisualStyleBackColor = true;
+            this.btnEpKim.Click += new System.EventHandler(this.btnEpKim_Click);
             // 
             // tabTinhThu
             // 
@@ -297,16 +379,6 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // btnBangGiaInNhanh
-            // 
-            this.btnBangGiaInNhanh.Location = new System.Drawing.Point(297, 46);
-            this.btnBangGiaInNhanh.Name = "btnBangGiaInNhanh";
-            this.btnBangGiaInNhanh.Size = new System.Drawing.Size(92, 37);
-            this.btnBangGiaInNhanh.TabIndex = 12;
-            this.btnBangGiaInNhanh.Text = "Bảng giá In nhanh";
-            this.btnBangGiaInNhanh.UseVisualStyleBackColor = true;
-            this.btnBangGiaInNhanh.Click += new System.EventHandler(this.btnBangGiaInNhanh_Click);
-            // 
             // NhapLieuMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,7 +397,9 @@
             this.menuStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tabCtrl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabChung.ResumeLayout(false);
+            this.tabThanhPham.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.tabTinhThu.ResumeLayout(false);
             this.tabTinhThu.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -345,7 +419,7 @@
         private System.Windows.Forms.Button btnQuanLyGiay;
         private System.Windows.Forms.Button btnBangGiaGiay;
         private System.Windows.Forms.TabControl tabCtrl;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabChung;
         private System.Windows.Forms.TabPage tabTinhThu;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnTinhThu_CanPhu;
@@ -360,6 +434,12 @@
         private System.Windows.Forms.Button btnQLyToInMayDigi;
         private System.Windows.Forms.Button btnKhoSanPham;
         private System.Windows.Forms.Button btnBangGiaInNhanh;
+        private System.Windows.Forms.TabPage tabThanhPham;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Button btnCanPhu;
+        private System.Windows.Forms.Button btnCanGap;
+        private System.Windows.Forms.Button btnDongCuon;
+        private System.Windows.Forms.Button btnEpKim;
 
     }
 }

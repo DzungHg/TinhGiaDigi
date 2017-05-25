@@ -18,9 +18,9 @@ namespace TinhGiaInDAL.RepoTinhGia
             {
                 var nguon = db.NHU_EP_KIM.Select(x => new NhuEpKimBDO
                 {
-                    ID = x.ID,
-                    MaNhaCungCap = x.Ma_nha_cung_cap,
+                    ID = x.ID,                   
                     Ten = x.Ten,
+                    TenNhaCungCap = x.ten_nha_cung_cap,
                     DienGiai = x.Dien_giai,                    
                     GiaMuaCm2 = (int)x.Gia_mua_cm2,
                     IDEPKIM = (int)x.ID_EP_KIM,
@@ -40,8 +40,9 @@ namespace TinhGiaInDAL.RepoTinhGia
                 var nguon = db.NHU_EP_KIM.Where(x => x.ID_EP_KIM == idEpKim).Select(x => new NhuEpKimBDO
                 {
                     ID = x.ID,
-                    MaNhaCungCap = x.Ma_nha_cung_cap,
                     Ten = x.Ten,
+                    MaNhaCungCap = x.Ma_nha_cung_cap,
+                    TenNhaCungCap = x.ten_nha_cung_cap,                   
                     DienGiai = x.Dien_giai,
                     GiaMuaCm2 = (int)x.Gia_mua_cm2,
                     IDEPKIM = (int)x.ID_EP_KIM,
@@ -61,8 +62,9 @@ namespace TinhGiaInDAL.RepoTinhGia
                 var nguon = db.NHU_EP_KIM.Where(x => x.ID == iD).Select(x => new NhuEpKimBDO
                 {
                     ID = x.ID,
-                    MaNhaCungCap = x.Ma_nha_cung_cap,
                     Ten = x.Ten,
+                    MaNhaCungCap = x.Ma_nha_cung_cap,
+                    TenNhaCungCap = x.ten_nha_cung_cap,                   
                     DienGiai = x.Dien_giai,
                     GiaMuaCm2 = (int)x.Gia_mua_cm2,
                     IDEPKIM = (int)x.ID_EP_KIM,
@@ -154,6 +156,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ID = entityBDO.ID;
             entityDAO.Ten = entityBDO.Ten;
             entityDAO.Ma_nha_cung_cap = entityBDO.MaNhaCungCap;
+            entityDAO.ten_nha_cung_cap = entityBDO.TenNhaCungCap;
             entityDAO.Dien_giai = entityBDO.DienGiai;            
             entityDAO.Gia_mua_cm2 = entityBDO.GiaMuaCm2;
             entityDAO.Thu_tu = entityBDO.ThuTu;

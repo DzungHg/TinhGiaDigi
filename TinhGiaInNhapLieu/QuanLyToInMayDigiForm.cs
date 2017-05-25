@@ -35,9 +35,7 @@ namespace TinhGiaInNhapLieu
          
             txtKhoToChayCoTheIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtClickA4_4M.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtClickA4_1M.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtClickA4_6M.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            
             txtQuiSoTrangA4.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDaySoLuongCB.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDayLoiNhuanCB.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -54,9 +52,7 @@ namespace TinhGiaInNhapLieu
             txtVungInCao.KeyPress += new KeyPressEventHandler(InputValidator);
            
             txtQuiSoTrangA4.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtClickA4_1M.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtClickA4_4M.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtClickA4_6M.KeyPress += new KeyPressEventHandler(InputValidator);            
+                
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
             txtTocDoHieuQua.KeyPress += new KeyPressEventHandler(InputValidator);
 
@@ -173,42 +169,7 @@ namespace TinhGiaInNhapLieu
             }
         }
 
-        public int ClickA4_4M
-        {
-            get
-            {
-                return int.Parse(txtClickA4_4M.Text);
-            }
-            set
-            {
-                txtClickA4_4M.Text = value.ToString();
-            }
-        }
-
-        public int ClickA4_1M
-        {
-            get
-            {
-                return int.Parse(txtClickA4_1M.Text);
-            }
-            set
-            {
-                txtClickA4_1M.Text = value.ToString();
-            }
-        }
-
-        public int ClickA4_6M
-        {
-            get
-            {
-                return int.Parse(txtClickA4_6M.Text);
-            }
-            set
-            {
-                txtClickA4_6M.Text = value.ToString();
-            }
-        }
-
+       
         public TinhGiaInClient.FormStateS TinhTrangForm
         {
             get;
@@ -354,9 +315,7 @@ namespace TinhGiaInNhapLieu
             txtDayLoiNhuanCB.IsReadOnly = readOnly;
             txtDaySoLuongNiemYet.ReadOnly = readOnly;
             txtThuTu.ReadOnly = readOnly;
-            txtClickA4_4M.ReadOnly = readOnly;
-            txtClickA4_1M.ReadOnly = readOnly;
-            txtClickA4_6M.ReadOnly = readOnly;
+          
             cboMayIn.ReadOnly = readOnly;
             chkKhongSuDung.ReadOnly = readOnly;
             chkHPIndigo.ReadOnly = readOnly;
@@ -376,9 +335,8 @@ namespace TinhGiaInNhapLieu
                     tb == txtCao || tb == txtVungInRong ||
                     tb == txtVungInCao ||
                     tb == txtTocDoHieuQua ||
-                    tb == txtQuiSoTrangA4 || tb == txtThuTu ||
-                    tb == txtClickA4_4M || tb == txtClickA4_1M ||
-                    tb == txtClickA4_6M )
+                    tb == txtQuiSoTrangA4 || tb == txtThuTu
+                  )
                 {
                     this.DataChanged = true;
 
@@ -416,9 +374,7 @@ namespace TinhGiaInNhapLieu
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
                 //Chỉ thêm số chẵn      
-                if ( tb == txtClickA4_1M ||
-                    tb == txtClickA4_4M || tb == txtClickA4_6M ||
-                    tb == txtTocDoHieuQua || tb == txtThuTu ||
+                if (tb == txtTocDoHieuQua || tb == txtThuTu ||
                     tb == txtQuiSoTrangA4 )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
@@ -437,15 +393,7 @@ namespace TinhGiaInNhapLieu
                         txtTocDoHieuQua.Text = "1";
                
 
-                if (tb == txtClickA4_1M)
-                    if (string.IsNullOrEmpty(txtClickA4_1M.Text.Trim()))
-                        txtClickA4_1M.Text = "0";
-                if (tb == txtClickA4_4M)
-                    if (string.IsNullOrEmpty(txtClickA4_4M.Text.Trim()))
-                        txtClickA4_4M.Text = "0";
-                if (tb == txtClickA4_6M)
-                    if (string.IsNullOrEmpty(txtClickA4_6M.Text.Trim()))
-                        txtClickA4_6M.Text = "0";
+               
                 if (tb == txtQuiSoTrangA4)
                     if (string.IsNullOrEmpty(txtQuiSoTrangA4.Text.Trim()))
                         txtQuiSoTrangA4.Text = "1";
