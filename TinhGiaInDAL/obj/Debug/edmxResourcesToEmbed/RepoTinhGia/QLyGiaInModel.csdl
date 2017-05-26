@@ -334,6 +334,7 @@
     <Property Name="Thu_tu" Type="Int32" />
     <Property Name="ID_EP_KIM" Type="Int32" />
     <NavigationProperty Name="EP_KIM" Relationship="QuanLyGiaInModel.FK_NHU_EP_KIM_EP_KIM" FromRole="NHU_EP_KIM" ToRole="EP_KIM" />
+    <Property Name="ten_nha_cung_cap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_KHUON_EP_KIM_EP_KIM">
     <End Type="QuanLyGiaInModel.EP_KIM" Role="EP_KIM" Multiplicity="0..1" />

@@ -205,6 +205,7 @@
     <EntitySetMapping Name="NHU_EP_KIM">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.NHU_EP_KIM">
         <MappingFragment StoreEntitySet="NHU_EP_KIM">
+          <ScalarProperty Name="ten_nha_cung_cap" ColumnName="ten_nha_cung_cap" />
           <ScalarProperty Name="ID_EP_KIM" ColumnName="ID_EP_KIM" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="Gia_mua_cm2" ColumnName="Gia_mua_cm2" />

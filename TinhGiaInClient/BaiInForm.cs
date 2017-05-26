@@ -406,8 +406,17 @@ namespace TinhGiaInClient
             thongTinBanDau.IdHangKhachHang = baiIn.IdHangKH;
             thongTinBanDau.TinhTrangForm = tinhTrangForm;
             thongTinBanDau.SoLuongSanPham = baiIn.SoLuong;
+            thongTinBanDau.LaInDanhThiep = false;
+            //lấy kích thước sp
+            KichThuocPhang kichThuocSP = new KichThuocPhang();
+            kichThuocSP.Rong = baiIn.CauHinhSP.KhoRongGomLe;
+            kichThuocSP.Dai = baiIn.CauHinhSP.KhoCaoGomLe;
+            thongTinBanDau.KichThuocSanPham = kichThuocSP;
+            //Cập nhật thông tinh cần thiết, cần bao gồm khổ tờ chạy máy in
             thongTinBanDau.ThongTinCanThiet = baiIn.TieuDe + '\r' + '\n'
                 + baiIn.DienGiai + '\r' + '\n'
+                + string.Format("Kích thước SP: {0} x {1}cm" + '\r' + '\n', 
+                        baiIn.CauHinhSP.KhoRongGomLe, baiIn.CauHinhSP.KhoCaoGomLe)
                 + string.Format(" *Số lượng: {0} {1}" + '\r' + '\n', baiIn.SoLuong, baiIn.DonVi)
                 + baiIn.DienGiai + '\r' + '\n'
                 + baiIn.CauHinhSP.TenPhuongPhapIn + '\r' + '\n'

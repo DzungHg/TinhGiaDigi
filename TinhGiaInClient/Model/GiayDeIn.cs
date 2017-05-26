@@ -11,8 +11,17 @@ namespace TinhGiaInClient.Model
     {
         private static int _id = 0;
         public int ID { get; set; }
-
-        public string KhoToChay { get; set; }
+        public float ToChayRong { get; set; }
+        public float ToChayDai { get; set; }
+        public string KhoToChay
+        {
+            get
+            {
+                return string.Format("{0} x {1}cm", this.ToChayRong,
+                    this.ToChayDai);
+            }
+            set { ; }
+        }
         
         public int SoConTrenToChay { get; set; }
         public int SoToChayBuHao { get; set; }
@@ -26,13 +35,14 @@ namespace TinhGiaInClient.Model
         public int SoToLonTong { get; set; }
         public decimal ThanhTienGiay { get; set; }
 
-        public GiayDeIn(string khoToChay, int soConTrenToChay, int soToChayBuHao,
+        public GiayDeIn(float toChayRong, float toChayDai, int soConTrenToChay, int soToChayBuHao,
                     int soToChayLyThuyet, int soToChayTong,
                     bool giayKhachDua, int idGiay,
                     string tenGiayIn, int idBaiIn, int soToChayTrenToLon,
                     int soToLonTong, decimal thanhTienGiay)
         {
-            this.KhoToChay = khoToChay;
+            this.ToChayRong = toChayRong;
+            this.ToChayDai = ToChayDai;
 
             this.SoConTrenToChay = soConTrenToChay;
             this.SoToChayBuHao = soToChayBuHao;

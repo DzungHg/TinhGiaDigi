@@ -241,6 +241,7 @@ namespace TinhGiaInClient
             var thongTinBanDau = new ThongTinBanDauChoGiayIn();
             thongTinBanDau.TinhTrangForm = tinhTrangForm;
             thongTinBanDau.SoLuongSanPham = this.SoLuong * 100;
+            thongTinBanDau.LaInDanhThiep = true;//In danh thiếp để tắt nút tính số con
             thongTinBanDau.IdHangKhachHang = this.IdHangKH;
             thongTinBanDau.IdToIn_MayInChon = 1; //Đưa tượng trưng
             thongTinBanDau.PhuongPhapIn = PhuongPhapInS.Toner;

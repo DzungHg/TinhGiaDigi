@@ -10,12 +10,15 @@ namespace TinhGiaInClient.Model.Support
     {
         public string ThongTinCanThiet { get; set; }
         public int SoLuongSanPham { get; set; }
+        public KichThuocPhang KichThuocSanPham { get; set; }
+        public bool LaInDanhThiep { get; set; }
+
         public int IdHangKhachHang { get; set; }
         public int IdToIn_MayInChon { get; set; }
         public PhuongPhapInS PhuongPhapIn { get; set; }
         public FormStateS TinhTrangForm { get; set; }
   
-        public string KhoMayIn
+       /* public string KhoMayIn
         {
             get
             {
@@ -38,7 +41,7 @@ namespace TinhGiaInClient.Model.Support
                 return khoMayIn;
 
             }
-        }
+        }*/
        
     }
 }

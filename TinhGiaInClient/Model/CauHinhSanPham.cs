@@ -50,7 +50,30 @@ namespace TinhGiaInClient.Model
         public int IdMayIn { get; set; }//Tờ in
         public PhuongPhapInS PhuongPhapIn { get; set; }
         public string TenPhuongPhapIn { get; set; }
-        public string KhoMayIn { get; set; }
+        public string KhoMayIn 
+        {
+            get
+            {
+                var khoMayIn = "";
+                switch (this.PhuongPhapIn)
+                {
+                    case PhuongPhapInS.KhongIn:
+                        khoMayIn = "";
+                        break;
+                    case PhuongPhapInS.Offset:
+                        khoMayIn = OffsetGiaCong.DocTheoId(this.IdMayIn).TenKhoIn;
+                        break;
+                    case PhuongPhapInS.Toner:
+                        khoMayIn = ToInMayDigi.DocTheoId(this.IdMayIn).Ten;
+                        break;
+                    default:
+                        khoMayIn = "";
+                        break;
+                }
+                return khoMayIn;
+            }
+            set { ;}
+        }
 
 
         public string ThongTinCauHinh

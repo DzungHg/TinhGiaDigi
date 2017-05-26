@@ -134,6 +134,7 @@
     <Compile Include="Model\MayInDigi.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\Support\DuLieuTinhGiaInNhanhTheoMay.cs" />
+    <Compile Include="Model\Support\KichThuocPhang.cs" />
     <Compile Include="Model\Support\SoLuongTinh.cs" />
     <Compile Include="Model\Support\SoLuong_Gia.cs" />
     <Compile Include="Model\Support\ThongTinBanDauThanhPham.cs" />

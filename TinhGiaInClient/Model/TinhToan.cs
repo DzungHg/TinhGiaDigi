@@ -230,5 +230,24 @@ namespace TinhGiaInClient.Model
 
             return result;
         }
+        public static int SoConTrenToChayDigi(float giayRong, float giayDai,
+            float conRong, float conDai )
+        {
+            if (giayRong <= 0 || giayDai <= 0 ||
+                conRong <= 0 || conDai <= 0)
+                return 0;
+
+            int kq = 0;
+            int a1 = (int)(giayDai / conDai); //Theo chiều dài
+            int a2 = (int)(giayRong / conRong);
+            int A = a1 * a2;
+            int b1 = (int)(giayDai / conRong);
+            int b2 = (int)(giayRong / conDai);
+            int B = b1 * b2;
+
+            kq = A >= B ? A : B;
+            return kq;
+
+        }
     }
 }

@@ -30,7 +30,8 @@ namespace TinhGiaInClient.Presenter
                     View.SoLuongToChayBuHao = giayDeIn.SoToChayBuHao;
                     View.GiayKhachDua = giayDeIn.GiayKhachDua;                    
                     View.TenGiayIn = giayDeIn.TenGiayIn;
-                    View.KhoToChay = giayDeIn.KhoToChay;
+                    View.ToChayRong = giayDeIn.ToChayRong;
+                    View.ToChayDai = giayDeIn.ToChayDai;
                     View.SoToChayTrenToLon = giayDeIn.SoToChayTrenToLon;
                    
                     break;
@@ -46,6 +47,8 @@ namespace TinhGiaInClient.Presenter
             View.SoLuongToChayBuHao = 1;
             View.SoConTrenToChay = 1;
             View.SoToChayTrenToLon = 1;
+            View.ToChayDai = 1;
+            View.ToChayRong = 1;
 
         }
         public int SoToChayLyThuyetTinh()
@@ -124,7 +127,7 @@ namespace TinhGiaInClient.Presenter
        
         public GiayDeIn DocGiayDeIn()
         {
-            var giayDeIn = new GiayDeIn(View.KhoToChay,
+            var giayDeIn = new GiayDeIn(View.ToChayRong, View.ToChayDai,
                 View.SoConTrenToChay, View.SoLuongToChayBuHao,
                 this.SoToChayLyThuyetTinh(), this.SoToChayTong(),
                 View.GiayKhachDua, View.IdGiay,

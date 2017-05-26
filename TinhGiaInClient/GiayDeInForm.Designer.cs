@@ -44,7 +44,6 @@
             this.txtTenGiayIn = new System.Windows.Forms.TextBox();
             this.lblThanhTien = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtKhoToChay = new System.Windows.Forms.TextBox();
             this.txtThongTinBaiIn = new System.Windows.Forms.TextBox();
             this.lblGiaBan = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,6 +55,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnChonGiay = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtToChayRong = new System.Windows.Forms.TextBox();
+            this.txtToChayDai = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnTinhSoConTrenToChay = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +97,7 @@
             this.txtSoToGiayLon.Name = "txtSoToGiayLon";
             this.txtSoToGiayLon.ReadOnly = true;
             this.txtSoToGiayLon.Size = new System.Drawing.Size(54, 20);
-            this.txtSoToGiayLon.TabIndex = 8;
+            this.txtSoToGiayLon.TabIndex = 9;
             // 
             // label7
             // 
@@ -130,7 +133,7 @@
             this.chkGiayKhach.Location = new System.Drawing.Point(161, 116);
             this.chkGiayKhach.Name = "chkGiayKhach";
             this.chkGiayKhach.Size = new System.Drawing.Size(102, 17);
-            this.chkGiayKhach.TabIndex = 6;
+            this.chkGiayKhach.TabIndex = 7;
             this.chkGiayKhach.Text = "Giấy khách đưa";
             this.chkGiayKhach.UseVisualStyleBackColor = true;
             this.chkGiayKhach.CheckedChanged += new System.EventHandler(this.chkGiayKhach_CheckedChanged);
@@ -138,7 +141,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(272, 36);
+            this.label16.Location = new System.Drawing.Point(307, 33);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(66, 13);
             this.label16.TabIndex = 47;
@@ -146,10 +149,10 @@
             // 
             // txtSoConTrenToIn
             // 
-            this.txtSoConTrenToIn.Location = new System.Drawing.Point(344, 33);
+            this.txtSoConTrenToIn.Location = new System.Drawing.Point(379, 30);
             this.txtSoConTrenToIn.Name = "txtSoConTrenToIn";
             this.txtSoConTrenToIn.Size = new System.Drawing.Size(43, 20);
-            this.txtSoConTrenToIn.TabIndex = 1;
+            this.txtSoConTrenToIn.TabIndex = 3;
             // 
             // label14
             // 
@@ -174,14 +177,14 @@
             this.txtSoToChayBuHao.Location = new System.Drawing.Point(275, 61);
             this.txtSoToChayBuHao.Name = "txtSoToChayBuHao";
             this.txtSoToChayBuHao.Size = new System.Drawing.Size(50, 20);
-            this.txtSoToChayBuHao.TabIndex = 3;
+            this.txtSoToChayBuHao.TabIndex = 4;
             // 
             // txtTenGiayIn
             // 
             this.txtTenGiayIn.Location = new System.Drawing.Point(164, 90);
             this.txtTenGiayIn.Name = "txtTenGiayIn";
             this.txtTenGiayIn.Size = new System.Drawing.Size(260, 20);
-            this.txtTenGiayIn.TabIndex = 5;
+            this.txtTenGiayIn.TabIndex = 6;
             // 
             // lblThanhTien
             // 
@@ -201,13 +204,6 @@
             this.label8.TabIndex = 38;
             this.label8.Text = "B1. Khổ tờ in";
             // 
-            // txtKhoToChay
-            // 
-            this.txtKhoToChay.Location = new System.Drawing.Point(163, 33);
-            this.txtKhoToChay.Name = "txtKhoToChay";
-            this.txtKhoToChay.Size = new System.Drawing.Size(100, 20);
-            this.txtKhoToChay.TabIndex = 0;
-            // 
             // txtThongTinBaiIn
             // 
             this.txtThongTinBaiIn.Location = new System.Drawing.Point(12, 62);
@@ -215,7 +211,7 @@
             this.txtThongTinBaiIn.Name = "txtThongTinBaiIn";
             this.txtThongTinBaiIn.ReadOnly = true;
             this.txtThongTinBaiIn.Size = new System.Drawing.Size(192, 250);
-            this.txtThongTinBaiIn.TabIndex = 26;
+            this.txtThongTinBaiIn.TabIndex = 0;
             // 
             // lblGiaBan
             // 
@@ -275,12 +271,15 @@
             this.txtSoToChayTrenToLon.Location = new System.Drawing.Point(163, 143);
             this.txtSoToChayTrenToLon.Name = "txtSoToChayTrenToLon";
             this.txtSoToChayTrenToLon.Size = new System.Drawing.Size(54, 20);
-            this.txtSoToChayTrenToLon.TabIndex = 7;
+            this.txtSoToChayTrenToLon.TabIndex = 8;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTinhSoConTrenToChay);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtToChayDai);
+            this.groupBox1.Controls.Add(this.txtToChayRong);
             this.groupBox1.Controls.Add(this.btnChonGiay);
-            this.groupBox1.Controls.Add(this.txtKhoToChay);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lblThanhTien);
             this.groupBox1.Controls.Add(this.lblGiaBan);
@@ -313,7 +312,7 @@
             this.btnChonGiay.Location = new System.Drawing.Point(120, 88);
             this.btnChonGiay.Name = "btnChonGiay";
             this.btnChonGiay.Size = new System.Drawing.Size(30, 23);
-            this.btnChonGiay.TabIndex = 4;
+            this.btnChonGiay.TabIndex = 5;
             this.btnChonGiay.Text = "..";
             this.btnChonGiay.UseVisualStyleBackColor = true;
             this.btnChonGiay.Click += new System.EventHandler(this.btnChonGiay_Click);
@@ -326,6 +325,39 @@
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "B3. Chọn giấy";
+            // 
+            // txtToChayRong
+            // 
+            this.txtToChayRong.Location = new System.Drawing.Point(164, 30);
+            this.txtToChayRong.Name = "txtToChayRong";
+            this.txtToChayRong.Size = new System.Drawing.Size(53, 20);
+            this.txtToChayRong.TabIndex = 1;
+            // 
+            // txtToChayDai
+            // 
+            this.txtToChayDai.Location = new System.Drawing.Point(241, 30);
+            this.txtToChayDai.Name = "txtToChayDai";
+            this.txtToChayDai.Size = new System.Drawing.Size(53, 20);
+            this.txtToChayDai.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(223, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 13);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "x";
+            // 
+            // btnTinhSoConTrenToChay
+            // 
+            this.btnTinhSoConTrenToChay.Location = new System.Drawing.Point(428, 28);
+            this.btnTinhSoConTrenToChay.Name = "btnTinhSoConTrenToChay";
+            this.btnTinhSoConTrenToChay.Size = new System.Drawing.Size(45, 23);
+            this.btnTinhSoConTrenToChay.TabIndex = 55;
+            this.btnTinhSoConTrenToChay.Text = "Tính";
+            this.btnTinhSoConTrenToChay.UseVisualStyleBackColor = true;
+            this.btnTinhSoConTrenToChay.Click += new System.EventHandler(this.btnTinhSoConTrenToChay_Click);
             // 
             // GiayDeInForm
             // 
@@ -362,7 +394,6 @@
         private System.Windows.Forms.TextBox txtTenGiayIn;
         private System.Windows.Forms.Label lblThanhTien;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtKhoToChay;
         private System.Windows.Forms.TextBox txtThongTinBaiIn;
         private System.Windows.Forms.Label lblGiaBan;
         private System.Windows.Forms.Label label10;
@@ -379,6 +410,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnChonGiay;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtToChayDai;
+        private System.Windows.Forms.TextBox txtToChayRong;
+        private System.Windows.Forms.Button btnTinhSoConTrenToChay;
 
     }
 }

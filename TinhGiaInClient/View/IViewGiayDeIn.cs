@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient.View
 {
@@ -18,8 +19,11 @@ namespace TinhGiaInClient.View
         string TenGiayIn { get; set; }
         bool GiayKhachDua { get; set; }
         PhuongPhapInS PhuongPhapIn { get; set; }
-        string KhoToChay { get; set; }
+        float ToChayRong { get; set; }
+        float ToChayDai { get; set; }
+       
         int SoLuongSanPham { get; set; }
+        KichThuocPhang KichThuocSanPham { get; set; }
         int SoConTrenToChay { get; set; }
         int SoLuongToChayLyThuyet { get; }
         int SoLuongToChayBuHao { get; set; }

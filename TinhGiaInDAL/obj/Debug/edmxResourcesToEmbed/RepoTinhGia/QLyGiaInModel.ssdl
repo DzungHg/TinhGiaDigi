@@ -250,6 +250,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ten" Type="nvarchar" MaxLength="50" />
     <Property Name="Ma_nha_cung_cap" Type="nvarchar" MaxLength="50" />
+    <Property Name="ten_nha_cung_cap" Type="nvarchar" MaxLength="50" />
     <Property Name="Dien_giai" Type="nvarchar" MaxLength="100" />
     <Property Name="Gia_mua_cm2" Type="int" />
     <Property Name="Thu_tu" Type="int" />
