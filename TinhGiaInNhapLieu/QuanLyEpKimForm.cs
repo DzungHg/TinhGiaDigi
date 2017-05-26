@@ -290,6 +290,13 @@ namespace TinhGiaInNhapLieu
                 }               
 
             }
+            Telerik.WinControls.UI.RadCheckBox chk;
+            if (sender is Telerik.WinControls.UI.RadCheckBox)
+            {
+                chk = (Telerik.WinControls.UI.RadCheckBox)sender;
+                if (chk == chkLaNhuViTinh)
+                    this.DuLieuDaThayDoi = true;
+            }
             
             btnLuu.Enabled = this.DuLieuDaThayDoi;
 

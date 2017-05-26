@@ -83,7 +83,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             string kq = "";
             try
             {
-                kq = KiemTraTrung(entityBDO.Ten);
+                kq = KiemTraTrung(entityBDO.Ten, entityBDO.IDEPKIM);
                 if (kq != "")
                     return kq;
                 NHU_EP_KIM entity = new NHU_EP_KIM();
@@ -107,7 +107,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             {
                 try
                 {
-                    kq = KiemTraTrung(entityBDO.Ten, entityBDO.ID);
+                    kq = KiemTraTrung(entityBDO.Ten, entityBDO.IDEPKIM, entityBDO.ID);
                     if (kq != "")
                         return kq;
                      
@@ -163,10 +163,11 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ID_EP_KIM = entityBDO.IDEPKIM;
 
         }
-        private string KiemTraTrung(string tenNhu, int id = 0)
+        private string KiemTraTrung(string tenNhu, int idEpKim, int id = 0)
         {
             string kq = "";
-            var entity = db.NHU_EP_KIM.SingleOrDefault(x => x.Ten == tenNhu);
+            var entity = db.NHU_EP_KIM.SingleOrDefault(x => x.Ten == tenNhu &&
+                x.ID_EP_KIM == idEpKim);
             if (entity != null && entity.ID != id)
                 kq = string.Format("Tên Ép kim {0} đã có", tenNhu);
             return kq;

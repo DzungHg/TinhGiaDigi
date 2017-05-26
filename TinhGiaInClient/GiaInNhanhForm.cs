@@ -21,6 +21,7 @@ namespace TinhGiaInClient
         {
             InitializeComponent();
             //
+            this.Text = thongTinBanDau.TieuDeForm;
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;
             this.SoToChay = thongTinBanDau.SoToChay;
             this.IdToInDigiChon = thongTinBanDau.IdToIn_MayIn;

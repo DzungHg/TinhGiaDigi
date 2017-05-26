@@ -516,6 +516,7 @@ namespace TinhGiaInClient
             //Bắt đầu
             var thongTinBanDau = new ThongTinBanDauChoGiaIn();
             thongTinBanDau.TinhTrangForm = tinhTrangForm;
+            thongTinBanDau.TieuDeForm = "Giá In nhanh";
             thongTinBanDau.IdHangKhachHang = IdHangKhachHang;
             thongTinBanDau.IdBaiIn = baiIn.ID;
             thongTinBanDau.SoToChay = baiIn.GiayDeInIn.SoToChayTong;

@@ -9,6 +9,7 @@ namespace TinhGiaInClient.Model.Support
     public struct ThongTinBanDauChoGiaIn
     {
         public string ThongTinCanThiet { get; set; }
+        public string TieuDeForm { get; set; }
         public int SoToChay { get; set; }
         public int IdHangKhachHang { get; set; }
         public int IdToIn_MayIn { get; set; }

@@ -369,3 +369,4 @@ E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyCanPhu
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyCanGapForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyDongCuonForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyEpKimForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyNhuEpKimForm.resources

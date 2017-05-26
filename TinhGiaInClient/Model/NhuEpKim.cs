@@ -118,7 +118,8 @@ namespace TinhGiaInClient.Model
         private static void ChuyenDoiNhuEpKimDTOThanhBDO(NhuEpKim nhuEpKim, NhuEpKimBDO nhuEpKimBDO)
         {
             nhuEpKimBDO.ID = nhuEpKim.ID;
-            nhuEpKimBDO.Ten = nhuEpKim.Ten;         
+            nhuEpKimBDO.Ten = nhuEpKim.Ten;
+            nhuEpKimBDO.DienGiai = nhuEpKim.DienGiai;         
             nhuEpKimBDO.GiaMuaCm2 = nhuEpKim.GiaMuaCm2;
             nhuEpKimBDO.MaNhaCungCap = nhuEpKim.MaNhaCungCap;
             nhuEpKimBDO.TenNhaCungCap = nhuEpKim.TenNhaCungCap;

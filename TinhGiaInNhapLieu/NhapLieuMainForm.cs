@@ -89,7 +89,12 @@ namespace TinhGiaInNhapLieu
 
         private void mnuQuanLy_DanhMuc_Click(object sender, EventArgs e)
         {
-           
+            QuanLyDanhMucGiayForm frm = new QuanLyDanhMucGiayForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý NCC và Danh mục Giấy";
+            frm.StartPosition = FormStartPosition.CenterParent;     
+            frm.ShowDialog();
             
         }
 
@@ -145,42 +150,19 @@ namespace TinhGiaInNhapLieu
             return thongTinBanDau;
         }
 
-        private void btnPhoto_Click(object sender, EventArgs e)
-        {
-            QuanLyMarkUpLoiNhuanGiayForm frm = new QuanLyMarkUpLoiNhuanGiayForm();
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Text = "Cài đặt lợi nhuận giấy";
-            frm.ShowDialog();
-        }
-
-        private void btnQuanLyDanhMucGiay_Click(object sender, EventArgs e)
-        {
-            QuanLyDanhMucGiayForm frm = new QuanLyDanhMucGiayForm();
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Text = "Quản lý NCC và Danh mục Giấy";
-            frm.ShowDialog();
-        }
-
+        
+      
         private void btnQuanLyGiay_Click(object sender, EventArgs e)
         {
             QuanLyGiayForm frm = new QuanLyGiayForm();
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Giấy";
+            frm.StartPosition = FormStartPosition.CenterParent;     
             frm.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.View);
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Text = "Bảng giá giấy theo hạng KH ";
-            frm.ShowDialog();
-        }
-
+       
         private void btnTinhThu_CanPhu_Click(object sender, EventArgs e)
         {
             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
@@ -324,6 +306,35 @@ namespace TinhGiaInNhapLieu
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Ép kim";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnLoiNhuanGiay_Click(object sender, EventArgs e)
+        {
+            QuanLyMarkUpLoiNhuanGiayForm frm = new QuanLyMarkUpLoiNhuanGiayForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Cài đặt lợi nhuận giấy";
+            frm.ShowDialog();
+
+        }
+
+        private void btnBangGiaGiay_Click(object sender, EventArgs e)
+        {
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.View);
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Bảng giá giấy theo hạng KH ";
+            frm.ShowDialog();
+        }
+
+        private void btnNhuEpKim_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyNhuEpKimForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Nhũ ép kim ";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

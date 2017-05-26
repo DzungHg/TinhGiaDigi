@@ -128,6 +128,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ma_01 = entityBDO.Ma_01;
             entityDAO.don_vi_tinh = entityBDO.DonViTinh;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
+            entityDAO.La_vi_tinh = entityBDO.LaViTinh;
             entityDAO.Thu_tu = entityBDO.ThuTu;
         }
         #endregion
