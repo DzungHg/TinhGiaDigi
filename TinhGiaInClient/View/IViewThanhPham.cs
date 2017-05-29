@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient.View
 {
     public interface IViewThanhPham
     {
+        int ID { get; set; }
         int IdBaiIn { get; set; }
-        string TenThPhChon { get; set; }
+        int IdThanhPhamChon { get; set; }
+        string TenThanhPhamChon { get; set; }
         LoaiThanhPhamS LoaiThPh { get; set; }
         int IdHangKhachHang { get; set; }
-        string ThongTinHangKH { get; }
-        string ThongTinTyLeMarkUp { get; }
+       
         int SoLuong { get; set; }
         string DonViTinh { get; set; }
-        decimal ThanhTien { get; }
+        decimal ThanhTien { get; set; }
         string ThongTinHoTro { get; set; }
         FormStateS TinhTrangForm { get; set; }
+        MucThanhPham LayMucThanhPham();
       
        
     }

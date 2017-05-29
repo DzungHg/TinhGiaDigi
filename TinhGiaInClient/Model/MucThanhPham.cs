@@ -11,14 +11,11 @@ namespace TinhGiaInClient.Model
         private static int _lastId = 0;
         public int ID { get; set; }
         public int IdBaiIn { get; set; }
-        public LoaiThanhPhamS LoaiThPh { get; set; }
-        public string TenThPh { get; set; }
-        public string TenThPhMoRong { get; set; }
-        public string ThongTinBoSung { get; set; }
+        public LoaiThanhPhamS LoaiThanhPham { get; set; }
+        public int IdThanhPhamChon { get; set; }
+        public string TenThanhPham { get; set; }       
         public int IdHangKhachHang { get; set; }
-        public string ThongTinHangKH { get; set; }
-        public int TyLeMarkUp { get; set; }
-        public string ThongTinTyLeMarkUp { get; set; }
+        public int TyLeMarkUp { get; set; }   
         public int SoLuong { get; set; }
         public string DonViTinh { get; set; }
         public decimal ThanhTien { get; set; }

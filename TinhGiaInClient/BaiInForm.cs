@@ -678,12 +678,8 @@ namespace TinhGiaInClient
         {
             //List view Giá In:            
             lvwThanhPham.Clear();
-            lvwThanhPham.Columns.Add("Id");
-            lvwThanhPham.Columns.Add("IdBaiIn");
-            lvwThanhPham.Columns.Add("Tên Bài In");
-            lvwThanhPham.Columns.Add("Thành phẩm");
-            lvwThanhPham.Columns.Add("Về Hạng KH");
-            lvwThanhPham.Columns.Add("Mark Up");
+            lvwThanhPham.Columns.Add("Id");                        
+            lvwThanhPham.Columns.Add("Thành phẩm");           
             lvwThanhPham.Columns.Add("Số lượng");
             lvwThanhPham.Columns.Add("Thành tiền");
             lvwThanhPham.View = System.Windows.Forms.View.Details;
@@ -702,12 +698,9 @@ namespace TinhGiaInClient
                 lvwThanhPham.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
                 lvwThanhPham.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
                 lvwThanhPham.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-                lvwThanhPham.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-                lvwThanhPham.Columns[4].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwThanhPham.Columns[5].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwThanhPham.Columns[6].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwThanhPham.Columns[7].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-               
+                lvwThanhPham.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+             
+             
                
             }
         }
@@ -857,7 +850,7 @@ namespace TinhGiaInClient
             var baiIn = baiInPres.DocBaiIn();
             var thongTinBanDauThPh = this.thongTinBanDauChoThanhPham(baiIn.ID, baiIn.IdHangKH,
                      baiIn.SoLuong, baiIn.DonVi, baiIn.GiayDeInIn.SoToChayTong,
-                      mucThPh.LoaiThPh, "", FormStateS.Edit, "");
+                      mucThPh.LoaiThanhPham, "", FormStateS.Edit, "");
 
             switch (thongTinBanDauThPh.LoaiThanhPham)
             {
@@ -874,7 +867,7 @@ namespace TinhGiaInClient
                     frm1.StartPosition = FormStartPosition.CenterParent;
                     //Data gởi qua form
                    
-                    frm1.TenThPhChon = mucThPh.TenThPh;
+                    frm1.TenThanhPham = mucThPh.TenThanhPhamChon;
                  
                     //Cần thông tin bổ sung lấy từ bài in và giấy                   
                     frm1.ThongTinHoTro = string.Format("Số tờ giấy in {0} khổ: {1}",
@@ -903,7 +896,7 @@ namespace TinhGiaInClient
                     frm2.StartPosition = FormStartPosition.CenterParent;
                     //Data gởi qua form
                    
-                    frm2.TenThPhChon = mucThPh.TenThPh;
+                    frm2.TenThanhPham = mucThPh.TenThanhPhamChon;
                   
                     frm2.ShowDialog();
                     if (frm2.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -928,7 +921,7 @@ namespace TinhGiaInClient
                     frm3.StartPosition = FormStartPosition.CenterParent;
                     //Data gởi qua form
                   
-                    frm3.TenThPhChon = mucThPh.TenThPh;
+                    frm3.TenThanhPhamChon = mucThPh.TenThanhPhamChon;
                    
                     frm3.ShowDialog();
                     if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
@@ -953,7 +946,7 @@ namespace TinhGiaInClient
                     frm4.StartPosition = FormStartPosition.CenterParent;
                     //Data gởi qua form
                     
-                    frm4.TenThPhChon = mucThPh.TenThPh;
+                    frm4.TenThanhPham = mucThPh.TenThanhPhamChon;
                     
 
                     frm4.ShowDialog();
@@ -978,38 +971,17 @@ namespace TinhGiaInClient
         private void XuLyNutOKClick_FormCanPhu(ThPhCanPhuForm frm)
         {
 
-            var mucCanPhu = new MucThanhPham
-            {
-                IdBaiIn = frm.IdBaiIn,
-                TenThPh = frm.TenThPhChon,
-                TenThPhMoRong = frm.TenCanPhuMoRong,
-                IdHangKhachHang = frm.IdHangKhachHang,
-                ThongTinHangKH = frm.ThongTinHangKH,
-                ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp,
-                LoaiThPh = frm.LoaiThPh,
-                SoLuong = frm.SoLuong,
-                DonViTinh = frm.DonViTinh,
-                ThanhTien = frm.ThanhTien
-            };
+            
             switch (frm.TinhTrangForm)
             {
                 case FormStateS.New:
                     //Add                             
-                    baiInPres.ThemThanhPham(mucCanPhu);
+                    baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
                     //Refer
-                    mucCanPhu = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
-                    mucCanPhu.IdBaiIn = frm.IdBaiIn;
-                    mucCanPhu.TenThPh = frm.TenThPhChon;
-                    mucCanPhu.TenThPhMoRong = frm.TenCanPhuMoRong;
-                    mucCanPhu.IdHangKhachHang = frm.IdHangKhachHang;
-                    mucCanPhu.ThongTinHangKH = frm.ThongTinHangKH;
-                    mucCanPhu.ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp;
-                    mucCanPhu.LoaiThPh = frm.LoaiThPh;
-                    mucCanPhu.SoLuong = frm.SoLuong;
-                    mucCanPhu.DonViTinh = frm.DonViTinh;
-                    mucCanPhu.ThanhTien = frm.ThanhTien;
+                  baiInPres.SuaThanhPham(frm.LayMucThanhPham());
+                   
                     //Không cần cập nhật vì tự động khi Find
 
                     break;
@@ -1029,11 +1001,11 @@ namespace TinhGiaInClient
                     mucThPh = new MucThanhPham
                     {
                         IdBaiIn = frm.IdBaiIn,
-                        TenThPh = frm.TenThPhChon,
+                        TenThanhPhamChon = frm.TenThanhPham,
                         IdHangKhachHang = frm.IdHangKhachHang,
                         ThongTinHangKH = frm.ThongTinHangKH,
                         ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp,
-                        LoaiThPh = frm.LoaiThPh,
+                        LoaiThanhPham = frm.LoaiThPh,
                         SoLuong = frm.SoLuong,
                         DonViTinh = frm.DonViTinh,
                         ThanhTien = frm.ThanhTien
@@ -1044,11 +1016,11 @@ namespace TinhGiaInClient
                     //Tạo 
                     mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucThPh.IdBaiIn = frm.IdBaiIn;
-                    mucThPh.TenThPh = frm.TenThPhChon;
+                    mucThPh.TenThanhPhamChon = frm.TenThanhPham;
                     mucThPh.IdHangKhachHang = frm.IdHangKhachHang;
                     mucThPh.ThongTinHangKH = frm.ThongTinHangKH;
                     mucThPh.ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp;
-                    mucThPh.LoaiThPh = frm.LoaiThPh;
+                    mucThPh.LoaiThanhPham = frm.LoaiThPh;
                     mucThPh.SoLuong = frm.SoLuong;
                     mucThPh.DonViTinh = frm.DonViTinh;
                     mucThPh.ThanhTien = frm.ThanhTien;
@@ -1071,11 +1043,11 @@ namespace TinhGiaInClient
                     mucThPh = new MucThanhPham
                     {
                         IdBaiIn = frm.IdBaiIn,
-                        TenThPh = frm.TenThPhChon,
+                        TenThanhPhamChon = frm.TenThanhPhamChon,
                         IdHangKhachHang = frm.IdHangKhachHang,
                         ThongTinHangKH = frm.ThongTinHangKH,
                         ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp,
-                        LoaiThPh = frm.LoaiThPh,
+                        LoaiThanhPham = frm.LoaiThPh,
                         SoLuong = frm.SoLuong,
                         DonViTinh = frm.DonViTinh,
                         ThanhTien = frm.ThanhTien
@@ -1086,11 +1058,11 @@ namespace TinhGiaInClient
                     //Tạo 
                     mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucThPh.IdBaiIn = frm.IdBaiIn;
-                    mucThPh.TenThPh = frm.TenThPhChon;
+                    mucThPh.TenThanhPhamChon = frm.TenThanhPhamChon;
                     mucThPh.IdHangKhachHang = frm.IdHangKhachHang;
                     mucThPh.ThongTinHangKH = frm.ThongTinHangKH;
                     mucThPh.ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp;
-                    mucThPh.LoaiThPh = frm.LoaiThPh;
+                    mucThPh.LoaiThanhPham = frm.LoaiThPh;
                     mucThPh.SoLuong = frm.SoLuong;
                     mucThPh.DonViTinh = frm.DonViTinh;
                     mucThPh.ThanhTien = frm.ThanhTien;
@@ -1113,11 +1085,11 @@ namespace TinhGiaInClient
                     mucThPh = new MucThanhPham
                     {
                         IdBaiIn = frm.IdBaiIn,
-                        TenThPh = frm.TenThPhChon,
+                        TenThanhPhamChon = frm.TenThanhPham,
                         IdHangKhachHang = frm.IdHangKhachHang,
                         ThongTinHangKH = frm.ThongTinHangKH,
                         ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp,
-                        LoaiThPh = frm.LoaiThPh,
+                        LoaiThanhPham = frm.LoaiThPh,
                         SoLuong = frm.SoLuong,
                         DonViTinh = frm.DonViTinh,
                         ThanhTien = frm.ThanhTien
@@ -1128,11 +1100,11 @@ namespace TinhGiaInClient
                     //Tạo 
                     mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
                     mucThPh.IdBaiIn = frm.IdBaiIn;
-                    mucThPh.TenThPh = frm.TenThPhChon;
+                    mucThPh.TenThanhPhamChon = frm.TenThanhPham;
                     mucThPh.IdHangKhachHang = frm.IdHangKhachHang;
                     mucThPh.ThongTinHangKH = frm.ThongTinHangKH;
                     mucThPh.ThongTinTyLeMarkUp = frm.ThongTinTyLeMarkUp;
-                    mucThPh.LoaiThPh = frm.LoaiThPh;
+                    mucThPh.LoaiThanhPham = frm.LoaiThPh;
                     mucThPh.SoLuong = frm.SoLuong;
                     mucThPh.DonViTinh = frm.DonViTinh;
                     mucThPh.ThanhTien = frm.ThanhTien;

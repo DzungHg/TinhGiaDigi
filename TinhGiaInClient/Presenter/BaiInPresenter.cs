@@ -239,6 +239,7 @@ namespace TinhGiaInClient.Presenter
         //Trình bày list view
         public Dictionary<int, List<string>> TrinhBayThanhPhamS()
         {
+           
             var dict = new Dictionary<int, List<string>>();            
             foreach (MucThanhPham mucThPh in this.ThanhPhamS())
             {
@@ -246,18 +247,18 @@ namespace TinhGiaInClient.Presenter
                 lst.Add(mucThPh.IdBaiIn.ToString());
                 lst.Add(baiIn.TieuDe);
                 var tenTP = "";
-                switch (mucThPh.LoaiThPh)
+                switch (mucThPh.LoaiThanhPham)
                 {
                     case LoaiThanhPhamS.CanPhu:
                         tenTP = mucThPh.TenThPhMoRong;
                         break;
                     default:
-                        tenTP = mucThPh.TenThPh;
+                        tenTP = mucThPh.TenThanhPhamChon;
                         break;
                 }
-                lst.Add(tenTP);
-                lst.Add(mucThPh.ThongTinHangKH);
-                lst.Add(mucThPh.ThongTinTyLeMarkUp);
+                lst.Add(tenTP);           
+               
+               
                 lst.Add(string.Format("{0} {1}", mucThPh.SoLuong, mucThPh.DonViTinh));
                 lst.Add(string.Format("{0:0,0.00}đ", mucThPh.ThanhTien));
 
@@ -268,6 +269,10 @@ namespace TinhGiaInClient.Presenter
         public void ThemThanhPham(MucThanhPham thPham)
         {
             baiIn.Them_ThanhPham(thPham);
+        }
+        public void SuaThanhPham(MucThanhPham thPham)
+        {
+            baiIn.Sua_ThanhPham(thPham);
         }
         public void XoaThanhPham(int idThanhPham)
         {

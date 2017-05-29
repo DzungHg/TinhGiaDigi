@@ -16,22 +16,20 @@ namespace TinhGiaInClient.Model
         
         public CanPhu CanPhu { get; set; }
         public GiaCanPhu(int idBaiIn, LoaiThanhPhamS loaiThanhPham, string tenCanPhu, int idHangKH,
-                string thongTinHangKH, int tyLeMarkUp, string thongTinTyLeMarkUp, int soLuong,
-                string donViTinh, string thongTinBoSung, string tenCanPhuMoRong,
+                int tyLeMarkUp, int soLuong, int idThanhPhamChon,
+                string donViTinh, string thongTinBoSung, 
                 int kieuCanPhu, CanPhu canPhu)
         {
             this.IdBaiIn = idBaiIn;
-            this.LoaiThPh = loaiThanhPham;
-            this.TenThPh = tenCanPhu;
+            this.LoaiThanhPham = loaiThanhPham;
+            this.IdThanhPhamChon = idThanhPhamChon;
             this.IdHangKhachHang = idHangKH;
-            this.TenThPhMoRong = tenCanPhuMoRong;            
-            this.ThongTinHangKH = thongTinHangKH;
+            this.TenThanhPham = tenCanPhu;                 
             this.TyLeMarkUp = tyLeMarkUp;
-            this.ThongTinTyLeMarkUp = thongTinTyLeMarkUp;
+      
             this.SoLuong = soLuong;
             this.DonViTinh = donViTinh;
-            this.KieuCanPhu = kieuCanPhu;
-            this.ThongTinBoSung = thongTinBoSung;
+            this.KieuCanPhu = kieuCanPhu;          
             this.CanPhu = canPhu;
         }
         public GiaCanPhu(int soLuong, string donViTinh, int tyLeMarkUpSales, CanPhu canPhu)

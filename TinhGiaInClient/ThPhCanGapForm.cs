@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient
 {
     public partial class ThPhCanGapForm : Form, IViewGiaCanGap
     {
         CanGapPresenter canGapPres;
-        public ThPhCanGapForm(ThongTinBanDauChoThanhPham thongTinBanDau)
+        public ThPhCanGapForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham = null)
         {
             InitializeComponent();
 
@@ -28,7 +29,7 @@ namespace TinhGiaInClient
             this.IdBaiIn = thongTinBanDau.IdBaiIn;
             this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
 
-            canGapPres = new CanGapPresenter(this);
+            canGapPres = new CanGapPresenter(this, mucThPham);
             canGapPres.KhoiTaoBanDau();
             LoadThanhPham();
             //Envent
@@ -48,15 +49,29 @@ namespace TinhGiaInClient
             set;
         }
 
-        public string ThongTinHangKH
+        public int ID
         {
-            get { return canGapPres.ThongTinHangKH(this.IdHangKhachHang); }
+            get;
+            set;
         }
 
-        public string ThongTinTyLeMarkUp
+        public int IdThanhPhamChon
         {
-            get { return string.Format("{0}%", canGapPres.TyLeMarkUp(this.IdHangKhachHang)); }
+            get { return int.Parse(lbxThanhPham.SelectedValue.ToString()); }
+            set { lbxThanhPham.SelectedValue = value; }
         }
+        public string TenThanhPhamChon
+        {
+            get
+            {
+                return string.Format("{0} {1} đường", lbxThanhPham.Text,
+                    this.SoDuongCan);
+            }
+            set { ;}
+            
+        }
+
+        
          public int SoLuong
         {
             get
@@ -90,16 +105,13 @@ namespace TinhGiaInClient
                  txtSoDuongCan.Text = value.ToString();
              }
          }
-        public string TenThPhChon 
-        {
-            get { return lbxThanhPham.Text; }
-            set {lbxThanhPham.Text = value;}
-        }
+    
        
        
         public decimal ThanhTien
         {
             get { return canGapPres.ThanhTien_ThPh(); }
+            set { ;}
         }
 
 
@@ -122,12 +134,9 @@ namespace TinhGiaInClient
 
         private void LoadThanhPham()
         {
-            //Cán phủ
-            lbxThanhPham.Items.Clear();
-            foreach (KeyValuePair<int, string> kvp in canGapPres.ThanhPhamS())
-            {
-                lbxThanhPham.Items.Add(kvp.Value);
-            }
+            lbxThanhPham.DataSource = canGapPres.ThanhPhamS();
+            lbxThanhPham.ValueMember = "ID";
+            lbxThanhPham.DisplayMember = "Ten";
          
         }
 
@@ -210,8 +219,7 @@ namespace TinhGiaInClient
             var result = true;
             List<string> loiS = new List<string>();
 
-            if (string.IsNullOrEmpty(this.TenThPhChon))
-                loiS.Add("Tên thành phẩm rỗng");
+           
             if (string.IsNullOrEmpty(txtSoLuong.Text))
                 loiS.Add("Số lượng rỗng");
             if (string.IsNullOrEmpty(txtDonViTinh.Text))
@@ -252,5 +260,11 @@ namespace TinhGiaInClient
 
 
 
+
+      
+        public Model.MucThanhPham LayMucThanhPham()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

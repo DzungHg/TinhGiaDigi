@@ -8,8 +8,7 @@ namespace TinhGiaInClient.View
 {
     public interface IViewThPhCanPhu: IViewThanhPham
     {
-        //Bổ sung thêm
-        string TenCanPhuMoRong { get; }
+        //Bổ sung thêm        
         int KieuCanPhu { get; set; }
     }
 }

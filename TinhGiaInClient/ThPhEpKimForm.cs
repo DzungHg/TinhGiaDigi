@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.Model.Support;
+using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient
 {
     public partial class ThPhEpKimForm : Form, IViewThPhEpKim
     {
         ThPhEpKimPresenter epKimPres;
-        public ThPhEpKimForm(ThongTinBanDauChoThanhPham thongTinBanDau)
+        public ThPhEpKimForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham = null)
         {
             InitializeComponent();
 
@@ -28,7 +29,7 @@ namespace TinhGiaInClient
             this.SoLuong = thongTinBanDau.SoLuongSanPham;
             this.DonViTinh = thongTinBanDau.DonViTinh;
 
-            epKimPres = new ThPhEpKimPresenter(this);
+            epKimPres = new ThPhEpKimPresenter(this, mucThPham);
             LoadEpKim();
             epKimPres.KhoiTaoBanDau();
             //Load
@@ -52,6 +53,7 @@ namespace TinhGiaInClient
             
         }
         #region Implement Iview
+        public int ID { get; set; }
         public int IdBaiIn { get; set; }
 
         public int IdHangKhachHang
@@ -91,8 +93,13 @@ namespace TinhGiaInClient
                  txtDonViTinh.Text = value;
              }
          }
+        public int IdThanhPhamChon
+         {
+             get { return int.Parse(cboEpKim.SelectedValue.ToString()); }
+             set { cboEpKim.SelectedValue = value; }
+         }
        
-        public string TenThPhChon //là ép kim
+        public string TenThanhPhamChon //là ép kim
         {
             get { return cboEpKim.Text; }
             set {cboEpKim.Text = value;}
@@ -102,6 +109,7 @@ namespace TinhGiaInClient
         public decimal ThanhTien
         {
             get { return epKimPres.ThanhTien_ThPh(); }
+            set { ;}
         }
 
 
@@ -175,11 +183,9 @@ namespace TinhGiaInClient
         private void LoadEpKim()
         {
             //Cán phủ
-            cboEpKim.Items.Clear();
-            foreach (KeyValuePair<int,string> kvp in epKimPres.ThanhPhamS())
-            {
-                cboEpKim.Items.Add(kvp.Value);
-            }
+            cboEpKim.DataSource = epKimPres.ThanhPhamS();
+            cboEpKim.ValueMember = "ID";
+            cboEpKim.DisplayMember = "Ten";
          
         }
        
@@ -276,8 +282,7 @@ namespace TinhGiaInClient
         {
             var result = true;
             List<string> loiS = new List<string>();
-            if (string.IsNullOrEmpty(this.TenThPhChon))
-                loiS.Add("Tên thành phẩm rỗng");
+            
             if (string.IsNullOrEmpty(txtSoLuong.Text))
                 loiS.Add("Số lượng rỗng");
             if (string.IsNullOrEmpty(txtDonViTinh.Text))
@@ -350,6 +355,11 @@ namespace TinhGiaInClient
             btnOK.Enabled = true;
             CapNhatLabelGia();
         }
+        public MucThanhPham LayMucThanhPham()
+        {
+            return epKimPres.LayMucThanhPham();
+        }
+
         
     }
 }

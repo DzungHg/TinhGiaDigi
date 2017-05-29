@@ -100,7 +100,7 @@
             // 
             this.txtTenGiay.Location = new System.Drawing.Point(358, 38);
             this.txtTenGiay.Name = "txtTenGiay";
-            this.txtTenGiay.Size = new System.Drawing.Size(109, 20);
+            this.txtTenGiay.Size = new System.Drawing.Size(195, 20);
             this.txtTenGiay.TabIndex = 4;
             // 
             // label1

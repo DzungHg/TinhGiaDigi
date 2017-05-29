@@ -10,7 +10,7 @@ namespace TinhGiaInClient.Presenter
     {
         void KhoiTaoBanDau();
 
-        Dictionary<int, string> ThanhPhamS();
+        List<string> ThanhPhamS();
 
 
         int TyLeMarkUp(int idHangKH);

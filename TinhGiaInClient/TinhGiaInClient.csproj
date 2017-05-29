@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Model\BaiIn.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
+    <Compile Include="Model\MucThPhGiaCongNgoai.cs" />
     <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Model\CauHinhGiayIn.cs" />
     <Compile Include="Model\GiaDongCuon.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
+    <Compile Include="Presenter\ThPhGiaCongNgoaiPresenter.cs" />
     <Compile Include="Presenter\GiaDanhThiepPresenter.cs" />
     <Compile Include="Model\BaiInDanhThiep.cs" />
     <Compile Include="Presenter\GiaInNhanhPresenter.cs" />
@@ -213,6 +215,12 @@
     </Compile>
     <Compile Include="ThPhCanPhuForm.Designer.cs">
       <DependentUpon>ThPhCanPhuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThPhGiaCongNgoaiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThPhGiaCongNgoaiForm.Designer.cs">
+      <DependentUpon>ThPhGiaCongNgoaiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\BangGiaInNhanhForm.cs">
       <SubType>Form</SubType>
@@ -282,6 +290,7 @@
     </Compile>
     <Compile Include="View\IViewGiayDeIn.cs" />
     <Compile Include="View\IViewCauHinhSanPham.cs" />
+    <Compile Include="View\IViewThPhGiaCongNgoai.cs" />
     <Compile Include="View\IViewTinhGiaIn.cs" />
     <Compile Include="View\IViewGiaInNhanh.cs" />
     <EmbeddedResource Include="AboutBox.resx">
@@ -323,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ThPhCanPhuForm.resx">
       <DependentUpon>ThPhCanPhuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThPhGiaCongNgoaiForm.resx">
+      <DependentUpon>ThPhGiaCongNgoaiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TinhGiaForm.resx">
       <DependentUpon>TinhGiaForm.cs</DependentUpon>

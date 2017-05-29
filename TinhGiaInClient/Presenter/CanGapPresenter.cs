@@ -13,9 +13,26 @@ namespace TinhGiaInClient.Presenter
     public class CanGapPresenter : IThanhPhamPresenter
     {
         IViewGiaCanGap View = null;
-        public CanGapPresenter(IViewGiaCanGap view)
+        public CanGapPresenter(IViewGiaCanGap view, MucThanhPham mucThPham)
         {
             View = view;
+            if (mucThPham != null)
+            {
+                View.ID = mucThPham.ID;
+                View.IdBaiIn = mucThPham.IdBaiIn;
+                View.IdHangKhachHang = mucThPham.IdHangKhachHang;
+                View.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
+                View.LoaiThPh = mucThPham.LoaiThanhPham;
+                View.SoLuong = mucThPham.SoLuong;
+
+            }
+            switch (View.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    KhoiTaoBanDau();
+                    break;
+
+            }
 
         }
         public void KhoiTaoBanDau()
@@ -27,33 +44,24 @@ namespace TinhGiaInClient.Presenter
 
 
         
-        public int TyLeMarkUp(int idHangKH)
+        public int TyLeMarkUp()
         {
-            return HangKhachHang.LayTheoId(idHangKH).LoiNhuanChenhLech;
+            return HangKhachHang.LayTheoId(View.IdHangKhachHang).LoiNhuanChenhLech;
         }
-        public string ThongTinHangKH(int idHangKH)
-        {
-            return HangKhachHang.LayTheoId(idHangKH).Ten;
-        }
+      
 
-        public Dictionary<int, string> ThanhPhamS()
+        public List<CanGap> ThanhPhamS()
         {
-            Dictionary<int, string> dict = new Dictionary<int, string>();
-            foreach (CanGap cp in CanGap.DocTatCa())
-            {
-                dict.Add(cp.ID, cp.Ten);
-
-            }
-            return dict;
+            return CanGap.DocTatCa();
         }
 
         public decimal ThanhTien_ThPh()
         {
             decimal result = 0;
 
-            var idCanGap = this.ThanhPhamS().FirstOrDefault(x => x.Value == View.TenThPhChon).Key;
-            var canGap = CanGap.DocTheoId(idCanGap);
-            var tyLeMK = this.TyLeMarkUp(View.IdHangKhachHang);
+            
+            var canGap = CanGap.DocTheoId(View.IdThanhPhamChon);
+            var tyLeMK = this.TyLeMarkUp();
             var giaCanGap = new GiaCanGap(View.SoLuong, View.SoDuongCan, tyLeMK, View.DonViTinh, canGap);
             result = giaCanGap.ThanhTienSales();
             return result;
@@ -64,6 +72,20 @@ namespace TinhGiaInClient.Presenter
             if (View.SoLuong <= 0)
                 return 0;
             return ThanhTien_ThPh() / View.SoLuong;
+        }
+        public MucThanhPham LayMucThanhPham()
+        {
+            var mucThPham = new MucThanhPham();
+            mucThPham.IdBaiIn = View.IdBaiIn;
+            mucThPham.TenThanhPham = View.TenThanhPhamChon;
+            mucThPham.IdHangKhachHang = View.IdHangKhachHang;
+            mucThPham.LoaiThanhPham = View.LoaiThPh;
+            mucThPham.SoLuong = View.SoLuong;
+            mucThPham.DonViTinh = View.DonViTinh;
+            mucThPham.ThanhTien = View.ThanhTien;
+            if (View.TinhTrangForm == FormStateS.Edit)
+                mucThPham.ID = View.ID; //Cập nhật lại ID
+            return mucThPham;
         }
     }
 }

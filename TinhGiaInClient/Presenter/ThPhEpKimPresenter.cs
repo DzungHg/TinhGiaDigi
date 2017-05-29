@@ -13,9 +13,27 @@ namespace TinhGiaInClient.Presenter
     public class ThPhEpKimPresenter : IThanhPhamPresenter
     {
         IViewThPhEpKim View = null;
-        public ThPhEpKimPresenter(IViewThPhEpKim view)
+        public ThPhEpKimPresenter(IViewThPhEpKim view, MucThanhPham mucThPham)
         {
             View = view;
+            View = view;
+            if (mucThPham != null)
+            {
+                View.ID = mucThPham.ID;
+                View.IdBaiIn = mucThPham.IdBaiIn;
+                View.IdHangKhachHang = mucThPham.IdHangKhachHang;
+                View.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
+                View.LoaiThPh = mucThPham.LoaiThanhPham;
+                View.SoLuong = mucThPham.SoLuong;
+
+            }
+            switch (View.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    KhoiTaoBanDau();
+                    break;
+
+            }
 
         }
         public void KhoiTaoBanDau()
@@ -37,20 +55,14 @@ namespace TinhGiaInClient.Presenter
             return HangKhachHang.LayTheoId(idHangKH).Ten;
         }
 
-        public Dictionary<int, string> ThanhPhamS()
+        public List<EpKim> ThanhPhamS()
         {
-            Dictionary<int, string> dict = new Dictionary<int, string>();
-            foreach (EpKim ek in EpKim.DocTatCa())
-            {
-                dict.Add(ek.ID, ek.Ten);
-
-            }
-            return dict;
+            return EpKim.DocTatCa();
         }
         public bool LaNhuViTinh()
         {
-            var idEpKim = this.ThanhPhamS().FirstOrDefault(x => x.Value == View.TenThPhChon).Key;
-            var epKim = EpKim.DocTheoId(idEpKim);
+            
+            var epKim = EpKim.DocTheoId(View.IdThanhPhamChon);
             if (epKim.LaNhuViTinh)
                 return true;
             else
@@ -59,8 +71,8 @@ namespace TinhGiaInClient.Presenter
         public decimal ThanhTien_ThPh()
         {
             decimal result = 0;            
-            var idEpKim = this.ThanhPhamS().FirstOrDefault(x => x.Value == View.TenThPhChon).Key;
-            var epKim = EpKim.DocTheoId(idEpKim);
+           
+            var epKim = EpKim.DocTheoId(View.IdThanhPhamChon);
             
             if (View.IdNhuEpKimChon <= 0)
                 return 0;//Không thể không có nhũ
@@ -89,12 +101,12 @@ namespace TinhGiaInClient.Presenter
         public Dictionary<int, List<string>> NhuTheoEpKimS()
         {
             var dict = new Dictionary<int, List<string>>();
-            if (string.IsNullOrEmpty(View.TenThPhChon))
+            if (string.IsNullOrEmpty(View.TenThanhPhamChon))
                 return dict;
             //Qua tiếp
 
-            var idEpKim = this.ThanhPhamS().FirstOrDefault(x => x.Value == View.TenThPhChon).Key;
-            foreach (NhuEpKim nhu in  NhuEpKim.DocTheoIdEpKim(idEpKim))
+           
+            foreach (NhuEpKim nhu in  NhuEpKim.DocTheoIdEpKim(View.IdThanhPhamChon))
             {
                 var lst = new List<string>();
                 lst.Add(nhu.Ten);
@@ -104,6 +116,20 @@ namespace TinhGiaInClient.Presenter
                 dict.Add(nhu.ID, lst);
             }
             return dict;
+        }
+        public MucThanhPham LayMucThanhPham()
+        {
+            var mucThPham = new MucThanhPham();
+            mucThPham.IdBaiIn = View.IdBaiIn;
+            mucThPham.TenThanhPham = View.TenThanhPhamChon;
+            mucThPham.IdHangKhachHang = View.IdHangKhachHang;
+            mucThPham.LoaiThanhPham = View.LoaiThPh;
+            mucThPham.SoLuong = View.SoLuong;
+            mucThPham.DonViTinh = View.DonViTinh;
+            mucThPham.ThanhTien = View.ThanhTien;
+            if (View.TinhTrangForm == FormStateS.Edit)
+                mucThPham.ID = View.ID; //Cập nhật lại ID
+            return mucThPham;
         }
     }
 }
