@@ -243,23 +243,13 @@ namespace TinhGiaInClient.Presenter
             var dict = new Dictionary<int, List<string>>();            
             foreach (MucThanhPham mucThPh in this.ThanhPhamS())
             {
-                var lst = new List<string>();
-                lst.Add(mucThPh.IdBaiIn.ToString());
-                lst.Add(baiIn.TieuDe);
-                var tenTP = "";
-                switch (mucThPh.LoaiThanhPham)
-                {
-                    case LoaiThanhPhamS.CanPhu:
-                        tenTP = mucThPh.TenThPhMoRong;
-                        break;
-                    default:
-                        tenTP = mucThPh.TenThanhPhamChon;
-                        break;
-                }
-                lst.Add(tenTP);           
+                var lst = new List<string>();               
+                               
+                lst.Add(mucThPh.TenThanhPham);           
                
                
-                lst.Add(string.Format("{0} {1}", mucThPh.SoLuong, mucThPh.DonViTinh));
+                lst.Add(string.Format("{0:0,0}", mucThPh.SoLuong));
+                lst.Add(mucThPh.DonViTinh);
                 lst.Add(string.Format("{0:0,0.00}đ", mucThPh.ThanhTien));
 
                 dict.Add(mucThPh.ID, lst);

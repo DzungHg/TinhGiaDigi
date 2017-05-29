@@ -34,6 +34,7 @@ namespace TinhGiaInClient
             epKimPres.KhoiTaoBanDau();
             //Load
             LoadEpKim();
+            cboEpKim.SelectedIndex = -1;
             cboEpKim.SelectedIndex = 0;
             
             //Envent
@@ -69,7 +70,7 @@ namespace TinhGiaInClient
 
         public string ThongTinTyLeMarkUp
         {
-            get { return string.Format("{0}%", epKimPres.TyLeMarkUp(this.IdHangKhachHang)); }
+            get { return string.Format("{0}%", epKimPres.TyLeMarkUp()); }
         }
          public int SoLuong
         {
@@ -93,9 +94,14 @@ namespace TinhGiaInClient
                  txtDonViTinh.Text = value;
              }
          }
+         int _idThanhPhamChon = 0;
         public int IdThanhPhamChon
          {
-             get { return int.Parse(cboEpKim.SelectedValue.ToString()); }
+             get {
+                 if (cboEpKim.SelectedValue != null)
+                     int.TryParse(cboEpKim.SelectedValue.ToString(), out _idThanhPhamChon);
+                 return _idThanhPhamChon; 
+             }
              set { cboEpKim.SelectedValue = value; }
          }
        

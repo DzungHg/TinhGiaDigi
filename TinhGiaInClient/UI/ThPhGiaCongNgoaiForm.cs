@@ -21,10 +21,14 @@ namespace TinhGiaInClient.UI
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.Text = thongTinBanDau.TieuDeForm;
             this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
+           
             this.DonViTinh = thongTinBanDau.DonViTinh;
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
             //Tiếp theo
             thPhamGCongNgoaiPres = new ThPhGiaCongNgoaiPresenter(this, mucThPhGiaCongNgoai);
+            if (this.TinhTrangForm == FormStateS.New)
+                thPhamGCongNgoaiPres.KhoiTaoBanDau();
+
             //Event
             txtTen.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -33,6 +37,7 @@ namespace TinhGiaInClient.UI
             txtPhiGiaCong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtPhiVanChuyen.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtTenNhaCungCap.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            spnTyLeLoiNhuan.ValueChanged += new EventHandler(TextBoxes_TextChanged);
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtPhiGiaCong.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -170,7 +175,7 @@ namespace TinhGiaInClient.UI
                     tb == txtTenNhaCungCap )
                 {
                     this.DuLieuFormThayDoi = true;
-                    
+                    btnOK.Enabled = this.DuLieuFormThayDoi;
 
                 }
                 //Vụ xóa hết
@@ -183,7 +188,11 @@ namespace TinhGiaInClient.UI
                 if (tb == txtPhiVanChuyen)
                     if (string.IsNullOrEmpty(txtPhiVanChuyen.Text.Trim()))
                         txtPhiVanChuyen.Text = "0";
-                
+                //Cập nhật tính toán
+                if (tb == txtPhiGiaCong || tb == txtSoLuong || tb== txtPhiVanChuyen)
+                {
+                    lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhamGCongNgoaiPres.ThanhTien());
+                }
             }
 
             Telerik.WinControls.UI.RadSpinEditor spn;
@@ -197,7 +206,10 @@ namespace TinhGiaInClient.UI
                     
                 }
 
-              
+                if (spn == spnTyLeLoiNhuan)
+                {
+                    lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhamGCongNgoaiPres.ThanhTien());
+                }
 
             }
 
@@ -253,6 +265,11 @@ namespace TinhGiaInClient.UI
         public MucThanhPham LayMucThanhPham()
         {
             return thPhamGCongNgoaiPres.DocMucThPhGiaCongNgoai();
+        }
+
+        private void spnTyLeLoiNhuan_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

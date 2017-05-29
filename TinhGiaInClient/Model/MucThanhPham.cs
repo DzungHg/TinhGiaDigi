@@ -9,7 +9,11 @@ namespace TinhGiaInClient.Model
     public class MucThanhPham
     {
         private static int _lastId = 0;
-        public int ID { get; set; }
+        public int ID
+        {
+            get;
+            set;
+        }
         public int IdBaiIn { get; set; }
         public LoaiThanhPhamS LoaiThanhPham { get; set; }
         public int IdThanhPhamChon { get; set; }
@@ -23,6 +27,7 @@ namespace TinhGiaInClient.Model
         {
             _lastId += 1;
             this.ID = _lastId;
+           
         }
     }
 }

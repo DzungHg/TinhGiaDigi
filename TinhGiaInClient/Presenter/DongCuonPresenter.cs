@@ -36,15 +36,14 @@ namespace TinhGiaInClient.Presenter
         }
         public void KhoiTaoBanDau()
         {
-            View.SoLuong = 10;
-            View.DonViTinh = "Cuốn";
+            ;
             
         }
 
 
-        public int TyLeMarkUp(int idHangKH)
+        public int TyLeMarkUp()
         {
-            return HangKhachHang.LayTheoId(idHangKH).LoiNhuanChenhLech;
+            return HangKhachHang.LayTheoId(View.IdHangKhachHang).LoiNhuanChenhLech;
         }
         public string ThongTinHangKH(int idHangKH)
         {
@@ -60,11 +59,14 @@ namespace TinhGiaInClient.Presenter
 
         public decimal ThanhTien_ThPh()
         {
+            if (View.IdThanhPhamChon <= 0)
+                return 0;
+
             decimal result = 0;
 
            
             var dongCuon = DongCuon.DocTheoId(View.IdThanhPhamChon);
-            var tyLeMK = this.TyLeMarkUp(View.IdHangKhachHang);
+            var tyLeMK = this.TyLeMarkUp();
             var giaDongCuon = new GiaDongCuon(View.SoLuong, tyLeMK, View.DonViTinh, dongCuon);
             result = giaDongCuon.ThanhTienSales();
 
@@ -82,6 +84,7 @@ namespace TinhGiaInClient.Presenter
             var mucThPham = new MucThanhPham();
             mucThPham.IdBaiIn = View.IdBaiIn;
             mucThPham.TenThanhPham = View.TenThanhPhamChon;
+            mucThPham.IdThanhPhamChon = View.IdThanhPhamChon;
             mucThPham.IdHangKhachHang = View.IdHangKhachHang;
             mucThPham.LoaiThanhPham = View.LoaiThPh;
             mucThPham.SoLuong = View.SoLuong;

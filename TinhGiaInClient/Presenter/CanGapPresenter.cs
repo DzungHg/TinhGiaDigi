@@ -13,9 +13,11 @@ namespace TinhGiaInClient.Presenter
     public class CanGapPresenter : IThanhPhamPresenter
     {
         IViewGiaCanGap View = null;
+        //MucThanhPham mucThanhPham;
         public CanGapPresenter(IViewGiaCanGap view, MucThanhPham mucThPham)
         {
             View = view;
+
             if (mucThPham != null)
             {
                 View.ID = mucThPham.ID;
@@ -26,20 +28,24 @@ namespace TinhGiaInClient.Presenter
                 View.SoLuong = mucThPham.SoLuong;
 
             }
+            /*
             switch (View.TinhTrangForm)
             {
                 case FormStateS.New:
-                    KhoiTaoBanDau();
+                    this.mucThanhPham = new MucThanhPham();
                     break;
 
-            }
+            } */
+           
+            
 
         }
         public void KhoiTaoBanDau()
         {
-            View.SoLuong = 50;
-            View.DonViTinh = "Con";
+
             View.SoDuongCan = 1;
+            //View.SoLuong = 1;
+          
         }
 
 
@@ -57,6 +63,9 @@ namespace TinhGiaInClient.Presenter
 
         public decimal ThanhTien_ThPh()
         {
+            if (View.IdThanhPhamChon <= 0)
+                return 0;
+
             decimal result = 0;
 
             
@@ -78,6 +87,7 @@ namespace TinhGiaInClient.Presenter
             var mucThPham = new MucThanhPham();
             mucThPham.IdBaiIn = View.IdBaiIn;
             mucThPham.TenThanhPham = View.TenThanhPhamChon;
+            mucThPham.IdThanhPhamChon = View.IdThanhPhamChon;
             mucThPham.IdHangKhachHang = View.IdHangKhachHang;
             mucThPham.LoaiThanhPham = View.LoaiThPh;
             mucThPham.SoLuong = View.SoLuong;

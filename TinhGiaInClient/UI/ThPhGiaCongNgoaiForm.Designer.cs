@@ -80,7 +80,7 @@
             this.txtTen.Location = new System.Drawing.Point(105, 92);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(217, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTen.TabIndex = 2;
             // 
             // radLabel1
             // 
@@ -104,7 +104,7 @@
             this.txtSoLuong.Location = new System.Drawing.Point(105, 118);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(75, 20);
-            this.txtSoLuong.TabIndex = 2;
+            this.txtSoLuong.TabIndex = 3;
             // 
             // radLabel3
             // 
@@ -119,7 +119,7 @@
             this.txtDonViTinh.Location = new System.Drawing.Point(247, 117);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.Size = new System.Drawing.Size(75, 20);
-            this.txtDonViTinh.TabIndex = 3;
+            this.txtDonViTinh.TabIndex = 4;
             // 
             // radLabel4
             // 
@@ -134,7 +134,7 @@
             this.txtPhiGiaCong.Location = new System.Drawing.Point(105, 142);
             this.txtPhiGiaCong.Name = "txtPhiGiaCong";
             this.txtPhiGiaCong.Size = new System.Drawing.Size(111, 20);
-            this.txtPhiGiaCong.TabIndex = 4;
+            this.txtPhiGiaCong.TabIndex = 5;
             // 
             // radLabel5
             // 
@@ -149,7 +149,7 @@
             this.txtPhiVanChuyen.Location = new System.Drawing.Point(105, 168);
             this.txtPhiVanChuyen.Name = "txtPhiVanChuyen";
             this.txtPhiVanChuyen.Size = new System.Drawing.Size(111, 20);
-            this.txtPhiVanChuyen.TabIndex = 5;
+            this.txtPhiVanChuyen.TabIndex = 6;
             // 
             // radLabel6
             // 
@@ -164,7 +164,7 @@
             this.txtTenNhaCungCap.Location = new System.Drawing.Point(247, 166);
             this.txtTenNhaCungCap.Name = "txtTenNhaCungCap";
             this.txtTenNhaCungCap.Size = new System.Drawing.Size(111, 20);
-            this.txtTenNhaCungCap.TabIndex = 6;
+            this.txtTenNhaCungCap.TabIndex = 7;
             // 
             // radLabel7
             // 
@@ -179,8 +179,9 @@
             this.spnTyLeLoiNhuan.Location = new System.Drawing.Point(105, 194);
             this.spnTyLeLoiNhuan.Name = "spnTyLeLoiNhuan";
             this.spnTyLeLoiNhuan.Size = new System.Drawing.Size(89, 20);
-            this.spnTyLeLoiNhuan.TabIndex = 7;
+            this.spnTyLeLoiNhuan.TabIndex = 8;
             this.spnTyLeLoiNhuan.TabStop = false;
+            this.spnTyLeLoiNhuan.ValueChanged += new System.EventHandler(this.spnTyLeLoiNhuan_ValueChanged);
             // 
             // radLabel8
             // 
@@ -216,6 +217,7 @@
             // 
             // btnOK
             // 
+            this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Location = new System.Drawing.Point(248, 264);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(110, 24);
@@ -224,6 +226,7 @@
             // 
             // btnHuy
             // 
+            this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnHuy.Location = new System.Drawing.Point(105, 264);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(110, 24);
@@ -238,7 +241,7 @@
             this.txtThongTinHoTro.Name = "txtThongTinHoTro";
             this.txtThongTinHoTro.ReadOnly = true;
             this.txtThongTinHoTro.Size = new System.Drawing.Size(217, 43);
-            this.txtThongTinHoTro.TabIndex = 2;
+            this.txtThongTinHoTro.TabIndex = 1;
             // 
             // radLabel11
             // 

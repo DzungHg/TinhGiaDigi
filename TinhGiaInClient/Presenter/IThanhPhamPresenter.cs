@@ -10,13 +10,9 @@ namespace TinhGiaInClient.Presenter
     {
         void KhoiTaoBanDau();
 
-        List<string> ThanhPhamS();
 
-
-        int TyLeMarkUp(int idHangKH);
-
-        string ThongTinHangKH(int idHangKH);
-       
+        int TyLeMarkUp();
+    
         decimal ThanhTien_ThPh();
 
         decimal GiaTB_ThPh();

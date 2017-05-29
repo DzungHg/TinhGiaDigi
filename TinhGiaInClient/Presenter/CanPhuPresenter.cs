@@ -26,19 +26,18 @@ namespace TinhGiaInClient.Presenter
                 View.SoLuong = mucThPham.SoLuong;
                
             }
-            switch (View.TinhTrangForm)
+            /*switch (View.TinhTrangForm)
             {
                 case FormStateS.New:
                     KhoiTaoBanDau();
                     break;
                
-            }
+            }*/
 
         }
         public void KhoiTaoBanDau()
         {
-            View.SoLuong = 50;
-            View.DonViTinh = "Mặt";
+          
             View.KieuCanPhu = 1;
             
         }
@@ -60,7 +59,7 @@ namespace TinhGiaInClient.Presenter
         public decimal ThanhTien_ThPh()
         {
             decimal result = 0;
-            if (View.IdBaiIn <= 0 || View.SoLuong <= 0)
+            if (View.IdBaiIn <= 0 || View.SoLuong <= 0 || View.IdThanhPhamChon <= 0 )
                 return result;
 
             
@@ -86,7 +85,7 @@ namespace TinhGiaInClient.Presenter
         {
             var mucThPham = new MucThanhPham();
             mucThPham.IdBaiIn = View.IdBaiIn;
-            mucThPham.TenThanhPham = View.TenCanPhuMoRong;
+            mucThPham.TenThanhPham = View.TenThanhPhamChon;
             mucThPham.IdHangKhachHang = View.IdHangKhachHang;
             mucThPham.LoaiThanhPham = View.LoaiThPh;
             mucThPham.SoLuong = View.SoLuong;

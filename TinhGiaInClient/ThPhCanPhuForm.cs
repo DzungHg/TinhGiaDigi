@@ -27,10 +27,18 @@ namespace TinhGiaInClient
             this.IdBaiIn = thongTinBanDau.IdBaiIn;
             this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
             this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
+            this.SoLuong = 1;//Lý do cần làm trên khổ A4
+            this.DonViTinh = thongTinBanDau.DonViTinh;
 
             canPhuPres = new CanPhuPresenter(this);
             LoadThanhPham();
-            canPhuPres.KhoiTaoBanDau();
+
+            if (this.TinhTrangForm == FormStateS.New)//Chỉ khi mới
+            {
+                canPhuPres.KhoiTaoBanDau();
+                
+            }
+            
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
            
@@ -46,11 +54,17 @@ namespace TinhGiaInClient
             set;
         }
 
+        int _idThanhPhamChon = 0;
         public int IdThanhPhamChon
         {
             get
             {
-                return int.Parse(lbxCanPhu.SelectedValue.ToString());
+                if (lbxCanPhu.SelectedValue != null)
+                {
+                    int.TryParse(lbxCanPhu.SelectedValue.ToString(), out _idThanhPhamChon);
+                    
+                }
+                return _idThanhPhamChon;
             }
             set
             {

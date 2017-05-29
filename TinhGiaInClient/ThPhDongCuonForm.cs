@@ -31,7 +31,7 @@ namespace TinhGiaInClient
             this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
 
             dongCuonPres = new DongCuonPresenter(this, mucThPham);
-            dongCuonPres.KhoiTaoBanDau();
+            //dongCuonPres.KhoiTaoBanDau();
             LoadThanhPham();
             
             //Envent
@@ -57,10 +57,7 @@ namespace TinhGiaInClient
             get { return dongCuonPres.ThongTinHangKH(this.IdHangKhachHang); }
         }
 
-        public string ThongTinTyLeMarkUp
-        {
-            get { return string.Format("{0}%", dongCuonPres.TyLeMarkUp(this.IdHangKhachHang)); }
-        }
+       
          public int SoLuong
         {
             get
@@ -83,11 +80,15 @@ namespace TinhGiaInClient
                  txtDonViTinh.Text = value;
              }
          }
+         int _idThanhPhamChon = 0;
          public int IdThanhPhamChon
          {
              get
              {
-                 return int.Parse(lbxThanhPham.SelectedValue.ToString());
+                 if (lbxThanhPham.SelectedValue != null)
+                    int.TryParse(lbxThanhPham.SelectedValue.ToString(), out _idThanhPhamChon);
+
+                 return _idThanhPhamChon;
              }
              set
              {

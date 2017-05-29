@@ -119,10 +119,19 @@ namespace TinhGiaInClient.Model
             thPhamSua.IdHangKhachHang = thPham.IdHangKhachHang;
             thPhamSua.LoaiThanhPham = thPham.LoaiThanhPham;
             thPhamSua.SoLuong = thPham.SoLuong;
-            thPhamSua.TenThanhPhamChon = thPham.TenThanhPhamChon;
+            thPhamSua.TenThanhPham = thPham.TenThanhPham;
             thPhamSua.ThanhTien = thPham.ThanhTien;
             thPhamSua.TyLeMarkUp = thPham.TyLeMarkUp;
-            
+            //Trường hợp thành phẩm khác
+            if (thPham is MucThPhGiaCongNgoai)
+            {
+                 var thPhamSuaN = (MucThPhGiaCongNgoai)thPhamSua;
+                var thPhamN = (MucThPhGiaCongNgoai)thPham;
+                //Điền dữ liệu
+                thPhamSuaN.PhiGiaCong = thPhamN.PhiGiaCong;
+                thPhamSuaN.PhiVanChuyen = thPhamN.PhiVanChuyen;
+                thPhamSuaN.TenNhaCungCap = thPhamN.TenNhaCungCap;
+            }
 
         }
         public void Xoa_ThanhPham(MucThanhPham thPham)
@@ -206,7 +215,7 @@ namespace TinhGiaInClient.Model
             decimal thanhTienTP = 0;
             if (this.SoLuongThanhPhamKem() > 0)
             {
-                var nguonTP = this.ThanhPhamS.Select(x => x.TenThanhPhamChon).ToList();
+                var nguonTP = this.ThanhPhamS.Select(x => x.TenThanhPham).ToList();
                 var dvTP = "";
                 var i = 0;
                 foreach (string str in nguonTP)

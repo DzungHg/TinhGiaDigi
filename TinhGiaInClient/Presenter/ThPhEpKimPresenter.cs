@@ -46,9 +46,9 @@ namespace TinhGiaInClient.Presenter
 
 
         
-        public int TyLeMarkUp(int idHangKH)
+        public int TyLeMarkUp()
         {
-            return HangKhachHang.LayTheoId(idHangKH).LoiNhuanChenhLech;
+            return HangKhachHang.LayTheoId(View.IdHangKhachHang).LoiNhuanChenhLech;
         }
         public string ThongTinHangKH(int idHangKH)
         {
@@ -82,7 +82,7 @@ namespace TinhGiaInClient.Presenter
             var giaEpKim = new GiaEpKim(View.SoLuong, View.KhoEpRong, View.KhoEpCao,
                             epKim,nhuEp, mucLoiNhuan);
             
-            decimal tyLeMK = (decimal)this.TyLeMarkUp(View.IdHangKhachHang) / 100;           
+            decimal tyLeMK = (decimal)this.TyLeMarkUp() / 100;           
 
             result = giaEpKim.ThanhTienCoBan(View.SoLuong) +
                 giaEpKim.ThanhTienCoBan(View.SoLuong) * tyLeMK / (1 - tyLeMK);
@@ -122,6 +122,7 @@ namespace TinhGiaInClient.Presenter
             var mucThPham = new MucThanhPham();
             mucThPham.IdBaiIn = View.IdBaiIn;
             mucThPham.TenThanhPham = View.TenThanhPhamChon;
+            mucThPham.IdThanhPhamChon = View.IdThanhPhamChon;
             mucThPham.IdHangKhachHang = View.IdHangKhachHang;
             mucThPham.LoaiThanhPham = View.LoaiThPh;
             mucThPham.SoLuong = View.SoLuong;

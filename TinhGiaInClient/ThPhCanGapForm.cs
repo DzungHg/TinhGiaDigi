@@ -20,24 +20,31 @@ namespace TinhGiaInClient
         public ThPhCanGapForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham = null)
         {
             InitializeComponent();
-
+            
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
-            this.SoLuong = thongTinBanDau.SoLuongSanPham;
             this.Text = thongTinBanDau.TieuDeForm;
-            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
             this.IdBaiIn = thongTinBanDau.IdBaiIn;
+            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
             this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
+            //MessageBox.Show(thongTinBanDau.SoLuongSanPham.ToString());
+            this.SoLuong = thongTinBanDau.SoLuongSanPham;
+            this.DonViTinh = thongTinBanDau.DonViTinh;
+            this.SoDuongCan = 1;
 
             canGapPres = new CanGapPresenter(this, mucThPham);
-            canGapPres.KhoiTaoBanDau();
             LoadThanhPham();
+            
+            if (this.TinhTrangForm == FormStateS.New)
+                canGapPres.KhoiTaoBanDau();
             //Envent
-            txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+           txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoDuongCan.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            lbxThanhPham.SelectedIndexChanged += new EventHandler(ListBoxes_SelectedIndex_Changed);
+
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoDuongCan.KeyPress += new KeyPressEventHandler(InputValidator);     
-            lbxThanhPham.SelectedIndexChanged += new EventHandler(ListBoxes_SelectedIndex_Changed);
+            
             
         }
         #region Implement Iview
@@ -54,10 +61,14 @@ namespace TinhGiaInClient
             get;
             set;
         }
-
+        int _idThanhPhamChon = 0;
         public int IdThanhPhamChon
         {
-            get { return int.Parse(lbxThanhPham.SelectedValue.ToString()); }
+            get { 
+                if (lbxThanhPham.SelectedValue != null)
+                    int.TryParse(lbxThanhPham.SelectedValue.ToString(), out _idThanhPhamChon);
+                return _idThanhPhamChon;
+            }
             set { lbxThanhPham.SelectedValue = value; }
         }
         public string TenThanhPhamChon
@@ -137,6 +148,7 @@ namespace TinhGiaInClient
             lbxThanhPham.DataSource = canGapPres.ThanhPhamS();
             lbxThanhPham.ValueMember = "ID";
             lbxThanhPham.DisplayMember = "Ten";
+           
          
         }
 
@@ -157,7 +169,7 @@ namespace TinhGiaInClient
                         txtSoLuong.Text = "1";
                    
                 }
-                if (tb == txtSoLuong)
+                if (tb == txtSoDuongCan)
                 {
                     if (string.IsNullOrEmpty(txtSoDuongCan.Text.Trim()))
                         txtSoDuongCan.Text = "1";
@@ -258,13 +270,10 @@ namespace TinhGiaInClient
         }
 
 
-
-
-
       
-        public Model.MucThanhPham LayMucThanhPham()
+        public MucThanhPham LayMucThanhPham()
         {
-            throw new NotImplementedException();
+            return canGapPres.LayMucThanhPham();
         }
     }
 }
