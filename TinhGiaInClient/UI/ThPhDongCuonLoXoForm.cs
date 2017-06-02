@@ -242,14 +242,20 @@ namespace TinhGiaInClient.UI
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-                if (tb == txtSoLuong)
+                if (tb == txtSoLuong || tb == txtGayRong)
                 {
-                    //xử lý khi user xóa hết
-                    if (string.IsNullOrEmpty(txtSoLuong.Text))
-                        this.SoLuong = 1;
+                   
 
                     CapNhatLabelGia();
-                }               
+                }
+                //xử lý khi user xóa hết
+                if (tb == txtSoLuong)
+                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        txtSoLuong.Text = "1";
+                if (tb == txtGayRong)
+                    if (string.IsNullOrEmpty(txtGayRong.Text.Trim()))
+                        txtGayRong.Text = "0.5";
+            
             }
             /*Telerik.WinControls.UI.RadListView lv;
             if (sender is Telerik.WinControls.UI.RadListView)
@@ -281,7 +287,7 @@ namespace TinhGiaInClient.UI
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
-                if (t == txtGayDay || t== txtGayRong)//chỉ được số lẻ
+                if (t == txtGayDay)// được số lẻ
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46)
                         e.Handled = true;
@@ -361,23 +367,7 @@ namespace TinhGiaInClient.UI
 
         private void TextBoxes_Leave(object sender, EventArgs e)
         {
-            TextBox t;
-            if (sender is TextBox)
-            {
-                t = (TextBox)sender;
-                if (t == txtSoLuong)
-                    if (string.IsNullOrEmpty(txtSoLuong.Text))
-                        this.SoLuong = 1;
-                if (t == txtGayRong)
-                    if (string.IsNullOrEmpty(txtGayRong.Text))
-                        this.GayRong = 1;
-                if (t == txtGayDay)
-                    if (string.IsNullOrEmpty(txtGayDay.Text))
-                        this.GayDay = 1;
 
-            }
-
-            CapNhatLabelGia();
         }
 
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)
@@ -465,10 +455,6 @@ namespace TinhGiaInClient.UI
                 }
 
             }
-        }
-        private void lstLoXo_SelectedItemChanged(object sender, EventArgs e)
-        {
-            
         }
 
         

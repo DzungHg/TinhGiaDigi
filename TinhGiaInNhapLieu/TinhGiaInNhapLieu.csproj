@@ -77,6 +77,7 @@
     <Compile Include="Presenter\QuanLyCanPhuPresenter.cs" />
     <Compile Include="Presenter\QuanLyKhoSanPhamPresenter.cs" />
     <Compile Include="Presenter\QuanLyBangGiaInNhanhPresenter.cs" />
+    <Compile Include="Presenter\QuanLyLoXoDongCuonPresenter.cs" />
     <Compile Include="Presenter\QuanLyNhuEpKimPresenter.cs" />
     <Compile Include="Presenter\QuanLyToInMayDigiPresenter.cs" />
     <Compile Include="Presenter\QuanLyMayInDigiPresenter.cs" />
@@ -137,6 +138,12 @@
     <Compile Include="QuanLyDanhMucGiayForm.designer.cs">
       <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyLoXoDongCuonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyLoXoDongCuonForm.Designer.cs">
+      <DependentUpon>QuanLyLoXoDongCuonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyNhuEpKimForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +192,7 @@
     <Compile Include="View\IViewQuanLyDMGiay.cs" />
     <Compile Include="View\IViewQuanLyKhoSanPham.cs" />
     <Compile Include="View\IViewQuanLyBangGiaInNhanh.cs" />
+    <Compile Include="View\IViewQuanLyLoXoDongCuon.cs" />
     <Compile Include="View\IViewQuanLyNhuEpKim.cs" />
     <Compile Include="View\IViewQuanLyToInMayDigi.cs" />
     <Compile Include="View\IViewQuanLyMayInDigi.cs" />
@@ -218,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyDanhMucGiayForm.resx">
       <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyLoXoDongCuonForm.resx">
+      <DependentUpon>QuanLyLoXoDongCuonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyNhuEpKimForm.resx">
       <DependentUpon>QuanLyNhuEpKimForm.cs</DependentUpon>

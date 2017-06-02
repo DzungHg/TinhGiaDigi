@@ -136,9 +136,9 @@
             // 
             // txtGayRong
             // 
-            this.txtGayRong.Location = new System.Drawing.Point(96, 107);
+            this.txtGayRong.Location = new System.Drawing.Point(94, 107);
             this.txtGayRong.Name = "txtGayRong";
-            this.txtGayRong.Size = new System.Drawing.Size(60, 20);
+            this.txtGayRong.Size = new System.Drawing.Size(62, 20);
             this.txtGayRong.TabIndex = 2;
             // 
             // label6
@@ -152,15 +152,15 @@
             // 
             // txtGayDay
             // 
-            this.txtGayDay.Location = new System.Drawing.Point(96, 133);
+            this.txtGayDay.Location = new System.Drawing.Point(94, 133);
             this.txtGayDay.Name = "txtGayDay";
-            this.txtGayDay.Size = new System.Drawing.Size(60, 20);
+            this.txtGayDay.Size = new System.Drawing.Size(62, 20);
             this.txtGayDay.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(162, 114);
+            this.label7.Location = new System.Drawing.Point(162, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(21, 13);
             this.label7.TabIndex = 111;
@@ -203,7 +203,6 @@
             this.lstLoXo.TabIndex = 4;
             this.lstLoXo.Text = "radListView1";
             this.lstLoXo.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
-            this.lstLoXo.SelectedItemChanged += new System.EventHandler(this.lstLoXo_SelectedItemChanged);
             this.lstLoXo.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lstLoXo_ColumnCreating);
             // 
             // cboMayLoXo
