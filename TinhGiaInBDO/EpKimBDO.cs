@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInBDO
 {
-    public class EpKimBDO : ThanhPhamBaseBDO
+    public class EpKimBDO : MayThanhPhamBaseBDO
     {
 
         public int TocDoConGio { get; set; }

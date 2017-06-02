@@ -64,6 +64,8 @@
     <EntitySet Name="DS_THANH_PHAM" EntityType="QuanLyGiaInModel.DS_THANH_PHAM" />
     <EntitySet Name="CAN_GAP" EntityType="QuanLyGiaInModel.CAN_GAP" />
     <EntitySet Name="NGUOI_DUNG" EntityType="QuanLyGiaInModel.NGUOI_DUNG" />
+    <EntitySet Name="DONG_CUON_LO_XO" EntityType="QuanLyGiaInModel.DONG_CUON_LO_XO" />
+    <EntitySet Name="LO_XO_DONG_CUON" EntityType="QuanLyGiaInModel.LO_XO_DONG_CUON" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -480,5 +482,33 @@
     <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="cho_hang_khach_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="hieu_luc" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DONG_CUON_LO_XO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BHR" Type="Int32" />
+    <Property Name="toc_do_cuon" Type="Int32" />
+    <Property Name="thoi_gian_chuan_bi" Type="Double" />
+    <Property Name="day_so_luong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="day_loi_nhuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LO_XO_DONG_CUON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten_vong_xoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="kich_co_buoc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="mau_sac" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="cho_do_day" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gia_mua_theo_met" Type="Int32" />
+    <Property Name="thu_tu" Type="Int32" />
   </EntityType>
 </Schema>

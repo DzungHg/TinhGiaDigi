@@ -40,9 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BangGiaDanhThiepLogic.cs" />
+    <Compile Include="DongCuonLoXoLogic.cs" />
     <Compile Include="NguoiDungLogic.cs" />
     <Compile Include="MayInDigiLogic.cs" />
     <Compile Include="MonThanhPhamLogic.cs" />
+    <Compile Include="LoXoDongCuonLogic.cs" />
     <Compile Include="YeuCauTinhGiaInLogic.cs" />
     <Compile Include="NhuEpKimLogic.cs" />
     <Compile Include="KhuonEpKimLogic.cs" />

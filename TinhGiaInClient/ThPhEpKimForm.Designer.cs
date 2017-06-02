@@ -104,9 +104,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(281, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 98;
-            this.label2.Text = "Nhập số lượng";
+            this.label2.Text = "Số lượng";
             // 
             // txtSoLuong
             // 

@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.radLayoutControl1 = new Telerik.WinControls.UI.RadLayoutControl();
+            this.radLayoutControl2 = new Telerik.WinControls.UI.RadLayoutControl();
             this.btnThem = new Telerik.WinControls.UI.RadButton();
             this.btnKeQuaChaoGia = new Telerik.WinControls.UI.RadButton();
             this.btnThoat = new Telerik.WinControls.UI.RadButton();
             this.txtTenNguoiDung = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.dbtnBangGia = new Telerik.WinControls.UI.RadDropDownButton();
+            this.btnBangGiaInNhanh = new Telerik.WinControls.UI.RadMenuButtonItem();
             this.btnBangGiaGiay = new Telerik.WinControls.UI.RadMenuButtonItem();
             this.btnBangGiaThanhPham = new Telerik.WinControls.UI.RadMenuButtonItem();
-            this.btnBangGiaInNhanh = new Telerik.WinControls.UI.RadMenuButtonItem();
+            this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
+            this.btnInNhanhTheoMay = new Telerik.WinControls.UI.RadMenuButtonItem();
             this.layoutControlItem1 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem2 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem4 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem6 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem7 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem8 = new Telerik.WinControls.UI.LayoutControlItem();
-            this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
-            this.radLayoutControl2 = new Telerik.WinControls.UI.RadLayoutControl();
             this.layoutControlItem3 = new Telerik.WinControls.UI.LayoutControlItem();
-            this.btnInNhanhTheoMay = new Telerik.WinControls.UI.RadMenuButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).BeginInit();
             this.radLayoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeQuaChaoGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbtnBangGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,14 @@
             this.radLayoutControl1.Size = new System.Drawing.Size(393, 134);
             this.radLayoutControl1.TabIndex = 0;
             this.radLayoutControl1.Text = "radLayoutControl1";
+            // 
+            // radLayoutControl2
+            // 
+            this.radLayoutControl2.Location = new System.Drawing.Point(199, 88);
+            this.radLayoutControl2.Name = "radLayoutControl2";
+            this.radLayoutControl2.Size = new System.Drawing.Size(191, 43);
+            this.radLayoutControl2.TabIndex = 1;
+            this.radLayoutControl2.Text = "radLayoutControl2";
             // 
             // btnThem
             // 
@@ -141,6 +149,12 @@
             this.dbtnBangGia.Text = "Bảng giá";
             this.dbtnBangGia.Click += new System.EventHandler(this.dbtnBangGia_Click);
             // 
+            // btnBangGiaInNhanh
+            // 
+            this.btnBangGiaInNhanh.Name = "btnBangGiaInNhanh";
+            this.btnBangGiaInNhanh.Text = "In Nhanh";
+            this.btnBangGiaInNhanh.Click += new System.EventHandler(this.btnBangGiaInNhanh_Click);
+            // 
             // btnBangGiaGiay
             // 
             this.btnBangGiaGiay.Name = "btnBangGiaGiay";
@@ -153,11 +167,17 @@
             this.btnBangGiaThanhPham.Text = "Thành phẩm";
             this.btnBangGiaThanhPham.Click += new System.EventHandler(this.btnBangGiaThanhPham_Click);
             // 
-            // btnBangGiaInNhanh
+            // radMenuSeparatorItem1
             // 
-            this.btnBangGiaInNhanh.Name = "btnBangGiaInNhanh";
-            this.btnBangGiaInNhanh.Text = "In Nhanh";
-            this.btnBangGiaInNhanh.Click += new System.EventHandler(this.btnBangGiaInNhanh_Click);
+            this.radMenuSeparatorItem1.Name = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.Text = "radMenuSeparatorItem1";
+            this.radMenuSeparatorItem1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnInNhanhTheoMay
+            // 
+            this.btnInNhanhTheoMay.Name = "btnInNhanhTheoMay";
+            this.btnInNhanhTheoMay.Text = "In Nhanh theo Máy";
+            this.btnInNhanhTheoMay.Click += new System.EventHandler(this.btnInNhanhTheoMay_Click);
             // 
             // layoutControlItem1
             // 
@@ -203,32 +223,12 @@
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Text = "layoutControlItem8";
             // 
-            // radMenuSeparatorItem1
-            // 
-            this.radMenuSeparatorItem1.Name = "radMenuSeparatorItem1";
-            this.radMenuSeparatorItem1.Text = "radMenuSeparatorItem1";
-            this.radMenuSeparatorItem1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // radLayoutControl2
-            // 
-            this.radLayoutControl2.Location = new System.Drawing.Point(199, 88);
-            this.radLayoutControl2.Name = "radLayoutControl2";
-            this.radLayoutControl2.Size = new System.Drawing.Size(191, 43);
-            this.radLayoutControl2.TabIndex = 1;
-            this.radLayoutControl2.Text = "radLayoutControl2";
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.AssociatedControl = this.radLayoutControl2;
             this.layoutControlItem3.Bounds = new System.Drawing.Rectangle(196, 85, 197, 49);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Text = "layoutControlItem3";
-            // 
-            // btnInNhanhTheoMay
-            // 
-            this.btnInNhanhTheoMay.Name = "btnInNhanhTheoMay";
-            this.btnInNhanhTheoMay.Text = "In Nhanh theo Máy";
-            this.btnInNhanhTheoMay.Click += new System.EventHandler(this.btnInNhanhTheoMay_Click);
             // 
             // NavForm
             // 
@@ -245,13 +245,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).EndInit();
             this.radLayoutControl1.ResumeLayout(false);
             this.radLayoutControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKeQuaChaoGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThoat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbtnBangGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

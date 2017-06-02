@@ -115,6 +115,8 @@
     </Compile>
     <Compile Include="Model\BaiIn.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
+    <Compile Include="Model\DongCuonLoXo.cs" />
+    <Compile Include="Model\GiaDongCuonLoXo.cs" />
     <Compile Include="Model\MucThPhGiaCongNgoai.cs" />
     <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Model\CauHinhGiayIn.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Model\IGiaIn.cs" />
     <Compile Include="Model\MayInDigi.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
+    <Compile Include="Model\LoXoDongCuon.cs" />
     <Compile Include="Model\Support\DuLieuTinhGiaInNhanhTheoMay.cs" />
     <Compile Include="Model\Support\KichThuocPhang.cs" />
     <Compile Include="Model\Support\SoLuongTinh.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
+    <Compile Include="Presenter\ThPhDongCuonLoXoPresenter.cs" />
     <Compile Include="Presenter\ThPhGiaCongNgoaiPresenter.cs" />
     <Compile Include="Presenter\GiaDanhThiepPresenter.cs" />
     <Compile Include="Model\BaiInDanhThiep.cs" />
@@ -192,6 +196,18 @@
     <Compile Include="Presenter\CanPhuPresenter.cs" />
     <Compile Include="Presenter\CanGapPresenter.cs" />
     <Compile Include="Presenter\LietKeTinhGiaPresenter.cs" />
+    <Compile Include="UI\BangGiaDongCuonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BangGiaDongCuonForm.Designer.cs">
+      <DependentUpon>BangGiaDongCuonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThPhDongCuonLoXoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThPhDongCuonLoXoForm.Designer.cs">
+      <DependentUpon>ThPhDongCuonLoXoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThPhEpKimForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +272,7 @@
     <Compile Include="View\IViewGiaInNhanhThu.cs" />
     <Compile Include="View\IViewGiaCanGap.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
+    <Compile Include="View\IViewThPhDongCuonLoXo.cs" />
     <Compile Include="View\IViewThPhEpKim.cs" />
     <Compile Include="View\IViewLietKeTinhGia.cs" />
     <Compile Include="View\IViewThanhPham.cs" />
@@ -321,6 +338,12 @@
       <DependentUpon>LietKeBaoGiaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\BangGiaDongCuonForm.resx">
+      <DependentUpon>BangGiaDongCuonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThPhDongCuonLoXoForm.resx">
+      <DependentUpon>ThPhDongCuonLoXoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ThPhEpKimForm.resx">
       <DependentUpon>ThPhEpKimForm.cs</DependentUpon>
     </EmbeddedResource>

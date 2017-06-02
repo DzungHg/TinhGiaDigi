@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient.UI
 {
@@ -25,6 +26,7 @@ namespace TinhGiaInClient.UI
         BangGiaThanhPhamForm frmBangGiaThanhPham;
         BangGiaInNhanhForm frmBangGiaInNhanh;
         BangGiaInNhanhMayForm frmBangGiaInNhanhMay;
+        //BangGiaDongCuonForm frmDongCuonLoXo;
         private string TenMayTinhHienTai()
         {
             return System.Environment.MachineName;
@@ -164,5 +166,7 @@ namespace TinhGiaInClient.UI
             }
             else frmBangGiaInNhanhMay.Focus();
         }
+
+        
     }
 }

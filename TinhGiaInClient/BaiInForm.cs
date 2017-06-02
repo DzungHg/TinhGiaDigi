@@ -1075,6 +1075,220 @@ namespace TinhGiaInClient
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
         }
         #endregion
+        #region Riêng về Đóng cuốn
+        private void ThemDongCuon(int idBaiIn, KieuDongCuonS kieuDongCuon)
+        {
+            if (idBaiIn <= 0)
+                return;
+            //Tìm bài in, gắn vô với đk sp chưa có trong danh sách cấu hình
+            var baiIn = baiInPres.DocBaiIn();
+            //Gắn thoải mái vì có thể in mấy lần ví dụ in mực trắng
+
+            //Kiểm nếu đã có cấu hình mới được gắn
+            if (!baiIn.CoCauHinh)
+            {
+                MessageBox.Show("Chưa có cấu hình Sản phẩm. Bạn cần gắn trước");
+                return;
+            }
+            if (!baiIn.CoGiayIn)
+            {
+                MessageBox.Show("Chưa có giấy. Bạn phải cài giấy trước");
+                return;
+            }
+            var thongTinBanDauThPh = this.thongTinBanDauChoThanhPham(baiIn.ID, baiIn.IdHangKH,
+                        baiIn.SoLuong, baiIn.DonVi, baiIn.GiayDeInIn.SoToChayTong,
+                        LoaiThanhPhamS.CanGap, "", FormStateS.New, "");
+            //Tiến hành gắn
+            switch (kieuDongCuon)
+            {
+                
+                case KieuDongCuonS.LoXo:
+                    var thongDiep3 = string.Format("Số lượng {0} {1}",
+                        baiIn.SoLuong, baiIn.DonVi);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Đóng cuốn";
+                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+                    thongTinBanDauThPh.TieuDeForm = "Đóng cuốn Lò xo";
+
+                    var frm3 = new ThPhDongCuonLoXoForm(thongTinBanDauThPh);
+
+                    frm3.MinimizeBox = false;
+                    frm3.MaximizeBox = false;
+                    frm3.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua ỏm
+                    frm3.IdBaiIn = baiIn.ID;
+                    frm3.IdHangKhachHang = baiIn.IdHangKH;
+                    frm3.ShowDialog();
+                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuonLoXo(frm3);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+                
+            }
+        }
+        private void SuaDongCuon()
+        {/*
+            if (this.IdThanhPhamChon <= 0)
+                return;
+            var mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
+
+            var baiIn = baiInPres.DocBaiIn();
+            var thongTinBanDauThPh = this.thongTinBanDauChoThanhPham(baiIn.ID, baiIn.IdHangKH,
+                     baiIn.SoLuong, baiIn.DonVi, baiIn.GiayDeInIn.SoToChayTong,
+                      mucThPh.LoaiThanhPham, "", FormStateS.Edit, "");
+
+
+            switch (thongTinBanDauThPh.LoaiThanhPham)
+            {
+                case LoaiThanhPhamS.CanPhu:
+                    var thongDiep1 = string.Format("Số tờ giấy in {0} khổ: {1}",
+                       baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Cán phủ";
+
+                    var frm1 = new ThPhCanPhuForm(thongTinBanDauThPh, mucThPh);
+
+                    frm1.MinimizeBox = false;
+                    frm1.MaximizeBox = false;
+                    frm1.StartPosition = FormStartPosition.CenterParent;
+
+
+
+
+                    frm1.ShowDialog();
+                    if (frm1.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormCanPhu(frm1);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+                case LoaiThanhPhamS.CanGap:
+                    var thongDiep2 = string.Format("Số lượng SP: {0} / Số lượng tờ chạy: {1}",
+                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep2;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Cấn gấp";
+                    var frm2 = new ThPhCanGapForm(thongTinBanDauThPh, mucThPh);
+
+                    frm2.Text = "Cấn gấp [Sửa]";
+                    frm2.MinimizeBox = false;
+                    frm2.MaximizeBox = false;
+                    frm2.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua form
+
+                    frm2.TenThanhPhamChon = mucThPh.TenThanhPham;
+
+                    frm2.ShowDialog();
+                    if (frm2.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormCanGap(frm2);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+                case LoaiThanhPhamS.DongCuon:
+                    var thongDiep3 = string.Format("Số lượng {0} {1}",
+                        baiIn.SoLuong, baiIn.DonVi);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Đóng cuốn";
+
+                    var frm3 = new ThPhDongCuonForm(thongTinBanDauThPh, mucThPh);
+
+                    frm3.MinimizeBox = false;
+                    frm3.MaximizeBox = false;
+                    frm3.StartPosition = FormStartPosition.CenterParent;
+
+                    frm3.ShowDialog();
+                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuon(frm3);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+
+                case LoaiThanhPhamS.EpKim:
+                    var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
+                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep4;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Ép kim";
+                    var frm4 = new ThPhEpKimForm(thongTinBanDauThPh, mucThPh);
+
+                    frm4.MinimizeBox = false;
+                    frm4.MaximizeBox = false;
+                    frm4.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua form                   
+
+                    frm4.ShowDialog();
+                    if (frm4.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormEpKim(frm4);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+
+                case LoaiThanhPhamS.GiaCongNgoai:
+                    var thongDiep5 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
+                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep5;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa]";
+                    //Mục thành phẩm riêng
+                    var mucThPhKhac = (MucThPhGiaCongNgoai)baiIn.DocThanhPhamTheoID(this.IdThanhPhamChon);
+
+                    var frm5 = new ThPhGiaCongNgoaiForm(thongTinBanDauThPh, mucThPhKhac);
+
+                    frm5.MinimizeBox = false;
+                    frm5.MaximizeBox = false;
+                    frm5.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua form                   
+
+                    frm5.ShowDialog();
+                    if (frm5.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormThPhamKhac(frm5);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+            }
+            */
+        }
+      
+        private void XuLyNutOKClick_FormDongCuonLoXo(ThPhDongCuonLoXoForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    //Add
+
+                    baiInPres.ThemThanhPham(frm.LayMucThanhPham());
+                    break;
+                case FormStateS.Edit:
+                    baiInPres.SuaThanhPham(frm.LayMucThanhPham());
+
+                    break;
+            }
+            //Cap nhat noi dung bai in
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
+        }
+        #endregion
         #region Ép kim
         private void XuLyNutOKClick_FormEpKim(ThPhEpKimForm frm)
         {
@@ -1249,6 +1463,11 @@ namespace TinhGiaInClient
         {
             if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text))
                 Clipboard.SetText(txtTomTatBaiIn.Text);
+        }
+
+        private void cmnuDongCuon_LoXo_Click(object sender, EventArgs e)
+        {
+            ThemDongCuon(this.ID, KieuDongCuonS.LoXo);
         }
 
        

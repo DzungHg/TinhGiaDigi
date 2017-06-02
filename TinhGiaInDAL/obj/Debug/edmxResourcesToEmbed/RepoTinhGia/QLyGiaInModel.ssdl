@@ -94,6 +94,22 @@
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
+  <EntityType Name="DONG_CUON_LO_XO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="toc_do_cuon" Type="int" />
+    <Property Name="thoi_gian_chuan_bi" Type="float" />
+    <Property Name="day_so_luong" Type="nvarchar(max)" />
+    <Property Name="day_loi_nhuan" Type="nvarchar(max)" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
+    <Property Name="thu_tu" Type="int" />
+  </EntityType>
   <EntityType Name="DS_THANH_PHAM">
     <Key>
       <PropertyRef Name="ID" />
@@ -202,6 +218,18 @@
     <Property Name="Gia_mua" Type="int" />
     <Property Name="Thu_tu" Type="int" />
     <Property Name="ID_EP_KIM" Type="int" />
+  </EntityType>
+  <EntityType Name="LO_XO_DONG_CUON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten_vong_xoan" Type="nvarchar" MaxLength="50" />
+    <Property Name="kich_co_buoc" Type="nvarchar" MaxLength="20" />
+    <Property Name="mau_sac" Type="nvarchar" MaxLength="20" />
+    <Property Name="cho_do_day" Type="nvarchar" MaxLength="50" />
+    <Property Name="gia_mua_theo_met" Type="int" />
+    <Property Name="thu_tu" Type="int" />
   </EntityType>
   <EntityType Name="MARK_UP_LOI_NHUAN_GIAY">
     <Key>
@@ -418,6 +446,7 @@
     <EntitySet Name="CAN_PHU" EntityType="Self.CAN_PHU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DANH_MUC_GIAY" EntityType="Self.DANH_MUC_GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DONG_CUON" EntityType="Self.DONG_CUON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONG_CUON_LO_XO" EntityType="Self.DONG_CUON_LO_XO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DS_THANH_PHAM" EntityType="Self.DS_THANH_PHAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EP_KIM" EntityType="Self.EP_KIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GIAY" EntityType="Self.GIAY" Schema="dbo" store:Type="Tables" />
@@ -425,6 +454,7 @@
     <EntitySet Name="IN_OFFSET_GIA_CONG" EntityType="Self.IN_OFFSET_GIA_CONG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHO_SAN_PHAM" EntityType="Self.KHO_SAN_PHAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KHUON_EP_KIM" EntityType="Self.KHUON_EP_KIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LO_XO_DONG_CUON" EntityType="Self.LO_XO_DONG_CUON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MARK_UP_LOI_NHUAN_GIAY" EntityType="Self.MARK_UP_LOI_NHUAN_GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MAY_IN_DIGI" EntityType="Self.MAY_IN_DIGI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NGUOI_DUNG" EntityType="Self.NGUOI_DUNG" Schema="dbo" store:Type="Tables" />

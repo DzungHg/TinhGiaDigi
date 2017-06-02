@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TinhGiaInClient;
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
+using TinhGiaInClient.UI;
 
 namespace TinhGiaInNhapLieu
 {
@@ -336,6 +337,20 @@ namespace TinhGiaInNhapLieu
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Nhũ ép kim ";
             frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnGiaDongCuonLoXo_Click(object sender, EventArgs e)
+        {
+            var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.DongCuon,
+                FormStateS.View, "Đóng cuốn [Tính thử]", "Cuốn");
+            var frm = new  ThPhDongCuonLoXoForm(thongTinBanDau);
+
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            //Data gởi qua form
             frm.ShowDialog();
         }
     }
