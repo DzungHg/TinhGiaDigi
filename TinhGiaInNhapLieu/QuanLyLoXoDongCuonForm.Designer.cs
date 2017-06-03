@@ -35,13 +35,14 @@
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
-            this.txtGiaMuaCm2 = new Telerik.WinControls.UI.RadTextBox();
+            this.txtGiaMuaMet = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.txtThuTu = new Telerik.WinControls.UI.RadTextBox();
+            this.txtChoDoDay = new Telerik.WinControls.UI.RadTextBox();
             this.txtMauSac = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
-            this.txtMaNhaCC = new Telerik.WinControls.UI.RadTextBox();
+            this.txtKichCoBuoc = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
             this.btnDong = new Telerik.WinControls.UI.RadButton();
             this.btnThem = new Telerik.WinControls.UI.RadButton();
@@ -49,7 +50,6 @@
             this.btnXoa = new Telerik.WinControls.UI.RadButton();
             this.btnHuy = new Telerik.WinControls.UI.RadButton();
             this.lstLoXo = new Telerik.WinControls.UI.RadListView();
-            this.txtChoDoDay = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen_VongXoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
@@ -58,13 +58,14 @@
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaMuaCm2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiaMuaMet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThuTu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChoDoDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMauSac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhaCC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKichCoBuoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
@@ -72,7 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstLoXo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChoDoDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,14 +114,14 @@
             this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
             this.radGroupBox1.Controls.Add(this.radLabel10);
             this.radGroupBox1.Controls.Add(this.radLabel3);
-            this.radGroupBox1.Controls.Add(this.txtGiaMuaCm2);
+            this.radGroupBox1.Controls.Add(this.txtGiaMuaMet);
             this.radGroupBox1.Controls.Add(this.radLabel6);
             this.radGroupBox1.Controls.Add(this.radLabel9);
             this.radGroupBox1.Controls.Add(this.txtThuTu);
             this.radGroupBox1.Controls.Add(this.txtChoDoDay);
             this.radGroupBox1.Controls.Add(this.txtMauSac);
             this.radGroupBox1.Controls.Add(this.radLabel5);
-            this.radGroupBox1.Controls.Add(this.txtMaNhaCC);
+            this.radGroupBox1.Controls.Add(this.txtKichCoBuoc);
             this.radGroupBox1.Controls.Add(this.radLabel4);
             this.radGroupBox1.Controls.Add(this.txtTen_VongXoan);
             this.radGroupBox1.Controls.Add(this.radLabel1);
@@ -148,12 +148,12 @@
             this.radLabel3.TabIndex = 19;
             this.radLabel3.Text = "Giá mua";
             // 
-            // txtGiaMuaCm2
+            // txtGiaMuaMet
             // 
-            this.txtGiaMuaCm2.Location = new System.Drawing.Point(106, 96);
-            this.txtGiaMuaCm2.Name = "txtGiaMuaCm2";
-            this.txtGiaMuaCm2.Size = new System.Drawing.Size(123, 20);
-            this.txtGiaMuaCm2.TabIndex = 6;
+            this.txtGiaMuaMet.Location = new System.Drawing.Point(106, 96);
+            this.txtGiaMuaMet.Name = "txtGiaMuaMet";
+            this.txtGiaMuaMet.Size = new System.Drawing.Size(123, 20);
+            this.txtGiaMuaMet.TabIndex = 6;
             // 
             // radLabel6
             // 
@@ -178,6 +178,15 @@
             this.txtThuTu.Size = new System.Drawing.Size(68, 20);
             this.txtThuTu.TabIndex = 7;
             // 
+            // txtChoDoDay
+            // 
+            this.txtChoDoDay.AutoSize = false;
+            this.txtChoDoDay.Location = new System.Drawing.Point(107, 71);
+            this.txtChoDoDay.Multiline = true;
+            this.txtChoDoDay.Name = "txtChoDoDay";
+            this.txtChoDoDay.Size = new System.Drawing.Size(175, 19);
+            this.txtChoDoDay.TabIndex = 5;
+            // 
             // txtMauSac
             // 
             this.txtMauSac.Location = new System.Drawing.Point(107, 45);
@@ -193,12 +202,12 @@
             this.radLabel5.TabIndex = 9;
             this.radLabel5.Text = "Màu sắc";
             // 
-            // txtMaNhaCC
+            // txtKichCoBuoc
             // 
-            this.txtMaNhaCC.Location = new System.Drawing.Point(379, 21);
-            this.txtMaNhaCC.Name = "txtMaNhaCC";
-            this.txtMaNhaCC.Size = new System.Drawing.Size(67, 20);
-            this.txtMaNhaCC.TabIndex = 3;
+            this.txtKichCoBuoc.Location = new System.Drawing.Point(379, 21);
+            this.txtKichCoBuoc.Name = "txtKichCoBuoc";
+            this.txtKichCoBuoc.Size = new System.Drawing.Size(67, 20);
+            this.txtKichCoBuoc.TabIndex = 3;
             // 
             // radLabel4
             // 
@@ -264,15 +273,6 @@
             this.lstLoXo.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
             this.lstLoXo.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lstLoXo_ColumnCreating);
             // 
-            // txtChoDoDay
-            // 
-            this.txtChoDoDay.AutoSize = false;
-            this.txtChoDoDay.Location = new System.Drawing.Point(107, 71);
-            this.txtChoDoDay.Multiline = true;
-            this.txtChoDoDay.Name = "txtChoDoDay";
-            this.txtChoDoDay.Size = new System.Drawing.Size(175, 19);
-            this.txtChoDoDay.TabIndex = 5;
-            // 
             // QuanLyLoXoDongCuonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,13 +303,14 @@
             this.radGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaMuaCm2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiaMuaMet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThuTu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChoDoDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMauSac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhaCC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKichCoBuoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
@@ -317,7 +318,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstLoXo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChoDoDay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -335,7 +335,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel9;
         private Telerik.WinControls.UI.RadTextBox txtMauSac;
         private Telerik.WinControls.UI.RadLabel radLabel5;
-        private Telerik.WinControls.UI.RadTextBox txtMaNhaCC;
+        private Telerik.WinControls.UI.RadTextBox txtKichCoBuoc;
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadButton btnDong;
         private Telerik.WinControls.UI.RadButton btnThem;
@@ -345,7 +345,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel6;
         private Telerik.WinControls.UI.RadLabel radLabel10;
         private Telerik.WinControls.UI.RadLabel radLabel3;
-        private Telerik.WinControls.UI.RadTextBox txtGiaMuaCm2;
+        private Telerik.WinControls.UI.RadTextBox txtGiaMuaMet;
         private Telerik.WinControls.UI.RadListView lstLoXo;
         private Telerik.WinControls.UI.RadTextBox txtChoDoDay;
     }

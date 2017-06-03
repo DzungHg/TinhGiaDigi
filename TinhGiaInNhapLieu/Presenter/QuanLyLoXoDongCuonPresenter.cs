@@ -18,42 +18,39 @@ namespace TinhGiaInNhapLieu.Presenter
             
         }
        
-        public List<EpKim> EpKimS()
+    
+        public List<LoXoDongCuon> LoXoDongCuonS()
         {
-            return EpKim.DocTatCa();
-        }
-        public List<NhuEpKim> NhuEpKimSTheoEpKim()
-        {
-                       
-             return NhuEpKim.DocTheoIdEpKim(View.IdEpKim);
+
+            return LoXoDongCuon.DocTatCa();
            
         }
         public void TrinhBayThemMoi()
         {
             View.ID = 0;
-            View.Ten = "";
-            View.MaNhaCungCap = "";
-            View.TenNhaCungCap = "";
-            View.GiaMuaCm2 = 1;
-            View.DienGiai = "";
+            View.Ten_VongXoan = "";
+            View.KichCoBuoc = "";
+            View.MauSac = "";
+            View.GiaMuaTheoMet = 1;
+            View.ChoDoDay = "";
            
             View.ThuTu = 100;
         
         }
-        public void TrinhBayChiTietMayIn()
+        public void TrinhBayLoXo()
         {
             if (View.ID <= 0)
                 return;
 
-            var nhuEpKim = NhuEpKim.DocTheoId(View.ID);
-            View.ID = nhuEpKim.ID;
-            View.Ten = nhuEpKim.Ten;
-            View.DienGiai = nhuEpKim.DienGiai;
-            View.MaNhaCungCap = nhuEpKim.MaNhaCungCap;
-            View.TenNhaCungCap = nhuEpKim.TenNhaCungCap;
-            View.GiaMuaCm2 = nhuEpKim.GiaMuaCm2;                     
+            var loXo = LoXoDongCuon.DocTheoId(View.ID);
+            View.ID = loXo.ID;
+            View.Ten_VongXoan = loXo.TenVongXoan;
+            View.ChoDoDay = loXo.ChoDoDay;
+            View.KichCoBuoc = loXo.KichCoBuoc;
+            View.MauSac = loXo.MauSac;
+            View.GiaMuaTheoMet = loXo.GiaMuaTheoMet;                     
             
-            View.ThuTu = nhuEpKim.ThuTu;
+            View.ThuTu = loXo.ThuTu;
            
             
         }
@@ -61,23 +58,23 @@ namespace TinhGiaInNhapLieu.Presenter
         public string Luu()
         {
             var kq = "";
-            NhuEpKim nhuEpKim = new NhuEpKim();
-            nhuEpKim.ID = View.ID;
-            nhuEpKim.Ten = View.Ten;
-            nhuEpKim.DienGiai = View.DienGiai;
-            nhuEpKim.MaNhaCungCap = View.MaNhaCungCap;
-            nhuEpKim.TenNhaCungCap = View.TenNhaCungCap;
-            nhuEpKim.GiaMuaCm2 = View.GiaMuaCm2;
-            nhuEpKim.IDEPKIM = View.IdEpKim;
-            nhuEpKim.ThuTu = View.ThuTu;
+            var loXoDongCuon = new LoXoDongCuon();
+            loXoDongCuon.ID = View.ID;
+            loXoDongCuon.TenVongXoan = View.Ten_VongXoan;
+            loXoDongCuon.ChoDoDay = View.ChoDoDay;
+            loXoDongCuon.KichCoBuoc = View.KichCoBuoc;
+            loXoDongCuon.MauSac = View.MauSac;
+            loXoDongCuon.GiaMuaTheoMet = View.GiaMuaTheoMet;
+            
+            loXoDongCuon.ThuTu = View.ThuTu;
            
             switch (View.TinhTrangForm)
             {
                 case TinhGiaInClient.FormStateS.Edit:                                     
-                    kq = NhuEpKim.Sua(nhuEpKim);
+                    kq = LoXoDongCuon.Sua(loXoDongCuon);
                     break;
                 case TinhGiaInClient.FormStateS.New:
-                    kq = NhuEpKim.Them(nhuEpKim);
+                    kq = LoXoDongCuon.Them(loXoDongCuon);
                     break;
 
             }

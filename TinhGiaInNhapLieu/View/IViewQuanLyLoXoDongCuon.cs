@@ -10,12 +10,12 @@ namespace TinhGiaInNhapLieu.View
     public interface IViewQuanLyLoXoDongCuon
     {
         int ID { get; set; }
-        string Ten { get; set; }
-        string MaNhaCungCap { get; set; }
-        string TenNhaCungCap { get; set; }
-        string DienGiai { get; set; }
-        int GiaMuaCm2 { get; set; }
-        int IdEpKim { get; set; }
+        string Ten_VongXoan { get; set; }
+        string KichCoBuoc { get; set; }
+        string MauSac { get; set; }
+        string ChoDoDay { get; set; }
+        int GiaMuaTheoMet { get; set; }
+       
         int ThuTu { get; set; }
         FormStateS TinhTrangForm { get; set; }
         bool DataChanged { get; set; }

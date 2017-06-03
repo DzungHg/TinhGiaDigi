@@ -17,20 +17,17 @@ namespace TinhGiaInClient.UI
     public partial class ThPhDongCuonLoXoForm : Telerik.WinControls.UI.RadForm, IViewThPhDongCuonLoXo
     {
         ThPhDongCuonLoXoPresenter thPhLoXoPres;
-        public ThPhDongCuonLoXoForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham = null)
+        public ThPhDongCuonLoXoForm(ThongTinBanDauDongCuon thongTinBanDau, MucDongCuonLoXo mucThPhamDongCuon)
         {
             InitializeComponent();
 
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
             this.IdBaiIn = thongTinBanDau.IdBaiIn;
-            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
-            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
+           
             this.Text = thongTinBanDau.TieuDeForm;
-            this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
-            this.SoLuong = thongTinBanDau.SoLuongSanPham;
-            this.DonViTinh = thongTinBanDau.DonViTinh;
+          
 
-            thPhLoXoPres = new ThPhDongCuonLoXoPresenter(this, mucThPham);
+            thPhLoXoPres = new ThPhDongCuonLoXoPresenter(this, mucThPhamDongCuon);
             LoadDongCuonLoXo();
             //Load Nhu ep
             LoadLoXoDongCuon();
@@ -128,6 +125,11 @@ namespace TinhGiaInClient.UI
 
 
         public LoaiThanhPhamS LoaiThPh
+        {
+            get;
+            set;
+        }
+        public KieuDongCuonS KieuDongCuon
         {
             get;
             set;
@@ -304,7 +306,7 @@ namespace TinhGiaInClient.UI
                 SoLuong -= 1;
                 SoLuong += 1;
             }
-            txtSoLuong.Enabled = false;
+            txtSoLuong.Enabled = true;
             txtDonViTinh.Enabled = false;
             btnNhan.Enabled = false;
             
@@ -401,7 +403,7 @@ namespace TinhGiaInClient.UI
             {
                 e.Column.HeaderText = "Vòng xoắn";
             
-                e.Column.Width = 90;
+                e.Column.Width = 120;
             }
 
             if (e.Column.FieldName == "KichCoBuoc")

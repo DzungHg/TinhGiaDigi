@@ -1075,7 +1075,8 @@ namespace TinhGiaInClient
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
         }
         #endregion
-        #region Riêng về Đóng cuốn
+        #region Riêng về Đóng cuốn R2
+        
         private void ThemDongCuon(int idBaiIn, KieuDongCuonS kieuDongCuon)
         {
             if (idBaiIn <= 0)
@@ -1095,9 +1096,15 @@ namespace TinhGiaInClient
                 MessageBox.Show("Chưa có giấy. Bạn phải cài giấy trước");
                 return;
             }
-            var thongTinBanDauThPh = this.thongTinBanDauChoThanhPham(baiIn.ID, baiIn.IdHangKH,
-                        baiIn.SoLuong, baiIn.DonVi, baiIn.GiayDeInIn.SoToChayTong,
-                        LoaiThanhPhamS.CanGap, "", FormStateS.New, "");
+            var thongTinBanDauThPh = new ThongTinBanDauDongCuon();
+            var mucDongCuon = new MucDongCuonLoXo();
+            mucDongCuon.IdBaiIn = baiIn.ID;
+            mucDongCuon.IdHangKhachHang = baiIn.IdHangKH;
+            mucDongCuon.SoLuong = 10; //Vì số lượng có thể không trùng
+            mucDongCuon.DonViTinh = "cuốn";
+            mucDongCuon.GayCao = 10;
+            mucDongCuon.GayDay = 0.5f;
+           
             //Tiến hành gắn
             switch (kieuDongCuon)
             {
@@ -1106,11 +1113,11 @@ namespace TinhGiaInClient
                     var thongDiep3 = string.Format("Số lượng {0} {1}",
                         baiIn.SoLuong, baiIn.DonVi);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
-                    thongTinBanDauThPh.TieuDeForm = "[Mới] Đóng cuốn";
-                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
-                    thongTinBanDauThPh.TieuDeForm = "Đóng cuốn Lò xo";
-
-                    var frm3 = new ThPhDongCuonLoXoForm(thongTinBanDauThPh);
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Cuốn Lò xo";                  
+                    thongTinBanDauThPh.TinhTrangForm = FormStateS.New;
+                    //điều chỉnh mục thành phẩm
+                    mucDongCuon.KieuDongCuon = KieuDongCuonS.LoXo;
+                    var frm3 = new ThPhDongCuonLoXoForm(thongTinBanDauThPh, mucDongCuon);
 
                     frm3.MinimizeBox = false;
                     frm3.MaximizeBox = false;
@@ -1132,7 +1139,7 @@ namespace TinhGiaInClient
             }
         }
         private void SuaDongCuon()
-        {/*
+        {
             if (this.IdThanhPhamChon <= 0)
                 return;
             var mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
@@ -1267,7 +1274,7 @@ namespace TinhGiaInClient
                     }
                     break;
             }
-            */
+            
         }
       
         private void XuLyNutOKClick_FormDongCuonLoXo(ThPhDongCuonLoXoForm frm)

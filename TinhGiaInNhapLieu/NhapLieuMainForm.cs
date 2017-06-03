@@ -353,5 +353,15 @@ namespace TinhGiaInNhapLieu
             //Data gởi qua form
             frm.ShowDialog();
         }
+
+        private void btnQuanLyLoXo_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyLoXoDongCuonForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Lò xo ";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }

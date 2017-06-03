@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Telerik.WinControls;
 using TinhGiaInNhapLieu.View;
 using TinhGiaInNhapLieu.Presenter;
+using TinhGiaInClient.Model;
 
 
 namespace TinhGiaInNhapLieu
@@ -20,18 +21,20 @@ namespace TinhGiaInNhapLieu
             InitializeComponent();
             quanLyKhoPres = new QuanLyLoXoDongCuonPresenter(this);
 
-            LoadEpKim();
+            LoadLoXo();
            
 
             //Event
             txtTen_VongXoan.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtMaNhaCC.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtKichCoBuoc.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtMauSac.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtDienGiai.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtGiaMuaCm2.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtChoDoDay.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtGiaMuaMet.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
+            lstLoXo.SelectedIndexChanged += new EventHandler(ListViews_SelectedIndexChanged);
 
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtGiaMuaCm2.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtGiaMuaMet.KeyPress += new KeyPressEventHandler(InputValidator);
             
         }
         QuanLyLoXoDongCuonPresenter quanLyKhoPres;
@@ -39,13 +42,17 @@ namespace TinhGiaInNhapLieu
         int _idNhuEpKim = 0;
         public int ID
         {
-            get { if (lstNhuEpKim.SelectedValue != null)
-                int.TryParse(lstNhuEpKim.SelectedValue.ToString(), out _idNhuEpKim) ;
+            get { 
+                if (lstLoXo.SelectedItems.Count > 0)
+                {
+                    var item = (LoXoDongCuon)lstLoXo.SelectedItems[0].DataBoundItem;
+                    _idNhuEpKim = item.ID;
+                }
             return _idNhuEpKim;
             }
             set { _idNhuEpKim = value; }
         }
-        public string Ten
+        public string Ten_VongXoan
         {
             get
             {
@@ -57,19 +64,19 @@ namespace TinhGiaInNhapLieu
             }
         }
 
-        public string MaNhaCungCap
+        public string KichCoBuoc
         {
             get
             {
-                return txtMaNhaCC.Text;
+                return txtKichCoBuoc.Text;
             }
             set
             {
-                txtMaNhaCC.Text = value;
+                txtKichCoBuoc.Text = value;
             }
         }
 
-        public string TenNhaCungCap
+        public string MauSac
         {
             get
             {
@@ -81,44 +88,30 @@ namespace TinhGiaInNhapLieu
             }
         }
 
-        public string DienGiai
+        public string ChoDoDay
         {
             get
             {
-                return txtDienGiai.Text;
+                return txtChoDoDay.Text;
             }
             set
             {
-                txtDienGiai.Text = value;
+                txtChoDoDay.Text = value;
             }
         }     
 
-        public int GiaMuaCm2
+        public int GiaMuaTheoMet
         {
             get
             {
-                return int.Parse(txtGiaMuaCm2.Text);
+                return int.Parse(txtGiaMuaMet.Text);
             }
             set
             {
-                txtGiaMuaCm2.Text = value.ToString();
+                txtGiaMuaMet.Text = value.ToString();
             }
         }
-        int _idEpKim = 0;
-        public int IdEpKim
-        {
-            get {
-                if ( cboEpKim.SelectedValue != null)
-                    int.TryParse(cboEpKim.SelectedValue.ToString(), out _idEpKim);
-                return _idEpKim;
-            }
-            set
-            {
-                _idEpKim = value;
-                if (_idEpKim >0)
-                    cboEpKim.SelectedValue = value; 
-            }
-        }
+      
        
 
         public int ThuTu
@@ -148,19 +141,13 @@ namespace TinhGiaInNhapLieu
         }
         #endregion
 
-        private void LoadEpKim()
+    
+        private void LoadLoXo()
         {
 
-            cboEpKim.DataSource = quanLyKhoPres.EpKimS();
-            cboEpKim.ValueMember = "ID";
-            cboEpKim.DisplayMember = "Ten";
-        }
-        private void LoadNhuEpKim()
-        {
-
-            lstNhuEpKim.DataSource = quanLyKhoPres.NhuEpKimSTheoEpKim();
-            lstNhuEpKim.ValueMember = "ID";
-            lstNhuEpKim.DisplayMember = "Ten";
+            lstLoXo.DataSource = quanLyKhoPres.LoXoDongCuonS();
+            lstLoXo.ValueMember = "ID";
+            lstLoXo.DisplayMember = "TenVongXoan";
            
          
             
@@ -168,9 +155,9 @@ namespace TinhGiaInNhapLieu
         private void DatReadOnlyTextBox(bool readOnly)
         {
             txtTen_VongXoan.ReadOnly = readOnly;
-            txtMaNhaCC.ReadOnly = readOnly;
+            txtKichCoBuoc.ReadOnly = readOnly;
             txtMauSac.ReadOnly = readOnly;
-            txtDienGiai.ReadOnly = readOnly;
+            txtChoDoDay.ReadOnly = readOnly;
             txtThuTu.ReadOnly = readOnly;
         }
         private void XoaSachNoiDungTatCaTextBox()
@@ -183,26 +170,26 @@ namespace TinhGiaInNhapLieu
             if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen_VongXoan || tb == txtMaNhaCC ||
-                    tb == txtMauSac || tb == txtDienGiai ||
-                   tb == txtThuTu || tb == txtGiaMuaCm2 )
+                if (tb == txtTen_VongXoan || tb == txtKichCoBuoc ||
+                    tb == txtMauSac || tb == txtChoDoDay ||
+                   tb == txtThuTu || tb == txtGiaMuaMet )
                    
                 {
                     this.DataChanged = true;
                    
                 }
                 //Xử lý  bị xóa hêt
-                if (tb == txtMaNhaCC)
-                    if (string.IsNullOrEmpty(txtMaNhaCC.Text.Trim()))
-                        txtMaNhaCC.Text = "Mã";
+                if (tb == txtKichCoBuoc)
+                    if (string.IsNullOrEmpty(txtKichCoBuoc.Text.Trim()))
+                        txtKichCoBuoc.Text = "xx";
 
                 if (tb == txtMauSac)
                     if (string.IsNullOrEmpty(txtMauSac.Text.Trim()))
-                        txtMauSac.Text = "NCC";
+                        txtMauSac.Text = "Trắng";
 
-                if (tb == txtGiaMuaCm2)
-                    if (string.IsNullOrEmpty(txtGiaMuaCm2.Text.Trim()))
-                        txtGiaMuaCm2.Text = "1";
+                if (tb == txtGiaMuaMet)
+                    if (string.IsNullOrEmpty(txtGiaMuaMet.Text.Trim()))
+                        txtGiaMuaMet.Text = "1";
                 
                 if (tb == txtThuTu)
                     if (string.IsNullOrEmpty(txtThuTu.Text.Trim()))
@@ -219,7 +206,7 @@ namespace TinhGiaInNhapLieu
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
                 //Chỉ thêm số chẵn      
-                if ( tb == txtThuTu || tb == txtGiaMuaCm2 )//chỉ được nhập số chẵn 
+                if ( tb == txtThuTu || tb == txtGiaMuaMet )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
@@ -252,16 +239,16 @@ namespace TinhGiaInNhapLieu
             btnXoa.Enabled = true;
             btnHuy.Enabled = false;
             DatReadOnlyTextBox(true);            
-            cboEpKim.Enabled = true;
-            lstNhuEpKim.Enabled = true;
-            LoadEpKim();
+            
+            lstLoXo.Enabled = true;
+            LoadLoXo();
         }
 
         private void radButton1_Click(object sender, EventArgs e)
         {
             this.TinhTrangForm = TinhGiaInClient.FormStateS.New;
-            cboEpKim.Enabled = false;
-            lstNhuEpKim.Enabled = false;
+            
+            lstLoXo.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnThem.Enabled = false;
@@ -286,8 +273,8 @@ namespace TinhGiaInNhapLieu
         private void btnSua_Click(object sender, EventArgs e)
         {
             this.TinhTrangForm = TinhGiaInClient.FormStateS.Edit;
-            cboEpKim.Enabled = false;
-            lstNhuEpKim.Enabled = false;
+          
+            lstLoXo.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnThem.Enabled = false;
@@ -298,7 +285,7 @@ namespace TinhGiaInNhapLieu
 
         private void lstMayIn_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            quanLyKhoPres.TrinhBayChiTietMayIn();
+            quanLyKhoPres.TrinhBayLoXo();
             this.DataChanged = false;
             btnLuu.Enabled = this.DataChanged;
         }
@@ -311,9 +298,9 @@ namespace TinhGiaInNhapLieu
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             DatReadOnlyTextBox(true);
-            quanLyKhoPres.TrinhBayChiTietMayIn();
-            cboEpKim.Enabled = true;
-            lstNhuEpKim.Enabled = true;
+            quanLyKhoPres.TrinhBayLoXo();
+           
+            lstLoXo.Enabled = true;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -323,7 +310,7 @@ namespace TinhGiaInNhapLieu
 
         private void cboEpKim_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {           
-            LoadNhuEpKim();
+            LoadLoXo();
         }
 
         private void lstLoXo_ColumnCreating(object sender, Telerik.WinControls.UI.ListViewColumnCreatingEventArgs e)
@@ -339,7 +326,7 @@ namespace TinhGiaInNhapLieu
             {
                 e.Column.HeaderText = "Vòng xoắn";
             
-                e.Column.Width = 90;
+                e.Column.Width = 150;
             }
 
             if (e.Column.FieldName == "KichCoBuoc")
@@ -373,9 +360,11 @@ namespace TinhGiaInNhapLieu
                 e.Column.MinWidth = 5;
             }
         }
+        private void ListViews_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            quanLyKhoPres.TrinhBayLoXo();
 
-
-
+        }
 
         
     }

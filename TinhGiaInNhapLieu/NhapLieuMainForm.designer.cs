@@ -60,8 +60,9 @@
             this.btnTinhThu_CanGap = new System.Windows.Forms.Button();
             this.btnTinhThu_DongCuon = new System.Windows.Forms.Button();
             this.btnTinhThu_EpKim = new System.Windows.Forms.Button();
-            this.btnDong = new System.Windows.Forms.Button();
             this.btnGiaDongCuonLoXo = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
+            this.btnQuanLyLoXo = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabCtrl.SuspendLayout();
@@ -193,6 +194,7 @@
             this.flowLayoutPanel4.Controls.Add(this.btnLoiNhuanGiay);
             this.flowLayoutPanel4.Controls.Add(this.btnBangGiaGiay);
             this.flowLayoutPanel4.Controls.Add(this.btnNhuEpKim);
+            this.flowLayoutPanel4.Controls.Add(this.btnQuanLyLoXo);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -407,6 +409,16 @@
             this.btnTinhThu_EpKim.UseVisualStyleBackColor = true;
             this.btnTinhThu_EpKim.Click += new System.EventHandler(this.btnTinhThu_EpKim_Click);
             // 
+            // btnGiaDongCuonLoXo
+            // 
+            this.btnGiaDongCuonLoXo.Location = new System.Drawing.Point(101, 46);
+            this.btnGiaDongCuonLoXo.Name = "btnGiaDongCuonLoXo";
+            this.btnGiaDongCuonLoXo.Size = new System.Drawing.Size(92, 37);
+            this.btnGiaDongCuonLoXo.TabIndex = 10;
+            this.btnGiaDongCuonLoXo.Text = "Đóng cuốn Lò xo";
+            this.btnGiaDongCuonLoXo.UseVisualStyleBackColor = true;
+            this.btnGiaDongCuonLoXo.Click += new System.EventHandler(this.btnGiaDongCuonLoXo_Click);
+            // 
             // btnDong
             // 
             this.btnDong.Location = new System.Drawing.Point(198, 358);
@@ -417,15 +429,15 @@
             this.btnDong.UseVisualStyleBackColor = true;
             this.btnDong.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // btnGiaDongCuonLoXo
+            // btnQuanLyLoXo
             // 
-            this.btnGiaDongCuonLoXo.Location = new System.Drawing.Point(101, 46);
-            this.btnGiaDongCuonLoXo.Name = "btnGiaDongCuonLoXo";
-            this.btnGiaDongCuonLoXo.Size = new System.Drawing.Size(92, 37);
-            this.btnGiaDongCuonLoXo.TabIndex = 10;
-            this.btnGiaDongCuonLoXo.Text = "Đóng cuốn Lò xo";
-            this.btnGiaDongCuonLoXo.UseVisualStyleBackColor = true;
-            this.btnGiaDongCuonLoXo.Click += new System.EventHandler(this.btnGiaDongCuonLoXo_Click);
+            this.btnQuanLyLoXo.Location = new System.Drawing.Point(101, 46);
+            this.btnQuanLyLoXo.Name = "btnQuanLyLoXo";
+            this.btnQuanLyLoXo.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLyLoXo.TabIndex = 14;
+            this.btnQuanLyLoXo.Text = "Lò xo Đóng cuốn";
+            this.btnQuanLyLoXo.UseVisualStyleBackColor = true;
+            this.btnQuanLyLoXo.Click += new System.EventHandler(this.btnQuanLyLoXo_Click);
             // 
             // NhapLieuMainForm
             // 
@@ -494,6 +506,7 @@
         private System.Windows.Forms.Button btnBangGiaGiay;
         private System.Windows.Forms.Button btnNhuEpKim;
         private System.Windows.Forms.Button btnGiaDongCuonLoXo;
+        private System.Windows.Forms.Button btnQuanLyLoXo;
 
     }
 }

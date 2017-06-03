@@ -10,7 +10,7 @@ namespace TinhGiaInClient.View
     {
         //Thêm 
          int IdLoXoDongCuonChon { get; set; }
-        
+         KieuDongCuonS KieuDongCuon { get; set; }
          float GayRong { get; set; }
          float GayDay { get; set; }
     }

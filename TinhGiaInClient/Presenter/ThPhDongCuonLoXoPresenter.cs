@@ -13,35 +13,30 @@ namespace TinhGiaInClient.Presenter
     public class ThPhDongCuonLoXoPresenter : IThanhPhamPresenter
     {
         IViewThPhDongCuonLoXo View = null;
-        public ThPhDongCuonLoXoPresenter(IViewThPhDongCuonLoXo view, MucThanhPham mucThPham)
+        MucDongCuonLoXo MucDongCuon = null;
+        public ThPhDongCuonLoXoPresenter(IViewThPhDongCuonLoXo view, MucDongCuonLoXo mucThPham)
         {
             View = view;
             View = view;
-            if (mucThPham != null)
-            {
-                View.ID = mucThPham.ID;
-                View.IdBaiIn = mucThPham.IdBaiIn;
-                View.IdHangKhachHang = mucThPham.IdHangKhachHang;
-                View.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
-                View.LoaiThPh = mucThPham.LoaiThanhPham;
-                View.SoLuong = mucThPham.SoLuong;
+            this.MucDongCuon = mucThPham;
+            //Cập nhật form
+            View.ID = mucThPham.ID;
+            View.IdBaiIn = mucThPham.IdBaiIn;
+            View.IdHangKhachHang = mucThPham.IdHangKhachHang;
+            View.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
+            View.LoaiThPh = mucThPham.LoaiThanhPham;
+            View.KieuDongCuon = mucThPham.KieuDongCuon;
+            View.SoLuong = mucThPham.SoLuong;
+            View.DonViTinh = mucThPham.DonViTinh;
+            View.GayRong = mucThPham.GayCao;
+            View.GayDay = mucThPham.GayDay;
 
-            }
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    KhoiTaoBanDau();
-                    break;
 
-            }
 
         }
         public void KhoiTaoBanDau()
         {
-            View.SoLuong = 50;
-            View.DonViTinh = "Cuốn";
-            View.GayRong = 30f;
-            View.GayDay = 0.5f;
+          //implement
         }
 
 
@@ -94,20 +89,21 @@ namespace TinhGiaInClient.Presenter
            return LoXoDongCuon.DocTatCa();
        }
        
-        public MucThanhPham LayMucThanhPham()
+        public MucDongCuonLoXo LayMucThanhPham()
         {
-            var mucThPham = new MucThanhPham();
-            mucThPham.IdBaiIn = View.IdBaiIn;
-            mucThPham.TenThanhPham = View.TenThanhPhamChon;
-            mucThPham.IdThanhPhamChon = View.IdThanhPhamChon;
-            mucThPham.IdHangKhachHang = View.IdHangKhachHang;
-            mucThPham.LoaiThanhPham = View.LoaiThPh;
-            mucThPham.SoLuong = View.SoLuong;
-            mucThPham.DonViTinh = View.DonViTinh;
-            mucThPham.ThanhTien = View.ThanhTien;
-            if (View.TinhTrangForm == FormStateS.Edit)
-                mucThPham.ID = View.ID; //Cập nhật lại ID
-            return mucThPham;
+
+            this.MucDongCuon.IdBaiIn = View.IdBaiIn;
+            this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
+            this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
+            this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
+            this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
+            this.MucDongCuon.KieuDongCuon = View.KieuDongCuon;
+            this.MucDongCuon.SoLuong = View.SoLuong;
+            this.MucDongCuon.DonViTinh = View.DonViTinh;
+            this.MucDongCuon.ThanhTien = View.ThanhTien;
+            //if (View.TinhTrangForm == FormStateS.Edit)
+              //  this.MucDongCuon.ID = View.ID; //Cập nhật lại ID
+            return this.MucDongCuon;
         }
     }
 }
