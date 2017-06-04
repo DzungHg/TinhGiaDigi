@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.Model.Support;
+using TinhGiaInClient.Model;
 
 
 namespace TinhGiaInClient.UI
@@ -218,8 +219,16 @@ namespace TinhGiaInClient.UI
                 ThongDiepCanThiet = "Chỉ tính toán thử"
 
             };
-
-            var frm = new ThPhEpKimForm(thongTinBanDau);
+            //muc emkim
+            var mucThPhEpKim = new MucThPhEpKim();
+            mucThPhEpKim.IdBaiIn = 1;
+            mucThPhEpKim.IdHangKhachHang = this.IdHangKHChon;
+            mucThPhEpKim.LoaiThanhPham = LoaiThanhPhamS.EpKim;
+            mucThPhEpKim.SoLuong = 100; //Tạm
+            mucThPhEpKim.DonViTinh = "con";
+            mucThPhEpKim.KhoEpRong = 5f;
+            mucThPhEpKim.KhoEpCao = 5f;
+            var frm = new ThPhEpKimForm(thongTinBanDau, mucThPhEpKim);
             frm.TinhTrangForm = (int)FormStateS.View;
             
           

@@ -18,8 +18,51 @@ namespace TinhGiaInClient
 {
     public partial class BaiInForm : Form, IViewBaiIn
     {
+       
+       
+        public BaiInForm(ThongTinBanDauChoBaiIn thongTinBanDau,  int idBaiIn = 0)
+        {
+            InitializeComponent();
+            //Chú ý theo thứ tự
+            baiInPres = new BaiInPresenter(this);
+            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
+            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
+            this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;
+           
+            this.ID = idBaiIn;
+            
+            TaoCayDanhMucTab();
+            
+            //Trình bày theo tình trạng form
+            switch (this.TinhTrangForm)
+            {
+                case FormStateS.Edit:
+                case FormStateS.New:
+                    //Khóa
+                    spcChiTietBaiIn.Enabled = true;                    
+                    break;
+                
+            }
+            baiInPres.TrinhBayBaiIn();//Cũng tùy tình huống
+            //làm khéo về hạng KH
+            
+            //event
+            txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
+
+            txtCauHinhSP.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtGiayDeIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtDonVi.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            //Khóa số txtSoluong khi sửa
+            /*if (formState == (int)FormState.Edit)
+                txtSoLuong.Enabled = false;
+            else
+                txtSoLuong.Enabled = true; 
+             */
+        }
+        BaiInPresenter baiInPres;
         #region Implement IView
-        
+
         public int ID
         {
             get { return int.Parse(lblIDBaiIn.Text); }
@@ -35,20 +78,22 @@ namespace TinhGiaInClient
             get { return txtDienGiai.Text; }
             set { txtDienGiai.Text = value; }
         }
-        public int SoLuong {
+        public int SoLuong
+        {
             get { return int.Parse(txtSoLuong.Text); }
             set { txtSoLuong.Text = value.ToString(); }
         }
-        public string DonViTinh {
+        public string DonViTinh
+        {
             get { return txtDonVi.Text; }
             set { txtDonVi.Text = value.ToString(); }
         }
-        
+
         public string TenHangKhachHang
         {
             get
             {
-                return lblHangKhachHang.Text;              
+                return lblHangKhachHang.Text;
             }
             set { lblHangKhachHang.Text = value; }
         }
@@ -56,12 +101,14 @@ namespace TinhGiaInClient
         public int IdHangKhachHang
         {
             get { return _idHangKH; }
-            set { _idHangKH = value;
-            this.TenHangKhachHang = baiInPres.TenHangKhachHang();
+            set
+            {
+                _idHangKH = value;
+                this.TenHangKhachHang = baiInPres.TenHangKhachHang();
             }
         }
-       
-        public string TomTatCauHinhSP 
+
+        public string TomTatCauHinhSP
         {
             get { return txtCauHinhSP.Text; }
             set { txtCauHinhSP.Text = value; }
@@ -94,9 +141,9 @@ namespace TinhGiaInClient
             }
             set { _idThanhPhamChon = value; }
         }
-        public List<string> TomTatBaiIn_ChaoKH 
+        public List<string> TomTatBaiIn_ChaoKH
         {
-            get { return baiInPres.TomTatNoiDungBaiIn_ChaoKH();}
+            get { return baiInPres.TomTatNoiDungBaiIn_ChaoKH(); }
             set { txtTomTatBaiIn.Lines = value.ToArray(); }
         }
         public BaiIn DocKetQuaBaiIn()
@@ -105,46 +152,6 @@ namespace TinhGiaInClient
         }
         public FormStateS TinhTrangForm { get; set; }
         #endregion
-        BaiInPresenter baiInPres;
-        public BaiInForm(ThongTinBanDauChoBaiIn thongTinBanDau,  int idBaiIn = 0)
-        {
-            InitializeComponent();
-            //Chú ý theo thứ tự
-            baiInPres = new BaiInPresenter(this);
-            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
-            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
-            this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;
-           
-            this.ID = idBaiIn;
-            
-            TaoCayDanhMucTab();
-            
-            //Trình bày theo tình trạng form
-            switch (this.TinhTrangForm)
-            {
-                case FormStateS.Edit:
-                case FormStateS.New:
-                    //Khóa
-                    spcChiTietBaiIn.Enabled = true;                    
-                    break;
-                
-            }
-            baiInPres.TrinhBayBaiIn();//Cũng tùy tình huống
-            //làm khéo về hạng KH
-            
-            //event
-            txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtCauHinhSP.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtGiayDeIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
-
-
-            //Khóa số txtSoluong khi sửa
-            /*if (formState == (int)FormState.Edit)
-                txtSoLuong.Enabled = false;
-            else
-                txtSoLuong.Enabled = true; 
-             */
-        }
         Dictionary<int, TabPage> tabList = new Dictionary<int, TabPage>();
         private void TaoCayDanhMucTab()
         {
@@ -275,10 +282,9 @@ namespace TinhGiaInClient
             thongTinChoCauHinh.DonViTinh = baiIn.DonVi;
             return thongTinChoCauHinh;
         }
-        private void GanCauHinhVoBaiIn()
+        private void ThemCauHinh()
         {
-           
-               
+                          
             if (this.ID <= 0)
                 return;
             //Tìm bài in, gắn vô với đk sp chưa có trong danh sách cấu hình
@@ -286,8 +292,12 @@ namespace TinhGiaInClient
             
             if (baiIn.CoCauHinh) //Đã có cấu hình
                 return;
-            //Gắn
-            var frm = new CauHinhSPForm(thongTinCauHinhBanDau(baiIn, FormStateS.New));
+            //Tạo cấu hình
+            var cauHinhSP = new CauHinhSanPham(5, 5, 0.2f, 0.2f, 0.2f, 0.2f,
+                            0.2f, 0.2f, 0.2f, 0.2f,
+                            baiIn.ID, PhuongPhapInS.Toner
+                            , 0, "");
+            var frm = new CauHinhSPForm(thongTinCauHinhBanDau(baiIn, FormStateS.New), cauHinhSP);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -309,7 +319,7 @@ namespace TinhGiaInClient
             if (!baiIn.CoCauHinh)
                 return;
 
-            var frm = new CauHinhSPForm(this.thongTinCauHinhBanDau(baiIn, FormStateS.Edit));
+            var frm = new CauHinhSPForm(this.thongTinCauHinhBanDau(baiIn, FormStateS.Edit), baiIn.CauHinhSP);
             //Điền giữ liệu:                
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -333,6 +343,7 @@ namespace TinhGiaInClient
         {
             baiInPres.XoaCauHinhSanPham();
             this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
            
         }
 
@@ -351,7 +362,8 @@ namespace TinhGiaInClient
                     break;
                 case FormStateS.Edit:
                     //cauHinhSP.IDCauHinh = frm.IdCauHinhSP;
-                    baiInPres.CapNhatCHSPVoBaiIn(frm.DocCauHinhSanPham());
+                    //baiInPres.CapNhatCHSPVoBaiIn(frm.DocCauHinhSanPham());
+                    frm.DocCauHinhSanPham();//Để nó tự cập nhật
                     this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
                     //Bắt đàu xóa
                     baiInPres.XoaGiayDeIn();
@@ -384,8 +396,12 @@ namespace TinhGiaInClient
                 MessageBox.Show("Chưa có cấu hình Sản phẩm. Bạn cần gắn trước");
                 return;
             }           
+            //Tao giay de in
+          
+            var mucGiayDeIn = new GiayDeIn(32, 47, 1, 1, 1,
+                1, false, 0, "", baiIn.ID, 1, 1, 0);//
             //Tiến hành gắn
-            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(baiIn, FormStateS.New), null);
+            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(baiIn, FormStateS.New), mucGiayDeIn);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;           
@@ -465,7 +481,7 @@ namespace TinhGiaInClient
                     this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
                     break;
                 case FormStateS.Edit:
-                    baiInPres.CapNhatGiayDeIn(frm.DocGiayDeIn());
+                    frm.DocGiayDeIn();//Đọc để cập nhật
                     this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
                     break;
             }
@@ -674,7 +690,7 @@ namespace TinhGiaInClient
 
         #endregion
 
-        #region Thành phẩm Cán phủ
+        #region Thành phẩm Chung
         private void LoadThanhPhamLenListView()
         {
             //List view Giá In:            
@@ -749,14 +765,22 @@ namespace TinhGiaInClient
             switch (loaiThPh)
             {
                 case LoaiThanhPhamS.CanPhu:
-                     var thongDiep1 = string.Format("Số tờ giấy in {0} khổ: {1}",
-                        baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay);
-                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
-                     thongTinBanDauThPh.TieuDeForm = "[Mới] Cán phủ";
-                     thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.CanPhu;
+                    var thongDiep1 = string.Format("Số tờ giấy in {0} khổ: {1}",
+                       baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Cán phủ";
+                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.CanPhu;
+                    //Mục thành phẩm cán phủ
+                    var mucThPhCanPhu = new MucThPhCanPhu();
+                    mucThPhCanPhu.IdBaiIn = baiIn.ID;
+                    mucThPhCanPhu.IdHangKhachHang = baiIn.IdHangKH;
+                    mucThPhCanPhu.LoaiThanhPham = LoaiThanhPhamS.CanPhu;
+                    mucThPhCanPhu.SoLuong = baiIn.GiayDeInIn.SoToChayTong;
+                    mucThPhCanPhu.DonViTinh = "mặt";
+                    mucThPhCanPhu.SoMatCan = 1;
 
-                     var frm = new ThPhCanPhuForm(thongTinBanDauThPh);
-                   
+                    var frm = new ThPhCanPhuForm(thongTinBanDauThPh, mucThPhCanPhu);
+
                     frm.MinimizeBox = false;
                     frm.MaximizeBox = false;
                     frm.StartPosition = FormStartPosition.CenterParent;
@@ -774,14 +798,22 @@ namespace TinhGiaInClient
                     var thongDiep2 = string.Format("Số lượng SP: {0} / Số lượng tờ chạy: {1}",
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep2;
-                     thongTinBanDauThPh.TieuDeForm = "[Mới] Cấn gấp";
-                     thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.CanGap;
-                     var frm2 = new ThPhCanGapForm(thongTinBanDauThPh);
-                   
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Cấn gấp";
+                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.CanGap;
+                    //Mục thành phẩm cấn gấp
+                    var mucThPhCanGap = new MucThPhCanGap();
+                    mucThPhCanGap.IdBaiIn = baiIn.ID;
+                    mucThPhCanGap.IdHangKhachHang = baiIn.IdHangKH;
+                    mucThPhCanGap.LoaiThanhPham = LoaiThanhPhamS.CanGap;
+                    mucThPhCanGap.SoLuong = baiIn.SoLuong;
+                    mucThPhCanGap.DonViTinh = "con";
+                    mucThPhCanGap.SoDuongCan = 1;
+                    var frm2 = new ThPhCanGapForm(thongTinBanDauThPh, mucThPhCanGap);
+
                     frm2.MinimizeBox = false;
                     frm2.MaximizeBox = false;
                     frm2.StartPosition = FormStartPosition.CenterParent;
-                   
+
                     frm2.ShowDialog();
                     if (frm2.DialogResult == System.Windows.Forms.DialogResult.OK)
                     {
@@ -797,9 +829,16 @@ namespace TinhGiaInClient
                         baiIn.SoLuong, baiIn.DonVi);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Đóng cuốn";
-                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
-
-                    var frm3 = new ThPhDongCuonForm(thongTinBanDauThPh);
+                   
+                    //tạo mục thành phẩm đóng cuốn
+                    var mucThPhamDongCuon = new MucThanhPham();
+                    mucThPhamDongCuon.IdBaiIn = baiIn.ID;
+                    mucThPhamDongCuon.IdHangKhachHang = baiIn.IdHangKH;
+                    mucThPhamDongCuon.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+                    mucThPhamDongCuon.SoLuong = 1; //Cần xác định sau
+                    mucThPhamDongCuon.DonViTinh = "cuốn";
+                   
+                    var frm3 = new ThPhDongCuonForm(thongTinBanDauThPh, mucThPhamDongCuon);
 
                     frm3.MinimizeBox = false;
                     frm3.MaximizeBox = false;
@@ -818,14 +857,22 @@ namespace TinhGiaInClient
                     }
                     break;
                 case LoaiThanhPhamS.EpKim:
-                     var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
-                        baiIn.SoLuong,  baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
+                    var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
+                       baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep4;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Ép kim";
                     thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.EpKim;
+                    //tạo mới mục ép kim
+                    var mucThPhEpKim = new MucThPhEpKim();
+                    mucThPhEpKim.IdBaiIn = baiIn.ID;
+                    mucThPhEpKim.IdHangKhachHang = baiIn.IdHangKH;
+                    mucThPhEpKim.LoaiThanhPham = LoaiThanhPhamS.EpKim;
+                    mucThPhEpKim.SoLuong = baiIn.SoLuong; //Tạm
+                    mucThPhEpKim.DonViTinh = "con";
+                    mucThPhEpKim.KhoEpRong = 5f;
+                    mucThPhEpKim.KhoEpCao = 5f;
+                    var frm4 = new ThPhEpKimForm(thongTinBanDauThPh,mucThPhEpKim);
 
-                    var frm4 = new ThPhEpKimForm(thongTinBanDauThPh);
-                 
                     frm4.MinimizeBox = false;
                     frm4.MaximizeBox = false;
                     frm4.StartPosition = FormStartPosition.CenterParent;
@@ -889,7 +936,7 @@ namespace TinhGiaInClient
                      thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
                      thongTinBanDauThPh.TieuDeForm = "[Sửa] Cán phủ";
 
-                     var frm1 = new ThPhCanPhuForm(thongTinBanDauThPh, mucThPh);
+                     var frm1 = new ThPhCanPhuForm(thongTinBanDauThPh, (MucThPhCanPhu)mucThPh);
                     
                     frm1.MinimizeBox = false;
                     frm1.MaximizeBox = false;
@@ -913,7 +960,7 @@ namespace TinhGiaInClient
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep2;
                      thongTinBanDauThPh.TieuDeForm = "[Sửa] Cấn gấp";
-                     var frm2 = new ThPhCanGapForm(thongTinBanDauThPh, mucThPh);
+                     var frm2 = new ThPhCanGapForm(thongTinBanDauThPh, (MucThPhCanGap)mucThPh);
                     
                     frm2.Text = "Cấn gấp [Sửa]";
                     frm2.MinimizeBox = false;
@@ -934,25 +981,50 @@ namespace TinhGiaInClient
                     }
                     break;
                 case LoaiThanhPhamS.DongCuon:
-                    var thongDiep3 = string.Format("Số lượng {0} {1}",
-                        baiIn.SoLuong, baiIn.DonVi);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Đóng cuốn";
-                    
-                    var frm3 = new ThPhDongCuonForm( thongTinBanDauThPh, mucThPh);
-                   
-                    frm3.MinimizeBox = false;
-                    frm3.MaximizeBox = false;
-                    frm3.StartPosition = FormStartPosition.CenterParent;
-                 
-                    frm3.ShowDialog();
-                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    if (mucThPh is MucDongCuonLoXo)
                     {
-                        XuLyNutOKClick_FormDongCuon(frm3);
-                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                        LoadThanhPhamLenListView();
-                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+                        var thongTinBanDauLoXo = new ThongTinBanDauDongCuon();
+                        thongTinBanDauLoXo.ThongDiepCanThiet = string.Format("Số lượng {0} {1}",
+                        baiIn.SoLuong, baiIn.DonVi);
+                        thongTinBanDauLoXo.TieuDeForm = "[Sửa] Đóng cuốn Lò xo";
+                        thongTinBanDauLoXo.TinhTrangForm = FormStateS.Edit;
+                        
+                        //
+                        var frm6 = new ThPhDongCuonLoXoForm(thongTinBanDauLoXo, (MucDongCuonLoXo)mucThPh);
 
+                        frm6.MinimizeBox = false;
+                        frm6.MaximizeBox = false;
+                        frm6.StartPosition = FormStartPosition.CenterParent;
+
+                        frm6.ShowDialog();
+                        if (frm6.DialogResult == System.Windows.Forms.DialogResult.OK)
+                        {
+                            XuLyNutOKClick_FormDongCuonLoXo(frm6);
+                            LoadThanhPhamLenListView();
+                        }
+                    }
+                    else //Các kiểu đóng cuốn còn lại
+                    {
+                        var thongDiep3 = string.Format("Số lượng {0} {1}",
+                            baiIn.SoLuong, baiIn.DonVi);
+                        thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
+                        thongTinBanDauThPh.TieuDeForm = "[Sửa] Đóng cuốn";
+
+                        var frm3 = new ThPhDongCuonForm(thongTinBanDauThPh, mucThPh);
+
+                        frm3.MinimizeBox = false;
+                        frm3.MaximizeBox = false;
+                        frm3.StartPosition = FormStartPosition.CenterParent;
+
+                        frm3.ShowDialog();
+                        if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                        {
+                            XuLyNutOKClick_FormDongCuon(frm3);
+                            //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                            LoadThanhPhamLenListView();
+                            //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                        }
                     }
                     break;
 
@@ -961,7 +1033,7 @@ namespace TinhGiaInClient
                         baiIn.SoLuong,  baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep4;
                     thongTinBanDauThPh.TieuDeForm = "[Sửa] Ép kim";
-                    var frm4 = new ThPhEpKimForm(thongTinBanDauThPh, mucThPh);
+                    var frm4 = new ThPhEpKimForm(thongTinBanDauThPh, (MucThPhEpKim)mucThPh);
                     
                     frm4.MinimizeBox = false;
                     frm4.MaximizeBox = false;
@@ -1007,11 +1079,7 @@ namespace TinhGiaInClient
             }
 
         }
-        private void XoaMucThanhPham(int idMucThanhPham)
-        {
-            baiInPres.XoaThanhPham(idMucThanhPham);
-            //Cần cập nhật lại listview Bài in
-        }
+       
         private void XuLyNutOKClick_FormCanPhu(ThPhCanPhuForm frm)
         {
 
@@ -1075,7 +1143,7 @@ namespace TinhGiaInClient
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
         }
         #endregion
-        #region Riêng về Đóng cuốn R2
+        #region Riêng về Đóng cuốn Loxo hoặc...
         
         private void ThemDongCuon(int idBaiIn, KieuDongCuonS kieuDongCuon)
         {
@@ -1104,31 +1172,29 @@ namespace TinhGiaInClient
             mucDongCuon.DonViTinh = "cuốn";
             mucDongCuon.GayCao = 10;
             mucDongCuon.GayDay = 0.5f;
+            mucDongCuon.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
            
             //Tiến hành gắn
             switch (kieuDongCuon)
             {
                 
                 case KieuDongCuonS.LoXo:
-                    var thongDiep3 = string.Format("Số lượng {0} {1}",
+                    var thongDiep = string.Format("Số lượng {0} {1}",
                         baiIn.SoLuong, baiIn.DonVi);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Cuốn Lò xo";                  
                     thongTinBanDauThPh.TinhTrangForm = FormStateS.New;
                     //điều chỉnh mục thành phẩm
                     mucDongCuon.KieuDongCuon = KieuDongCuonS.LoXo;
-                    var frm3 = new ThPhDongCuonLoXoForm(thongTinBanDauThPh, mucDongCuon);
+                    var frm = new ThPhDongCuonLoXoForm(thongTinBanDauThPh, mucDongCuon);
 
-                    frm3.MinimizeBox = false;
-                    frm3.MaximizeBox = false;
-                    frm3.StartPosition = FormStartPosition.CenterParent;
-                    //Data gởi qua ỏm
-                    frm3.IdBaiIn = baiIn.ID;
-                    frm3.IdHangKhachHang = baiIn.IdHangKH;
-                    frm3.ShowDialog();
-                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    frm.MinimizeBox = false;
+                    frm.MaximizeBox = false;
+                    frm.StartPosition = FormStartPosition.CenterParent;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
                     {
-                        XuLyNutOKClick_FormDongCuonLoXo(frm3);
+                        XuLyNutOKClick_FormDongCuonLoXo(frm);
                         //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
                         LoadThanhPhamLenListView();
                         //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
@@ -1138,153 +1204,14 @@ namespace TinhGiaInClient
                 
             }
         }
-        private void SuaDongCuon()
-        {
-            if (this.IdThanhPhamChon <= 0)
-                return;
-            var mucThPh = baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon);
-
-            var baiIn = baiInPres.DocBaiIn();
-            var thongTinBanDauThPh = this.thongTinBanDauChoThanhPham(baiIn.ID, baiIn.IdHangKH,
-                     baiIn.SoLuong, baiIn.DonVi, baiIn.GiayDeInIn.SoToChayTong,
-                      mucThPh.LoaiThanhPham, "", FormStateS.Edit, "");
-
-
-            switch (thongTinBanDauThPh.LoaiThanhPham)
-            {
-                case LoaiThanhPhamS.CanPhu:
-                    var thongDiep1 = string.Format("Số tờ giấy in {0} khổ: {1}",
-                       baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Cán phủ";
-
-                    var frm1 = new ThPhCanPhuForm(thongTinBanDauThPh, mucThPh);
-
-                    frm1.MinimizeBox = false;
-                    frm1.MaximizeBox = false;
-                    frm1.StartPosition = FormStartPosition.CenterParent;
-
-
-
-
-                    frm1.ShowDialog();
-                    if (frm1.DialogResult == System.Windows.Forms.DialogResult.OK)
-                    {
-                        XuLyNutOKClick_FormCanPhu(frm1);
-                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                        LoadThanhPhamLenListView();
-                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
-                    }
-                    break;
-                case LoaiThanhPhamS.CanGap:
-                    var thongDiep2 = string.Format("Số lượng SP: {0} / Số lượng tờ chạy: {1}",
-                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep2;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Cấn gấp";
-                    var frm2 = new ThPhCanGapForm(thongTinBanDauThPh, mucThPh);
-
-                    frm2.Text = "Cấn gấp [Sửa]";
-                    frm2.MinimizeBox = false;
-                    frm2.MaximizeBox = false;
-                    frm2.StartPosition = FormStartPosition.CenterParent;
-                    //Data gởi qua form
-
-                    frm2.TenThanhPhamChon = mucThPh.TenThanhPham;
-
-                    frm2.ShowDialog();
-                    if (frm2.DialogResult == System.Windows.Forms.DialogResult.OK)
-                    {
-                        XuLyNutOKClick_FormCanGap(frm2);
-                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                        LoadThanhPhamLenListView();
-                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
-                    }
-                    break;
-                case LoaiThanhPhamS.DongCuon:
-                    var thongDiep3 = string.Format("Số lượng {0} {1}",
-                        baiIn.SoLuong, baiIn.DonVi);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Đóng cuốn";
-
-                    var frm3 = new ThPhDongCuonForm(thongTinBanDauThPh, mucThPh);
-
-                    frm3.MinimizeBox = false;
-                    frm3.MaximizeBox = false;
-                    frm3.StartPosition = FormStartPosition.CenterParent;
-
-                    frm3.ShowDialog();
-                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
-                    {
-                        XuLyNutOKClick_FormDongCuon(frm3);
-                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                        LoadThanhPhamLenListView();
-                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
-                    }
-                    break;
-
-                case LoaiThanhPhamS.EpKim:
-                    var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
-                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep4;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Ép kim";
-                    var frm4 = new ThPhEpKimForm(thongTinBanDauThPh, mucThPh);
-
-                    frm4.MinimizeBox = false;
-                    frm4.MaximizeBox = false;
-                    frm4.StartPosition = FormStartPosition.CenterParent;
-                    //Data gởi qua form                   
-
-                    frm4.ShowDialog();
-                    if (frm4.DialogResult == System.Windows.Forms.DialogResult.OK)
-                    {
-                        XuLyNutOKClick_FormEpKim(frm4);
-                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                        LoadThanhPhamLenListView();
-                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
-                    }
-                    break;
-
-                case LoaiThanhPhamS.GiaCongNgoai:
-                    var thongDiep5 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
-                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
-                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep5;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa]";
-                    //Mục thành phẩm riêng
-                    var mucThPhKhac = (MucThPhGiaCongNgoai)baiIn.DocThanhPhamTheoID(this.IdThanhPhamChon);
-
-                    var frm5 = new ThPhGiaCongNgoaiForm(thongTinBanDauThPh, mucThPhKhac);
-
-                    frm5.MinimizeBox = false;
-                    frm5.MaximizeBox = false;
-                    frm5.StartPosition = FormStartPosition.CenterParent;
-                    //Data gởi qua form                   
-
-                    frm5.ShowDialog();
-                    if (frm5.DialogResult == System.Windows.Forms.DialogResult.OK)
-                    {
-                        XuLyNutOKClick_FormThPhamKhac(frm5);
-                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                        LoadThanhPhamLenListView();
-                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
-                    }
-                    break;
-            }
-            
-        }
+      
       
         private void XuLyNutOKClick_FormDongCuonLoXo(ThPhDongCuonLoXoForm frm)
         {
 
             switch (frm.TinhTrangForm)
             {
-                case FormStateS.New:
-                    //Add
-
+                case FormStateS.New:                    
                     baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
@@ -1341,7 +1268,7 @@ namespace TinhGiaInClient
 
         private void cmnuGanCauHinhSP_Click(object sender, EventArgs e)
         {
-            GanCauHinhVoBaiIn();
+            ThemCauHinh();
         }
 
         private void cmnuChuanBiGiay_Click(object sender, EventArgs e)
@@ -1366,6 +1293,7 @@ namespace TinhGiaInClient
         private void btnSuaGiaInNhanh_Click(object sender, EventArgs e)
         {
             SuaGiaIn();
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
 
         private void btnXoaGiaInNhanh_Click(object sender, EventArgs e)
@@ -1375,6 +1303,7 @@ namespace TinhGiaInClient
                 baiInPres.XoaGiaIn(this.IdGiaInChon);
                 LoadGiaInLenListView();//Load lại
             }
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
 
         }
 
@@ -1416,7 +1345,7 @@ namespace TinhGiaInClient
                 baiInPres.XoaGiayDeIn();
                 this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
             }
-
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
 
       
@@ -1426,18 +1355,25 @@ namespace TinhGiaInClient
         private void btnXoaHetBaiInNhanh_Click(object sender, EventArgs e)
         {
             baiInPres.XoaHetGiaIn();
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
 
       
 
         private void btnXoaThanhPham_Click(object sender, EventArgs e)
         {
-            baiInPres.XoaThanhPham(this.IdThanhPhamChon);
+            baiInPres.XoaThanhPham(baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon));
+            //Cần cập nhật lại listview Bài in
+            LoadThanhPhamLenListView();
+             //Cap nhat noi dung bai in
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
 
         private void btnXoaHetThanhPham_Click(object sender, EventArgs e)
         {
             baiInPres.XoaHetThanhPham();
+            LoadThanhPhamLenListView();
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
         private void cmnuThPh_EpKim_Click(object sender, EventArgs e)
         {
@@ -1462,6 +1398,12 @@ namespace TinhGiaInClient
                 if (tb == txtCauHinhSP || tb == txtGiayDeIn
                     )
                     txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
+                if (tb == txtSoLuong)
+                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        txtSoLuong.Text = "1";
+                if (tb == txtDonVi)
+                    if (string.IsNullOrEmpty(txtDonVi.Text.Trim()))
+                        txtDonVi.Text = "đv";
             }
 
         }

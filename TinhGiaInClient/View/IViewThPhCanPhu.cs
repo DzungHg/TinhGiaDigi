@@ -9,6 +9,6 @@ namespace TinhGiaInClient.View
     public interface IViewThPhCanPhu: IViewThanhPham
     {
         //Bổ sung thêm        
-        int KieuCanPhu { get; set; }
+        int SoMatCan { get; set; }
     }
 }

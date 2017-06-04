@@ -22,8 +22,7 @@ namespace TinhGiaInClient.View
         float LeDuoi { get; set; }
         float LeTrong { get; set; }
         float LeNgoai { get; set; }
-        float KhoRongGomLe { get; set; }
-        float KhoCaoGomLe { get; set; }
+        
         int SoLuong { get; set; }
         string DonViTinh { get; set; }
         int IdBaiIn { get; set; }

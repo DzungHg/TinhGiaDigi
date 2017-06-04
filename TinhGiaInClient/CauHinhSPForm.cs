@@ -15,7 +15,7 @@ namespace TinhGiaInClient
 {
     public partial class CauHinhSPForm : Form, IViewCauHinhSanPham
     {
-        public CauHinhSPForm(ThongTinBanDauChoCauHinhSP thongTinBanDau, CauHinhSanPham cauHinhSP = null)
+        public CauHinhSPForm(ThongTinBanDauChoCauHinhSP thongTinBanDau, CauHinhSanPham cauHinhSP)
         {
             InitializeComponent();
             
@@ -25,12 +25,23 @@ namespace TinhGiaInClient
             this.ThongTinBaiIn = thongTinBanDau.YeuCauBaiIn;
 
             cauHinhSanPhamPres = new CauHinhSanPhamPresenter(this, cauHinhSP);
-           
-            LoadDanhSachToChay();
+
+            if (this.PhuongPhapIn != PhuongPhapInS.KhongIn)
+            {
+                LoadDanhSachToChay();                
+                if (this.TinhTrangForm == FormStateS.Edit)
+                {
+                    //Phải chọn tờ in lúc này 
+                    this.IdToInChon = cauHinhSP.IdMayIn;
+                }
+            }
             //Nếu là sửa
            
             
             //Các events
+            rdbToner.CheckedChanged += new EventHandler(RadioButtons_CheckedChanged);
+            rdbKhongIn.CheckedChanged += new EventHandler(RadioButtons_CheckedChanged);
+
             txtKhoCatRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtKhoCatCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtLeTren.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -183,17 +194,7 @@ namespace TinhGiaInClient
             }
         }
         
-        public float KhoRongGomLe
-        {
-            get;
-            set;
-        }
         
-        public float KhoCaoGomLe
-        {
-            get;
-            set;
-        }
         public int SoLuong 
         {
             get {return int.Parse(txtSoLuong.Text);}
@@ -218,7 +219,13 @@ namespace TinhGiaInClient
             set
             {
                 _idToInChon = value;
-                //Làm chọn lstView được không?
+                //Làm chọn lstView được không? Được
+                if (_idToInChon > 0 && lstMayIn.Items.Count > 0)
+                {
+                    var item = lstMayIn.FindItemWithText(_idToInChon.ToString());
+                    lstMayIn.Items[item.Index].Selected = true;
+                    lstMayIn.Select();//chọn nó                
+                }
             }
         }
 
@@ -311,12 +318,13 @@ namespace TinhGiaInClient
 
         private void TrienKhaiSanPhamForm_Load(object sender, EventArgs e)
         {
-           
+            BatTatNutOKTheoDieuKien();
         }
         private void CapNhatLabels()
         {
             cauHinhSanPhamPres.KiemTraTranLe_vs_Le();
-            lblKhoGomLe.Text = string.Format("{0} x {1}cm", this.KhoRongGomLe, this.KhoCaoGomLe);
+            lblKhoGomLe.Text = string.Format("{0} x {1}cm",
+                        cauHinhSanPhamPres.KhoRongGomLe(), cauHinhSanPhamPres.KhoCaoGomLe());
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
@@ -500,11 +508,12 @@ namespace TinhGiaInClient
         private void lstMayIn_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtMayInChon.Text = cauHinhSanPhamPres.TrinhBayToChayChon();
+            BatTatNutOKTheoDieuKien();
         }
 
         private void rdbToner_CheckedChanged(object sender, EventArgs e)
         {
-            LoadDanhSachToChay();
+           
         }
 
         private void btnThongTinGiay_Click(object sender, EventArgs e)
@@ -515,6 +524,43 @@ namespace TinhGiaInClient
             frm.Text = "Thông tin Giấy";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+        private void BatTatNutOKTheoDieuKien()
+        {
+            switch (this.PhuongPhapIn)
+            {
+                case PhuongPhapInS.KhongIn:
+                    btnOK.Enabled = true;
+                    break;
+                case PhuongPhapInS.Toner:
+                    if (this.IdToInChon > 0)
+                        btnOK.Enabled = true;
+                    else
+                        btnOK.Enabled = false;
+                    break;
+
+            }
+        }
+        private void RadioButtons_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rdb;
+            if (sender is RadioButton)
+            {
+                rdb = (RadioButton)sender;
+                if (rdb == rdbToner)
+                {
+                    LoadDanhSachToChay();
+                    BatTatNutOKTheoDieuKien();
+                }
+                if (rdb == rdbKhongIn)
+                {
+                    this.IdToInChon = -1;//set lại thành không in
+                    LoadDanhSachToChay();
+                    BatTatNutOKTheoDieuKien();
+                    txtMayInChon.Clear();
+                }
+            }
+
         }
     }
 }

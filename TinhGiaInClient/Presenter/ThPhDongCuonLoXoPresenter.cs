@@ -28,6 +28,7 @@ namespace TinhGiaInClient.Presenter
             View.KieuDongCuon = mucThPham.KieuDongCuon;
             View.SoLuong = mucThPham.SoLuong;
             View.DonViTinh = mucThPham.DonViTinh;
+            View.IdLoXoDongCuonChon = mucThPham.IdLoXoChon;
             View.GayRong = mucThPham.GayCao;
             View.GayDay = mucThPham.GayDay;
 
@@ -101,8 +102,9 @@ namespace TinhGiaInClient.Presenter
             this.MucDongCuon.SoLuong = View.SoLuong;
             this.MucDongCuon.DonViTinh = View.DonViTinh;
             this.MucDongCuon.ThanhTien = View.ThanhTien;
-            //if (View.TinhTrangForm == FormStateS.Edit)
-              //  this.MucDongCuon.ID = View.ID; //Cập nhật lại ID
+            this.MucDongCuon.GayCao = View.GayRong;
+            this.MucDongCuon.GayDay = View.GayDay;
+            this.MucDongCuon.IdLoXoChon = View.IdLoXoDongCuonChon;
             return this.MucDongCuon;
         }
     }

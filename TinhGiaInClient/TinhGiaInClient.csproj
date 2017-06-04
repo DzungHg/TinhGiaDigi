@@ -118,6 +118,9 @@
     <Compile Include="Model\DongCuonLoXo.cs" />
     <Compile Include="Model\GiaDongCuonLoXo.cs" />
     <Compile Include="Model\MucDongCuonLoXo.cs" />
+    <Compile Include="Model\MucThPhCanGap.cs" />
+    <Compile Include="Model\MucThPhEpKim.cs" />
+    <Compile Include="Model\MucThPhCanPhu.cs" />
     <Compile Include="Model\MucThPhGiaCongNgoai.cs" />
     <Compile Include="Model\NguoiDung.cs" />
     <Compile Include="Model\CauHinhGiayIn.cs" />
@@ -176,7 +179,7 @@
     <Compile Include="Model\MarkUpLoiNhuanGiay.cs" />
     <Compile Include="Model\MucThanhPham.cs" />
     <Compile Include="Model\NhaCungCapGiay.cs" />
-    <Compile Include="Model\MucTinGiaIn.cs" />
+    <Compile Include="Model\MucGiaIn.cs" />
     <Compile Include="Model\ThanhPhamBase.cs" />
     <Compile Include="Model\TinhToan.cs" />
     <Compile Include="Model\OffsetGiaCong.cs" />

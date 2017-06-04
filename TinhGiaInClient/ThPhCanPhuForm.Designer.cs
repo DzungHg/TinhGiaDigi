@@ -52,7 +52,7 @@
             this.btnOK.Location = new System.Drawing.Point(200, 233);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 3;
+            this.btnOK.TabIndex = 5;
             this.btnOK.Text = "Nhận";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -63,14 +63,14 @@
             this.btnCancel.Location = new System.Drawing.Point(86, 233);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lblGiaTB
             // 
             this.lblGiaTB.AutoSize = true;
-            this.lblGiaTB.Location = new System.Drawing.Point(286, 199);
+            this.lblGiaTB.Location = new System.Drawing.Point(305, 199);
             this.lblGiaTB.Name = "lblGiaTB";
             this.lblGiaTB.Size = new System.Drawing.Size(60, 13);
             this.lblGiaTB.TabIndex = 101;
@@ -88,7 +88,7 @@
             // lblCanPhu_DonViTinh
             // 
             this.lblCanPhu_DonViTinh.AutoSize = true;
-            this.lblCanPhu_DonViTinh.Location = new System.Drawing.Point(314, 92);
+            this.lblCanPhu_DonViTinh.Location = new System.Drawing.Point(307, 146);
             this.lblCanPhu_DonViTinh.Name = "lblCanPhu_DonViTinh";
             this.lblCanPhu_DonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lblCanPhu_DonViTinh.TabIndex = 99;
@@ -97,7 +97,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(164, 111);
+            this.label2.Location = new System.Drawing.Point(167, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 98;
@@ -105,10 +105,10 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(249, 108);
+            this.txtSoLuong.Location = new System.Drawing.Point(229, 162);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(59, 20);
-            this.txtSoLuong.TabIndex = 1;
+            this.txtSoLuong.TabIndex = 3;
             // 
             // lbxCanPhu
             // 
@@ -139,11 +139,11 @@
             // 
             // txtDonViTinh
             // 
-            this.txtDonViTinh.Location = new System.Drawing.Point(315, 108);
+            this.txtDonViTinh.Location = new System.Drawing.Point(308, 162);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.ReadOnly = true;
             this.txtDonViTinh.Size = new System.Drawing.Size(59, 20);
-            this.txtDonViTinh.TabIndex = 2;
+            this.txtDonViTinh.TabIndex = 4;
             // 
             // txtThongTinBoSung
             // 
@@ -152,23 +152,23 @@
             this.txtThongTinBoSung.Name = "txtThongTinBoSung";
             this.txtThongTinBoSung.ReadOnly = true;
             this.txtThongTinBoSung.Size = new System.Drawing.Size(204, 37);
-            this.txtThongTinBoSung.TabIndex = 104;
+            this.txtThongTinBoSung.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rdbHaiMat);
             this.groupBox1.Controls.Add(this.rdbMotMat);
-            this.groupBox1.Location = new System.Drawing.Point(168, 134);
+            this.groupBox1.Location = new System.Drawing.Point(168, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(178, 44);
-            this.groupBox1.TabIndex = 105;
+            this.groupBox1.Size = new System.Drawing.Size(199, 44);
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cán";
             // 
             // rdbHaiMat
             // 
             this.rdbHaiMat.AutoSize = true;
-            this.rdbHaiMat.Location = new System.Drawing.Point(104, 19);
+            this.rdbHaiMat.Location = new System.Drawing.Point(102, 19);
             this.rdbHaiMat.Name = "rdbHaiMat";
             this.rdbHaiMat.Size = new System.Drawing.Size(51, 17);
             this.rdbHaiMat.TabIndex = 1;
@@ -194,16 +194,16 @@
             this.ClientSize = new System.Drawing.Size(384, 270);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtThongTinBoSung);
+            this.Controls.Add(this.lblCanPhu_DonViTinh);
             this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSoLuong);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblGiaTB);
             this.Controls.Add(this.lblThanhTien);
-            this.Controls.Add(this.lblCanPhu_DonViTinh);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.lbxCanPhu);
             this.Name = "ThPhCanPhuForm";
             this.Text = "Cán Phủ";

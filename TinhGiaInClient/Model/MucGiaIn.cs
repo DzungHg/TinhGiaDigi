@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model
 {
-    public class MucTinGiaIn
+    public class MucGiaIn
     {
         static int _prevId = 0;
         public int ID { get; set; }
@@ -26,7 +26,7 @@ namespace TinhGiaInClient.Model
                 return _giaTBTrang;
             }
         }
-        public MucTinGiaIn(PhuongPhapInS phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
+        public MucGiaIn(PhuongPhapInS phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
             decimal tienIn, string giaTBTrang)
         {
             

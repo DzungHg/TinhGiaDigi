@@ -54,6 +54,7 @@
             this.cmnuThPh_CanPhu = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CanGap = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_DongCuon = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuDongCuon_LoXo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_Khac = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,7 +90,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblHangKhachHang = new System.Windows.Forms.Label();
             this.lblIDBaiIn = new System.Windows.Forms.Label();
-            this.cmnuDongCuon_LoXo = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -268,7 +268,7 @@
             this.cmnuThPh_EpKim,
             this.cmnuThPh_Khac});
             this.cmuTabBaiIn.Name = "cmnuGiayChoSP";
-            this.cmuTabBaiIn.Size = new System.Drawing.Size(168, 248);
+            this.cmuTabBaiIn.Size = new System.Drawing.Size(168, 226);
             this.cmuTabBaiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuGanCauHinhSP
@@ -327,6 +327,13 @@
             this.cmnuThPh_DongCuon.Size = new System.Drawing.Size(167, 22);
             this.cmnuThPh_DongCuon.Text = "Đóng cuốn";
             this.cmnuThPh_DongCuon.Click += new System.EventHandler(this.cmnuThPh_DongCuon_Click);
+            // 
+            // cmnuDongCuon_LoXo
+            // 
+            this.cmnuDongCuon_LoXo.Name = "cmnuDongCuon_LoXo";
+            this.cmnuDongCuon_LoXo.Size = new System.Drawing.Size(167, 22);
+            this.cmnuDongCuon_LoXo.Text = "Đóng cuốn  Lò xo";
+            this.cmnuDongCuon_LoXo.Click += new System.EventHandler(this.cmnuDongCuon_LoXo_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -520,6 +527,7 @@
             this.btnXoaHetBaiInNhanh.TabIndex = 72;
             this.btnXoaHetBaiInNhanh.Text = "Xóa sạch";
             this.btnXoaHetBaiInNhanh.UseVisualStyleBackColor = true;
+            this.btnXoaHetBaiInNhanh.Click += new System.EventHandler(this.btnXoaHetBaiInNhanh_Click);
             // 
             // btnXoaGiaInNhanh
             // 
@@ -529,6 +537,7 @@
             this.btnXoaGiaInNhanh.TabIndex = 71;
             this.btnXoaGiaInNhanh.Text = "Xóa";
             this.btnXoaGiaInNhanh.UseVisualStyleBackColor = true;
+            this.btnXoaGiaInNhanh.Click += new System.EventHandler(this.btnXoaGiaInNhanh_Click);
             // 
             // btnSuaGiaInNhanh
             // 
@@ -538,6 +547,7 @@
             this.btnSuaGiaInNhanh.TabIndex = 70;
             this.btnSuaGiaInNhanh.Text = "Sửa";
             this.btnSuaGiaInNhanh.UseVisualStyleBackColor = true;
+            this.btnSuaGiaInNhanh.Click += new System.EventHandler(this.btnSuaGiaInNhanh_Click);
             // 
             // tabTruocIn
             // 
@@ -628,6 +638,7 @@
             this.btnXoaHetThanhPham.TabIndex = 73;
             this.btnXoaHetThanhPham.Text = "Xóa hết";
             this.btnXoaHetThanhPham.UseVisualStyleBackColor = true;
+            this.btnXoaHetThanhPham.Click += new System.EventHandler(this.btnXoaHetThanhPham_Click);
             // 
             // btnXoaThanhPham
             // 
@@ -637,6 +648,7 @@
             this.btnXoaThanhPham.TabIndex = 71;
             this.btnXoaThanhPham.Text = "Xóa";
             this.btnXoaThanhPham.UseVisualStyleBackColor = true;
+            this.btnXoaThanhPham.Click += new System.EventHandler(this.btnXoaThanhPham_Click);
             // 
             // btnSuaThanhPham
             // 
@@ -674,13 +686,6 @@
             this.lblIDBaiIn.Size = new System.Drawing.Size(18, 13);
             this.lblIDBaiIn.TabIndex = 239;
             this.lblIDBaiIn.Text = "ID";
-            // 
-            // cmnuDongCuon_LoXo
-            // 
-            this.cmnuDongCuon_LoXo.Name = "cmnuDongCuon_LoXo";
-            this.cmnuDongCuon_LoXo.Size = new System.Drawing.Size(167, 22);
-            this.cmnuDongCuon_LoXo.Text = "Đóng cuốn  Lò xo";
-            this.cmnuDongCuon_LoXo.Click += new System.EventHandler(this.cmnuDongCuon_LoXo_Click);
             // 
             // BaiInForm
             // 

@@ -9,14 +9,19 @@ namespace TinhGiaInClient.Model
 {
     public class CauHinhSanPham
     {
+        private static int _lastIdCauHinh = 0;
 
-
-        public KhoSanPham KhoSP
+        public float KhoCatRong
         {
             get;
             set;
         }
-        private static int _lastIdCauHinh = 0;
+        public float KhoCatCao
+        {
+            get;
+            set;
+        }
+      
         public int IDCauHinh
         { 
             get;set;        
@@ -34,7 +39,7 @@ namespace TinhGiaInClient.Model
         {
             get
             {
-                return this.KhoSP.KhoCatRong +
+                return this.KhoCatRong +
                     this.LeTrong + this.LeNgoai;
             }
         }
@@ -42,14 +47,14 @@ namespace TinhGiaInClient.Model
         {
             get
             {
-                return this.KhoSP.KhoCatCao +
+                return this.KhoCatCao +
                     this.LeTren + this.LeDuoi;
             }
         }
         #endregion
         public int IdMayIn { get; set; }//Tờ in
         public PhuongPhapInS PhuongPhapIn { get; set; }
-        public string TenPhuongPhapIn { get; set; }
+       
         public string KhoMayIn 
         {
             get
@@ -74,41 +79,61 @@ namespace TinhGiaInClient.Model
             }
             set { ;}
         }
-
+        public string TenPhuongPhapIn
+        {
+           
+            get
+            {
+                var kq = "";
+                switch (this.PhuongPhapIn)
+                {
+                    case PhuongPhapInS.Toner:
+                        kq = "In nhanh";
+                        break;
+                    case PhuongPhapInS.Offset:
+                        kq = "In Offset";
+                        break;
+                    case PhuongPhapInS.KhongIn:
+                        kq = "Không in";
+                        break;
+                }
+                return kq;
+            }
+        }
 
         public string ThongTinCauHinh
         {
             get
             {
                 var str = "";
-                str += string.Format("Khổ cắt: {0} x {1}cm", this.KhoSP.KhoCatRong,
-                    this.KhoSP.KhoCatCao) + '\r' + '\n' ;
-                str += string.Format("Tràn lề: trên {0}, dưới {1}, trong {2}, ngoài {3}",
+                str += string.Format("Khổ cắt: {0} x {1}cm" + '\r' + '\n', this.KhoCatRong,
+                    this.KhoCatCao) ;
+                str += string.Format("Tràn lề: trên {0}, dưới {1}, trong {2}, ngoài {3}" + '\r' + '\n',
                                this.TranLeTren, this.TranLeDuoi,
-                               this.TranLeTrong, this.TranLeNgoai) + + '\r' + '\n';
-                str += string.Format("Lề: trên {0}, dưới {1}, trong {2}, ngoài {3}",
+                               this.TranLeTrong, this.TranLeNgoai);
+                str += string.Format("Lề: trên {0}, dưới {1}, trong {2}, ngoài {3}" + '\r' + '\n',
                                this.LeTren, this.LeDuoi,
-                               this.LeTrong, this.LeNgoai) + '\r' + '\n';                
-                str += string.Format("Khổ SP gồm lề: {0} x {1}cm",
-                    this.KhoRongGomLe, this.KhoCaoGomLe) + '\r' + '\n';
+                               this.LeTrong, this.LeNgoai);
+                str += string.Format("Khổ SP gồm lề: {0} x {1}cm" + '\r' + '\n',
+                    this.KhoRongGomLe, this.KhoCaoGomLe) ;
 
                 switch (this.PhuongPhapIn)
                 {
                     case PhuongPhapInS.Toner:
                         var toChayDigi = ToInMayDigi.DocTheoId(this.IdMayIn);
                         str += "**In Nhanh: " + '\r' + '\n';
-                        str += string.Format("Khổ chạy Max: {0} x {1}cm",
-                            toChayDigi.Rong, toChayDigi.Cao) + '\r' + '\n';
-                        str += string.Format("Khổ giấy có thể in: {0}",
-                            toChayDigi.KhoToChayCoTheIn) + '\r' + '\n';
+                        str += string.Format("Khổ chạy Max: {0} x {1}cm" + '\r' + '\n',
+                            toChayDigi.Rong, toChayDigi.Cao);
+                        str += string.Format("Khổ giấy có thể in: {0}" + '\r' + '\n',
+                            toChayDigi.KhoToChayCoTheIn);
                         break;
                     case PhuongPhapInS.Offset:
                         var mayInOffset = OffsetGiaCong.DocTheoId(this.IdMayIn);
                         str += "**In Offset: " + '\r' + '\n';
-                        str += string.Format("Khổ chạy Max: {0} x {1}cm",
-                            mayInOffset.KhoInRongMax, mayInOffset.KhoInDaiMax) + '\r' + '\n';
-                        str += string.Format("Khổ chạy Min: {0} x {1}cm",
-                            mayInOffset.KhoInRongMin, mayInOffset.KhoInDaiMin) + '\r' + '\n';
+                        str += string.Format("Khổ chạy Max: {0} x {1}cm" + '\r' + '\n',
+                            mayInOffset.KhoInRongMax, mayInOffset.KhoInDaiMax);
+                        str += string.Format("Khổ chạy Min: {0} x {1}cm" + '\r' + '\n',
+                            mayInOffset.KhoInRongMin, mayInOffset.KhoInDaiMin);
                         break;
                     case PhuongPhapInS.KhongIn:
                         str += "**Không In" + '\r' + '\n';                            
@@ -119,12 +144,13 @@ namespace TinhGiaInClient.Model
             }
         }
         public int IdBaiIn { get; set; }
-        public CauHinhSanPham(KhoSanPham khoSP, float tranLeTren, float tranLeDuoi,
+        public CauHinhSanPham(float khoCatRong, float khoCatCao, float tranLeTren, float tranLeDuoi,
                         float tranLeTrong, float tranLeNgoai, float leTren,
                         float leDuoi, float leTrong, float leNgoai, int idBaiIn,
-                        PhuongPhapInS phuongPhapIn, int idMayIn, string tenPhuongPhapIn, string khoMayIn)
+                        PhuongPhapInS phuongPhapIn, int idMayIn, string khoMayIn)
         {
-            this.KhoSP = khoSP;
+            this.KhoCatRong = khoCatRong;
+            this.KhoCatCao = khoCatCao;
 
             this.TranLeTren = tranLeTren;            
             this.TranLeDuoi = tranLeDuoi;            
@@ -139,7 +165,7 @@ namespace TinhGiaInClient.Model
 
             this.IdMayIn = idMayIn;
             this.PhuongPhapIn = phuongPhapIn;
-            this.TenPhuongPhapIn = tenPhuongPhapIn;
+            
             this.KhoMayIn = khoMayIn;
             //vấn đề id
             _lastIdCauHinh += 1;

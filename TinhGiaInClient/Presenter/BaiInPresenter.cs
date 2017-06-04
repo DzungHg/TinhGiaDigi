@@ -71,7 +71,7 @@ namespace TinhGiaInClient.Presenter
       
 
         #region Phần giá In
-        public List<MucTinGiaIn> GiaInS()
+        public List<MucGiaIn> GiaInS()
         {
             return baiIn.GiaInS;
         }
@@ -80,7 +80,7 @@ namespace TinhGiaInClient.Presenter
             var dict = new Dictionary<int, List<string>>();
             var donViTrang = "";
             var phuongPhapIn = "";
-            foreach (MucTinGiaIn giaIn in this.GiaInS())
+            foreach (MucGiaIn giaIn in this.GiaInS())
             {
                 var lst = new List<string>();
                 lst.Add(giaIn.IdBaiIn.ToString());
@@ -111,11 +111,11 @@ namespace TinhGiaInClient.Presenter
             }
             return dict;
         }
-        public void ThemGiaIn(MucTinGiaIn giaIn)
+        public void ThemGiaIn(MucGiaIn giaIn)
         {
             baiIn.Them_GiaIn(giaIn);
         }
-        public void SuaGiaIn(MucTinGiaIn giaIn)
+        public void SuaGiaIn(MucGiaIn giaIn)
         {
             baiIn.Sua_GiaIn(giaIn);
         }
@@ -128,7 +128,7 @@ namespace TinhGiaInClient.Presenter
         {
             baiIn.XoaTatCa_GiaIn();
         }
-        public MucTinGiaIn LayGiaInTheoId(int idGiaIn)
+        public MucGiaIn LayGiaInTheoId(int idGiaIn)
         {
             return baiIn.DocGiaInTheoID(idGiaIn);
         }
@@ -140,14 +140,14 @@ namespace TinhGiaInClient.Presenter
         {
             baiIn.CauHinhSP = cauHinhSP;
         }
-        public void CapNhatCHSPVoBaiIn(CauHinhSanPham cauHinhSP)
+       /* public void CapNhatCHSPVoBaiIn(CauHinhSanPham cauHinhSP)
         {
             var item = baiIn.CauHinhSP;
             if (item != null)
             {
                 item.IDCauHinh = cauHinhSP.IDCauHinh;
-                item.KhoSP.KhoCatRong = cauHinhSP.KhoSP.KhoCatRong;
-                item.KhoSP.KhoCatCao = cauHinhSP.KhoSP.KhoCatCao;
+                item.KhoCatRong = cauHinhSP.KhoCatRong;
+                item.KhoCatCao = cauHinhSP.KhoCatCao;
                 item.TranLeTren = cauHinhSP.TranLeTren;
                 item.TranLeDuoi = cauHinhSP.TranLeDuoi;
                 item.TranLeTrong = cauHinhSP.TranLeTrong;
@@ -162,7 +162,7 @@ namespace TinhGiaInClient.Presenter
 
             }
 
-        }
+        }*/
         public CauHinhSanPham LayCauHinhSPTheoBaiIn()
         {
             return baiIn.CauHinhSP;
@@ -189,11 +189,11 @@ namespace TinhGiaInClient.Presenter
             baiIn.GiayDeInIn = giayDeIn;
 
         }
-        public void CapNhatGiayDeIn(GiayDeIn giayDeIn)
+        /*public void CapNhatGiayDeIn(GiayDeIn giayDeIn)
         {
             baiIn.GiayDeInIn = giayDeIn;
            
-        }
+        }*/
         public void XoaGiayDeIn()
         {
             baiIn.GiayDeInIn = null;
@@ -264,9 +264,9 @@ namespace TinhGiaInClient.Presenter
         {
             baiIn.Sua_ThanhPham(thPham);
         }
-        public void XoaThanhPham(int idThanhPham)
+        public void XoaThanhPham(MucThanhPham thPham)
         {
-            var thPham = baiIn.DocThanhPhamTheoID(idThanhPham);
+            //var thPham = baiIn.DocThanhPhamTheoID(idThanhPham);
             baiIn.Xoa_ThanhPham(thPham);
         }
         public void XoaHetThanhPham()

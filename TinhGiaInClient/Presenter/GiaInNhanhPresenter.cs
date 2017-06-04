@@ -13,30 +13,22 @@ namespace TinhGiaInClient.Presenter
     public class GiaInNhanhPresenter
     {
         IViewGiaInNhanh View;
-        MucTinGiaIn _giaIn;
-        public GiaInNhanhPresenter(IViewGiaInNhanh view, MucTinGiaIn giaIn)
+        MucGiaIn MucGiaInNhanh;
+        public GiaInNhanhPresenter(IViewGiaInNhanh view, MucGiaIn mucGiaIn)
         {
             View = view;
-            if (giaIn != null)
-            {
-                this.DocGiaIn = giaIn;
-                View.ID = giaIn.ID;
-                View.IdToInDigiChon = giaIn.IdMayIn_IdBangGia;
-                View.TenBangGiaChon = giaIn.DienGiaiMayIn;
+            MucGiaInNhanh = mucGiaIn;
 
-            }
-            else
-                _giaIn = new MucTinGiaIn(0, 0, 0, 0, 0, "");
+            View.ID = MucGiaInNhanh.ID;
+            View.IdToInDigiChon = MucGiaInNhanh.IdMayIn_IdBangGia;
+            View.TenBangGiaChon = MucGiaInNhanh.DienGiaiMayIn;
+            View.IdBaiIn = MucGiaInNhanh.IdBaiIn;
+            
+
+            
+              
                 
-            //Xem vấn đề mới và sửa
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    break;
-                case FormStateS.Edit:
-                    giaIn.ID = View.ID;
-                    break;
-            }
+          
         }
         public string TenHangKH (int idHangKH)
         {
@@ -160,20 +152,22 @@ namespace TinhGiaInClient.Presenter
             giaTBTrang = giaInKetHop.GiaTBTrenDonViTinh();
             return giaInKetHop.GiaBan();
         }
-        public MucTinGiaIn DocGiaIn 
+        private void CapNhatMucGiaInNhanh()
         {
-            get { //Điền dữ liêuj
-                _giaIn.IdBaiIn = View.IdBaiIn;
-                _giaIn.PhuongPhapIn = View.PhuongPhapIn;
-                _giaIn.IdMayIn_IdBangGia = View.IdToInDigiChon;
-                _giaIn.SoTrangIn = View.SoTrangA4;
+            if (this.MucGiaInNhanh != null)
+            {
+                MucGiaInNhanh.IdBaiIn = View.IdBaiIn;
+                MucGiaInNhanh.PhuongPhapIn = View.PhuongPhapIn;
+                MucGiaInNhanh.IdMayIn_IdBangGia = View.IdToInDigiChon;
+                MucGiaInNhanh.SoTrangIn = View.SoTrangA4;
                 decimal giaTBTrang = 0;
-                _giaIn.TienIn = this.TinhGiaCuoiCung(ref giaTBTrang);
-                if (View.TinhTrangForm == FormStateS.Edit)
-                    _giaIn.ID = View.ID;
-
-                return _giaIn;}
-            set { _giaIn = value; }
+                MucGiaInNhanh.TienIn = this.TinhGiaCuoiCung(ref giaTBTrang);
+            }
+        }
+        public MucGiaIn DocMucGiaIn() 
+        {
+            CapNhatMucGiaInNhanh();//cập nhật đã
+            return this.MucGiaInNhanh;
 
         }
     }

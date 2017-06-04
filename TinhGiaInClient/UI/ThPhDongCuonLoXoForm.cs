@@ -22,22 +22,27 @@ namespace TinhGiaInClient.UI
             InitializeComponent();
 
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
-            this.IdBaiIn = thongTinBanDau.IdBaiIn;
            
+            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.Text = thongTinBanDau.TieuDeForm;
           
 
             thPhLoXoPres = new ThPhDongCuonLoXoPresenter(this, mucThPhamDongCuon);
             LoadDongCuonLoXo();
+            cboMayLoXo.SelectedIndex = -1;
+            cboMayLoXo.SelectedIndex = 0;
             //Load Nhu ep
             LoadLoXoDongCuon();
 
-            thPhLoXoPres.KhoiTaoBanDau();
-            //Load
-            LoadDongCuonLoXo();
-            cboMayLoXo.SelectedIndex = -1;
-            cboMayLoXo.SelectedIndex = 0;
             
+            //Load
+            
+            //Mục này phải làm ở đây
+            if (this.TinhTrangForm == FormStateS.Edit)
+            {
+                this.IdThanhPhamChon = mucThPhamDongCuon.IdThanhPhamChon;
+                this.IdLoXoDongCuonChon = mucThPhamDongCuon.IdLoXoChon;
+            }
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
@@ -166,6 +171,13 @@ namespace TinhGiaInClient.UI
             {
                 _idLoXo = value;
                 //chọn trên listview
+                if (_idLoXo > 0 && lstLoXo.Items.Count > 0)
+                {
+                    var item = lstLoXo.Items.FirstOrDefault(x => x.Value.ToString() == _idLoXo.ToString());
+                    //MessageBox.Show(item.ToString());
+                    lstLoXo.SelectedItem = item;
+                }
+
             }
         }
 
@@ -308,7 +320,7 @@ namespace TinhGiaInClient.UI
             }
             txtSoLuong.Enabled = true;
             txtDonViTinh.Enabled = false;
-            btnNhan.Enabled = false;
+           
             
             if (this.TinhTrangForm == FormStateS.View)
             {

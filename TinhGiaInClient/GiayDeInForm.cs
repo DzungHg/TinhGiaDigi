@@ -17,7 +17,7 @@ namespace TinhGiaInClient
     public partial class GiayDeInForm : Form, IViewGiayDeIn
     {
         GiayDeInPresenter giayDeInPres;
-        public GiayDeInForm(ThongTinBanDauChoGiayIn thongTinBanDau, GiayDeIn giayDeIn  = null )
+        public GiayDeInForm(ThongTinBanDauChoGiayIn thongTinBanDau, GiayDeIn giayDeIn )
         {
             InitializeComponent();
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
@@ -197,6 +197,8 @@ namespace TinhGiaInClient
 
             lblTieuDeForm.Text = this.Text;
             XuLyGiayKhachHangDua();//Swicth
+            //Bật tắt nút Nhận
+            BatTatNutOKTheoDieuKien();
             //if (this.PhuongPhapIn == PhuongPhapInS.KhongIn)
              //   ;
         }
@@ -403,25 +405,35 @@ namespace TinhGiaInClient
 
                 txtTenGiayIn.Text = frm.GiayChon.TenGiayMoRong;
                 
-
                 CapNhatTriGiaVoLabels();
+                //Bật tắt nút nhận
+                BatTatNutOKTheoDieuKien();
+                
             }
+           
         }
         private void XuLyGiayKhachHangDua()
         {
             if (this.GiayKhachDua)
             {
-
-                this.IdGiay = 0;
-                btnChonGiay.Enabled = false;
-                this.TenGiayIn = "Giấy khách";
+                if (string.IsNullOrEmpty(this.TenGiayIn.Trim()))
+                {
+                    this.TenGiayIn = "Giấy khách";
+                }
                 txtTenGiayIn.Focus();
+                this.IdGiay = - 1;
+                btnChonGiay.Enabled = false;                
             }
-            else
+            else 
             {
+                if(this.IdGiay <= 0) //chưa có giấy
+                    txtTenGiayIn.Text = "";
+
                 btnChonGiay.Enabled = true;                
                 btnChonGiay.Focus();
             }
+            //Xét nút
+            BatTatNutOKTheoDieuKien();
         }
 
         private void chkGiayKhach_CheckedChanged(object sender, EventArgs e)
@@ -435,7 +447,20 @@ namespace TinhGiaInClient
                             this.KichThuocSanPham.Rong, this.KichThuocSanPham.Dai);
 
         }
-      
+        private void BatTatNutOKTheoDieuKien()
+        {
+            if (this.GiayKhachDua)
+            {               
+                btnNhan.Enabled = true;
+            }
+            else if (this.IdGiay > 0)
+            {
+                btnNhan.Enabled = true;
+            }
+            else
+                btnNhan.Enabled = false;
+
+        }
        
     }
 

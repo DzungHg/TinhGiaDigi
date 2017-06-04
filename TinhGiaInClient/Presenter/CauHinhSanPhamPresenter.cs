@@ -12,35 +12,35 @@ namespace TinhGiaInClient.Presenter
     public class CauHinhSanPhamPresenter
     {
         IViewCauHinhSanPham View = null;
+        CauHinhSanPham CauHinh = null;
         public CauHinhSanPhamPresenter (IViewCauHinhSanPham view, CauHinhSanPham cauHinhSP)
         {
             View = view;
-            if (cauHinhSP != null)
-            {
-                View.IdCauHinhSP = cauHinhSP.IDCauHinh;
-                View.IdBaiIn = cauHinhSP.IdBaiIn;
-                View.KhoCatRong = cauHinhSP.KhoSP.KhoCatRong;
-                View.KhoCatCao = cauHinhSP.KhoSP.KhoCatCao;
-                View.TranLeTren = cauHinhSP.TranLeTren;
-                View.TranLeDuoi = cauHinhSP.TranLeDuoi;
-                View.TranLeTrong = cauHinhSP.TranLeTrong;
-                View.TranLeNgoai = cauHinhSP.TranLeNgoai;
-                View.LeTren = cauHinhSP.LeTren;
-                View.LeDuoi = cauHinhSP.LeDuoi;
-                View.LeTrong = cauHinhSP.LeTrong;
-                View.LeNgoai = cauHinhSP.LeNgoai;
-                View.PhuongPhapIn = cauHinhSP.PhuongPhapIn;
-                View.IdToInChon = cauHinhSP.IdMayIn;
+            this.CauHinh = cauHinhSP;
+            
+                View.IdCauHinhSP = this.CauHinh.IDCauHinh;
+                View.IdBaiIn = this.CauHinh.IdBaiIn;
+                View.KhoCatRong = this.CauHinh.KhoCatRong;
+                View.KhoCatCao = this.CauHinh.KhoCatCao;
+                View.TranLeTren = this.CauHinh.TranLeTren;
+                View.TranLeDuoi = this.CauHinh.TranLeDuoi;
+                View.TranLeTrong = this.CauHinh.TranLeTrong;
+                View.TranLeNgoai = this.CauHinh.TranLeNgoai;
+                View.LeTren = this.CauHinh.LeTren;
+                View.LeDuoi = this.CauHinh.LeDuoi;
+                View.LeTrong = this.CauHinh.LeTrong;
+                View.LeNgoai = this.CauHinh.LeNgoai;
+                View.PhuongPhapIn = this.CauHinh.PhuongPhapIn;
+                View.IdToInChon = this.CauHinh.IdMayIn;
+               
                 //this.SoLuong = cauHinhSP.SoLuong;
 
 
-            }
-            if (View.TinhTrangForm == FormStateS.New)
-                this.TrinhBayMacDinh();
+            
         }
         private void TrinhBayMacDinh()
         {
-            
+            /*
             View.KhoCatCao = 0;
             View.KhoCatRong = 0;
             View.TranLeTren = 0.2f;
@@ -53,6 +53,7 @@ namespace TinhGiaInClient.Presenter
             View.LeNgoai = 0.2f;
             View.SoLuong = 1;
             View.PhuongPhapIn = PhuongPhapInS.Toner;
+             */
 
         }
         public void KiemTraTranLe_vs_Le()
@@ -74,9 +75,7 @@ namespace TinhGiaInClient.Presenter
             {
                 View.LeNgoai = View.TranLeNgoai;
             }
-            //Cập nhật luôn
-            View.KhoRongGomLe = View.KhoCatRong + View.LeTrong + View.LeNgoai;
-            View.KhoCaoGomLe = View.KhoCatCao + View.LeTren + View.LeDuoi;
+            
         }
         public void DatLeBangTranLe()
         {
@@ -170,6 +169,14 @@ namespace TinhGiaInClient.Presenter
 
             return result;
         }
+        public float KhoRongGomLe()
+        {
+            return this.CauHinh.KhoRongGomLe;
+        }
+        public float KhoCaoGomLe()
+        {
+            return this.CauHinh.KhoCaoGomLe;
+        }
         public string TenPhuongPhapIn()
         {
             var result = "";
@@ -203,26 +210,31 @@ namespace TinhGiaInClient.Presenter
             return result;
 
         }
+        private void CapNhatCauHinhSanPham()
+        {
+            if (this.CauHinh != null)
+            {
+                this.CauHinh.IDCauHinh = View.IdCauHinhSP;
+                this.CauHinh.IdBaiIn = View.IdBaiIn;
+                this.CauHinh.KhoCatRong = View.KhoCatRong;
+                this.CauHinh.KhoCatCao = View.KhoCatCao;
+                this.CauHinh.TranLeTren = View.TranLeTren;
+                this.CauHinh.TranLeDuoi = View.TranLeDuoi;
+                this.CauHinh.TranLeTrong = View.TranLeTrong;
+                this.CauHinh.TranLeNgoai = View.TranLeNgoai;
+                this.CauHinh.LeTren = View.LeTren;
+                this.CauHinh.LeDuoi = View.LeDuoi;
+                this.CauHinh.LeTrong = View.LeTrong;
+                this.CauHinh.LeNgoai = View.LeNgoai;
+                this.CauHinh.IdMayIn = View.IdToInChon;
+                this.CauHinh.PhuongPhapIn = View.PhuongPhapIn;
+                this.CauHinh.KhoMayIn = View.KhoInChon;
+            }
+        }
         public CauHinhSanPham DocCauHinhSanPham()
         {
-            var ketQua = new CauHinhSanPham(new KhoSanPham
-            {
-                ID = 0,
-                KhoCatRong = View.KhoCatRong,
-                KhoCatCao = View.KhoCatCao,
-                Ten = "",
-                ThuTu = 0
-            },
-                View.TranLeTren, View.TranLeDuoi, View.TranLeTrong, View.TranLeNgoai,
-                View.LeTren, View.LeDuoi, View.TranLeTrong, View.LeNgoai, View.IdBaiIn,
-                View.PhuongPhapIn, View.IdToInChon, this.TenPhuongPhapIn(),
-                this.KhoMayInChon());
-
-            if (View.TinhTrangForm == FormStateS.Edit)
-                ketQua.IDCauHinh = View.IdCauHinhSP; //Tránh tự tăng id khi tạo mới
-
-            return ketQua;
-
+            CapNhatCauHinhSanPham();//Cập nhật trước
+            return this.CauHinh;
         }
     }
 }

@@ -140,7 +140,7 @@ namespace TinhGiaInClient
         {
             get { return PhuongPhapInS.Offset; }
         }
-        public MucTinGiaIn DocGiaIn
+        public MucGiaIn DocGiaIn
         {
             get { return giaInPres.DocGiaIn; }
         }

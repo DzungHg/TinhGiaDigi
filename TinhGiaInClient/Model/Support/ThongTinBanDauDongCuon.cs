@@ -8,7 +8,7 @@ namespace TinhGiaInClient.Model.Support
 {
     public struct ThongTinBanDauDongCuon: IThongTinBanDau
     {
-        public int IdBaiIn { get; set; }
+       
         
         public string ThongDiepCanThiet { get; set; }
         public string TieuDeForm { get; set; }

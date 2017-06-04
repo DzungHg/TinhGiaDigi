@@ -12,8 +12,9 @@ namespace TinhGiaInClient.Model
       
       
         public KieuDongCuonS KieuDongCuon { get; set; }
-        public int GayCao { get; set; }
+        public float GayCao { get; set; }
         public float GayDay { get; set; }
+        public int IdLoXoChon { get; set; }
       
       
     }

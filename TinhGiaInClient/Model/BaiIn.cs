@@ -23,8 +23,8 @@ namespace TinhGiaInClient.Model
         public string TenHangKH { get; set; }
         public CauHinhSanPham CauHinhSP { get; set; }
         public GiayDeIn GiayDeInIn { get; set; }
-        private List<MucTinGiaIn> _giaInS;
-        public List<MucTinGiaIn> GiaInS
+        private List<MucGiaIn> _giaInS;
+        public List<MucGiaIn> GiaInS
         {
             get { return _giaInS; }
             set { _giaInS = value;}
@@ -61,7 +61,7 @@ namespace TinhGiaInClient.Model
         public BaiIn(string tenBai)
         {
             _mucTPs = new List<MucThanhPham>();
-            _giaInS = new List<MucTinGiaIn>();
+            _giaInS = new List<MucGiaIn>();
             //---
             this.TieuDe = tenBai;
             _lastId +=1;
@@ -78,11 +78,11 @@ namespace TinhGiaInClient.Model
            return this.ThanhPhamS.Count();
        }
         #region thêm sửa, xóa giá In
-        public void Them_GiaIn(MucTinGiaIn giaIn)
+        public void Them_GiaIn(MucGiaIn giaIn)
        {
            _giaInS.Add(giaIn);
        }
-        public void Sua_GiaIn (MucTinGiaIn giaIn)
+        public void Sua_GiaIn (MucGiaIn giaIn)
         {
             var giaInSua = this.GiaInS.Find(x => x.ID == giaIn.ID);
             giaInSua.IdBaiIn = giaIn.IdBaiIn;
@@ -92,11 +92,11 @@ namespace TinhGiaInClient.Model
             giaInSua.TienIn = giaIn.TienIn;
 
         }
-        public void Xoa_GiaIn (MucTinGiaIn giaIn)
+        public void Xoa_GiaIn (MucGiaIn giaIn)
         {
             this.GiaInS.Remove(giaIn);
         }
-        public MucTinGiaIn DocGiaInTheoID (int idGiaIn)
+        public MucGiaIn DocGiaInTheoID (int idGiaIn)
         {
             return this.GiaInS.Find(x => x.ID == idGiaIn);
         }
@@ -122,6 +122,20 @@ namespace TinhGiaInClient.Model
             thPhamSua.TenThanhPham = thPham.TenThanhPham;
             thPhamSua.ThanhTien = thPham.ThanhTien;
             thPhamSua.TyLeMarkUp = thPham.TyLeMarkUp;
+            if (thPham is MucThPhCanPhu)
+            {
+                var thPhamSuaN = (MucThPhCanPhu)thPhamSua;
+                var thPhamN = (MucThPhCanPhu)thPham;
+                //Điền thêm dữ liệu
+                thPhamSuaN.SoMatCan = thPhamN.SoMatCan;                
+            }
+            if (thPham is MucThPhCanGap)
+            {
+                var thPhamSuaN = (MucThPhCanGap)thPhamSua;
+                var thPhamN = (MucThPhCanGap)thPham;
+                //Điền thêm dữ liệu
+                thPhamSuaN.SoDuongCan = thPhamN.SoDuongCan;
+            }
             //Trường hợp thành phẩm khác
             if (thPham is MucThPhGiaCongNgoai)
             {
@@ -131,6 +145,26 @@ namespace TinhGiaInClient.Model
                 thPhamSuaN.PhiGiaCong = thPhamN.PhiGiaCong;
                 thPhamSuaN.PhiVanChuyen = thPhamN.PhiVanChuyen;
                 thPhamSuaN.TenNhaCungCap = thPhamN.TenNhaCungCap;
+            }
+            if (thPham is MucDongCuonLoXo)
+            {
+                var thPhamSuaN = (MucDongCuonLoXo)thPhamSua;
+                var thPhamN = (MucDongCuonLoXo)thPham;
+                //Điền thêm dữ liệu
+                thPhamSuaN.GayCao = thPhamN.GayCao;
+                thPhamSuaN.GayDay = thPhamN.GayDay;
+                thPhamSuaN.KieuDongCuon = thPhamN.KieuDongCuon;
+                thPhamSuaN.IdLoXoChon = thPhamN.IdLoXoChon;
+            }
+            if (thPham is MucThPhEpKim)
+            {
+                var thPhamSuaN = (MucThPhEpKim)thPhamSua;
+                var thPhamN = (MucThPhEpKim)thPham;
+                //Điền thêm dữ liệu
+                thPhamSuaN.KhoEpCao = thPhamN.KhoEpCao;
+                thPhamSuaN.KhoEpRong = thPhamN.KhoEpRong;
+                thPhamSuaN.LaEpViTinh = thPhamN.LaEpViTinh;
+                thPhamSuaN.IdNhuEpKimChon = thPhamN.IdNhuEpKimChon;
             }
 
         }
@@ -187,7 +221,7 @@ namespace TinhGiaInClient.Model
             if (this.CauHinhSP != null)
             {
                 dict.Add("Khổ Th. Phẩm:", string.Format("{0} x {1}cm",
-                    this.CauHinhSP.KhoSP.KhoCatRong, this.CauHinhSP.KhoSP.KhoCatCao));
+                    this.CauHinhSP.KhoCatRong, this.CauHinhSP.KhoCatCao));
             }
             decimal tienGiay = 0;
             if (this.GiayDeInIn != null)
@@ -198,7 +232,7 @@ namespace TinhGiaInClient.Model
             }
             //Chi tiết in và Tính in
             var tenPPIn = "";
-            foreach(MucTinGiaIn giaIn in this.GiaInS)
+            foreach(MucGiaIn giaIn in this.GiaInS)
             {
                 tenPPIn += giaIn.TenPhuongPhapIn + ",";
             }

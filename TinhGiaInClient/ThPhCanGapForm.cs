@@ -17,35 +17,37 @@ namespace TinhGiaInClient
     public partial class ThPhCanGapForm : Form, IViewGiaCanGap
     {
         CanGapPresenter canGapPres;
-        public ThPhCanGapForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham = null)
+        public ThPhCanGapForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhCanGap mucThPham)
         {
             InitializeComponent();
-            
+
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.Text = thongTinBanDau.TieuDeForm;
-            this.IdBaiIn = thongTinBanDau.IdBaiIn;
-            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
-            this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
-            //MessageBox.Show(thongTinBanDau.SoLuongSanPham.ToString());
-            this.SoLuong = thongTinBanDau.SoLuongSanPham;
-            this.DonViTinh = thongTinBanDau.DonViTinh;
-            this.SoDuongCan = 1;
+
 
             canGapPres = new CanGapPresenter(this, mucThPham);
             LoadThanhPham();
-            
+            //Bẩy
+            lbxThanhPham.SelectedIndex = -1;
+            lbxThanhPham.SelectedIndex = 0;
+            //Xử lý ở đây vì trong present không thể
+            if (this.TinhTrangForm == FormStateS.Edit)
+            {
+                this.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
+            }
+
             if (this.TinhTrangForm == FormStateS.New)
                 canGapPres.KhoiTaoBanDau();
             //Envent
-           txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoDuongCan.TextChanged += new EventHandler(TextBoxes_TextChanged);
             lbxThanhPham.SelectedIndexChanged += new EventHandler(ListBoxes_SelectedIndex_Changed);
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtSoDuongCan.KeyPress += new KeyPressEventHandler(InputValidator);     
-            
-            
+            txtSoDuongCan.KeyPress += new KeyPressEventHandler(InputValidator);
+
+
         }
         #region Implement Iview
         public int IdBaiIn { get; set; }
@@ -178,7 +180,7 @@ namespace TinhGiaInClient
                 lblThanhTien.Text = string.Format("{0:0,0.00}đ", canGapPres.ThanhTien_ThPh());
                 lblGiaTB.Text = string.Format("{0:0,0.00}đ", canGapPres.GiaTB_ThPh());
             }
-
+            btnOK.Enabled = true;
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
@@ -207,9 +209,8 @@ namespace TinhGiaInClient
                 lb = (ListBox)sender;
                 if (lb == lbxThanhPham)
                 {
-                    txtSoLuong.Enabled = true;
-                    txtDonViTinh.Enabled = true;
-                    txtSoDuongCan.Enabled = true;
+                                    
+                  
                     btnOK.Enabled = true;
                 }
                
@@ -220,9 +221,9 @@ namespace TinhGiaInClient
 
         private void ThanhPhamForm_Load(object sender, EventArgs e)
         {
-            txtSoLuong.Enabled = false;
+            
             txtDonViTinh.Enabled = false;
-            txtSoDuongCan.Enabled = false;
+            
             btnOK.Enabled = false;
           
         }

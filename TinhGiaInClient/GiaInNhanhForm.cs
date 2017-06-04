@@ -17,7 +17,7 @@ namespace TinhGiaInClient
     public partial class GiaInNhanhForm : Form, IViewGiaInNhanh
     {
         GiaInNhanhPresenter giaInPres;
-        public GiaInNhanhForm(ThongTinBanDauChoGiaIn thongTinBanDau, MucTinGiaIn giaIn = null)
+        public GiaInNhanhForm(ThongTinBanDauChoGiaIn thongTinBanDau, MucGiaIn giaIn = null)
         {
             InitializeComponent();
             //
@@ -142,9 +142,9 @@ namespace TinhGiaInClient
             get;
             set;
         }
-        public MucTinGiaIn DocGiaIn
+        public MucGiaIn DocGiaIn
         {
-            get { return giaInPres.DocGiaIn; }
+            get { return giaInPres.DocMucGiaIn; }
         }
         #endregion
         private void LoadBangGia()

@@ -12,43 +12,37 @@ namespace TinhGiaInClient.Presenter
     public class GiayDeInPresenter
     {
         IViewGiayDeIn View;
-      
-        public GiayDeInPresenter(IViewGiayDeIn view, GiayDeIn giayDeIn = null)
+        GiayDeIn MucGiayDeIn = null;
+
+        public GiayDeInPresenter(IViewGiayDeIn view, GiayDeIn giayDeIn)
         {
             View = view;
-            //Việc đặt dữ liệu ban đầu do 
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    this.KhoiTaoGiaTriBanDau();
-                  
-                    break;
-                case FormStateS.Edit: //Chắc chắn có giấy
-                    View.ID = giayDeIn.ID;
-                    View.IdBaiIn = giayDeIn.IdBaiIn;                                        
-                    View.SoConTrenToChay = giayDeIn.SoConTrenToChay;
-                    View.SoLuongToChayBuHao = giayDeIn.SoToChayBuHao;
-                    View.GiayKhachDua = giayDeIn.GiayKhachDua;                    
-                    View.TenGiayIn = giayDeIn.TenGiayIn;
-                    View.ToChayRong = giayDeIn.ToChayRong;
-                    View.ToChayDai = giayDeIn.ToChayDai;
-                    View.SoToChayTrenToLon = giayDeIn.SoToChayTrenToLon;
-                   
-                    break;
+            MucGiayDeIn = giayDeIn;
 
-            }
+            View.ID = MucGiayDeIn.ID;
+            View.IdBaiIn = MucGiayDeIn.IdBaiIn;
+            View.ToChayRong = MucGiayDeIn.ToChayRong;
+            View.ToChayDai = MucGiayDeIn.ToChayDai;
+            View.SoConTrenToChay = MucGiayDeIn.SoConTrenToChay;
+            View.SoLuongToChayBuHao = MucGiayDeIn.SoToChayBuHao;
+            View.GiayKhachDua = MucGiayDeIn.GiayKhachDua;
+            View.TenGiayIn = MucGiayDeIn.TenGiayIn;
             
-                     
+           
+            View.SoToChayTrenToLon = MucGiayDeIn.SoToChayTrenToLon;
+            
+            View.IdGiay = MucGiayDeIn.IdGiay;
 
         }
         private void KhoiTaoGiaTriBanDau()
         {            
-            
+          /*  
             View.SoLuongToChayBuHao = 1;
             View.SoConTrenToChay = 1;
             View.SoToChayTrenToLon = 1;
             View.ToChayDai = 1;
             View.ToChayRong = 1;
+           */
 
         }
         public int SoToChayLyThuyetTinh()
@@ -124,22 +118,31 @@ namespace TinhGiaInClient.Presenter
             return GiaBan() * View.SoToGiayLon;
 
         }
-       
+        private void CapNhatMucGiayDeIn()
+        {
+            if (this.MucGiayDeIn != null)
+            {
+                this.MucGiayDeIn.ID = View.ID;
+                this.MucGiayDeIn.IdBaiIn = View.IdBaiIn;
+                this.MucGiayDeIn.SoConTrenToChay = View.SoConTrenToChay;
+                this.MucGiayDeIn.SoToChayBuHao = View.SoLuongToChayBuHao;
+                this.MucGiayDeIn.GiayKhachDua = View.GiayKhachDua;
+                this.MucGiayDeIn.TenGiayIn = View.TenGiayIn;
+                this.MucGiayDeIn.SoToChayLyThuyet = View.SoLuongToChayLyThuyet;
+                this.MucGiayDeIn.ToChayRong = View.ToChayRong;
+                this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
+                this.MucGiayDeIn.SoToLonTong = View.SoToGiayLon; 
+                this.MucGiayDeIn.ToChayDai = View.ToChayDai;
+                this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
+                this.MucGiayDeIn.IdGiay = View.IdGiay;
+                this.MucGiayDeIn.ThanhTienGiay = View.ThanhTien;
+               
+            }
+        }
         public GiayDeIn DocGiayDeIn()
         {
-            var giayDeIn = new GiayDeIn(View.ToChayRong, View.ToChayDai,
-                View.SoConTrenToChay, View.SoLuongToChayBuHao,
-                this.SoToChayLyThuyetTinh(), this.SoToChayTong(),
-                View.GiayKhachDua, View.IdGiay,
-                View.TenGiayIn, View.IdBaiIn, View.SoToChayTrenToLon,
-                View.SoToGiayLon, this.ThanhTien());
-            
-
-            if (View.TinhTrangForm == FormStateS.Edit)
-                giayDeIn.ID = View.ID;
-            
-
-            return giayDeIn;
+            CapNhatMucGiayDeIn();            
+            return this.MucGiayDeIn;
         }
     }
 }

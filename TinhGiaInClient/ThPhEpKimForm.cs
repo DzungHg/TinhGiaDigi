@@ -17,34 +17,34 @@ namespace TinhGiaInClient
     public partial class ThPhEpKimForm : Form, IViewThPhEpKim
     {
         ThPhEpKimPresenter epKimPres;
-        public ThPhEpKimForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham = null)
+        public ThPhEpKimForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhEpKim mucThPham)
         {
             InitializeComponent();
 
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
-            this.IdBaiIn = thongTinBanDau.IdBaiIn;
-            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
+            
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
-            this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
-            this.SoLuong = thongTinBanDau.SoLuongSanPham;
-            this.DonViTinh = thongTinBanDau.DonViTinh;
+            
 
-            epKimPres = new ThPhEpKimPresenter(this, mucThPham);
-            LoadEpKim();
-            epKimPres.KhoiTaoBanDau();
+            epKimPres = new ThPhEpKimPresenter(this, mucThPham);            
             //Load
             LoadEpKim();
             cboEpKim.SelectedIndex = -1;
             cboEpKim.SelectedIndex = 0;
             
+            //Phải làm ở dây
+            if (this.TinhTrangForm == FormStateS.Edit)
+            {
+                this.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
+                this.IdNhuEpKimChon = mucThPham.IdNhuEpKimChon;
+            }
+            
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             lstNhuEpKim.SelectedIndexChanged += new EventHandler(TextBoxes_TextChanged);
-            
-
-            txtCao.Leave += new EventHandler(TextBoxes_Leave);
-            txtRong.Leave += new EventHandler(TextBoxes_Leave);
-            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtCao.TextChanged += new EventHandler(TextBoxes_TextChanged); 
+            txtRong.TextChanged += new EventHandler(TextBoxes_TextChanged); 
+          
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtCao.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -152,6 +152,12 @@ namespace TinhGiaInClient
             {
                 _idNhuEpKimChon = value;
                 //chọn trên listview
+                if (_idNhuEpKimChon > 0 && lstNhuEpKim.Items.Count >0)
+                {
+                    var item = lstNhuEpKim.FindItemWithText(_idNhuEpKimChon.ToString());
+                    lstNhuEpKim.Items[item.Index].Selected = true;
+                    lstNhuEpKim.Select();//chọn nó                
+                }
             }
         }
 
@@ -236,7 +242,23 @@ namespace TinhGiaInClient
                         this.SoLuong = 1;
 
                     CapNhatLabelGia();
-                }               
+                }
+                if (tb == txtRong)
+                {
+                    //xử lý khi user xóa hết
+                    if (string.IsNullOrEmpty(txtRong.Text))
+                        this.KhoEpRong = 5f;
+
+                    CapNhatLabelGia();
+                }
+                if (tb == txtCao)
+                {
+                    //xử lý khi user xóa hết
+                    if (string.IsNullOrEmpty(txtCao.Text))
+                        this.KhoEpCao = 5f;
+
+                    CapNhatLabelGia();
+                }     
             }
             ListView lv;
             if (sender is ListView)
@@ -333,26 +355,7 @@ namespace TinhGiaInClient
             LoadNhuEpKimTheoEpKim();
         }
 
-        private void TextBoxes_Leave(object sender, EventArgs e)
-        {
-            TextBox t;
-            if (sender is TextBox)
-            {
-                t = (TextBox)sender;
-                if (t == txtSoLuong)
-                    if (string.IsNullOrEmpty(txtSoLuong.Text))
-                        this.SoLuong = 1;
-                if (t == txtRong)
-                    if (string.IsNullOrEmpty(txtRong.Text))
-                        this.KhoEpRong = 1;
-                if (t == txtCao)
-                    if (string.IsNullOrEmpty(txtCao.Text))
-                        this.KhoEpCao = 1;
-
-            }
-
-            CapNhatLabelGia();
-        }
+        
 
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)
         {

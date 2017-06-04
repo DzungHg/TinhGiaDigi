@@ -17,23 +17,25 @@ namespace TinhGiaInClient
     public partial class ThPhDongCuonForm : Form, IViewThanhPham
     {
         DongCuonPresenter dongCuonPres;
-        public ThPhDongCuonForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham= null)
+        public ThPhDongCuonForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham)
         {
             InitializeComponent();
 
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
             this.Text = thongTinBanDau.TieuDeForm;
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
-            this.DonViTinh = thongTinBanDau.DonViTinh;
-            this.SoLuong = thongTinBanDau.SoLuongSanPham;
-            this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
-            this.IdBaiIn = thongTinBanDau.IdBaiIn;
-            this.LoaiThPh = thongTinBanDau.LoaiThanhPham;
+                       
 
             dongCuonPres = new DongCuonPresenter(this, mucThPham);
             //dongCuonPres.KhoiTaoBanDau();
             LoadThanhPham();
-            
+            //Bẫy
+            lbxThanhPham.SelectedIndex = -1;
+            lbxThanhPham.SelectedIndex = 0;
+            //Xử lý Id tp chọn ở đây
+            if (this.TinhTrangForm == FormStateS.Edit)
+                this.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
+
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
            

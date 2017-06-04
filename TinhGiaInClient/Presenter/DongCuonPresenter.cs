@@ -13,26 +13,21 @@ namespace TinhGiaInClient.Presenter
     public class DongCuonPresenter : IThanhPhamPresenter
     {
         IViewThanhPham View = null;
+        MucThanhPham MucDongCuon = null;
         public DongCuonPresenter(IViewThanhPham view, MucThanhPham mucThPham)
         {
             View = view;
-            if (mucThPham != null)
-            {
-                View.ID = mucThPham.ID;
-                View.IdBaiIn = mucThPham.IdBaiIn;
-                View.IdHangKhachHang = mucThPham.IdHangKhachHang;
-                View.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
-                View.LoaiThPh = mucThPham.LoaiThanhPham;
-                View.SoLuong = mucThPham.SoLuong;
+            this.MucDongCuon = mucThPham;
 
-            }
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    KhoiTaoBanDau();
-                    break;
+            View.ID = this.MucDongCuon.ID;
+            View.IdBaiIn = this.MucDongCuon.IdBaiIn;
+            View.IdHangKhachHang = this.MucDongCuon.IdHangKhachHang;
+            View.IdThanhPhamChon = this.MucDongCuon.IdThanhPhamChon;
+            View.LoaiThPh = this.MucDongCuon.LoaiThanhPham;
+            View.SoLuong = this.MucDongCuon.SoLuong;
+            View.DonViTinh = "cuốn";
 
-            }
+
         }
         public void KhoiTaoBanDau()
         {
@@ -81,18 +76,17 @@ namespace TinhGiaInClient.Presenter
         }
         public MucThanhPham LayMucThanhPham()
         {
-            var mucThPham = new MucThanhPham();
-            mucThPham.IdBaiIn = View.IdBaiIn;
-            mucThPham.TenThanhPham = View.TenThanhPhamChon;
-            mucThPham.IdThanhPhamChon = View.IdThanhPhamChon;
-            mucThPham.IdHangKhachHang = View.IdHangKhachHang;
-            mucThPham.LoaiThanhPham = View.LoaiThPh;
-            mucThPham.SoLuong = View.SoLuong;
-            mucThPham.DonViTinh = View.DonViTinh;
-            mucThPham.ThanhTien = View.ThanhTien;
-            if (View.TinhTrangForm == FormStateS.Edit)
-                mucThPham.ID = View.ID; //Cập nhật lại ID
-            return mucThPham;
+           
+            this.MucDongCuon.IdBaiIn = View.IdBaiIn;
+            this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
+            this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
+            this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
+            this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
+            this.MucDongCuon.SoLuong = View.SoLuong;
+            this.MucDongCuon.DonViTinh = View.DonViTinh;
+            this.MucDongCuon.ThanhTien = View.ThanhTien;
+            
+            return this.MucDongCuon;
         }
     }
 }

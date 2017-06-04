@@ -256,9 +256,11 @@ namespace TinhGiaInClient
         }
         private void DoiGiayMoi()
         {
-           
+            //Tao giay de in
+            var mucGiayDeIn = new GiayDeIn(32, 47, 1, 1, 1,
+                1, false, 0, "", 1, 1, 1, 0);//
             //Tiến hành gắn
-            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(FormStateS.New));
+            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(FormStateS.New), mucGiayDeIn);
             frm.Text = "[Đổi] Giấy in Danh thiếp";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;

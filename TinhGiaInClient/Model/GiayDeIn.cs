@@ -42,7 +42,7 @@ namespace TinhGiaInClient.Model
                     int soToLonTong, decimal thanhTienGiay)
         {
             this.ToChayRong = toChayRong;
-            this.ToChayDai = ToChayDai;
+            this.ToChayDai = toChayDai;
 
             this.SoConTrenToChay = soConTrenToChay;
             this.SoToChayBuHao = soToChayBuHao;

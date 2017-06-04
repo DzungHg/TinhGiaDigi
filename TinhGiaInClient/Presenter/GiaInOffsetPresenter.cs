@@ -14,7 +14,7 @@ namespace TinhGiaInClient.Presenter
     {
         IViewGiaInOffset View;
         
-        public GiaInOffsetPresenter(IViewGiaInOffset view, MucTinGiaIn giaIn = null)
+        public GiaInOffsetPresenter(IViewGiaInOffset view, MucGiaIn giaIn = null)
         {
             View = view;//Một số giá trị ban đầu
             View.PhiVanChuyen = 200000;
@@ -24,7 +24,7 @@ namespace TinhGiaInClient.Presenter
                 this.DocGiaIn = giaIn;
             }
             else
-                _giaIn = new MucTinGiaIn(0, 0, 0, 0, 0, "");
+                _giaIn = new MucGiaIn(0, 0, 0, 0, 0, "");
             //Xem vấn đề mới và sửa
             switch (View.TinhTrangForm)
             {
@@ -80,8 +80,8 @@ namespace TinhGiaInClient.Presenter
             return giaInOffset.ThanhTien_In();
         }
 
-        MucTinGiaIn _giaIn;
-        public MucTinGiaIn DocGiaIn
+        MucGiaIn _giaIn;
+        public MucGiaIn DocGiaIn
         {
             get
             {

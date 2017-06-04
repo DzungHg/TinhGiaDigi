@@ -13,29 +13,24 @@ namespace TinhGiaInClient.Presenter
     public class CanGapPresenter : IThanhPhamPresenter
     {
         IViewGiaCanGap View = null;
-        //MucThanhPham mucThanhPham;
-        public CanGapPresenter(IViewGiaCanGap view, MucThanhPham mucThPham)
+        MucThPhCanGap MucCanGap = null;
+        public CanGapPresenter(IViewGiaCanGap view, MucThPhCanGap mucThPham)
         {
+            this.MucCanGap = mucThPham;
+
             View = view;
 
-            if (mucThPham != null)
-            {
-                View.ID = mucThPham.ID;
-                View.IdBaiIn = mucThPham.IdBaiIn;
-                View.IdHangKhachHang = mucThPham.IdHangKhachHang;
-                View.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
-                View.LoaiThPh = mucThPham.LoaiThanhPham;
-                View.SoLuong = mucThPham.SoLuong;
 
-            }
-            /*
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    this.mucThanhPham = new MucThanhPham();
-                    break;
+            View.ID = this.MucCanGap.ID;
+            View.IdBaiIn = this.MucCanGap.IdBaiIn;
+            View.IdHangKhachHang = this.MucCanGap.IdHangKhachHang;
+            View.IdThanhPhamChon = this.MucCanGap.IdThanhPhamChon;
+            View.LoaiThPh = this.MucCanGap.LoaiThanhPham;
+            View.SoLuong = this.MucCanGap.SoLuong;
+            View.DonViTinh = "con";
+            View.SoDuongCan = this.MucCanGap.SoDuongCan;
 
-            } */
+            
            
             
 
@@ -43,8 +38,6 @@ namespace TinhGiaInClient.Presenter
         public void KhoiTaoBanDau()
         {
 
-            View.SoDuongCan = 1;
-            //View.SoLuong = 1;
           
         }
 
@@ -82,20 +75,19 @@ namespace TinhGiaInClient.Presenter
                 return 0;
             return ThanhTien_ThPh() / View.SoLuong;
         }
-        public MucThanhPham LayMucThanhPham()
+        public MucThPhCanGap LayMucThanhPham()
         {
-            var mucThPham = new MucThanhPham();
-            mucThPham.IdBaiIn = View.IdBaiIn;
-            mucThPham.TenThanhPham = View.TenThanhPhamChon;
-            mucThPham.IdThanhPhamChon = View.IdThanhPhamChon;
-            mucThPham.IdHangKhachHang = View.IdHangKhachHang;
-            mucThPham.LoaiThanhPham = View.LoaiThPh;
-            mucThPham.SoLuong = View.SoLuong;
-            mucThPham.DonViTinh = View.DonViTinh;
-            mucThPham.ThanhTien = View.ThanhTien;
-            if (View.TinhTrangForm == FormStateS.Edit)
-                mucThPham.ID = View.ID; //Cập nhật lại ID
-            return mucThPham;
+            //Chỉ cần cập nhật lại
+            this.MucCanGap.IdBaiIn = View.IdBaiIn;
+            this.MucCanGap.TenThanhPham = View.TenThanhPhamChon;
+            this.MucCanGap.IdThanhPhamChon = View.IdThanhPhamChon;
+            this.MucCanGap.IdHangKhachHang = View.IdHangKhachHang;
+            this.MucCanGap.LoaiThanhPham = View.LoaiThPh;
+            this.MucCanGap.SoLuong = View.SoLuong;
+            this.MucCanGap.SoDuongCan = View.SoDuongCan;
+            this.MucCanGap.DonViTinh = View.DonViTinh;
+            this.MucCanGap.ThanhTien = View.ThanhTien;
+            return this.MucCanGap;
         }
     }
 }
