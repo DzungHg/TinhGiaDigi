@@ -75,18 +75,26 @@ namespace TinhGiaInClient.Presenter
                 return 0;
             return ThanhTien_ThPh() / View.SoLuong;
         }
+        private void CapNhatMucThanhPham()
+        {
+            if (this.MucCanGap != null)
+            {
+                //Chỉ cần cập nhật lại
+                this.MucCanGap.IdBaiIn = View.IdBaiIn;
+                this.MucCanGap.TenThanhPham = View.TenThanhPhamChon;
+                this.MucCanGap.IdThanhPhamChon = View.IdThanhPhamChon;
+                this.MucCanGap.IdHangKhachHang = View.IdHangKhachHang;
+                this.MucCanGap.LoaiThanhPham = View.LoaiThPh;
+                this.MucCanGap.SoLuong = View.SoLuong;
+                this.MucCanGap.SoDuongCan = View.SoDuongCan;
+                this.MucCanGap.DonViTinh = View.DonViTinh;
+                this.MucCanGap.ThanhTien = View.ThanhTien;
+            }
+        }
         public MucThPhCanGap LayMucThanhPham()
         {
-            //Chỉ cần cập nhật lại
-            this.MucCanGap.IdBaiIn = View.IdBaiIn;
-            this.MucCanGap.TenThanhPham = View.TenThanhPhamChon;
-            this.MucCanGap.IdThanhPhamChon = View.IdThanhPhamChon;
-            this.MucCanGap.IdHangKhachHang = View.IdHangKhachHang;
-            this.MucCanGap.LoaiThanhPham = View.LoaiThPh;
-            this.MucCanGap.SoLuong = View.SoLuong;
-            this.MucCanGap.SoDuongCan = View.SoDuongCan;
-            this.MucCanGap.DonViTinh = View.DonViTinh;
-            this.MucCanGap.ThanhTien = View.ThanhTien;
+            //cập nhật
+            CapNhatMucThanhPham();
             return this.MucCanGap;
         }
     }

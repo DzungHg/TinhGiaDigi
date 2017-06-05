@@ -10,10 +10,13 @@ namespace TinhGiaInClient.Model
     {
         static int _prevId = 0;
         public int ID { get; set; }
-        public int IdBaiIn { get; set; }               
+        public int IdBaiIn { get; set; }
+        public int IdHangKhachHang { get; set; }    
         public PhuongPhapInS PhuongPhapIn { get; set; }
-               
-        public int IdMayIn_IdBangGia { get; set; }
+        public int SoMatIn { get; set; }        
+        public int IdMayIn { get; set; }
+        public int IdBangGiaInNhanh { get; set; }
+        public int SoToChay { get; set; }
         public int SoTrangIn { get; set; }
         public decimal TienIn { get; set; }
         public string GiaTBTrangInfo { get; set; }
@@ -27,7 +30,7 @@ namespace TinhGiaInClient.Model
             }
         }
         public MucGiaIn(PhuongPhapInS phuongPhapIn, int soTrangIn, int idBaiIn, int idMayInOrToIn,
-            decimal tienIn, string giaTBTrang)
+            decimal tienIn, string giaTBTrang, int idHangKH, int soToChay, int soMatIn)
         {
             
             this.PhuongPhapIn = phuongPhapIn;
@@ -35,7 +38,11 @@ namespace TinhGiaInClient.Model
             this.TienIn = tienIn;
             this.IdBaiIn = idBaiIn;            
             this.GiaTBTrangInfo = giaTBTrang;
-            this.IdMayIn_IdBangGia = idMayInOrToIn;
+            this.IdMayIn = idMayInOrToIn;
+            this.IdHangKhachHang = idHangKH;
+            this.SoToChay = soToChay;
+            this.SoMatIn = soMatIn;
+            
             //Tạo Id mới tăng dần
             _prevId += 1;
             this.ID = _prevId;
@@ -45,15 +52,15 @@ namespace TinhGiaInClient.Model
         public string DienGiaiMayIn 
         {
             get {
-                if (this.IdMayIn_IdBangGia >0 && this.PhuongPhapIn > 0)
+                if (this.IdMayIn >0 && this.PhuongPhapIn > 0)
                 {
                     switch (this.PhuongPhapIn)
                     {
                         case PhuongPhapInS.Toner:
-                            _dienGiaiMayIn = ToInMayDigi.DocTheoId(IdMayIn_IdBangGia).Ten;
+                            _dienGiaiMayIn = ToInMayDigi.DocTheoId(IdMayIn).Ten;
                             break;
                         case PhuongPhapInS.Offset:
-                            _dienGiaiMayIn = OffsetGiaCong.DocTheoId(IdMayIn_IdBangGia).Ten;
+                            _dienGiaiMayIn = OffsetGiaCong.DocTheoId(IdMayIn).Ten;
                             break;
                     }
                 }

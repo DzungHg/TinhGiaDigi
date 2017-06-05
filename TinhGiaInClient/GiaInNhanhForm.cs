@@ -17,22 +17,24 @@ namespace TinhGiaInClient
     public partial class GiaInNhanhForm : Form, IViewGiaInNhanh
     {
         GiaInNhanhPresenter giaInPres;
-        public GiaInNhanhForm(ThongTinBanDauChoGiaIn thongTinBanDau, MucGiaIn giaIn = null)
+        public GiaInNhanhForm(ThongTinBanDauChoGiaIn thongTinBanDau, MucGiaIn giaIn)
         {
             InitializeComponent();
-            //
+            //Thông tin ban đầu cho form
             this.Text = thongTinBanDau.TieuDeForm;
-            this.IdHangKH = thongTinBanDau.IdHangKhachHang;
-            this.SoToChay = thongTinBanDau.SoToChay;
-            this.IdToInDigiChon = thongTinBanDau.IdToIn_MayIn;
-            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
-            this.IdBaiIn = thongTinBanDau.IdBaiIn;
+            this.TinhTrangForm = thongTinBanDau.TinhTrangForm;            
             this.ThongTinGiay = thongTinBanDau.ThongTinGiay;
 
+            //Tạo 
             giaInPres = new GiaInNhanhPresenter(this, giaIn);
             //Nạp bảng giá vô combo
             LoadBangGia();
-            
+            cboBangGia.SelectedIndex = -1;
+            cboBangGia.SelectedIndex = 0;
+            //Chọn bảng giá ở đây
+            if (this.TinhTrangForm == FormStateS.Edit)
+                this.IdBangGiaInNhanhChon = giaIn.IdBangGiaInNhanh;
+
             //-event            
             txtSoTrangA4.TextChanged += new EventHandler(TextBoxes_TextedChanged);
             txtSoLuongToChay.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -56,18 +58,26 @@ namespace TinhGiaInClient
             set;
         }
 
-        
-        public MotHaiMat MatIn
+        int _soMatIn = 1;
+        public int SoMatIn
         {
             get {
                 if (rdbInMotMat.Checked)
-                    return  MotHaiMat.MotMat;
-                else
-                    return MotHaiMat.HaiMat;                
+                    _soMatIn = 1;
+                else 
+                    _soMatIn = 2;
 
+                return _soMatIn;
             }
 
-            set { ; }
+            set { 
+                _soMatIn = value;
+                if (_soMatIn <= 1)
+                    rdbInMotMat.Checked = true;
+                else
+                    rdbInHaiMat.Checked = true;
+                   
+            }
         }
 
         public int IdHangKH
@@ -77,10 +87,14 @@ namespace TinhGiaInClient
         }
 
         public int TyLeLoiNhuanTheoHangKH { get; set; }
-        public int IdToInDigiChon
+        int _idMayIn;
+        public int IdMayInOrToIn
         {
-            get;
-            set;
+            get { return _idMayIn; }
+            set { 
+                _idMayIn = value;
+              
+            }
         }
         public int SoToChay
         {
@@ -93,17 +107,20 @@ namespace TinhGiaInClient
             set { txtHangKhachHang.Text = value; }
         }
 
-       
-       
-        public string TenBangGiaChon
+
+        int _idBangGiaInNhanh = 0;
+        public int IdBangGiaInNhanhChon
         {
             get
             {
-                return cboBangGia.Text;
+                if (cboBangGia.SelectedValue != null)
+                    int.TryParse(cboBangGia.SelectedValue.ToString(), 
+                        out _idBangGiaInNhanh);
+                return _idBangGiaInNhanh;
             }
             set
             {
-                cboBangGia.Text = value; 
+                cboBangGia.SelectedValue = value; 
             }
         }
         public int SoTrangA4
@@ -142,20 +159,16 @@ namespace TinhGiaInClient
             get;
             set;
         }
-        public MucGiaIn DocGiaIn
+        public MucGiaIn DocGiaIn()
         {
-            get { return giaInPres.DocMucGiaIn; }
+            return giaInPres.DocMucGiaIn();
         }
         #endregion
         private void LoadBangGia()
         {
-            cboBangGia.Items.Clear();
-            foreach (KeyValuePair<int,string> kvp in giaInPres.BangGiaInNhanhS())
-            {
-                cboBangGia.Items.Add(kvp.Value);
-            
-            }
-            cboBangGia.SelectedIndex = 0;
+            cboBangGia.DataSource = giaInPres.BangGiaInNhanhS();
+            cboBangGia.ValueMember = "ID";
+            cboBangGia.DisplayMember = "TenBangGia";
         }
         
         private void InputValidator(object sender, KeyPressEventArgs e)
@@ -185,12 +198,10 @@ namespace TinhGiaInClient
                 this.TenHangKH = giaInPres.TenHangKH(this.IdHangKH);
             else
                 this.TenHangKH = "";
-            TrinhBayBangGia();
-
+           
+            //Cập nhật tên tờ in digi
             txtToInDigiChon.Text = giaInPres.TenToInDigiChon();
-            rdbInMotMat.Checked = true;
-            rdbInHaiMat.Checked = true;
-            //Để thủe
+
             if (this.TinhTrangForm == FormStateS.View)
             {
                 txtSoLuongToChay.Enabled = true;

@@ -569,14 +569,16 @@ namespace TinhGiaInClient
                 MessageBox.Show("Chưa có giấy. Bạn phải cài giấy trước");
                 return;
             }
-            //Tiến hành gắn
-         
-           
+            //tạo mục Giá In để tạo mới
+            var mucGiaIn = new MucGiaIn(baiIn.CauHinhSP.PhuongPhapIn, 0, baiIn.ID,
+                            baiIn.CauHinhSP.IdMayIn, 0, "0", baiIn.IdHangKH,
+                            baiIn.GiayDeInIn.SoToChayTong, 2);
+                   
 
             switch (baiIn.CauHinhSP.PhuongPhapIn)
             {
                 case PhuongPhapInS.Toner:
-                    var frmDigi = new GiaInNhanhForm(this.thongTinBanDauChoGiaIn(baiIn, FormStateS.New));
+                    var frmDigi = new GiaInNhanhForm(this.thongTinBanDauChoGiaIn(baiIn, FormStateS.New), mucGiaIn);
                     frmDigi.TinhTrangForm = FormStateS.New;
                     frmDigi.MinimizeBox = false;
                     frmDigi.MaximizeBox = false;
@@ -654,12 +656,13 @@ namespace TinhGiaInClient
                     //Add
                     ; //Id tự tạo
 
-                    baiInPres.ThemGiaIn(frm.DocGiaIn);
+                    baiInPres.ThemGiaIn(frm.DocGiaIn());
 
                     break;
                 case FormStateS.Edit:
-                    //Tạo                     
-                    baiInPres.SuaGiaIn(frm.DocGiaIn);
+                    //cập nhật 
+                    frm.DocGiaIn();//Đọc vậy là cập nhật luôn rồi.
+                    
 
                     break;
             }
@@ -765,7 +768,7 @@ namespace TinhGiaInClient
             switch (loaiThPh)
             {
                 case LoaiThanhPhamS.CanPhu:
-                    var thongDiep1 = string.Format("Số tờ giấy in {0} khổ: {1}",
+                    var thongDiep1 = string.Format("Số tờ chạy: {0} / Khổ: {1}",
                        baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Cán phủ";
@@ -894,9 +897,17 @@ namespace TinhGiaInClient
                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep5;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Khác";
-                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.GiaCongNgoai;
-
-                    var frm5 = new ThPhGiaCongNgoaiForm(thongTinBanDauThPh);
+                    
+                    //Mục gia công ngoài
+                    var mucGiaCongNgoai = new MucThPhGiaCongNgoai();
+                    mucGiaCongNgoai.TenThanhPham = "Thành phẩm";
+                    mucGiaCongNgoai.LoaiThanhPham = LoaiThanhPhamS.GiaCongNgoai;
+                    mucGiaCongNgoai.SoLuong = 10;
+                    mucGiaCongNgoai.DonViTinh = "???";
+                    mucGiaCongNgoai.PhiGiaCong = 1;
+                    mucGiaCongNgoai.PhiVanChuyen = 0;    
+                    //Nạp
+                    var frm5 = new ThPhGiaCongNgoaiForm(thongTinBanDauThPh, mucGiaCongNgoai);
 
                     frm5.MinimizeBox = false;
                     frm5.MaximizeBox = false;
@@ -1091,8 +1102,9 @@ namespace TinhGiaInClient
                     baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
-                    //Refer
-                  baiInPres.SuaThanhPham(frm.LayMucThanhPham());
+                    //Referen nên không cần làm kiểu cũ
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());
+                    frm.LayMucThanhPham();
                    
                     //Không cần cập nhật vì tự động khi Find
 
@@ -1114,9 +1126,9 @@ namespace TinhGiaInClient
                     baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
-                    
-                    baiInPres.SuaThanhPham(frm.LayMucThanhPham());
-
+                   
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//không cần làm vậy vì reference
+                    frm.LayMucThanhPham();
                     break;
             }
             //Cap nhat noi dung bai in
@@ -1135,8 +1147,8 @@ namespace TinhGiaInClient
                     baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
-                    baiInPres.SuaThanhPham(frm.LayMucThanhPham());
-
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không cần
+                    frm.LayMucThanhPham();
                     break;
             }
             //Cap nhat noi dung bai in
@@ -1215,8 +1227,8 @@ namespace TinhGiaInClient
                     baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
-                    baiInPres.SuaThanhPham(frm.LayMucThanhPham());
-
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không cần
+                    frm.LayMucThanhPham();
                     break;
             }
             //Cap nhat noi dung bai in
@@ -1235,9 +1247,9 @@ namespace TinhGiaInClient
                     break;
                 case FormStateS.Edit:
                     //Tạo 
-                    baiInPres.SuaThanhPham(frm.LayMucThanhPham());
-                    //Không cần cập nhật vì tự động khi Find
-
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không còn 
+                    //Gọi để cập nhật
+                    frm.LayMucThanhPham();
                     break;
             }
             //Cap nhat noi dung bai in
@@ -1256,9 +1268,9 @@ namespace TinhGiaInClient
                     break;
                 case FormStateS.Edit:
                     //Tạo 
-                    baiInPres.SuaThanhPham(frm.LayMucThanhPham());
-                    //Không cần cập nhật vì tự động khi Find
-
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//khong còn cần
+                    //Cập nhật nè
+                    frm.LayMucThanhPham();
                     break;
             }
             //Cap nhat noi dung bai in
@@ -1355,7 +1367,12 @@ namespace TinhGiaInClient
         private void btnXoaHetBaiInNhanh_Click(object sender, EventArgs e)
         {
             baiInPres.XoaHetGiaIn();
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
+            //Cập nhật lại listview
+            LoadGiaInLenListView();
+            //
+
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();       
+            
         }
 
       

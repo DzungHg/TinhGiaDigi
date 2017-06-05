@@ -260,10 +260,11 @@ namespace TinhGiaInClient.Presenter
         {
             baiIn.Them_ThanhPham(thPham);
         }
-        public void SuaThanhPham(MucThanhPham thPham)
+        /*public void SuaThanhPham(MucThanhPham thPham)
         {
             baiIn.Sua_ThanhPham(thPham);
         }
+         */
         public void XoaThanhPham(MucThanhPham thPham)
         {
             //var thPham = baiIn.DocThanhPhamTheoID(idThanhPham);

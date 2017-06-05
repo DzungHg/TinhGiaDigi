@@ -13,25 +13,24 @@ namespace TinhGiaInClient.Presenter
     public class ThPhGiaCongNgoaiPresenter
     {
         IViewThPhGiaCongNgoai View = null;
-       
-        public ThPhGiaCongNgoaiPresenter(IViewThPhGiaCongNgoai view, MucThPhGiaCongNgoai mucThPham = null)
+        MucThPhGiaCongNgoai MucGiaCong = null;
+        public ThPhGiaCongNgoaiPresenter(IViewThPhGiaCongNgoai view, MucThPhGiaCongNgoai mucThPham )
         {
             View = view;
-
-            if (mucThPham != null)
-            {
-                View.ID = mucThPham.ID;
-                View.IdBaiIn = mucThPham.IdBaiIn;
-                View.TenThanhPhamChon = mucThPham.TenThanhPham;
-                View.LoaiThPh = mucThPham.LoaiThanhPham;
-                View.SoLuong = mucThPham.SoLuong;
-                View.DonViTinh = mucThPham.DonViTinh;
-                View.PhiGiaCong = mucThPham.PhiGiaCong;
-                View.PhiVanChuyen = mucThPham.PhiVanChuyen;                
-                View.TenNhaCungCap = mucThPham.TenNhaCungCap;
-                View.TyLeMarkUp = mucThPham.TyLeMarkUp;
-                View.ThanhTien = mucThPham.ThanhTien;
-            }
+            MucGiaCong = mucThPham;
+            //Cập nhật dữ liệu
+            View.ID = MucGiaCong.ID;
+            View.IdBaiIn = MucGiaCong.IdBaiIn;
+            View.TenThanhPhamChon = MucGiaCong.TenThanhPham;
+            View.LoaiThPh = MucGiaCong.LoaiThanhPham;
+            View.SoLuong = MucGiaCong.SoLuong;
+            View.DonViTinh = MucGiaCong.DonViTinh;
+            View.PhiGiaCong = MucGiaCong.PhiGiaCong;
+            View.PhiVanChuyen = MucGiaCong.PhiVanChuyen;
+            View.TenNhaCungCap = MucGiaCong.TenNhaCungCap;
+            View.TyLeMarkUp = MucGiaCong.TyLeMarkUp;
+            View.ThanhTien = MucGiaCong.ThanhTien;
+          
 
         }
         public void KhoiTaoBanDau()
@@ -40,8 +39,7 @@ namespace TinhGiaInClient.Presenter
             View.SoLuong = 10;
             View.DonViTinh = "???";
             View.PhiGiaCong = 1;
-            View.PhiVanChuyen = 0;
-            
+            View.PhiVanChuyen = 0;           
             
         }
 
@@ -61,24 +59,27 @@ namespace TinhGiaInClient.Presenter
 
             return result;
         }
+        private void CapNhatMucThanhPham()
+        {
+            if (this.MucGiaCong != null)
+            {
+                MucGiaCong.IdBaiIn = View.IdBaiIn;
+                MucGiaCong.TenThanhPham = View.TenThanhPhamChon;
+                MucGiaCong.LoaiThanhPham = View.LoaiThPh;
+                MucGiaCong.SoLuong = View.SoLuong;
+                MucGiaCong.DonViTinh = View.DonViTinh;
+                MucGiaCong.TenNhaCungCap = View.TenNhaCungCap;
+                MucGiaCong.PhiGiaCong = View.PhiGiaCong;
+                MucGiaCong.PhiVanChuyen = View.PhiVanChuyen;
+                MucGiaCong.TyLeMarkUp = View.TyLeMarkUp;
+                MucGiaCong.ThanhTien = this.ThanhTien();
+            }
+        }
         public MucThPhGiaCongNgoai DocMucThPhGiaCongNgoai()
         {
-            var mucThPham = new MucThPhGiaCongNgoai();
-            mucThPham.IdBaiIn = View.IdBaiIn;
-            mucThPham.TenThanhPham = View.TenThanhPhamChon;
-            mucThPham.LoaiThanhPham = View.LoaiThPh;
-            mucThPham.SoLuong = View.SoLuong;
-            mucThPham.DonViTinh = View.DonViTinh;
-            mucThPham.TenNhaCungCap = View.TenNhaCungCap;
-            mucThPham.PhiGiaCong = View.PhiGiaCong;
-            mucThPham.PhiVanChuyen = View.PhiVanChuyen;
-            mucThPham.TyLeMarkUp = View.TyLeMarkUp;
-            
-            mucThPham.ThanhTien = this.ThanhTien();
-            if (View.TinhTrangForm == FormStateS.Edit)
-               mucThPham.ID = View.ID;
+            CapNhatMucThanhPham();
 
-            return mucThPham;
+            return MucGiaCong;
         }
      
     }

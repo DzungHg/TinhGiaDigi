@@ -111,20 +111,27 @@ namespace TinhGiaInClient.Presenter
             }
             return dict;
         }
+        private void CapNhatMucThanhPham()
+        {
+            if (this.MucEpKim != null)
+            {
+                this.MucEpKim.ID = View.ID;
+                this.MucEpKim.IdBaiIn = View.IdBaiIn;
+                this.MucEpKim.TenThanhPham = View.TenThanhPhamChon;
+                this.MucEpKim.IdThanhPhamChon = View.IdThanhPhamChon;
+                this.MucEpKim.IdHangKhachHang = View.IdHangKhachHang;
+                this.MucEpKim.LoaiThanhPham = View.LoaiThPh;
+                this.MucEpKim.SoLuong = View.SoLuong;
+                this.MucEpKim.KhoEpCao = View.KhoEpCao;
+                this.MucEpKim.KhoEpRong = View.KhoEpRong;
+                this.MucEpKim.IdNhuEpKimChon = View.IdNhuEpKimChon;
+                this.MucEpKim.DonViTinh = View.DonViTinh;
+                this.MucEpKim.ThanhTien = View.ThanhTien;
+            }
+        }
         public MucThPhEpKim LayMucThanhPham()
         {
-            this.MucEpKim.ID = View.ID;
-            this.MucEpKim.IdBaiIn = View.IdBaiIn;
-            this.MucEpKim.TenThanhPham = View.TenThanhPhamChon;
-            this.MucEpKim.IdThanhPhamChon = View.IdThanhPhamChon;
-            this.MucEpKim.IdHangKhachHang = View.IdHangKhachHang;
-            this.MucEpKim.LoaiThanhPham = View.LoaiThPh;
-            this.MucEpKim.SoLuong = View.SoLuong;
-            this.MucEpKim.KhoEpCao = View.KhoEpCao;
-            this.MucEpKim.KhoEpRong = View.KhoEpRong;
-            this.MucEpKim.IdNhuEpKimChon = View.IdNhuEpKimChon;
-            this.MucEpKim.DonViTinh = View.DonViTinh;
-            this.MucEpKim.ThanhTien = View.ThanhTien;
+            CapNhatMucThanhPham();
 
             return this.MucEpKim;
         }

@@ -24,7 +24,7 @@ namespace TinhGiaInClient.Presenter
                 this.DocGiaIn = giaIn;
             }
             else
-                _giaIn = new MucGiaIn(0, 0, 0, 0, 0, "");
+                _giaIn = new MucGiaIn(0, 0, 0, 0, 0, "", 0,0, 2);
             //Xem vấn đề mới và sửa
             switch (View.TinhTrangForm)
             {
@@ -89,7 +89,7 @@ namespace TinhGiaInClient.Presenter
                
                 _giaIn.IdBaiIn = View.IdBaiIn;
                 _giaIn.PhuongPhapIn = View.PhuongPhapIn;
-                _giaIn.IdMayIn_IdBangGia = View.IdMayIn;
+                _giaIn.IdMayIn = View.IdMayIn;
                 _giaIn.SoTrangIn = View.SoTrangIn;
                 _giaIn.TienIn = this.GiaInOffset();
                 if (View.TinhTrangForm == FormStateS.Edit)

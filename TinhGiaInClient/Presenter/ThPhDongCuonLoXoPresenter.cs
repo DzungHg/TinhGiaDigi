@@ -89,22 +89,28 @@ namespace TinhGiaInClient.Presenter
        {
            return LoXoDongCuon.DocTatCa();
        }
-       
+        private void CapNhatMucThanhPham()
+        {
+            if (this.MucDongCuon != null)
+            {
+                this.MucDongCuon.IdBaiIn = View.IdBaiIn;
+                this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
+                this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
+                this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
+                this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
+                this.MucDongCuon.KieuDongCuon = View.KieuDongCuon;
+                this.MucDongCuon.SoLuong = View.SoLuong;
+                this.MucDongCuon.DonViTinh = View.DonViTinh;
+                this.MucDongCuon.ThanhTien = View.ThanhTien;
+                this.MucDongCuon.GayCao = View.GayRong;
+                this.MucDongCuon.GayDay = View.GayDay;
+                this.MucDongCuon.IdLoXoChon = View.IdLoXoDongCuonChon;
+            }
+        }
         public MucDongCuonLoXo LayMucThanhPham()
         {
-
-            this.MucDongCuon.IdBaiIn = View.IdBaiIn;
-            this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
-            this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
-            this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
-            this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
-            this.MucDongCuon.KieuDongCuon = View.KieuDongCuon;
-            this.MucDongCuon.SoLuong = View.SoLuong;
-            this.MucDongCuon.DonViTinh = View.DonViTinh;
-            this.MucDongCuon.ThanhTien = View.ThanhTien;
-            this.MucDongCuon.GayCao = View.GayRong;
-            this.MucDongCuon.GayDay = View.GayDay;
-            this.MucDongCuon.IdLoXoChon = View.IdLoXoDongCuonChon;
+            CapNhatMucThanhPham();
+           
             return this.MucDongCuon;
         }
     }

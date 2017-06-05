@@ -88,7 +88,7 @@ namespace TinhGiaInClient.Model
             giaInSua.IdBaiIn = giaIn.IdBaiIn;
             giaInSua.PhuongPhapIn = giaIn.PhuongPhapIn;            
             giaInSua.SoTrangIn = giaIn.SoTrangIn;            
-            giaInSua.IdMayIn_IdBangGia = giaIn.IdMayIn_IdBangGia;
+            giaInSua.IdMayIn = giaIn.IdMayIn;
             giaInSua.TienIn = giaIn.TienIn;
 
         }
@@ -111,7 +111,7 @@ namespace TinhGiaInClient.Model
 
             this.ThanhPhamS.Add(thPham);
         }
-        public void Sua_ThanhPham(MucThanhPham thPham)
+      /*  public void Sua_ThanhPham(MucThanhPham thPham)
         {
             var thPhamSua = this.ThanhPhamS.Find(x => x.ID == thPham.ID);
             thPhamSua.IdBaiIn = thPham.IdBaiIn;
@@ -167,7 +167,7 @@ namespace TinhGiaInClient.Model
                 thPhamSuaN.IdNhuEpKimChon = thPhamN.IdNhuEpKimChon;
             }
 
-        }
+        }*/
         public void Xoa_ThanhPham(MucThanhPham thPham)
         {
             this.ThanhPhamS.Remove(thPham);

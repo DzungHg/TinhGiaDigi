@@ -74,17 +74,24 @@ namespace TinhGiaInClient.Presenter
                 return 0;
             return ThanhTien_ThPh() / View.SoLuong;
         }
+        private void CapNhatMucThanhPham()
+        {
+            if (this.MucDongCuon != null)
+            {
+                this.MucDongCuon.IdBaiIn = View.IdBaiIn;
+                this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
+                this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
+                this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
+                this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
+                this.MucDongCuon.SoLuong = View.SoLuong;
+                this.MucDongCuon.DonViTinh = View.DonViTinh;
+                this.MucDongCuon.ThanhTien = View.ThanhTien;
+            }
+        }
         public MucThanhPham LayMucThanhPham()
         {
+            CapNhatMucThanhPham();
            
-            this.MucDongCuon.IdBaiIn = View.IdBaiIn;
-            this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
-            this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
-            this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
-            this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
-            this.MucDongCuon.SoLuong = View.SoLuong;
-            this.MucDongCuon.DonViTinh = View.DonViTinh;
-            this.MucDongCuon.ThanhTien = View.ThanhTien;
             
             return this.MucDongCuon;
         }
