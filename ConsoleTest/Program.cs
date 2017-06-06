@@ -39,7 +39,22 @@ namespace ConsoleTest
             var toChayDigi = new ToChayDigiDAO();
             Console.WriteLine("BHR là {0}", toChayDigi.LayTheoId(int.Parse(iD)).ClickA4BonMau);
             Console.ReadLine();
-             */
+             */ 
+            //Kiểm tra đóng cuốn lò xo
+            var soLuong = int.Parse(Console.ReadLine());
+            var mayDongLoXo = DongCuonLoXo.DocTheoId(2);//Máy CN
+            var loXo = LoXoDongCuon.DocTheoId(1);
+            var giaCuonLoXo = new GiaDongCuonLoXo(soLuong, 30, mayDongLoXo, loXo, 0);
+            var dongCuon = DongCuon.DocTheoId(7);//Keo pur
+            //var soLuongS = dongCuon.DaySoLuong.Split(';');
+            
+            // Console.WriteLine("Tỉ lệ lợi lấy ra {0}", TinhToanThanhPham.MucLoiNhuan(dongCuon.DaySoLuong, dongCuon.DayLoiNhuan,
+            //   int.Parse(soLuong)));
+
+            var giaDongCuon = new GiaDongCuon(soLuong, 0, "v", dongCuon);
+
+            Console.WriteLine("Giá lô {0}, giá TB: {1}/cuón", giaCuonLoXo.ThanhTienSales(), giaCuonLoXo.GiaTBTrenDonVi());
+            Console.ReadLine();
         }
     }
 }

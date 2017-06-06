@@ -66,3 +66,21 @@ E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInA
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp08_04\ConsoleTest\bin\Debug\EntityFramework.SqlServer.xml
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp08_04\ConsoleTest\bin\Debug\TinhGiaInLogic.pdb
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp08_04\ConsoleTest\obj\Debug\ConsoleTest.csprojResolveAssemblyReference.cache
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\ConsoleTest.exe.config
+D:\GitHub\TinhGiaDigi\ConsoleTest\obj\Debug\ConsoleTest.exe
+D:\GitHub\TinhGiaDigi\ConsoleTest\obj\Debug\ConsoleTest.pdb
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\ConsoleTest.exe
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\ConsoleTest.pdb
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\EntityFramework.dll
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInBDO.dll
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInClient.exe
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInDAL.dll
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInLogic.dll
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInBDO.pdb
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInClient.pdb
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInDAL.pdb
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\EntityFramework.xml
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitHub\TinhGiaDigi\ConsoleTest\bin\Debug\TinhGiaInLogic.pdb
+D:\GitHub\TinhGiaDigi\ConsoleTest\obj\Debug\ConsoleTest.csprojResolveAssemblyReference.cache

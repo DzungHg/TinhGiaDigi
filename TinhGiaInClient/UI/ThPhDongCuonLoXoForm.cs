@@ -45,14 +45,15 @@ namespace TinhGiaInClient.UI
             }
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtGayDay.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtGayRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             lstLoXo.SelectedItemChanged += new EventHandler(ListView_SelectedItemChanged);
 
             cboMayLoXo.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(DropDownList_SelectedIndexChanged);
 
-            txtGayDay.Leave += new EventHandler(TextBoxes_Leave);
-            txtGayRong.Leave += new EventHandler(TextBoxes_Leave);
-            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            
+           
 
 
 
@@ -256,19 +257,18 @@ namespace TinhGiaInClient.UI
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-                if (tb == txtSoLuong || tb == txtGayRong)
+                if (tb == txtSoLuong )
                 {
-                   
-
-                    CapNhatLabelGia();
-                }
-                //xử lý khi user xóa hết
-                if (tb == txtSoLuong)
                     if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
                         txtSoLuong.Text = "1";
-                if (tb == txtGayRong)
+                    
+                }
+                //xử lý khi user xóa hết
+                if ( tb == txtGayRong)
                     if (string.IsNullOrEmpty(txtGayRong.Text.Trim()))
-                        txtGayRong.Text = "0.5";
+                        txtGayRong.Text = "30";
+
+                CapNhatLabelGia();
             
             }
             /*Telerik.WinControls.UI.RadListView lv;
