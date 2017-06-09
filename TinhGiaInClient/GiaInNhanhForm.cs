@@ -207,6 +207,9 @@ namespace TinhGiaInClient
                 txtSoLuongToChay.Enabled = true;
                 txtSoLuongToChay.ReadOnly = false;
             }
+            //cập nhật tính giá = bẩy
+            txtSoTrangA4.Text = string.Format("{0} trang", giaInPres.SoTrangA4());
+            CapNhatNhanThanhTien();
         }
         private void RadioButtons_CheckedChanged(object sender, EventArgs e)
         {
@@ -236,6 +239,13 @@ namespace TinhGiaInClient
             lvwBangGia.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 
         }
+        private void CapNhatNhanThanhTien()
+        {
+            decimal giaTBTrang = 0;
+            this.TienIn = giaInPres.TinhGiaCuoiCung(ref giaTBTrang);
+            lblThanhTien.Text = string.Format("{0:0,0.00}đ ", this.TienIn);
+            lblGiaTB_A4.Text = string.Format("{0:0,0.00}đ/A4", giaTBTrang);
+        }
         private void TextBoxes_TextedChanged(object sender, EventArgs e)
         {
             TextBox t;
@@ -245,10 +255,7 @@ namespace TinhGiaInClient
                 //Paper tab prod paper
                 if (t == txtSoTrangA4)//
                 {
-                    decimal giaTBTrang = 0;
-                    this.TienIn = giaInPres.TinhGiaCuoiCung(ref giaTBTrang);
-                    lblThanhTien.Text = string.Format("{0:0,0.00}đ ", this.TienIn);
-                    lblGiaTB_A4.Text = string.Format("{0:0,0.00}đ/A4", giaTBTrang);
+                    CapNhatNhanThanhTien();
                 }
 
             }
@@ -258,10 +265,7 @@ namespace TinhGiaInClient
                 cb = (ComboBox)sender;
                 if (cb == cboBangGia)
                 {
-                    decimal giaTBTrang = 0;
-                    this.TienIn = giaInPres.TinhGiaCuoiCung(ref giaTBTrang);
-                    lblThanhTien.Text = string.Format("{0:0,0.00}đ ", this.TienIn);
-                    lblGiaTB_A4.Text = string.Format("{0:0,0.00}đ/A4", giaTBTrang);
+                    CapNhatNhanThanhTien();
                 }
             }
         }

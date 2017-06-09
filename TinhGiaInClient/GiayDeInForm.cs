@@ -201,6 +201,7 @@ namespace TinhGiaInClient
             BatTatNutOKTheoDieuKien();
             //if (this.PhuongPhapIn == PhuongPhapInS.KhongIn)
              //   ;
+            CapNhatTriGiaVoLabels();
         }
 
       
@@ -330,6 +331,8 @@ namespace TinhGiaInClient
         {
             var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
             //Console.WriteLine(String.Format(info, "{0:c}", value));
+            lblSoToInTong.Text = giayDeInPres.SoToChayTong().ToString();
+            txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
             lblGiaBan.Text = string.Format(info, "{0:c}/tờ", this.GiaBan);
             lblThanhTien.Text = string.Format(info, "{0:c}/tờ", this.ThanhTien);
            
