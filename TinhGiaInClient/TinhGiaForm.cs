@@ -236,8 +236,11 @@ namespace TinhGiaInClient
                 TinhTrangForm = FormStateS.New,
                 YeuCauTinhGia = ""
             };
-
-            var frm = new BaiInForm(thongTinChoBaiIn);
+            var baiIn = new BaiIn("Bài in");
+            baiIn.SoLuong = 10;
+            baiIn.DonVi = "???";
+            baiIn.IdHangKH = this.IdHangKhachHang();
+            var frm = new BaiInForm(thongTinChoBaiIn, baiIn);
             
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -317,7 +320,7 @@ namespace TinhGiaInClient
             {
                 case FormStateS.Edit:
                 case FormStateS.New:
-                    tinhGiaPres.Them_BaiIn(frm.DocKetQuaBaiIn());
+                    tinhGiaPres.Them_BaiIn(frm.DocBaiIn());
                     break;                                  
             }
         }

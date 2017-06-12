@@ -44,6 +44,8 @@ namespace TinhGiaInClient.UI
             txtSoCuon.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoTrangBia.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoTrangRuot.KeyPress += new KeyPressEventHandler(InputValidator);
+
+            radWiz1.SelectedPageChanging += new Telerik.WinControls.UI.SelectedPageChangingEventHandler(Wizard_SelectedPageChanging);
         }
         InSachDigiPresenter inSachPres;
 
@@ -239,12 +241,17 @@ namespace TinhGiaInClient.UI
             {
                 IdHangKhachHang = this.IdHangKhachHang,
                 TinhTrangForm = FormStateS.New,
-                TieuDeForm = "[Mới] Bìa sách",
-                DonViTinh = "Tờ",
-                YeuCauTinhGia = "???"
+                TieuDeForm = "[Mới] Bìa sách",               
+                YeuCauTinhGia =  this.TieuDe + '\r' + '\n'
+                 + string.Format("- Số cuốn: {0}" + '\r' + '\n', this.SoCuon)
+                + string.Format("- Bìa: {0} trg" + '\r' + '\n', this.SoTrangBia)
             };
+            var baiIn = new BaiIn("Bìa sách");
+            baiIn.SoLuong = this.SoCuon;//Số bìa thường theo số cuốn
+            baiIn.DonVi = "Tờ";
+            baiIn.IdHangKH = this.IdHangKhachHang;
 
-            var frm = new BaiInForm(thongTinChoBaiIn);
+            var frm = new BaiInForm(thongTinChoBaiIn, baiIn);
 
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -260,7 +267,30 @@ namespace TinhGiaInClient.UI
         }
         private void XuLyNutOKTrenFormBaiInBia(BaiInForm frm)
         {
-
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    this.Bia = frm.DocBaiIn();
+                    break;
+                case FormStateS.Edit:
+                    frm.DocBaiIn();//Cập nhật
+                    break;
+            }
+            CapNhatChiTietBia();
+            
+        }
+        private void CapNhatChiTietBia()
+        {
+            var str= "";
+            if (this.Bia != null)
+            {
+                foreach (KeyValuePair<string, string> kvp in this.Bia.TomTat_ChaoKH())
+                {
+                    str += string.Format("{0} {1}" + '\r' + '\n', kvp.Key, kvp.Value);
+                }
+                
+            }
+            txtChiTietBia.Text = str;
         }
         private void ThemRuotSach()
         {
@@ -268,13 +298,18 @@ namespace TinhGiaInClient.UI
             {
                 IdHangKhachHang = this.IdHangKhachHang,
                 TinhTrangForm = FormStateS.New,
-                TieuDeBaiIn = this.TieuDe,
+               
                 TieuDeForm = "[Mới] Ruột Sách",
-                DonViTinh = "trang",
-                YeuCauTinhGia = "???"
-            };
 
-            var frm = new BaiInForm(thongTinChoBaiIn);
+                YeuCauTinhGia = this.TieuDe + '\r' + '\n'
+                 + string.Format("- Số cuốn: {0}" + '\r' + '\n', this.SoCuon)
+                + string.Format("- Ruột: {0} trg" + '\r' + '\n', this.SoTrangRuot)
+            };
+            var baiIn = new BaiIn("Ruột sách");
+            baiIn.SoLuong = inSachPres.TongSoTrangRuot();//Tổng số trang ruột
+            baiIn.DonVi = "trang A4";
+            baiIn.IdHangKH = this.IdHangKhachHang;
+            var frm = new BaiInForm(thongTinChoBaiIn, baiIn);
 
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -284,13 +319,34 @@ namespace TinhGiaInClient.UI
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormBaiInRuot(frm);
-                //MessageBox.Show(this.BaiInS.Count().ToString());
-                //LoadBaiInLenListView();
+               
             }
         }
         private void XuLyNutOKTrenFormBaiInRuot(BaiInForm frm)
         {
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    this.Ruot = frm.DocBaiIn();
+                    break;
+                case FormStateS.Edit:
+                    frm.DocBaiIn();//Cập nhật
+                    break;
+            }
+            CapNhatChiTietRuot();
+        }
+        private void CapNhatChiTietRuot()
+        {
+            var str = "";
+            if (this.Ruot != null)
+            {
+                foreach (KeyValuePair<string, string> kvp in this.Bia.TomTat_ChaoKH())
+                {
+                    str += string.Format("{0} {1}" + '\r' + '\n', kvp.Key, kvp.Value);
+                }
 
+            }
+            txtChiTietRuot.Text = str;
         }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -308,6 +364,61 @@ namespace TinhGiaInClient.UI
                 ThemBiaSach();
             else
                 ;//Sửa
+
+        }
+
+        private void btnXoaBia_Click(object sender, EventArgs e)
+        {
+            this.Bia = null;
+            CapNhatChiTietBia();
+        }
+
+        private void btnThemRuot_Click(object sender, EventArgs e)
+        {
+            if (this.Ruot == null)
+                ThemRuotSach();
+            else
+                ;//Sửa
+
+        }
+
+        private void btnXoaRuot_Click(object sender, EventArgs e)
+        {
+            this.Ruot = null;
+            CapNhatChiTietRuot();
+        }
+
+        private void radWiz1_Next(object sender, Telerik.WinControls.UI.WizardCancelEventArgs e)
+        {
+            
+        }
+
+        private void radWiz1_SelectedPageChanging(object sender, Telerik.WinControls.UI.SelectedPageChangingEventArgs e)
+        {
+            //MessageBox.Show(e.SelectedPage.Name);
+        }
+        private void Wizard_SelectedPageChanging(object sender, Telerik.WinControls.UI.SelectedPageChangingEventArgs e)
+        {
+            //MessageBox.Show(e.SelectedPage.Name);
+            
+            if (e.SelectedPage.Name == "wzRuotBia")
+            {
+                if (this.Bia == null )
+                    MessageBox.Show("Chú ý Bìa chưa có!");
+
+                if (this.Ruot == null)
+                {
+                    MessageBox.Show("Ruột cần có");
+                    e.Cancel = true;
+                    
+                }
+                //Kiểm tra hiệu lực để thiết lập giá in
+                if (!inSachPres.HieuLucThietLapGiaIn())
+                {
+                    MessageBox.Show("Bạn cần làm lại Ruột để thiết lập được giá in");
+                    e.Cancel = true;
+                }
+            }
 
         }
     }

@@ -39,6 +39,10 @@ namespace TinhGiaInClient.Presenter
         {
             return MonDongCuon.DocTheoId(View.IdMonDongCuonChon);
         }
+        public int TongSoTrangRuot()
+        {
+            return this.GiaSach.TongSoTrangRuot;
+        }
         public int TongSoTrang()
         {
             return this.GiaSach.TongSoTrang;
@@ -64,6 +68,10 @@ namespace TinhGiaInClient.Presenter
         {
             CapNhatGiaSach();
             return this.GiaSach;
+        }
+        public bool HieuLucThietLapGiaIn()
+        {
+            return this.DocGiaSachDigi().HieuLucChoGiaIn();
         }
     }
 }

@@ -20,20 +20,19 @@ namespace TinhGiaInClient
     {
        
        
-        public BaiInForm(ThongTinBanDauChoBaiIn thongTinBanDau,  int idBaiIn = 0)
+        public BaiInForm(ThongTinBanDauChoBaiIn thongTinBanDau,  BaiIn baiIn)
         {
             InitializeComponent();
             //Chú ý theo thứ tự
-            baiInPres = new BaiInPresenter(this);
+            baiInPres = new BaiInPresenter(this, baiIn);
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
-            this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;
-            this.DonViTinh = thongTinBanDau.DonViTinh;
-            this.TieuDe = thongTinBanDau.TieuDeBaiIn;
+            this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;            
             this.Text = thongTinBanDau.TieuDeForm;
-           
-            this.ID = idBaiIn;
-            
+            this.DienGiai = thongTinBanDau.YeuCauTinhGia;
+
+            CapNhatTenHangKH();
+            // 
             TaoCayDanhMucTab();
             
             //Trình bày theo tình trạng form
@@ -100,15 +99,11 @@ namespace TinhGiaInClient
             }
             set { lblHangKhachHang.Text = value; }
         }
-        int _idHangKH;
+
         public int IdHangKhachHang
         {
-            get { return _idHangKH; }
-            set
-            {
-                _idHangKH = value;
-                this.TenHangKhachHang = baiInPres.TenHangKhachHang();
-            }
+            get;
+            set;
         }
 
         public string TomTatCauHinhSP
@@ -149,7 +144,7 @@ namespace TinhGiaInClient
             get { return baiInPres.TomTatNoiDungBaiIn_ChaoKH(); }
             set { txtTomTatBaiIn.Lines = value.ToArray(); }
         }
-        public BaiIn DocKetQuaBaiIn()
+        public BaiIn DocBaiIn()
         {
             return baiInPres.DocBaiIn();
         }
@@ -1440,6 +1435,9 @@ namespace TinhGiaInClient
         }
 
        
-
+        private void CapNhatTenHangKH()
+        {
+            this.TenHangKhachHang = baiInPres.TenHangKhachHang();
+        }
     }
 }

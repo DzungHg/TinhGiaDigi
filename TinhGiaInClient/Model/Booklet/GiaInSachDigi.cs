@@ -22,6 +22,10 @@ namespace TinhGiaInClient.Model.Booklet
         public int IdDongCuon { get; set; }
         public int IdHangKhachHang { get; set; }
         public int TyLeMarkUpSales { get; set; }
+        public int TongSoTrangRuot
+        {
+            get { return this.QuiCachSach.SoTrangRuot * SoCuon; }
+        }
         public int TongSoTrang
         {
             get
@@ -43,7 +47,7 @@ namespace TinhGiaInClient.Model.Booklet
             _lastId += 1;
             this.ID = _lastId;
         }
-        public bool HieuLucGiaIn()
+        public bool HieuLucChoGiaIn()
         {
             var kq = true;
             if (this.InRuot == null)
@@ -58,7 +62,7 @@ namespace TinhGiaInClient.Model.Booklet
         public bool HieuLucTongThe()
         {//Đóng cuốn phải có và giá in phải có
             var kq = true;
-            if (!HieuLucGiaIn())
+            if (!HieuLucChoGiaIn())
                 kq = false;
             else
                 if (this.GiaDongCuon <= 0)
@@ -68,7 +72,7 @@ namespace TinhGiaInClient.Model.Booklet
         public decimal GiaInSach()
         {///Dựa trên Id tờ chạy của ruột để tính
          ///và dựa trên tổng số trang in bao gồm bìa và ruột
-            if (!this.HieuLucGiaIn()) //Ruột rỗng hoặc không có giá in
+            if (!this.HieuLucChoGiaIn()) //Ruột rỗng hoặc không có giá in
                 return 0;
 
             decimal kq = 0;

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InSachForm));
-            this.radWizard1 = new Telerik.WinControls.UI.RadWizard();
-            this.wizardCompletionPage1 = new Telerik.WinControls.UI.WizardCompletionPage();
+            this.radWiz1 = new Telerik.WinControls.UI.RadWizard();
+            this.wzKetThuc = new Telerik.WinControls.UI.WizardCompletionPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtTomTatTinhGia = new Telerik.WinControls.UI.RadTextBoxControl();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -66,12 +66,12 @@
             this.btnThemDongCuon = new Telerik.WinControls.UI.RadButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtChiTietIn = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.wzTrangCauHinh = new Telerik.WinControls.UI.WizardWelcomePage();
-            this.wizardPage1 = new Telerik.WinControls.UI.WizardPage();
-            this.wizardPage3 = new Telerik.WinControls.UI.WizardPage();
-            this.wizardPage2 = new Telerik.WinControls.UI.WizardPage();
-            ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).BeginInit();
-            this.radWizard1.SuspendLayout();
+            this.wzCauHinh = new Telerik.WinControls.UI.WizardWelcomePage();
+            this.wzRuotBia = new Telerik.WinControls.UI.WizardPage();
+            this.wzInAn = new Telerik.WinControls.UI.WizardPage();
+            this.wzDongCuon = new Telerik.WinControls.UI.WizardPage();
+            ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).BeginInit();
+            this.radWiz1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).BeginInit();
             this.panel1.SuspendLayout();
@@ -110,34 +110,35 @@
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // radWizard1
+            // radWiz1
             // 
-            this.radWizard1.CompletionPage = this.wizardCompletionPage1;
-            this.radWizard1.Controls.Add(this.panel1);
-            this.radWizard1.Controls.Add(this.panel2);
-            this.radWizard1.Controls.Add(this.panel3);
-            this.radWizard1.Controls.Add(this.panel4);
-            this.radWizard1.Controls.Add(this.panel5);
-            this.radWizard1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radWizard1.Location = new System.Drawing.Point(0, 0);
-            this.radWizard1.Name = "radWizard1";
-            this.radWizard1.PageHeaderIcon = ((System.Drawing.Image)(resources.GetObject("radWizard1.PageHeaderIcon")));
-            this.radWizard1.Pages.Add(this.wzTrangCauHinh);
-            this.radWizard1.Pages.Add(this.wizardPage1);
-            this.radWizard1.Pages.Add(this.wizardPage3);
-            this.radWizard1.Pages.Add(this.wizardPage2);
-            this.radWizard1.Pages.Add(this.wizardCompletionPage1);
-            this.radWizard1.Size = new System.Drawing.Size(699, 413);
-            this.radWizard1.TabIndex = 0;
-            this.radWizard1.Text = "radWizard1";
-            this.radWizard1.WelcomePage = this.wzTrangCauHinh;
+            this.radWiz1.CompletionPage = this.wzKetThuc;
+            this.radWiz1.Controls.Add(this.panel1);
+            this.radWiz1.Controls.Add(this.panel2);
+            this.radWiz1.Controls.Add(this.panel3);
+            this.radWiz1.Controls.Add(this.panel4);
+            this.radWiz1.Controls.Add(this.panel5);
+            this.radWiz1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radWiz1.Location = new System.Drawing.Point(0, 0);
+            this.radWiz1.Name = "radWiz1";
+            this.radWiz1.PageHeaderIcon = ((System.Drawing.Image)(resources.GetObject("radWiz1.PageHeaderIcon")));
+            this.radWiz1.Pages.Add(this.wzCauHinh);
+            this.radWiz1.Pages.Add(this.wzRuotBia);
+            this.radWiz1.Pages.Add(this.wzInAn);
+            this.radWiz1.Pages.Add(this.wzDongCuon);
+            this.radWiz1.Pages.Add(this.wzKetThuc);
+            this.radWiz1.Size = new System.Drawing.Size(699, 413);
+            this.radWiz1.TabIndex = 0;
+            this.radWiz1.Text = "radWizard1";
+            this.radWiz1.WelcomePage = this.wzCauHinh;
+            this.radWiz1.Next += new Telerik.WinControls.UI.WizardCancelEventHandler(this.radWiz1_Next);
             // 
-            // wizardCompletionPage1
+            // wzKetThuc
             // 
-            this.wizardCompletionPage1.ContentArea = this.panel3;
-            this.wizardCompletionPage1.Header = "Tất cả các nội dung";
-            this.wizardCompletionPage1.Name = "wizardCompletionPage1";
-            this.wizardCompletionPage1.Title = "Tóm tắt";
+            this.wzKetThuc.ContentArea = this.panel3;
+            this.wzKetThuc.Header = "Tất cả các nội dung";
+            this.wzKetThuc.Name = "wzKetThuc";
+            this.wzKetThuc.Title = "Tóm tắt";
             // 
             // panel3
             // 
@@ -363,6 +364,7 @@
             this.btnXoaRuot.Size = new System.Drawing.Size(110, 24);
             this.btnXoaRuot.TabIndex = 4;
             this.btnXoaRuot.Text = "Xóa Ruột";
+            this.btnXoaRuot.Click += new System.EventHandler(this.btnXoaRuot_Click);
             // 
             // btnThemRuot
             // 
@@ -371,6 +373,7 @@
             this.btnThemRuot.Size = new System.Drawing.Size(110, 24);
             this.btnThemRuot.TabIndex = 3;
             this.btnThemRuot.Text = "Ruột";
+            this.btnThemRuot.Click += new System.EventHandler(this.btnThemRuot_Click);
             // 
             // txtChiTietBia
             // 
@@ -389,6 +392,7 @@
             this.btnXoaBia.Size = new System.Drawing.Size(110, 24);
             this.btnXoaBia.TabIndex = 1;
             this.btnXoaBia.Text = "Xóa Bìa";
+            this.btnXoaBia.Click += new System.EventHandler(this.btnXoaBia_Click);
             // 
             // btnThemBia
             // 
@@ -455,40 +459,40 @@
             this.txtChiTietIn.Size = new System.Drawing.Size(296, 245);
             this.txtChiTietIn.TabIndex = 6;
             // 
-            // wzTrangCauHinh
+            // wzCauHinh
             // 
-            this.wzTrangCauHinh.ContentArea = this.panel1;
-            this.wzTrangCauHinh.Header = "Chi tiết về Sách";
-            this.wzTrangCauHinh.Name = "wzTrangCauHinh";
-            this.wzTrangCauHinh.Title = "Cấu hình Sách";
+            this.wzCauHinh.ContentArea = this.panel1;
+            this.wzCauHinh.Header = "Chi tiết về Sách";
+            this.wzCauHinh.Name = "wzCauHinh";
+            this.wzCauHinh.Title = "Cấu hình Sách";
             // 
-            // wizardPage1
+            // wzRuotBia
             // 
-            this.wizardPage1.ContentArea = this.panel2;
-            this.wizardPage1.Header = "Tạo Bìa và Ruột";
-            this.wizardPage1.Name = "wizardPage1";
-            this.wizardPage1.Title = "Bìa và Ruột";
+            this.wzRuotBia.ContentArea = this.panel2;
+            this.wzRuotBia.Header = "Tạo Bìa và Ruột";
+            this.wzRuotBia.Name = "wzRuotBia";
+            this.wzRuotBia.Title = "Bìa và Ruột";
             // 
-            // wizardPage3
+            // wzInAn
             // 
-            this.wizardPage3.ContentArea = this.panel5;
-            this.wizardPage3.Header = "Tóm tắt in";
-            this.wizardPage3.Name = "wizardPage3";
-            this.wizardPage3.Title = "In";
+            this.wzInAn.ContentArea = this.panel5;
+            this.wzInAn.Header = "Tóm tắt in";
+            this.wzInAn.Name = "wzInAn";
+            this.wzInAn.Title = "In";
             // 
-            // wizardPage2
+            // wzDongCuon
             // 
-            this.wizardPage2.ContentArea = this.panel4;
-            this.wizardPage2.Header = "Chi tiết về đóng cuốn";
-            this.wizardPage2.Name = "wizardPage2";
-            this.wizardPage2.Title = "Đóng cuốn";
+            this.wzDongCuon.ContentArea = this.panel4;
+            this.wzDongCuon.Header = "Chi tiết về đóng cuốn";
+            this.wzDongCuon.Name = "wzDongCuon";
+            this.wzDongCuon.Title = "Đóng cuốn";
             // 
             // InSachForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 413);
-            this.Controls.Add(this.radWizard1);
+            this.Controls.Add(this.radWiz1);
             this.Name = "InSachForm";
             // 
             // 
@@ -496,8 +500,8 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "InSachForm";
             this.Load += new System.EventHandler(this.InSachForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).EndInit();
-            this.radWizard1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).EndInit();
+            this.radWiz1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -541,8 +545,8 @@
 
         #endregion
 
-        private Telerik.WinControls.UI.RadWizard radWizard1;
-        private Telerik.WinControls.UI.WizardCompletionPage wizardCompletionPage1;
+        private Telerik.WinControls.UI.RadWizard radWiz1;
+        private Telerik.WinControls.UI.WizardCompletionPage wzKetThuc;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private Telerik.WinControls.UI.RadTextBox txtGayDay;
@@ -556,9 +560,9 @@
         private Telerik.WinControls.UI.RadLabel lblID;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private Telerik.WinControls.UI.WizardWelcomePage wzTrangCauHinh;
-        private Telerik.WinControls.UI.WizardPage wizardPage1;
-        private Telerik.WinControls.UI.WizardPage wizardPage2;
+        private Telerik.WinControls.UI.WizardWelcomePage wzCauHinh;
+        private Telerik.WinControls.UI.WizardPage wzRuotBia;
+        private Telerik.WinControls.UI.WizardPage wzDongCuon;
         private Telerik.WinControls.UI.RadTextBox txtSoCuon;
         private Telerik.WinControls.UI.RadLabel radLabel7;
         private Telerik.WinControls.UI.RadTextBox txtSoTrangRuot;
@@ -579,7 +583,7 @@
         private Telerik.WinControls.UI.RadLabel radLabel8;
         private System.Windows.Forms.Panel panel5;
         private Telerik.WinControls.UI.RadTextBoxControl txtChiTietIn;
-        private Telerik.WinControls.UI.WizardPage wizardPage3;
+        private Telerik.WinControls.UI.WizardPage wzInAn;
         private Telerik.WinControls.UI.RadListControl lbxDongCuon;
         private Telerik.WinControls.UI.RadLabel radLabel9;
     }

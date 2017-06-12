@@ -17,16 +17,15 @@ namespace TinhGiaInClient.Presenter
         {
             View = view;
             MucBaiIn = baiIn;
+            //Dữ liệu
+            View.ID = this.MucBaiIn.ID;
+            View.TieuDe = this.MucBaiIn.TieuDe;
+            View.SoLuong = this.MucBaiIn.SoLuong;
+            View.DonViTinh = this.MucBaiIn.DonVi;
+            View.IdHangKhachHang = this.MucBaiIn.IdHangKH;
+
             
-            //Để nếu sửa bài in thì lấy Id cũ
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:                   
-                    break;
-                case FormStateS.Edit:
-                    MucBaiIn.ID = View.ID;                   
-                    break;
-            }
+            
             
         }
         
@@ -39,35 +38,9 @@ namespace TinhGiaInClient.Presenter
        
         public void TrinhBayBaiIn()
         {
-            switch(View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    View.SoLuong = 10;
-                    View.TieuDe = "Bài in";
-                    View.DienGiai = "Diễn giải bài in";
-                    View.DonViTinh = "??";
-                   
-                    break;
-                case FormStateS.Edit:
-                    //Không có trong database nên làm sau
-                    
-                    break;
-            }
-            View.ID = MucBaiIn.ID;
-        }
-        public BaiIn DocBaiIn()
-        {
-            //Điền 1 số dữ liệu cơ bản từ form
-            //baiIn.ID = View.ID; //không cần ID tự tạo
-            MucBaiIn.TieuDe = View.TieuDe;
-            MucBaiIn.DienGiai = View.DienGiai;
-            MucBaiIn.IdHangKH = View.IdHangKhachHang;
-            MucBaiIn.SoLuong = View.SoLuong;
-            MucBaiIn.DonVi = View.DonViTinh;
-            
 
-            return MucBaiIn;
         }
+        
       
 
         #region Phần giá In
@@ -289,6 +262,19 @@ namespace TinhGiaInClient.Presenter
                 lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value)); 
             }
             return lst;
+        }
+        private void CapNhatMucBaiIn()
+        {
+            this.MucBaiIn.ID = View.ID;
+            this.MucBaiIn.TieuDe = View.TieuDe;
+            this.MucBaiIn.SoLuong = View.SoLuong;
+            this.MucBaiIn.DonVi = View.DonViTinh;
+            this.MucBaiIn.IdHangKH = this.MucBaiIn.IdHangKH;
+        }
+        public BaiIn DocBaiIn()
+        {
+            CapNhatMucBaiIn();
+            return this.MucBaiIn;
         }
     }
 
