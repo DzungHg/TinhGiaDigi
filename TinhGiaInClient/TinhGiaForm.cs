@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Booklet;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.UI;
 
 namespace TinhGiaInClient
 {
@@ -98,6 +100,17 @@ namespace TinhGiaInClient
             }
             set { _idDanhThiepChon = value; }
         }
+        int _idGiaSachDigiChon = 0;
+        public int IdGiaSachDiGiChon
+        {
+            get
+            {
+                if (lvwCuon.SelectedItems.Count > 0)
+                    int.TryParse(lvwCuon.SelectedItems[0].Text, out _idGiaSachDigiChon);
+                return _idGiaSachDigiChon;
+            }
+            set { _idGiaSachDigiChon = value; }
+        }
         public string TenHangKH
         {
             get { return cboHangKH.Text; }
@@ -164,6 +177,20 @@ namespace TinhGiaInClient
             lvwDanhThiep.View = System.Windows.Forms.View.Details;
             lvwDanhThiep.HideSelection = false;
             lvwDanhThiep.FullRowSelect = true;
+            //===hết
+            //Listview Cuốn
+
+            lvwCuon.Clear();
+            lvwCuon.Columns.Add("Id");
+            lvwCuon.Columns.Add("Tiêu đề");
+            lvwCuon.Columns.Add("Khổ cuốn");
+            lvwCuon.Columns.Add("Số Trang/Cuốn");
+            lvwCuon.Columns.Add("Số lượng");
+            lvwCuon.Columns.Add("Thành tiền");
+
+            lvwCuon.View = System.Windows.Forms.View.Details;
+            lvwCuon.HideSelection = false;
+            lvwCuon.FullRowSelect = true;
             //===hết
         }
         private void LoadHangKhachHang()
@@ -266,6 +293,7 @@ namespace TinhGiaInClient
              }
          }
          */
+
         private void XoaBaiIn()
         {
             if (this.IdBaiInChon > 0)
@@ -390,13 +418,120 @@ namespace TinhGiaInClient
                case 1:
                    ThemBaiIn();
                    break;
+               case 2:
+                   ThemCuon();
+                   break;
 
            }
                
 
        }
+        #region VeCuon
+        private void ThemCuon()
+        {
+            var thongTinChoSach = new ThongTinBanDauChoBaiIn
+            {
+                IdHangKhachHang = this.IdHangKhachHang(),
+                TinhTrangForm = FormStateS.New,
+                TieuDeForm = "[Mới] Tính giá Cuốn",
+                YeuCauTinhGia = ""
+            };
+            var quiCachSach = new Sach
+            {
+                ChieuCao = 10,
+                ChieuRong = 5,
+                GayDay = 0.5f,
+                KieuDongCuon = KieuDongCuonS.Keo,
+                SoTrangBia = 4,
+                SoTrangRuot = 8
+            };
+            var giaSach = new GiaInSachDigi(quiCachSach, 10, this.IdHangKhachHang(),
+                0, 0, "In cataloque");
 
-       private void btnSuaBaiIn_Click(object sender, EventArgs e)
+            var frm = new InSachForm(thongTinChoSach, giaSach);
+
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                //XuLyNutOKTrenFormBaiIn_Click(frm);
+                //MessageBox.Show(this.BaiInS.Count().ToString());
+                //LoadBaiInLenListView();
+            }
+        }
+        private void SuaCuon()
+        {
+            var thongTinChoSach = new ThongTinBanDauChoBaiIn
+            {
+                IdHangKhachHang = this.IdHangKhachHang(),
+                TinhTrangForm = FormStateS.Edit,
+                YeuCauTinhGia = ""
+            };
+            
+            var giaSach = tinhGiaPres.DocCuonTheoID(this.IdGiaSachDiGiChon);
+
+            var frm = new InSachForm(thongTinChoSach, giaSach);
+
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                 XuLyNutOKTrenFormCuon(frm);
+                //MessageBox.Show(this.BaiInS.Count().ToString());
+                 LoadCuonListView();
+            }
+        }
+        private void XuLyNutOKTrenFormCuon(InSachForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.Edit:
+                    frm.DocGiaInSachDigi();//Để cập nhật
+                    break;
+                case FormStateS.New:
+                    tinhGiaPres.Them_Sach(frm.DocGiaInSachDigi());
+                    break;
+            }
+        }
+        private void LoadCuonListView()
+        {
+            /*lvwCuon.Columns.Add("Id");
+           lvwCuon.Columns.Add("Tiêu đề");
+           lvwCuon.Columns.Add("Khổ cuốn");
+           lvwCuon.Columns.Add("Số Trang/Cuốn");
+           lvwCuon.Columns.Add("Số lượng");
+           lvwCuon.Columns.Add("Thành tiền"); */ 
+            //Xóa;
+            lvwCuon.Items.Clear();
+            if (tinhGiaPres.TrinhBayCuonS().Count() <= 0)
+                return;
+
+            ListViewItem item;
+            foreach (KeyValuePair<int, List<string>> kvp in tinhGiaPres.TrinhBayCuonS())
+            {
+                item = new ListViewItem();
+                item.Text = kvp.Key.ToString();
+                item.SubItems.AddRange(kvp.Value.ToArray());
+
+                lvwCuon.Items.Add(item);
+            }
+            lvwCuon.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwCuon.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwCuon.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwCuon.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+            lvwCuon.Columns[4].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwCuon.Columns[5].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+
+        }
+        #endregion
+        private void btnSuaBaiIn_Click(object sender, EventArgs e)
        {
            switch (tabCtrl01.SelectedIndex)
            {

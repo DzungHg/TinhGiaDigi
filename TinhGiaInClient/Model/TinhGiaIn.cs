@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TinhGiaInBDO;
+
 using TinhGiaInLogic;
+using TinhGiaInClient.Model.Booklet;
 
 
 namespace TinhGiaInClient.Model
@@ -37,6 +38,12 @@ namespace TinhGiaInClient.Model
         {
             get { return _chiTietGiaDanhThiep; }
             set { _chiTietGiaDanhThiep = value; }
+        }
+        List<GiaInSachDigi> _dsGiaInSach;
+        public List<GiaInSachDigi> GiaInSachDigiS
+        {
+            get { return _dsGiaInSach; }
+            set { _dsGiaInSach = value; }
         }
         public TinhGiaIn()
         {
@@ -81,6 +88,7 @@ namespace TinhGiaInClient.Model
             this.KetQuaBaiInS.Clear();
         }
         #endregion
+
         #region Phần Danh thiếp: thêm sửa, xóa Danh thiếp
         public void ThemDanhThiep(BaiInDanhThiep kQuaBaiIn)
         {
@@ -110,6 +118,25 @@ namespace TinhGiaInClient.Model
         public void XoaTatDanhThiep()
         {
             this.BaiInGiaDanhThiepS.Clear();
+        }
+        #endregion
+        #region Phần Cuốn: thêm sửa, xóa bài in
+        public void ThemCuon(GiaInSachDigi giaCuonDigi)
+        {
+            this.GiaInSachDigiS.Add(giaCuonDigi);
+        }
+        //Cập nhật cuốn không cần thiết vì tự cập nhật ở form rồi
+        public void XoaCuon(GiaInSachDigi giaCuonDigi)
+        {
+            this.GiaInSachDigiS.Remove(giaCuonDigi);
+        }
+        public GiaInSachDigi DocCuonTheoID(int idGiaInCuon)
+        {
+            return this.GiaInSachDigiS.Find(x => x.ID == idGiaInCuon);
+        }
+        public void XoaTatCaCuon()
+        {
+            this.GiaInSachDigiS.Clear();
         }
         #endregion
         public List<string> NoiDungGiaChaoKhachHang()

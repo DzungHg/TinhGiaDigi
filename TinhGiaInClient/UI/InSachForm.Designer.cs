@@ -397,6 +397,7 @@
             this.btnThemBia.Size = new System.Drawing.Size(110, 24);
             this.btnThemBia.TabIndex = 0;
             this.btnThemBia.Text = "Bìa";
+            this.btnThemBia.Click += new System.EventHandler(this.btnThemBia_Click);
             // 
             // panel4
             // 
@@ -494,6 +495,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "InSachForm";
+            this.Load += new System.EventHandler(this.InSachForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radWizard1)).EndInit();
             this.radWizard1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

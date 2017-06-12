@@ -14,6 +14,7 @@ namespace TinhGiaInClient.Model.Booklet
             get;
             set;
         }
+        public string TieuDe { get; set; }
         public Sach QuiCachSach { get; set; }
         public int SoCuon { get; set; }
         public BaiIn InBia { get; set; }
@@ -30,13 +31,14 @@ namespace TinhGiaInClient.Model.Booklet
             }
         }
         public GiaInSachDigi(Sach quiCachSach, int soCuon, int idHangKH,
-            int tyLeMarkUpSales, int idDongCuon)
+            int tyLeMarkUpSales, int idDongCuon, string tieuDe)
         {
             this.QuiCachSach = quiCachSach;
             this.SoCuon = soCuon;
             this.IdHangKhachHang = idHangKH;
             this.TyLeMarkUpSales = tyLeMarkUpSales;
             this.IdDongCuon = idDongCuon;
+            this.TieuDe = tieuDe;
             //----tạo ID tăng tự động
             _lastId += 1;
             this.ID = _lastId;
@@ -53,7 +55,7 @@ namespace TinhGiaInClient.Model.Booklet
 
             return kq;
         }
-        public bool GiaInSach()
+        public bool HieuLucTongThe()
         {//Đóng cuốn phải có và giá in phải có
             var kq = true;
             if (!HieuLucGiaIn())

@@ -52,10 +52,13 @@
             this.lvwDanhThiep = new System.Windows.Forms.ListView();
             this.tabInTheoBai = new System.Windows.Forms.TabPage();
             this.btnCopyToClipboardMucTinh = new System.Windows.Forms.Button();
+            this.tabInCuon = new System.Windows.Forms.TabPage();
+            this.lvwCuon = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
             this.tabInTheoBai.SuspendLayout();
+            this.tabInCuon.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -253,6 +256,7 @@
             // 
             this.tabCtrl01.Controls.Add(this.tabDanhThiep);
             this.tabCtrl01.Controls.Add(this.tabInTheoBai);
+            this.tabCtrl01.Controls.Add(this.tabInCuon);
             this.tabCtrl01.Location = new System.Drawing.Point(10, 223);
             this.tabCtrl01.Name = "tabCtrl01";
             this.tabCtrl01.SelectedIndex = 0;
@@ -302,6 +306,29 @@
             this.btnCopyToClipboardMucTinh.UseVisualStyleBackColor = true;
             this.btnCopyToClipboardMucTinh.Click += new System.EventHandler(this.btnCopyToClipboardMucTinh_Click);
             // 
+            // tabInCuon
+            // 
+            this.tabInCuon.Controls.Add(this.lvwCuon);
+            this.tabInCuon.Location = new System.Drawing.Point(4, 22);
+            this.tabInCuon.Name = "tabInCuon";
+            this.tabInCuon.Padding = new System.Windows.Forms.Padding(3);
+            this.tabInCuon.Size = new System.Drawing.Size(517, 213);
+            this.tabInCuon.TabIndex = 12;
+            this.tabInCuon.Text = "In Cuốn";
+            this.tabInCuon.UseVisualStyleBackColor = true;
+            // 
+            // lvwCuon
+            // 
+            this.lvwCuon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwCuon.FullRowSelect = true;
+            this.lvwCuon.GridLines = true;
+            this.lvwCuon.Location = new System.Drawing.Point(3, 3);
+            this.lvwCuon.MultiSelect = false;
+            this.lvwCuon.Name = "lvwCuon";
+            this.lvwCuon.Size = new System.Drawing.Size(511, 207);
+            this.lvwCuon.TabIndex = 11;
+            this.lvwCuon.UseCompatibleStateImageBehavior = false;
+            // 
             // TinhGiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,6 +353,7 @@
             this.tabCtrl01.ResumeLayout(false);
             this.tabDanhThiep.ResumeLayout(false);
             this.tabInTheoBai.ResumeLayout(false);
+            this.tabInCuon.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +385,8 @@
         private System.Windows.Forms.TextBox txtDienGiaiHangKH;
         private System.Windows.Forms.Label lblIdTinhGia;
         private System.Windows.Forms.Button btnCopyToClipboardMucTinh;
+        private System.Windows.Forms.TabPage tabInCuon;
+        private System.Windows.Forms.ListView lvwCuon;
 
     }
 }

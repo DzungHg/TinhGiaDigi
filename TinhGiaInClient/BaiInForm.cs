@@ -28,6 +28,9 @@ namespace TinhGiaInClient
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
             this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;
+            this.DonViTinh = thongTinBanDau.DonViTinh;
+            this.TieuDe = thongTinBanDau.TieuDeBaiIn;
+            this.Text = thongTinBanDau.TieuDeForm;
            
             this.ID = idBaiIn;
             

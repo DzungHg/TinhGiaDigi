@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Booklet;
 using TinhGiaInClient.View;
 
 namespace TinhGiaInClient.Presenter
@@ -161,7 +162,57 @@ namespace TinhGiaInClient.Presenter
 
 
         #endregion
+        #region Phần Giá in sách: thêm sửa, xóa
 
+        public List<GiaInSachDigi> GiaInSachDigiS()
+        {
+            return TinhGia.GiaInSachDigiS;
+        }
+
+        public void Them_Sach(GiaInSachDigi sachDigi)
+        {
+            TinhGia.ThemCuon(sachDigi);
+        }
+
+        public void Xoa_Cuon(GiaInSachDigi baiIn)
+        {
+            TinhGia.XoaCuon(baiIn);
+        }
+        public GiaInSachDigi DocCuonTheoID(int idCuonDigi)
+        {
+            return TinhGia.DocCuonTheoID(idCuonDigi);
+        }
+        public void XoaTatCa_Cuon()
+        {
+            TinhGia.XoaTatCaCuon();
+        }
+        public Dictionary<int, List<string>> TrinhBayCuonS()
+        {
+            /*lvwCuon.Columns.Add("Id");
+            lvwCuon.Columns.Add("Tiêu đề");
+            lvwCuon.Columns.Add("Khổ cuốn");
+            lvwCuon.Columns.Add("Số Trang/Cuốn");
+            lvwCuon.Columns.Add("Số lượng");
+            lvwCuon.Columns.Add("Thành tiền"); */ 
+
+            Dictionary<int, List<string>> dict = new Dictionary<int, List<string>>();
+            foreach (GiaInSachDigi sachIn in this.GiaInSachDigiS())
+            {
+                var lst = new List<string>();
+                lst.Add(sachIn.TieuDe);
+                lst.Add(string.Format("{0} x {1}cm", sachIn.QuiCachSach.ChieuRong,
+                    sachIn.QuiCachSach.ChieuCao));
+                lst.Add(sachIn.QuiCachSach.TongSoTrang.ToString());
+                lst.Add(sachIn.SoCuon.ToString());
+                lst.Add(string.Format("{0:0,0.00}đ", 0));
+
+                dict.Add(sachIn.ID, lst);//hoàn tất tại đây
+            }
+            return dict;
+        }
+
+
+        #endregion
         #region phần Tính giá
 
         public KetQuaTinhGiaIn TaoMauTinTinhGia()

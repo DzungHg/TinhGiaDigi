@@ -12,11 +12,11 @@ namespace TinhGiaInClient.Presenter
     public class BaiInPresenter
     {
         IViewBaiIn View;
-        BaiIn baiIn;
-        public BaiInPresenter(IViewBaiIn view)
+        BaiIn MucBaiIn;
+        public BaiInPresenter(IViewBaiIn view, BaiIn baiIn)
         {
             View = view;
-            baiIn = new BaiIn(View.DienGiai);
+            MucBaiIn = baiIn;
             
             //Để nếu sửa bài in thì lấy Id cũ
             switch (View.TinhTrangForm)
@@ -24,7 +24,7 @@ namespace TinhGiaInClient.Presenter
                 case FormStateS.New:                   
                     break;
                 case FormStateS.Edit:
-                    baiIn.ID = View.ID;                   
+                    MucBaiIn.ID = View.ID;                   
                     break;
             }
             
@@ -53,27 +53,27 @@ namespace TinhGiaInClient.Presenter
                     
                     break;
             }
-            View.ID = baiIn.ID;
+            View.ID = MucBaiIn.ID;
         }
         public BaiIn DocBaiIn()
         {
             //Điền 1 số dữ liệu cơ bản từ form
             //baiIn.ID = View.ID; //không cần ID tự tạo
-            baiIn.TieuDe = View.TieuDe;
-            baiIn.DienGiai = View.DienGiai;
-            baiIn.IdHangKH = View.IdHangKhachHang;
-            baiIn.SoLuong = View.SoLuong;
-            baiIn.DonVi = View.DonViTinh;
+            MucBaiIn.TieuDe = View.TieuDe;
+            MucBaiIn.DienGiai = View.DienGiai;
+            MucBaiIn.IdHangKH = View.IdHangKhachHang;
+            MucBaiIn.SoLuong = View.SoLuong;
+            MucBaiIn.DonVi = View.DonViTinh;
             
 
-            return baiIn;
+            return MucBaiIn;
         }
       
 
         #region Phần giá In
         public List<MucGiaIn> GiaInS()
         {
-            return baiIn.GiaInS;
+            return MucBaiIn.GiaInS;
         }
         public Dictionary<int, List<string>> TrinhBayGiaInS()
         {
@@ -113,24 +113,24 @@ namespace TinhGiaInClient.Presenter
         }
         public void ThemGiaIn(MucGiaIn giaIn)
         {
-            baiIn.Them_GiaIn(giaIn);
+            MucBaiIn.Them_GiaIn(giaIn);
         }
         public void SuaGiaIn(MucGiaIn giaIn)
         {
-            baiIn.Sua_GiaIn(giaIn);
+            MucBaiIn.Sua_GiaIn(giaIn);
         }
         public void XoaGiaIn(int idGiaIn)
         {            
-            var giaIn = baiIn.DocGiaInTheoID(idGiaIn);
-            baiIn.Xoa_GiaIn(giaIn);
+            var giaIn = MucBaiIn.DocGiaInTheoID(idGiaIn);
+            MucBaiIn.Xoa_GiaIn(giaIn);
         }
         public void XoaHetGiaIn()
         {
-            baiIn.XoaTatCa_GiaIn();
+            MucBaiIn.XoaTatCa_GiaIn();
         }
         public MucGiaIn LayGiaInTheoId(int idGiaIn)
         {
-            return baiIn.DocGiaInTheoID(idGiaIn);
+            return MucBaiIn.DocGiaInTheoID(idGiaIn);
         }
         #endregion
 
@@ -138,7 +138,7 @@ namespace TinhGiaInClient.Presenter
         #region Cấu hình sản phẩm
         public void GanCHSPVoBaiIn(CauHinhSanPham cauHinhSP)
         {
-            baiIn.CauHinhSP = cauHinhSP;
+            MucBaiIn.CauHinhSP = cauHinhSP;
         }
        /* public void CapNhatCHSPVoBaiIn(CauHinhSanPham cauHinhSP)
         {
@@ -165,11 +165,11 @@ namespace TinhGiaInClient.Presenter
         }*/
         public CauHinhSanPham LayCauHinhSPTheoBaiIn()
         {
-            return baiIn.CauHinhSP;
+            return MucBaiIn.CauHinhSP;
         }
         public void XoaCauHinhSanPham()
         {
-            baiIn.CauHinhSP = null;
+            MucBaiIn.CauHinhSP = null;
         }
         public string TomTatCauHinhSP()
         {
@@ -186,7 +186,7 @@ namespace TinhGiaInClient.Presenter
         #region Giấy in
         public void GanGiayDeIn(GiayDeIn giayDeIn)
         {
-            baiIn.GiayDeInIn = giayDeIn;
+            MucBaiIn.GiayDeInIn = giayDeIn;
 
         }
         /*public void CapNhatGiayDeIn(GiayDeIn giayDeIn)
@@ -196,12 +196,12 @@ namespace TinhGiaInClient.Presenter
         }*/
         public void XoaGiayDeIn()
         {
-            baiIn.GiayDeInIn = null;
+            MucBaiIn.GiayDeInIn = null;
         }
         public List<string> TomTatGiayDeIn()
         {
             var lst = new List<string>();
-            var giayDeIn = baiIn.GiayDeInIn;
+            var giayDeIn = MucBaiIn.GiayDeInIn;
             if (giayDeIn != null)
             {
                 var giay = Giay.DocGiayTheoId(giayDeIn.IdGiay);
@@ -227,14 +227,14 @@ namespace TinhGiaInClient.Presenter
         }
         public GiayDeIn LayGiayDeInTheoBaiIn()
         {
-            return baiIn.GiayDeInIn;
+            return MucBaiIn.GiayDeInIn;
         }
         #endregion
 
         #region Phần thành phẩm
         public List<MucThanhPham> ThanhPhamS()
         {
-            return baiIn.ThanhPhamS;
+            return MucBaiIn.ThanhPhamS;
         }
         //Trình bày list view
         public Dictionary<int, List<string>> TrinhBayThanhPhamS()
@@ -258,7 +258,7 @@ namespace TinhGiaInClient.Presenter
         }
         public void ThemThanhPham(MucThanhPham thPham)
         {
-            baiIn.Them_ThanhPham(thPham);
+            MucBaiIn.Them_ThanhPham(thPham);
         }
         /*public void SuaThanhPham(MucThanhPham thPham)
         {
@@ -268,15 +268,15 @@ namespace TinhGiaInClient.Presenter
         public void XoaThanhPham(MucThanhPham thPham)
         {
             //var thPham = baiIn.DocThanhPhamTheoID(idThanhPham);
-            baiIn.Xoa_ThanhPham(thPham);
+            MucBaiIn.Xoa_ThanhPham(thPham);
         }
         public void XoaHetThanhPham()
         {
-            baiIn.XoaTatCa_ThanhPham();
+            MucBaiIn.XoaTatCa_ThanhPham();
         }
         public MucThanhPham LayThanhPhamTheoId(int idThPham)
         {
-            return baiIn.DocThanhPhamTheoID(idThPham);
+            return MucBaiIn.DocThanhPhamTheoID(idThPham);
         }
         #endregion
 
