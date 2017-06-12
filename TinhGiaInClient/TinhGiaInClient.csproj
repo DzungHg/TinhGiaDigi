@@ -115,6 +115,9 @@
     </Compile>
     <Compile Include="Model\BaiIn.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
+    <Compile Include="Model\Booklet\GiaInSachDigi.cs" />
+    <Compile Include="Model\Booklet\MoDongCuon.cs" />
+    <Compile Include="Model\Booklet\Sach.cs" />
     <Compile Include="Model\DongCuonLoXo.cs" />
     <Compile Include="Model\GiaDongCuonLoXo.cs" />
     <Compile Include="Model\MucDongCuonLoXo.cs" />
@@ -189,6 +192,7 @@
     <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
+    <Compile Include="Presenter\InSachDigiPresenter.cs" />
     <Compile Include="Presenter\ThPhDongCuonLoXoPresenter.cs" />
     <Compile Include="Presenter\ThPhGiaCongNgoaiPresenter.cs" />
     <Compile Include="Presenter\GiaDanhThiepPresenter.cs" />
@@ -207,6 +211,12 @@
     </Compile>
     <Compile Include="UI\BangGiaDongCuonForm.Designer.cs">
       <DependentUpon>BangGiaDongCuonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InSachForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\InSachForm.Designer.cs">
+      <DependentUpon>InSachForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ThPhDongCuonLoXoForm.cs">
       <SubType>Form</SubType>
@@ -277,6 +287,7 @@
     <Compile Include="View\IViewGiaInOffset.cs" />
     <Compile Include="View\IViewGiaInNhanhThu.cs" />
     <Compile Include="View\IViewGiaCanGap.cs" />
+    <Compile Include="View\IViewInSachDigi.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
     <Compile Include="View\IViewThPhDongCuonLoXo.cs" />
     <Compile Include="View\IViewThPhEpKim.cs" />
@@ -346,6 +357,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\BangGiaDongCuonForm.resx">
       <DependentUpon>BangGiaDongCuonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\InSachForm.resx">
+      <DependentUpon>InSachForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ThPhDongCuonLoXoForm.resx">
       <DependentUpon>ThPhDongCuonLoXoForm.cs</DependentUpon>

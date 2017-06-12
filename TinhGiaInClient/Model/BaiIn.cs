@@ -211,6 +211,31 @@ namespace TinhGiaInClient.Model
             return result;
 
         }
+        public Dictionary<string, decimal>TomTat_ThanhPham()
+        {
+            var dict = new Dictionary<string, decimal>();
+            //Tính thành phẩm
+            decimal thanhTienTP = 0;
+            if (this.SoLuongThanhPhamKem() > 0)
+            {
+                var nguonTP = this.ThanhPhamS.Select(x => x.TenThanhPham).ToList();
+                var dvTP = "";
+                var i = 0;
+                foreach (string str in nguonTP)
+                {
+                    if (i < nguonTP.Count - 1)
+                        dvTP += str + ";";
+                    else
+                        dvTP += str;
+
+                    i++;
+                }
+                thanhTienTP = this.ThanhPhamS.Sum(x => x.ThanhTien);
+                dict.Add(dvTP, thanhTienTP);
+                
+            }
+            return dict;
+        }
         public Dictionary<string, string> TomTat_ChaoKH()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
