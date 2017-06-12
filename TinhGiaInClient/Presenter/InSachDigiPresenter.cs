@@ -29,16 +29,19 @@ namespace TinhGiaInClient.Presenter
             View.SoCuon = this.GiaSach.SoCuon;
             View.Bia = this.GiaSach.InBia;
             View.Ruot = this.GiaSach.InRuot;
-
+            View.GiaInChiTiet = this.GiaSach.GiaInChiTiet;
+            View.DongCuon = this.GiaSach.DongCuon;
+           
         }
         public List<MonDongCuon> MonDongCuonS()
         {
             return MonDongCuon.DocTatCa();
         }
-        public MonDongCuon DocTheoID()
+        public MonDongCuon DocMonDongCuonTheoID()
         {
             return MonDongCuon.DocTheoId(View.IdMonDongCuonChon);
         }
+        
         public int TongSoTrangRuot()
         {
             return this.GiaSach.TongSoTrangRuot;
@@ -57,9 +60,12 @@ namespace TinhGiaInClient.Presenter
             this.GiaSach.QuiCachSach.KieuDongCuon = View.KieuDongCuon;
             this.GiaSach.QuiCachSach.SoTrangBia = View.SoTrangBia;
             this.GiaSach.QuiCachSach.SoTrangRuot = View.SoTrangRuot;
-            //Cập nhật bìa
+            //Cập nhật bìa không cần cập nhật một số reference
             this.GiaSach.InBia = View.Bia;
             this.GiaSach.InRuot = View.Ruot;
+            this.GiaSach.GiaInChiTiet = View.GiaInChiTiet;
+            this.GiaSach.DongCuon = View.DongCuon;
+           
             //Cập nhật thành phẩm
 
             this.GiaSach.SoCuon = View.SoCuon;
@@ -72,6 +78,36 @@ namespace TinhGiaInClient.Presenter
         public bool HieuLucThietLapGiaIn()
         {
             return this.DocGiaSachDigi().HieuLucChoGiaIn();
+        }
+        public string ChiTietGiaIn()
+        {
+            var str = "";
+            var giaIn = this.DocGiaSachDigi().GiaInChiTiet;
+            if ( giaIn != null)
+            {
+                str = "Kiểu in: " + giaIn.TenPhuongPhapIn + '\r' + '\n'
+                    + string.Format("Tổng trang in: {0: 0,0} trang" + '\r' + '\n', this.TongSoTrang())
+                    + string.Format("Tiền in: {0:0,0.00}đ" + '\r' + '\n', this.GiaSach.TienInSach())
+                    + string.Format("Giá TB/Trg: {0:0,0.00}đ" + '\r' + '\n', (decimal)this.GiaSach.TienInSach() / this.GiaSach.TongSoTrang);
+            }
+            
+            return str;
+            
+        }
+        public string ChiTietDongCuon()
+        {
+            var str = "";
+            var dongCuon = this.DocGiaSachDigi().DongCuon;
+            if (dongCuon != null)
+            {
+                str = "Đóng cuốn: " + dongCuon.TenThanhPham + '\r' + '\n'
+                    + string.Format("Số cuốn: {0: 0,0} cuốn" + '\r' + '\n', this.GiaSach.SoCuon)
+                    + string.Format("Tiền đóng cuốn: {0:0,0.00}đ" + '\r' + '\n', this.GiaSach.DongCuon.ThanhTien)
+                    + string.Format("Giá TB/cuốn: {0:0,0.00}đ" + '\r' + '\n', (decimal)this.GiaSach.DongCuon.ThanhTien / this.GiaSach.SoCuon);
+            }
+
+            return str;
+
         }
     }
 }

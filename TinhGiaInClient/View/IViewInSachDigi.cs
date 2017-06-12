@@ -19,6 +19,8 @@ namespace TinhGiaInClient.View
         int SoCuon { get; set; }
         BaiIn Bia { get; set; }
         BaiIn Ruot { get; set; }
+        MucGiaIn GiaInChiTiet { get; set; }
+        MucThanhPham DongCuon { get; set; }
         int IdMonDongCuonChon { get; set; }
         int IdHangKhachHang { get; set; }
         KieuDongCuonS KieuDongCuon { get; set; }

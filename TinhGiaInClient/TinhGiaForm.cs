@@ -449,7 +449,7 @@ namespace TinhGiaInClient
                 SoTrangRuot = 8
             };
             var giaSach = new GiaInSachDigi(quiCachSach, 10, this.IdHangKhachHang(),
-                0, 0, "In cataloque");
+                 0, "In cataloque");
 
             var frm = new InSachForm(thongTinChoSach, giaSach);
 

@@ -431,6 +431,7 @@
             this.btnXoaDongCuon.Size = new System.Drawing.Size(110, 24);
             this.btnXoaDongCuon.TabIndex = 4;
             this.btnXoaDongCuon.Text = "Xóa Đóng cuốn";
+            this.btnXoaDongCuon.Click += new System.EventHandler(this.btnXoaDongCuon_Click);
             // 
             // btnThemDongCuon
             // 
@@ -439,6 +440,7 @@
             this.btnThemDongCuon.Size = new System.Drawing.Size(110, 24);
             this.btnThemDongCuon.TabIndex = 3;
             this.btnThemDongCuon.Text = "Đóng Cuốn";
+            this.btnThemDongCuon.Click += new System.EventHandler(this.btnThemDongCuon_Click);
             // 
             // panel5
             // 

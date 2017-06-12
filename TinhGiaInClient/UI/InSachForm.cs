@@ -9,6 +9,7 @@ using Telerik.WinControls;
 
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Booklet;
+using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.View;
 
@@ -142,6 +143,8 @@ namespace TinhGiaInClient.UI
         public int IdHangKhachHang { get; set; }
         public BaiIn Bia { get; set; }
         public BaiIn Ruot { get; set; }
+        public MucThanhPham DongCuon { get; set; }
+        public MucGiaIn GiaInChiTiet { get; set; }
         public int IdMonDongCuonChon
         {
             get { return int.Parse(lbxDongCuon.SelectedValue.ToString()); }
@@ -340,7 +343,7 @@ namespace TinhGiaInClient.UI
             var str = "";
             if (this.Ruot != null)
             {
-                foreach (KeyValuePair<string, string> kvp in this.Bia.TomTat_ChaoKH())
+                foreach (KeyValuePair<string, string> kvp in this.Ruot.TomTat_ChaoKH())
                 {
                     str += string.Format("{0} {1}" + '\r' + '\n', kvp.Key, kvp.Value);
                 }
@@ -348,6 +351,165 @@ namespace TinhGiaInClient.UI
             }
             txtChiTietRuot.Text = str;
         }
+        #region Đóng cuốn
+        private ThongTinBanDauChoThanhPham ThongTinBanDauCuonKeo()
+        {
+            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            {
+
+                IdBaiIn = this.ID,
+                IdHangKhachHang = this.IdHangKhachHang,
+                ThongDiepCanThiet = string.Format("Số lượng {0} {1}",
+                    this.SoCuon, "cuốn")
+            };
+            return thongTinBanDau;
+
+        }
+        private void ThemDongCuon()
+        {///Hiện tại Id chọn các dịch vụ đóng cuốn là Id của MonDongCuon 
+         ///Lấy được món đóng cuốn
+
+            var monDongCuon = inSachPres.DocMonDongCuonTheoID();
+            switch (monDongCuon.KieuDongCuon) //Thiết lập chỉ 2 loại keo và lò xo
+            {
+                case KieuDongCuonS.Keo:
+                    //Điều chỉnh thông tin ban đầu
+                    var thongTinBanDauCuonKeo = ThongTinBanDauCuonKeo();
+                    thongTinBanDauCuonKeo.TinhTrangForm = FormStateS.New;
+                    thongTinBanDauCuonKeo.TieuDeForm = "[Mới] Đóng cuốn";
+
+                    //tạo mục thành phẩm đóng cuốn
+                    var mucThPhamDongCuon = new MucThanhPham();
+                    mucThPhamDongCuon.IdBaiIn = this.ID;
+                    mucThPhamDongCuon.IdHangKhachHang = this.IdHangKhachHang;
+                    mucThPhamDongCuon.IdThanhPhamChon = inSachPres.DocMonDongCuonTheoID().IdGoc;
+                    mucThPhamDongCuon.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+                    mucThPhamDongCuon.SoLuong = this.SoCuon;
+                    mucThPhamDongCuon.DonViTinh = "cuốn";
+
+                    var frm1 = new ThPhDongCuonForm(thongTinBanDauCuonKeo, mucThPhamDongCuon);
+
+                    frm1.MinimizeBox = false;
+                    frm1.MaximizeBox = false;
+                    frm1.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua ỏm
+
+                    frm1.ShowDialog();
+                    if (frm1.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuon(frm1);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+
+                        //Cap nhat noi dung đóng cuốn
+                        CapNhatChiTietDongCuon();
+
+                    }
+                    break;
+                case KieuDongCuonS.LoXo:
+                    
+                    var mucDongCuon = new MucDongCuonLoXo();
+                    mucDongCuon.IdBaiIn = this.ID;
+                    mucDongCuon.IdHangKhachHang = this.IdHangKhachHang;
+                    mucDongCuon.SoLuong = 10; //Vì số lượng có thể không trùng
+                    mucDongCuon.DonViTinh = "cuốn";
+                    mucDongCuon.GayCao = this.SachCao;
+                    mucDongCuon.GayDay = this.GayDay;
+                    mucDongCuon.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+                    //Tiếp tục thông tin ban đầu
+                    var thongTinBanDauThPh = new ThongTinBanDauDongCuon();
+                    thongTinBanDauThPh.ThongDiepCanThiet = string.Format("Số lượng {0} {1}",
+                        this.SoCuon, "cuốn");
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Cuốn Lò xo";
+                    thongTinBanDauThPh.TinhTrangForm = FormStateS.New;
+                    //điều chỉnh mục thành phẩm
+                    mucDongCuon.KieuDongCuon = KieuDongCuonS.LoXo;
+                    var frm2 = new ThPhDongCuonLoXoForm(thongTinBanDauThPh, mucDongCuon);
+
+                    frm2.MinimizeBox = false;
+                    frm2.MaximizeBox = false;
+                    frm2.StartPosition = FormStartPosition.CenterParent;
+                    frm2.ShowDialog();
+                    if (frm2.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuonLoXo(frm2);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        CapNhatChiTietDongCuon();
+                    }
+                    break;
+
+            }
+            
+        }
+        private void SuaDongCuon()
+        {///Hiện tại Id chọn các dịch vụ đóng cuốn là Id của MonDongCuon 
+            ///Lấy được món đóng cuốn
+
+            var monDongCuon = inSachPres.DocMonDongCuonTheoID();
+            switch (monDongCuon.KieuDongCuon) //Thiết lập chỉ 2 loại keo và lò xo
+            {
+                case KieuDongCuonS.Keo:
+
+                    var thongDiep3 = string.Format("Số lượng {0} {1}",
+                                               baiIn.SoLuong, baiIn.DonVi);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Đóng cuốn";
+
+                    var frm3 = new ThPhDongCuonForm(thongTinBanDauThPh, mucThPh);
+
+                    frm3.MinimizeBox = false;
+                    frm3.MaximizeBox = false;
+                    frm3.StartPosition = FormStartPosition.CenterParent;
+
+                    frm3.ShowDialog();
+                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuon(frm3);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+            }
+        }
+        private void XuLyNutOKClick_FormDongCuon(ThPhDongCuonForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    //Add
+                    this.DongCuon = frm.LayMucThanhPham();
+                    break;
+                case FormStateS.Edit:
+                    //Tự cập nhật luôn vì reference
+                    frm.LayMucThanhPham();
+                    break;
+            }
+            
+            
+        }
+        private void XuLyNutOKClick_FormDongCuonLoXo(ThPhDongCuonLoXoForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    this.DongCuon = frm.LayMucThanhPham();
+                    break;
+                case FormStateS.Edit:
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không cần
+                    frm.LayMucThanhPham();
+                    break;
+            }
+            
+            
+        }
+        private void CapNhatChiTietDongCuon()
+        {
+            txtChiTietDongCuon.Text = inSachPres.ChiTietDongCuon();
+        }
+        #endregion
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -362,8 +524,7 @@ namespace TinhGiaInClient.UI
         {
             if (this.Bia == null)
                 ThemBiaSach();
-            else
-                ;//Sửa
+            
 
         }
 
@@ -377,8 +538,7 @@ namespace TinhGiaInClient.UI
         {
             if (this.Ruot == null)
                 ThemRuotSach();
-            else
-                ;//Sửa
+            
 
         }
 
@@ -390,18 +550,16 @@ namespace TinhGiaInClient.UI
 
         private void radWiz1_Next(object sender, Telerik.WinControls.UI.WizardCancelEventArgs e)
         {
-            
+           
         }
 
-        private void radWiz1_SelectedPageChanging(object sender, Telerik.WinControls.UI.SelectedPageChangingEventArgs e)
-        {
-            //MessageBox.Show(e.SelectedPage.Name);
-        }
+        
         private void Wizard_SelectedPageChanging(object sender, Telerik.WinControls.UI.SelectedPageChangingEventArgs e)
         {
             //MessageBox.Show(e.SelectedPage.Name);
+           
             
-            if (e.SelectedPage.Name == "wzRuotBia")
+            if (e.SelectedPage == wzRuotBia)
             {
                 if (this.Bia == null )
                     MessageBox.Show("Chú ý Bìa chưa có!");
@@ -418,8 +576,29 @@ namespace TinhGiaInClient.UI
                     MessageBox.Show("Bạn cần làm lại Ruột để thiết lập được giá in");
                     e.Cancel = true;
                 }
-            }
+                //Nếu qua cập nhật giá in
+                this.GiaInChiTiet = this.Ruot.GiaInS[0];//Chỉ lấy cái đầu tiên
+                CapNhatChiTietGiaIn();
 
+            }
         }
+        private void CapNhatChiTietGiaIn()
+        {
+
+            txtChiTietIn.Text = inSachPres.ChiTietGiaIn();
+        }
+
+        private void btnThemDongCuon_Click(object sender, EventArgs e)
+        {
+            if (this.DongCuon == null)
+                ThemDongCuon();
+        }
+
+        private void btnXoaDongCuon_Click(object sender, EventArgs e)
+        {
+            this.DongCuon = null;
+            CapNhatChiTietDongCuon();
+        }
+
     }
 }

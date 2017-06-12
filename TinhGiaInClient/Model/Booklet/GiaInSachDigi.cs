@@ -19,9 +19,11 @@ namespace TinhGiaInClient.Model.Booklet
         public int SoCuon { get; set; }
         public BaiIn InBia { get; set; }
         public BaiIn InRuot { get; set; }
+        public MucThanhPham DongCuon { get; set; }
+        public MucGiaIn GiaInChiTiet { get; set; }
         public int IdDongCuon { get; set; }
         public int IdHangKhachHang { get; set; }
-        public int TyLeMarkUpSales { get; set; }
+      
         public int TongSoTrangRuot
         {
             get { return this.QuiCachSach.SoTrangRuot * SoCuon; }
@@ -35,12 +37,12 @@ namespace TinhGiaInClient.Model.Booklet
             }
         }
         public GiaInSachDigi(Sach quiCachSach, int soCuon, int idHangKH,
-            int tyLeMarkUpSales, int idDongCuon, string tieuDe)
+            int idDongCuon, string tieuDe)
         {
             this.QuiCachSach = quiCachSach;
             this.SoCuon = soCuon;
             this.IdHangKhachHang = idHangKH;
-            this.TyLeMarkUpSales = tyLeMarkUpSales;
+           
             this.IdDongCuon = idDongCuon;
             this.TieuDe = tieuDe;
             //----tạo ID tăng tự động
@@ -69,7 +71,7 @@ namespace TinhGiaInClient.Model.Booklet
                     kq = false;
             return kq;
         }
-        public decimal GiaInSach()
+        public decimal TienInSach()
         {///Dựa trên Id tờ chạy của ruột để tính
          ///và dựa trên tổng số trang in bao gồm bìa và ruột
             if (!this.HieuLucChoGiaIn()) //Ruột rỗng hoặc không có giá in
@@ -79,11 +81,13 @@ namespace TinhGiaInClient.Model.Booklet
             //Lấy mục giá in đầu tiên để tính
             var idBangGiaInNhanh = this.InRuot.GiaInS[0].IdBangGiaInNhanh;
             var idToInDigi = this.InRuot.GiaInS[0].IdMayIn;
+            var tyLeMarkUpSalesIn = HangKhachHang.LayTheoId(this.IdHangKhachHang).LoiNhuanChenhLech;
             var giaInNhanhKetHop = new GiaInNhanhKetHopBangGia_May(this.TongSoTrang, idBangGiaInNhanh,
-                idToInDigi, this.TyLeMarkUpSales);
+                idToInDigi, tyLeMarkUpSalesIn);
             kq = giaInNhanhKetHop.GiaBan();
 
             return kq;
+            
         }
         public decimal GiaDongCuon
         {
