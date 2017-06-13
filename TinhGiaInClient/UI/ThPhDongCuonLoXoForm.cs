@@ -33,14 +33,15 @@ namespace TinhGiaInClient.UI
             cboMayLoXo.SelectedIndex = 0;
             //Load Nhu ep
             LoadLoXoDongCuon();
-
             
             //Load
             
             //Mục này phải làm ở đây
-            if (this.TinhTrangForm == FormStateS.Edit)
+            if (this.TinhTrangForm == FormStateS.Edit ||
+                this.IdThanhPhamChon > 0)
             {
                 this.IdThanhPhamChon = mucThPhamDongCuon.IdThanhPhamChon;
+               
                 this.IdLoXoDongCuonChon = mucThPhamDongCuon.IdLoXoChon;
             }
             //Envent
@@ -320,7 +321,10 @@ namespace TinhGiaInClient.UI
             }
             txtSoLuong.Enabled = true;
             txtDonViTinh.Enabled = false;
-           
+            if (this.IdThanhPhamChon > 0)
+            {
+                btnNhan.Enabled = true;
+            }
             
             if (this.TinhTrangForm == FormStateS.View)
             {

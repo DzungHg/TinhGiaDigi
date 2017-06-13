@@ -240,7 +240,7 @@ namespace TinhGiaInClient
             baiIn.SoLuong = 10;
             baiIn.DonVi = "???";
             baiIn.IdHangKH = this.IdHangKhachHang();
-            var frm = new BaiInForm(thongTinChoBaiIn, baiIn);
+            var frm = new InToForm(thongTinChoBaiIn, baiIn);
             
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -305,7 +305,7 @@ namespace TinhGiaInClient
                 LoadBaiInLenListView();
             }
         }
-        private void XuLyNutOKTrenFormBaiIn_Click(BaiInForm frm)
+        private void XuLyNutOKTrenFormBaiIn_Click(InToForm frm)
         {
             /*var baiIn = new KetQuaBaiIn();
             baiIn.DonVi = frm.DonViTinh;

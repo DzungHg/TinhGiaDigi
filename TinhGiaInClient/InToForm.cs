@@ -16,11 +16,11 @@ using TinhGiaInClient.UI;
 
 namespace TinhGiaInClient
 {
-    public partial class BaiInForm : Form, IViewBaiIn
+    public partial class InToForm : Form, IViewBaiIn
     {
        
        
-        public BaiInForm(ThongTinBanDauChoBaiIn thongTinBanDau,  BaiIn baiIn)
+        public InToForm(ThongTinBanDauChoBaiIn thongTinBanDau,  BaiIn baiIn)
         {
             InitializeComponent();
             //Chú ý theo thứ tự
@@ -218,7 +218,7 @@ namespace TinhGiaInClient
         
         private void BaiInForm_Load(object sender, EventArgs e)
         {
-            
+            lblTieuDeForm.Text = this.Text;
         }
         private bool KiemTraHopLe(ref string errorMessage)
         {
@@ -825,7 +825,7 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                case LoaiThanhPhamS.DongCuon:
+               /* case LoaiThanhPhamS.DongCuon:
                     var thongDiep3 = string.Format("Số lượng {0} {1}",
                         baiIn.SoLuong, baiIn.DonVi);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep3;
@@ -856,7 +856,7 @@ namespace TinhGiaInClient
                         //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
 
                     }
-                    break;
+                    break; */
                 case LoaiThanhPhamS.EpKim:
                     var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
@@ -989,6 +989,7 @@ namespace TinhGiaInClient
 
                     }
                     break;
+                    /*
                 case LoaiThanhPhamS.DongCuon:
                     if (mucThPh is MucDongCuonLoXo)
                     {
@@ -1036,6 +1037,7 @@ namespace TinhGiaInClient
                         }
                     }
                     break;
+                     */
 
                 case LoaiThanhPhamS.EpKim:
                     var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
@@ -1134,7 +1136,7 @@ namespace TinhGiaInClient
         }
         #endregion
         #region Đóng cuốn
-        private void XuLyNutOKClick_FormDongCuon(ThPhDongCuonForm frm)
+       /* private void XuLyNutOKClick_FormDongCuon(ThPhDongCuonForm frm)
         {
            
             switch (frm.TinhTrangForm)
@@ -1151,10 +1153,10 @@ namespace TinhGiaInClient
             }
             //Cap nhat noi dung bai in
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
-        }
+        }*/
         #endregion
         #region Riêng về Đóng cuốn Loxo hoặc...
-        
+        /*
         private void ThemDongCuon(int idBaiIn, KieuDongCuonS kieuDongCuon)
         {
             if (idBaiIn <= 0)
@@ -1231,7 +1233,7 @@ namespace TinhGiaInClient
             }
             //Cap nhat noi dung bai in
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
-        }
+        }*/
         #endregion
         #region Ép kim
         private void XuLyNutOKClick_FormEpKim(ThPhEpKimForm frm)
@@ -1428,12 +1430,7 @@ namespace TinhGiaInClient
             if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text))
                 Clipboard.SetText(txtTomTatBaiIn.Text);
         }
-
-        private void cmnuDongCuon_LoXo_Click(object sender, EventArgs e)
-        {
-            ThemDongCuon(this.ID, KieuDongCuonS.LoXo);
-        }
-
+      
        
         private void CapNhatTenHangKH()
         {

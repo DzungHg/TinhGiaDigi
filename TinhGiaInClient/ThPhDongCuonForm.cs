@@ -33,7 +33,8 @@ namespace TinhGiaInClient
             lbxThanhPham.SelectedIndex = -1;
             lbxThanhPham.SelectedIndex = 0;
             //Xử lý Id tp chọn ở đây
-            if (this.TinhTrangForm == FormStateS.Edit)
+            if (this.TinhTrangForm == FormStateS.Edit ||
+                this.IdThanhPhamChon > 0)
                 this.IdThanhPhamChon = mucThPham.IdThanhPhamChon;
 
             //Envent
@@ -198,6 +199,10 @@ namespace TinhGiaInClient
             txtSoLuong.Enabled = false;
             txtDonViTinh.Enabled = false;
             btnOK.Enabled = false;
+            if (this.IdThanhPhamChon > 0 )
+            {                
+                btnOK.Enabled = true;
+            }
         }
 
         private bool KiemTraHopLe(ref string errorMessage)

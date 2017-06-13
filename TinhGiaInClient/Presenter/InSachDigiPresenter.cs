@@ -109,5 +109,13 @@ namespace TinhGiaInClient.Presenter
             return str;
 
         }
+        public string TomTatChaoGia_DV()
+        {
+            return this.DocGiaSachDigi().TomTatChao_DichVu();
+        }
+        public string TomTatChaoGia_Le()
+        {
+            return this.DocGiaSachDigi().TomTatChao_KhachLe();
+        }
     }
 }

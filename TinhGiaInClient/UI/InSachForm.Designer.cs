@@ -131,7 +131,10 @@
             this.radWiz1.TabIndex = 0;
             this.radWiz1.Text = "radWizard1";
             this.radWiz1.WelcomePage = this.wzCauHinh;
-            this.radWiz1.Next += new Telerik.WinControls.UI.WizardCancelEventHandler(this.radWiz1_Next);
+            this.radWiz1.Next += new Telerik.WinControls.UI.WizardCancelEventHandler(this.radWiz1_Next_1);
+            this.radWiz1.Previous += new Telerik.WinControls.UI.WizardCancelEventHandler(this.radWiz1_Previous);
+            this.radWiz1.Finish += new System.EventHandler(this.radWiz1_Finish);
+            this.radWiz1.Cancel += new System.EventHandler(this.radWiz1_Cancel);
             // 
             // wzKetThuc
             // 
@@ -155,7 +158,7 @@
             this.txtTomTatTinhGia.Location = new System.Drawing.Point(23, 22);
             this.txtTomTatTinhGia.Multiline = true;
             this.txtTomTatTinhGia.Name = "txtTomTatTinhGia";
-            this.txtTomTatTinhGia.NullText = "Phải có đóng cuốn";
+            this.txtTomTatTinhGia.NullText = "Tóm tắt";
             this.txtTomTatTinhGia.Size = new System.Drawing.Size(497, 268);
             this.txtTomTatTinhGia.TabIndex = 6;
             // 
@@ -189,15 +192,16 @@
             // 
             // lbxDongCuon
             // 
-            this.lbxDongCuon.Location = new System.Drawing.Point(331, 46);
+            this.lbxDongCuon.Location = new System.Drawing.Point(335, 69);
             this.lbxDongCuon.Name = "lbxDongCuon";
             this.lbxDongCuon.Size = new System.Drawing.Size(120, 159);
             this.lbxDongCuon.TabIndex = 15;
             this.lbxDongCuon.Text = "radListControl1";
+            this.lbxDongCuon.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lbxDongCuon_SelectedIndexChanged);
             // 
             // radLabel9
             // 
-            this.radLabel9.Location = new System.Drawing.Point(263, 46);
+            this.radLabel9.Location = new System.Drawing.Point(267, 67);
             this.radLabel9.Name = "radLabel9";
             this.radLabel9.Size = new System.Drawing.Size(62, 18);
             this.radLabel9.TabIndex = 1;
@@ -206,7 +210,7 @@
             // lblTongSoTrang
             // 
             this.lblTongSoTrang.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTongSoTrang.Location = new System.Drawing.Point(118, 211);
+            this.lblTongSoTrang.Location = new System.Drawing.Point(122, 234);
             this.lblTongSoTrang.Name = "lblTongSoTrang";
             this.lblTongSoTrang.Size = new System.Drawing.Size(55, 18);
             this.lblTongSoTrang.TabIndex = 14;
@@ -214,7 +218,7 @@
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(13, 211);
+            this.radLabel8.Location = new System.Drawing.Point(17, 234);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(76, 18);
             this.radLabel8.TabIndex = 1;
@@ -222,14 +226,14 @@
             // 
             // txtSoCuon
             // 
-            this.txtSoCuon.Location = new System.Drawing.Point(118, 185);
+            this.txtSoCuon.Location = new System.Drawing.Point(122, 208);
             this.txtSoCuon.Name = "txtSoCuon";
             this.txtSoCuon.Size = new System.Drawing.Size(81, 20);
             this.txtSoCuon.TabIndex = 7;
             // 
             // radLabel7
             // 
-            this.radLabel7.Location = new System.Drawing.Point(13, 187);
+            this.radLabel7.Location = new System.Drawing.Point(17, 210);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(47, 18);
             this.radLabel7.TabIndex = 13;
@@ -237,14 +241,14 @@
             // 
             // txtSoTrangRuot
             // 
-            this.txtSoTrangRuot.Location = new System.Drawing.Point(118, 159);
+            this.txtSoTrangRuot.Location = new System.Drawing.Point(122, 182);
             this.txtSoTrangRuot.Name = "txtSoTrangRuot";
             this.txtSoTrangRuot.Size = new System.Drawing.Size(81, 20);
             this.txtSoTrangRuot.TabIndex = 6;
             // 
             // radLabel6
             // 
-            this.radLabel6.Location = new System.Drawing.Point(13, 161);
+            this.radLabel6.Location = new System.Drawing.Point(17, 184);
             this.radLabel6.Name = "radLabel6";
             this.radLabel6.Size = new System.Drawing.Size(102, 18);
             this.radLabel6.TabIndex = 11;
@@ -252,14 +256,14 @@
             // 
             // txtSoTrangBia
             // 
-            this.txtSoTrangBia.Location = new System.Drawing.Point(118, 133);
+            this.txtSoTrangBia.Location = new System.Drawing.Point(122, 156);
             this.txtSoTrangBia.Name = "txtSoTrangBia";
             this.txtSoTrangBia.Size = new System.Drawing.Size(81, 20);
             this.txtSoTrangBia.TabIndex = 5;
             // 
             // radLabel5
             // 
-            this.radLabel5.Location = new System.Drawing.Point(13, 135);
+            this.radLabel5.Location = new System.Drawing.Point(17, 158);
             this.radLabel5.Name = "radLabel5";
             this.radLabel5.Size = new System.Drawing.Size(96, 18);
             this.radLabel5.TabIndex = 9;
@@ -267,59 +271,59 @@
             // 
             // txtGayDay
             // 
-            this.txtGayDay.Location = new System.Drawing.Point(118, 96);
+            this.txtGayDay.Location = new System.Drawing.Point(122, 119);
             this.txtGayDay.Name = "txtGayDay";
             this.txtGayDay.Size = new System.Drawing.Size(81, 20);
             this.txtGayDay.TabIndex = 4;
             // 
             // radLabel4
             // 
-            this.radLabel4.Location = new System.Drawing.Point(13, 98);
+            this.radLabel4.Location = new System.Drawing.Point(17, 121);
             this.radLabel4.Name = "radLabel4";
-            this.radLabel4.Size = new System.Drawing.Size(25, 18);
+            this.radLabel4.Size = new System.Drawing.Size(50, 18);
             this.radLabel4.TabIndex = 7;
-            this.radLabel4.Text = "Dày";
+            this.radLabel4.Text = "Dày (cm)";
             // 
             // txtSachCao
             // 
-            this.txtSachCao.Location = new System.Drawing.Point(118, 70);
+            this.txtSachCao.Location = new System.Drawing.Point(122, 93);
             this.txtSachCao.Name = "txtSachCao";
             this.txtSachCao.Size = new System.Drawing.Size(81, 20);
             this.txtSachCao.TabIndex = 3;
             // 
             // radLabel3
             // 
-            this.radLabel3.Location = new System.Drawing.Point(13, 72);
+            this.radLabel3.Location = new System.Drawing.Point(17, 95);
             this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(26, 18);
+            this.radLabel3.Size = new System.Drawing.Size(51, 18);
             this.radLabel3.TabIndex = 5;
-            this.radLabel3.Text = "Cao";
+            this.radLabel3.Text = "Cao (cm)";
             // 
             // txtSachRong
             // 
-            this.txtSachRong.Location = new System.Drawing.Point(118, 44);
+            this.txtSachRong.Location = new System.Drawing.Point(122, 67);
             this.txtSachRong.Name = "txtSachRong";
             this.txtSachRong.Size = new System.Drawing.Size(81, 20);
             this.txtSachRong.TabIndex = 2;
             // 
             // radLabel2
             // 
-            this.radLabel2.Location = new System.Drawing.Point(13, 46);
+            this.radLabel2.Location = new System.Drawing.Point(17, 69);
             this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(33, 18);
+            this.radLabel2.Size = new System.Drawing.Size(58, 18);
             this.radLabel2.TabIndex = 3;
-            this.radLabel2.Text = "Rộng";
+            this.radLabel2.Text = "Rộng (cm)";
             // 
             // txtTieuDe
             // 
-            this.txtTieuDe.Location = new System.Drawing.Point(118, 18);
+            this.txtTieuDe.Location = new System.Drawing.Point(122, 41);
             this.txtTieuDe.Name = "txtTieuDe";
             this.txtTieuDe.Size = new System.Drawing.Size(215, 20);
             this.txtTieuDe.TabIndex = 1;
             // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(13, 20);
+            this.radLabel1.Location = new System.Drawing.Point(17, 43);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(43, 18);
             this.radLabel1.TabIndex = 1;
@@ -327,7 +331,7 @@
             // 
             // lblID
             // 
-            this.lblID.Location = new System.Drawing.Point(482, 18);
+            this.lblID.Location = new System.Drawing.Point(471, 41);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(55, 18);
             this.lblID.TabIndex = 0;

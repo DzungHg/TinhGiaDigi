@@ -1,6 +1,6 @@
 ﻿namespace TinhGiaInClient
 {
-    partial class BaiInForm
+    partial class InToForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,17 @@
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.spcChiTietBaiIn = new System.Windows.Forms.SplitContainer();
             this.trvMucLucBaiIn = new System.Windows.Forms.TreeView();
+            this.cmuThemMucVoBaiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuChuanBiGiay = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuGanGiaIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuThPh_CanPhu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_CanGap = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_Khac = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCopyToClipBoardNoiDungMucChon = new System.Windows.Forms.Button();
             this.lblTomTatBaiIn = new System.Windows.Forms.Label();
             this.txtTomTatBaiIn = new System.Windows.Forms.TextBox();
@@ -76,24 +87,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblHangKhachHang = new System.Windows.Forms.Label();
             this.lblIDBaiIn = new System.Windows.Forms.Label();
-            this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuChuanBiGiay = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuGanGiaIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuThPh_CanPhu = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuThPh_CanGap = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuThPh_DongCuon = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuDongCuon_LoXo = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuThPh_Khac = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmuThemMucVoBaiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
             this.spcChiTietBaiIn.Panel2.SuspendLayout();
             this.spcChiTietBaiIn.SuspendLayout();
+            this.cmuThemMucVoBaiIn.SuspendLayout();
             this.tabCtrl01.SuspendLayout();
             this.tabSanPham.SuspendLayout();
             this.tabGiay.SuspendLayout();
@@ -103,7 +102,6 @@
             this.panel5.SuspendLayout();
             this.tabThanhPham.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.cmuThemMucVoBaiIn.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -249,6 +247,87 @@
             this.trvMucLucBaiIn.Size = new System.Drawing.Size(178, 250);
             this.trvMucLucBaiIn.TabIndex = 103;
             this.trvMucLucBaiIn.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvMucLuc_AfterSelect);
+            // 
+            // cmuThemMucVoBaiIn
+            // 
+            this.cmuThemMucVoBaiIn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnuGanCauHinhSP,
+            this.toolStripMenuItem1,
+            this.cmnuChuanBiGiay,
+            this.toolStripMenuItem2,
+            this.cmnuGanGiaIn,
+            this.toolStripMenuItem3,
+            this.cmnuThPh_CanPhu,
+            this.cmnuThPh_CanGap,
+            this.cmnuThPh_EpKim,
+            this.cmnuThPh_Khac});
+            this.cmuThemMucVoBaiIn.Name = "cmnuGiayChoSP";
+            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(149, 176);
+            this.cmuThemMucVoBaiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
+            // 
+            // cmnuGanCauHinhSP
+            // 
+            this.cmnuGanCauHinhSP.Name = "cmnuGanCauHinhSP";
+            this.cmnuGanCauHinhSP.Size = new System.Drawing.Size(151, 22);
+            this.cmnuGanCauHinhSP.Text = "Cấu hình SP";
+            this.cmnuGanCauHinhSP.Click += new System.EventHandler(this.cmnuGanCauHinhSP_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 6);
+            // 
+            // cmnuChuanBiGiay
+            // 
+            this.cmnuChuanBiGiay.Name = "cmnuChuanBiGiay";
+            this.cmnuChuanBiGiay.Size = new System.Drawing.Size(151, 22);
+            this.cmnuChuanBiGiay.Text = "Chuẩn bị Giấy";
+            this.cmnuChuanBiGiay.Click += new System.EventHandler(this.cmnuChuanBiGiay_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(148, 6);
+            // 
+            // cmnuGanGiaIn
+            // 
+            this.cmnuGanGiaIn.Name = "cmnuGanGiaIn";
+            this.cmnuGanGiaIn.Size = new System.Drawing.Size(151, 22);
+            this.cmnuGanGiaIn.Text = "Giá In";
+            this.cmnuGanGiaIn.Click += new System.EventHandler(this.cmnuGanGiaIn_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(148, 6);
+            // 
+            // cmnuThPh_CanPhu
+            // 
+            this.cmnuThPh_CanPhu.Name = "cmnuThPh_CanPhu";
+            this.cmnuThPh_CanPhu.Size = new System.Drawing.Size(151, 22);
+            this.cmnuThPh_CanPhu.Text = "Cán phủ";
+            this.cmnuThPh_CanPhu.Click += new System.EventHandler(this.cmnuThanhPham_Click);
+            // 
+            // cmnuThPh_CanGap
+            // 
+            this.cmnuThPh_CanGap.Name = "cmnuThPh_CanGap";
+            this.cmnuThPh_CanGap.Size = new System.Drawing.Size(151, 22);
+            this.cmnuThPh_CanGap.Text = "Cấn Gấp";
+            this.cmnuThPh_CanGap.Click += new System.EventHandler(this.cmnuThPh_CanGap_Click);
+            // 
+            // cmnuThPh_EpKim
+            // 
+            this.cmnuThPh_EpKim.Name = "cmnuThPh_EpKim";
+            this.cmnuThPh_EpKim.Size = new System.Drawing.Size(151, 22);
+            this.cmnuThPh_EpKim.Text = "Ép kim";
+            this.cmnuThPh_EpKim.Click += new System.EventHandler(this.cmnuThPh_EpKim_Click);
+            // 
+            // cmnuThPh_Khac
+            // 
+            this.cmnuThPh_Khac.Name = "cmnuThPh_Khac";
+            this.cmnuThPh_Khac.Size = new System.Drawing.Size(151, 22);
+            this.cmnuThPh_Khac.Text = "Khác";
+            this.cmnuThPh_Khac.Click += new System.EventHandler(this.cmnuThPh_Khac_Click);
             // 
             // btnCopyToClipBoardNoiDungMucChon
             // 
@@ -583,104 +662,7 @@
             this.lblIDBaiIn.TabIndex = 239;
             this.lblIDBaiIn.Text = "ID";
             // 
-            // cmnuGanCauHinhSP
-            // 
-            this.cmnuGanCauHinhSP.Name = "cmnuGanCauHinhSP";
-            this.cmnuGanCauHinhSP.Size = new System.Drawing.Size(152, 22);
-            this.cmnuGanCauHinhSP.Text = "Cấu hình SP";
-            this.cmnuGanCauHinhSP.Click += new System.EventHandler(this.cmnuGanCauHinhSP_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // cmnuChuanBiGiay
-            // 
-            this.cmnuChuanBiGiay.Name = "cmnuChuanBiGiay";
-            this.cmnuChuanBiGiay.Size = new System.Drawing.Size(152, 22);
-            this.cmnuChuanBiGiay.Text = "Chuẩn bị Giấy";
-            this.cmnuChuanBiGiay.Click += new System.EventHandler(this.cmnuChuanBiGiay_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
-            // 
-            // cmnuGanGiaIn
-            // 
-            this.cmnuGanGiaIn.Name = "cmnuGanGiaIn";
-            this.cmnuGanGiaIn.Size = new System.Drawing.Size(152, 22);
-            this.cmnuGanGiaIn.Text = "Giá In";
-            this.cmnuGanGiaIn.Click += new System.EventHandler(this.cmnuGanGiaIn_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
-            // 
-            // cmnuThPh_CanPhu
-            // 
-            this.cmnuThPh_CanPhu.Name = "cmnuThPh_CanPhu";
-            this.cmnuThPh_CanPhu.Size = new System.Drawing.Size(152, 22);
-            this.cmnuThPh_CanPhu.Text = "Cán phủ";
-            this.cmnuThPh_CanPhu.Click += new System.EventHandler(this.cmnuThanhPham_Click);
-            // 
-            // cmnuThPh_CanGap
-            // 
-            this.cmnuThPh_CanGap.Name = "cmnuThPh_CanGap";
-            this.cmnuThPh_CanGap.Size = new System.Drawing.Size(152, 22);
-            this.cmnuThPh_CanGap.Text = "Cấn Gấp";
-            this.cmnuThPh_CanGap.Click += new System.EventHandler(this.cmnuThPh_CanGap_Click);
-            // 
-            // cmnuThPh_DongCuon
-            // 
-            this.cmnuThPh_DongCuon.Name = "cmnuThPh_DongCuon";
-            this.cmnuThPh_DongCuon.Size = new System.Drawing.Size(152, 22);
-            this.cmnuThPh_DongCuon.Text = "Cuốn kim, keo";
-            this.cmnuThPh_DongCuon.Click += new System.EventHandler(this.cmnuThPh_DongCuon_Click);
-            // 
-            // cmnuDongCuon_LoXo
-            // 
-            this.cmnuDongCuon_LoXo.Name = "cmnuDongCuon_LoXo";
-            this.cmnuDongCuon_LoXo.Size = new System.Drawing.Size(152, 22);
-            this.cmnuDongCuon_LoXo.Text = "Cuốn Lò xo";
-            this.cmnuDongCuon_LoXo.Click += new System.EventHandler(this.cmnuDongCuon_LoXo_Click);
-            // 
-            // cmnuThPh_EpKim
-            // 
-            this.cmnuThPh_EpKim.Name = "cmnuThPh_EpKim";
-            this.cmnuThPh_EpKim.Size = new System.Drawing.Size(152, 22);
-            this.cmnuThPh_EpKim.Text = "Ép kim";
-            this.cmnuThPh_EpKim.Click += new System.EventHandler(this.cmnuThPh_EpKim_Click);
-            // 
-            // cmnuThPh_Khac
-            // 
-            this.cmnuThPh_Khac.Name = "cmnuThPh_Khac";
-            this.cmnuThPh_Khac.Size = new System.Drawing.Size(152, 22);
-            this.cmnuThPh_Khac.Text = "Khác";
-            this.cmnuThPh_Khac.Click += new System.EventHandler(this.cmnuThPh_Khac_Click);
-            // 
-            // cmuThemMucVoBaiIn
-            // 
-            this.cmuThemMucVoBaiIn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuGanCauHinhSP,
-            this.toolStripMenuItem1,
-            this.cmnuChuanBiGiay,
-            this.toolStripMenuItem2,
-            this.cmnuGanGiaIn,
-            this.toolStripMenuItem3,
-            this.cmnuThPh_CanPhu,
-            this.cmnuThPh_CanGap,
-            this.cmnuThPh_DongCuon,
-            this.cmnuDongCuon_LoXo,
-            this.cmnuThPh_EpKim,
-            this.cmnuThPh_Khac});
-            this.cmuThemMucVoBaiIn.Name = "cmnuGiayChoSP";
-            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(153, 242);
-            this.cmuThemMucVoBaiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
-            // 
-            // BaiInForm
+            // InToForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -701,7 +683,7 @@
             this.Controls.Add(this.lblTieuDeForm);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtTieuDe);
-            this.Name = "BaiInForm";
+            this.Name = "InToForm";
             this.Text = "In theo bài";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaiInForm_FormClosing);
             this.Load += new System.EventHandler(this.BaiInForm_Load);
@@ -711,6 +693,7 @@
             this.spcChiTietBaiIn.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).EndInit();
             this.spcChiTietBaiIn.ResumeLayout(false);
+            this.cmuThemMucVoBaiIn.ResumeLayout(false);
             this.tabCtrl01.ResumeLayout(false);
             this.tabSanPham.ResumeLayout(false);
             this.tabSanPham.PerformLayout();
@@ -722,7 +705,6 @@
             this.panel5.ResumeLayout(false);
             this.tabThanhPham.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.cmuThemMucVoBaiIn.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -786,8 +768,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_CanPhu;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_CanGap;
-        private System.Windows.Forms.ToolStripMenuItem cmnuThPh_DongCuon;
-        private System.Windows.Forms.ToolStripMenuItem cmnuDongCuon_LoXo;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_EpKim;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_Khac;
     }

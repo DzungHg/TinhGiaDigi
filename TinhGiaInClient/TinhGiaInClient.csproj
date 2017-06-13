@@ -70,11 +70,11 @@
     <Compile Include="AboutBox.designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaiInForm.cs">
+    <Compile Include="InToForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaiInForm.Designer.cs">
-      <DependentUpon>BaiInForm.cs</DependentUpon>
+    <Compile Include="InToForm.Designer.cs">
+      <DependentUpon>InToForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BangGiaGiayForm.cs">
       <SubType>Form</SubType>
@@ -330,8 +330,8 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BaiInForm.resx">
-      <DependentUpon>BaiInForm.cs</DependentUpon>
+    <EmbeddedResource Include="InToForm.resx">
+      <DependentUpon>InToForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BangGiaGiayForm.resx">
       <DependentUpon>BangGiaGiayForm.cs</DependentUpon>

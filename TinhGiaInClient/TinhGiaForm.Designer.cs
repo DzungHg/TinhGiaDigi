@@ -50,14 +50,14 @@
             this.tabCtrl01 = new System.Windows.Forms.TabControl();
             this.tabDanhThiep = new System.Windows.Forms.TabPage();
             this.lvwDanhThiep = new System.Windows.Forms.ListView();
-            this.tabInTheoBai = new System.Windows.Forms.TabPage();
-            this.btnCopyToClipboardMucTinh = new System.Windows.Forms.Button();
+            this.tabInSPTo = new System.Windows.Forms.TabPage();
             this.tabInCuon = new System.Windows.Forms.TabPage();
             this.lvwCuon = new System.Windows.Forms.ListView();
+            this.btnCopyToClipboardMucTinh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
-            this.tabInTheoBai.SuspendLayout();
+            this.tabInSPTo.SuspendLayout();
             this.tabInCuon.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,7 +255,7 @@
             // tabCtrl01
             // 
             this.tabCtrl01.Controls.Add(this.tabDanhThiep);
-            this.tabCtrl01.Controls.Add(this.tabInTheoBai);
+            this.tabCtrl01.Controls.Add(this.tabInSPTo);
             this.tabCtrl01.Controls.Add(this.tabInCuon);
             this.tabCtrl01.Location = new System.Drawing.Point(10, 223);
             this.tabCtrl01.Name = "tabCtrl01";
@@ -286,25 +286,15 @@
             this.lvwDanhThiep.TabIndex = 11;
             this.lvwDanhThiep.UseCompatibleStateImageBehavior = false;
             // 
-            // tabInTheoBai
+            // tabInSPTo
             // 
-            this.tabInTheoBai.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabInTheoBai.Controls.Add(this.lvwBaiIn);
-            this.tabInTheoBai.Location = new System.Drawing.Point(4, 22);
-            this.tabInTheoBai.Name = "tabInTheoBai";
-            this.tabInTheoBai.Size = new System.Drawing.Size(517, 213);
-            this.tabInTheoBai.TabIndex = 11;
-            this.tabInTheoBai.Text = "In theo bài";
-            // 
-            // btnCopyToClipboardMucTinh
-            // 
-            this.btnCopyToClipboardMucTinh.Location = new System.Drawing.Point(716, 223);
-            this.btnCopyToClipboardMucTinh.Name = "btnCopyToClipboardMucTinh";
-            this.btnCopyToClipboardMucTinh.Size = new System.Drawing.Size(75, 23);
-            this.btnCopyToClipboardMucTinh.TabIndex = 214;
-            this.btnCopyToClipboardMucTinh.Text = "Sao chép";
-            this.btnCopyToClipboardMucTinh.UseVisualStyleBackColor = true;
-            this.btnCopyToClipboardMucTinh.Click += new System.EventHandler(this.btnCopyToClipboardMucTinh_Click);
+            this.tabInSPTo.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabInSPTo.Controls.Add(this.lvwBaiIn);
+            this.tabInSPTo.Location = new System.Drawing.Point(4, 22);
+            this.tabInSPTo.Name = "tabInSPTo";
+            this.tabInSPTo.Size = new System.Drawing.Size(517, 213);
+            this.tabInSPTo.TabIndex = 11;
+            this.tabInSPTo.Text = "In Tờ";
             // 
             // tabInCuon
             // 
@@ -329,6 +319,16 @@
             this.lvwCuon.TabIndex = 11;
             this.lvwCuon.UseCompatibleStateImageBehavior = false;
             // 
+            // btnCopyToClipboardMucTinh
+            // 
+            this.btnCopyToClipboardMucTinh.Location = new System.Drawing.Point(716, 223);
+            this.btnCopyToClipboardMucTinh.Name = "btnCopyToClipboardMucTinh";
+            this.btnCopyToClipboardMucTinh.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyToClipboardMucTinh.TabIndex = 214;
+            this.btnCopyToClipboardMucTinh.Text = "Sao chép";
+            this.btnCopyToClipboardMucTinh.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboardMucTinh.Click += new System.EventHandler(this.btnCopyToClipboardMucTinh_Click);
+            // 
             // TinhGiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,7 +352,7 @@
             this.groupBox1.PerformLayout();
             this.tabCtrl01.ResumeLayout(false);
             this.tabDanhThiep.ResumeLayout(false);
-            this.tabInTheoBai.ResumeLayout(false);
+            this.tabInSPTo.ResumeLayout(false);
             this.tabInCuon.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -379,7 +379,7 @@
         private System.Windows.Forms.TabControl tabCtrl01;
         private System.Windows.Forms.TabPage tabDanhThiep;
         private System.Windows.Forms.ListView lvwDanhThiep;
-        private System.Windows.Forms.TabPage tabInTheoBai;
+        private System.Windows.Forms.TabPage tabInSPTo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboHangKH;
         private System.Windows.Forms.TextBox txtDienGiaiHangKH;

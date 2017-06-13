@@ -236,6 +236,37 @@ namespace TinhGiaInClient.Model
             }
             return dict;
         }
+        public string LietKeCacDichVuThanhPham()
+        {
+            var str = "";
+            foreach (KeyValuePair<string,decimal> kvp in this.TomTat_ThanhPham())
+            {
+                str += kvp.Key + ";";
+            }
+            return str;
+        }
+        public decimal TienThanhPham()
+        {
+            decimal kq = 0;
+
+            if (this.SoLuongThanhPhamKem() > 0)
+            {
+                var nguonTP = this.ThanhPhamS.Select(x => x.TenThanhPham).ToList();
+                var dvTP = "";
+                var i = 0;
+                foreach (string str in nguonTP)
+                {
+                    if (i < nguonTP.Count - 1)
+                        dvTP += str + ";";
+                    else
+                        dvTP += str;
+
+                    i++;
+                }
+                kq = this.ThanhPhamS.Sum(x => x.ThanhTien);
+            }
+            return kq;
+        }
         public Dictionary<string, string> TomTat_ChaoKH()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
@@ -271,27 +302,15 @@ namespace TinhGiaInClient.Model
                 dict.Add("+ Thành tiền in:", string.Format("{0:0,0.00}đ", thanhTienIn));
             }
             //Tính thành phẩm
-            decimal thanhTienTP = 0;
+            
             if (this.SoLuongThanhPhamKem() > 0)
-            {
-                var nguonTP = this.ThanhPhamS.Select(x => x.TenThanhPham).ToList();
-                var dvTP = "";
-                var i = 0;
-                foreach (string str in nguonTP)
-                {
-                    if (i < nguonTP.Count - 1)
-                        dvTP += str + ";";
-                    else
-                        dvTP += str;
-
-                    i++;
-                }
-                thanhTienTP = this.ThanhPhamS.Sum(x => x.ThanhTien);
-                dict.Add("DV thành phẩm:", dvTP);
-                dict.Add("Tiền Th. Phẩm:", string.Format("{0:0,0.00}đ", thanhTienTP));
+            {               
+                dict.Add("DV thành phẩm:", this.LietKeCacDichVuThanhPham());
+                dict.Add("Tiền Th. Phẩm:", string.Format("{0:0,0.00}đ", this.TienThanhPham()));
             }
+
             dict.Add("Tổng giá bài in: ", string.Format("{0:0,0.00}đ",
-                tienGiay + thanhTienIn + thanhTienTP));
+                tienGiay + thanhTienIn + this.TienThanhPham()));
             return dict;
         }
         #endregion
