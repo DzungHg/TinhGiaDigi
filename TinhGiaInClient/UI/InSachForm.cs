@@ -37,7 +37,9 @@ namespace TinhGiaInClient.UI
             txtGayDay.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoTrangBia.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoTrangRuot.TextChanged += new EventHandler(TextBoxes_TextChanged);
-      
+
+            txtSoTrangBia.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoTrangRuot.Leave += new EventHandler(TextBoxes_Leave);
 
             txtSachCao.KeyPress += new KeyPressEventHandler(InputValidator);
             txtGayDay.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -142,7 +144,10 @@ namespace TinhGiaInClient.UI
             }
         }
         public int IdHangKhachHang { get; set; }
-        public BaiIn Bia { get; set; }
+        public BaiIn Bia 
+        { 
+            get {return inSachPres ; set; 
+        }
         public BaiIn Ruot { get; set; }
         public MucThanhPham DongCuon { get; set; }
         public MucGiaIn GiaInChiTiet { get; set; }
@@ -198,12 +203,32 @@ namespace TinhGiaInClient.UI
                 {
                     if (string.IsNullOrEmpty(txtSoTrangBia.Text.Trim()))
                         txtSoTrangBia.Text = "4";
-                    CapNhatTongSoTrang();
+                    
                 }
                 if (tb == txtSoTrangRuot)
                 {
                     if (string.IsNullOrEmpty(txtSoTrangRuot.Text.Trim()))
                         txtSoTrangRuot.Text = "8";
+                    
+                }
+
+            }
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            Telerik.WinControls.UI.RadTextBox tb;
+            if (sender is Telerik.WinControls.UI.RadTextBox)
+            {
+                tb = (Telerik.WinControls.UI.RadTextBox)sender;
+                
+                if (tb == txtSoTrangBia)
+                {
+                   
+                    CapNhatTongSoTrang();
+                }
+                if (tb == txtSoTrangRuot)
+                {
+                   
                     CapNhatTongSoTrang();
                 }
 
@@ -240,6 +265,7 @@ namespace TinhGiaInClient.UI
         {
             return inSachPres.DocGiaSachDigi();
         }
+        #region Bìa
         private void ThemBiaSach()
         {
             var thongTinChoBaiIn = new ThongTinBanDauChoBaiIn
@@ -297,6 +323,8 @@ namespace TinhGiaInClient.UI
             }
             txtChiTietBia.Text = str;
         }
+        #endregion
+        #region Ruột
         private void ThemRuotSach()
         {
             var thongTinChoBaiIn = new ThongTinBanDauChoBaiIn
@@ -311,8 +339,8 @@ namespace TinhGiaInClient.UI
                 + string.Format("- Ruột: {0} trg" + '\r' + '\n', this.SoTrangRuot)
             };
             var baiIn = new BaiIn("Ruột sách");
-            baiIn.SoLuong = inSachPres.TongSoTrangRuot();//Tổng số trang ruột
-            baiIn.DonVi = "trang A4";
+            baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 2;//Mang tính tham khảo
+            baiIn.DonVi = "tờ";
             baiIn.IdHangKH = this.IdHangKhachHang;
             var frm = new InToForm(thongTinChoBaiIn, baiIn);
 
@@ -353,6 +381,7 @@ namespace TinhGiaInClient.UI
             }
             txtChiTietRuot.Text = str;
         }
+        #endregion
         #region Đóng cuốn
         private ThongTinBanDauChoThanhPham ThongTinBanDauCuonKeo()
         {

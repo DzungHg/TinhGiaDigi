@@ -44,11 +44,11 @@ namespace TinhGiaInClient.Presenter
         
         public int TongSoTrangRuot()
         {
-            return this.GiaSach.TongSoTrangRuot;
+            return this.DocGiaSachDigi().TongSoTrangRuot;
         }
         public int TongSoTrang()
         {
-            return this.GiaSach.TongSoTrang;
+            return this.DocGiaSachDigi().TongSoTrangSach;
         }
         private void CapNhatGiaSach()
         {
@@ -60,15 +60,16 @@ namespace TinhGiaInClient.Presenter
             this.GiaSach.QuiCachSach.KieuDongCuon = View.KieuDongCuon;
             this.GiaSach.QuiCachSach.SoTrangBia = View.SoTrangBia;
             this.GiaSach.QuiCachSach.SoTrangRuot = View.SoTrangRuot;
+            this.GiaSach.SoCuon = View.SoCuon;
             //Cập nhật bìa không cần cập nhật một số reference
-            this.GiaSach.InBia = View.Bia;
-            this.GiaSach.InRuot = View.Ruot;
-            this.GiaSach.GiaInChiTiet = View.GiaInChiTiet;
-            this.GiaSach.DongCuon = View.DongCuon;
+            //this.GiaSach.InBia = View.Bia;
+           // this.GiaSach.InRuot = View.Ruot;
+            //this.GiaSach.GiaInChiTiet = View.GiaInChiTiet;
+            //this.GiaSach.DongCuon = View.DongCuon;
            
             //Cập nhật thành phẩm
 
-            this.GiaSach.SoCuon = View.SoCuon;
+            
         }
         public GiaInSachDigi DocGiaSachDigi()
         {
@@ -82,28 +83,28 @@ namespace TinhGiaInClient.Presenter
         public string ChiTietGiaIn()
         {
             var str = "";
-            var giaIn = this.DocGiaSachDigi().GiaInChiTiet;
-            if ( giaIn != null)
+            var giaSach = this.DocGiaSachDigi();
+            if ( giaSach.GiaInChiTiet != null)
             {
-                str = "Kiểu in: " + giaIn.TenPhuongPhapIn + '\r' + '\n'
-                    + string.Format("Tổng trang in: {0: 0,0} trang" + '\r' + '\n', this.TongSoTrang())
-                    + string.Format("Tiền in: {0:0,0.00}đ" + '\r' + '\n', this.GiaSach.TienInSach())
-                    + string.Format("Giá TB/Trg: {0:0,0.00}đ" + '\r' + '\n', (decimal)this.GiaSach.TienInSach() / this.GiaSach.TongSoTrang);
+                str = "Kiểu in: " + giaSach.GiaInChiTiet.TenPhuongPhapIn + '\r' + '\n'
+                    + string.Format("Tổng trang A4 in: {0: 0,0} trang" + '\r' + '\n', giaSach.TongSoTrangA4In())
+                    + string.Format("Tiền in: {0:0,0.00}đ" + '\r' + '\n', giaSach.TienInSach())
+                    + string.Format("Giá TB/Trg: {0:0,0.00}đ" + '\r' + '\n', (decimal)giaSach.TienInSach() / giaSach.TongSoTrangSach);
             }
             
             return str;
             
         }
-        public string ChiTietDongCuon()
+        public string ChiTietDongCuon() //Đã OK
         {
             var str = "";
-            var dongCuon = this.DocGiaSachDigi().DongCuon;
-            if (dongCuon != null)
+            var giaSach = this.DocGiaSachDigi();
+            if (giaSach.DongCuon != null)
             {
-                str = "Đóng cuốn: " + dongCuon.TenThanhPham + '\r' + '\n'
-                    + string.Format("Số cuốn: {0: 0,0} cuốn" + '\r' + '\n', this.GiaSach.SoCuon)
-                    + string.Format("Tiền đóng cuốn: {0:0,0.00}đ" + '\r' + '\n', this.GiaSach.DongCuon.ThanhTien)
-                    + string.Format("Giá TB/cuốn: {0:0,0.00}đ" + '\r' + '\n', (decimal)this.GiaSach.DongCuon.ThanhTien / this.GiaSach.SoCuon);
+                str = "Đóng cuốn: " + giaSach.DongCuon.TenThanhPham + '\r' + '\n'
+                    + string.Format("Số cuốn: {0: 0,0} cuốn" + '\r' + '\n', giaSach.SoCuon)
+                    + string.Format("Tiền đóng cuốn: {0:0,0.00}đ" + '\r' + '\n', giaSach.DongCuon.ThanhTien)
+                    + string.Format("Giá TB/cuốn: {0:0,0.00}đ" + '\r' + '\n', (decimal)giaSach.DongCuon.ThanhTien / giaSach.SoCuon);
             }
 
             return str;
@@ -111,11 +112,13 @@ namespace TinhGiaInClient.Presenter
         }
         public string TomTatChaoGia_DV()
         {
-            return this.DocGiaSachDigi().TomTatChao_DichVu();
+            var giaSach = this.DocGiaSachDigi();
+            return giaSach.TomTatChao_DichVu();
         }
         public string TomTatChaoGia_Le()
         {
-            return this.DocGiaSachDigi().TomTatChao_KhachLe();
+            var giaSach = this.DocGiaSachDigi();
+            return giaSach.TomTatChao_KhachLe();
         }
     }
 }

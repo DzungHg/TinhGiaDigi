@@ -182,6 +182,16 @@ namespace TinhGiaInClient.Model
         }
         #endregion
         #region Tóm tắt bài in
+        public int TongSoTrangInA4()
+        {
+            var kq = 0;
+            if (this.GiaInS.Count > 0)
+            {
+                //Chỉ lấy mục đầu tiên
+                kq = this.GiaInS[0].SoTrangIn;
+            }
+            return kq;
+        }
         public decimal TriGiaBaiIn()
         {
             decimal result = 0;

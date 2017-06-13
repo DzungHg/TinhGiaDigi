@@ -28,7 +28,7 @@ namespace TinhGiaInClient.Model.Booklet
         {
             get { return this.QuiCachSach.SoTrangRuot * SoCuon; }
         }
-        public int TongSoTrang
+        public int TongSoTrangSach
         {
             get
             {
@@ -111,7 +111,20 @@ namespace TinhGiaInClient.Model.Booklet
             }
             return kq;
         }
-        #region Tính các tổng
+        #region về IN
+        public int TongSoTrangA4In()
+        {
+            int kqBia = 0, kqRuot = 0;
+            if (this.InBia != null)
+            {
+                kqBia = this.InBia.TongSoTrangInA4();
+            }
+            if (this.InRuot != null)
+            {
+                kqRuot = this.InRuot.TongSoTrangInA4();
+            }
+            return kqBia + kqRuot;
+        }
         public decimal TienInSach()
         {///Dựa trên Id tờ chạy của ruột để tính
          ///và dựa trên tổng số trang in bao gồm bìa và ruột
@@ -123,13 +136,16 @@ namespace TinhGiaInClient.Model.Booklet
             var idBangGiaInNhanh = this.InRuot.GiaInS[0].IdBangGiaInNhanh;
             var idToInDigi = this.InRuot.GiaInS[0].IdMayIn;
             var tyLeMarkUpSalesIn = HangKhachHang.LayTheoId(this.IdHangKhachHang).LoiNhuanChenhLech;
-            var giaInNhanhKetHop = new GiaInNhanhKetHopBangGia_May(this.TongSoTrang, idBangGiaInNhanh,
+            var giaInNhanhKetHop = new GiaInNhanhKetHopBangGia_May(this.TongSoTrangA4In(), idBangGiaInNhanh,
                 idToInDigi, tyLeMarkUpSalesIn);
             kq = giaInNhanhKetHop.GiaBan();
 
             return kq;
             
         }
+        #endregion
+
+        #region Tính các tổng
         public decimal TienDongCuon()
         {
             decimal kq = 0;
@@ -210,7 +226,7 @@ namespace TinhGiaInClient.Model.Booklet
                 + string.Format( " + Số lượng: {0} cuốn" + '\r' + '\n',
                     this.SoCuon)
                 + string.Format( " + Số trang/Cuốn: {0} trg" + '\r' + '\n',
-                    this.TongSoTrang)
+                    this.TongSoTrangSach)
                 + string.Format( " ++ Bìa: {0} trang" + '\r' + '\n',
                     this.QuiCachSach.SoTrangBia)
                 + string.Format( " +++ Giấy in Bìa: {0}" + '\r' + '\n',
