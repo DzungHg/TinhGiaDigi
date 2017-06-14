@@ -36,6 +36,8 @@ namespace TinhGiaInClient
 
             lvwBaiIn.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
             lvwDanhThiep.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
+            lvwCuon.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
+
             txtTieuDeTinhGia.TextChanged += new EventHandler(TextBoxe_TextChanged);
             txtTenNV.TextChanged += new EventHandler(TextBoxe_TextChanged);
             dtpNgay.ValueChanged += new EventHandler(TextBoxe_TextChanged);
@@ -306,6 +308,15 @@ namespace TinhGiaInClient
                 LoadBaiInLenListView();
             }
         }
+        private void XoaInCuon()
+        {
+            if (this.IdGiaSachDiGiChon > 0)
+            {
+                tinhGiaPres.Xoa_Cuon(tinhGiaPres.DocCuonTheoID(this.IdGiaSachDiGiChon));
+                LoadCuonLenListView();
+            }
+        }
+        
         private void XuLyNutOKTrenFormBaiIn_Click(InToForm frm)
         {
             /*var baiIn = new KetQuaBaiIn();
@@ -467,7 +478,7 @@ namespace TinhGiaInClient
             {
                 XuLyNutOKTrenFormCuon(frm);
                 //MessageBox.Show(this.BaiInS.Count().ToString());
-                LoadCuonListView();
+                LoadCuonLenListView();
             }
         }
         private void SuaCuon()
@@ -492,7 +503,7 @@ namespace TinhGiaInClient
             {
                  XuLyNutOKTrenFormCuon(frm);
                 //MessageBox.Show(this.BaiInS.Count().ToString());
-                 LoadCuonListView();
+                 LoadCuonLenListView();
             }
         }
         private void XuLyNutOKTrenFormCuon(InSachForm frm)
@@ -508,7 +519,7 @@ namespace TinhGiaInClient
                     break;
             }
         }
-        private void LoadCuonListView()
+        private void LoadCuonLenListView()
         {
             /*lvwCuon.Columns.Add("Id");
            lvwCuon.Columns.Add("Tiêu đề");
@@ -518,6 +529,7 @@ namespace TinhGiaInClient
            lvwCuon.Columns.Add("Thành tiền"); */ 
             //Xóa;
             lvwCuon.Items.Clear();
+            //MessageBox.Show(tinhGiaPres.TrinhBayCuonS().Count().ToString());
             if (tinhGiaPres.TrinhBayCuonS().Count() <= 0)
                 return;
 
@@ -559,15 +571,15 @@ namespace TinhGiaInClient
                case 1:
                    XoaBaiIn();
                    break;
+               case 2:
+                   XoaInCuon();
+                   break;
            }
        }
        
        
 
-       private void lvwBaiIn_SelectedIndexChanged(object sender, EventArgs e)
-       {
-           LoadChiTietBaiInTheoIdBaiIn();
-       }
+      
        private void ListView_SelectedIndexChanged(object sender, EventArgs e)
        {
            ListView lv;
@@ -582,6 +594,8 @@ namespace TinhGiaInClient
                {
                    LoadChiTietDanhThiepTheoIdDanhThiep();
                }
+               if (lv == lvwCuon)
+                   LoadChiTietInCuonDigi();
            }
        }
 
@@ -701,7 +715,22 @@ namespace TinhGiaInClient
 
        private void btnXoaSachBaiIn_Click(object sender, EventArgs e)
        {
-           tinhGiaPres.XoaTatCa_BaiIn();
+           switch (tabCtrl01.SelectedIndex)
+           {
+               case 0:
+                   tinhGiaPres.XoaTatCa_DanhThiep();
+                   LoadDanhThiepListView();
+                   break;
+               case 1:
+                   tinhGiaPres.XoaTatCa_BaiIn();
+                   LoadBaiInLenListView();
+                   break;
+               case 2:
+                   tinhGiaPres.XoaTatCa_Cuon();
+                   LoadCuonLenListView();
+                   break;
+           }
+           
        }
 
        private void btnNoiDungTinhGia_Click(object sender, EventArgs e)
@@ -762,10 +791,8 @@ namespace TinhGiaInClient
            CapNhatTextNutThemXoa();
        }
 
-       private void lvwCuon_SelectedIndexChanged(object sender, EventArgs e)
-       {
-           LoadChiTietInCuonDigi();
-       }
+       
+      
        
     }
 }

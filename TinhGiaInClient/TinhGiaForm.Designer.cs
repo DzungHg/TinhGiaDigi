@@ -197,7 +197,7 @@
             this.lvwBaiIn.Size = new System.Drawing.Size(517, 213);
             this.lvwBaiIn.TabIndex = 10;
             this.lvwBaiIn.UseCompatibleStateImageBehavior = false;
-            this.lvwBaiIn.SelectedIndexChanged += new System.EventHandler(this.lvwBaiIn_SelectedIndexChanged);
+           
             // 
             // btnXoa
             // 
@@ -287,6 +287,7 @@
             this.lvwDanhThiep.Size = new System.Drawing.Size(511, 207);
             this.lvwDanhThiep.TabIndex = 11;
             this.lvwDanhThiep.UseCompatibleStateImageBehavior = false;
+            
             // 
             // tabInSPTo
             // 
@@ -320,7 +321,7 @@
             this.lvwCuon.Size = new System.Drawing.Size(511, 207);
             this.lvwCuon.TabIndex = 11;
             this.lvwCuon.UseCompatibleStateImageBehavior = false;
-            this.lvwCuon.SelectedIndexChanged += new System.EventHandler(this.lvwCuon_SelectedIndexChanged);
+            
             // 
             // btnCopyToClipboardMucTinh
             // 

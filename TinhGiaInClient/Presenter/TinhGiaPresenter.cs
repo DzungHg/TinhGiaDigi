@@ -174,9 +174,9 @@ namespace TinhGiaInClient.Presenter
             TinhGia.ThemCuon(sachDigi);
         }
 
-        public void Xoa_Cuon(GiaInSachDigi baiIn)
+        public void Xoa_Cuon(GiaInSachDigi inCuon)
         {
-            TinhGia.XoaCuon(baiIn);
+            TinhGia.XoaCuon(inCuon);
         }
         public GiaInSachDigi DocCuonTheoID(int idCuonDigi)
         {
