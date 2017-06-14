@@ -162,7 +162,7 @@ namespace TinhGiaInClient.Presenter
 
 
         #endregion
-        #region Phần Giá in sách: thêm sửa, xóa
+        #region Phần In cuốn Digi: thêm sửa, xóa
 
         public List<GiaInSachDigi> GiaInSachDigiS()
         {
@@ -204,7 +204,7 @@ namespace TinhGiaInClient.Presenter
                     sachIn.QuiCachSach.ChieuCao));
                 lst.Add(sachIn.QuiCachSach.TongSoTrang.ToString());
                 lst.Add(sachIn.SoCuon.ToString());
-                lst.Add(string.Format("{0:0,0.00}đ", 0));
+                lst.Add(string.Format("{0:0,0.00}đ", sachIn.GiaChaoTong()));
 
                 dict.Add(sachIn.ID, lst);//hoàn tất tại đây
             }
@@ -274,6 +274,14 @@ namespace TinhGiaInClient.Presenter
                 result += string.Format("{0} {1}" + '\r' + '\n', str.Key, str.Value);
             }
             return result;
+        }
+        public string TrinhBayNoiDungInCuonDigi()
+        {
+            string kq = "";
+            if (View.IdGiaSachDiGiChon >0 )
+                kq = TinhGia.DocCuonTheoID(View.IdGiaSachDiGiChon).TomTatChao_DichVu();
+            
+            return kq;
         }
     }
 }

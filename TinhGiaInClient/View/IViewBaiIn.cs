@@ -24,6 +24,11 @@ namespace TinhGiaInClient.View
             get;
             set;
         }
+        string DanDoThem
+        {
+            get;
+            set;
+        }
         int SoLuong
         {
             get;

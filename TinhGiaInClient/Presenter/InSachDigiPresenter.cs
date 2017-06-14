@@ -11,26 +11,26 @@ namespace TinhGiaInClient.Presenter
     public class InSachDigiPresenter
     {
         IViewInSachDigi View;
-        GiaInSachDigi GiaSach;
+        GiaInSachDigi GiaSachDigi;
         public InSachDigiPresenter(IViewInSachDigi view, GiaInSachDigi giaInSach)
         {
             View = view;
-            this.GiaSach = giaInSach;
+            this.GiaSachDigi = giaInSach;
 
             //
-            View.ID = this.GiaSach.ID;
-            View.TieuDe = this.GiaSach.TieuDe;
-            View.SachRong = this.GiaSach.QuiCachSach.ChieuRong;
-            View.SachCao = this.GiaSach.QuiCachSach.ChieuCao;
-            View.GayDay = this.GiaSach.QuiCachSach.GayDay;
-            View.KieuDongCuon = this.GiaSach.QuiCachSach.KieuDongCuon;
-            View.SoTrangBia = this.GiaSach.QuiCachSach.SoTrangBia;
-            View.SoTrangRuot = this.GiaSach.QuiCachSach.SoTrangRuot;
-            View.SoCuon = this.GiaSach.SoCuon;
-            View.Bia = this.GiaSach.InBia;
-            View.Ruot = this.GiaSach.InRuot;
-            View.GiaInChiTiet = this.GiaSach.GiaInChiTiet;
-            View.DongCuon = this.GiaSach.DongCuon;
+            View.ID = this.GiaSachDigi.ID;
+            View.TieuDe = this.GiaSachDigi.TieuDe;
+            View.SachRong = this.GiaSachDigi.QuiCachSach.ChieuRong;
+            View.SachCao = this.GiaSachDigi.QuiCachSach.ChieuCao;
+            View.GayDay = this.GiaSachDigi.QuiCachSach.GayDay;
+            View.KieuDongCuon = this.GiaSachDigi.QuiCachSach.KieuDongCuon;
+            View.SoTrangBia = this.GiaSachDigi.QuiCachSach.SoTrangBia;
+            View.SoTrangRuot = this.GiaSachDigi.QuiCachSach.SoTrangRuot;
+            View.SoCuon = this.GiaSachDigi.SoCuon;
+            View.Bia = this.GiaSachDigi.InBia;
+            View.Ruot = this.GiaSachDigi.InRuot;
+            View.GiaInChiTiet = this.GiaSachDigi.GiaInChiTiet;
+            View.DongCuon = this.GiaSachDigi.DongCuon;
            
         }
         public List<MonDongCuon> MonDongCuonS()
@@ -52,29 +52,27 @@ namespace TinhGiaInClient.Presenter
         }
         private void CapNhatGiaSach()
         {
-            this.GiaSach.ID = View.ID;
-            this.GiaSach.TieuDe = View.TieuDe;
-            this.GiaSach.QuiCachSach.ChieuRong = View.SachRong;
-            this.GiaSach.QuiCachSach.ChieuCao = View.SachCao;
-            this.GiaSach.QuiCachSach.GayDay = View.GayDay;
-            this.GiaSach.QuiCachSach.KieuDongCuon = View.KieuDongCuon;
-            this.GiaSach.QuiCachSach.SoTrangBia = View.SoTrangBia;
-            this.GiaSach.QuiCachSach.SoTrangRuot = View.SoTrangRuot;
-            this.GiaSach.SoCuon = View.SoCuon;
-            //Cập nhật bìa không cần cập nhật một số reference
-            //this.GiaSach.InBia = View.Bia;
-           // this.GiaSach.InRuot = View.Ruot;
-            //this.GiaSach.GiaInChiTiet = View.GiaInChiTiet;
-            //this.GiaSach.DongCuon = View.DongCuon;
+            this.GiaSachDigi.ID = View.ID;
+            this.GiaSachDigi.TieuDe = View.TieuDe;
+            this.GiaSachDigi.QuiCachSach.ChieuRong = View.SachRong;
+            this.GiaSachDigi.QuiCachSach.ChieuCao = View.SachCao;
+            this.GiaSachDigi.QuiCachSach.GayDay = View.GayDay;
+            this.GiaSachDigi.QuiCachSach.KieuDongCuon = View.KieuDongCuon;
+            this.GiaSachDigi.QuiCachSach.SoTrangBia = View.SoTrangBia;
+            this.GiaSachDigi.QuiCachSach.SoTrangRuot = View.SoTrangRuot;
+            this.GiaSachDigi.SoCuon = View.SoCuon;
+            this.GiaSachDigi.InBia = View.Bia;
+            this.GiaSachDigi.InRuot = View.Ruot;
+            this.GiaSachDigi.GiaInChiTiet = View.GiaInChiTiet;
+            this.GiaSachDigi.DongCuon = View.DongCuon;
            
-            //Cập nhật thành phẩm
-
+           
             
         }
         public GiaInSachDigi DocGiaSachDigi()
         {
             CapNhatGiaSach();
-            return this.GiaSach;
+            return this.GiaSachDigi;
         }
         public bool HieuLucThietLapGiaIn()
         {

@@ -146,7 +146,7 @@ namespace TinhGiaInClient.UI
         public int IdHangKhachHang { get; set; }
         public BaiIn Bia 
         { 
-            get {return inSachPres ; set; 
+             get; set; 
         }
         public BaiIn Ruot { get; set; }
         public MucThanhPham DongCuon { get; set; }
@@ -274,8 +274,12 @@ namespace TinhGiaInClient.UI
                 TinhTrangForm = FormStateS.New,
                 TieuDeForm = "[Mới] Bìa sách",               
                 YeuCauTinhGia =  this.TieuDe + '\r' + '\n'
-                 + string.Format("- Số cuốn: {0}" + '\r' + '\n', this.SoCuon)
-                + string.Format("- Bìa: {0} trg" + '\r' + '\n', this.SoTrangBia)
+                            + " - Đóng cuốn: " + lbxDongCuon.SelectedItem.Text + '\r' + '\n'
+                 + string.Format(" - Số cuốn: {0}" + '\r' + '\n', this.SoCuon)
+                + string.Format(" - Bìa: {0} trg" + '\r' + '\n', this.SoTrangBia),
+                DanDoThem = " - Số lượng chỉ là tượng trưng" + '\r' + '\n'
+                    + " - Bìa tờ liền (đóng keo, kim) hay Bìa rời (đóng lò xo, nẹp vít)" + '\r' + '\n'
+                    + " - Từ đây nhập Số lượng chính xác" + '\r' + '\n'
             };
             var baiIn = new BaiIn("Bìa sách");
             baiIn.SoLuong = this.SoCuon;//Số bìa thường theo số cuốn
@@ -335,8 +339,12 @@ namespace TinhGiaInClient.UI
                 TieuDeForm = "[Mới] Ruột Sách",
 
                 YeuCauTinhGia = this.TieuDe + '\r' + '\n'
-                 + string.Format("- Số cuốn: {0}" + '\r' + '\n', this.SoCuon)
-                + string.Format("- Ruột: {0} trg" + '\r' + '\n', this.SoTrangRuot)
+                 + string.Format(" - Số cuốn: {0}" + '\r' + '\n', this.SoCuon)
+                 + " - Đóng cuốn: " + lbxDongCuon.SelectedItem.Text + '\r' + '\n'
+                + string.Format(" - Ruột: {0} trg" + '\r' + '\n', this.SoTrangRuot),
+                DanDoThem = " - Số lượng chỉ là tượng trưng" + '\r' + '\n'
+                    + " - Tờ ruột liền (đóng keo, kim) hay Tờ rời (đóng lò xo, nẹp vít)" + '\r' + '\n'
+                    + " - Từ đây nhập Số lượng chính xác" + '\r' + '\n'
             };
             var baiIn = new BaiIn("Ruột sách");
             baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 2;//Mang tính tham khảo
@@ -643,9 +651,10 @@ namespace TinhGiaInClient.UI
                     MessageBox.Show("Bạn cần đóng cuốn để kết thúc!");
                     e.Cancel = true;
                 }
-
+                else
+                    CapNhatTomTat();
                 //Qua được thì cập nhật chi tiết toàn bộ
-
+                
             }
         }
         private void Wizard_SelectedPageChanged(object sender, Telerik.WinControls.UI.SelectedPageChangedEventArgs e)
@@ -655,10 +664,10 @@ namespace TinhGiaInClient.UI
 
             if (e.SelectedPage == wzDongCuon)
             {
-                CapNatTomTat();
+                CapNhatTomTat();
             }
         }
-        private void CapNatTomTat()
+        private void CapNhatTomTat()
         {
             txtTomTatTinhGia.Text = inSachPres.TomTatChaoGia_DV();
         }
@@ -712,6 +721,17 @@ namespace TinhGiaInClient.UI
         private void radWiz1_Cancel(object sender, EventArgs e)
         {
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+        }
+
+        private void btnCopyChaoKHLe_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(inSachPres.TomTatChaoGia_Le());
+
+        }
+
+        private void btnCopyChaoKHDV_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(inSachPres.TomTatChaoGia_DV());
         }
 
     }

@@ -30,6 +30,7 @@ namespace TinhGiaInClient
             this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;            
             this.Text = thongTinBanDau.TieuDeForm;
             this.DienGiai = thongTinBanDau.YeuCauTinhGia;
+            this.DanDoThem = thongTinBanDau.DanDoThem;
 
             CapNhatTenHangKH();
             // 
@@ -79,6 +80,11 @@ namespace TinhGiaInClient
         {
             get { return txtDienGiai.Text; }
             set { txtDienGiai.Text = value; }
+        }
+        public string DanDoThem
+        {
+            get { return txtDanDoThem.Text; }
+            set { txtDanDoThem.Text = value; }
         }
         public int SoLuong
         {

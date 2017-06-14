@@ -50,7 +50,7 @@ namespace TinhGiaInClient.Model
 
             _dsKetQuaBaiIn = new List<BaiIn>();
             _chiTietGiaDanhThiep = new List<BaiInDanhThiep>();
-           
+            _dsGiaInSach = new List<GiaInSachDigi>(); 
             ///Tạo tự động số chào giá:
             ///SS/NN-TT-NN: SS từ ID hiện tại
             //this.So =  string.Format("{0}/{1}-{2}-{3}", this.ID, ngayChaoGia.Year - 2000,
@@ -168,7 +168,7 @@ namespace TinhGiaInClient.Model
                 lst.Add("---Hết danh thiếp---");
 
             }
-
+            //Phần bài in
             if (this.KetQuaBaiInS.Count > 0)
             {
                 lst.Add("In theo bài: ");
@@ -182,6 +182,24 @@ namespace TinhGiaInClient.Model
                     {
                         lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value));
                     }
+
+                    lst.Add(string.Format("---Hết {0}---", i));
+                    ++i;
+                }
+                lst.Add("---Hết in theo bài---");
+            }
+            //Phần Cuốn
+            if (this.GiaInSachDigiS.Count > 0)
+            {
+                lst.Add("In cuốn ");
+
+
+                var i = 1;
+
+                foreach (GiaInSachDigi giaInSachDigi in this.GiaInSachDigiS)
+                {
+
+                    lst.Add(giaInSachDigi.TomTatChao_DichVu());
 
                     lst.Add(string.Format("---Hết {0}---", i));
                     ++i;

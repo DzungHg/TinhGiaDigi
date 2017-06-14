@@ -137,6 +137,7 @@ namespace TinhGiaInClient
         {            
             TrinhBayListView();
             MakeFormChange(false);
+            CapNhatTextNutThemXoa();
         }
 
         private void trvMucLuc_Click(object sender, EventArgs e)
@@ -332,6 +333,10 @@ namespace TinhGiaInClient
         {
             txtTomTatBaiIn.Text = tinhGiaPres.TrinhBayNoiDungDanhThiep();
         }
+        private void LoadChiTietInCuonDigi()
+        {
+            txtTomTatBaiIn.Text = tinhGiaPres.TrinhBayNoiDungInCuonDigi();
+        }
         #endregion
         #region Về danh thiếp
         private void LoadDanhThiepListView()
@@ -460,9 +465,9 @@ namespace TinhGiaInClient
             frm.ShowDialog();
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                //XuLyNutOKTrenFormBaiIn_Click(frm);
+                XuLyNutOKTrenFormCuon(frm);
                 //MessageBox.Show(this.BaiInS.Count().ToString());
-                //LoadBaiInLenListView();
+                LoadCuonListView();
             }
         }
         private void SuaCuon()
@@ -740,11 +745,26 @@ namespace TinhGiaInClient
                }
            }
        }
-
+       private void CapNhatTextNutThemXoa()
+       {
+           //Cập nhật các nút
+           btnThem.Text = "Thêm " + tabCtrl01.SelectedTab.Text;
+           btnXoa.Text = "Xóa " + tabCtrl01.SelectedTab.Text;
+       }
        private void btnCopyToClipboardMucTinh_Click(object sender, EventArgs e)
        {
            if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text.Trim()))
                Clipboard.SetText(txtTomTatBaiIn.Text);
+       }
+
+       private void tabCtrl01_SelectedIndexChanged_1(object sender, EventArgs e)
+       {
+           CapNhatTextNutThemXoa();
+       }
+
+       private void lvwCuon_SelectedIndexChanged(object sender, EventArgs e)
+       {
+           LoadChiTietInCuonDigi();
        }
        
     }

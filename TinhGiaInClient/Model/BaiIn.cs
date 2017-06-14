@@ -300,9 +300,10 @@ namespace TinhGiaInClient.Model
             var tenPPIn = "";
             foreach(MucGiaIn giaIn in this.GiaInS)
             {
-                tenPPIn += giaIn.TenPhuongPhapIn + ",";
+                tenPPIn += string.Format("{0} /{1} M" + "; ", giaIn.TenPhuongPhapIn,
+                                  + giaIn.SoMatIn);
             }
-            dict.Add("In:", tenPPIn);
+            dict.Add("In: ", tenPPIn);
             decimal thanhTienIn = 0;
             if (this.SoLuongGiaInKemTheo() > 0)
             {

@@ -23,6 +23,7 @@ namespace TinhGiaInClient.View
 
         int IdDanhThiepChon { get; set; }
         int IdBaiInChon { get; set; }
+        int IdGiaSachDiGiChon { get; set; }
    
        
     }

@@ -32,6 +32,8 @@
             this.radWiz1 = new Telerik.WinControls.UI.RadWizard();
             this.wzKetThuc = new Telerik.WinControls.UI.WizardCompletionPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnCopyChaoKHDV = new Telerik.WinControls.UI.RadButton();
+            this.btnCopyChaoKHLe = new Telerik.WinControls.UI.RadButton();
             this.txtTomTatTinhGia = new Telerik.WinControls.UI.RadTextBoxControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbxDongCuon = new Telerik.WinControls.UI.RadListControl();
@@ -73,6 +75,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).BeginInit();
             this.radWiz1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHDV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lbxDongCuon)).BeginInit();
@@ -146,11 +150,31 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.btnCopyChaoKHDV);
+            this.panel3.Controls.Add(this.btnCopyChaoKHLe);
             this.panel3.Controls.Add(this.txtTomTatTinhGia);
             this.panel3.Location = new System.Drawing.Point(150, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(549, 309);
             this.panel3.TabIndex = 2;
+            // 
+            // btnCopyChaoKHDV
+            // 
+            this.btnCopyChaoKHDV.Location = new System.Drawing.Point(427, 266);
+            this.btnCopyChaoKHDV.Name = "btnCopyChaoKHDV";
+            this.btnCopyChaoKHDV.Size = new System.Drawing.Size(110, 24);
+            this.btnCopyChaoKHDV.TabIndex = 8;
+            this.btnCopyChaoKHDV.Text = "Copy KH DV";
+            this.btnCopyChaoKHDV.Click += new System.EventHandler(this.btnCopyChaoKHDV_Click);
+            // 
+            // btnCopyChaoKHLe
+            // 
+            this.btnCopyChaoKHLe.Location = new System.Drawing.Point(427, 224);
+            this.btnCopyChaoKHLe.Name = "btnCopyChaoKHLe";
+            this.btnCopyChaoKHLe.Size = new System.Drawing.Size(110, 24);
+            this.btnCopyChaoKHLe.TabIndex = 7;
+            this.btnCopyChaoKHLe.Text = "Copy KH Lẻ";
+            this.btnCopyChaoKHLe.Click += new System.EventHandler(this.btnCopyChaoKHLe_Click);
             // 
             // txtTomTatTinhGia
             // 
@@ -159,7 +183,7 @@
             this.txtTomTatTinhGia.Multiline = true;
             this.txtTomTatTinhGia.Name = "txtTomTatTinhGia";
             this.txtTomTatTinhGia.NullText = "Tóm tắt";
-            this.txtTomTatTinhGia.Size = new System.Drawing.Size(497, 268);
+            this.txtTomTatTinhGia.Size = new System.Drawing.Size(398, 268);
             this.txtTomTatTinhGia.TabIndex = 6;
             // 
             // panel1
@@ -357,7 +381,7 @@
             this.txtChiTietRuot.Location = new System.Drawing.Point(331, 67);
             this.txtChiTietRuot.Multiline = true;
             this.txtChiTietRuot.Name = "txtChiTietRuot";
-            this.txtChiTietRuot.NullText = "Cần có Ruột";
+            this.txtChiTietRuot.NullText = "Cần có Ruột và Ruột phải in, tính in theo ruột";
             this.txtChiTietRuot.Size = new System.Drawing.Size(255, 195);
             this.txtChiTietRuot.TabIndex = 5;
             // 
@@ -385,7 +409,7 @@
             this.txtChiTietBia.Location = new System.Drawing.Point(23, 67);
             this.txtChiTietBia.Multiline = true;
             this.txtChiTietBia.Name = "txtChiTietBia";
-            this.txtChiTietBia.NullText = "Cần có bìa";
+            this.txtChiTietBia.NullText = "Cần có bìa, có thể in hoặc không in bìa";
             this.txtChiTietBia.Size = new System.Drawing.Size(255, 195);
             this.txtChiTietBia.TabIndex = 2;
             // 
@@ -509,6 +533,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).EndInit();
             this.radWiz1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHDV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -592,5 +618,7 @@
         private Telerik.WinControls.UI.WizardPage wzInAn;
         private Telerik.WinControls.UI.RadListControl lbxDongCuon;
         private Telerik.WinControls.UI.RadLabel radLabel9;
+        private Telerik.WinControls.UI.RadButton btnCopyChaoKHDV;
+        private Telerik.WinControls.UI.RadButton btnCopyChaoKHLe;
     }
 }

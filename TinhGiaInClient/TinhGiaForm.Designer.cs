@@ -40,10 +40,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnXoaSachBaiIn = new System.Windows.Forms.Button();
+            this.btnXoaSach = new System.Windows.Forms.Button();
             this.lvwBaiIn = new System.Windows.Forms.ListView();
-            this.btnXoaBaiIn = new System.Windows.Forms.Button();
-            this.btnThemBaiIn = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.txtTomTatBaiIn = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -97,7 +97,7 @@
             this.txtDienGiaiHangKH.Multiline = true;
             this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
             this.txtDienGiaiHangKH.ReadOnly = true;
-            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(205, 34);
+            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(255, 42);
             this.txtDienGiaiHangKH.TabIndex = 214;
             // 
             // label5
@@ -176,15 +176,15 @@
             this.label4.TabIndex = 194;
             this.label4.Text = "Tóm tắt từng mục tính";
             // 
-            // btnXoaSachBaiIn
+            // btnXoaSach
             // 
-            this.btnXoaSachBaiIn.Location = new System.Drawing.Point(181, 194);
-            this.btnXoaSachBaiIn.Name = "btnXoaSachBaiIn";
-            this.btnXoaSachBaiIn.Size = new System.Drawing.Size(75, 23);
-            this.btnXoaSachBaiIn.TabIndex = 9;
-            this.btnXoaSachBaiIn.Text = "Xóa sạch";
-            this.btnXoaSachBaiIn.UseVisualStyleBackColor = true;
-            this.btnXoaSachBaiIn.Click += new System.EventHandler(this.btnXoaSachBaiIn_Click);
+            this.btnXoaSach.Location = new System.Drawing.Point(251, 194);
+            this.btnXoaSach.Name = "btnXoaSach";
+            this.btnXoaSach.Size = new System.Drawing.Size(112, 23);
+            this.btnXoaSach.TabIndex = 9;
+            this.btnXoaSach.Text = "Xóa sạch";
+            this.btnXoaSach.UseVisualStyleBackColor = true;
+            this.btnXoaSach.Click += new System.EventHandler(this.btnXoaSachBaiIn_Click);
             // 
             // lvwBaiIn
             // 
@@ -199,25 +199,25 @@
             this.lvwBaiIn.UseCompatibleStateImageBehavior = false;
             this.lvwBaiIn.SelectedIndexChanged += new System.EventHandler(this.lvwBaiIn_SelectedIndexChanged);
             // 
-            // btnXoaBaiIn
+            // btnXoa
             // 
-            this.btnXoaBaiIn.Location = new System.Drawing.Point(100, 194);
-            this.btnXoaBaiIn.Name = "btnXoaBaiIn";
-            this.btnXoaBaiIn.Size = new System.Drawing.Size(75, 23);
-            this.btnXoaBaiIn.TabIndex = 8;
-            this.btnXoaBaiIn.Text = "Xóa";
-            this.btnXoaBaiIn.UseVisualStyleBackColor = true;
-            this.btnXoaBaiIn.Click += new System.EventHandler(this.btnXoaBaiIn_Click);
+            this.btnXoa.Location = new System.Drawing.Point(133, 194);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(112, 23);
+            this.btnXoa.TabIndex = 8;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoaBaiIn_Click);
             // 
-            // btnThemBaiIn
+            // btnThem
             // 
-            this.btnThemBaiIn.Location = new System.Drawing.Point(15, 194);
-            this.btnThemBaiIn.Name = "btnThemBaiIn";
-            this.btnThemBaiIn.Size = new System.Drawing.Size(75, 23);
-            this.btnThemBaiIn.TabIndex = 6;
-            this.btnThemBaiIn.Text = "Thêm";
-            this.btnThemBaiIn.UseVisualStyleBackColor = true;
-            this.btnThemBaiIn.Click += new System.EventHandler(this.btnThemBaiIn_Click);
+            this.btnThem.Location = new System.Drawing.Point(15, 194);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(112, 23);
+            this.btnThem.TabIndex = 6;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThemBaiIn_Click);
             // 
             // txtTomTatBaiIn
             // 
@@ -227,6 +227,7 @@
             this.txtTomTatBaiIn.Multiline = true;
             this.txtTomTatBaiIn.Name = "txtTomTatBaiIn";
             this.txtTomTatBaiIn.ReadOnly = true;
+            this.txtTomTatBaiIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 210);
             this.txtTomTatBaiIn.TabIndex = 212;
             // 
@@ -262,6 +263,7 @@
             this.tabCtrl01.SelectedIndex = 0;
             this.tabCtrl01.Size = new System.Drawing.Size(525, 239);
             this.tabCtrl01.TabIndex = 213;
+            this.tabCtrl01.SelectedIndexChanged += new System.EventHandler(this.tabCtrl01_SelectedIndexChanged_1);
             // 
             // tabDanhThiep
             // 
@@ -318,6 +320,7 @@
             this.lvwCuon.Size = new System.Drawing.Size(511, 207);
             this.lvwCuon.TabIndex = 11;
             this.lvwCuon.UseCompatibleStateImageBehavior = false;
+            this.lvwCuon.SelectedIndexChanged += new System.EventHandler(this.lvwCuon_SelectedIndexChanged);
             // 
             // btnCopyToClipboardMucTinh
             // 
@@ -341,9 +344,9 @@
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnXoaSachBaiIn);
-            this.Controls.Add(this.btnXoaBaiIn);
-            this.Controls.Add(this.btnThemBaiIn);
+            this.Controls.Add(this.btnXoaSach);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnThem);
             this.Name = "TinhGiaForm";
             this.Text = "Tính giá Nhanh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TinhGiaForm_FormClosing);
@@ -363,9 +366,9 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnXoaSachBaiIn;
-        private System.Windows.Forms.Button btnXoaBaiIn;
-        private System.Windows.Forms.Button btnThemBaiIn;
+        private System.Windows.Forms.Button btnXoaSach;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.ListView lvwBaiIn;
         private System.Windows.Forms.TextBox txtTomTatBaiIn;
         private System.Windows.Forms.GroupBox groupBox1;

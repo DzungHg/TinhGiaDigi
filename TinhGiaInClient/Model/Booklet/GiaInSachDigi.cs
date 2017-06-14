@@ -221,7 +221,7 @@ namespace TinhGiaInClient.Model.Booklet
         {
             var str = "";
             str = this.TieuDe + '\r' + '\n'
-                + string.Format( " + Khổ: {0} x {1}" + '\r' + '\n',
+                + string.Format( " + Khổ: {0} x {1}cm" + '\r' + '\n',
                     this.QuiCachSach.ChieuRong, this.QuiCachSach.ChieuCao)
                 + string.Format( " + Số lượng: {0} cuốn" + '\r' + '\n',
                     this.SoCuon)
