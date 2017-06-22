@@ -20,6 +20,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     ID = x.ID,
                     Ten = x.ten,
                     ChoHangKhachHang = x.cho_hang_khach_hang,
+                    FormCoTheMo = x.form_co_the_mo,
                     HieuLuc = (bool)x.hieu_luc
                 });
                 list = nguon.ToList();
@@ -41,6 +42,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     ID = x.ID,
                     Ten = x.ten,
                     ChoHangKhachHang = x.cho_hang_khach_hang,
+                    FormCoTheMo = x.form_co_the_mo,
                     HieuLuc = (bool)x.hieu_luc
                 }).SingleOrDefault();
                 ngDung = nguon;
@@ -59,6 +61,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     ID = x.ID,
                     Ten = x.ten,
                     ChoHangKhachHang = x.cho_hang_khach_hang,
+                    FormCoTheMo = x.form_co_the_mo,
                     HieuLuc = (bool)x.hieu_luc
                 }).SingleOrDefault();
                 ngDung = nguon;
@@ -120,6 +123,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ID = entityBDO.ID;
             entityDAO.ten = entityBDO.Ten;
             entityDAO.cho_hang_khach_hang = entityBDO.ChoHangKhachHang;
+            entityDAO.form_co_the_mo = entityBDO.FormCoTheMo;
             entityDAO.hieu_luc = entityBDO.HieuLuc;
         }
         #endregion

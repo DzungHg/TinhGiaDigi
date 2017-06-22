@@ -18,5 +18,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string ten { get; set; }
         public string cho_hang_khach_hang { get; set; }
         public Nullable<bool> hieu_luc { get; set; }
+        public string form_co_the_mo { get; set; }
     }
 }

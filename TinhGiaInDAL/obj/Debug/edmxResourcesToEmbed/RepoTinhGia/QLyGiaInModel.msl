@@ -324,6 +324,7 @@
     <EntitySetMapping Name="NGUOI_DUNG">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.NGUOI_DUNG">
         <MappingFragment StoreEntitySet="NGUOI_DUNG">
+          <ScalarProperty Name="form_co_the_mo" ColumnName="form_co_the_mo" />
           <ScalarProperty Name="hieu_luc" ColumnName="hieu_luc" />
           <ScalarProperty Name="cho_hang_khach_hang" ColumnName="cho_hang_khach_hang" />
           <ScalarProperty Name="ten" ColumnName="ten" />

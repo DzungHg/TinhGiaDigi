@@ -25,6 +25,11 @@ namespace TinhGiaInNhapLieu
         { 
             get { return int.Parse(cboHangKH.SelectedValue.ToString());} 
         }
+        public string TenNguoiDung
+        {
+            get { return txtTenNguoiDung.Text; }
+            set { txtTenNguoiDung.Text = value; }
+        }
         private void LoadHangKhachHang()
         {
             var nguon = HangKhachHang.LayTatCa();
@@ -33,8 +38,11 @@ namespace TinhGiaInNhapLieu
             cboHangKH.DataSource = nguon;
             cboHangKH.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-        
 
+        private string TenMayTinhHienTai()
+        {
+            return System.Environment.MachineName;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -94,6 +102,9 @@ namespace TinhGiaInNhapLieu
         private void mnuQuanLy_DanhMuc_Click(object sender, EventArgs e)
         {
             QuanLyDanhMucGiayForm frm = new QuanLyDanhMucGiayForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý NCC và Danh mục Giấy";
@@ -159,6 +170,9 @@ namespace TinhGiaInNhapLieu
         private void btnQuanLyGiay_Click(object sender, EventArgs e)
         {
             QuanLyGiayForm frm = new QuanLyGiayForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Giấy";
@@ -271,6 +285,9 @@ namespace TinhGiaInNhapLieu
         private void btnMayInDigi_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyMayInDigiForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Máy in Digital";
@@ -281,6 +298,9 @@ namespace TinhGiaInNhapLieu
         private void btnQLyToInMayDigi_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyToInMayDigiForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản ký Tờ in máy Digital";
@@ -291,6 +311,9 @@ namespace TinhGiaInNhapLieu
         private void btnKhoSanPham_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyKhoSanPhamForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản ký Khổ Sản phẩm";
@@ -301,6 +324,9 @@ namespace TinhGiaInNhapLieu
         private void btnBangGiaInNhanh_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyBangGiaInNhanhForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản ký Bảng giá In nhanh";
@@ -311,6 +337,9 @@ namespace TinhGiaInNhapLieu
         private void btnCanPhu_Click(object sender, EventArgs e)
         {
             var frm = new  QuanLyCanPhuForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Cán phủ";
@@ -321,6 +350,9 @@ namespace TinhGiaInNhapLieu
         private void btnCanGap_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyCanGapForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Cấn gấp";
@@ -331,6 +363,9 @@ namespace TinhGiaInNhapLieu
         private void btnDongCuon_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyDongCuonForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Đóng cuốn";
@@ -341,6 +376,9 @@ namespace TinhGiaInNhapLieu
         private void btnEpKim_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyEpKimForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Ép kim";
@@ -351,6 +389,9 @@ namespace TinhGiaInNhapLieu
         private void btnLoiNhuanGiay_Click(object sender, EventArgs e)
         {
             QuanLyMarkUpLoiNhuanGiayForm frm = new QuanLyMarkUpLoiNhuanGiayForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Cài đặt lợi nhuận giấy";
@@ -360,7 +401,8 @@ namespace TinhGiaInNhapLieu
 
         private void btnBangGiaGiay_Click(object sender, EventArgs e)
         {
-            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.View);
+                       
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.View);           
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Bảng giá giấy theo hạng KH ";
@@ -377,7 +419,7 @@ namespace TinhGiaInNhapLieu
             frm.ShowDialog();
         }
 
-        private void btnGiaDongCuonLoXo_Click(object sender, EventArgs e)
+        private void btnTinhThu_GiaDongCuonLoXo_Click(object sender, EventArgs e)
         {
             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
             var thongTinBanDauLX = new  ThongTinBanDauDongCuon();
@@ -410,6 +452,52 @@ namespace TinhGiaInNhapLieu
             frm.Text = "Quản lý Lò xo ";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
+        }
+
+        private void NhapLieuMainForm_Load(object sender, EventArgs e)
+        {
+            this.TenNguoiDung = TenMayTinhHienTai();
+        }
+        private bool CoTheMoFormNay(string tenForm)
+        {
+            bool kq = true;
+            if (string.IsNullOrEmpty(txtTenNguoiDung.Text.Trim()))
+            {
+                MessageBox.Show("Tên người dùng chưa đúng!");
+                return false;
+            }
+            //Kiểm tiếp
+            var nguoiDung = NguoiDung.DocTheoTenDangNhap(this.TenNguoiDung);
+            if (nguoiDung.ID == 0)
+            {
+                MessageBox.Show("Bạn chưa có tài khoản sử dụng");
+                return false;
+            }
+            //Kiểm tra có tên form không
+            try
+            {
+                var danhSachFormS = nguoiDung.FormCoTheMo.ToUpper().Split(';');
+                if (danhSachFormS.Contains("*")) //Trường hợp đặc biệt master
+                    return true;
+
+                if (!danhSachFormS.Contains(tenForm.ToUpper().Trim()))
+                {
+                    kq = false;
+                }
+            }
+            catch
+            {
+                kq = false;
+            }
+            
+            return kq;
+
+        }
+
+        private void NhapLieuMainForm_Resize(object sender, EventArgs e)
+        {
+            btnDong.Left = (pnlBottom.Width - btnDong.Width) / 2;
+            txtTenNguoiDung.Left = lblNguoiDung.Left + lblNguoiDung.Width + 5;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace TinhGiaInBDO
         public int ID { get; set; }
         public string Ten { get; set; }
         public string ChoHangKhachHang { get; set; }
+        public string FormCoTheMo { get; set; }
         public bool HieuLuc { get; set; }
     }
 }

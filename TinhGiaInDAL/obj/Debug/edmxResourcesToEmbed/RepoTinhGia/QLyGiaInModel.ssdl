@@ -270,6 +270,7 @@
     <Property Name="ten" Type="varchar" MaxLength="50" />
     <Property Name="cho_hang_khach_hang" Type="varchar" MaxLength="50" />
     <Property Name="hieu_luc" Type="bit" />
+    <Property Name="form_co_the_mo" Type="nvarchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="NHU_EP_KIM">
     <Key>

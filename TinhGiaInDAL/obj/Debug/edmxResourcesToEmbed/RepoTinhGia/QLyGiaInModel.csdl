@@ -482,6 +482,7 @@
     <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="cho_hang_khach_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="hieu_luc" Type="Boolean" />
+    <Property Name="form_co_the_mo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DONG_CUON_LO_XO">
     <Key>

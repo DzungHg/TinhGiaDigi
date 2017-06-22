@@ -13,6 +13,7 @@ namespace TinhGiaInClient.Model
         public int ID { get; set; }
         public string Ten { get; set; }
         public string ChoHangKhachHang { get; set; }
+        public string FormCoTheMo { get; set; }
         public bool HieuLuc { get; set; }
         //Static
         public static List<NguoiDung> DocTatCa()
@@ -23,6 +24,7 @@ namespace TinhGiaInClient.Model
                 ID = x.ID,
                 Ten = x.Ten,
                 ChoHangKhachHang = x.ChoHangKhachHang,
+                FormCoTheMo = x.FormCoTheMo,
                 HieuLuc = x.HieuLuc
             }).ToList();
 
@@ -70,6 +72,7 @@ namespace TinhGiaInClient.Model
             nguoiDungDTO.ID = nguoiDungBDO.ID;
             nguoiDungDTO.Ten = nguoiDungBDO.Ten;
             nguoiDungDTO.ChoHangKhachHang = nguoiDungBDO.ChoHangKhachHang;
+            nguoiDungDTO.FormCoTheMo = nguoiDungBDO.FormCoTheMo;
             nguoiDungDTO.HieuLuc = nguoiDungBDO.HieuLuc;           
         }
         private static void ChuyenDoiGiayDTOThanhBDO(NguoiDung nguoiDungDTO, NguoiDungBDO nguoiDungBDO)
@@ -77,6 +80,7 @@ namespace TinhGiaInClient.Model
             nguoiDungBDO.ID = nguoiDungDTO.ID;
             nguoiDungBDO.Ten = nguoiDungDTO.Ten;
             nguoiDungBDO.ChoHangKhachHang = nguoiDungDTO.ChoHangKhachHang;
+            nguoiDungBDO.FormCoTheMo = nguoiDungDTO.FormCoTheMo;
             nguoiDungBDO.HieuLuc = nguoiDungDTO.HieuLuc;           
         }
     }
