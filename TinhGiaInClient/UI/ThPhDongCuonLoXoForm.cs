@@ -25,6 +25,7 @@ namespace TinhGiaInClient.UI
            
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.Text = thongTinBanDau.TieuDeForm;
+            txtSoLuong.Enabled = thongTinBanDau.MoTextSoLuongCuon;
           
 
             thPhLoXoPres = new ThPhDongCuonLoXoPresenter(this, mucThPhamDongCuon);
@@ -47,20 +48,18 @@ namespace TinhGiaInClient.UI
             //Envent
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtGayDay.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtGayRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtGayCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             lstLoXo.SelectedItemChanged += new EventHandler(ListView_SelectedItemChanged);
 
             cboMayLoXo.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(DropDownList_SelectedIndexChanged);
 
-            
-           
-
+                       
 
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtGayDay.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtGayRong.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtGayCao.KeyPress += new KeyPressEventHandler(InputValidator);
 
            
             
@@ -185,15 +184,15 @@ namespace TinhGiaInClient.UI
 
        
 
-        public float GayRong
+        public float GayCao
         {
             get
             {
-                return float.Parse(txtGayRong.Text);
+                return float.Parse(txtGayCao.Text);
             }
             set
             {
-                txtGayRong.Text = value.ToString();
+                txtGayCao.Text = value.ToString();
             }
         }
 
@@ -265,9 +264,9 @@ namespace TinhGiaInClient.UI
                     
                 }
                 //xử lý khi user xóa hết
-                if ( tb == txtGayRong)
-                    if (string.IsNullOrEmpty(txtGayRong.Text.Trim()))
-                        txtGayRong.Text = "30";
+                if ( tb == txtGayCao)
+                    if (string.IsNullOrEmpty(txtGayCao.Text.Trim()))
+                        txtGayCao.Text = "30";
 
                 CapNhatLabelGia();
             
@@ -302,7 +301,7 @@ namespace TinhGiaInClient.UI
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
-                if (t == txtGayDay)// được số lẻ
+                if (t == txtGayCao || t == txtGayDay)// được số lẻ
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46)
                         e.Handled = true;
@@ -319,7 +318,7 @@ namespace TinhGiaInClient.UI
                 SoLuong -= 1;
                 SoLuong += 1;
             }
-            txtSoLuong.Enabled = true;
+            
             txtDonViTinh.Enabled = false;
             if (this.IdThanhPhamChon > 0)
             {
@@ -327,8 +326,7 @@ namespace TinhGiaInClient.UI
             }
             
             if (this.TinhTrangForm == FormStateS.View)
-            {
-                txtSoLuong.Enabled = true;
+            {              
                 
                 btnNhan.Enabled = true;
             }

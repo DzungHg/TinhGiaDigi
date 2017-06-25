@@ -57,6 +57,21 @@ namespace TinhGiaInClient.Model.Booklet
                 lst.Add(monDC);
 
             }
+            //Tiếp Đóng mở phẳng
+
+            foreach (DongCuonMoPhang dcMP in DongCuonMoPhang.DocTatCa())
+            {
+                i += 1;//Tạo ID
+                monDC = new MonDongCuon
+                {
+                    ID = i,
+                    IdGoc = dcMP.ID,
+                    Ten = dcMP.Ten,
+                    KieuDongCuon = KieuDongCuonS.MoPhang //Đúng
+                };
+                lst.Add(monDC);
+
+            }
             return lst;
         
         }

@@ -37,7 +37,7 @@
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtGayRong = new System.Windows.Forms.TextBox();
+            this.txtGayCao = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtGayDay = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -134,21 +134,21 @@
             this.label4.TabIndex = 105;
             this.label4.Text = "Chọn Lò xo";
             // 
-            // txtGayRong
+            // txtGayCao
             // 
-            this.txtGayRong.Location = new System.Drawing.Point(94, 107);
-            this.txtGayRong.Name = "txtGayRong";
-            this.txtGayRong.Size = new System.Drawing.Size(62, 20);
-            this.txtGayRong.TabIndex = 2;
+            this.txtGayCao.Location = new System.Drawing.Point(94, 107);
+            this.txtGayCao.Name = "txtGayCao";
+            this.txtGayCao.Size = new System.Drawing.Size(62, 20);
+            this.txtGayCao.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(14, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 109;
-            this.label6.Text = "Gáy rộng";
+            this.label6.Text = "Gáy cao";
             // 
             // txtGayDay
             // 
@@ -238,9 +238,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(162, 136);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 120;
-            this.label5.Text = "cả bìa";
+            this.label5.Text = "(cm) cả bìa";
             // 
             // label11
             // 
@@ -268,7 +268,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtGayDay);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtGayRong);
+            this.Controls.Add(this.txtGayCao);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.label3);
@@ -283,7 +283,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Ép kim";
+            this.Text = "Đóng cuốn Lò xo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThPhCanPhuForm_FormClosing);
             this.Load += new System.EventHandler(this.ThanhPhamForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstLoXo)).EndInit();
@@ -307,7 +307,7 @@
         private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtGayRong;
+        private System.Windows.Forms.TextBox txtGayCao;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtGayDay;
         private System.Windows.Forms.Label label7;

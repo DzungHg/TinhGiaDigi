@@ -35,6 +35,8 @@
         <EntityTypeShape EntityType="QuanLyGiaInModel.NGUOI_DUNG" Width="1.5" PointX="10.875" PointY="8.375" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.DONG_CUON_LO_XO" Width="1.5" PointX="12.375" PointY="12.75" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.LO_XO_DONG_CUON" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.DONG_CUON_MO_PHANG" Width="1.5" PointX="13.375" PointY="4.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TO_LOT_MO_PHANG" Width="1.5" PointX="14.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

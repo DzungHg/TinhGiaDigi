@@ -734,3 +734,4 @@ D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.InSachForm.re
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.InSachForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.InToForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.InToForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhDongCuonMoPhangForm.resources

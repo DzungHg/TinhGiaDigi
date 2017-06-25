@@ -29,7 +29,7 @@ namespace TinhGiaInClient.Presenter
             View.SoLuong = mucThPham.SoLuong;
             View.DonViTinh = mucThPham.DonViTinh;
             View.IdLoXoDongCuonChon = mucThPham.IdLoXoChon;
-            View.GayRong = mucThPham.GayCao;
+            View.GayCao = mucThPham.GayCao;
             View.GayDay = mucThPham.GayDay;
 
 
@@ -67,7 +67,7 @@ namespace TinhGiaInClient.Presenter
             var loXo = LoXoDongCuon.DocTheoId(View.IdLoXoDongCuonChon);
             
             var mucLoiNhuan = TinhToan.GiaTriTheoKhoang(dongCuon.DaySoLuong, dongCuon.DayLoiNhuan, View.SoLuong);
-            var giaDongCuon = new GiaDongCuonLoXo(View.SoLuong, View.GayRong,
+            var giaDongCuon = new GiaDongCuonLoXo(View.SoLuong, View.GayCao,
                             dongCuon, loXo, mucLoiNhuan);
             
             decimal tyLeMK = (decimal)this.TyLeMarkUp() / 100;           
@@ -102,7 +102,7 @@ namespace TinhGiaInClient.Presenter
                 this.MucDongCuon.SoLuong = View.SoLuong;
                 this.MucDongCuon.DonViTinh = View.DonViTinh;
                 this.MucDongCuon.ThanhTien = View.ThanhTien;
-                this.MucDongCuon.GayCao = View.GayRong;
+                this.MucDongCuon.GayCao = View.GayCao;
                 this.MucDongCuon.GayDay = View.GayDay;
                 this.MucDongCuon.IdLoXoChon = View.IdLoXoDongCuonChon;
             }

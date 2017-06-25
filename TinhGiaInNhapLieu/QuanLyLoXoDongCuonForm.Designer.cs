@@ -165,7 +165,7 @@
             // 
             // radLabel9
             // 
-            this.radLabel9.Location = new System.Drawing.Point(297, 94);
+            this.radLabel9.Location = new System.Drawing.Point(297, 98);
             this.radLabel9.Name = "radLabel9";
             this.radLabel9.Size = new System.Drawing.Size(39, 18);
             this.radLabel9.TabIndex = 17;
@@ -173,7 +173,7 @@
             // 
             // txtThuTu
             // 
-            this.txtThuTu.Location = new System.Drawing.Point(378, 92);
+            this.txtThuTu.Location = new System.Drawing.Point(378, 96);
             this.txtThuTu.Name = "txtThuTu";
             this.txtThuTu.Size = new System.Drawing.Size(68, 20);
             this.txtThuTu.TabIndex = 7;
@@ -264,10 +264,10 @@
             // lstLoXo
             // 
             this.lstLoXo.ItemSpacing = -1;
-            this.lstLoXo.Location = new System.Drawing.Point(12, 62);
+            this.lstLoXo.Location = new System.Drawing.Point(12, 43);
             this.lstLoXo.Name = "lstLoXo";
             this.lstLoXo.ShowGridLines = true;
-            this.lstLoXo.Size = new System.Drawing.Size(520, 141);
+            this.lstLoXo.Size = new System.Drawing.Size(520, 160);
             this.lstLoXo.TabIndex = 17;
             this.lstLoXo.Text = "radListView1";
             this.lstLoXo.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;

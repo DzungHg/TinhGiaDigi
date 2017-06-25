@@ -408,7 +408,19 @@ namespace TinhGiaInClient.UI
             var thongTinBanDau = new ThongTinBanDauDongCuon
             {
                  ThongDiepCanThiet = string.Format("Số lượng {0} {1}",
-                        this.SoCuon, "cuốn")
+                        this.SoCuon, "cuốn"),
+                        MoTextSoLuongCuon = false
+
+            };
+            return thongTinBanDau;
+        }
+        private ThongTinBanDauDongCuon ThongTinBanDauCuonMoPhang()
+        {
+            var thongTinBanDau = new ThongTinBanDauDongCuon
+            {
+                ThongDiepCanThiet = string.Format("Số lượng {0} {1}",
+                       this.SoCuon, "cuốn"),
+                       MoTextSoLuongCuon = false
 
             };
             return thongTinBanDau;
@@ -482,6 +494,34 @@ namespace TinhGiaInClient.UI
                         CapNhatChiTietDongCuon();
                     }
                     break;
+                case KieuDongCuonS.MoPhang:
+
+                    var mucDongCuonMP = new MucDongCuonMoPhang();
+                    mucDongCuonMP.IdBaiIn = this.ID;
+                    mucDongCuonMP.IdHangKhachHang = this.IdHangKhachHang;
+                    mucDongCuonMP.SoLuong = 10; //Vì số lượng có thể không trùng
+                    mucDongCuonMP.DonViTinh = "cuốn";
+                    mucDongCuonMP.SoToDoi = this.SoTrangRuot / 2;                    
+                    mucDongCuonMP.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+                    //Tiếp tục thông tin ban đầu
+                    var thongTinBanDauCuonMP = this.ThongTinBanDauCuonMoPhang();
+                    thongTinBanDauCuonMP.TieuDeForm = "[Mới] Cuốn Mở phẳng";
+                    thongTinBanDauCuonMP.TinhTrangForm = FormStateS.New;
+                    //điều chỉnh mục thành phẩm
+                    mucDongCuonMP.KieuDongCuon = KieuDongCuonS.MoPhang;
+                    var frm3 = new ThPhDongCuonMoPhangForm(thongTinBanDauCuonMP, mucDongCuonMP);
+
+                    frm3.MinimizeBox = false;
+                    frm3.MaximizeBox = false;
+                    frm3.StartPosition = FormStartPosition.CenterParent;
+                    frm3.ShowDialog();
+                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuonMoPhang(frm3);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        CapNhatChiTietDongCuon();
+                    }
+                    break;
 
             }
             
@@ -516,6 +556,7 @@ namespace TinhGiaInClient.UI
                     var thongTinChoCuonLoXo = this.ThongTinBanDauCuonLoXo();
                     thongTinChoCuonLoXo.TinhTrangForm = FormStateS.Edit;
                     thongTinChoCuonLoXo.TieuDeForm = "[Sửa] Đóng cuốn";
+                    thongTinChoCuonLoXo.MoTextSoLuongCuon = true;
 
                     var frm2 = new ThPhDongCuonLoXoForm(thongTinChoCuonLoXo, (MucDongCuonLoXo)this.DongCuon);
 
@@ -527,6 +568,26 @@ namespace TinhGiaInClient.UI
                     if (frm2.DialogResult == System.Windows.Forms.DialogResult.OK)
                     {
                         XuLyNutOKClick_FormDongCuonLoXo(frm2);
+                        //Cạp nhật
+                        CapNhatChiTietDongCuon();
+                    }
+                    break;
+                case KieuDongCuonS.MoPhang:
+                    var thongTinChoCuonMP = this.ThongTinBanDauCuonMoPhang();
+                    thongTinChoCuonMP.TinhTrangForm = FormStateS.Edit;
+                    thongTinChoCuonMP.TieuDeForm = "[Sửa] Mở phẳng";
+                    
+
+                    var frm3 = new ThPhDongCuonMoPhangForm(thongTinChoCuonMP, (MucDongCuonMoPhang)this.DongCuon);
+
+                    frm3.MinimizeBox = false;
+                    frm3.MaximizeBox = false;
+                    frm3.StartPosition = FormStartPosition.CenterParent;
+
+                    frm3.ShowDialog();
+                    if (frm3.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormDongCuonMoPhang(frm3);
                         //Cạp nhật
                         CapNhatChiTietDongCuon();
                     }
@@ -565,6 +626,22 @@ namespace TinhGiaInClient.UI
             }
             
             
+        }
+        private void XuLyNutOKClick_FormDongCuonMoPhang(ThPhDongCuonMoPhangForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    this.DongCuon = frm.LayMucThanhPham();
+                    break;
+                case FormStateS.Edit:
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không cần
+                    frm.LayMucThanhPham();
+                    break;
+            }
+
+
         }
         private void CapNhatChiTietDongCuon()
         {

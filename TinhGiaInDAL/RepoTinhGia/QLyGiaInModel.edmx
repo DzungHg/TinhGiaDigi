@@ -115,6 +115,23 @@
           <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="thu_tu" Type="int" />
         </EntityType>
+        <EntityType Name="DONG_CUON_MO_PHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="100" />
+          <Property Name="BHR" Type="int" />
+          <Property Name="toc_do_todoi" Type="int" />
+          <Property Name="phi_keo_todoi" Type="int" />
+          <Property Name="thoi_gian_chuan_bi" Type="float" />
+          <Property Name="day_so_luong" Type="nvarchar(max)" />
+          <Property Name="day_loi_nhuan" Type="nvarchar(max)" />
+          <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+          <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
+          <Property Name="thu_tu" Type="int" />
+        </EntityType>
         <EntityType Name="DS_THANH_PHAM">
           <Key>
             <PropertyRef Name="ID" />
@@ -207,7 +224,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Ten" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
           <Property Name="Chieu_cat_rong" Type="float" />
           <Property Name="Chieu_cat_cao" Type="float" />
           <Property Name="dien_giai" Type="nvarchar" MaxLength="200" />
@@ -328,6 +345,18 @@
           <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="Thu_tu" Type="int" />
           <Property Name="khong_su_dung" Type="bit" />
+        </EntityType>
+        <EntityType Name="TO_LOT_MO_PHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="ma_nha_cung_cap" Type="nvarchar" MaxLength="50" />
+          <Property Name="ten_nha_cung_cap" Type="nvarchar" MaxLength="50" />
+          <Property Name="dien_giai" Type="nvarchar" MaxLength="100" />
+          <Property Name="gia_mua_to" Type="int" />
+          <Property Name="thu_tu" Type="int" />
         </EntityType>
         <EntityType Name="YEU_CAU_TINH_GIA_IN">
           <Key>
@@ -453,6 +482,7 @@
           <EntitySet Name="DANH_MUC_GIAY" EntityType="Self.DANH_MUC_GIAY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONG_CUON" EntityType="Self.DONG_CUON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DONG_CUON_LO_XO" EntityType="Self.DONG_CUON_LO_XO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONG_CUON_MO_PHANG" EntityType="Self.DONG_CUON_MO_PHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DS_THANH_PHAM" EntityType="Self.DS_THANH_PHAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EP_KIM" EntityType="Self.EP_KIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GIAY" EntityType="Self.GIAY" Schema="dbo" store:Type="Tables" />
@@ -467,6 +497,7 @@
           <EntitySet Name="NHU_EP_KIM" EntityType="Self.NHU_EP_KIM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TINH_GIA_IN" EntityType="Self.TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TO_IN_MAY_DIGI" EntityType="Self.TO_IN_MAY_DIGI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TO_LOT_MO_PHANG" EntityType="Self.TO_LOT_MO_PHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="Self.YEU_CAU_TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" Association="Self.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
             <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
@@ -571,13 +602,15 @@
           <EntitySet Name="NGUOI_DUNG" EntityType="QuanLyGiaInModel.NGUOI_DUNG" />
           <EntitySet Name="DONG_CUON_LO_XO" EntityType="QuanLyGiaInModel.DONG_CUON_LO_XO" />
           <EntitySet Name="LO_XO_DONG_CUON" EntityType="QuanLyGiaInModel.LO_XO_DONG_CUON" />
+          <EntitySet Name="DONG_CUON_MO_PHANG" EntityType="QuanLyGiaInModel.DONG_CUON_MO_PHANG" />
+          <EntitySet Name="TO_LOT_MO_PHANG" EntityType="QuanLyGiaInModel.TO_LOT_MO_PHANG" />
         </EntityContainer>
         <EntityType Name="KHO_SAN_PHAM">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ten" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Chieu_cat_rong" Type="Double" />
           <Property Name="Chieu_cat_cao" Type="Double" />
           <Property Name="Thu_tu" Type="Int32" />
@@ -1017,6 +1050,35 @@
           <Property Name="gia_mua_theo_met" Type="Int32" />
           <Property Name="thu_tu" Type="Int32" />
         </EntityType>
+        <EntityType Name="DONG_CUON_MO_PHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BHR" Type="Int32" />
+          <Property Name="toc_do_todoi" Type="Int32" />
+          <Property Name="phi_keo_todoi" Type="Int32" />
+          <Property Name="thoi_gian_chuan_bi" Type="Double" />
+          <Property Name="day_so_luong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="day_loi_nhuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="thu_tu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TO_LOT_MO_PHANG">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ma_nha_cung_cap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ten_nha_cung_cap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dien_giai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="gia_mua_to" Type="Int32" />
+          <Property Name="thu_tu" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1380,6 +1442,37 @@
                 <ScalarProperty Name="mau_sac" ColumnName="mau_sac" />
                 <ScalarProperty Name="kich_co_buoc" ColumnName="kich_co_buoc" />
                 <ScalarProperty Name="ten_vong_xoan" ColumnName="ten_vong_xoan" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONG_CUON_MO_PHANG">
+            <EntityTypeMapping TypeName="QuanLyGiaInModel.DONG_CUON_MO_PHANG">
+              <MappingFragment StoreEntitySet="DONG_CUON_MO_PHANG">
+                <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+                <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+                <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+                <ScalarProperty Name="ma_01" ColumnName="ma_01" />
+                <ScalarProperty Name="day_loi_nhuan" ColumnName="day_loi_nhuan" />
+                <ScalarProperty Name="day_so_luong" ColumnName="day_so_luong" />
+                <ScalarProperty Name="thoi_gian_chuan_bi" ColumnName="thoi_gian_chuan_bi" />
+                <ScalarProperty Name="phi_keo_todoi" ColumnName="phi_keo_todoi" />
+                <ScalarProperty Name="toc_do_todoi" ColumnName="toc_do_todoi" />
+                <ScalarProperty Name="BHR" ColumnName="BHR" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TO_LOT_MO_PHANG">
+            <EntityTypeMapping TypeName="QuanLyGiaInModel.TO_LOT_MO_PHANG">
+              <MappingFragment StoreEntitySet="TO_LOT_MO_PHANG">
+                <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+                <ScalarProperty Name="gia_mua_to" ColumnName="gia_mua_to" />
+                <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
+                <ScalarProperty Name="ten_nha_cung_cap" ColumnName="ten_nha_cung_cap" />
+                <ScalarProperty Name="ma_nha_cung_cap" ColumnName="ma_nha_cung_cap" />
+                <ScalarProperty Name="ten" ColumnName="ten" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -360,7 +360,7 @@ namespace TinhGiaInNhapLieu
             frm.ShowDialog();
         }
 
-        private void btnDongCuon_Click(object sender, EventArgs e)
+        private void btnQuanLy_DongCuon_Click(object sender, EventArgs e)
         {
             var frm = new QuanLyDongCuonForm();
             if (!CoTheMoFormNay(frm.Name)) //không có tên form
@@ -498,6 +498,48 @@ namespace TinhGiaInNhapLieu
         {
             btnDong.Left = (pnlBottom.Width - btnDong.Width) / 2;
             txtTenNguoiDung.Left = lblNguoiDung.Left + lblNguoiDung.Width + 5;
+        }
+
+        private void btnTinhThu_DongCuonMoPhang_Click(object sender, EventArgs e)
+        {
+            var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDauMP = new ThongTinBanDauDongCuon();
+            thongTinBanDauMP.MoTextSoLuongCuon = true;
+            thongTinBanDauMP.TinhTrangForm = FormStateS.View;
+            thongTinBanDauMP.TieuDeForm = "Đóng cuốn Mở phẳng [Tính thử]";
+            //Tạo mục đóng cuốn
+            var mucDongCuonMP = new MucDongCuonMoPhang();
+            mucDongCuonMP.IdBaiIn = 1;
+            mucDongCuonMP.IdHangKhachHang = this.IdHangKhachHang;
+            mucDongCuonMP.SoLuong = 1; //Vì số lượng có thể không trùng
+            mucDongCuonMP.DonViTinh = "cuốn";            
+            mucDongCuonMP.SoToDoi = 10;
+            mucDongCuonMP.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+            mucDongCuonMP.KieuDongCuon = KieuDongCuonS.MoPhang;
+            var frm = new ThPhDongCuonMoPhangForm(thongTinBanDauMP, mucDongCuonMP);
+
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            //Data gởi qua form
+            frm.ShowDialog();
+        }
+
+        private void btnQuanLy_DongCuonMP_Click(object sender, EventArgs e)
+        {
+            QuanLyDongCuonMoPhang();
+        }
+        private void QuanLyDongCuonMoPhang()
+        {
+            var frm = new QuanLyDongCuonMPForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Đóng cuốn Mở phẳng";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

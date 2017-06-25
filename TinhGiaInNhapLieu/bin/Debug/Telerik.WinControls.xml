@@ -14980,7 +14980,9 @@
             </summary>
         </member>
         <member name="M:Telerik.WinControls.Primitives.ArrowPrimitive.PaintPrimitive(Telerik.WinControls.Paint.IGraphics,System.Single,System.Drawing.SizeF)">
-            <summary>Draws the primitive on the screen.</summary>
+            
+             <summary>Draws the primitive on the screen.</summary>
+             
         </member>
         <member name="P:Telerik.WinControls.Primitives.ArrowPrimitive.Direction">
             <summary>

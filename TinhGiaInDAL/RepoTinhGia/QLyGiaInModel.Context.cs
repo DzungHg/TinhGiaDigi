@@ -48,5 +48,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<NGUOI_DUNG> NGUOI_DUNG { get; set; }
         public virtual DbSet<DONG_CUON_LO_XO> DONG_CUON_LO_XO { get; set; }
         public virtual DbSet<LO_XO_DONG_CUON> LO_XO_DONG_CUON { get; set; }
+        public virtual DbSet<DONG_CUON_MO_PHANG> DONG_CUON_MO_PHANG { get; set; }
+        public virtual DbSet<TO_LOT_MO_PHANG> TO_LOT_MO_PHANG { get; set; }
     }
 }

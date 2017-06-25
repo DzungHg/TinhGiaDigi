@@ -362,5 +362,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DONG_CUON_MO_PHANG">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.DONG_CUON_MO_PHANG">
+        <MappingFragment StoreEntitySet="DONG_CUON_MO_PHANG">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
+          <ScalarProperty Name="day_loi_nhuan" ColumnName="day_loi_nhuan" />
+          <ScalarProperty Name="day_so_luong" ColumnName="day_so_luong" />
+          <ScalarProperty Name="thoi_gian_chuan_bi" ColumnName="thoi_gian_chuan_bi" />
+          <ScalarProperty Name="phi_keo_todoi" ColumnName="phi_keo_todoi" />
+          <ScalarProperty Name="toc_do_todoi" ColumnName="toc_do_todoi" />
+          <ScalarProperty Name="BHR" ColumnName="BHR" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TO_LOT_MO_PHANG">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.TO_LOT_MO_PHANG">
+        <MappingFragment StoreEntitySet="TO_LOT_MO_PHANG">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="gia_mua_to" ColumnName="gia_mua_to" />
+          <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
+          <ScalarProperty Name="ten_nha_cung_cap" ColumnName="ten_nha_cung_cap" />
+          <ScalarProperty Name="ma_nha_cung_cap" ColumnName="ma_nha_cung_cap" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

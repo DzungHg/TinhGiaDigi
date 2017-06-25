@@ -15701,6 +15701,100 @@
             The content will stretched so all children have equal height.
             </summary>
         </member>
+        <member name="T:Telerik.WinControls.UI.CommandBarMaskedEditBox">
+            <summary>
+            Represents a MaskedEditBox in <see cref="T:Telerik.WinControls.UI.CommandBarStripElement"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.WinControls.UI.RadCommandBarBaseItem">
+            <summary>
+            A base class for all of the items contained in <see cref="T:Telerik.WinControls.UI.CommandBarStripElement"/>.
+            </summary>
+        </member>
+        <member name="T:Telerik.WinControls.UI.RadCommandBarVisualElement">
+            <summary>
+            Represents a base class for most of the <see cref="T:Telerik.WinControls.UI.RadCommandBar"/> elements.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCommandBarVisualElement.Orientation">
+            <summary>
+            Gets or sets the orientation of the element - colud be horizontal or vertical.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCommandBarVisualElement.DisplayName">
+            <summary>
+            Gets or sets the name that is displayed in command bar dialogs and context menus.
+            </summary>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadCommandBarBaseItem.OnOrientationChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:RadCommandBarBaseItem.OrientationChanged"/> event.
+            </summary>
+            <param name="e">Event data.</param>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadCommandBarBaseItem.OnOrientationChanging(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Raises the <see cref="E:RadCommandBarBaseItem.OrientationChanging"/> event.
+            </summary>
+            <param name="e">Event data.</param>
+            <returns>true if the event should be canceled, false otherwise.</returns>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadCommandBarBaseItem.OnVisibleInStripChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:RadCommandBarBaseItem.VisibleInStripChanged"/> event.
+            </summary>
+            <param name="e">Event data.</param>
+        </member>
+        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.OrientationChanged">
+            <summary>
+            Occurs when the orientation is changed
+            </summary>
+        </member>
+        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.OrientationChanging">
+            <summary>
+            Occurs before the orientation is changed
+            </summary>
+        </member>
+        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.VisibleInStripChanged">
+            <summary>
+            Occurs when the <see cref="P:RadCommandBarBaseItem.VisibleInStrip"/> property is changed.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.VisibleInOverflowMenu">
+            <summary>
+            	Show or hide item from the strip overflow menu
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.Orientation">
+            <summary>
+            	Gets or sets the Orientation of the item.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.VisibleInStrip">
+            <summary>
+            	Show or hide item from the strip
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.InheritsParentOrientation">
+            <summary>
+            	Gets or sets that the orientation will be inherit from parent
+            </summary>
+        </member>
+        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.DoubleClick">
+            <summary>
+            Occurs when the element is double-clicked.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.CommandBarMaskedEditBox.Text">
+            <summary>
+            	Gets or sets the text associated with this item. 
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.CommandBarMaskedEditBox.CommandBarMaskedTextBoxElement">
+            <summary>
+            Gets or sets the hosted <see cref="T:Telerik.WinControls.UI.RadMaskedEditBoxElement"/>.
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.UI.DataFilterDescriptorItem.DescriptorName">
             <summary>
             Gets or sets the name of the descriptor.
@@ -20247,21 +20341,6 @@
             <summary>
             Represents the main element of the <see cref="T:Telerik.WinControls.UI.RadCommandBar">RadCommandBar</see> control.
             Contains a collection of <see cref="T:Telerik.WinControls.UI.CommandBarRowElement"/> element.
-            </summary>
-        </member>
-        <member name="T:Telerik.WinControls.UI.RadCommandBarVisualElement">
-            <summary>
-            Represents a base class for most of the <see cref="T:Telerik.WinControls.UI.RadCommandBar"/> elements.
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.RadCommandBarVisualElement.Orientation">
-            <summary>
-            Gets or sets the orientation of the element - colud be horizontal or vertical.
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.RadCommandBarVisualElement.DisplayName">
-            <summary>
-            Gets or sets the name that is displayed in command bar dialogs and context menus.
             </summary>
         </member>
         <member name="M:Telerik.WinControls.UI.RadCommandBarElement.OnFloatingStripCreating(System.Object)">
@@ -29340,6 +29419,12 @@
             </summary>
             <param name="point">The point.</param>
             <returns>The resizing behavior at that point.</returns>
+        </member>
+        <member name="M:Telerik.WinControls.UI.RadLayoutControl.GetAllChildItems(Telerik.WinControls.RadItemCollection)">
+            <summary>
+            Gets all child items iterated recursively.
+            </summary>
+            <param name="items">The items.</param>
         </member>
         <member name="M:Telerik.WinControls.UI.RadLayoutControl.SaveLayout(System.Xml.XmlWriter)">
             <summary>
@@ -40093,70 +40178,6 @@
         <member name="T:Telerik.WinControls.UI.CommandBarDropDownList">
             <summary>
             Represents a drop down list in <see cref="T:Telerik.WinControls.UI.CommandBarStripElement"/>.
-            </summary>
-        </member>
-        <member name="T:Telerik.WinControls.UI.RadCommandBarBaseItem">
-            <summary>
-            A base class for all of the items contained in <see cref="T:Telerik.WinControls.UI.CommandBarStripElement"/>.
-            </summary>
-        </member>
-        <member name="M:Telerik.WinControls.UI.RadCommandBarBaseItem.OnOrientationChanged(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:RadCommandBarBaseItem.OrientationChanged"/> event.
-            </summary>
-            <param name="e">Event data.</param>
-        </member>
-        <member name="M:Telerik.WinControls.UI.RadCommandBarBaseItem.OnOrientationChanging(System.ComponentModel.CancelEventArgs)">
-            <summary>
-            Raises the <see cref="E:RadCommandBarBaseItem.OrientationChanging"/> event.
-            </summary>
-            <param name="e">Event data.</param>
-            <returns>true if the event should be canceled, false otherwise.</returns>
-        </member>
-        <member name="M:Telerik.WinControls.UI.RadCommandBarBaseItem.OnVisibleInStripChanged(System.EventArgs)">
-            <summary>
-            Raises the <see cref="E:RadCommandBarBaseItem.VisibleInStripChanged"/> event.
-            </summary>
-            <param name="e">Event data.</param>
-        </member>
-        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.OrientationChanged">
-            <summary>
-            Occurs when the orientation is changed
-            </summary>
-        </member>
-        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.OrientationChanging">
-            <summary>
-            Occurs before the orientation is changed
-            </summary>
-        </member>
-        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.VisibleInStripChanged">
-            <summary>
-            Occurs when the <see cref="P:RadCommandBarBaseItem.VisibleInStrip"/> property is changed.
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.VisibleInOverflowMenu">
-            <summary>
-            	Show or hide item from the strip overflow menu
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.Orientation">
-            <summary>
-            	Gets or sets the Orientation of the item.
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.VisibleInStrip">
-            <summary>
-            	Show or hide item from the strip
-            </summary>
-        </member>
-        <member name="P:Telerik.WinControls.UI.RadCommandBarBaseItem.InheritsParentOrientation">
-            <summary>
-            	Gets or sets that the orientation will be inherit from parent
-            </summary>
-        </member>
-        <member name="E:Telerik.WinControls.UI.RadCommandBarBaseItem.DoubleClick">
-            <summary>
-            Occurs when the element is double-clicked.
             </summary>
         </member>
         <member name="M:Telerik.WinControls.UI.CommandBarDropDownList.SelectText(System.Int32,System.Int32)">
