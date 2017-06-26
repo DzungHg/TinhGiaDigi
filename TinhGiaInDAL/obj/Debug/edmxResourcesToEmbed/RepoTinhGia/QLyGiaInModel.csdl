@@ -68,6 +68,7 @@
     <EntitySet Name="LO_XO_DONG_CUON" EntityType="QuanLyGiaInModel.LO_XO_DONG_CUON" />
     <EntitySet Name="DONG_CUON_MO_PHANG" EntityType="QuanLyGiaInModel.DONG_CUON_MO_PHANG" />
     <EntitySet Name="TO_LOT_MO_PHANG" EntityType="QuanLyGiaInModel.TO_LOT_MO_PHANG" />
+    <EntitySet Name="CAT_DECAL" EntityType="QuanLyGiaInModel.CAT_DECAL" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -541,6 +542,23 @@
     <Property Name="ten_nha_cung_cap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="dien_giai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="gia_mua_to" Type="Int32" />
+    <Property Name="thu_tu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CAT_DECAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BHR" Type="Int32" />
+    <Property Name="toc_do_met_gio" Type="Int32" />
+    <Property Name="phi_dao_mot_ngan_met" Type="Int32" />
+    <Property Name="thoi_gian_chuan_bi" Type="Double" />
+    <Property Name="day_so_luong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="day_loi_nhuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="thu_tu" Type="Int32" />
   </EntityType>
 </Schema>

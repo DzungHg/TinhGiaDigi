@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BangGiaDanhThiepBDO.cs" />
     <Compile Include="BangGiaInNhanhBDO.cs" />
+    <Compile Include="CatDecalBDO.cs" />
     <Compile Include="DongCuonMoPhangBDO.cs" />
     <Compile Include="DongCuonLoXoBDO.cs" />
     <Compile Include="EpKimBDO.cs" />

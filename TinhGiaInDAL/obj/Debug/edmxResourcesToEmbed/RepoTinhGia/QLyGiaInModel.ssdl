@@ -68,6 +68,23 @@
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>
+  <EntityType Name="CAT_DECAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="toc_do_met_gio" Type="int" />
+    <Property Name="phi_dao_mot_ngan_met" Type="int" />
+    <Property Name="thoi_gian_chuan_bi" Type="float" />
+    <Property Name="day_so_luong" Type="nvarchar(max)" />
+    <Property Name="day_loi_nhuan" Type="nvarchar(max)" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
+    <Property Name="thu_tu" Type="int" />
+  </EntityType>
   <EntityType Name="DANH_MUC_GIAY">
     <Key>
       <PropertyRef Name="ID" />
@@ -474,6 +491,7 @@
     <EntitySet Name="BANG_GIA_IN_NHANH" EntityType="Self.BANG_GIA_IN_NHANH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CAN_GAP" EntityType="Self.CAN_GAP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CAN_PHU" EntityType="Self.CAN_PHU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAT_DECAL" EntityType="Self.CAT_DECAL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DANH_MUC_GIAY" EntityType="Self.DANH_MUC_GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DONG_CUON" EntityType="Self.DONG_CUON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DONG_CUON_LO_XO" EntityType="Self.DONG_CUON_LO_XO" Schema="dbo" store:Type="Tables" />

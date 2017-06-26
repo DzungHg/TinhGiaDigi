@@ -52,6 +52,10 @@
     <Compile Include="RepoTinhGia\BANG_GIA_DANH_THIEP.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\CatDecalDAO.cs" />
+    <Compile Include="RepoTinhGia\CAT_DECAL.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RepoTinhGia\DongCuonMoPhangDAO.cs" />
     <Compile Include="RepoTinhGia\DongCuonLoXoDAO.cs" />
     <Compile Include="RepoTinhGia\DONG_CUON_LO_XO.cs">
@@ -60,6 +64,7 @@
     <Compile Include="RepoTinhGia\DONG_CUON_MO_PHANG.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\ICatDecalDAO.cs" />
     <Compile Include="RepoTinhGia\IDongCuonMoPhangDAO.cs" />
     <Compile Include="RepoTinhGia\IDongCuonLoXoDAO.cs" />
     <Compile Include="RepoTinhGia\ILoXoDongCuonDAO.cs" />
