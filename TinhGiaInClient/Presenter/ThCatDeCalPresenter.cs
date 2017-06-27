@@ -13,12 +13,12 @@ namespace TinhGiaInClient.Presenter
     public class ThPhCatDecalPresenter : IThanhPhamPresenter
     {
         IViewThPhCatDecal View = null;
-        MucThPhCatDecal MucDongCuon = null;
+        MucThPhCatDecal MucCatDecal = null;
         public ThPhCatDecalPresenter(IViewThPhCatDecal view, MucThPhCatDecal mucThPham)
         {
             View = view;
             View = view;
-            this.MucDongCuon = mucThPham;
+            this.MucCatDecal = mucThPham;
             //Cập nhật form
             View.ID = mucThPham.ID;
             View.IdBaiIn = mucThPham.IdBaiIn;
@@ -37,7 +37,6 @@ namespace TinhGiaInClient.Presenter
           //implement
         }
 
-
         
         public int TyLeMarkUp()
         {
@@ -55,20 +54,16 @@ namespace TinhGiaInClient.Presenter
        
         public decimal ThanhTien_ThPh()
         {
-            decimal result = 0;            
+            decimal kq = 0;            
            
             var catDecal = CatDecal.DocTheoId(View.IdThanhPhamChon);                     
-            
-            var mucLoiNhuan = TinhToan.GiaTriTheoKhoang(catDecal.DaySoLuong, catDecal.DayLoiNhuan, View.SoLuong);
+                  
             var giaDongCuon = new GiaCatDecal(View.SoLuong, catDecal, View.ConRong, 
-                                View.ConCao, mucLoiNhuan);
-            
-            decimal tyLeMK = (decimal)this.TyLeMarkUp() / 100;           
+                                View.ConCao, this.TyLeMarkUp());
 
-            result = giaDongCuon.ThanhTienCoBan(View.SoLuong) +
-                giaDongCuon.ThanhTienCoBan(View.SoLuong) * tyLeMK / (1 - tyLeMK);
+            kq = giaDongCuon.ThanhTienSales();
 
-            return result;
+            return kq;
         }
 
         public decimal GiaTB_ThPh()
@@ -77,34 +72,28 @@ namespace TinhGiaInClient.Presenter
                 return 0;
             return ThanhTien_ThPh() / View.SoLuong;
         }
-        //Thêm ngoài Implement
-        public List<ToLotMoPhang> ToLotMoPhangS()
-       {
-           return ToLotMoPhang.DocTatCa();
-       }
+        
+     
         private void CapNhatMucThanhPham()
         {
-            if (this.MucDongCuon != null)
+            if (this.MucCatDecal != null)
             {
-                this.MucDongCuon.IdBaiIn = View.IdBaiIn;
-                this.MucDongCuon.TenThanhPham = View.TenThanhPhamChon;
-                this.MucDongCuon.IdThanhPhamChon = View.IdThanhPhamChon;
-                this.MucDongCuon.IdHangKhachHang = View.IdHangKhachHang;
-                this.MucDongCuon.LoaiThanhPham = View.LoaiThPh;
-                this.MucDongCuon.KieuDongCuon = View.KieuDongCuon;
-                this.MucDongCuon.SoLuong = View.SoLuong;
-                this.MucDongCuon.DonViTinh = View.DonViTinh;
-                this.MucDongCuon.ThanhTien = View.ThanhTien;
-                this.MucDongCuon.SoToDoi = View.SoToDoi;
-
-                this.MucDongCuon.IdToLotChon = View.IdToLotChon;
+                this.MucCatDecal.IdBaiIn = View.IdBaiIn;
+                this.MucCatDecal.TenThanhPham = View.TenThanhPhamChon;
+                this.MucCatDecal.IdThanhPhamChon = View.IdThanhPhamChon;
+                this.MucCatDecal.IdHangKhachHang = View.IdHangKhachHang;
+                this.MucCatDecal.LoaiThanhPham = View.LoaiThPh;
+                this.MucCatDecal.ConRong = View.ConRong;
+                this.MucCatDecal.ConCao = View.ConCao;
+                this.MucCatDecal.SoLuong = View.SoLuong;
+                this.MucCatDecal.DonViTinh = View.DonViTinh;
+                this.MucCatDecal.ThanhTien = View.ThanhTien;
             }
         }
-        public MucDongCuonMoPhang LayMucThanhPham()
+        public MucThanhPham LayMucThanhPham()
         {
             CapNhatMucThanhPham();
-           
-            return this.MucDongCuon;
+            return this.MucCatDecal;
         }
     }
 }

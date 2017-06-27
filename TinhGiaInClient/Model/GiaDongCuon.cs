@@ -17,11 +17,11 @@ namespace TinhGiaInClient.Model
         public int TyLeMarkUp { get; set; }
         public string DonViTinh { get; set; }
         public DongCuon DongCuon { get; set; }
-        public GiaDongCuon(int soLuong, int tyLeMarkUp, string donViTinh, DongCuon dongCuon)
+        public GiaDongCuon(int soLuong, int tyLeMarkUpSales, string donViTinh, DongCuon dongCuon)
         {
             this.SoLuong = soLuong;
             this.DongCuon = dongCuon;
-            this.TyLeMarkUp = tyLeMarkUp;
+            this.TyLeMarkUp = tyLeMarkUpSales;
             this.DonViTinh = donViTinh;
         }
         public decimal ChiPhi(int soLuong)

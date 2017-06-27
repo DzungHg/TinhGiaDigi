@@ -230,6 +230,12 @@
     <Compile Include="UI\InSachForm.Designer.cs">
       <DependentUpon>InSachForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\TinhThuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TinhThuForm.designer.cs">
+      <DependentUpon>TinhThuForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ThPhCatDecalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -386,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InSachForm.resx">
       <DependentUpon>InSachForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TinhThuForm.resx">
+      <DependentUpon>TinhThuForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ThPhCatDecalForm.resx">
       <DependentUpon>ThPhCatDecalForm.cs</DependentUpon>

@@ -15,14 +15,14 @@ namespace TinhGiaInClient.Model
         public DongCuonMoPhang DongCuonMP { get; set; }
         public ToLotMoPhang ToLotMP { get; set; }
         public GiaDongCuonMoPhang(int soLuong, int soToDoi, 
-            DongCuonMoPhang mayDongMoPhang, ToLotMoPhang toLot, int mucLoiNhuan)
+            DongCuonMoPhang mayDongMoPhang, ToLotMoPhang toLot, int tyLeMarkUpSales)
         {
             this.SoLuong = soLuong;
             this.SoToDoi = soToDoi;
           
             this.DongCuonMP = mayDongMoPhang;
             this.ToLotMP = toLot;
-            this.TyLeMarkUp = mucLoiNhuan;
+            this.TyLeMarkUp = tyLeMarkUpSales;
         }
         public decimal ChiPhiChay (int soLuong)
         {
@@ -62,8 +62,9 @@ namespace TinhGiaInClient.Model
           
           
             decimal result = 0;
+            //Lấy tỉ lệ lợi nhuận cơ bản từ database 
             float tyLeLNCoBan = (float)TinhToan.GiaTriTheoKhoang(this.DongCuonMP.DaySoLuong, this.DongCuonMP.DayLoiNhuan, this.SoLuong) / 100;
-
+            
             result = this.ChiPhi(soLuong) + this.ChiPhi(soLuong) * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
             return result;
         }

@@ -66,14 +66,11 @@ namespace TinhGiaInClient.Presenter
                 return 0;//Không thể không có nhũ
             var loXo = LoXoDongCuon.DocTheoId(View.IdLoXoDongCuonChon);
             
-            var mucLoiNhuan = TinhToan.GiaTriTheoKhoang(dongCuon.DaySoLuong, dongCuon.DayLoiNhuan, View.SoLuong);
-            var giaDongCuon = new GiaDongCuonLoXo(View.SoLuong, View.GayCao,
-                            dongCuon, loXo, mucLoiNhuan);
             
-            decimal tyLeMK = (decimal)this.TyLeMarkUp() / 100;           
+            var giaDongCuon = new GiaDongCuonLoXo(View.SoLuong, View.GayCao,
+                            dongCuon, loXo, this.TyLeMarkUp());
 
-            result = giaDongCuon.ThanhTienCoBan(View.SoLuong) +
-                giaDongCuon.ThanhTienCoBan(View.SoLuong) * tyLeMK / (1 - tyLeMK);
+            result = giaDongCuon.ThanhTienSales();
 
             return result;
         }

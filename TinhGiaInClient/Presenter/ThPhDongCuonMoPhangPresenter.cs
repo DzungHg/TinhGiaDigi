@@ -57,7 +57,7 @@ namespace TinhGiaInClient.Presenter
        
         public decimal ThanhTien_ThPh()
         {
-            decimal result = 0;            
+            decimal kq = 0;            
            
             var dongCuon = DongCuonMoPhang.DocTheoId(View.IdThanhPhamChon);
             
@@ -65,16 +65,13 @@ namespace TinhGiaInClient.Presenter
                 return 0;//Không thể không có nhũ
             var loXo = ToLotMoPhang.DocTheoId(View.IdToLotChon);
             
-            var mucLoiNhuan = TinhToan.GiaTriTheoKhoang(dongCuon.DaySoLuong, dongCuon.DayLoiNhuan, View.SoLuong);
+           
             var giaDongCuon = new GiaDongCuonMoPhang(View.SoLuong, View.SoToDoi, 
-                                dongCuon, loXo, mucLoiNhuan);
-            
-            decimal tyLeMK = (decimal)this.TyLeMarkUp() / 100;           
+                                dongCuon, loXo, this.TyLeMarkUp());
 
-            result = giaDongCuon.ThanhTienCoBan(View.SoLuong) +
-                giaDongCuon.ThanhTienCoBan(View.SoLuong) * tyLeMK / (1 - tyLeMK);
+            kq = giaDongCuon.ThanhTienSales();
 
-            return result;
+            return kq;
         }
 
         public decimal GiaTB_ThPh()

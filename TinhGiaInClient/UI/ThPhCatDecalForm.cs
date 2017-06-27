@@ -17,7 +17,7 @@ namespace TinhGiaInClient.UI
     public partial class ThPhCatDecalForm : Telerik.WinControls.UI.RadForm, IViewThPhCatDecal
     {
         ThPhCatDecalPresenter thPhMoPhangPres;
-        public ThPhCatDecalForm(ThongTinBanDauDongCuon thongTinBanDau, MucThPhCatDecal mucThPhCatDecal)
+        public ThPhCatDecalForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhCatDecal mucThPhCatDecal)
         {
             InitializeComponent();
 
@@ -25,7 +25,8 @@ namespace TinhGiaInClient.UI
            
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.Text = thongTinBanDau.TieuDeForm;
-            txtSoLuong.Enabled = thongTinBanDau.MoTextSoLuongCuon;
+
+            //txtSoLuong.Enabled = 
 
 
             thPhMoPhangPres = new ThPhCatDecalPresenter(this, mucThPhCatDecal);
@@ -33,7 +34,7 @@ namespace TinhGiaInClient.UI
             cboMayThPh.SelectedIndex = -1;
             cboMayThPh.SelectedIndex = 0;
             //Load Nhu ep
-            LoadToLot();
+            
             
             //Load
             
@@ -49,13 +50,15 @@ namespace TinhGiaInClient.UI
 
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
             txtConRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-
+            txtConCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtConRong.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtConCao.KeyPress += new KeyPressEventHandler(InputValidator);
 
-
-           
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtConRong.Leave += new EventHandler(TextBoxes_Leave);
+            txtConCao.Leave += new EventHandler(TextBoxes_Leave);
 
             cboMayThPh.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(DropDownList_SelectedIndexChanged);
 
@@ -151,22 +154,22 @@ namespace TinhGiaInClient.UI
      
        
 
-        public int ConRong
+        public float ConRong
         {
             get
             {
-                return int.Parse(txtConRong.Text);
+                return float.Parse(txtConRong.Text);
             }
             set
             {
                 txtConRong.Text = value.ToString();
             }
         }
-        public int ConCao
+        public float ConCao
         {
             get
             {
-                return int.Parse(txtConCao.Text);
+                return float.Parse(txtConCao.Text);
             }
             set
             {
@@ -200,16 +203,18 @@ namespace TinhGiaInClient.UI
                 tb = (TextBox)sender;
                 if (tb == txtSoLuong )
                 {
-                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        txtSoLuong.Text = "1";
+                    if (! string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        CapNhatLabelGia();
                     
                 }
-                //xử lý khi user xóa hết
+                
                 if ( tb == txtConRong)
-                    if (string.IsNullOrEmpty(txtConRong.Text.Trim()))
-                        txtConRong.Text = "10";
+                    if (!string.IsNullOrEmpty(txtConRong.Text.Trim()))
+                        CapNhatLabelGia() ;
 
-                CapNhatLabelGia();
+                if (tb == txtConCao)
+                    if (!string.IsNullOrEmpty(txtConCao.Text.Trim()))
+                        CapNhatLabelGia() ;
             
             }
             /*Telerik.WinControls.UI.RadListView lv;
@@ -237,16 +242,16 @@ namespace TinhGiaInClient.UI
             {
                 t = (TextBox)sender;
                 
-                if (t == txtSoLuong || t == txtConRong )//chỉ được nhập số chẵn 
+                if (t == txtSoLuong )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
-               /* if (t == txtGayDay)// được số lẻ
+                if (t == txtConRong || t == txtConCao)// được số lẻ
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46)
                         e.Handled = true;
-                }*/
+                }
             }
             
         }
@@ -267,8 +272,7 @@ namespace TinhGiaInClient.UI
             }
             
             if (this.TinhTrangForm == FormStateS.View)
-            {
-                
+            {            
                 
                 btnNhan.Enabled = true;
             }
@@ -325,7 +329,26 @@ namespace TinhGiaInClient.UI
 
         private void TextBoxes_Leave(object sender, EventArgs e)
         {
+            TextBox tb;
+            if (sender is TextBox)
+            {
+                tb = (TextBox)sender;
+                if (tb == txtSoLuong)
+                {
+                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        txtSoLuong.Text = "1";
 
+                }
+
+                if (tb == txtConRong)
+                    if (string.IsNullOrEmpty(txtConRong.Text.Trim()))
+                        this.ConRong = 5;
+
+                if (tb == txtConCao)
+                    if (string.IsNullOrEmpty(txtConCao.Text.Trim()))
+                        this.ConCao = 5;
+
+            }
         }
 
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)

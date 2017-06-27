@@ -48,6 +48,8 @@
             this.layoutControlItem7 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem8 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem3 = new Telerik.WinControls.UI.LayoutControlItem();
+            this.btnTinhThu = new Telerik.WinControls.UI.RadButton();
+            this.layoutControlItem5 = new Telerik.WinControls.UI.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).BeginInit();
             this.radLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl2)).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNguoiDung)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbtnBangGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTinhThu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +72,7 @@
             this.radLayoutControl1.Controls.Add(this.txtTenNguoiDung);
             this.radLayoutControl1.Controls.Add(this.radLabel1);
             this.radLayoutControl1.Controls.Add(this.dbtnBangGia);
+            this.radLayoutControl1.Controls.Add(this.btnTinhThu);
             this.radLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radLayoutControl1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.layoutControlItem1,
@@ -77,7 +81,8 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem5});
             this.radLayoutControl1.Location = new System.Drawing.Point(0, 0);
             this.radLayoutControl1.Name = "radLayoutControl1";
             this.radLayoutControl1.Size = new System.Drawing.Size(393, 134);
@@ -86,9 +91,9 @@
             // 
             // radLayoutControl2
             // 
-            this.radLayoutControl2.Location = new System.Drawing.Point(199, 88);
+            this.radLayoutControl2.Location = new System.Drawing.Point(297, 88);
             this.radLayoutControl2.Name = "radLayoutControl2";
-            this.radLayoutControl2.Size = new System.Drawing.Size(191, 43);
+            this.radLayoutControl2.Size = new System.Drawing.Size(93, 43);
             this.radLayoutControl2.TabIndex = 1;
             this.radLayoutControl2.Text = "radLayoutControl2";
             // 
@@ -226,9 +231,25 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.AssociatedControl = this.radLayoutControl2;
-            this.layoutControlItem3.Bounds = new System.Drawing.Rectangle(196, 85, 197, 49);
+            this.layoutControlItem3.Bounds = new System.Drawing.Rectangle(294, 85, 99, 49);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Text = "layoutControlItem3";
+            // 
+            // btnTinhThu
+            // 
+            this.btnTinhThu.Location = new System.Drawing.Point(199, 88);
+            this.btnTinhThu.Name = "btnTinhThu";
+            this.btnTinhThu.Size = new System.Drawing.Size(92, 43);
+            this.btnTinhThu.TabIndex = 4;
+            this.btnTinhThu.Text = "Tính thử";
+            this.btnTinhThu.Click += new System.EventHandler(this.btnTinhThu_Click);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.AssociatedControl = this.btnTinhThu;
+            this.layoutControlItem5.Bounds = new System.Drawing.Rectangle(196, 85, 98, 49);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Text = "layoutControlItem5";
             // 
             // NavForm
             // 
@@ -242,6 +263,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Tính giá 123in Nhanh";
+            this.Load += new System.EventHandler(this.NavForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).EndInit();
             this.radLayoutControl1.ResumeLayout(false);
             this.radLayoutControl1.PerformLayout();
@@ -252,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNguoiDung)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbtnBangGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTinhThu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -279,5 +302,7 @@
         private Telerik.WinControls.UI.RadLayoutControl radLayoutControl2;
         private Telerik.WinControls.UI.LayoutControlItem layoutControlItem3;
         private Telerik.WinControls.UI.RadMenuButtonItem btnInNhanhTheoMay;
+        private Telerik.WinControls.UI.RadButton btnTinhThu;
+        private Telerik.WinControls.UI.LayoutControlItem layoutControlItem5;
     }
 }

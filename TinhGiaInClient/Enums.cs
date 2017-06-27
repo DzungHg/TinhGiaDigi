@@ -9,7 +9,7 @@ namespace TinhGiaInClient
     public enum FormStateS { View = 0, New = 1, Edit = 2, Get = 3 }
     public enum SapXepTinhGiaS { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoTieuDe = 3 }
     public enum ChieuSapXepS { Ascending = 0, Descending = 1 }
-    public enum LoaiThanhPhamS { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4, Be = 5, GiaCongNgoai = 10 }
+    public enum LoaiThanhPhamS { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4, Be = 5, CatDecal = 6, GiaCongNgoai = 10 }
     public enum KieuDongCuonS { Kim = 1, LoXo = 2, Keo = 3, MoPhang = 4 }
     public enum MauInS { BonMau = 0, MotMau = 1, SauMau = 2 }
     public enum PhuongPhapInS { Toner = 1, HPIndigo = 2, Offset = 3, KhoLon = 4, KhongIn = 0 }

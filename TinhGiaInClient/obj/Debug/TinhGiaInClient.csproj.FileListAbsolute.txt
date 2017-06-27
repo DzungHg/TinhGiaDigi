@@ -735,3 +735,6 @@ E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.InSachForm.re
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.InToForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.InToForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhDongCuonMoPhangForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhCatDecalForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhDongCuonMoPhangForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.TinhThuForm.resources

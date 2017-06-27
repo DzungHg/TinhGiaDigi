@@ -63,6 +63,7 @@ namespace TinhGiaInClient.Presenter
             var dongCuon = DongCuon.DocTheoId(View.IdThanhPhamChon);
             var tyLeMK = this.TyLeMarkUp();
             var giaDongCuon = new GiaDongCuon(View.SoLuong, tyLeMK, View.DonViTinh, dongCuon);
+
             result = giaDongCuon.ThanhTienSales();
 
             return result;

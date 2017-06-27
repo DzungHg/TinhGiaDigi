@@ -65,6 +65,7 @@ namespace TinhGiaInClient.Presenter
             var canGap = CanGap.DocTheoId(View.IdThanhPhamChon);
             var tyLeMK = this.TyLeMarkUp();
             var giaCanGap = new GiaCanGap(View.SoLuong, View.SoDuongCan, tyLeMK, View.DonViTinh, canGap);
+
             result = giaCanGap.ThanhTienSales();
             return result;
         }

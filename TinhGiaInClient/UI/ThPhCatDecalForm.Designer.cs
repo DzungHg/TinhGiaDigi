@@ -111,7 +111,7 @@
             this.txtDonViTinh.Location = new System.Drawing.Point(308, 107);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.Size = new System.Drawing.Size(62, 20);
-            this.txtDonViTinh.TabIndex = 3;
+            this.txtDonViTinh.TabIndex = 4;
             // 
             // label3
             // 
@@ -127,7 +127,7 @@
             this.txtConRong.Location = new System.Drawing.Point(115, 137);
             this.txtConRong.Name = "txtConRong";
             this.txtConRong.Size = new System.Drawing.Size(62, 20);
-            this.txtConRong.TabIndex = 4;
+            this.txtConRong.TabIndex = 2;
             // 
             // label6
             // 
@@ -225,7 +225,7 @@
             this.txtConCao.Location = new System.Drawing.Point(115, 163);
             this.txtConCao.Name = "txtConCao";
             this.txtConCao.Size = new System.Drawing.Size(62, 20);
-            this.txtConCao.TabIndex = 116;
+            this.txtConCao.TabIndex = 3;
             // 
             // ThPhCatDecalForm
             // 

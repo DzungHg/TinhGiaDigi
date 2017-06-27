@@ -50,6 +50,8 @@ namespace TinhGiaInClient.UI
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
             txtSoToDoi.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToDoi.Leave += new EventHandler(TextBoxes_Leave);
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoToDoi.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -233,16 +235,16 @@ namespace TinhGiaInClient.UI
                 tb = (TextBox)sender;
                 if (tb == txtSoLuong )
                 {
-                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        txtSoLuong.Text = "1";
+                    if (!string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        CapNhatLabelGia();
                     
                 }
                 //xử lý khi user xóa hết
                 if ( tb == txtSoToDoi)
-                    if (string.IsNullOrEmpty(txtSoToDoi.Text.Trim()))
-                        txtSoToDoi.Text = "10";
+                    if (!string.IsNullOrEmpty(txtSoToDoi.Text.Trim()))
+                        CapNhatLabelGia();
 
-                CapNhatLabelGia();
+                
             
             }
             /*Telerik.WinControls.UI.RadListView lv;
@@ -358,7 +360,24 @@ namespace TinhGiaInClient.UI
 
         private void TextBoxes_Leave(object sender, EventArgs e)
         {
+            TextBox tb;
+            if (sender is TextBox)
+            {
+                tb = (TextBox)sender;
+                if (tb == txtSoLuong)
+                {
+                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        txtSoLuong.Text = "1";
 
+                }
+                //xử lý khi user xóa hết
+                if (tb == txtSoToDoi)
+                    if (string.IsNullOrEmpty(txtSoToDoi.Text.Trim()))
+                        txtSoToDoi.Text = "10";
+
+               
+
+            }
         }
 
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)

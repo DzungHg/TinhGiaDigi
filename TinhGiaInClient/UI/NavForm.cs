@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 using Telerik.WinControls;
+
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
 
@@ -26,6 +28,7 @@ namespace TinhGiaInClient.UI
         BangGiaThanhPhamForm frmBangGiaThanhPham;
         BangGiaInNhanhForm frmBangGiaInNhanh;
         BangGiaInNhanhMayForm frmBangGiaInNhanhMay;
+        TinhThuForm frmTinhThu;
         //BangGiaDongCuonForm frmDongCuonLoXo;
         private string TenMayTinhHienTai()
         {
@@ -77,6 +80,8 @@ namespace TinhGiaInClient.UI
                     frmBangGiaInNhanh = null;
                 if (frm == frmBangGiaInNhanhMay)
                     frmBangGiaInNhanhMay = null;
+                if (frm == frmTinhThu)
+                    frmTinhThu = null;
             }
            
                 
@@ -165,6 +170,64 @@ namespace TinhGiaInClient.UI
 
             }
             else frmBangGiaInNhanhMay.Focus();
+        }
+
+        private void btnTinhThu_Click(object sender, EventArgs e)
+        {
+            if (!CoTheMoFormNay("TinhThuForm")) //không có tên form
+                return;
+            //Qua khỏi
+            if (frmTinhThu == null)
+            {
+                frmTinhThu = new TinhThuForm();
+                frmTinhThu.Text = "Tính thử";
+                frmTinhThu.MinimizeBox = false;
+                frmTinhThu.MaximizeBox = false;
+                frmTinhThu.FormClosed += new FormClosedEventHandler(ByByWindows);
+                frmTinhThu.Show();
+
+            }
+            else frmTinhThu.Focus();
+        }
+
+        private void NavForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        private bool CoTheMoFormNay(string tenForm)
+        {
+            bool kq = true;
+            if (string.IsNullOrEmpty(txtTenNguoiDung.Text.Trim()))
+            {
+                MessageBox.Show("Tên người dùng chưa đúng!");
+                return false;
+            }
+            //Kiểm tiếp
+            var nguoiDung = NguoiDung.DocTheoTenDangNhap(this.TenNguoiDung);
+            if (nguoiDung.ID == 0)
+            {
+                MessageBox.Show("Bạn chưa có tài khoản sử dụng");
+                return false;
+            }
+            //Kiểm tra có tên form không
+            try
+            {
+                var danhSachFormS = nguoiDung.FormCoTheMo.ToUpper().Split(';');
+                if (danhSachFormS.Contains("*")) //Trường hợp đặc biệt master
+                    return true;
+
+                if (!danhSachFormS.Contains(tenForm.ToUpper().Trim()))
+                {
+                    kq = false;
+                }
+            }
+            catch
+            {
+                kq = false;
+            }
+
+            return kq;
+
         }
 
         
