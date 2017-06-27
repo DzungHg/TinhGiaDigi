@@ -104,6 +104,8 @@
     <Property Name="Toc_do_cuon" Type="int" />
     <Property Name="Thoi_gian_chuan_bi" Type="float" />
     <Property Name="Phi_ngvl_cuon" Type="int" />
+    <Property Name="bia_to_don" Type="bit" />
+    <Property Name="ruot_to_don" Type="bit" />
     <Property Name="Day_so_luong" Type="nvarchar(max)" />
     <Property Name="Day_loi_nhuan" Type="nvarchar(max)" />
     <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
@@ -119,6 +121,8 @@
     <Property Name="ten" Type="nvarchar" MaxLength="100" />
     <Property Name="BHR" Type="int" />
     <Property Name="toc_do_cuon" Type="int" />
+    <Property Name="bia_to_don" Type="bit" />
+    <Property Name="ruot_to_don" Type="bit" />
     <Property Name="thoi_gian_chuan_bi" Type="float" />
     <Property Name="day_so_luong" Type="nvarchar(max)" />
     <Property Name="day_loi_nhuan" Type="nvarchar(max)" />
@@ -143,6 +147,8 @@
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="thu_tu" Type="int" />
+    <Property Name="bia_to_don" Type="bit" />
+    <Property Name="ruot_to_don" Type="bit" />
   </EntityType>
   <EntityType Name="DS_THANH_PHAM">
     <Key>

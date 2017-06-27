@@ -293,6 +293,8 @@
     <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="bia_to_don" Type="Boolean" />
+    <Property Name="ruot_to_don" Type="Boolean" />
   </EntityType>
   <EntityType Name="EP_KIM">
     <Key>
@@ -502,6 +504,8 @@
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="thu_tu" Type="Int32" />
+    <Property Name="bia_to_don" Type="Boolean" />
+    <Property Name="ruot_to_don" Type="Boolean" />
   </EntityType>
   <EntityType Name="LO_XO_DONG_CUON">
     <Key>
@@ -531,6 +535,8 @@
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="thu_tu" Type="Int32" />
+    <Property Name="bia_to_don" Type="Boolean" />
+    <Property Name="ruot_to_don" Type="Boolean" />
   </EntityType>
   <EntityType Name="TO_LOT_MO_PHANG">
     <Key>

@@ -20,6 +20,8 @@ namespace TinhGiaInClient.Model.Booklet
         public KieuDongCuonS KieuDongCuon { get; set; }
       
         public string Ten { get; set; }
+        public bool BiaDon { get; set; }
+        public bool RuotDon { get; set; }
 
         public static List<MonDongCuon> DocTatCa()
         {
@@ -34,6 +36,8 @@ namespace TinhGiaInClient.Model.Booklet
                     ID = i,
                     IdGoc = dc.ID,
                     Ten = dc.Ten,
+                    BiaDon = dc.BiaToDon,
+                    RuotDon = dc.RuotToDon,
                     KieuDongCuon = KieuDongCuonS.Keo //Chỉ đại diện
                 };
                 
@@ -52,6 +56,8 @@ namespace TinhGiaInClient.Model.Booklet
                     ID = i,
                     IdGoc = dcLX.ID,
                     Ten = dcLX.Ten,
+                    BiaDon = dcLX.BiaToDon,
+                    RuotDon = dcLX.RuotToDon,
                     KieuDongCuon = KieuDongCuonS.LoXo //Đúng
                 };
                 lst.Add(monDC);
@@ -67,6 +73,8 @@ namespace TinhGiaInClient.Model.Booklet
                     ID = i,
                     IdGoc = dcMP.ID,
                     Ten = dcMP.Ten,
+                    BiaDon = dcMP.BiaToDon,
+                    RuotDon = dcMP.RuotToDon,
                     KieuDongCuon = KieuDongCuonS.MoPhang //Đúng
                 };
                 lst.Add(monDC);

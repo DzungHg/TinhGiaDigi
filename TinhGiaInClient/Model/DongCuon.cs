@@ -13,7 +13,8 @@ namespace TinhGiaInClient.Model
         //Bổ sung thêm thuộc tính
         public int TocDoCuonGio { get; set; }
         public int PhiNgVLCuon { get; set; }
-        
+        public bool BiaToDon { get; set; }
+        public bool RuotToDon { get; set; }
         //Statics
         public static List<DongCuon> DocTatCa()
         {
@@ -25,6 +26,8 @@ namespace TinhGiaInClient.Model
                 BHR = x.BHR,
                 TocDoCuonGio = x.TocDoCuonGio,
                 ThoiGianChuanBi = x.ThoiGianChuanBi,
+                BiaToDon = x.BiaToDon,
+                RuotToDon = x.RuotToDon,
                 DayLoiNhuan = x.DayLoiNhuan,
                 DaySoLuong = x.DaySoLuong,
                 PhiNgVLCuon = x.PhiNgVLCuon,
@@ -67,6 +70,8 @@ namespace TinhGiaInClient.Model
             dongCuonDTO.BHR = dongCuonBDO.BHR;
             dongCuonDTO.TocDoCuonGio = dongCuonBDO.TocDoCuonGio;
             dongCuonDTO.ThoiGianChuanBi = dongCuonBDO.ThoiGianChuanBi;
+            dongCuonDTO.BiaToDon = dongCuonBDO.BiaToDon;
+            dongCuonDTO.RuotToDon = dongCuonBDO.RuotToDon;
             dongCuonDTO.DayLoiNhuan = dongCuonBDO.DayLoiNhuan;
             dongCuonDTO.DaySoLuong = dongCuonBDO.DaySoLuong;
             dongCuonDTO.PhiNgVLCuon = dongCuonBDO.PhiNgVLCuon;
@@ -82,6 +87,8 @@ namespace TinhGiaInClient.Model
             dongCuonBDO.BHR = dongCuonDTO.BHR;
             dongCuonBDO.TocDoCuonGio = dongCuonDTO.TocDoCuonGio;
             dongCuonBDO.ThoiGianChuanBi = dongCuonDTO.ThoiGianChuanBi;
+            dongCuonBDO.BiaToDon = dongCuonDTO.BiaToDon;
+            dongCuonBDO.RuotToDon = dongCuonDTO.RuotToDon;
             dongCuonBDO.DayLoiNhuan = dongCuonDTO.DayLoiNhuan;
             dongCuonBDO.DaySoLuong = dongCuonDTO.DaySoLuong;
             dongCuonBDO.Ma_01 = dongCuonDTO.Ma_01;

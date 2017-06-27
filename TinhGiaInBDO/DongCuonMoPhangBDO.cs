@@ -10,7 +10,8 @@ namespace TinhGiaInBDO
     {
         public int TocDoToDoiGio { get; set; }
         public int PhiKeoToDoi { get; set; }
-        
-      
+
+        public bool BiaToDon { get; set; }
+        public bool RuotToDon { get; set; }
     }
 }

@@ -26,5 +26,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string ma_01 { get; set; }
         public string don_vi_tinh { get; set; }
         public string day_so_luong_niem_yet { get; set; }
+        public Nullable<bool> bia_to_don { get; set; }
+        public Nullable<bool> ruot_to_don { get; set; }
     }
 }

@@ -14,6 +14,7 @@ namespace TinhGiaInClient.Model
         ///Chưa cần thiết để thừa kế MucThanhPham để chỉnh sửa nâng cấp sau này
         /// </summary>
         public int SoLuong { get; set; }
+      
         public int TyLeMarkUp { get; set; }
         public string DonViTinh { get; set; }
         public DongCuon DongCuon { get; set; }

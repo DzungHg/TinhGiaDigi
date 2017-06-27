@@ -29,6 +29,8 @@ namespace TinhGiaInClient.View
             get;
             set;
         }
+        float SanPhamRong { get; set; }
+        float SanPhamCao { get; set; }
         int SoLuong
         {
             get;

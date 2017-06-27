@@ -282,7 +282,25 @@ namespace TinhGiaInClient.UI
                     + " - Từ đây nhập Số lượng chính xác" + '\r' + '\n'
             };
             var baiIn = new BaiIn("Bìa sách");
-            baiIn.SoLuong = this.SoCuon;//Số bìa thường theo số cuốn
+            //Xác định bìa đơn hay bìa đôi để thêm kích thước và số lượng cho phù hợp
+            var monDongCuon = inSachPres.DocMonDongCuonTheoID();
+            if (monDongCuon.BiaDon)
+            {                
+                baiIn.SoLuong = this.SoCuon * 2;
+                thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Bìa khổ: {0} x {1}cm" + '\r' + '\n',
+                    this.SachRong   + this.GayDay, this.SachCao);
+                thongTinChoBaiIn.SanPhamRong = this.SachRong;
+                
+            }
+            else
+            {
+                baiIn.SoLuong = this.SoCuon;
+                thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Bìa khổ: {0} x {1}cm" + '\r' + '\n',
+                    this.SachRong * 2 + this.GayDay, this.SachCao);
+                thongTinChoBaiIn.SanPhamRong = this.SachRong * 2 + this.GayDay;
+            }
+            thongTinChoBaiIn.SanPhamCao = this.SachCao;
+            
             baiIn.DonVi = "Tờ";
             baiIn.IdHangKH = this.IdHangKhachHang;
 
@@ -347,7 +365,23 @@ namespace TinhGiaInClient.UI
                     + " - Từ đây nhập Số lượng chính xác" + '\r' + '\n'
             };
             var baiIn = new BaiIn("Ruột sách");
-            baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 2;//Mang tính tham khảo
+            //Xác định ruột đôi hay ruột đơn để thêm kích thước và số lượng cho phù hợp
+            var monDongCuon = inSachPres.DocMonDongCuonTheoID();
+            if (monDongCuon.RuotDon)
+            {
+                baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 2;
+                thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Ruột khổ: {0} x {1}cm" + '\r' + '\n',
+                    this.SachRong * 2 + this.GayDay, this.SachCao);
+                thongTinChoBaiIn.SanPhamRong = this.SachRong * 2;
+            }
+            else
+            {
+                baiIn.SoLuong = baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 4; 
+                thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Ruột khổ: {0} x {1}cm" + '\r' + '\n',
+                    this.SachRong + this.GayDay, this.SachCao);
+                thongTinChoBaiIn.SanPhamRong = this.SachRong;
+            }
+            thongTinChoBaiIn.SanPhamCao = this.SachCao;
             baiIn.DonVi = "tờ";
             baiIn.IdHangKH = this.IdHangKhachHang;
             var frm = new InToForm(thongTinChoBaiIn, baiIn);
@@ -809,6 +843,21 @@ namespace TinhGiaInClient.UI
         private void btnCopyChaoKHDV_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(inSachPres.TomTatChaoGia_DV());
+        }
+
+        private void btnLayKichThuoc_Click(object sender, EventArgs e)
+        {
+            KhoSanPhamSForm frm = new KhoSanPhamSForm(FormStateS.Get);
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Khổ Sản phẩm";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                this.SachRong = frm.ChieuRong;
+                this.SachCao = frm.ChieuCao;
+            }
         }
 
     }

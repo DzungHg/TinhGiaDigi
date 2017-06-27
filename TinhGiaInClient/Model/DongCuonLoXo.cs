@@ -12,7 +12,8 @@ namespace TinhGiaInClient.Model
     {
         //Bổ sung thêm thuộc tính
         public int TocDoCuonGio { get; set; }
-    
+        public bool BiaToDon { get; set; }
+        public bool RuotToDon { get; set; }
         
         //Statics
         public static List<DongCuonLoXo> DocTatCa()
@@ -25,9 +26,10 @@ namespace TinhGiaInClient.Model
                 BHR = x.BHR,
                 TocDoCuonGio = x.TocDoCuonGio,
                 ThoiGianChuanBi = x.ThoiGianChuanBi,
+                BiaToDon = x.BiaToDon,
+                RuotToDon = x.RuotToDon,
                 DayLoiNhuan = x.DayLoiNhuan,
-                DaySoLuong = x.DaySoLuong,
-             
+                DaySoLuong = x.DaySoLuong,             
                 Ma_01 = x.Ma_01,
                 DaySoLuongNiemYet = x.DaySoLuongNiemYet,
                 DonViTinh = x.DonViTinh,
@@ -67,9 +69,10 @@ namespace TinhGiaInClient.Model
             dongCuonDTO.BHR = dongCuonBDO.BHR;
             dongCuonDTO.TocDoCuonGio = dongCuonBDO.TocDoCuonGio;
             dongCuonDTO.ThoiGianChuanBi = dongCuonBDO.ThoiGianChuanBi;
+            dongCuonDTO.BiaToDon = dongCuonBDO.BiaToDon;
+            dongCuonDTO.RuotToDon = dongCuonBDO.RuotToDon;
             dongCuonDTO.DayLoiNhuan = dongCuonBDO.DayLoiNhuan;
-            dongCuonDTO.DaySoLuong = dongCuonBDO.DaySoLuong;
-          
+            dongCuonDTO.DaySoLuong = dongCuonBDO.DaySoLuong;          
             dongCuonDTO.Ma_01 = dongCuonBDO.Ma_01;
             dongCuonDTO.DaySoLuongNiemYet = dongCuonBDO.DaySoLuongNiemYet;
             dongCuonDTO.DonViTinh = dongCuonBDO.DonViTinh;
@@ -82,6 +85,8 @@ namespace TinhGiaInClient.Model
             dongCuonBDO.BHR = dongCuonDTO.BHR;
             dongCuonBDO.TocDoCuonGio = dongCuonDTO.TocDoCuonGio;
             dongCuonBDO.ThoiGianChuanBi = dongCuonDTO.ThoiGianChuanBi;
+            dongCuonBDO.BiaToDon = dongCuonDTO.BiaToDon;
+            dongCuonBDO.RuotToDon = dongCuonDTO.RuotToDon;
             dongCuonBDO.DayLoiNhuan = dongCuonDTO.DayLoiNhuan;
             dongCuonBDO.DaySoLuong = dongCuonDTO.DaySoLuong;
             dongCuonBDO.Ma_01 = dongCuonDTO.Ma_01;

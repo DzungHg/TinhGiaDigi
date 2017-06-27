@@ -22,7 +22,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     BHR = (int)x.BHR,
                     ThoiGianChuanBi = (float)x.thoi_gian_chuan_bi,
                     TocDoCuonGio = (int)x.toc_do_cuon,
-                   
+                    BiaToDon = (bool)x.bia_to_don,
+                    RuotToDon = (bool)x.ruot_to_don,
                     DaySoLuong = x.day_so_luong,
                     DayLoiNhuan = x.day_loi_nhuan,
                     DonViTinh = x.don_vi_tinh,
@@ -51,7 +52,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     BHR = (int)x.BHR,
                     ThoiGianChuanBi = (float)x.thoi_gian_chuan_bi,
                     TocDoCuonGio = (int)x.toc_do_cuon,
-                   
+                    BiaToDon = (bool)x.bia_to_don,
+                    RuotToDon = (bool)x.ruot_to_don,
                     DaySoLuong = x.day_so_luong,
                     DayLoiNhuan = x.day_loi_nhuan,
                     Ma_01 = x.ma_01,
@@ -119,6 +121,8 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.BHR = entityBDO.BHR;
             entityDAO.toc_do_cuon = entityBDO.TocDoCuonGio;
             entityDAO.thoi_gian_chuan_bi = entityBDO.ThoiGianChuanBi;
+            entityDAO.bia_to_don = entityBDO.BiaToDon;
+            entityDAO.ruot_to_don = entityBDO.RuotToDon; 
             entityDAO.day_so_luong = entityBDO.DaySoLuong;
             entityDAO.day_loi_nhuan = entityBDO.DayLoiNhuan;
             entityDAO.ma_01 = entityBDO.Ma_01;

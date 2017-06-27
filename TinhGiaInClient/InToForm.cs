@@ -31,6 +31,8 @@ namespace TinhGiaInClient
             this.Text = thongTinBanDau.TieuDeForm;
             this.DienGiai = thongTinBanDau.YeuCauTinhGia;
             this.DanDoThem = thongTinBanDau.DanDoThem;
+            this.SanPhamRong = thongTinBanDau.SanPhamRong;
+            this.SanPhamCao = thongTinBanDau.SanPhamCao;
 
             CapNhatTenHangKH();
             // 
@@ -86,6 +88,8 @@ namespace TinhGiaInClient
             get { return txtDanDoThem.Text; }
             set { txtDanDoThem.Text = value; }
         }
+        public float SanPhamRong { get; set; }
+        public float SanPhamCao { get; set; }
         public int SoLuong
         {
             get { return int.Parse(txtSoLuong.Text); }
@@ -301,6 +305,13 @@ namespace TinhGiaInClient
                             0.2f, 0.2f, 0.2f, 0.2f,
                             baiIn.ID, PhuongPhapInS.Toner
                             , 0, "");
+            //Xem có cài sẵn kích thước sản phẩm không
+            if (this.SanPhamRong >0 || this.SanPhamCao > 0)
+            {
+                cauHinhSP.KhoCatRong = this.SanPhamRong;
+                cauHinhSP.KhoCatCao = this.SanPhamCao;
+            }
+            //Tiếp
             var frm = new CauHinhSPForm(thongTinCauHinhBanDau(baiIn, FormStateS.New), cauHinhSP);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;

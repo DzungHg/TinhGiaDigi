@@ -10,7 +10,7 @@ namespace TinhGiaInClient.Model
     {
         public int SoLuong { get; set; }
         public float GayRong { get; set; }
-      
+       
         public int TyLeMarkUp { get; set; }
         public DongCuonLoXo DongCuonLX { get; set; }
         public LoXoDongCuon LoXo { get; set; }

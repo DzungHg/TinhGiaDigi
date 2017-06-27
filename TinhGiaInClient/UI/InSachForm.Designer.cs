@@ -72,6 +72,7 @@
             this.wzRuotBia = new Telerik.WinControls.UI.WizardPage();
             this.wzInAn = new Telerik.WinControls.UI.WizardPage();
             this.wzDongCuon = new Telerik.WinControls.UI.WizardPage();
+            this.btnLayKichThuoc = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).BeginInit();
             this.radWiz1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -111,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLayKichThuoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +191,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnLayKichThuoc);
             this.panel1.Controls.Add(this.lbxDongCuon);
             this.panel1.Controls.Add(this.radLabel9);
             this.panel1.Controls.Add(this.lblTongSoTrang);
@@ -219,13 +222,13 @@
             this.lbxDongCuon.Location = new System.Drawing.Point(335, 69);
             this.lbxDongCuon.Name = "lbxDongCuon";
             this.lbxDongCuon.Size = new System.Drawing.Size(120, 159);
-            this.lbxDongCuon.TabIndex = 15;
+            this.lbxDongCuon.TabIndex = 9;
             this.lbxDongCuon.Text = "radListControl1";
             this.lbxDongCuon.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lbxDongCuon_SelectedIndexChanged);
             // 
             // radLabel9
             // 
-            this.radLabel9.Location = new System.Drawing.Point(267, 67);
+            this.radLabel9.Location = new System.Drawing.Point(343, 45);
             this.radLabel9.Name = "radLabel9";
             this.radLabel9.Size = new System.Drawing.Size(62, 18);
             this.radLabel9.TabIndex = 1;
@@ -253,7 +256,7 @@
             this.txtSoCuon.Location = new System.Drawing.Point(122, 208);
             this.txtSoCuon.Name = "txtSoCuon";
             this.txtSoCuon.Size = new System.Drawing.Size(81, 20);
-            this.txtSoCuon.TabIndex = 7;
+            this.txtSoCuon.TabIndex = 8;
             // 
             // radLabel7
             // 
@@ -268,7 +271,7 @@
             this.txtSoTrangRuot.Location = new System.Drawing.Point(122, 182);
             this.txtSoTrangRuot.Name = "txtSoTrangRuot";
             this.txtSoTrangRuot.Size = new System.Drawing.Size(81, 20);
-            this.txtSoTrangRuot.TabIndex = 6;
+            this.txtSoTrangRuot.TabIndex = 7;
             // 
             // radLabel6
             // 
@@ -283,7 +286,7 @@
             this.txtSoTrangBia.Location = new System.Drawing.Point(122, 156);
             this.txtSoTrangBia.Name = "txtSoTrangBia";
             this.txtSoTrangBia.Size = new System.Drawing.Size(81, 20);
-            this.txtSoTrangBia.TabIndex = 5;
+            this.txtSoTrangBia.TabIndex = 6;
             // 
             // radLabel5
             // 
@@ -298,7 +301,7 @@
             this.txtGayDay.Location = new System.Drawing.Point(122, 119);
             this.txtGayDay.Name = "txtGayDay";
             this.txtGayDay.Size = new System.Drawing.Size(81, 20);
-            this.txtGayDay.TabIndex = 4;
+            this.txtGayDay.TabIndex = 5;
             // 
             // radLabel4
             // 
@@ -313,7 +316,7 @@
             this.txtSachCao.Location = new System.Drawing.Point(122, 93);
             this.txtSachCao.Name = "txtSachCao";
             this.txtSachCao.Size = new System.Drawing.Size(81, 20);
-            this.txtSachCao.TabIndex = 3;
+            this.txtSachCao.TabIndex = 4;
             // 
             // radLabel3
             // 
@@ -328,7 +331,7 @@
             this.txtSachRong.Location = new System.Drawing.Point(122, 67);
             this.txtSachRong.Name = "txtSachRong";
             this.txtSachRong.Size = new System.Drawing.Size(81, 20);
-            this.txtSachRong.TabIndex = 2;
+            this.txtSachRong.TabIndex = 3;
             // 
             // radLabel2
             // 
@@ -517,6 +520,15 @@
             this.wzDongCuon.Name = "wzDongCuon";
             this.wzDongCuon.Title = "Đóng cuốn";
             // 
+            // btnLayKichThuoc
+            // 
+            this.btnLayKichThuoc.Location = new System.Drawing.Point(209, 79);
+            this.btnLayKichThuoc.Name = "btnLayKichThuoc";
+            this.btnLayKichThuoc.Size = new System.Drawing.Size(71, 24);
+            this.btnLayKichThuoc.TabIndex = 2;
+            this.btnLayKichThuoc.Text = "Kích thước...";
+            this.btnLayKichThuoc.Click += new System.EventHandler(this.btnLayKichThuoc_Click);
+            // 
             // InSachForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,6 +582,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLayKichThuoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -620,5 +633,6 @@
         private Telerik.WinControls.UI.RadLabel radLabel9;
         private Telerik.WinControls.UI.RadButton btnCopyChaoKHDV;
         private Telerik.WinControls.UI.RadButton btnCopyChaoKHLe;
+        private Telerik.WinControls.UI.RadButton btnLayKichThuoc;
     }
 }

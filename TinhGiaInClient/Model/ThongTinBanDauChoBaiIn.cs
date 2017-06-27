@@ -13,6 +13,8 @@ namespace TinhGiaInClient.Model
         public string TieuDeBaiIn { get; set; }
         public string YeuCauTinhGia { get; set; }
         public string DanDoThem { get; set; }
+        public float SanPhamRong { get; set; }
+        public float SanPhamCao { get; set; }
         public FormStateS TinhTrangForm { get; set; }
         public int IdHangKhachHang { get; set; }
         public string DonViTinh { get; set; }
