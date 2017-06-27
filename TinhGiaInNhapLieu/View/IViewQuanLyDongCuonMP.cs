@@ -7,18 +7,10 @@ using TinhGiaInClient;
 
 namespace TinhGiaInNhapLieu.View
 {
-    public interface IViewQuanLyDongCuonMP
+    public interface IViewQuanLyDongCuonMP: IViewMayThanhPham
     {
-
-        int ID { get; set; }
-        string Ten { get; set; }
-        int BHR { get; set; }              
-        string DaySoLuongCoBan { get; set; }
-        string DayLoiNhuanCoBan { get; set; }
-        string DonViTinh { get; set; }
-        int PhiKeoToDoi { get; set; }
-        int TocDoToDoiGio { get; set; }
-        float ThoiGianChuanBi { get; set; }
+        
+        int PhiKeoToDoi { get; set; }        
         int ThuTu { get; set; }
         string DaySoLuongNiemYet { get; set; }
       

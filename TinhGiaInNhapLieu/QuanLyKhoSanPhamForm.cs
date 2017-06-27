@@ -34,7 +34,8 @@ namespace TinhGiaInNhapLieu
             txtKhoCatRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtKhoCatCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDienGiai.TextChanged += new EventHandler(TextBoxes_TextChanged);
-           
+            txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
             txtKhoCatRong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtKhoCatCao.KeyPress += new KeyPressEventHandler(InputValidator);

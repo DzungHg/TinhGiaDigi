@@ -418,5 +418,34 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BOI_BIA_CUNG">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.BOI_BIA_CUNG">
+        <MappingFragment StoreEntitySet="BOI_BIA_CUNG">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
+          <ScalarProperty Name="day_loi_nhuan" ColumnName="day_loi_nhuan" />
+          <ScalarProperty Name="day_so_luong" ColumnName="day_so_luong" />
+          <ScalarProperty Name="thoi_gian_chuan_bi" ColumnName="thoi_gian_chuan_bi" />
+          <ScalarProperty Name="phi_keo_met_vuong" ColumnName="phi_keo_met_vuong" />
+          <ScalarProperty Name="toc_do_tam_gio" ColumnName="toc_do_tam_gio" />
+          <ScalarProperty Name="BHR" ColumnName="BHR" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TO_BOI_BIA_CUNG">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.TO_BOI_BIA_CUNG">
+        <MappingFragment StoreEntitySet="TO_BOI_BIA_CUNG">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="gia_mua_to" ColumnName="gia_mua_to" />
+          <ScalarProperty Name="do_day_cm" ColumnName="do_day_cm" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

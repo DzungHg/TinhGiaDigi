@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BangGiaDanhThiepBDO.cs" />
     <Compile Include="BangGiaInNhanhBDO.cs" />
+    <Compile Include="BoiBiaCungBDO.cs" />
     <Compile Include="CatDecalBDO.cs" />
     <Compile Include="DongCuonMoPhangBDO.cs" />
     <Compile Include="DongCuonLoXoBDO.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="MonThanhPhamBDO.cs" />
     <Compile Include="NguoiDungBDO.cs" />
     <Compile Include="LoXoDongCuonBDO.cs" />
+    <Compile Include="ToBoiBiaCungBDO.cs" />
     <Compile Include="ToLotMoPhangBDO.cs" />
     <Compile Include="YeuCauTinhGiaInBDO.cs" />
     <Compile Include="NhuEpKimBDO.cs" />

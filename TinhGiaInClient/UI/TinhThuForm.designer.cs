@@ -30,7 +30,7 @@
         {
             this.btnDong = new System.Windows.Forms.Button();
             this.pnlBottom = new System.Windows.Forms.Panel();
-            this.txtChonHangKH = new System.Windows.Forms.Label();
+            this.lblChonHangKH = new System.Windows.Forms.Label();
             this.cboHangKH = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGiaInNhanh = new System.Windows.Forms.Button();
@@ -42,6 +42,7 @@
             this.btnTinhThu_DongCuonMoPhang = new System.Windows.Forms.Button();
             this.btnTinhThu_CatDecal = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnTinhThu_BoiBiaCung = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -49,7 +50,7 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(143, 6);
+            this.btnDong.Location = new System.Drawing.Point(169, 6);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
             this.btnDong.TabIndex = 4;
@@ -66,14 +67,14 @@
             this.pnlBottom.Size = new System.Drawing.Size(412, 39);
             this.pnlBottom.TabIndex = 6;
             // 
-            // txtChonHangKH
+            // lblChonHangKH
             // 
-            this.txtChonHangKH.AutoSize = true;
-            this.txtChonHangKH.Location = new System.Drawing.Point(12, 13);
-            this.txtChonHangKH.Name = "txtChonHangKH";
-            this.txtChonHangKH.Size = new System.Drawing.Size(79, 13);
-            this.txtChonHangKH.TabIndex = 5;
-            this.txtChonHangKH.Text = "Chọn Hạng KH";
+            this.lblChonHangKH.AutoSize = true;
+            this.lblChonHangKH.Location = new System.Drawing.Point(12, 13);
+            this.lblChonHangKH.Name = "lblChonHangKH";
+            this.lblChonHangKH.Size = new System.Drawing.Size(79, 13);
+            this.lblChonHangKH.TabIndex = 5;
+            this.lblChonHangKH.Text = "Chọn Hạng KH";
             // 
             // cboHangKH
             // 
@@ -94,6 +95,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_GiaDongCuonLoXo);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_DongCuonMoPhang);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_CatDecal);
+            this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_BoiBiaCung);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -183,13 +185,23 @@
             // 
             // pnlTop
             // 
-            this.pnlTop.Controls.Add(this.txtChonHangKH);
+            this.pnlTop.Controls.Add(this.lblChonHangKH);
             this.pnlTop.Controls.Add(this.cboHangKH);
             this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(412, 36);
             this.pnlTop.TabIndex = 5;
+            // 
+            // btnTinhThu_BoiBiaCung
+            // 
+            this.btnTinhThu_BoiBiaCung.Location = new System.Drawing.Point(3, 89);
+            this.btnTinhThu_BoiBiaCung.Name = "btnTinhThu_BoiBiaCung";
+            this.btnTinhThu_BoiBiaCung.Size = new System.Drawing.Size(92, 37);
+            this.btnTinhThu_BoiBiaCung.TabIndex = 13;
+            this.btnTinhThu_BoiBiaCung.Text = "Bồi Bìa cứng";
+            this.btnTinhThu_BoiBiaCung.UseVisualStyleBackColor = true;
+            this.btnTinhThu_BoiBiaCung.Click += new System.EventHandler(this.btnTinhThu_BoiBiaCung_Click);
             // 
             // TinhThuForm
             // 
@@ -203,7 +215,7 @@
             this.MinimizeBox = false;
             this.Name = "TinhThuForm";
             this.Text = "Nhập dữ liệu";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormClosing_Query);
             this.Load += new System.EventHandler(this.NhapLieuMainForm_Load);
             this.Resize += new System.EventHandler(this.NhapLieuMainForm_Resize);
             this.pnlBottom.ResumeLayout(false);
@@ -218,7 +230,7 @@
 
         private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.Panel pnlBottom;
-        private System.Windows.Forms.Label txtChonHangKH;
+        private System.Windows.Forms.Label lblChonHangKH;
         private System.Windows.Forms.ComboBox cboHangKH;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnGiaInNhanh;
@@ -230,6 +242,7 @@
         private System.Windows.Forms.Button btnTinhThu_DongCuonMoPhang;
         private System.Windows.Forms.Button btnTinhThu_CatDecal;
         private System.Windows.Forms.Panel pnlTop;
+        private System.Windows.Forms.Button btnTinhThu_BoiBiaCung;
 
     }
 }

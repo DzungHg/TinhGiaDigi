@@ -39,7 +39,7 @@ namespace TinhGiaInClient.Model
             return result;
         }
        
-        public decimal ChiPhiToLot()
+        private decimal ChiPhiToLot()
         {
             decimal kq = 0;
             if (this.ToLotMP != null)

@@ -51,5 +51,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<DONG_CUON_MO_PHANG> DONG_CUON_MO_PHANG { get; set; }
         public virtual DbSet<TO_LOT_MO_PHANG> TO_LOT_MO_PHANG { get; set; }
         public virtual DbSet<CAT_DECAL> CAT_DECAL { get; set; }
+        public virtual DbSet<BOI_BIA_CUNG> BOI_BIA_CUNG { get; set; }
+        public virtual DbSet<TO_BOI_BIA_CUNG> TO_BOI_BIA_CUNG { get; set; }
     }
 }

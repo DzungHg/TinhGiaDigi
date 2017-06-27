@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BangGiaDanhThiepLogic.cs" />
+    <Compile Include="BoiBiaCungLogic.cs" />
     <Compile Include="CatDecalLogic.cs" />
     <Compile Include="DongCuonMoPhangLogic.cs" />
     <Compile Include="DongCuonLoXoLogic.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="MayInDigiLogic.cs" />
     <Compile Include="MonThanhPhamLogic.cs" />
     <Compile Include="LoXoDongCuonLogic.cs" />
+    <Compile Include="ToBoiBiaCungLogic.cs" />
     <Compile Include="ToLotMoPhangLogic.cs" />
     <Compile Include="YeuCauTinhGiaInLogic.cs" />
     <Compile Include="NhuEpKimLogic.cs" />

@@ -58,6 +58,7 @@
             this.btnQuanLy_DongCuon = new System.Windows.Forms.Button();
             this.btnEpKim = new System.Windows.Forms.Button();
             this.btnQuanLy_DongCuonMP = new System.Windows.Forms.Button();
+            this.btnQuanLy_CatDecal = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -159,7 +160,7 @@
             this.tabChung.Location = new System.Drawing.Point(4, 22);
             this.tabChung.Name = "tabChung";
             this.tabChung.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChung.Size = new System.Drawing.Size(507, 298);
+            this.tabChung.Size = new System.Drawing.Size(418, 207);
             this.tabChung.TabIndex = 0;
             this.tabChung.Text = "Chung";
             this.tabChung.UseVisualStyleBackColor = true;
@@ -174,7 +175,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(501, 292);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(412, 201);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // btnMayInDigi
@@ -307,7 +308,7 @@
             this.tabThanhPham.Controls.Add(this.flowLayoutPanel3);
             this.tabThanhPham.Location = new System.Drawing.Point(4, 22);
             this.tabThanhPham.Name = "tabThanhPham";
-            this.tabThanhPham.Size = new System.Drawing.Size(507, 298);
+            this.tabThanhPham.Size = new System.Drawing.Size(418, 207);
             this.tabThanhPham.TabIndex = 2;
             this.tabThanhPham.Text = "Thành phẩm";
             this.tabThanhPham.UseVisualStyleBackColor = true;
@@ -320,10 +321,11 @@
             this.flowLayoutPanel3.Controls.Add(this.btnQuanLy_DongCuon);
             this.flowLayoutPanel3.Controls.Add(this.btnEpKim);
             this.flowLayoutPanel3.Controls.Add(this.btnQuanLy_DongCuonMP);
+            this.flowLayoutPanel3.Controls.Add(this.btnQuanLy_CatDecal);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(507, 298);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(418, 207);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
             // btnCanPhu
@@ -368,13 +370,23 @@
             // 
             // btnQuanLy_DongCuonMP
             // 
-            this.btnQuanLy_DongCuonMP.Location = new System.Drawing.Point(395, 3);
+            this.btnQuanLy_DongCuonMP.Location = new System.Drawing.Point(3, 46);
             this.btnQuanLy_DongCuonMP.Name = "btnQuanLy_DongCuonMP";
             this.btnQuanLy_DongCuonMP.Size = new System.Drawing.Size(92, 37);
             this.btnQuanLy_DongCuonMP.TabIndex = 9;
             this.btnQuanLy_DongCuonMP.Text = "Đ. Cuốn Mở phẳng";
             this.btnQuanLy_DongCuonMP.UseVisualStyleBackColor = true;
             this.btnQuanLy_DongCuonMP.Click += new System.EventHandler(this.btnQuanLy_DongCuonMP_Click);
+            // 
+            // btnQuanLy_CatDecal
+            // 
+            this.btnQuanLy_CatDecal.Location = new System.Drawing.Point(101, 46);
+            this.btnQuanLy_CatDecal.Name = "btnQuanLy_CatDecal";
+            this.btnQuanLy_CatDecal.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLy_CatDecal.TabIndex = 10;
+            this.btnQuanLy_CatDecal.Text = "Cắt Decal";
+            this.btnQuanLy_CatDecal.UseVisualStyleBackColor = true;
+            this.btnQuanLy_CatDecal.Click += new System.EventHandler(this.btnQuanLy_CatDecal_Click);
             // 
             // NhapLieuMainForm
             // 
@@ -442,6 +454,7 @@
         private System.Windows.Forms.TextBox txtTenNguoiDung;
         private System.Windows.Forms.Label lblNguoiDung;
         private System.Windows.Forms.Button btnQuanLy_DongCuonMP;
+        private System.Windows.Forms.Button btnQuanLy_CatDecal;
 
     }
 }

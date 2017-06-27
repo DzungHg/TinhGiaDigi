@@ -54,6 +54,7 @@
             this.cmnuThPh_CanPhu = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CanGap = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_CatDecal = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_GiaCongNgoai = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCopyToClipBoardNoiDungMucChon = new System.Windows.Forms.Button();
             this.lblTomTatBaiIn = new System.Windows.Forms.Label();
@@ -89,12 +90,13 @@
             this.lblIDBaiIn = new System.Windows.Forms.Label();
             this.txtDanDoThem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtKhoCatCao = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmnuThPh_CatDecal = new System.Windows.Forms.ToolStripMenuItem();
-            this.label9 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuThPh_BoiBiaCung = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -271,9 +273,11 @@
             this.cmnuThPh_CanGap,
             this.cmnuThPh_EpKim,
             this.cmnuThPh_CatDecal,
+            this.cmnuThPh_BoiBiaCung,
+            this.toolStripMenuItem4,
             this.cmnuThPh_GiaCongNgoai});
             this.cmuThemMucVoBaiIn.Name = "cmnuGiayChoSP";
-            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(155, 198);
+            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(155, 248);
             this.cmuThemMucVoBaiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuGanCauHinhSP
@@ -332,6 +336,13 @@
             this.cmnuThPh_EpKim.Size = new System.Drawing.Size(154, 22);
             this.cmnuThPh_EpKim.Text = "Ép kim";
             this.cmnuThPh_EpKim.Click += new System.EventHandler(this.cmnuThPh_EpKim_Click);
+            // 
+            // cmnuThPh_CatDecal
+            // 
+            this.cmnuThPh_CatDecal.Name = "cmnuThPh_CatDecal";
+            this.cmnuThPh_CatDecal.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_CatDecal.Text = "Cắt Decal";
+            this.cmnuThPh_CatDecal.Click += new System.EventHandler(this.cmnuThPh_CatDecal_Click);
             // 
             // cmnuThPh_GiaCongNgoai
             // 
@@ -711,6 +722,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tổng quát";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(145, 121);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(12, 13);
+            this.label9.TabIndex = 244;
+            this.label9.Text = "x";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(219, 121);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 243;
+            this.label8.Text = "R x C";
+            // 
+            // txtKhoCatCao
+            // 
+            this.txtKhoCatCao.Location = new System.Drawing.Point(163, 118);
+            this.txtKhoCatCao.Name = "txtKhoCatCao";
+            this.txtKhoCatCao.Size = new System.Drawing.Size(50, 20);
+            this.txtKhoCatCao.TabIndex = 4;
+            // 
             // txtKhoCatRong
             // 
             this.txtKhoCatRong.Location = new System.Drawing.Point(89, 118);
@@ -727,37 +763,17 @@
             this.label6.TabIndex = 241;
             this.label6.Text = "Khổ cắt";
             // 
-            // txtKhoCatCao
+            // toolStripMenuItem4
             // 
-            this.txtKhoCatCao.Location = new System.Drawing.Point(163, 118);
-            this.txtKhoCatCao.Name = "txtKhoCatCao";
-            this.txtKhoCatCao.Size = new System.Drawing.Size(50, 20);
-            this.txtKhoCatCao.TabIndex = 4;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(151, 6);
             // 
-            // label8
+            // cmnuThPh_BoiBiaCung
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(219, 121);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 243;
-            this.label8.Text = "R x C";
-            // 
-            // cmnuThPh_CatDecal
-            // 
-            this.cmnuThPh_CatDecal.Name = "cmnuThPh_CatDecal";
-            this.cmnuThPh_CatDecal.Size = new System.Drawing.Size(154, 22);
-            this.cmnuThPh_CatDecal.Text = "Cắt Decal";
-            this.cmnuThPh_CatDecal.Click += new System.EventHandler(this.cmnuThPh_CatDecal_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(145, 121);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(12, 13);
-            this.label9.TabIndex = 244;
-            this.label9.Text = "x";
+            this.cmnuThPh_BoiBiaCung.Name = "cmnuThPh_BoiBiaCung";
+            this.cmnuThPh_BoiBiaCung.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_BoiBiaCung.Text = "Bồi bìa cứng";
+            this.cmnuThPh_BoiBiaCung.Click += new System.EventHandler(this.cmnuThPh_BoiBiaCung_Click);
             // 
             // InToForm
             // 
@@ -869,5 +885,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_CatDecal;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem cmnuThPh_BoiBiaCung;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
     }
 }

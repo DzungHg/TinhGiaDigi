@@ -89,7 +89,7 @@
             // 
             this.lstKhoSanPham.Location = new System.Drawing.Point(7, 67);
             this.lstKhoSanPham.Name = "lstKhoSanPham";
-            this.lstKhoSanPham.Size = new System.Drawing.Size(120, 208);
+            this.lstKhoSanPham.Size = new System.Drawing.Size(152, 208);
             this.lstKhoSanPham.TabIndex = 3;
             this.lstKhoSanPham.Text = "radListControl1";
             this.lstKhoSanPham.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstMayIn_SelectedIndexChanged);
@@ -142,9 +142,9 @@
             this.radGroupBox1.Controls.Add(this.txtTenMay);
             this.radGroupBox1.Controls.Add(this.radLabel1);
             this.radGroupBox1.HeaderText = "Chi tiết khổ";
-            this.radGroupBox1.Location = new System.Drawing.Point(138, 67);
+            this.radGroupBox1.Location = new System.Drawing.Point(165, 67);
             this.radGroupBox1.Name = "radGroupBox1";
-            this.radGroupBox1.Size = new System.Drawing.Size(382, 208);
+            this.radGroupBox1.Size = new System.Drawing.Size(345, 208);
             this.radGroupBox1.TabIndex = 8;
             this.radGroupBox1.Text = "Chi tiết khổ";
             // 

@@ -54,11 +54,18 @@ namespace TinhGiaInClient.Model
             return dongCuon;
         }
         #region Thêm sủa xóa
-        public static string Sua(CatDecal dongCuon)
+        public static string Them(CatDecal catDecal)
         {
             var catDecalLogic = new CatDecalLogic();
             var itemBDO = new CatDecalBDO();
-            ChuyenDoiDTOThanhBDO(dongCuon, itemBDO);
+            ChuyenDoiDTOThanhBDO(catDecal, itemBDO);
+            return catDecalLogic.Them(itemBDO);
+        }
+        public static string Sua(CatDecal catDecal)
+        {
+            var catDecalLogic = new CatDecalLogic();
+            var itemBDO = new CatDecalBDO();
+            ChuyenDoiDTOThanhBDO(catDecal, itemBDO);
             return catDecalLogic.Sua(itemBDO);
         }
         #endregion

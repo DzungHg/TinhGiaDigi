@@ -13,6 +13,7 @@ namespace TinhGiaInClient.Model.Support
         public string ThongDiepCanThiet { get; set; }
         public string TieuDeForm { get; set; }
         public int SoLuongSanPham { get; set; }
+        public bool MoTextSoLuong { get; set; }
         public string DonViTinh { get; set; }
         public int IdHangKhachHang { get; set; }
         public int SoLuongToChay { get; set; }

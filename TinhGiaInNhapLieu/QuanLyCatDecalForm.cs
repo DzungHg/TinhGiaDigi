@@ -13,14 +13,16 @@ using TinhGiaInClient;
 
 namespace TinhGiaInNhapLieu
 {
-    public partial class QuanLyCatDecalForm : Telerik.WinControls.UI.RadForm, IViewQuanLyDongCuonMP
+    public partial class QuanLyCatDecalForm : Telerik.WinControls.UI.RadForm, IViewQuanLyCatDecal
     {
 
         public QuanLyCatDecalForm()
         {
             InitializeComponent();
-            quanLyThanPhamPres = new QuanLyDongCuonMPPresenter(this);
+            quanLyThanPhamPres = new QuanLyCatDecalPresenter(this);
             LoadThanhPham();
+            lstThanhPham.SelectedIndex = -1;
+            lstThanhPham.SelectedIndex = 0;
            
 
             lstThanhPham.SelectedIndex = -1;
@@ -28,24 +30,25 @@ namespace TinhGiaInNhapLieu
             //Event
             txtTen.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtBHR.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtTocDo.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtTocDoMetGio.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtThoiGianChuanBi.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDonViTinh.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtPhiKeo.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtPhiDao.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDaySoLuongCB.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDayLoiNhuanCB.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDaySoLuongNiemYet.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtGhiChu.TextChanged += new EventHandler(TextBoxes_TextChanged);
                     
-            txtPhiKeo.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtPhiDao.KeyPress += new KeyPressEventHandler(InputValidator);
             txtBHR.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtTocDo.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtTocDoMetGio.KeyPress += new KeyPressEventHandler(InputValidator);
             txtThoiGianChuanBi.KeyPress += new KeyPressEventHandler(InputValidator);
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
 
 
         }
-        QuanLyDongCuonMPPresenter quanLyThanPhamPres;
+        QuanLyCatDecalPresenter quanLyThanPhamPres;
         #region implementIView
         int _idToInMayDigi = 0;
         public int ID
@@ -82,15 +85,15 @@ namespace TinhGiaInNhapLieu
             }
         }
 
-        public int PhiKeoToDoi
+        public int PhiDao1000Met
         {
             get
             {
-                return int.Parse(txtPhiKeo.Text);
+                return int.Parse(txtPhiDao.Text);
             }
             set
             {
-                txtPhiKeo.Text = value.ToString();
+                txtPhiDao.Text = value.ToString();
             }
         }
 
@@ -105,14 +108,14 @@ namespace TinhGiaInNhapLieu
                 txtThoiGianChuanBi.Text = value.ToString();
             }
         }
-        public int TocDoToDoiGio
+        public int TocDo
         {
             get {
-                return int.Parse(txtTocDo.Text);
+                return int.Parse(txtTocDoMetGio.Text);
             }
             set
             {
-                txtTocDo.Text = value.ToString();
+                txtTocDoMetGio.Text = value.ToString();
             }
         }
 
@@ -193,6 +196,17 @@ namespace TinhGiaInNhapLieu
                 txtBHR.Text = value.ToString();
             }
         }
+        public string GhiChu
+        {
+            get
+            {
+                return txtGhiChu.Text;
+            }
+            set
+            {
+                txtGhiChu.Text = value;
+            }
+        }
         #endregion
         private void LoadThanhPham()
         {
@@ -209,15 +223,14 @@ namespace TinhGiaInNhapLieu
             txtTen.ReadOnly = readOnly;
             txtBHR.ReadOnly = readOnly;             
             txtDonViTinh.ReadOnly = readOnly;
-            txtTocDo.ReadOnly = readOnly;
+            txtTocDoMetGio.ReadOnly = readOnly;
             txtThoiGianChuanBi.ReadOnly = readOnly;
-            txtPhiKeo.ReadOnly = readOnly;                      
+            txtPhiDao.ReadOnly = readOnly;                      
             txtDaySoLuongCB.IsReadOnly = readOnly;
             txtDayLoiNhuanCB.IsReadOnly = readOnly;
             txtDaySoLuongNiemYet.ReadOnly = readOnly;
             txtThuTu.ReadOnly = readOnly;
-           
-          
+            txtGhiChu.IsReadOnly = readOnly;         
             
         }
         private void XoaSachNoiDungTatCaTextBox()
@@ -231,10 +244,10 @@ namespace TinhGiaInNhapLieu
             {
                 //Xử lý dữ liệu thay đổi
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen || tb == txtTocDo ||
+                if (tb == txtTen || tb == txtTocDoMetGio ||
                     tb == txtBHR || tb == txtThuTu ||
                     tb == txtThoiGianChuanBi || tb == txtDonViTinh ||
-                    tb == txtDaySoLuongNiemYet || tb == txtPhiKeo
+                    tb == txtDaySoLuongNiemYet || tb == txtPhiDao 
                     )
                 {
                     this.DuLieuDaThayDoi = true;
@@ -244,17 +257,17 @@ namespace TinhGiaInNhapLieu
                     if (string.IsNullOrEmpty(txtBHR.Text.Trim()))
                         txtBHR.Text = "1";
 
-                if (tb == txtTocDo)
-                    if (string.IsNullOrEmpty(txtTocDo.Text.Trim()))
-                        txtTocDo.Text = "1";
+                if (tb == txtTocDoMetGio)
+                    if (string.IsNullOrEmpty(txtTocDoMetGio.Text.Trim()))
+                        txtTocDoMetGio.Text = "1";
 
                 if (tb == txtThoiGianChuanBi)
                     if (string.IsNullOrEmpty(txtThoiGianChuanBi.Text.Trim()))
                         txtThoiGianChuanBi.Text = "1";
 
-                if (tb == txtPhiKeo)
-                    if (string.IsNullOrEmpty(txtPhiKeo.Text.Trim()))
-                        txtPhiKeo.Text = "1";
+                if (tb == txtPhiDao)
+                    if (string.IsNullOrEmpty(txtPhiDao.Text.Trim()))
+                        txtPhiDao.Text = "1";
 
               
 
@@ -268,7 +281,8 @@ namespace TinhGiaInNhapLieu
             {
                 tbc = (Telerik.WinControls.UI.RadTextBoxControl)sender;
 
-                if (tbc == txtDayLoiNhuanCB || tbc == txtDaySoLuongCB)
+                if (tbc == txtDayLoiNhuanCB || tbc == txtDaySoLuongCB ||
+                    tbc == txtGhiChu)
                 {
                     this.DuLieuDaThayDoi = true;
                 }               
@@ -285,8 +299,8 @@ namespace TinhGiaInNhapLieu
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
                 //Chỉ thêm số chẵn      
-                if ( tb == txtThuTu || tb == txtTocDo ||
-                    tb == txtBHR || tb == txtPhiKeo  )//chỉ được nhập số chẵn 
+                if ( tb == txtThuTu || tb == txtTocDoMetGio ||
+                    tb == txtBHR || tb == txtPhiDao  )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
@@ -402,6 +416,7 @@ namespace TinhGiaInNhapLieu
             else
                 MessageBox.Show("Đã khớp 2 số lượng! OK");
         }
+
 
         
     }

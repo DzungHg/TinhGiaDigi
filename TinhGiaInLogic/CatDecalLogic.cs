@@ -21,9 +21,13 @@ namespace TinhGiaInLogic
         {
             return catDecalDAO.DocTheoId(iD);
         }
-        public string Sua(CatDecalBDO dongCuonBDO)
+        public string Them(CatDecalBDO catDecalBDO)
         {
-            return catDecalDAO.Sua(dongCuonBDO);
+            return catDecalDAO.Them(catDecalBDO);
+        }
+        public string Sua(CatDecalBDO catDecalBDO)
+        {
+            return catDecalDAO.Sua(catDecalBDO);
         }
     }
 }

@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Presenter\GiayPresenter.cs" />
     <Compile Include="Presenter\QuanLyCanGapPresenter.cs" />
+    <Compile Include="Presenter\QuanLyCatDecalPresenter.cs" />
     <Compile Include="Presenter\QuanLyDongCuonMPPresenter.cs" />
     <Compile Include="Presenter\QuanLyEpKimPresenter.cs" />
     <Compile Include="Presenter\QuanLyDongCuonPresenter.cs" />
@@ -200,7 +201,9 @@
     </Compile>
     <Compile Include="View\IViewDanhMucGiay.cs" />
     <Compile Include="View\IViewGiay.cs" />
+    <Compile Include="View\IViewMayThanhPham.cs" />
     <Compile Include="View\IViewQuanLyCanPhu.cs" />
+    <Compile Include="View\IViewQuanLyCatDecal.cs" />
     <Compile Include="View\IViewQuanLyDongCuonMP.cs" />
     <Compile Include="View\IViewQuanLyEpKim.cs" />
     <Compile Include="View\IViewQuanLyDongCuon.cs" />

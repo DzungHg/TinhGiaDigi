@@ -59,11 +59,6 @@ namespace TinhGiaInClient.UI
             this.Close();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         private void mnuPS_Album_Click(object sender, EventArgs e)
         {
             /*PriceSettingManForm frm = new PriceSettingManForm();
@@ -351,9 +346,8 @@ namespace TinhGiaInClient.UI
 
         private void NhapLieuMainForm_Resize(object sender, EventArgs e)
         {
-            btnDong.Left = (pnlBottom.Width - btnDong.Width) / 2;
-            txtChonHangKH.Left = txtChonHangKH.Left + txtChonHangKH.Width + 5;
-            cboHangKH.Left = txtChonHangKH.Left + txtChonHangKH.Width + 5;
+            btnDong.Left = (pnlBottom.Width - btnDong.Width) / 2;            
+            cboHangKH.Left = lblChonHangKH.Left + lblChonHangKH.Width + 5;
         }
 
         private void btnTinhThu_DongCuonMoPhang_Click(object sender, EventArgs e)
@@ -417,6 +411,37 @@ namespace TinhGiaInClient.UI
         private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void TinhThuBoiBiaCung()
+        {
+            var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
+            var thongTinBanDauMP = new ThongTinBanDauChoThanhPham();
+            thongTinBanDauMP.MoTextSoLuong = true;
+            thongTinBanDauMP.TinhTrangForm = FormStateS.View;
+            thongTinBanDauMP.TieuDeForm = "Bồi bìa cứng [Tính thử]";
+            //Tạo mục đóng cuốn
+            var mucThPhBoiBC = new MucThPhBoiBiaCung();
+            mucThPhBoiBC.IdBaiIn = 1;
+            mucThPhBoiBC.IdHangKhachHang = this.IdHangKhachHang;
+            mucThPhBoiBC.SoLuong = 1; //Vì số lượng có thể không trùng
+            mucThPhBoiBC.DonViTinh = "Tấm";
+            mucThPhBoiBC.TamRong = 10;
+            mucThPhBoiBC.TamCao = 10;
+            mucThPhBoiBC.SoToBoiTrenTamBia = 1;
+            mucThPhBoiBC.LoaiThanhPham = LoaiThanhPhamS.BoiBiaCung;
+           
+            var frm = new ThPhBoiBiaCungForm(thongTinBanDauMP, mucThPhBoiBC);
+
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            //Data gởi qua form
+            frm.ShowDialog();
+        }
+
+        private void btnTinhThu_BoiBiaCung_Click(object sender, EventArgs e)
+        {
+            TinhThuBoiBiaCung();
         }
     }
 }

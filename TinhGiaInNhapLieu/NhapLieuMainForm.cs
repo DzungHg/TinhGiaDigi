@@ -397,6 +397,19 @@ namespace TinhGiaInNhapLieu
         {
 
         }
+
+        private void btnQuanLy_CatDecal_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyCatDecalForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Cắt Decal";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
        
        
     }

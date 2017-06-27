@@ -105,7 +105,7 @@ namespace TinhGiaInNhapLieu
                 txtThoiGianChuanBi.Text = value.ToString();
             }
         }
-        public int TocDoMetGio
+        public int TocDo
         {
             get {
                 return int.Parse(txtTocDo.Text);
@@ -390,7 +390,7 @@ namespace TinhGiaInNhapLieu
 
         private void btnXemMayIn_Click(object sender, EventArgs e)
         {
-            var frm = new QuanLyMayInDigiForm(this.TocDoMetGio);
+            var frm = new QuanLyMayInDigiForm(this.TocDo);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý máy in Digital";

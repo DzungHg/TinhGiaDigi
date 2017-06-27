@@ -28,7 +28,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.Ten = "";
          
             View.DonViTinh = "mặt";
-            View.TocDoCuonGio = 0;
+            View.TocDo = 0;
             View.BHR = 0;
                   
             View.DaySoLuongCoBan = ";";
@@ -48,7 +48,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.Ten = canPhu.Ten;
             View.BHR = canPhu.BHR;
             View.DonViTinh = canPhu.DonViTinh;
-            View.TocDoCuonGio = canPhu.TocDoCuonGio;
+            View.TocDo = canPhu.TocDoCuonGio;
             View.ThoiGianChuanBi = canPhu.ThoiGianChuanBi;
             View.PhiNguyenVatLieu = canPhu.PhiNgVLCuon;
             View.DaySoLuongCoBan = canPhu.DaySoLuong;
@@ -75,7 +75,7 @@ namespace TinhGiaInNhapLieu.Presenter
             dongCuon.Ten = View.Ten;
             dongCuon.BHR = View.BHR;
             dongCuon.DonViTinh = View.DonViTinh;
-            dongCuon.TocDoCuonGio = View.TocDoCuonGio;
+            dongCuon.TocDoCuonGio = View.TocDo;
             dongCuon.PhiNgVLCuon = View.PhiNguyenVatLieu;
             dongCuon.ThoiGianChuanBi = View.ThoiGianChuanBi;
             dongCuon.DaySoLuong = View.DaySoLuongCoBan;

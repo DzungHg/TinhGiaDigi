@@ -70,7 +70,23 @@ namespace TinhGiaInDAL.RepoTinhGia
         #region Them, sưa, xoa
         public string Them(CatDecalBDO entityBDO)
         {
-            throw new NotImplementedException();
+            string kq = "";
+            try
+            {
+                kq = KiemTraTrung(entityBDO.Ten);
+                if (kq != "")
+                    return kq;
+                CAT_DECAL entity = new CAT_DECAL();
+                ChuyenBDOThanhDAO(entityBDO, entity);
+                db.CAT_DECAL.Add(entity);
+                db.SaveChanges();
+                kq = string.Format("Mục tin:{0}", entity.ID);
+            }
+            catch
+            {
+                kq = string.Format("Thêm Mục tin {0} lỗi!", entityBDO.ID);
+            }
+            return kq;
         }
 
         public string Sua(CatDecalBDO entityBDO)

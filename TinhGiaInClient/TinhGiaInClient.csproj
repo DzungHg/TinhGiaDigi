@@ -121,12 +121,15 @@
     <Compile Include="Model\Booklet\GiaInSachDigi.cs" />
     <Compile Include="Model\Booklet\MonDongCuon.cs" />
     <Compile Include="Model\Booklet\Sach.cs" />
+    <Compile Include="Model\BoiBiaCung.cs" />
     <Compile Include="Model\CatDecal.cs" />
     <Compile Include="Model\DongCuonMoPhang.cs" />
     <Compile Include="Model\DongCuonLoXo.cs" />
+    <Compile Include="Model\GiaBoiBiaCung.cs" />
     <Compile Include="Model\GiaCatDecal.cs" />
     <Compile Include="Model\GiaDongCuonMoPhang.cs" />
     <Compile Include="Model\GiaDongCuonLoXo.cs" />
+    <Compile Include="Model\MucThPhBoiBiaCung.cs" />
     <Compile Include="Model\MucThPhCatDecal.cs" />
     <Compile Include="Model\MucDongCuonMoPhang.cs" />
     <Compile Include="Model\MucDongCuonLoXo.cs" />
@@ -153,6 +156,7 @@
     <Compile Include="Model\MayInDigi.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\LoXoDongCuon.cs" />
+    <Compile Include="Model\ToBoiBiaCung.cs" />
     <Compile Include="Model\ToLotMoPhang.cs" />
     <Compile Include="Model\Support\DuLieuTinhGiaInNhanhTheoMay.cs" />
     <Compile Include="Model\Support\KichThuocPhang.cs" />
@@ -204,6 +208,7 @@
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
     <Compile Include="Presenter\InSachDigiPresenter.cs" />
     <Compile Include="Presenter\ThCatDeCalPresenter.cs" />
+    <Compile Include="Presenter\ThPhBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\ThPhDongCuonMoPhangPresenter.cs" />
     <Compile Include="Presenter\ThPhDongCuonLoXoPresenter.cs" />
     <Compile Include="Presenter\ThPhGiaCongNgoaiPresenter.cs" />
@@ -229,6 +234,12 @@
     </Compile>
     <Compile Include="UI\InSachForm.Designer.cs">
       <DependentUpon>InSachForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThPhBoiBiaCungForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThPhBoiBiaCungForm.Designer.cs">
+      <DependentUpon>ThPhBoiBiaCungForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\TinhThuForm.cs">
       <SubType>Form</SubType>
@@ -320,6 +331,7 @@
     <Compile Include="View\IViewInSachDigi.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
     <Compile Include="View\IViewThPhCatDecal.cs" />
+    <Compile Include="View\IViewThPhBoiBiaCung.cs" />
     <Compile Include="View\IViewThPhDongCuonMoPhang.cs" />
     <Compile Include="View\IViewThPhDongCuonLoXo.cs" />
     <Compile Include="View\IViewThPhEpKim.cs" />
@@ -392,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InSachForm.resx">
       <DependentUpon>InSachForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThPhBoiBiaCungForm.resx">
+      <DependentUpon>ThPhBoiBiaCungForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\TinhThuForm.resx">
       <DependentUpon>TinhThuForm.cs</DependentUpon>

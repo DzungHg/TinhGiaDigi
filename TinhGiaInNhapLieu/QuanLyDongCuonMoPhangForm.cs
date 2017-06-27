@@ -105,7 +105,7 @@ namespace TinhGiaInNhapLieu
                 txtThoiGianChuanBi.Text = value.ToString();
             }
         }
-        public int TocDoToDoiGio
+        public int TocDo
         {
             get {
                 return int.Parse(txtTocDo.Text);

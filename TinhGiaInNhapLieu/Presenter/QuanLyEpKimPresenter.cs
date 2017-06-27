@@ -28,7 +28,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.Ten = "";
          
             View.DonViTinh = "mặt";
-            View.TocDoConGio = 0;
+            View.TocDo = 0;
             View.BHR = 0;
             View.PhiNguyenVatLieuChuanBi = 0;
             View.GiaKhuonCM2 = 1;
@@ -51,7 +51,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.Ten = epKim.Ten;
             View.BHR = epKim.BHR;
             View.DonViTinh = epKim.DonViTinh;
-            View.TocDoConGio = epKim.TocDoConGio;
+            View.TocDo = epKim.TocDoConGio;
             View.ThoiGianChuanBi = epKim.ThoiGianChuanBi;
             View.PhiNguyenVatLieuChuanBi = epKim.PhiNVLChuanBi;
             View.GiaKhuonCM2 = epKim.GiaKhuonCm2;
@@ -82,7 +82,7 @@ namespace TinhGiaInNhapLieu.Presenter
             epKim.DonViTinh = View.DonViTinh;
             epKim.GiaKhuonCm2 = View.GiaKhuonCM2;
             epKim.LaNhuViTinh = View.LaNhuViTinh;
-            epKim.TocDoConGio = View.TocDoConGio;
+            epKim.TocDoConGio = View.TocDo;
             epKim.PhiNVLChuanBi = View.PhiNguyenVatLieuChuanBi;
             epKim.ThoiGianChuanBi = View.ThoiGianChuanBi;
             epKim.DaySoLuong = View.DaySoLuongCoBan;
