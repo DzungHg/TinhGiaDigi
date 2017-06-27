@@ -402,6 +402,7 @@
     <EntitySetMapping Name="CAT_DECAL">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.CAT_DECAL">
         <MappingFragment StoreEntitySet="CAT_DECAL">
+          <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
           <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />

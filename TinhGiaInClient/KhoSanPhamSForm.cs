@@ -210,11 +210,18 @@ namespace TinhGiaInClient
             switch (this.TinhTrangForm)
             {
                 case FormStateS.Get:
-                    btnClose.Text = "Nhận";
-                    btnClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+                    btnDong.Text = "Nhận";
+                    btnDong.DialogResult = System.Windows.Forms.DialogResult.OK;
                     break;
                 
             }
+        }
+
+        private void KhoSanPhamSForm_Resize(object sender, EventArgs e)
+        {
+            lvwKhoSanPham.Width = this.ClientSize.Width - 20;
+            lvwKhoSanPham.Left = (this.ClientSize.Width - lvwKhoSanPham.Width) / 2;
+            btnDong.Left = (this.ClientSize.Width - btnDong.Width) / 2;
         }
 
 

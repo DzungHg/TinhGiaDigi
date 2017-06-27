@@ -13,6 +13,7 @@ namespace TinhGiaInClient.Model
         //Bổ sung thêm thuộc tính
         public int TocDoMetGio { get; set; }
         public int PhiDao1000Met { get; set; }
+        public string GhiChu {get;set;}
         
         //Statics
         public static List<CatDecal> DocTatCa()
@@ -31,6 +32,7 @@ namespace TinhGiaInClient.Model
                 Ma_01 = x.Ma_01,
                 DaySoLuongNiemYet = x.DaySoLuongNiemYet,
                 DonViTinh = x.DonViTinh,
+                GhiChu = x.GhiChu,
                 ThuTu = x.ThuTu
             }).OrderBy(x => x.ThuTu).ToList();
 
@@ -70,10 +72,11 @@ namespace TinhGiaInClient.Model
             catDecalDTO.ThoiGianChuanBi = catDecalBDO.ThoiGianChuanBi;
             catDecalDTO.DayLoiNhuan = catDecalBDO.DayLoiNhuan;
             catDecalDTO.DaySoLuong = catDecalBDO.DaySoLuong;
-          
+            
             catDecalDTO.Ma_01 = catDecalBDO.Ma_01;
             catDecalDTO.DaySoLuongNiemYet = catDecalBDO.DaySoLuongNiemYet;
             catDecalDTO.DonViTinh = catDecalBDO.DonViTinh;
+            catDecalDTO.GhiChu = catDecalBDO.GhiChu;
             catDecalDTO.ThuTu = catDecalBDO.ThuTu;
         }
         private static void ChuyenDoiDTOThanhBDO(CatDecal catDecalDTO, CatDecalBDO catDecalBDO)
@@ -89,6 +92,7 @@ namespace TinhGiaInClient.Model
             catDecalBDO.Ma_01 = catDecalDTO.Ma_01;
             catDecalBDO.DonViTinh = catDecalDTO.DonViTinh;
             catDecalBDO.DaySoLuongNiemYet = catDecalDTO.DaySoLuongNiemYet;
+            catDecalBDO.GhiChu = catDecalDTO.GhiChu;
             catDecalBDO.ThuTu = catDecalDTO.ThuTu;
         }
     }

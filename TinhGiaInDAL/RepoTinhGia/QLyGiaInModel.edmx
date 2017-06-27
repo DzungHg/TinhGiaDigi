@@ -89,6 +89,7 @@
           <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
           <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="thu_tu" Type="int" />
+          <Property Name="ghi_chu" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="DANH_MUC_GIAY">
           <Key>
@@ -1126,6 +1127,7 @@
           <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="thu_tu" Type="Int32" />
+          <Property Name="ghi_chu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1534,6 +1536,7 @@
           <EntitySetMapping Name="CAT_DECAL">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.CAT_DECAL">
               <MappingFragment StoreEntitySet="CAT_DECAL">
+                <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
                 <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
                 <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
                 <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />

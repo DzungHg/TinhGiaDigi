@@ -84,6 +84,7 @@
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="thu_tu" Type="int" />
+    <Property Name="ghi_chu" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="DANH_MUC_GIAY">
     <Key>

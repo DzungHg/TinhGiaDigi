@@ -10,6 +10,7 @@ namespace TinhGiaInBDO
     {
         public int TocDoMetGio { get; set; }
         public int PhiDao1000Met { get; set; }
+        public string GhiChu { get; set; }
         
       
     }

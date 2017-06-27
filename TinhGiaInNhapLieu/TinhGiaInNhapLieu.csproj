@@ -91,6 +91,12 @@
     <Compile Include="QuanLyCanGapForm.Designer.cs">
       <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyCatDecalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyCatDecalForm.Designer.cs">
+      <DependentUpon>QuanLyCatDecalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyDongCuonMoPhangForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QuanLyCanGapForm.resx">
       <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyCatDecalForm.resx">
+      <DependentUpon>QuanLyCatDecalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyDongCuonMoPhangForm.resx">
       <DependentUpon>QuanLyDongCuonMoPhangForm.cs</DependentUpon>

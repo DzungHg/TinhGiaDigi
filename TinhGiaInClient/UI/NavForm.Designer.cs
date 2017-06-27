@@ -41,6 +41,7 @@
             this.btnBangGiaThanhPham = new Telerik.WinControls.UI.RadMenuButtonItem();
             this.radMenuSeparatorItem1 = new Telerik.WinControls.UI.RadMenuSeparatorItem();
             this.btnInNhanhTheoMay = new Telerik.WinControls.UI.RadMenuButtonItem();
+            this.btnTinhThu = new Telerik.WinControls.UI.RadButton();
             this.layoutControlItem1 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem2 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem4 = new Telerik.WinControls.UI.LayoutControlItem();
@@ -48,7 +49,6 @@
             this.layoutControlItem7 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem8 = new Telerik.WinControls.UI.LayoutControlItem();
             this.layoutControlItem3 = new Telerik.WinControls.UI.LayoutControlItem();
-            this.btnTinhThu = new Telerik.WinControls.UI.RadButton();
             this.layoutControlItem5 = new Telerik.WinControls.UI.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.radLayoutControl1)).BeginInit();
             this.radLayoutControl1.SuspendLayout();
@@ -91,9 +91,9 @@
             // 
             // radLayoutControl2
             // 
-            this.radLayoutControl2.Location = new System.Drawing.Point(297, 88);
+            this.radLayoutControl2.Location = new System.Drawing.Point(350, 88);
             this.radLayoutControl2.Name = "radLayoutControl2";
-            this.radLayoutControl2.Size = new System.Drawing.Size(93, 43);
+            this.radLayoutControl2.Size = new System.Drawing.Size(40, 43);
             this.radLayoutControl2.TabIndex = 1;
             this.radLayoutControl2.Text = "radLayoutControl2";
             // 
@@ -117,9 +117,9 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(3, 88);
+            this.btnThoat.Location = new System.Drawing.Point(199, 88);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(190, 43);
+            this.btnThoat.Size = new System.Drawing.Size(145, 43);
             this.btnThoat.TabIndex = 6;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -184,6 +184,15 @@
             this.btnInNhanhTheoMay.Text = "In Nhanh theo Máy";
             this.btnInNhanhTheoMay.Click += new System.EventHandler(this.btnInNhanhTheoMay_Click);
             // 
+            // btnTinhThu
+            // 
+            this.btnTinhThu.Location = new System.Drawing.Point(3, 88);
+            this.btnTinhThu.Name = "btnTinhThu";
+            this.btnTinhThu.Size = new System.Drawing.Size(190, 43);
+            this.btnTinhThu.TabIndex = 4;
+            this.btnTinhThu.Text = "Tính thử";
+            this.btnTinhThu.Click += new System.EventHandler(this.btnTinhThu_Click);
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.AssociatedControl = this.btnThem;
@@ -201,7 +210,7 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.AssociatedControl = this.btnThoat;
-            this.layoutControlItem4.Bounds = new System.Drawing.Rectangle(0, 85, 196, 49);
+            this.layoutControlItem4.Bounds = new System.Drawing.Rectangle(196, 85, 151, 49);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Text = "layoutControlItem4";
             // 
@@ -231,23 +240,14 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.AssociatedControl = this.radLayoutControl2;
-            this.layoutControlItem3.Bounds = new System.Drawing.Rectangle(294, 85, 99, 49);
+            this.layoutControlItem3.Bounds = new System.Drawing.Rectangle(347, 85, 46, 49);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Text = "layoutControlItem3";
-            // 
-            // btnTinhThu
-            // 
-            this.btnTinhThu.Location = new System.Drawing.Point(199, 88);
-            this.btnTinhThu.Name = "btnTinhThu";
-            this.btnTinhThu.Size = new System.Drawing.Size(92, 43);
-            this.btnTinhThu.TabIndex = 4;
-            this.btnTinhThu.Text = "Tính thử";
-            this.btnTinhThu.Click += new System.EventHandler(this.btnTinhThu_Click);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.AssociatedControl = this.btnTinhThu;
-            this.layoutControlItem5.Bounds = new System.Drawing.Rectangle(196, 85, 98, 49);
+            this.layoutControlItem5.Bounds = new System.Drawing.Rectangle(0, 85, 196, 49);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Text = "layoutControlItem5";
             // 

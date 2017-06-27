@@ -34,7 +34,7 @@
             this.cmnu_AddNew = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnu_Edit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnu_Delete = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnDong = new System.Windows.Forms.Button();
             this.cmnu_Main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             this.lvwKhoSanPham.Location = new System.Drawing.Point(12, 12);
             this.lvwKhoSanPham.MultiSelect = false;
             this.lvwKhoSanPham.Name = "lvwKhoSanPham";
-            this.lvwKhoSanPham.Size = new System.Drawing.Size(216, 188);
+            this.lvwKhoSanPham.Size = new System.Drawing.Size(297, 188);
             this.lvwKhoSanPham.TabIndex = 0;
             this.lvwKhoSanPham.UseCompatibleStateImageBehavior = false;
             this.lvwKhoSanPham.View = System.Windows.Forms.View.Details;
@@ -79,27 +79,28 @@
             this.cmnu_Delete.Size = new System.Drawing.Size(119, 22);
             this.cmnu_Delete.Text = "Xóa";
             // 
-            // btnClose
+            // btnDong
             // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(85, 206);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 4;
-            this.btnClose.Text = "Đóng";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnDong.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDong.Location = new System.Drawing.Point(112, 206);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(75, 23);
+            this.btnDong.TabIndex = 4;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // KhoSanPhamSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 241);
-            this.Controls.Add(this.btnClose);
+            this.ClientSize = new System.Drawing.Size(338, 241);
+            this.Controls.Add(this.btnDong);
             this.Controls.Add(this.lvwKhoSanPham);
             this.Name = "KhoSanPhamSForm";
             this.Text = "Khổ sản phẩm";
             this.Load += new System.EventHandler(this.KhoSanPhamSForm_Load);
+            this.Resize += new System.EventHandler(this.KhoSanPhamSForm_Resize);
             this.cmnu_Main.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -108,7 +109,7 @@
         #endregion
 
         private System.Windows.Forms.ListView lvwKhoSanPham;
-        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnDong;
         private System.Windows.Forms.ContextMenuStrip cmnu_Main;
         private System.Windows.Forms.ToolStripMenuItem cmnu_AddNew;
         private System.Windows.Forms.ToolStripMenuItem cmnu_Edit;
