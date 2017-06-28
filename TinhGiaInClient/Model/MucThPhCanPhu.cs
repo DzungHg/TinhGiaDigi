@@ -9,8 +9,9 @@ namespace TinhGiaInClient.Model
 {
     public class MucThPhCanPhu: MucThanhPham
     {
-        public int SoMatCan { get; set; }      
-      
+        public int SoMatCan { get; set; }
+        public float ToChayRong { get; set; }
+        public float ToChayDai { get; set; }
       
     }
 }

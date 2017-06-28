@@ -81,8 +81,8 @@ namespace TinhGiaInClient.Presenter
             var LoaiTP = MonThanhPham.DocDVThanhPhamTheoId(View.IdMonThanhPham).LoaiThPham;
             switch (LoaiTP)
             {
-                case LoaiThanhPhamS.CanPhu:
-                    var giaCanPhu = new GiaCanPhu(soLuong, View.DonViTinh, TiLeMarkUpTheoHangKH(), CanPhu.DocTheoId(iDThanhPham));
+                case LoaiThanhPhamS.CanPhu: //Tính theo A4 vậy
+                    var giaCanPhu = new GiaCanPhu(soLuong, 0.32f, 0.22f, 1, TiLeMarkUpTheoHangKH(), CanPhu.DocTheoId(iDThanhPham));
                     ketQua = giaCanPhu.ThanhTienSales();
                     break;
                 case LoaiThanhPhamS.CanGap:

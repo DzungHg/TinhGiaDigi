@@ -421,6 +421,7 @@
     <EntitySetMapping Name="BOI_BIA_CUNG">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.BOI_BIA_CUNG">
         <MappingFragment StoreEntitySet="BOI_BIA_CUNG">
+          <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
           <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />

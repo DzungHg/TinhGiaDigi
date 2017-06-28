@@ -10,11 +10,11 @@ using TinhGiaInLogic;
 namespace TinhGiaInClient.Presenter
 {
 
-    public class CanGapPresenter : IThanhPhamPresenter
+    public class ThPhCanGapPresenter : IThanhPhamPresenter
     {
         IViewGiaCanGap View = null;
         MucThPhCanGap MucCanGap = null;
-        public CanGapPresenter(IViewGiaCanGap view, MucThPhCanGap mucThPham)
+        public ThPhCanGapPresenter(IViewGiaCanGap view, MucThPhCanGap mucThPham)
         {
             this.MucCanGap = mucThPham;
 

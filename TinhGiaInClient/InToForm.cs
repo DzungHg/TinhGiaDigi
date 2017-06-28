@@ -808,13 +808,16 @@ namespace TinhGiaInClient
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep1;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Cán phủ";
                     thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.CanPhu;
+                    thongTinBanDauThPh.MoTextSoLuong = false; //Tắt số lượng
                     //Mục thành phẩm cán phủ
                     var mucThPhCanPhu = new MucThPhCanPhu();
                     mucThPhCanPhu.IdBaiIn = baiIn.ID;
                     mucThPhCanPhu.IdHangKhachHang = baiIn.IdHangKH;
                     mucThPhCanPhu.LoaiThanhPham = LoaiThanhPhamS.CanPhu;
-                    mucThPhCanPhu.SoLuong = baiIn.GiayDeInIn.SoToChayTong;
-                    mucThPhCanPhu.DonViTinh = "mặt";
+                    mucThPhCanPhu.SoLuong = baiIn.GiayDeInIn.SoToChayTong; //Số tờ chạy
+                    mucThPhCanPhu.ToChayRong = baiIn.GiayDeInIn.ToChayRong;
+                    mucThPhCanPhu.ToChayDai = baiIn.GiayDeInIn.ToChayDai;
+                    mucThPhCanPhu.DonViTinh = "tờ";
                     mucThPhCanPhu.SoMatCan = 1;
 
                     var frm = new ThPhCanPhuForm(thongTinBanDauThPh, mucThPhCanPhu);
@@ -935,7 +938,7 @@ namespace TinhGiaInClient
                         baiIn.SoLuong, baiIn.DonVi);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep5;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Bồi bìa cứng";
-
+                    thongTinBanDauThPh.MoTextSoLuong = true;
                     //tạo mục thành phẩm đóng cuốn
                     var mucThPhBoiBiaCung = new MucThPhBoiBiaCung();
                     mucThPhBoiBiaCung.IdBaiIn = baiIn.ID;
@@ -1093,7 +1096,8 @@ namespace TinhGiaInClient
                         + string.Format("Con: {0} x {1}cm" + '\n' + '\r',
                         baiIn.CauHinhSP.KhoCatRong, baiIn.CauHinhSP.KhoCatCao);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep5;
-                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Cắt Decal";
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Bồi bìa cứng";
+                    thongTinBanDauThPh.MoTextSoLuong = true;
                     var frm5 = new ThPhBoiBiaCungForm(thongTinBanDauThPh, (MucThPhBoiBiaCung)mucThPh);
 
                     frm5.MinimizeBox = false;

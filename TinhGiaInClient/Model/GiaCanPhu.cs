@@ -8,47 +8,46 @@ using TinhGiaInLogic;
 
 namespace TinhGiaInClient.Model
 {
-    public class GiaCanPhu: MucThanhPham, IGiaThanhPham
+    public class GiaCanPhu: IGiaThanhPham
     {
         //Bổ sung ngoài mục thành phẩm
         
-        public int KieuCanPhu { get; set; }
-        
+        public int SoMatCanTheoTo { get; set; }
+        public float ToChayRong { get; set; }
+        public float ToChayDai { get; set; }
+        public int SoLuong { get; set; }
+        public int TyLeMarkUpSales { get; set; }
         public CanPhu CanPhu { get; set; }
-        public GiaCanPhu(int idBaiIn, LoaiThanhPhamS loaiThanhPham, string tenCanPhu, int idHangKH,
-                int tyLeMarkUp, int soLuong, int idThanhPhamChon,
-                string donViTinh, string thongTinBoSung, 
-                int kieuCanPhu, CanPhu canPhu)
-        {
-            this.IdBaiIn = idBaiIn;
-            this.LoaiThanhPham = loaiThanhPham;
-            this.IdThanhPhamChon = idThanhPhamChon;
-            this.IdHangKhachHang = idHangKH;
-            this.TenThanhPham = tenCanPhu;                 
-            this.TyLeMarkUp = tyLeMarkUp;
-      
+        public GiaCanPhu(int soLuong, float toChayRong, float toChayDai,
+            int soMatCanTrenTo, int tyLeMarkUpSales, CanPhu canPhu)
+        {           
             this.SoLuong = soLuong;
-            this.DonViTinh = donViTinh;
-            this.KieuCanPhu = kieuCanPhu;          
+            this.ToChayRong = toChayRong;
+            this.ToChayDai = toChayDai;
+            this.SoMatCanTheoTo = soMatCanTrenTo;
+            this.TyLeMarkUpSales = tyLeMarkUpSales;      
             this.CanPhu = canPhu;
         }
-        public GiaCanPhu(int soLuong, string donViTinh, int tyLeMarkUpSales, CanPhu canPhu)
-        {//Dùng cho từng mục tiêu 
-           
-            this.TyLeMarkUp = tyLeMarkUpSales;
-            this.CanPhu = canPhu;
-            this.SoLuong = soLuong;
-            this.DonViTinh = donViTinh;
-            
-        }
+        
         public decimal ChiPhi(int soLuong)
         {            
             decimal result = 0;
-            float soGioChay = (soLuong * 0.21f) / this.CanPhu.TocDoMetGio;
+            //Tính tổng chiều dài tờ chạy đổi cm ra mét * số mặt * số lương
+            float tongChieuDaiToChay = (this.ToChayDai / 100) * this.SoMatCanTheoTo
+                                        * soLuong;
+            //Số giờ chạy và phí
+            float soGioChay = tongChieuDaiToChay / this.CanPhu.TocDoMetGio;
             decimal phiChay = this.CanPhu.BHR * (decimal)soGioChay;
+            //Phí chuẩn bị
             decimal phiChuanBi = this.CanPhu.BHR * (decimal)this.CanPhu.ThoiGianChuanBi;
-            decimal phiNguyenVatLieu = this.CanPhu.PhiNgVLM2 * (decimal)(soLuong * 0.30f * 0.24f);
+            //Tổng diện tích tờ chạy số mặt, diện tích m2, số mặt
+            float tongDienTichToChay = (this.ToChayRong / 100) * (this.ToChayDai / 100) * this.SoMatCanTheoTo
+                                        * soLuong;
+            //Phí nguyên liệu màng/UV
+            decimal phiNguyenVatLieu = this.CanPhu.PhiNgVLM2 * (decimal)tongDienTichToChay;
+            //Tổng phí
             result = phiChay + phiChuanBi + phiNguyenVatLieu;
+
             return result;
         }
         
@@ -63,7 +62,7 @@ namespace TinhGiaInClient.Model
         public decimal ThanhTienSales()
         {
             decimal result = 0;
-            var tyLeMK = (decimal)this.TyLeMarkUp / 100;
+            var tyLeMK = (decimal)this.TyLeMarkUpSales / 100;
             result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
             return Math.Round(result);
         }

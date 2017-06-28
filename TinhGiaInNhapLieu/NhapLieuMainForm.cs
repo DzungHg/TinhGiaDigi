@@ -410,6 +410,39 @@ namespace TinhGiaInNhapLieu
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+
+        private void btnQuanLy_BoiBiaCung_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyBoiBiaCungForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Bồi bìa cứng";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnQuanLy_ToBoiBiaCung_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyToBoiBiaCungForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Tờ bồi Bìa cứng";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnQuanLy_ToLotDongMoPhang_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyToLotDCMPForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Tờ lót";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
        
        
     }

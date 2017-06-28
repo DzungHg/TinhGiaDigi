@@ -99,13 +99,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(167, 165);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 98;
-            this.label2.Text = "Số mặt A4";
+            this.label2.Text = "Số tờ chạy";
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(229, 162);
+            this.txtSoLuong.Location = new System.Drawing.Point(231, 162);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(59, 20);
             this.txtSoLuong.TabIndex = 3;

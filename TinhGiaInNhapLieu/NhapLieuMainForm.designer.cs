@@ -50,7 +50,7 @@
             this.btnLoiNhuanGiay = new System.Windows.Forms.Button();
             this.btnBangGiaGiay = new System.Windows.Forms.Button();
             this.btnNhuEpKim = new System.Windows.Forms.Button();
-            this.btnQuanLyLoXo = new System.Windows.Forms.Button();
+            this.btnQuanLy_LoXo = new System.Windows.Forms.Button();
             this.tabThanhPham = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCanPhu = new System.Windows.Forms.Button();
@@ -59,6 +59,9 @@
             this.btnEpKim = new System.Windows.Forms.Button();
             this.btnQuanLy_DongCuonMP = new System.Windows.Forms.Button();
             this.btnQuanLy_CatDecal = new System.Windows.Forms.Button();
+            this.btnQuanLy_BoiBiaCung = new System.Windows.Forms.Button();
+            this.btnQuanLy_ToBoiBiaCung = new System.Windows.Forms.Button();
+            this.btnQuanLy_ToLotDongMoPhang = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -236,7 +239,9 @@
             this.flowLayoutPanel4.Controls.Add(this.btnLoiNhuanGiay);
             this.flowLayoutPanel4.Controls.Add(this.btnBangGiaGiay);
             this.flowLayoutPanel4.Controls.Add(this.btnNhuEpKim);
-            this.flowLayoutPanel4.Controls.Add(this.btnQuanLyLoXo);
+            this.flowLayoutPanel4.Controls.Add(this.btnQuanLy_LoXo);
+            this.flowLayoutPanel4.Controls.Add(this.btnQuanLy_ToBoiBiaCung);
+            this.flowLayoutPanel4.Controls.Add(this.btnQuanLy_ToLotDongMoPhang);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -293,15 +298,15 @@
             this.btnNhuEpKim.UseVisualStyleBackColor = true;
             this.btnNhuEpKim.Click += new System.EventHandler(this.btnNhuEpKim_Click);
             // 
-            // btnQuanLyLoXo
+            // btnQuanLy_LoXo
             // 
-            this.btnQuanLyLoXo.Location = new System.Drawing.Point(101, 46);
-            this.btnQuanLyLoXo.Name = "btnQuanLyLoXo";
-            this.btnQuanLyLoXo.Size = new System.Drawing.Size(92, 37);
-            this.btnQuanLyLoXo.TabIndex = 14;
-            this.btnQuanLyLoXo.Text = "Lò xo Đóng cuốn";
-            this.btnQuanLyLoXo.UseVisualStyleBackColor = true;
-            this.btnQuanLyLoXo.Click += new System.EventHandler(this.btnQuanLyLoXo_Click);
+            this.btnQuanLy_LoXo.Location = new System.Drawing.Point(101, 46);
+            this.btnQuanLy_LoXo.Name = "btnQuanLy_LoXo";
+            this.btnQuanLy_LoXo.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLy_LoXo.TabIndex = 14;
+            this.btnQuanLy_LoXo.Text = "Lò xo Đóng cuốn";
+            this.btnQuanLy_LoXo.UseVisualStyleBackColor = true;
+            this.btnQuanLy_LoXo.Click += new System.EventHandler(this.btnQuanLyLoXo_Click);
             // 
             // tabThanhPham
             // 
@@ -322,6 +327,7 @@
             this.flowLayoutPanel3.Controls.Add(this.btnEpKim);
             this.flowLayoutPanel3.Controls.Add(this.btnQuanLy_DongCuonMP);
             this.flowLayoutPanel3.Controls.Add(this.btnQuanLy_CatDecal);
+            this.flowLayoutPanel3.Controls.Add(this.btnQuanLy_BoiBiaCung);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -388,6 +394,36 @@
             this.btnQuanLy_CatDecal.UseVisualStyleBackColor = true;
             this.btnQuanLy_CatDecal.Click += new System.EventHandler(this.btnQuanLy_CatDecal_Click);
             // 
+            // btnQuanLy_BoiBiaCung
+            // 
+            this.btnQuanLy_BoiBiaCung.Location = new System.Drawing.Point(199, 46);
+            this.btnQuanLy_BoiBiaCung.Name = "btnQuanLy_BoiBiaCung";
+            this.btnQuanLy_BoiBiaCung.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLy_BoiBiaCung.TabIndex = 11;
+            this.btnQuanLy_BoiBiaCung.Text = "Bồi bìa cứng";
+            this.btnQuanLy_BoiBiaCung.UseVisualStyleBackColor = true;
+            this.btnQuanLy_BoiBiaCung.Click += new System.EventHandler(this.btnQuanLy_BoiBiaCung_Click);
+            // 
+            // btnQuanLy_ToBoiBiaCung
+            // 
+            this.btnQuanLy_ToBoiBiaCung.Location = new System.Drawing.Point(199, 46);
+            this.btnQuanLy_ToBoiBiaCung.Name = "btnQuanLy_ToBoiBiaCung";
+            this.btnQuanLy_ToBoiBiaCung.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLy_ToBoiBiaCung.TabIndex = 15;
+            this.btnQuanLy_ToBoiBiaCung.Text = "Tờ bồi Bìa cứng";
+            this.btnQuanLy_ToBoiBiaCung.UseVisualStyleBackColor = true;
+            this.btnQuanLy_ToBoiBiaCung.Click += new System.EventHandler(this.btnQuanLy_ToBoiBiaCung_Click);
+            // 
+            // btnQuanLy_ToLotDongMoPhang
+            // 
+            this.btnQuanLy_ToLotDongMoPhang.Location = new System.Drawing.Point(297, 46);
+            this.btnQuanLy_ToLotDongMoPhang.Name = "btnQuanLy_ToLotDongMoPhang";
+            this.btnQuanLy_ToLotDongMoPhang.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLy_ToLotDongMoPhang.TabIndex = 16;
+            this.btnQuanLy_ToLotDongMoPhang.Text = "Tờ lót ĐCMP";
+            this.btnQuanLy_ToLotDongMoPhang.UseVisualStyleBackColor = true;
+            this.btnQuanLy_ToLotDongMoPhang.Click += new System.EventHandler(this.btnQuanLy_ToLotDongMoPhang_Click);
+            // 
             // NhapLieuMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,7 +480,7 @@
         private System.Windows.Forms.Button btnLoiNhuanGiay;
         private System.Windows.Forms.Button btnBangGiaGiay;
         private System.Windows.Forms.Button btnNhuEpKim;
-        private System.Windows.Forms.Button btnQuanLyLoXo;
+        private System.Windows.Forms.Button btnQuanLy_LoXo;
         private System.Windows.Forms.TabPage tabThanhPham;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Button btnCanPhu;
@@ -455,6 +491,9 @@
         private System.Windows.Forms.Label lblNguoiDung;
         private System.Windows.Forms.Button btnQuanLy_DongCuonMP;
         private System.Windows.Forms.Button btnQuanLy_CatDecal;
+        private System.Windows.Forms.Button btnQuanLy_BoiBiaCung;
+        private System.Windows.Forms.Button btnQuanLy_ToBoiBiaCung;
+        private System.Windows.Forms.Button btnQuanLy_ToLotDongMoPhang;
 
     }
 }

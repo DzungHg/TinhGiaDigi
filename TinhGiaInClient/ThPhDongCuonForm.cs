@@ -227,7 +227,7 @@ namespace TinhGiaInClient
         }
 
 
-        public CanGapPresenter canGapPres { get; set; }
+        public ThPhCanGapPresenter canGapPres { get; set; }
 
         private void ThPhDongCuonForm_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -30,6 +30,7 @@ namespace TinhGiaInNhapLieu
             txtMauSac.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtChoDoDay.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtGiaMuaMet.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             lstLoXo.SelectedIndexChanged += new EventHandler(ListViews_SelectedIndexChanged);
 
@@ -261,6 +262,9 @@ namespace TinhGiaInNhapLieu
 
         private void QuanLyMayInDigiFrom_Load(object sender, EventArgs e)
         {
+            //Bẩy:
+            lstLoXo.SelectedIndex = -1;
+            lstLoXo.SelectedIndex = 0;
             //Bật tắt các nút
             btnDong.Enabled = true;
             btnLuu.Enabled = this.DataChanged;
@@ -272,6 +276,7 @@ namespace TinhGiaInNhapLieu
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+
             this.TinhTrangForm = TinhGiaInClient.FormStateS.Edit;
           
             lstLoXo.Enabled = false;
@@ -356,8 +361,8 @@ namespace TinhGiaInNhapLieu
             if (e.Column.FieldName == "ThuTu")
             {
                 e.Column.HeaderText = "Thứ tự";
-                e.Column.Width = 5;
-                e.Column.MinWidth = 5;
+                e.Column.Width = 15;
+                e.Column.MinWidth = 15;
             }
         }
         private void ListViews_SelectedIndexChanged(object sender, EventArgs e)

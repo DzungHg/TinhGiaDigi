@@ -130,10 +130,11 @@ namespace TinhGiaInClient.Presenter
                 this.MucGiayDeIn.TenGiayIn = View.TenGiayIn;
                 this.MucGiayDeIn.SoToChayLyThuyet = View.SoLuongToChayLyThuyet;
                 this.MucGiayDeIn.ToChayRong = View.ToChayRong;
+                this.MucGiayDeIn.ToChayDai = View.ToChayDai;
                 this.MucGiayDeIn.SoToChayTong = this.SoToChayTong();
                 this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
                 this.MucGiayDeIn.SoToLonTong = View.SoToGiayLon; 
-                this.MucGiayDeIn.ToChayDai = View.ToChayDai;
+               
                 this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
                 this.MucGiayDeIn.IdGiay = View.IdGiay;
                 this.MucGiayDeIn.ThanhTienGiay = View.ThanhTien;

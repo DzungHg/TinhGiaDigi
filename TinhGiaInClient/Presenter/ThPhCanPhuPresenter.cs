@@ -10,20 +10,22 @@ using TinhGiaInLogic;
 namespace TinhGiaInClient.Presenter
 {
 
-    public class CanPhuPresenter : IThanhPhamPresenter
+    public class ThPhCanPhuPresenter : IThanhPhamPresenter
     {
         IViewThPhCanPhu View = null;
         MucThPhCanPhu MucCanPhu = null;
-        public CanPhuPresenter(IViewThPhCanPhu view, MucThPhCanPhu mucThPham )
+        public ThPhCanPhuPresenter(IViewThPhCanPhu view, MucThPhCanPhu mucThPham )
         {
             View = view;
             this.MucCanPhu = mucThPham;
-
+            //Cập nhật form
             View.ID = this.MucCanPhu.ID;
             View.IdBaiIn = this.MucCanPhu.IdBaiIn;
             View.IdHangKhachHang = this.MucCanPhu.IdHangKhachHang;
             View.IdThanhPhamChon = this.MucCanPhu.IdThanhPhamChon;
             View.LoaiThPh = this.MucCanPhu.LoaiThanhPham;
+            View.ToChayRong = this.MucCanPhu.ToChayRong;
+            View.ToChayDai = this.MucCanPhu.ToChayDai;
             View.SoLuong = this.MucCanPhu.SoLuong;
             View.DonViTinh = this.MucCanPhu.DonViTinh;
             View.SoMatCan = this.MucCanPhu.SoMatCan;
@@ -57,14 +59,14 @@ namespace TinhGiaInClient.Presenter
             decimal result = 0;
             if (View.IdBaiIn <= 0 || View.SoLuong <= 0 || View.IdThanhPhamChon <= 0 )
                 return result;
-
-            
+            //Qua khỏi            
             var canPhu = CanPhu.DocTheoId(View.IdThanhPhamChon);
 
             var tyLeMK = this.TyLeMarkUp();
 
-            var giaCanPhu = new GiaCanPhu(View.SoLuong, View.DonViTinh,
-                TyLeMarkUp(), canPhu);
+            var giaCanPhu = new GiaCanPhu(View.SoLuong, View.ToChayRong, 
+                View.ToChayDai, View.SoMatCan,
+                this.TyLeMarkUp(), canPhu);
 
             result = giaCanPhu.ThanhTienSales();
 
@@ -86,6 +88,8 @@ namespace TinhGiaInClient.Presenter
                 this.MucCanPhu.TenThanhPham = View.TenThanhPhamChon;
                 this.MucCanPhu.IdHangKhachHang = View.IdHangKhachHang;
                 this.MucCanPhu.LoaiThanhPham = View.LoaiThPh;
+                this.MucCanPhu.ToChayRong = View.ToChayRong;
+                this.MucCanPhu.ToChayDai = View.ToChayDai;
                 this.MucCanPhu.SoLuong = View.SoLuong;
                 this.MucCanPhu.DonViTinh = View.DonViTinh;
                 this.MucCanPhu.ThanhTien = View.ThanhTien;

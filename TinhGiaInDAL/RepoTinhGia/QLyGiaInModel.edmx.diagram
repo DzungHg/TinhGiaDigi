@@ -6,9 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="6785aad7725f440cb27abf3e13a062ce" Name="Diagram1">
         <EntityTypeShape EntityType="QuanLyGiaInModel.DANH_MUC_GIAY" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyGiaInModel.KHO_SAN_PHAM" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.KHO_SAN_PHAM" Width="1.5" PointX="6" PointY="0.5" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.GIAY" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="QuanLyGiaInModel.TO_IN_MAY_DIGI" Width="1.5" PointX="8.875" PointY="1.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TO_IN_MAY_DIGI" Width="1.5" PointX="8.375" PointY="1.125" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_IN_DIGI" Width="1.5" PointX="10.75" PointY="0.875" />
         <AssociationConnector Association="QuanLyGiaInModel.FK_TO_IN_MAY_DIGI_MAY_IN_DIGI" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.BANG_GIA_IN_NHANH" Width="1.5" PointX="0.75" PointY="3.125" />
@@ -38,8 +38,8 @@
         <EntityTypeShape EntityType="QuanLyGiaInModel.DONG_CUON_MO_PHANG" Width="1.5" PointX="13.375" PointY="4.75" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.TO_LOT_MO_PHANG" Width="1.5" PointX="14.375" PointY="9.75" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.CAT_DECAL" Width="1.5" PointX="11.25" PointY="12.5" />
-        <EntityTypeShape EntityType="QuanLyGiaInModel.BOI_BIA_CUNG" Width="1.5" PointX="15.375" PointY="0.75" />
-        <EntityTypeShape EntityType="QuanLyGiaInModel.TO_BOI_BIA_CUNG" Width="1.5" PointX="0.75" PointY="15.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.BOI_BIA_CUNG" Width="1.5" PointX="15.375" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TO_BOI_BIA_CUNG" Width="1.5" PointX="15.5" PointY="4.375" IsExpanded="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

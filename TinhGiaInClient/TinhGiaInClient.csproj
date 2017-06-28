@@ -220,8 +220,8 @@
     <Compile Include="Presenter\GiaInOffsetPresenter.cs" />
     <Compile Include="Presenter\GiayDeInPresenter.cs" />
     <Compile Include="Presenter\IThanhPhamPresenter.cs" />
-    <Compile Include="Presenter\CanPhuPresenter.cs" />
-    <Compile Include="Presenter\CanGapPresenter.cs" />
+    <Compile Include="Presenter\ThPhCanPhuPresenter.cs" />
+    <Compile Include="Presenter\ThPhCanGapPresenter.cs" />
     <Compile Include="Presenter\LietKeTinhGiaPresenter.cs" />
     <Compile Include="UI\BangGiaDongCuonForm.cs">
       <SubType>Form</SubType>

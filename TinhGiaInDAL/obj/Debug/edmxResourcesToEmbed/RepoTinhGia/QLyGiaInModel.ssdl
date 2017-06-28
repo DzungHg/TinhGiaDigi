@@ -40,6 +40,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="dien_giai" Type="nvarchar(max)" />
     <Property Name="BHR" Type="int" />
     <Property Name="toc_do_tam_gio" Type="int" />
     <Property Name="phi_keo_met_vuong" Type="int" />

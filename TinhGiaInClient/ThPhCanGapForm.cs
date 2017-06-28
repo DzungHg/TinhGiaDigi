@@ -16,7 +16,7 @@ namespace TinhGiaInClient
 {
     public partial class ThPhCanGapForm : Form, IViewGiaCanGap
     {
-        CanGapPresenter canGapPres;
+        ThPhCanGapPresenter canGapPres;
         public ThPhCanGapForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhCanGap mucThPham)
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace TinhGiaInClient
             this.Text = thongTinBanDau.TieuDeForm;
 
 
-            canGapPres = new CanGapPresenter(this, mucThPham);
+            canGapPres = new ThPhCanGapPresenter(this, mucThPham);
             LoadThanhPham();
             //Bẩy
             lbxThanhPham.SelectedIndex = -1;

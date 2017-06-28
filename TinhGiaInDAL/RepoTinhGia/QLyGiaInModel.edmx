@@ -45,6 +45,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ten" Type="nvarchar" MaxLength="100" />
+          <Property Name="dien_giai" Type="nvarchar(max)" />
           <Property Name="BHR" Type="int" />
           <Property Name="toc_do_tam_gio" Type="int" />
           <Property Name="phi_keo_met_vuong" Type="int" />
@@ -1176,6 +1177,7 @@
           <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="thu_tu" Type="Int32" />
+          <Property Name="dien_giai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TO_BOI_BIA_CUNG">
           <Key>
@@ -1613,6 +1615,7 @@
           <EntitySetMapping Name="BOI_BIA_CUNG">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.BOI_BIA_CUNG">
               <MappingFragment StoreEntitySet="BOI_BIA_CUNG">
+                <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
                 <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
                 <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
                 <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />

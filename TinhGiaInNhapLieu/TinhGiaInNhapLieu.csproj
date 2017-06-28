@@ -75,6 +75,7 @@
     </Compile>
     <Compile Include="Presenter\GiayPresenter.cs" />
     <Compile Include="Presenter\QuanLyCanGapPresenter.cs" />
+    <Compile Include="Presenter\QuanLyBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\QuanLyCatDecalPresenter.cs" />
     <Compile Include="Presenter\QuanLyDongCuonMPPresenter.cs" />
     <Compile Include="Presenter\QuanLyEpKimPresenter.cs" />
@@ -82,6 +83,8 @@
     <Compile Include="Presenter\QuanLyCanPhuPresenter.cs" />
     <Compile Include="Presenter\QuanLyKhoSanPhamPresenter.cs" />
     <Compile Include="Presenter\QuanLyBangGiaInNhanhPresenter.cs" />
+    <Compile Include="Presenter\QuanLyToLotDCMPPresenter.cs" />
+    <Compile Include="Presenter\QuanLyToBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\QuanLyLoXoDongCuonPresenter.cs" />
     <Compile Include="Presenter\QuanLyNhuEpKimPresenter.cs" />
     <Compile Include="Presenter\QuanLyToInMayDigiPresenter.cs" />
@@ -91,6 +94,12 @@
     </Compile>
     <Compile Include="QuanLyCanGapForm.Designer.cs">
       <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBoiBiaCungForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyBoiBiaCungForm.Designer.cs">
+      <DependentUpon>QuanLyBoiBiaCungForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyCatDecalForm.cs">
       <SubType>Form</SubType>
@@ -155,6 +164,18 @@
     <Compile Include="QuanLyDanhMucGiayForm.designer.cs">
       <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyToLotDCMPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyToLotDCMPForm.Designer.cs">
+      <DependentUpon>QuanLyToLotDCMPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyToBoiBiaCungForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyToBoiBiaCungForm.Designer.cs">
+      <DependentUpon>QuanLyToBoiBiaCungForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyLoXoDongCuonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +224,7 @@
     <Compile Include="View\IViewGiay.cs" />
     <Compile Include="View\IViewMayThanhPham.cs" />
     <Compile Include="View\IViewQuanLyCanPhu.cs" />
+    <Compile Include="View\IViewQuanLyBoiBiaCung.cs" />
     <Compile Include="View\IViewQuanLyCatDecal.cs" />
     <Compile Include="View\IViewQuanLyDongCuonMP.cs" />
     <Compile Include="View\IViewQuanLyEpKim.cs" />
@@ -212,6 +234,8 @@
     <Compile Include="View\IViewQuanLyDMGiay.cs" />
     <Compile Include="View\IViewQuanLyKhoSanPham.cs" />
     <Compile Include="View\IViewQuanLyBangGiaInNhanh.cs" />
+    <Compile Include="View\IViewQuanLyToLotDCMP.cs" />
+    <Compile Include="View\IViewQuanLyToBoiBiaCung.cs" />
     <Compile Include="View\IViewQuanLyLoXoDongCuon.cs" />
     <Compile Include="View\IViewQuanLyNhuEpKim.cs" />
     <Compile Include="View\IViewQuanLyToInMayDigi.cs" />
@@ -222,6 +246,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="QuanLyCanGapForm.resx">
       <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyBoiBiaCungForm.resx">
+      <DependentUpon>QuanLyBoiBiaCungForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyCatDecalForm.resx">
       <DependentUpon>QuanLyCatDecalForm.cs</DependentUpon>
@@ -252,6 +279,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyDanhMucGiayForm.resx">
       <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyToLotDCMPForm.resx">
+      <DependentUpon>QuanLyToLotDCMPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyToBoiBiaCungForm.resx">
+      <DependentUpon>QuanLyToBoiBiaCungForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyLoXoDongCuonForm.resx">
       <DependentUpon>QuanLyLoXoDongCuonForm.cs</DependentUpon>

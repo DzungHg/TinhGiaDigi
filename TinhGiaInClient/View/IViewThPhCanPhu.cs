@@ -10,5 +10,7 @@ namespace TinhGiaInClient.View
     {
         //Bổ sung thêm        
         int SoMatCan { get; set; }
+        float ToChayRong { get; set; }
+        float ToChayDai { get; set; }
     }
 }

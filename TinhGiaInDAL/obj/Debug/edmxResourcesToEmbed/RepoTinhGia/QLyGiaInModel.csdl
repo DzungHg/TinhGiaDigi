@@ -586,6 +586,7 @@
     <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="thu_tu" Type="Int32" />
+    <Property Name="dien_giai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="TO_BOI_BIA_CUNG">
     <Key>

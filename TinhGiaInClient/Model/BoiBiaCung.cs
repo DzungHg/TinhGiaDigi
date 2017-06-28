@@ -12,7 +12,8 @@ namespace TinhGiaInClient.Model
     {
         //Bổ sung thêm thuộc tính
         public int TocDoTamGio { get; set; }
-        public int PhiKeoMetVuong { get; set; }          
+        public int PhiKeoMetVuong { get; set; }
+        public string DienGiai { get; set; }  
         
         //Statics
         public static List<BoiBiaCung> DocTatCa()
@@ -22,6 +23,7 @@ namespace TinhGiaInClient.Model
             {                
                 ID = x.ID,
                 Ten = x.Ten,
+                DienGiai = x.DienGiai,
                 BHR = x.BHR,
                 TocDoTamGio = x.TocDoTamGio,
                 PhiKeoMetVuong = x.PhiKeoMetVuong,
@@ -77,7 +79,7 @@ namespace TinhGiaInClient.Model
             itemDTO.ThoiGianChuanBi = itemBDO.ThoiGianChuanBi;
             itemDTO.DayLoiNhuan = itemBDO.DayLoiNhuan;
             itemDTO.DaySoLuong = itemBDO.DaySoLuong;
-            
+            itemDTO.DienGiai = itemBDO.DienGiai;
             itemDTO.Ma_01 = itemBDO.Ma_01;
             itemDTO.DaySoLuongNiemYet = itemBDO.DaySoLuongNiemYet;
             itemDTO.DonViTinh = itemBDO.DonViTinh;
@@ -97,7 +99,7 @@ namespace TinhGiaInClient.Model
             itemBDO.Ma_01 = itemDTO.Ma_01;
             itemBDO.DonViTinh = itemDTO.DonViTinh;
             itemBDO.DaySoLuongNiemYet = itemDTO.DaySoLuongNiemYet;
-          
+            itemBDO.DienGiai = itemDTO.DienGiai;
             itemBDO.ThuTu = itemDTO.ThuTu;
         }
     }
