@@ -12,18 +12,18 @@ namespace TinhGiaInClient.Model
 {
     public class TinhGiaIn
     {
-       
-        public decimal TongTriGiaChao()
+        public TinhGiaIn(int idHangKhachHang)
         {
-            decimal result = 0;
-            //bài in
-            if (_dsKetQuaBaiIn.Count() > 0)
-                result = _dsKetQuaBaiIn.Sum(x => x.TriGiaBaiIn());
-            //Danh thiếp
-            if (_chiTietGiaDanhThiep.Count() > 0)
-                result = _chiTietGiaDanhThiep.Sum(x => x.ThanhTien);
-            return result;
+            this.IdHangKhachHang = idHangKhachHang;
         }
+
+        public int IdHangKhachHang
+        { get; set; }
+        public int TyLeMarkupSales()
+        {
+            return HangKhachHang.LayTheoId(this.IdHangKhachHang).LoiNhuanChenhLech;
+        }
+        
       
         //phần không lưu data
         List<BaiIn> _dsKetQuaBaiIn;
@@ -87,6 +87,49 @@ namespace TinhGiaInClient.Model
         {
             this.KetQuaBaiInS.Clear();
         }
+        //Thêm một số hàm
+        public int TongSoTrangInA4BaiIn()
+        {
+            var kq = 0;
+            if (this.KetQuaBaiInS.Count > 0)
+            {
+                kq = this.KetQuaBaiInS.Sum(x => x.TongSoTrangInA4ToanBai());
+            }
+            return kq;
+        }
+        
+        public decimal TongTienInBaiIn()//Gom lại tính gộp
+        {
+            decimal kq = 0;
+            var idBangGiaInNhanh = 0;
+            var idMayInDigiChon = 0;
+            if (this.TongSoTrangInA4BaiIn() > 0)
+            {
+                //Tìm mục nào có IdBangGiaInNhanh chung > 0 thì dừng
+                foreach (BaiIn baiIn in this.KetQuaBaiInS)
+                {
+                    if (baiIn.IdBangGiaInNhanhChung() > 0)
+                    {
+                        idBangGiaInNhanh = baiIn.IdBangGiaInNhanhChung();
+                        idMayInDigiChon = baiIn.IdMayInDigiChung();
+                    }
+
+                }
+                if (idBangGiaInNhanh <= 0 || idMayInDigiChon <= 0)
+                {
+                    kq = 0;
+                }
+                else
+                {
+
+                    var giaInNhanh = new GiaInNhanhKetHopBangGia_May(this.TongSoTrangInA4BaiIn(),
+                        idBangGiaInNhanh, idMayInDigiChon, TyLeMarkupSales());
+                    kq = giaInNhanh.GiaBan();
+                }
+            }
+
+            return kq;
+        }
         #endregion
 
         #region Phần Danh thiếp: thêm sửa, xóa Danh thiếp
@@ -139,6 +182,29 @@ namespace TinhGiaInClient.Model
             this.GiaInSachDigiS.Clear();
         }
         #endregion
+        #region Một số tóm tắt
+        public decimal TongTriGiaChao()
+        {
+            decimal result = 0;
+
+            //bài in
+            if (_dsKetQuaBaiIn.Count() > 0)
+            { //Tính hơi khác trừ tiền in theo từng bài ra
+                var tongTienInToanBoBai = _dsKetQuaBaiIn.Sum(x => x.TongTienIn());
+                var tienConLaiKhongGomIn = _dsKetQuaBaiIn.Sum(x => x.TriGiaBaiIn()) -
+                                tongTienInToanBoBai; //Để tính gom tiền in riêng
+                result += (tienConLaiKhongGomIn + this.TongTienInBaiIn()) ;
+            }
+            //Danh thiếp
+            if (_chiTietGiaDanhThiep.Count() > 0)
+                result += _chiTietGiaDanhThiep.Sum(x => x.ThanhTien);
+            
+            //Bài in cataloque
+            if (_dsGiaInSach.Count() > 0)
+                result += _dsGiaInSach.Sum(x => x.GiaChaoTong());
+
+            return result;
+        }
         public List<string> NoiDungGiaChaoKhachHang()
         { ///từng dòng 
             var lst = new List<string>();
@@ -188,6 +254,7 @@ namespace TinhGiaInClient.Model
                 }
                 lst.Add("---Hết in theo bài---");
             }
+           
             //Phần Cuốn
             if (this.GiaInSachDigiS.Count > 0)
             {
@@ -214,7 +281,7 @@ namespace TinhGiaInClient.Model
             return lst;
 
         }
-        
-      
+
+        #endregion
     }
 }

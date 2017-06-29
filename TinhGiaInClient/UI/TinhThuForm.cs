@@ -157,11 +157,14 @@ namespace TinhGiaInClient.UI
             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
             var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.CanPhu,
                 FormStateS.View,"Cán Phủ [Tính thử]", "Mặt" );
+            thongTinBanDau.MoTextSoLuong = true;
             //Mục thành phẩm cán phủ
             var mucThPhCanPhu = new MucThPhCanPhu();
             mucThPhCanPhu.IdBaiIn = 1;
             mucThPhCanPhu.IdHangKhachHang = this.IdHangKhachHang;
             mucThPhCanPhu.LoaiThanhPham = LoaiThanhPhamS.CanPhu;
+            mucThPhCanPhu.ToChayDai = 21;//cm
+            mucThPhCanPhu.ToChayRong = 32; //cm
             mucThPhCanPhu.SoLuong = 50;
             mucThPhCanPhu.DonViTinh = "mặt";
             mucThPhCanPhu.SoMatCan = 1;

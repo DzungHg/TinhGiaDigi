@@ -21,7 +21,7 @@ namespace TinhGiaInClient.UI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Text = "Tính giá In";
-            this.TenNguoiDung = TenMayTinhHienTai();
+            this.TenNguoiDung = TenMayTinhHienTai();// TenMayTinhHienTai();
         }
         LietKeTinhGiaForm frmLietKeTinhGia;
         BangGiaGiayForm frmBangGiaGiay;

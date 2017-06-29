@@ -82,7 +82,7 @@ namespace TinhGiaInClient.Presenter
             switch (LoaiTP)
             {
                 case LoaiThanhPhamS.CanPhu: //Tính theo A4 vậy
-                    var giaCanPhu = new GiaCanPhu(soLuong, 0.32f, 0.22f, 1, TiLeMarkUpTheoHangKH(), CanPhu.DocTheoId(iDThanhPham));
+                    var giaCanPhu = new GiaCanPhu(soLuong, 32, 22, 1, TiLeMarkUpTheoHangKH(), CanPhu.DocTheoId(iDThanhPham));
                     ketQua = giaCanPhu.ThanhTienSales();
                     break;
                 case LoaiThanhPhamS.CanGap:

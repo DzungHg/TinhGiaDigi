@@ -15,8 +15,8 @@ using TinhGiaInClient.UI;
 
 namespace TinhGiaInClient
 {
-    
-    public partial class TinhGiaForm : Form, IViewTinhGiaIn
+
+    public partial class TinhGiaForm : Telerik.WinControls.UI.RadForm, IViewTinhGiaIn
     {
         TinhGiaPresenter tinhGiaPres = null;
         public TinhGiaForm(ThongTinBanDauChoTinhGia thongTinBanDau)

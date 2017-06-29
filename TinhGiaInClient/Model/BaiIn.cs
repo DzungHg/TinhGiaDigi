@@ -182,16 +182,71 @@ namespace TinhGiaInClient.Model
         }
         #endregion
         #region Tóm tắt bài in
+        public decimal TongTienIn()
+        {
+            decimal kq = 0;
+            if (this.SoLuongGiaInKemTheo() > 0)
+            {
+                kq = this.GiaInS.Sum(x => x.TienIn);
+
+            }
+            return kq;
+        }
         public int TongSoTrangInA4()
         {
             var kq = 0;
             if (this.GiaInS.Count > 0)
             {
-                //Chỉ lấy mục đầu tiên
+                //Chỉ lấy mục đầu tiên ? lý do
                 kq = this.GiaInS[0].SoTrangIn;
             }
             return kq;
         }
+        public int TongSoTrangInA4ToanBai()
+        {
+            var kq = 0;
+            if (this.GiaInS.Count > 0)
+            {
+                kq = this.GiaInS.Sum(x => x.SoTrangIn);                
+            }
+            return kq;
+        } 
+        //--- Đoạn này lấy IdBangGia và Id máy in nhanh dùng cho tính tổng tiền
+        //-- in của Tính giá trong ngày
+      
+        public int IdBangGiaInNhanhChung()
+        {
+            var kq = 0;
+            if (this.GiaInS.Count > 0)
+            {
+                foreach (MucGiaIn giaIn in this.GiaInS)
+                {
+                    if (giaIn.IdBangGiaInNhanh > 0)
+                    {
+                        kq = giaIn.IdBangGiaInNhanh;
+                        break;
+                    }
+                }
+            }
+            return kq;
+        }
+        public int IdMayInDigiChung()
+        {
+            var kq = 0;
+            if (this.GiaInS.Count > 0)
+            {
+                foreach (MucGiaIn giaIn in this.GiaInS)
+                {
+                    if (giaIn.IdBangGiaInNhanh > 0)
+                    {
+                        kq = giaIn.IdMayIn;
+                        break;
+                    }
+                }
+            }
+            return kq;
+        }
+        //-----
         public decimal TriGiaBaiIn()
         {
             decimal result = 0;

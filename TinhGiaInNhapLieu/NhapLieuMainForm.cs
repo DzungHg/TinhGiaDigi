@@ -330,7 +330,7 @@ namespace TinhGiaInNhapLieu
 
         private void NhapLieuMainForm_Load(object sender, EventArgs e)
         {
-            this.TenNguoiDung = TenMayTinhHienTai();
+            this.TenNguoiDung = TenMayTinhHienTai(); //"Tên người dùng";
         }
         private bool CoTheMoFormNay(string tenForm)
         {
