@@ -192,7 +192,7 @@ namespace TinhGiaInClient.Model
             }
             return kq;
         }
-        public int TongSoTrangInA4()
+        /*public int TongSoTrangInA4()
         {
             var kq = 0;
             if (this.GiaInS.Count > 0)
@@ -201,9 +201,10 @@ namespace TinhGiaInClient.Model
                 kq = this.GiaInS[0].SoTrangIn;
             }
             return kq;
-        }
-        public int TongSoTrangInA4ToanBai()
-        {
+        }*/
+        public int TongSoTrangInA4()
+        {//Bao nhiêu lần in sẽ có bao nhiêu trang in
+         //tương ứng
             var kq = 0;
             if (this.GiaInS.Count > 0)
             {

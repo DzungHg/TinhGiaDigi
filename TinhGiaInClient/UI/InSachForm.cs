@@ -282,6 +282,7 @@ namespace TinhGiaInClient.UI
                     + " - Từ đây nhập Số lượng chính xác" + '\r' + '\n'
             };
             var baiIn = new BaiIn("Bìa sách");
+            baiIn.DienGiai = "Giấy, In, Thành phẩm, v.v.";
             //Xác định bìa đơn hay bìa đôi để thêm kích thước và số lượng cho phù hợp
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             if (monDongCuon.BiaDon)
@@ -365,6 +366,7 @@ namespace TinhGiaInClient.UI
                     + " - Từ đây nhập Số lượng chính xác" + '\r' + '\n'
             };
             var baiIn = new BaiIn("Ruột sách");
+            baiIn.DienGiai = "Giấy, In, Thành phẩm, v.v.";
             //Xác định ruột đôi hay ruột đơn để thêm kích thước và số lượng cho phù hợp
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             if (monDongCuon.RuotDon)

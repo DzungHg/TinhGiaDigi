@@ -12,9 +12,9 @@ namespace TinhGiaInClient.View
     {
         int ID { get; set; }
         DateTime NgayTinhGia { get; set; }
-        int IdNguoiDung { get; set; }
-       
+        int IdNguoiDung { get; set; }       
         string TenNhanVien { get; set; }
+        string TenKhachHang { get; set; }
         string TieuDeTinhGia { get; set; }
         string TenHangKH { get; set; }
         FormStateS TinhTrangForm { get; set; }

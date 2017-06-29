@@ -42,7 +42,8 @@ namespace TinhGiaInClient.Presenter
                 
                 lst.Add(tgi.NgayTinhGia.ToShortDateString());                
                 lst.Add(tgi.TieuDe);
-                lst.Add(tgi.TenNguoiDung);              
+                lst.Add(tgi.TenNguoiDung);
+                lst.Add(tgi.TenKhachHang);
                 dict.Add(tgi.ID, lst);
             }
             return dict;

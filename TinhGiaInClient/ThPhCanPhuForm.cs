@@ -250,8 +250,8 @@ namespace TinhGiaInClient
         }
         private void ListBoxes_SelectedIndex_Changed(object sender, EventArgs e)
         {
-            ListBox lb;
-           /* if (sender is ListBox)
+           /* ListBox lb;
+            if (sender is ListBox)
             {
                 lb = (ListBox)sender;
                 if (lb == lbxCanPhu)

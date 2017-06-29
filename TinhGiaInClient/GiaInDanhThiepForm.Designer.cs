@@ -285,7 +285,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(353, 120);
+            this.label11.Location = new System.Drawing.Point(395, 120);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 13);
             this.label11.TabIndex = 143;
@@ -304,7 +304,7 @@
             // 
             this.txtKichThuoc.Location = new System.Drawing.Point(277, 117);
             this.txtKichThuoc.Name = "txtKichThuoc";
-            this.txtKichThuoc.Size = new System.Drawing.Size(70, 20);
+            this.txtKichThuoc.Size = new System.Drawing.Size(112, 20);
             this.txtKichThuoc.TabIndex = 3;
             this.txtKichThuoc.Text = "9 x 5.0cm";
             // 

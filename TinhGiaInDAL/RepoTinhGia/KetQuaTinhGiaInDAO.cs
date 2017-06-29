@@ -25,7 +25,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     IdYeuCauTinhGiaIn = (int)x.ID_YEU_CAU_TINH_GIA_IN,
                     NoiDungChaoGia = x.Noi_dung_chao_gia,
                     NoiDungChaoGiaNoiBo = x.noi_dung_chao_gia_noi_bo,
-                    TenNguoiDung = x.ten_nguoi_dung
+                    TenNguoiDung = x.ten_nguoi_dung,
+                    TenKhachHang = x.ten_khach_hang
                     
                 });
                 list = nguon.ToList();
@@ -52,8 +53,8 @@ namespace TinhGiaInDAL.RepoTinhGia
                     IdYeuCauTinhGiaIn = (int)x.ID_YEU_CAU_TINH_GIA_IN,
                     NoiDungChaoGia = x.Noi_dung_chao_gia,
                     NoiDungChaoGiaNoiBo = x.noi_dung_chao_gia_noi_bo,
-                    TenNguoiDung = x.ten_nguoi_dung
-                    
+                    TenNguoiDung = x.ten_nguoi_dung,
+                    TenKhachHang = x.ten_khach_hang                    
                   
                 });
                 giay = nguon.SingleOrDefault();
@@ -147,6 +148,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ten_nguoi_dung = entityBDO.TenNguoiDung;
             entityDAO.Noi_dung_chao_gia = entityBDO.NoiDungChaoGia;
             entityDAO.noi_dung_chao_gia_noi_bo = entityBDO.NoiDungChaoGiaNoiBo;
+            entityDAO.ten_khach_hang = entityBDO.TenKhachHang;
            
 
         }

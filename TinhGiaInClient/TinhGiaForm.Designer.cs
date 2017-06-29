@@ -28,38 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblIdTinhGia = new System.Windows.Forms.Label();
-            this.txtDienGiaiHangKH = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cboHangKH = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtTenNV = new System.Windows.Forms.TextBox();
-            this.dtpNgay = new System.Windows.Forms.DateTimePicker();
-            this.txtTieuDeTinhGia = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnXoaSach = new System.Windows.Forms.Button();
             this.lvwBaiIn = new System.Windows.Forms.ListView();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.tabCtrl01 = new System.Windows.Forms.TabControl();
             this.tabDanhThiep = new System.Windows.Forms.TabPage();
             this.lvwDanhThiep = new System.Windows.Forms.ListView();
             this.tabInSPTo = new System.Windows.Forms.TabPage();
             this.tabInCuon = new System.Windows.Forms.TabPage();
             this.lvwCuon = new System.Windows.Forms.ListView();
-            this.btnCopyToClipboardMucTinh = new System.Windows.Forms.Button();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.txtTomTatTinhGia = new Telerik.WinControls.UI.RadTextBoxControl();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.txtTomTatBaiIn = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.groupBox1.SuspendLayout();
+            this.dtpNgay = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.txtTenKhachHang = new Telerik.WinControls.UI.RadTextBox();
+            this.txtTieuDeTinhGia = new Telerik.WinControls.UI.RadTextBox();
+            this.txtTenNV = new Telerik.WinControls.UI.RadTextBox();
+            this.txtDienGiaiHangKH = new Telerik.WinControls.UI.RadTextBox();
+            this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.cboHangKH = new Telerik.WinControls.UI.RadDropDownList();
+            this.btnThem = new Telerik.WinControls.UI.RadButton();
+            this.btnXoa = new Telerik.WinControls.UI.RadButton();
+            this.btnXoaSach = new Telerik.WinControls.UI.RadButton();
+            this.btnSaoChep = new Telerik.WinControls.UI.RadDropDownButton();
+            this.btnCopyToCLB_MucTinh = new Telerik.WinControls.UI.RadMenuButtonItem();
+            this.btnCopyToCLB_TinhGiaTomTat = new Telerik.WinControls.UI.RadMenuButtonItem();
+            this.btnDong = new Telerik.WinControls.UI.RadButton();
+            this.btnLuu = new Telerik.WinControls.UI.RadButton();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
             this.tabInSPTo.SuspendLayout();
@@ -69,152 +68,35 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatBaiIn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTieuDeTinhGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDienGiaiHangKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
+            this.radGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboHangKH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaoChep)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.lblIdTinhGia);
-            this.groupBox1.Controls.Add(this.txtDienGiaiHangKH);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cboHangKH);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtTenNV);
-            this.groupBox1.Controls.Add(this.dtpNgay);
-            this.groupBox1.Controls.Add(this.txtTieuDeTinhGia);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Location = new System.Drawing.Point(15, 48);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(502, 136);
-            this.groupBox1.TabIndex = 195;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tính giá, thông tin tổng quát";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 103);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 235;
-            this.label1.Text = "Khách hàng";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(88, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 20);
-            this.textBox1.TabIndex = 4;
             // 
             // lblIdTinhGia
             // 
             this.lblIdTinhGia.AutoSize = true;
-            this.lblIdTinhGia.Location = new System.Drawing.Point(15, 25);
+            this.lblIdTinhGia.Location = new System.Drawing.Point(26, 23);
             this.lblIdTinhGia.Name = "lblIdTinhGia";
             this.lblIdTinhGia.Size = new System.Drawing.Size(18, 13);
             this.lblIdTinhGia.TabIndex = 233;
             this.lblIdTinhGia.Text = "ID";
-            // 
-            // txtDienGiaiHangKH
-            // 
-            this.txtDienGiaiHangKH.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDienGiaiHangKH.ForeColor = System.Drawing.Color.Black;
-            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(302, 69);
-            this.txtDienGiaiHangKH.Multiline = true;
-            this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
-            this.txtDienGiaiHangKH.ReadOnly = true;
-            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(193, 51);
-            this.txtDienGiaiHangKH.TabIndex = 214;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(299, 25);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 232;
-            this.label5.Text = "Hạng KH:";
-            // 
-            // cboHangKH
-            // 
-            this.cboHangKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboHangKH.FormattingEnabled = true;
-            this.cboHangKH.Location = new System.Drawing.Point(302, 44);
-            this.cboHangKH.Name = "cboHangKH";
-            this.cboHangKH.Size = new System.Drawing.Size(106, 21);
-            this.cboHangKH.TabIndex = 5;
-            this.cboHangKH.SelectedIndexChanged += new System.EventHandler(this.cboHangKH_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 204;
-            this.label3.Text = "Nhân viên";
-            // 
-            // txtTenNV
-            // 
-            this.txtTenNV.Enabled = false;
-            this.txtTenNV.Location = new System.Drawing.Point(88, 74);
-            this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(205, 20);
-            this.txtTenNV.TabIndex = 3;
-            // 
-            // dtpNgay
-            // 
-            this.dtpNgay.Location = new System.Drawing.Point(88, 19);
-            this.dtpNgay.Name = "dtpNgay";
-            this.dtpNgay.Size = new System.Drawing.Size(205, 20);
-            this.dtpNgay.TabIndex = 1;
-            // 
-            // txtTieuDeTinhGia
-            // 
-            this.txtTieuDeTinhGia.Location = new System.Drawing.Point(88, 47);
-            this.txtTieuDeTinhGia.Name = "txtTieuDeTinhGia";
-            this.txtTieuDeTinhGia.Size = new System.Drawing.Size(205, 20);
-            this.txtTieuDeTinhGia.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
-            this.label2.TabIndex = 202;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(15, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
-            this.label10.TabIndex = 200;
-            this.label10.Text = "Tiêu đề";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(541, 228);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 13);
-            this.label4.TabIndex = 194;
-            this.label4.Text = "Tóm tắt từng mục tính";
-            // 
-            // btnXoaSach
-            // 
-            this.btnXoaSach.Location = new System.Drawing.Point(247, 199);
-            this.btnXoaSach.Name = "btnXoaSach";
-            this.btnXoaSach.Size = new System.Drawing.Size(112, 23);
-            this.btnXoaSach.TabIndex = 9;
-            this.btnXoaSach.Text = "Xóa sạch";
-            this.btnXoaSach.UseVisualStyleBackColor = true;
-            this.btnXoaSach.Click += new System.EventHandler(this.btnXoaSachBaiIn_Click);
             // 
             // lvwBaiIn
             // 
@@ -224,51 +106,9 @@
             this.lvwBaiIn.Location = new System.Drawing.Point(0, 0);
             this.lvwBaiIn.MultiSelect = false;
             this.lvwBaiIn.Name = "lvwBaiIn";
-            this.lvwBaiIn.Size = new System.Drawing.Size(517, 213);
+            this.lvwBaiIn.Size = new System.Drawing.Size(517, 208);
             this.lvwBaiIn.TabIndex = 10;
             this.lvwBaiIn.UseCompatibleStateImageBehavior = false;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Location = new System.Drawing.Point(129, 199);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(112, 23);
-            this.btnXoa.TabIndex = 8;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoaBaiIn_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Location = new System.Drawing.Point(11, 199);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(112, 23);
-            this.btnThem.TabIndex = 6;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThemBaiIn_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(305, 471);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 67;
-            this.btnClose.Text = "Đóng";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnLuu.Location = new System.Drawing.Point(409, 471);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
-            this.btnLuu.TabIndex = 66;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // tabCtrl01
             // 
@@ -304,6 +144,7 @@
             this.lvwDanhThiep.Size = new System.Drawing.Size(511, 202);
             this.lvwDanhThiep.TabIndex = 11;
             this.lvwDanhThiep.UseCompatibleStateImageBehavior = false;
+            this.lvwDanhThiep.SelectedIndexChanged += new System.EventHandler(this.lvwDanhThiep_SelectedIndexChanged);
             // 
             // tabInSPTo
             // 
@@ -311,7 +152,7 @@
             this.tabInSPTo.Controls.Add(this.lvwBaiIn);
             this.tabInSPTo.Location = new System.Drawing.Point(4, 22);
             this.tabInSPTo.Name = "tabInSPTo";
-            this.tabInSPTo.Size = new System.Drawing.Size(517, 213);
+            this.tabInSPTo.Size = new System.Drawing.Size(517, 208);
             this.tabInSPTo.TabIndex = 11;
             this.tabInSPTo.Text = "In Tờ";
             // 
@@ -321,7 +162,7 @@
             this.tabInCuon.Location = new System.Drawing.Point(4, 22);
             this.tabInCuon.Name = "tabInCuon";
             this.tabInCuon.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInCuon.Size = new System.Drawing.Size(517, 213);
+            this.tabInCuon.Size = new System.Drawing.Size(517, 208);
             this.tabInCuon.TabIndex = 12;
             this.tabInCuon.Text = "In Cuốn";
             this.tabInCuon.UseVisualStyleBackColor = true;
@@ -334,19 +175,9 @@
             this.lvwCuon.Location = new System.Drawing.Point(3, 3);
             this.lvwCuon.MultiSelect = false;
             this.lvwCuon.Name = "lvwCuon";
-            this.lvwCuon.Size = new System.Drawing.Size(511, 207);
+            this.lvwCuon.Size = new System.Drawing.Size(511, 202);
             this.lvwCuon.TabIndex = 11;
             this.lvwCuon.UseCompatibleStateImageBehavior = false;
-            // 
-            // btnCopyToClipboardMucTinh
-            // 
-            this.btnCopyToClipboardMucTinh.Location = new System.Drawing.Point(716, 223);
-            this.btnCopyToClipboardMucTinh.Name = "btnCopyToClipboardMucTinh";
-            this.btnCopyToClipboardMucTinh.Size = new System.Drawing.Size(75, 23);
-            this.btnCopyToClipboardMucTinh.TabIndex = 214;
-            this.btnCopyToClipboardMucTinh.Text = "Sao chép";
-            this.btnCopyToClipboardMucTinh.UseVisualStyleBackColor = true;
-            this.btnCopyToClipboardMucTinh.Click += new System.EventHandler(this.btnCopyToClipboardMucTinh_Click);
             // 
             // radGroupBox1
             // 
@@ -386,23 +217,196 @@
             this.txtTomTatBaiIn.Size = new System.Drawing.Size(247, 206);
             this.txtTomTatBaiIn.TabIndex = 217;
             // 
+            // dtpNgay
+            // 
+            this.dtpNgay.Culture = new System.Globalization.CultureInfo("vi-VN");
+            this.dtpNgay.Location = new System.Drawing.Point(96, 21);
+            this.dtpNgay.Name = "dtpNgay";
+            this.dtpNgay.Size = new System.Drawing.Size(164, 20);
+            this.dtpNgay.TabIndex = 1;
+            this.dtpNgay.TabStop = false;
+            this.dtpNgay.Text = "29 Tháng Sáu 2017";
+            this.dtpNgay.Value = new System.DateTime(2017, 6, 29, 21, 9, 52, 509);
+            // 
+            // txtTenKhachHang
+            // 
+            this.txtTenKhachHang.Location = new System.Drawing.Point(97, 99);
+            this.txtTenKhachHang.Name = "txtTenKhachHang";
+            this.txtTenKhachHang.Size = new System.Drawing.Size(205, 20);
+            this.txtTenKhachHang.TabIndex = 4;
+            // 
+            // txtTieuDeTinhGia
+            // 
+            this.txtTieuDeTinhGia.Location = new System.Drawing.Point(97, 46);
+            this.txtTieuDeTinhGia.Name = "txtTieuDeTinhGia";
+            this.txtTieuDeTinhGia.Size = new System.Drawing.Size(205, 20);
+            this.txtTieuDeTinhGia.TabIndex = 2;
+            // 
+            // txtTenNV
+            // 
+            this.txtTenNV.Location = new System.Drawing.Point(96, 73);
+            this.txtTenNV.Name = "txtTenNV";
+            this.txtTenNV.ReadOnly = true;
+            this.txtTenNV.Size = new System.Drawing.Size(205, 20);
+            this.txtTenNV.TabIndex = 3;
+            // 
+            // txtDienGiaiHangKH
+            // 
+            this.txtDienGiaiHangKH.AutoSize = false;
+            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(310, 69);
+            this.txtDienGiaiHangKH.Multiline = true;
+            this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
+            this.txtDienGiaiHangKH.ReadOnly = true;
+            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(191, 50);
+            this.txtDienGiaiHangKH.TabIndex = 6;
+            // 
+            // radGroupBox2
+            // 
+            this.radGroupBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.radGroupBox2.Controls.Add(this.cboHangKH);
+            this.radGroupBox2.Controls.Add(this.radLabel5);
+            this.radGroupBox2.Controls.Add(this.radLabel4);
+            this.radGroupBox2.Controls.Add(this.radLabel3);
+            this.radGroupBox2.Controls.Add(this.radLabel1);
+            this.radGroupBox2.Controls.Add(this.txtDienGiaiHangKH);
+            this.radGroupBox2.Controls.Add(this.dtpNgay);
+            this.radGroupBox2.Controls.Add(this.txtTenNV);
+            this.radGroupBox2.Controls.Add(this.txtTieuDeTinhGia);
+            this.radGroupBox2.Controls.Add(this.txtTenKhachHang);
+            this.radGroupBox2.Controls.Add(this.lblIdTinhGia);
+            this.radGroupBox2.HeaderText = "Thông tin chung";
+            this.radGroupBox2.Location = new System.Drawing.Point(12, 48);
+            this.radGroupBox2.Name = "radGroupBox2";
+            this.radGroupBox2.Size = new System.Drawing.Size(519, 132);
+            this.radGroupBox2.TabIndex = 218;
+            this.radGroupBox2.Text = "Thông tin chung";
+            // 
+            // radLabel5
+            // 
+            this.radLabel5.Location = new System.Drawing.Point(310, 22);
+            this.radLabel5.Name = "radLabel5";
+            this.radLabel5.Size = new System.Drawing.Size(95, 18);
+            this.radLabel5.TabIndex = 239;
+            this.radLabel5.Text = "Hạng Khách hàng";
+            // 
+            // radLabel4
+            // 
+            this.radLabel4.Location = new System.Drawing.Point(26, 101);
+            this.radLabel4.Name = "radLabel4";
+            this.radLabel4.Size = new System.Drawing.Size(65, 18);
+            this.radLabel4.TabIndex = 238;
+            this.radLabel4.Text = "Khách hàng";
+            // 
+            // radLabel3
+            // 
+            this.radLabel3.Location = new System.Drawing.Point(26, 73);
+            this.radLabel3.Name = "radLabel3";
+            this.radLabel3.Size = new System.Drawing.Size(57, 18);
+            this.radLabel3.TabIndex = 237;
+            this.radLabel3.Text = "Nhân viên";
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Location = new System.Drawing.Point(26, 46);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(43, 18);
+            this.radLabel1.TabIndex = 236;
+            this.radLabel1.Text = "Tiêu đề";
+            // 
+            // cboHangKH
+            // 
+            this.cboHangKH.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            this.cboHangKH.Location = new System.Drawing.Point(310, 46);
+            this.cboHangKH.Name = "cboHangKH";
+            this.cboHangKH.Size = new System.Drawing.Size(125, 20);
+            this.cboHangKH.TabIndex = 219;
+            this.cboHangKH.Text = "Chọn hạng KH";
+            // 
+            // btnThem
+            // 
+            this.btnThem.Location = new System.Drawing.Point(24, 200);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(110, 24);
+            this.btnThem.TabIndex = 219;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThemBaiIn_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Location = new System.Drawing.Point(140, 200);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(110, 24);
+            this.btnXoa.TabIndex = 220;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoaBaiIn_Click);
+            // 
+            // btnXoaSach
+            // 
+            this.btnXoaSach.Location = new System.Drawing.Point(256, 200);
+            this.btnXoaSach.Name = "btnXoaSach";
+            this.btnXoaSach.Size = new System.Drawing.Size(110, 24);
+            this.btnXoaSach.TabIndex = 221;
+            this.btnXoaSach.Text = "Xóa sạch";
+            this.btnXoaSach.Click += new System.EventHandler(this.btnXoaSachBaiIn_Click);
+            // 
+            // btnSaoChep
+            // 
+            this.btnSaoChep.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.btnCopyToCLB_MucTinh,
+            this.btnCopyToCLB_TinhGiaTomTat});
+            this.btnSaoChep.Location = new System.Drawing.Point(604, 223);
+            this.btnSaoChep.Name = "btnSaoChep";
+            this.btnSaoChep.Size = new System.Drawing.Size(140, 24);
+            this.btnSaoChep.TabIndex = 223;
+            this.btnSaoChep.Text = "Sao chép";
+            // 
+            // btnCopyToCLB_MucTinh
+            // 
+            this.btnCopyToCLB_MucTinh.Name = "btnCopyToCLB_MucTinh";
+            this.btnCopyToCLB_MucTinh.Text = "Mục tính";
+            this.btnCopyToCLB_MucTinh.Click += new System.EventHandler(this.btnCopyToClipboardMucTinh_Click);
+            // 
+            // btnCopyToCLB_TinhGiaTomTat
+            // 
+            this.btnCopyToCLB_TinhGiaTomTat.Name = "btnCopyToCLB_TinhGiaTomTat";
+            this.btnCopyToCLB_TinhGiaTomTat.Text = "Tính giá";
+            this.btnCopyToCLB_TinhGiaTomTat.Click += new System.EventHandler(this.btnCopyToClipboarTinhGia_Click);
+            // 
+            // btnDong
+            // 
+            this.btnDong.Location = new System.Drawing.Point(273, 472);
+            this.btnDong.Name = "btnDong";
+            this.btnDong.Size = new System.Drawing.Size(110, 24);
+            this.btnDong.TabIndex = 222;
+            this.btnDong.Text = "Đóng";
+            this.btnDong.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnLuu.Location = new System.Drawing.Point(389, 472);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(110, 24);
+            this.btnLuu.TabIndex = 223;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // TinhGiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 506);
-            this.Controls.Add(this.txtTomTatBaiIn);
-            this.Controls.Add(this.radLabel2);
-            this.Controls.Add(this.radGroupBox1);
-            this.Controls.Add(this.btnCopyToClipboardMucTinh);
-            this.Controls.Add(this.tabCtrl01);
-            this.Controls.Add(this.btnClose);
+            this.ClientSize = new System.Drawing.Size(809, 506);
             this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnDong);
+            this.Controls.Add(this.btnSaoChep);
             this.Controls.Add(this.btnXoaSach);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.radGroupBox2);
+            this.Controls.Add(this.txtTomTatBaiIn);
+            this.Controls.Add(this.radLabel2);
+            this.Controls.Add(this.radGroupBox1);
+            this.Controls.Add(this.tabCtrl01);
             this.Name = "TinhGiaForm";
             // 
             // 
@@ -411,8 +415,6 @@
             this.Text = "Tính giá Nhanh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TinhGiaForm_FormClosing);
             this.Load += new System.EventHandler(this.TinhGiaForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabCtrl01.ResumeLayout(false);
             this.tabDanhThiep.ResumeLayout(false);
             this.tabInSPTo.ResumeLayout(false);
@@ -422,6 +424,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatBaiIn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpNgay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTieuDeTinhGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDienGiaiHangKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
+            this.radGroupBox2.ResumeLayout(false);
+            this.radGroupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboHangKH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnXoaSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaoChep)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -430,37 +451,37 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnXoaSach;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.ListView lvwBaiIn;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTenNV;
-        private System.Windows.Forms.DateTimePicker dtpNgay;
-        private System.Windows.Forms.TextBox txtTieuDeTinhGia;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl tabCtrl01;
         private System.Windows.Forms.TabPage tabDanhThiep;
         private System.Windows.Forms.ListView lvwDanhThiep;
         private System.Windows.Forms.TabPage tabInSPTo;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cboHangKH;
-        private System.Windows.Forms.TextBox txtDienGiaiHangKH;
         private System.Windows.Forms.Label lblIdTinhGia;
-        private System.Windows.Forms.Button btnCopyToClipboardMucTinh;
         private System.Windows.Forms.TabPage tabInCuon;
         private System.Windows.Forms.ListView lvwCuon;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadTextBoxControl txtTomTatTinhGia;
         private Telerik.WinControls.UI.RadTextBoxControl txtTomTatBaiIn;
+        private Telerik.WinControls.UI.RadDateTimePicker dtpNgay;
+        private Telerik.WinControls.UI.RadTextBox txtDienGiaiHangKH;
+        private Telerik.WinControls.UI.RadTextBox txtTenNV;
+        private Telerik.WinControls.UI.RadTextBox txtTieuDeTinhGia;
+        private Telerik.WinControls.UI.RadTextBox txtTenKhachHang;
+        private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadDropDownList cboHangKH;
+        private Telerik.WinControls.UI.RadButton btnThem;
+        private Telerik.WinControls.UI.RadButton btnXoa;
+        private Telerik.WinControls.UI.RadButton btnXoaSach;
+        private Telerik.WinControls.UI.RadDropDownButton btnSaoChep;
+        private Telerik.WinControls.UI.RadMenuButtonItem btnCopyToCLB_MucTinh;
+        private Telerik.WinControls.UI.RadMenuButtonItem btnCopyToCLB_TinhGiaTomTat;
+        private Telerik.WinControls.UI.RadButton btnDong;
+        private Telerik.WinControls.UI.RadButton btnLuu;
 
     }
 }

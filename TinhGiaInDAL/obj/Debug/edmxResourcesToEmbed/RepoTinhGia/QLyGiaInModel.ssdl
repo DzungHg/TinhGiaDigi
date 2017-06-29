@@ -356,6 +356,7 @@
     <Property Name="Noi_dung_chao_gia" Type="nvarchar(max)" />
     <Property Name="noi_dung_chao_gia_noi_bo" Type="nvarchar(max)" />
     <Property Name="ID_YEU_CAU_TINH_GIA_IN" Type="int" />
+    <Property Name="ten_khach_hang" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="TO_BOI_BIA_CUNG">
     <Key>

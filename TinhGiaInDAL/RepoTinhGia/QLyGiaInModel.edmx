@@ -361,6 +361,7 @@
           <Property Name="Noi_dung_chao_gia" Type="nvarchar(max)" />
           <Property Name="noi_dung_chao_gia_noi_bo" Type="nvarchar(max)" />
           <Property Name="ID_YEU_CAU_TINH_GIA_IN" Type="int" />
+          <Property Name="ten_khach_hang" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TO_BOI_BIA_CUNG">
           <Key>
@@ -1025,6 +1026,7 @@
           <Property Name="noi_dung_chao_gia_noi_bo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_YEU_CAU_TINH_GIA_IN" Type="Int32" />
           <Property Name="ten_nguoi_dung" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ten_khach_hang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="YEU_CAU_TINH_GIA_IN">
           <Key>
@@ -1457,6 +1459,7 @@
           <EntitySetMapping Name="TINH_GIA_IN">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.TINH_GIA_IN">
               <MappingFragment StoreEntitySet="TINH_GIA_IN">
+                <ScalarProperty Name="ten_khach_hang" ColumnName="ten_khach_hang" />
                 <ScalarProperty Name="ten_nguoi_dung" ColumnName="ten_nguoi_dung" />
                 <ScalarProperty Name="ID_YEU_CAU_TINH_GIA_IN" ColumnName="ID_YEU_CAU_TINH_GIA_IN" />
                 <ScalarProperty Name="noi_dung_chao_gia_noi_bo" ColumnName="noi_dung_chao_gia_noi_bo" />

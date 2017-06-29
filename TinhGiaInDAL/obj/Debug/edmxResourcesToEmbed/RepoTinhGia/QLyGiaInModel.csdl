@@ -434,6 +434,7 @@
     <Property Name="noi_dung_chao_gia_noi_bo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ID_YEU_CAU_TINH_GIA_IN" Type="Int32" />
     <Property Name="ten_nguoi_dung" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ten_khach_hang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="YEU_CAU_TINH_GIA_IN">
     <Key>

@@ -24,12 +24,12 @@ namespace TinhGiaInClient
             InitializeComponent();
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.TenNhanVien = thongTinBanDau.TenNguoiDung;
+            this.TieuDeTinhGia = "Tính giá";
             //Rồi mới tiếp tục
             tinhGiaPres = new TinhGiaPresenter(this);
             tinhGiaPres.NoiDungBanDau();
             LoadHangKhachHang();
             cboHangKH.SelectedIndex = 0;
-
             
             //event
             this.FormClosing += new FormClosingEventHandler(Forms_FormClosing);
@@ -40,6 +40,7 @@ namespace TinhGiaInClient
 
             txtTieuDeTinhGia.TextChanged += new EventHandler(TextBoxe_TextChanged);
             txtTenNV.TextChanged += new EventHandler(TextBoxe_TextChanged);
+            txtTenKhachHang.TextChanged += new EventHandler(TextBoxe_TextChanged);
             dtpNgay.ValueChanged += new EventHandler(TextBoxe_TextChanged);
             //
             
@@ -71,6 +72,11 @@ namespace TinhGiaInClient
         {
             get { return txtTenNV.Text; }
             set { txtTenNV.Text = value; }
+        }
+        public string TenKhachHang
+        {
+            get { return txtTenKhachHang.Text; }
+            set { txtTenKhachHang.Text = value; }
         }
         public FormStateS TinhTrangForm { get; set; }
       
@@ -128,10 +134,7 @@ namespace TinhGiaInClient
       
         #endregion
         Dictionary<int,TabPage> tabList = new Dictionary<int,TabPage>();
-        private void txtCustName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
        
         
 
@@ -240,8 +243,10 @@ namespace TinhGiaInClient
                 YeuCauTinhGia = ""
             };
             var baiIn = new BaiIn("Bài in");
+            baiIn.TieuDe = "Tiêu đề";
+            baiIn.DienGiai = "Giấy, In, Thành phẩm, ...";
             baiIn.SoLuong = 10;
-            baiIn.DonVi = "???";
+            baiIn.DonVi = "đvt";
             baiIn.IdHangKH = this.IdHangKhachHang();
             var frm = new InToForm(thongTinChoBaiIn, baiIn);
             
@@ -576,8 +581,7 @@ namespace TinhGiaInClient
                    break;
            }
        }
-       
-       
+              
 
       
        private void ListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -597,6 +601,8 @@ namespace TinhGiaInClient
                if (lv == lvwCuon)
                    LoadChiTietInCuonDigi();
            }
+           //Cập nhật tổng kết bài
+           txtTomTatTinhGia.Text = tinhGiaPres.TomTatTinhGia_ChaoKH();
        }
 
        private bool KiemTraHopLe(ref string errorMessage)
@@ -755,19 +761,20 @@ namespace TinhGiaInClient
        }
        private void TextBoxe_TextChanged(object sender, EventArgs e)
        {
-           TextBox tb;
-           if (sender is TextBox)
+           Telerik.WinControls.UI.RadTextBox tb;
+           if (sender is Telerik.WinControls.UI.RadTextBox)
            {
-               tb = (TextBox)sender;
-               if (tb == txtTenNV || tb == txtTieuDeTinhGia )
+               tb = (Telerik.WinControls.UI.RadTextBox)sender;
+               if (tb == txtTenNV || tb == txtTieuDeTinhGia ||
+                   tb == txtTenKhachHang)
                {
                    MakeFormChange(true);
                }
            }
-           DateTimePicker dtp;
-           if (sender is DateTimePicker)
+          Telerik.WinControls.UI.RadDateTimePicker dtp;
+          if (sender is Telerik.WinControls.UI.RadDateTimePicker)
            {
-               dtp = (DateTimePicker)sender;
+               dtp = (Telerik.WinControls.UI.RadDateTimePicker)sender;
                if (dtp == dtpNgay)
                {
                    MakeFormChange(true);
@@ -785,10 +792,20 @@ namespace TinhGiaInClient
            if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text.Trim()))
                Clipboard.SetText(txtTomTatBaiIn.Text);
        }
+       private void btnCopyToClipboarTinhGia_Click(object sender, EventArgs e)
+       {
+           if (!string.IsNullOrEmpty(txtTomTatTinhGia.Text.Trim()))
+               Clipboard.SetText(txtTomTatTinhGia.Text);
+       }
 
        private void tabCtrl01_SelectedIndexChanged_1(object sender, EventArgs e)
        {
            CapNhatTextNutThemXoa();
+       }
+
+       private void lvwDanhThiep_SelectedIndexChanged(object sender, EventArgs e)
+       {
+
        }
 
        

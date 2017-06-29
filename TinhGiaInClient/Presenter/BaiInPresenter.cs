@@ -20,6 +20,7 @@ namespace TinhGiaInClient.Presenter
             //Dữ liệu
             View.ID = this.MucBaiIn.ID;
             View.TieuDe = this.MucBaiIn.TieuDe;
+            View.DienGiai = this.MucBaiIn.DienGiai;
             View.SoLuong = this.MucBaiIn.SoLuong;
             View.DonViTinh = this.MucBaiIn.DonVi;
             View.IdHangKhachHang = this.MucBaiIn.IdHangKH;
@@ -267,6 +268,7 @@ namespace TinhGiaInClient.Presenter
         {
             this.MucBaiIn.ID = View.ID;
             this.MucBaiIn.TieuDe = View.TieuDe;
+            this.MucBaiIn.DienGiai = View.DienGiai;
             this.MucBaiIn.SoLuong = View.SoLuong;
             this.MucBaiIn.DonVi = View.DonViTinh;
             this.MucBaiIn.IdHangKH = this.MucBaiIn.IdHangKH;

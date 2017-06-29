@@ -16,6 +16,7 @@ namespace TinhGiaInBDO
         public int IdYeuCauTinhGiaIn { get; set; }
         public string NoiDungChaoGia { get; set; }
         public string NoiDungChaoGiaNoiBo { get; set; }
+        public string TenKhachHang { get; set; }
         
     }
 }

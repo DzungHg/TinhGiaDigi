@@ -93,7 +93,7 @@ namespace TinhGiaInClient.Model
             var kq = 0;
             if (this.KetQuaBaiInS.Count > 0)
             {
-                kq = this.KetQuaBaiInS.Sum(x => x.TongSoTrangInA4ToanBai());
+                kq = this.KetQuaBaiInS.Sum(x => x.TongSoTrangInA4());
             }
             return kq;
         }
@@ -207,18 +207,21 @@ namespace TinhGiaInClient.Model
         }
         public List<string> NoiDungGiaChaoKhachHang()
         { ///từng dòng 
-            var lst = new List<string>();
+            var lst = new List<string>();           
             lst.Add("----------------");//Ngăn tiêu đề
             if (this.BaiInGiaDanhThiepS.Count <= 0 && this.KetQuaBaiInS.Count <= 0)
             {
                 lst.Add("Chưa có nội dung tính toán");
                 return lst;
             }
-
+            var j = 0; //dùng cho các mục tính giá
+            var dSachMucTinhGia = ""; //dùng ghi nhận
             //Danh thiếp
             if (this.BaiInGiaDanhThiepS.Count > 0)
             {
-                lst.Add("Danh thiếp: ");
+                j += 1;
+                dSachMucTinhGia += string.Format("Danh thiếp [{0}], ", this.BaiInGiaDanhThiepS.Count);
+                lst.Add(string.Format("{0}). Danh thiếp: ", j));
                 var i = 1;
                 foreach (BaiInDanhThiep bInDanhThiep in this.BaiInGiaDanhThiepS)
                 {                    
@@ -237,8 +240,9 @@ namespace TinhGiaInClient.Model
             //Phần bài in
             if (this.KetQuaBaiInS.Count > 0)
             {
-                lst.Add("In theo bài: ");
-
+                j += 1;
+                dSachMucTinhGia += string.Format("In theo bài [{0}], ", this.KetQuaBaiInS.Count);
+                lst.Add(string.Format("{0}). In theo bài: ", j));
 
                 var i = 1;
 
@@ -252,14 +256,18 @@ namespace TinhGiaInClient.Model
                     lst.Add(string.Format("---Hết {0}---", i));
                     ++i;
                 }
+                lst.Add("--- Tóm tắt in theo bài ---");
+                lst.Add(string.Format("Tổng trang in gộp: {0}", this.TongSoTrangInA4BaiIn()));
+                lst.Add(string.Format("Tổng tiền in gộp: {0:0,0.00}đ", this.TongTienInBaiIn()));                
                 lst.Add("---Hết in theo bài---");
             }
            
             //Phần Cuốn
             if (this.GiaInSachDigiS.Count > 0)
             {
-                lst.Add("In cuốn ");
-
+                j += 1;
+                dSachMucTinhGia += string.Format("In cuốn [{0}] ", this.GiaInSachDigiS.Count);
+                lst.Add(string.Format("{0}). In cuốn/Cataloque: ", j));
 
                 var i = 1;
 
@@ -271,11 +279,12 @@ namespace TinhGiaInClient.Model
                     lst.Add(string.Format("---Hết {0}---", i));
                     ++i;
                 }
-                lst.Add("---Hết in theo bài---");
+                lst.Add("---Hết in Cuốn ---");
             }
             
 
-            lst.Add("-----Hết Chào giá-----");
+            lst.Add("-----Tổng kết chào giá-----");
+            lst.Add("KH đã thực hiện: " + dSachMucTinhGia);
             lst.Add(string.Format("Tổng chào giá: {0:0,0.00}đ", this.TongTriGiaChao()));
 
             return lst;

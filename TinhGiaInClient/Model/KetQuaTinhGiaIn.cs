@@ -17,7 +17,7 @@ namespace TinhGiaInClient.Model
         public DateTime NgayTinhGia { get; set; }
         public string TieuDe { get; set; }
         public int IdYeuCauTinhGia { get; set; }
-       
+        public string TenKhachHang { get; set; }
         public string NoiDungChaoGia { get; set; }
         public string NoiDungChaoGiaNoiBo { get; set; }
        
@@ -37,7 +37,8 @@ namespace TinhGiaInClient.Model
                     NoiDungChaoGia = x.NoiDungChaoGia,
                     NoiDungChaoGiaNoiBo = x.NoiDungChaoGiaNoiBo,
                     IdYeuCauTinhGia = x.IdYeuCauTinhGiaIn,
-                    TenNguoiDung = x.TenNguoiDung
+                    TenNguoiDung = x.TenNguoiDung,
+                    TenKhachHang = x.TenKhachHang
 
                 }).ToList();
             }
@@ -121,7 +122,7 @@ namespace TinhGiaInClient.Model
             tinhGia.IdYeuCauTinhGia = tinhGiaBDO.IdYeuCauTinhGiaIn;
             tinhGia.NoiDungChaoGia = tinhGiaBDO.NoiDungChaoGia;
             tinhGia.NoiDungChaoGiaNoiBo = tinhGiaBDO.NoiDungChaoGiaNoiBo;
-            
+            tinhGia.TenKhachHang = tinhGiaBDO.TenKhachHang;
             
         }
         private static void ChuyenDoiGiayDTOThanhBDO(KetQuaTinhGiaIn tinhGia, KetQuaTinhGiaInBDO tinhGiaBDO)
@@ -134,6 +135,7 @@ namespace TinhGiaInClient.Model
             tinhGiaBDO.IdYeuCauTinhGiaIn = tinhGia.IdYeuCauTinhGia;
             tinhGiaBDO.NoiDungChaoGia = tinhGia.NoiDungChaoGia;
             tinhGiaBDO.NoiDungChaoGiaNoiBo = tinhGia.NoiDungChaoGiaNoiBo;
+            tinhGiaBDO.TenKhachHang = tinhGia.TenKhachHang;
             
         }
         #endregion

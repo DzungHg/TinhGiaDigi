@@ -220,9 +220,9 @@ namespace TinhGiaInClient.Presenter
             var ketQua = new KetQuaTinhGiaIn();
             ketQua.NgayTinhGia = View.NgayTinhGia;
             ketQua.IdNguoiDung = View.IdNguoiDung;
-            ketQua.TieuDe = View.TieuDeTinhGia;
-           
+            ketQua.TieuDe = View.TieuDeTinhGia;            
             ketQua.TenNguoiDung = View.TenNhanVien;
+            ketQua.TenKhachHang = View.TenHangKH;
             //Tạo nội dung chào giá từ List sang 1 chuỗi string
             foreach (string str in TinhGia.NoiDungGiaChaoKhachHang())
             {

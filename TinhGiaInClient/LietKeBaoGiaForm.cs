@@ -101,6 +101,7 @@ namespace TinhGiaInClient
             lvwTinhGia.Columns.Add("Ngày");            
             lvwTinhGia.Columns.Add("Tiêu đề");
             lvwTinhGia.Columns.Add("Nhân viên");
+            lvwTinhGia.Columns.Add("Tên KH");
            
             lvwTinhGia.View = System.Windows.Forms.View.Details;
             lvwTinhGia.HideSelection = false;
@@ -119,6 +120,7 @@ namespace TinhGiaInClient
             lvwTinhGia.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
             lvwTinhGia.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
             lvwTinhGia.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwTinhGia.Columns[4].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
             
             
         }

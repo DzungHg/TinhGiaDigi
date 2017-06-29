@@ -29,7 +29,7 @@ namespace TinhGiaInClient
             this.IdHangKhachHang = thongTinBanDau.IdHangKhachHang;
             this.TenHangKhachHang = thongTinBanDau.TenHangKhachHang;            
             this.Text = thongTinBanDau.TieuDeForm;
-            this.DienGiai = thongTinBanDau.YeuCauTinhGia;
+            
             this.DanDoThem = thongTinBanDau.DanDoThem;
             this.SanPhamRong = thongTinBanDau.SanPhamRong;
             this.SanPhamCao = thongTinBanDau.SanPhamCao;
@@ -1384,10 +1384,6 @@ namespace TinhGiaInClient
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
 
-      
-
-   
-
         private void btnXoaHetBaiInNhanh_Click(object sender, EventArgs e)
         {
             baiInPres.XoaHetGiaIn();
@@ -1395,12 +1391,9 @@ namespace TinhGiaInClient
             LoadGiaInLenListView();
             //
 
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();       
-            
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
-
-      
-
+     
         private void btnXoaThanhPham_Click(object sender, EventArgs e)
         {
             baiInPres.XoaThanhPham(baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon));
@@ -1409,7 +1402,6 @@ namespace TinhGiaInClient
              //Cap nhat noi dung bai in
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
         }
-
         private void btnXoaHetThanhPham_Click(object sender, EventArgs e)
         {
             baiInPres.XoaHetThanhPham();
@@ -1476,6 +1468,21 @@ namespace TinhGiaInClient
         private void cmnuThPh_BoiBiaCung_Click(object sender, EventArgs e)
         {
             ThemThanhPham(this.ID, LoaiThanhPhamS.BoiBiaCung);
+        }
+
+        private void btnGetProdTemplate_Click(object sender, EventArgs e)
+        {
+            KhoSanPhamSForm frm = new KhoSanPhamSForm(FormStateS.Get);
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Lấy khổ SP";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                this.SanPhamRong = frm.ChieuRong;
+                this.SanPhamCao = frm.ChieuCao;
+            }
         }
     }
 }
