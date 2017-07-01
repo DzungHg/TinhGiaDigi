@@ -46,11 +46,11 @@
             this.txtTenNV = new Telerik.WinControls.UI.RadTextBox();
             this.txtDienGiaiHangKH = new Telerik.WinControls.UI.RadTextBox();
             this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
+            this.cboHangKH = new Telerik.WinControls.UI.RadDropDownList();
             this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.cboHangKH = new Telerik.WinControls.UI.RadDropDownList();
             this.btnThem = new Telerik.WinControls.UI.RadButton();
             this.btnXoa = new Telerik.WinControls.UI.RadButton();
             this.btnXoaSach = new Telerik.WinControls.UI.RadButton();
@@ -59,6 +59,9 @@
             this.btnCopyToCLB_TinhGiaTomTat = new Telerik.WinControls.UI.RadMenuButtonItem();
             this.btnDong = new Telerik.WinControls.UI.RadButton();
             this.btnLuu = new Telerik.WinControls.UI.RadButton();
+            this.pnlSubTotal = new Telerik.WinControls.UI.RadPanel();
+            this.txtThanhTien = new Telerik.WinControls.UI.RadTextBox();
+            this.lblThanhTien = new Telerik.WinControls.UI.RadLabel();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
             this.tabInSPTo.SuspendLayout();
@@ -75,17 +78,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDienGiaiHangKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
             this.radGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboHangKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboHangKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSaoChep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlSubTotal)).BeginInit();
+            this.pnlSubTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +113,7 @@
             this.lvwBaiIn.Location = new System.Drawing.Point(0, 0);
             this.lvwBaiIn.MultiSelect = false;
             this.lvwBaiIn.Name = "lvwBaiIn";
-            this.lvwBaiIn.Size = new System.Drawing.Size(517, 208);
+            this.lvwBaiIn.Size = new System.Drawing.Size(517, 169);
             this.lvwBaiIn.TabIndex = 10;
             this.lvwBaiIn.UseCompatibleStateImageBehavior = false;
             // 
@@ -118,7 +125,7 @@
             this.tabCtrl01.Location = new System.Drawing.Point(10, 228);
             this.tabCtrl01.Name = "tabCtrl01";
             this.tabCtrl01.SelectedIndex = 0;
-            this.tabCtrl01.Size = new System.Drawing.Size(525, 234);
+            this.tabCtrl01.Size = new System.Drawing.Size(525, 195);
             this.tabCtrl01.TabIndex = 213;
             this.tabCtrl01.SelectedIndexChanged += new System.EventHandler(this.tabCtrl01_SelectedIndexChanged_1);
             // 
@@ -129,7 +136,7 @@
             this.tabDanhThiep.Location = new System.Drawing.Point(4, 22);
             this.tabDanhThiep.Name = "tabDanhThiep";
             this.tabDanhThiep.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDanhThiep.Size = new System.Drawing.Size(517, 208);
+            this.tabDanhThiep.Size = new System.Drawing.Size(517, 169);
             this.tabDanhThiep.TabIndex = 0;
             this.tabDanhThiep.Text = "Danh Thiếp";
             // 
@@ -141,10 +148,9 @@
             this.lvwDanhThiep.Location = new System.Drawing.Point(3, 3);
             this.lvwDanhThiep.MultiSelect = false;
             this.lvwDanhThiep.Name = "lvwDanhThiep";
-            this.lvwDanhThiep.Size = new System.Drawing.Size(511, 202);
+            this.lvwDanhThiep.Size = new System.Drawing.Size(511, 163);
             this.lvwDanhThiep.TabIndex = 11;
             this.lvwDanhThiep.UseCompatibleStateImageBehavior = false;
-            this.lvwDanhThiep.SelectedIndexChanged += new System.EventHandler(this.lvwDanhThiep_SelectedIndexChanged);
             // 
             // tabInSPTo
             // 
@@ -152,7 +158,7 @@
             this.tabInSPTo.Controls.Add(this.lvwBaiIn);
             this.tabInSPTo.Location = new System.Drawing.Point(4, 22);
             this.tabInSPTo.Name = "tabInSPTo";
-            this.tabInSPTo.Size = new System.Drawing.Size(517, 208);
+            this.tabInSPTo.Size = new System.Drawing.Size(517, 169);
             this.tabInSPTo.TabIndex = 11;
             this.tabInSPTo.Text = "In Tờ";
             // 
@@ -162,7 +168,7 @@
             this.tabInCuon.Location = new System.Drawing.Point(4, 22);
             this.tabInCuon.Name = "tabInCuon";
             this.tabInCuon.Padding = new System.Windows.Forms.Padding(3);
-            this.tabInCuon.Size = new System.Drawing.Size(517, 208);
+            this.tabInCuon.Size = new System.Drawing.Size(517, 169);
             this.tabInCuon.TabIndex = 12;
             this.tabInCuon.Text = "In Cuốn";
             this.tabInCuon.UseVisualStyleBackColor = true;
@@ -175,7 +181,7 @@
             this.lvwCuon.Location = new System.Drawing.Point(3, 3);
             this.lvwCuon.MultiSelect = false;
             this.lvwCuon.Name = "lvwCuon";
-            this.lvwCuon.Size = new System.Drawing.Size(511, 202);
+            this.lvwCuon.Size = new System.Drawing.Size(511, 163);
             this.lvwCuon.TabIndex = 11;
             this.lvwCuon.UseCompatibleStateImageBehavior = false;
             // 
@@ -281,6 +287,15 @@
             this.radGroupBox2.TabIndex = 218;
             this.radGroupBox2.Text = "Thông tin chung";
             // 
+            // cboHangKH
+            // 
+            this.cboHangKH.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            this.cboHangKH.Location = new System.Drawing.Point(310, 46);
+            this.cboHangKH.Name = "cboHangKH";
+            this.cboHangKH.Size = new System.Drawing.Size(125, 20);
+            this.cboHangKH.TabIndex = 219;
+            this.cboHangKH.Text = "Chọn hạng KH";
+            // 
             // radLabel5
             // 
             this.radLabel5.Location = new System.Drawing.Point(310, 22);
@@ -312,15 +327,6 @@
             this.radLabel1.Size = new System.Drawing.Size(43, 18);
             this.radLabel1.TabIndex = 236;
             this.radLabel1.Text = "Tiêu đề";
-            // 
-            // cboHangKH
-            // 
-            this.cboHangKH.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.cboHangKH.Location = new System.Drawing.Point(310, 46);
-            this.cboHangKH.Name = "cboHangKH";
-            this.cboHangKH.Size = new System.Drawing.Size(125, 20);
-            this.cboHangKH.TabIndex = 219;
-            this.cboHangKH.Text = "Chọn hạng KH";
             // 
             // btnThem
             // 
@@ -391,11 +397,38 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // pnlSubTotal
+            // 
+            this.pnlSubTotal.Controls.Add(this.lblThanhTien);
+            this.pnlSubTotal.Controls.Add(this.txtThanhTien);
+            this.pnlSubTotal.Location = new System.Drawing.Point(13, 429);
+            this.pnlSubTotal.Name = "pnlSubTotal";
+            this.pnlSubTotal.Size = new System.Drawing.Size(522, 29);
+            this.pnlSubTotal.TabIndex = 224;
+            // 
+            // txtThanhTien
+            // 
+            this.txtThanhTien.Location = new System.Drawing.Point(298, 5);
+            this.txtThanhTien.Name = "txtThanhTien";
+            this.txtThanhTien.Size = new System.Drawing.Size(205, 20);
+            this.txtThanhTien.TabIndex = 225;
+            this.txtThanhTien.TabStop = false;
+            this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblThanhTien
+            // 
+            this.lblThanhTien.Location = new System.Drawing.Point(216, 5);
+            this.lblThanhTien.Name = "lblThanhTien";
+            this.lblThanhTien.Size = new System.Drawing.Size(59, 18);
+            this.lblThanhTien.TabIndex = 237;
+            this.lblThanhTien.Text = "Thành tiền";
+            // 
             // TinhGiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 506);
+            this.ClientSize = new System.Drawing.Size(801, 506);
+            this.Controls.Add(this.pnlSubTotal);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.btnSaoChep);
@@ -415,6 +448,7 @@
             this.Text = "Tính giá Nhanh";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TinhGiaForm_FormClosing);
             this.Load += new System.EventHandler(this.TinhGiaForm_Load);
+            this.Resize += new System.EventHandler(this.TinhGiaForm_Resize);
             this.tabCtrl01.ResumeLayout(false);
             this.tabDanhThiep.ResumeLayout(false);
             this.tabInSPTo.ResumeLayout(false);
@@ -432,17 +466,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
             this.radGroupBox2.ResumeLayout(false);
             this.radGroupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cboHangKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cboHangKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSaoChep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlSubTotal)).EndInit();
+            this.pnlSubTotal.ResumeLayout(false);
+            this.pnlSubTotal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -482,6 +521,9 @@
         private Telerik.WinControls.UI.RadMenuButtonItem btnCopyToCLB_TinhGiaTomTat;
         private Telerik.WinControls.UI.RadButton btnDong;
         private Telerik.WinControls.UI.RadButton btnLuu;
+        private Telerik.WinControls.UI.RadPanel pnlSubTotal;
+        private Telerik.WinControls.UI.RadLabel lblThanhTien;
+        private Telerik.WinControls.UI.RadTextBox txtThanhTien;
 
     }
 }

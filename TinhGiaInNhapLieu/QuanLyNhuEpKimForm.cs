@@ -29,6 +29,7 @@ namespace TinhGiaInNhapLieu
             txtTenNhaCC.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDienGiai.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtGiaMuaCm2.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
             txtGiaMuaCm2.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -171,6 +172,7 @@ namespace TinhGiaInNhapLieu
             txtMaNhaCC.ReadOnly = readOnly;
             txtTenNhaCC.ReadOnly = readOnly;
             txtDienGiai.ReadOnly = readOnly;
+            txtGiaMuaCm2.ReadOnly = readOnly;
             txtThuTu.ReadOnly = readOnly;
         }
         private void XoaSachNoiDungTatCaTextBox()

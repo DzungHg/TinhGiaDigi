@@ -162,6 +162,7 @@ namespace TinhGiaInClient.Model
         {
             this.BaiInGiaDanhThiepS.Clear();
         }
+        
         #endregion
         #region Phần Cuốn: thêm sửa, xóa bài in
         public void ThemCuon(GiaInSachDigi giaCuonDigi)
@@ -182,28 +183,57 @@ namespace TinhGiaInClient.Model
             this.GiaInSachDigiS.Clear();
         }
         #endregion
-        #region Một số tóm tắt
-        public decimal TongTriGiaChao()
+        #region Các tổng danh thiếp, bài in, cataloque
+        public decimal TongTienDanhThiep()
         {
-            decimal result = 0;
+            decimal kq = 0;
+            //Danh thiếp
+            if (this.BaiInGiaDanhThiepS.Count > 0)
+            {
+                kq = this.BaiInGiaDanhThiepS.Sum(x => x.ThanhTien);            
+            }
+            return kq;
+        }
 
-            //bài in
+        public decimal TongTienBaiIn() //Không điều chỉnh giá in
+        {
+            decimal kq = 0;
+            if (this.KetQuaBaiInS.Count > 0)
+                kq = this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn());
+
+            return kq;
+            
+        }
+        public decimal TongTienBaiInDaDieuChinhTienIn()
+        {
+            decimal kq = 0;
             if (_dsKetQuaBaiIn.Count() > 0)
             { //Tính hơi khác trừ tiền in theo từng bài ra
                 var tongTienInToanBoBai = _dsKetQuaBaiIn.Sum(x => x.TongTienIn());
                 var tienConLaiKhongGomIn = _dsKetQuaBaiIn.Sum(x => x.TriGiaBaiIn()) -
                                 tongTienInToanBoBai; //Để tính gom tiền in riêng
-                result += (tienConLaiKhongGomIn + this.TongTienInBaiIn()) ;
+                kq += (tienConLaiKhongGomIn + this.TongTienInBaiIn());
             }
+            return kq;
+        }
+        public decimal TongTienCuon()
+        {
+            decimal kq = 0;
             //Danh thiếp
-            if (_chiTietGiaDanhThiep.Count() > 0)
-                result += _chiTietGiaDanhThiep.Sum(x => x.ThanhTien);
-            
-            //Bài in cataloque
-            if (_dsGiaInSach.Count() > 0)
-                result += _dsGiaInSach.Sum(x => x.GiaChaoTong());
+            if (this.GiaInSachDigiS.Count > 0)
+            {
+                kq = this.GiaInSachDigiS.Sum(x => x.GiaChaoTong());
+            }
+            return kq;
+        }
+        #endregion
+        #region Một số tóm tắt
+        public decimal TongTriGiaChao()
+        {
 
-            return result;
+            return TongTienDanhThiep() + TongTienBaiInDaDieuChinhTienIn() +
+                TongTienCuon();
+        
         }
         public List<string> NoiDungGiaChaoKhachHang()
         { ///từng dòng 

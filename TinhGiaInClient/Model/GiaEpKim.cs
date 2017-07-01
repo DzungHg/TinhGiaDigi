@@ -25,9 +25,19 @@ namespace TinhGiaInClient.Model
             this.TyLeMarkUp = tyLeMarkUpSales;
         }
         public decimal ChiPhiChay (int soLuong)
-        {
+        {//Nếu ép vi tính thì tính theo tốc độ mét, còn tính theo số con
             decimal result = 0;
-            float soGioChay = (float)soLuong / this.EpKim.TocDoConGio;
+            float soGioChay = 0;
+            if (this.EpKim.LaNhuViTinh)
+            {
+                float soMetChay = this.KhoEpCao / 100 * this.SoLuong;
+                soGioChay = soMetChay / this.EpKim.TocDoConGio;//trong database phải là mét
+            }
+            else
+            {
+                soGioChay = (float)soLuong / this.EpKim.TocDoConGio;
+            }
+
             decimal phiChay = this.EpKim.BHR * (decimal)soGioChay;
             decimal phiChuanBi = this.EpKim.BHR * (decimal)this.EpKim.ThoiGianChuanBi;
             decimal phiNgVLChuanBi = this.EpKim.PhiNVLChuanBi;
@@ -35,19 +45,22 @@ namespace TinhGiaInClient.Model
             return result;
         }
         public decimal ChiPhiKhuon ()
-        {
-            decimal result = 0;
-            result = this.EpKim.GiaKhuonCm2 * (decimal)(this.KhoEpRong * this.KhoEpCao);
-            return result;
+        {//Nếu nhũ vi tính không tính khuôn
 
+            decimal result = 0;
+            if (this.EpKim.LaNhuViTinh)
+                result = 0;            
+            else
+                result = this.EpKim.GiaKhuonCm2 * (decimal)(this.KhoEpRong * this.KhoEpCao);
+            return result;
         }
         public decimal ChiPhiPhiNhuEp()
-        {
+        {//Sửa lại theo m2 mới được
             decimal result = 0;
             if (this.NhuEp != null)
             {
-                float dienTichEp = this.KhoEpRong * this.KhoEpCao;
-                decimal phiNVL = (decimal)dienTichEp * this.NhuEp.GiaMuaCm2;
+                float dienTichEp = this.KhoEpRong/100 * this.KhoEpCao/100;
+                decimal phiNVL = (decimal)dienTichEp * this.NhuEp.GiaMuaCm2;//M2 chỉ chưa sửa lại mà thôi
                 result = phiNVL * this.SoLuong;
             }
 

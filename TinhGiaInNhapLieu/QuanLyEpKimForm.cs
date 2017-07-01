@@ -21,7 +21,6 @@ namespace TinhGiaInNhapLieu
             InitializeComponent();
             quanLyThanPhamPres = new QuanLyEpKimPresenter(this);
             LoadThanhPham();
-           
 
             lstThanhPham.SelectedIndex = -1;
             lstThanhPham.SelectedIndex = 0;
@@ -38,6 +37,19 @@ namespace TinhGiaInNhapLieu
             txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtGiaKhuonCM2.TextChanged += new EventHandler(TextBoxes_TextChanged);
             chkLaNhuViTinh.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
+
+            txtTen.Leave += new EventHandler(TextBoxes_Leave);
+            txtBHR.Leave += new EventHandler(TextBoxes_Leave);
+            txtTocDo.Leave += new EventHandler(TextBoxes_Leave);
+            txtThoiGianChuanBi.Leave += new EventHandler(TextBoxes_Leave);
+            txtDonViTinh.Leave += new EventHandler(TextBoxes_Leave);
+            txtPhiNgVatLieuChuanBi.Leave += new EventHandler(TextBoxes_Leave);
+            txtDaySoLuongCB.Leave += new EventHandler(TextBoxes_Leave);
+            txtDayLoiNhuanCB.Leave += new EventHandler(TextBoxes_Leave);
+            txtDaySoLuongNiemYet.Leave += new EventHandler(TextBoxes_Leave);
+            txtThuTu.Leave += new EventHandler(TextBoxes_Leave);
+            txtGiaKhuonCM2.Leave += new EventHandler(TextBoxes_Leave);
+            
 
             txtPhiNgVatLieuChuanBi.KeyPress += new KeyPressEventHandler(InputValidator);
             txtBHR.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -252,31 +264,7 @@ namespace TinhGiaInNhapLieu
                 {
                     this.DuLieuDaThayDoi = true;
                 }
-                //Xử lý xóa hêt
-                if (tb == txtBHR)
-                    if (string.IsNullOrEmpty(txtBHR.Text.Trim()))
-                        txtBHR.Text = "1";
-
-                if (tb == txtTocDo)
-                    if (string.IsNullOrEmpty(txtTocDo.Text.Trim()))
-                        txtTocDo.Text = "1";
-
-                if (tb == txtThoiGianChuanBi)
-                    if (string.IsNullOrEmpty(txtThoiGianChuanBi.Text.Trim()))
-                        txtThoiGianChuanBi.Text = "1";
-
-                if (tb == txtPhiNgVatLieuChuanBi)
-                    if (string.IsNullOrEmpty(txtPhiNgVatLieuChuanBi.Text.Trim()))
-                        txtPhiNgVatLieuChuanBi.Text = "1";
-
-                if (tb == txtGiaKhuonCM2)
-                    if (string.IsNullOrEmpty(txtGiaKhuonCM2.Text.Trim()))
-                        txtGiaKhuonCM2.Text = "1";
-              
-
-                if (tb == txtThuTu)
-                    if (string.IsNullOrEmpty(txtThuTu.Text.Trim()))
-                        txtThuTu.Text = "0";
+                
 
             }
             Telerik.WinControls.UI.RadTextBoxControl tbc;
@@ -298,6 +286,63 @@ namespace TinhGiaInNhapLieu
                     this.DuLieuDaThayDoi = true;
             }
             
+            btnLuu.Enabled = this.DuLieuDaThayDoi;
+
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            Telerik.WinControls.UI.RadTextBox tb;
+            if (sender is Telerik.WinControls.UI.RadTextBox)
+            {
+                //Xử lý dữ liệu thay đổi
+                tb = (Telerik.WinControls.UI.RadTextBox)sender;
+                
+                //Xử lý xóa hêt
+                if (tb == txtBHR)
+                    if (string.IsNullOrEmpty(txtBHR.Text.Trim()))
+                        this.BHR = 1;
+
+                if (tb == txtTocDo)
+                    if (string.IsNullOrEmpty(txtTocDo.Text.Trim()))
+                        this.TocDo = 1;
+
+                if (tb == txtThoiGianChuanBi)
+                    if (string.IsNullOrEmpty(txtThoiGianChuanBi.Text.Trim()))
+                        this.ThoiGianChuanBi = 1;
+
+                if (tb == txtPhiNgVatLieuChuanBi)
+                    if (string.IsNullOrEmpty(txtPhiNgVatLieuChuanBi.Text.Trim()))
+                        this.PhiNguyenVatLieuChuanBi = 0;
+
+                if (tb == txtGiaKhuonCM2)
+                    if (string.IsNullOrEmpty(txtGiaKhuonCM2.Text.Trim()))
+                        this.GiaKhuonCM2 = 0;
+
+
+                if (tb == txtThuTu)
+                    if (string.IsNullOrEmpty(txtThuTu.Text.Trim()))
+                        this.ThuTu = 99;
+
+            }
+            Telerik.WinControls.UI.RadTextBoxControl tbc;
+            if (sender is Telerik.WinControls.UI.RadTextBoxControl)
+            {
+                tbc = (Telerik.WinControls.UI.RadTextBoxControl)sender;
+
+                if (tbc == txtDayLoiNhuanCB || tbc == txtDaySoLuongCB)
+                {
+                    this.DuLieuDaThayDoi = true;
+                }
+
+            }
+            Telerik.WinControls.UI.RadCheckBox chk;
+            if (sender is Telerik.WinControls.UI.RadCheckBox)
+            {
+                chk = (Telerik.WinControls.UI.RadCheckBox)sender;
+                if (chk == chkLaNhuViTinh)
+                    this.DuLieuDaThayDoi = true;
+            }
+
             btnLuu.Enabled = this.DuLieuDaThayDoi;
 
         }
@@ -433,6 +478,15 @@ namespace TinhGiaInNhapLieu
                 MessageBox.Show("Lỗi!");
             else
                 MessageBox.Show("Đã khớp 2 số lượng! OK");
+        }
+
+        private void chkLaNhuViTinh_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (this.LaNhuViTinh)
+            {
+                lblTocDo.Text = "mét/giờ";
+            }
+            else lblTocDo.Text = "con/giờ";
         }
 
 

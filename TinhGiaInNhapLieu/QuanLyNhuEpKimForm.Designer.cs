@@ -147,9 +147,9 @@
             // 
             this.radLabel10.Location = new System.Drawing.Point(192, 149);
             this.radLabel10.Name = "radLabel10";
-            this.radLabel10.Size = new System.Drawing.Size(35, 18);
+            this.radLabel10.Size = new System.Drawing.Size(30, 18);
             this.radLabel10.TabIndex = 20;
-            this.radLabel10.Text = "/ cm2";
+            this.radLabel10.Text = "/ m2";
             // 
             // radLabel3
             // 

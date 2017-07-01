@@ -95,10 +95,10 @@ namespace TinhGiaInNhapLieu.Presenter
                 case TinhGiaInClient.FormStateS.Edit:
                     thongDiep = EpKim.Sua(epKim);
                     break;
-                /*case TinhGiaInClient.FormStateS.New:
-                    thongDiep = BangGiaInNhanh.Them(canPhu);
+                case TinhGiaInClient.FormStateS.New:
+                    thongDiep = EpKim.Them(epKim);
                     break;
-                    */
+                    
             }
 
         }

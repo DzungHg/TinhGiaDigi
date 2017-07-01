@@ -84,9 +84,9 @@ namespace TinhGiaInClient.Presenter
 
         public decimal GiaTB_ThPh()
         {
-            if (View.SoLuong <= 0)
+            if (View.SoLuongTinhGia <= 0)
                 return 0;
-            return ThanhTien_ThPh() / View.SoLuong;
+            return ThanhTien_ThPh() / View.SoLuongTinhGia; //Số lượng Để tính giá
         }
         //Thêm ngoài Implement
        

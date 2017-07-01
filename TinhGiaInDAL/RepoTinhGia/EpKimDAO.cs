@@ -72,7 +72,23 @@ namespace TinhGiaInDAL.RepoTinhGia
         #region Them, sưa, xoa
         public string Them(EpKimBDO entityBDO)
         {
-            throw new NotImplementedException();
+            string kq = "";
+            try
+            {
+                kq = KiemTraTrung(entityBDO.Ten);
+                if (kq != "")
+                    return kq;
+                EP_KIM entity = new EP_KIM();
+                ChuyenBDOThanhDAO(entityBDO, entity);
+                db.EP_KIM.Add(entity);
+                db.SaveChanges();
+                kq = string.Format("Máy ép kim:{0}", entity.ID);
+            }
+            catch
+            {
+                kq = string.Format("Thêm Máy ép kim {0} lỗi!", entityBDO.ID);
+            }
+            return kq;
         }
 
         public string Sua(EpKimBDO entityBDO)
@@ -123,6 +139,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.BHR = entityBDO.BHR;
             entityDAO.Toc_do_con = entityBDO.TocDoConGio;
             entityDAO.Thoi_gian_chuan_bi = entityBDO.ThoiGianChuanBi;
+            entityDAO.Phi_ngvl_chuan_bi = entityBDO.PhiNguyenVatLieuChuanBi;
             entityDAO.Day_so_luong = entityBDO.DaySoLuong;
             entityDAO.Day_loi_nhuan = entityBDO.DayLoiNhuan;
             entityDAO.ma_01 = entityBDO.Ma_01;

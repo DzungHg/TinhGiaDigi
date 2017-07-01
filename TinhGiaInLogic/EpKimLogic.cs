@@ -20,6 +20,10 @@ namespace TinhGiaInLogic
         {
             return epKimDAO.DocTheoId(iD);
         }
+        public string Them(EpKimBDO epKimBDO)
+        {
+            return epKimDAO.Them(epKimBDO);
+        }
         public string Sua(EpKimBDO epKimBDO)
         {
             return epKimDAO.Sua(epKimBDO);

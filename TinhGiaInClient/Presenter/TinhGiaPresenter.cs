@@ -243,10 +243,25 @@ namespace TinhGiaInClient.Presenter
             
         }
         #endregion
-
+        #region các tổng và tóm tắt
+        public decimal TongGiaDanhThiep()
+        {
+            return this.TinhGia.TongTienDanhThiep();
+        }
+        public decimal TongGiaBaiInDieuChinhTienIn()
+        {
+            return this.TinhGia.TongTienBaiInDaDieuChinhTienIn();
+        }
+        public decimal TongGiaCuon()
+        {
+            return this.TinhGia.TongTienCuon();
+        }
         public string TomTatTinhGia_ChaoKH()
         {
-            var result = "";
+            var result = "CHÀO GIÁ" + '\r' + '\n';
+            //if (!string.IsNullOrEmpty(View.TenKhachHang) && !string.IsNullOrEmpty(View.TenHangKH))
+                result += string.Format("Tên KH: {0} / {1}" + '\r' + '\n', View.TenKhachHang, View.TenHangKH);
+
             foreach (string st in TinhGia.NoiDungGiaChaoKhachHang())
             {
                 result += st + '\r' + '\n';
@@ -283,5 +298,6 @@ namespace TinhGiaInClient.Presenter
             
             return kq;
         }
+        #endregion
     }
 }

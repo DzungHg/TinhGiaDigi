@@ -447,7 +447,8 @@ namespace TinhGiaInClient
                    break;
 
            }
-               
+
+           CapNhatThanhTienTheoTab();    
 
        }
         #region VeCuon
@@ -580,6 +581,7 @@ namespace TinhGiaInClient
                    XoaInCuon();
                    break;
            }
+           CapNhatThanhTienTheoTab();   
        }
               
 
@@ -603,6 +605,8 @@ namespace TinhGiaInClient
            }
            //Cập nhật tổng kết bài
            txtTomTatTinhGia.Text = tinhGiaPres.TomTatTinhGia_ChaoKH();
+           //Cập nhật thành tiền
+           CapNhatThanhTienTheoTab();
        }
 
        private bool KiemTraHopLe(ref string errorMessage)
@@ -736,6 +740,7 @@ namespace TinhGiaInClient
                    LoadCuonLenListView();
                    break;
            }
+           CapNhatThanhTienTheoTab();
            
        }
 
@@ -801,14 +806,35 @@ namespace TinhGiaInClient
        private void tabCtrl01_SelectedIndexChanged_1(object sender, EventArgs e)
        {
            CapNhatTextNutThemXoa();
+           //Cập nhật thành tiền từng tab
+           CapNhatThanhTienTheoTab();
        }
 
-       private void lvwDanhThiep_SelectedIndexChanged(object sender, EventArgs e)
+       private void CapNhatThanhTienTheoTab()
        {
+           decimal thanhTien = 0;
+           switch (tabCtrl01.SelectedIndex)
+           {
+               case 0: //Danh thiếp
+                   thanhTien = tinhGiaPres.TongGiaDanhThiep();
+                   break;
+               case 1: //Bài in
+                   thanhTien = tinhGiaPres.TongGiaBaiInDieuChinhTienIn();
+                   break;
+               case 2: //Cuốn
+                   thanhTien = tinhGiaPres.TongGiaCuon();
+                   break;
+           }
+
+           txtThanhTien.Text = string.Format("{0:0,0.00}đ", thanhTien);
 
        }
 
-       
+       private void TinhGiaForm_Resize(object sender, EventArgs e)
+       {
+           pnlSubTotal.Width = tabCtrl01.Width;
+           pnlSubTotal.Left = tabCtrl01.Left;
+       }
       
        
     }
