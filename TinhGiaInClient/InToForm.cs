@@ -900,7 +900,7 @@ namespace TinhGiaInClient
                     }
                     break;
                 case LoaiThanhPhamS.EpKim:
-                    var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
+                    var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Số tờ chạy {2}",
                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep4;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Ép kim";
@@ -914,6 +914,10 @@ namespace TinhGiaInClient
                     mucThPhEpKim.DonViTinh = "con";
                     mucThPhEpKim.KhoEpRong = 5f;
                     mucThPhEpKim.KhoEpCao = 5f;
+                    mucThPhEpKim.KhoToChayRong = baiIn.GiayDeInIn.ToChayRong;
+                    mucThPhEpKim.KhoToChayDai = baiIn.GiayDeInIn.ToChayDai;
+                    mucThPhEpKim.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
+
                     var frm4 = new ThPhEpKimForm(thongTinBanDauThPh,mucThPhEpKim);
 
                     frm4.MinimizeBox = false;

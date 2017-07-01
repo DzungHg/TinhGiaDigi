@@ -27,10 +27,12 @@ namespace TinhGiaInClient.Presenter
             View.SoLuong = this.MucEpKim.SoLuong;
             View.DonViTinh = this.MucEpKim.DonViTinh;
             View.IdNhuEpKimChon = this.MucEpKim.IdNhuEpKimChon;
-            View.LaEpViTinh = this.MucEpKim.LaEpViTinh;
+            
             View.KhoEpCao = this.MucEpKim.KhoEpCao;
             View.KhoEpRong = this.MucEpKim.KhoEpRong;
-           
+            View.KhoToChayRong = this.MucEpKim.KhoToChayRong;
+            View.KhoToChayDai = this.MucEpKim.KhoToChayDai;
+            View.SoLuongToChay = this.MucEpKim.SoLuongToChay;
 
         }
         public void KhoiTaoBanDau()
@@ -55,12 +57,12 @@ namespace TinhGiaInClient.Presenter
         }
         public bool LaNhuViTinh()
         {
-            
+            var kq = false;           
             var epKim = EpKim.DocTheoId(View.IdThanhPhamChon);
-            if (epKim.LaNhuViTinh)
-                return true;
-            else
-                return false;
+            if (epKim != null)
+                kq = epKim.LaNhuViTinh;
+
+            return kq;
         }
         public decimal ThanhTien_ThPh()
         {
@@ -70,11 +72,10 @@ namespace TinhGiaInClient.Presenter
             
             if (View.IdNhuEpKimChon <= 0)
                 return 0;//Không thể không có nhũ
-            var nhuEp = NhuEpKim.DocTheoId(View.IdNhuEpKimChon);
-            
-          
-            var giaEpKim = new GiaEpKim(View.SoLuong, View.KhoEpRong, View.KhoEpCao,
-                            epKim,nhuEp, this.TyLeMarkUp());    
+            var nhuEp = NhuEpKim.DocTheoId(View.IdNhuEpKimChon);           
+            //Lưu ý số lượng tính giá
+            var giaEpKim = new GiaEpKim(View.SoLuongTinhGia, View.KhoEpRong, View.KhoEpCao,
+                            epKim, nhuEp, this.TyLeMarkUp());    
        
             kq = giaEpKim.ThanhTienSales();
 
@@ -121,6 +122,9 @@ namespace TinhGiaInClient.Presenter
                 this.MucEpKim.SoLuong = View.SoLuong;
                 this.MucEpKim.KhoEpCao = View.KhoEpCao;
                 this.MucEpKim.KhoEpRong = View.KhoEpRong;
+                this.MucEpKim.KhoToChayRong = View.KhoToChayRong;
+                this.MucEpKim.KhoToChayDai = View.KhoToChayDai;
+                this.MucEpKim.SoLuongToChay = View.SoLuongToChay;
                 this.MucEpKim.IdNhuEpKimChon = View.IdNhuEpKimChon;
                 this.MucEpKim.DonViTinh = View.DonViTinh;
                 this.MucEpKim.ThanhTien = View.ThanhTien;

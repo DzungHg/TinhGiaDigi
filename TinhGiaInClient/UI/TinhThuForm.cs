@@ -234,6 +234,9 @@ namespace TinhGiaInClient.UI
             mucThPhEpKim.DonViTinh = "con";
             mucThPhEpKim.KhoEpRong = 5f;
             mucThPhEpKim.KhoEpCao = 5f;
+            mucThPhEpKim.KhoToChayRong = 32;//cm
+            mucThPhEpKim.KhoToChayDai = 22;
+            mucThPhEpKim.SoLuongToChay = 10;
             var frm = new ThPhEpKimForm(thongTinBanDau, mucThPhEpKim);
            
             frm.MinimizeBox = false;

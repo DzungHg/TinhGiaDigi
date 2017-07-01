@@ -72,16 +72,10 @@ namespace TinhGiaInClient
         {
             get { return string.Format("{0}%", epKimPres.TyLeMarkUp()); }
         }
-         public int SoLuong
+        public int SoLuong
         {
-            get
-            {
-                return int.Parse(txtSoLuong.Text);
-            }
-            set
-            {
-                txtSoLuong.Text = value.ToString();
-            }
+            get;
+            set;
         }
          public string DonViTinh
          {
@@ -104,7 +98,20 @@ namespace TinhGiaInClient
              }
              set { cboEpKim.SelectedValue = value; }
          }
-       
+        public float KhoToChayRong { get; set; }
+        public float KhoToChayDai { get; set; }
+        public int SoLuongToChay { get; set; }
+        public int SoLuongTinhGia
+        {
+            get
+            {
+                return int.Parse(txtSoLuong.Text);
+            }
+            set
+            {
+                txtSoLuong.Text = value.ToString();
+            }
+        }
         public string TenThanhPhamChon //là ép kim
         {
             get { return cboEpKim.Text; }
@@ -163,8 +170,7 @@ namespace TinhGiaInClient
 
         public bool LaEpViTinh
         {
-            get;
-            set;
+            get { return epKimPres.LaNhuViTinh(); }
         }
 
         public float KhoEpRong
@@ -353,6 +359,28 @@ namespace TinhGiaInClient
         {           
             //Load Nhu ep
             LoadNhuEpKimTheoEpKim();
+            //Xác định khổ
+            //Lưu lại khỗ cũ trên text box
+            var exKhoEpRong = this.KhoEpRong;
+            var exKhoEpCao = this.KhoEpCao;
+            if (this.LaEpViTinh)
+            {               
+                txtRong.ReadOnly = true;
+                txtCao.ReadOnly = true;
+                this.KhoEpRong = this.KhoToChayRong;
+                this.KhoEpCao = this.KhoToChayDai;
+                this.SoLuongTinhGia = this.SoLuongToChay;
+                this.DonViTinh = "Tờ";
+            }
+            else
+            {
+                txtRong.ReadOnly = false;
+                txtCao.ReadOnly = false;
+                this.KhoEpRong = exKhoEpRong;
+                this.KhoEpCao = exKhoEpCao;                
+                this.SoLuongTinhGia = this.SoLuong; //Số lượng con
+                this.DonViTinh = "Con";
+            }
         }
 
         
@@ -360,7 +388,7 @@ namespace TinhGiaInClient
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtSoLuong.Enabled = true;
-            txtDonViTinh.Enabled = true;
+            //txtDonViTinh.Enabled = true;
             btnOK.Enabled = true;
             CapNhatLabelGia();
         }
