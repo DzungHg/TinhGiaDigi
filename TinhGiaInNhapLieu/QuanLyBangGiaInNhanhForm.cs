@@ -112,7 +112,7 @@ namespace TinhGiaInNhapLieu
                 cboHangKH.SelectedValue = _idHangKH;
             }
         }
-
+       
         public int ThuTu
         {
             get

@@ -87,45 +87,61 @@ namespace TinhGiaInClient.Model
             {
                 var giayBDO = bGiaInNhanhLogic.DocTheoId(idBangGia);
                 //Chuyen
-                ChuyenDoiBangGiaInNhanhBDOThanhDTO(giayBDO, bGiaInNhanh);
+                ChuyenDoiBDOThanhDTO(giayBDO, bGiaInNhanh);
             }
             catch
             {
             }
             return bGiaInNhanh;
         }
-        //Chuyển đổi
-        private static void ChuyenDoiBangGiaInNhanhBDOThanhDTO(BangGiaDanhThiepBDO bGiaInNhanhBDO, BangGiaDanhThiep bGiaInNhanh)
+        #region them sua xoa
+        public static string Them(BangGiaDanhThiep bGiaDThiep)
         {
-            bGiaInNhanh.ID = bGiaInNhanhBDO.ID;
-            bGiaInNhanh.Ten = bGiaInNhanhBDO.Ten;
-            bGiaInNhanh.MoTa = bGiaInNhanhBDO.MoTa;
-            bGiaInNhanh.DaySoLuong = bGiaInNhanhBDO.DaySoLuong;
-            bGiaInNhanh.DayGia = bGiaInNhanhBDO.DayGia;
-            bGiaInNhanh.InHaiMat = bGiaInNhanhBDO.InHaiMat;
-            bGiaInNhanh.KhongCon = bGiaInNhanhBDO.KhongCon;
-            bGiaInNhanh.ThuTu = bGiaInNhanhBDO.ThuTu;
-            bGiaInNhanh.IdHangKhachHang = bGiaInNhanhBDO.IdHangKhachHang;
-            bGiaInNhanh.SoHopToiDa = bGiaInNhanhBDO.SoHopToiDa;
-            bGiaInNhanh.NoiDungBangGia = bGiaInNhanhBDO.NoiDungBangGia;
-            bGiaInNhanh.GiayBaoGom = bGiaInNhanhBDO.GiayBaoGom;
-            bGiaInNhanh.KhoToChay = bGiaInNhanhBDO.KhoToChay;
+            var bangGiaDanhThiepLogic = new BangGiaDanhThiepLogic();
+            var itemBDO = new BangGiaDanhThiepBDO();
+            ChuyenDoDTOThanhBDO(bGiaDThiep, itemBDO);
+            return bangGiaDanhThiepLogic.Them(itemBDO);
         }
-        private static void ChuyenDoiBangGiaInNhanhDTOThanhBDO(BangGiaDanhThiep bGiaInNhanh, BangGiaDanhThiepBDO bGiaInNhanhBDO)
+        public static string Sua(BangGiaDanhThiep bGiaDThiep)
         {
-            bGiaInNhanhBDO.ID = bGiaInNhanh.ID;
-            bGiaInNhanhBDO.Ten = bGiaInNhanh.Ten;
-            bGiaInNhanhBDO.MoTa = bGiaInNhanh.MoTa;
-            bGiaInNhanhBDO.DaySoLuong = bGiaInNhanh.DaySoLuong;
-            bGiaInNhanhBDO.DayGia = bGiaInNhanh.DayGia;
-            bGiaInNhanhBDO.InHaiMat = bGiaInNhanh.InHaiMat;
-            bGiaInNhanhBDO.KhongCon = bGiaInNhanh.KhongCon;
-            bGiaInNhanhBDO.ThuTu = bGiaInNhanh.ThuTu;
-            bGiaInNhanhBDO.IdHangKhachHang = bGiaInNhanh.IdHangKhachHang;
-            bGiaInNhanhBDO.SoHopToiDa = bGiaInNhanh.SoHopToiDa;
-            bGiaInNhanhBDO.NoiDungBangGia = bGiaInNhanh.NoiDungBangGia;
-            bGiaInNhanhBDO.GiayBaoGom = bGiaInNhanh.GiayBaoGom;
-            bGiaInNhanhBDO.KhoToChay = bGiaInNhanh.KhoToChay;
+            var bangGiaDanhThiepLogic = new BangGiaDanhThiepLogic();
+            var itemBDO = new BangGiaDanhThiepBDO();
+            ChuyenDoDTOThanhBDO(bGiaDThiep, itemBDO);
+            return bangGiaDanhThiepLogic.Sua(itemBDO);
+        }
+        #endregion
+        //Chuyển đổi
+        private static void ChuyenDoiBDOThanhDTO(BangGiaDanhThiepBDO bGiaDanhThiepBDO, BangGiaDanhThiep bGiaDanhThiep)
+        {
+            bGiaDanhThiep.ID = bGiaDanhThiepBDO.ID;
+            bGiaDanhThiep.Ten = bGiaDanhThiepBDO.Ten;
+            bGiaDanhThiep.MoTa = bGiaDanhThiepBDO.MoTa;
+            bGiaDanhThiep.DaySoLuong = bGiaDanhThiepBDO.DaySoLuong;
+            bGiaDanhThiep.DayGia = bGiaDanhThiepBDO.DayGia;
+            bGiaDanhThiep.InHaiMat = bGiaDanhThiepBDO.InHaiMat;
+            bGiaDanhThiep.KhongCon = bGiaDanhThiepBDO.KhongCon;
+            bGiaDanhThiep.ThuTu = bGiaDanhThiepBDO.ThuTu;
+            bGiaDanhThiep.IdHangKhachHang = bGiaDanhThiepBDO.IdHangKhachHang;
+            bGiaDanhThiep.SoHopToiDa = bGiaDanhThiepBDO.SoHopToiDa;
+            bGiaDanhThiep.NoiDungBangGia = bGiaDanhThiepBDO.NoiDungBangGia;
+            bGiaDanhThiep.GiayBaoGom = bGiaDanhThiepBDO.GiayBaoGom;
+            bGiaDanhThiep.KhoToChay = bGiaDanhThiepBDO.KhoToChay;
+        }
+        private static void ChuyenDoDTOThanhBDO(BangGiaDanhThiep bGiaDanhThiep, BangGiaDanhThiepBDO bGiaDanhThiepBDO)
+        {
+            bGiaDanhThiepBDO.ID = bGiaDanhThiep.ID;
+            bGiaDanhThiepBDO.Ten = bGiaDanhThiep.Ten;
+            bGiaDanhThiepBDO.MoTa = bGiaDanhThiep.MoTa;
+            bGiaDanhThiepBDO.DaySoLuong = bGiaDanhThiep.DaySoLuong;
+            bGiaDanhThiepBDO.DayGia = bGiaDanhThiep.DayGia;
+            bGiaDanhThiepBDO.InHaiMat = bGiaDanhThiep.InHaiMat;
+            bGiaDanhThiepBDO.KhongCon = bGiaDanhThiep.KhongCon;
+            bGiaDanhThiepBDO.ThuTu = bGiaDanhThiep.ThuTu;
+            bGiaDanhThiepBDO.IdHangKhachHang = bGiaDanhThiep.IdHangKhachHang;
+            bGiaDanhThiepBDO.SoHopToiDa = bGiaDanhThiep.SoHopToiDa;
+            bGiaDanhThiepBDO.NoiDungBangGia = bGiaDanhThiep.NoiDungBangGia;
+            bGiaDanhThiepBDO.GiayBaoGom = bGiaDanhThiep.GiayBaoGom;
+            bGiaDanhThiepBDO.KhoToChay = bGiaDanhThiep.KhoToChay;
         }
         #endregion
 

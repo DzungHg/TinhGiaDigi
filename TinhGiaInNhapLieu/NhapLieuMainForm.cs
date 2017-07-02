@@ -213,7 +213,7 @@ namespace TinhGiaInNhapLieu
             //Qua khỏi
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
-            frm.Text = "Quản ký Khổ Sản phẩm";
+            frm.Text = "Quản lý Khổ Sản phẩm";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
@@ -440,6 +440,55 @@ namespace TinhGiaInNhapLieu
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Quản lý Tờ lót";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnGiaTuyChonDanhThiep_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyTChonDThiepForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Giá tùy chọn";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnBangGiaDanhThiep_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyBGiaDThiepForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Bảng giá danh thiếp";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnBangGiaTheNhua_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyBGiaThNhuaForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Bảng giá Thẻ nhựa";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnGiaTuyChonTheNhua_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyTChonThNhuaForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Tùy chọn Thẻ nhựa";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

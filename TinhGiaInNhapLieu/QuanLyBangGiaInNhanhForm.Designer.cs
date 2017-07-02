@@ -107,21 +107,21 @@
             // 
             this.lstBangGia.Location = new System.Drawing.Point(9, 73);
             this.lstBangGia.Name = "lstBangGia";
-            this.lstBangGia.Size = new System.Drawing.Size(120, 290);
+            this.lstBangGia.Size = new System.Drawing.Size(145, 290);
             this.lstBangGia.TabIndex = 3;
             this.lstBangGia.Text = "radListControl1";
             this.lstBangGia.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstMayIn_SelectedIndexChanged);
             // 
             // txtTen
             // 
-            this.txtTen.Location = new System.Drawing.Point(108, 21);
+            this.txtTen.Location = new System.Drawing.Point(106, 20);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(176, 20);
             this.txtTen.TabIndex = 2;
             // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(25, 21);
+            this.radLabel1.Location = new System.Drawing.Point(23, 20);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(24, 18);
             this.radLabel1.TabIndex = 5;
@@ -169,33 +169,33 @@
             this.radGroupBox1.Controls.Add(this.txtTen);
             this.radGroupBox1.Controls.Add(this.radLabel1);
             this.radGroupBox1.HeaderText = "Cấu hình tờ in";
-            this.radGroupBox1.Location = new System.Drawing.Point(140, 53);
+            this.radGroupBox1.Location = new System.Drawing.Point(160, 53);
             this.radGroupBox1.Name = "radGroupBox1";
-            this.radGroupBox1.Size = new System.Drawing.Size(497, 310);
+            this.radGroupBox1.Size = new System.Drawing.Size(484, 310);
             this.radGroupBox1.TabIndex = 8;
             this.radGroupBox1.Text = "Cấu hình tờ in";
             // 
             // radLabel5
             // 
-            this.radLabel5.Location = new System.Drawing.Point(195, 93);
+            this.radLabel5.Location = new System.Drawing.Point(193, 90);
             this.radLabel5.Name = "radLabel5";
-            this.radLabel5.Size = new System.Drawing.Size(51, 18);
+            this.radLabel5.Size = new System.Drawing.Size(49, 18);
             this.radLabel5.TabIndex = 11;
-            this.radLabel5.Text = "Trang A4";
+            this.radLabel5.Text = "trang A4";
             // 
             // lblDienGiaiHangKH
             // 
             this.lblDienGiaiHangKH.AutoSize = false;
-            this.lblDienGiaiHangKH.Location = new System.Drawing.Point(295, 47);
+            this.lblDienGiaiHangKH.Location = new System.Drawing.Point(293, 46);
             this.lblDienGiaiHangKH.Name = "lblDienGiaiHangKH";
             this.lblDienGiaiHangKH.Size = new System.Drawing.Size(164, 36);
             this.lblDienGiaiHangKH.TabIndex = 38;
-            this.lblDienGiaiHangKH.Text = "Nội dung bảng giá";
+            this.lblDienGiaiHangKH.Text = "Nội dung hạng KH";
             // 
             // radLabel4
             // 
             this.radLabel4.AutoSize = false;
-            this.radLabel4.Location = new System.Drawing.Point(28, 169);
+            this.radLabel4.Location = new System.Drawing.Point(26, 168);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(75, 35);
             this.radLabel4.TabIndex = 33;
@@ -203,7 +203,7 @@
             // 
             // txtNoiDungBangGia
             // 
-            this.txtNoiDungBangGia.Location = new System.Drawing.Point(110, 169);
+            this.txtNoiDungBangGia.Location = new System.Drawing.Point(106, 168);
             this.txtNoiDungBangGia.Multiline = true;
             this.txtNoiDungBangGia.Name = "txtNoiDungBangGia";
             this.txtNoiDungBangGia.Size = new System.Drawing.Size(253, 85);
@@ -211,21 +211,21 @@
             // 
             // txtMucGia
             // 
-            this.txtMucGia.Location = new System.Drawing.Point(109, 143);
+            this.txtMucGia.Location = new System.Drawing.Point(106, 142);
             this.txtMucGia.Name = "txtMucGia";
             this.txtMucGia.Size = new System.Drawing.Size(254, 20);
             this.txtMucGia.TabIndex = 6;
             // 
             // txtDaySoLuong
             // 
-            this.txtDaySoLuong.Location = new System.Drawing.Point(109, 117);
+            this.txtDaySoLuong.Location = new System.Drawing.Point(106, 116);
             this.txtDaySoLuong.Name = "txtDaySoLuong";
             this.txtDaySoLuong.Size = new System.Drawing.Size(254, 20);
             this.txtDaySoLuong.TabIndex = 5;
             // 
             // lblIDBanGia
             // 
-            this.lblIDBanGia.Location = new System.Drawing.Point(295, 93);
+            this.lblIDBanGia.Location = new System.Drawing.Point(293, 92);
             this.lblIDBanGia.Name = "lblIDBanGia";
             this.lblIDBanGia.Size = new System.Drawing.Size(17, 18);
             this.lblIDBanGia.TabIndex = 16;
@@ -233,7 +233,7 @@
             // 
             // txtMoTa
             // 
-            this.txtMoTa.Location = new System.Drawing.Point(109, 47);
+            this.txtMoTa.Location = new System.Drawing.Point(106, 46);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(175, 36);
@@ -242,16 +242,16 @@
             // cboHangKH
             // 
             this.cboHangKH.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.cboHangKH.Location = new System.Drawing.Point(295, 22);
+            this.cboHangKH.Location = new System.Drawing.Point(293, 21);
             this.cboHangKH.Name = "cboHangKH";
             this.cboHangKH.Size = new System.Drawing.Size(125, 20);
             this.cboHangKH.TabIndex = 12;
-            this.cboHangKH.Text = "Máy in";
+            this.cboHangKH.Text = "Hạng Khách hàng";
             this.cboHangKH.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.cboHangKH_SelectedIndexChanged);
             // 
             // radLabel16
             // 
-            this.radLabel16.Location = new System.Drawing.Point(26, 91);
+            this.radLabel16.Location = new System.Drawing.Point(24, 90);
             this.radLabel16.Name = "radLabel16";
             this.radLabel16.Size = new System.Drawing.Size(60, 18);
             this.radLabel16.TabIndex = 15;
@@ -259,22 +259,22 @@
             // 
             // txtSoTrangToiDaTinh
             // 
-            this.txtSoTrangToiDaTinh.Location = new System.Drawing.Point(109, 89);
+            this.txtSoTrangToiDaTinh.Location = new System.Drawing.Point(106, 88);
             this.txtSoTrangToiDaTinh.Name = "txtSoTrangToiDaTinh";
             this.txtSoTrangToiDaTinh.Size = new System.Drawing.Size(80, 20);
             this.txtSoTrangToiDaTinh.TabIndex = 4;
             // 
             // chkKhongSuDung
             // 
-            this.chkKhongSuDung.Location = new System.Drawing.Point(381, 256);
+            this.chkKhongSuDung.Location = new System.Drawing.Point(383, 281);
             this.chkKhongSuDung.Name = "chkKhongSuDung";
             this.chkKhongSuDung.Size = new System.Drawing.Size(84, 18);
-            this.chkKhongSuDung.TabIndex = 10;
+            this.chkKhongSuDung.TabIndex = 13;
             this.chkKhongSuDung.Text = "Khg sử dụng";
             // 
             // radLabel15
             // 
-            this.radLabel15.Location = new System.Drawing.Point(25, 261);
+            this.radLabel15.Location = new System.Drawing.Point(23, 260);
             this.radLabel15.Name = "radLabel15";
             this.radLabel15.Size = new System.Drawing.Size(83, 18);
             this.radLabel15.TabIndex = 33;
@@ -283,7 +283,7 @@
             // txtDaySoLuongNiemYet
             // 
             this.txtDaySoLuongNiemYet.AutoSize = false;
-            this.txtDaySoLuongNiemYet.Location = new System.Drawing.Point(109, 260);
+            this.txtDaySoLuongNiemYet.Location = new System.Drawing.Point(106, 259);
             this.txtDaySoLuongNiemYet.Multiline = true;
             this.txtDaySoLuongNiemYet.Name = "txtDaySoLuongNiemYet";
             this.txtDaySoLuongNiemYet.Size = new System.Drawing.Size(254, 40);
@@ -291,7 +291,7 @@
             // 
             // radLabel14
             // 
-            this.radLabel14.Location = new System.Drawing.Point(28, 145);
+            this.radLabel14.Location = new System.Drawing.Point(26, 144);
             this.radLabel14.Name = "radLabel14";
             this.radLabel14.Size = new System.Drawing.Size(47, 18);
             this.radLabel14.TabIndex = 32;
@@ -299,7 +299,7 @@
             // 
             // radLabel10
             // 
-            this.radLabel10.Location = new System.Drawing.Point(28, 119);
+            this.radLabel10.Location = new System.Drawing.Point(26, 118);
             this.radLabel10.Name = "radLabel10";
             this.radLabel10.Size = new System.Drawing.Size(75, 18);
             this.radLabel10.TabIndex = 31;
@@ -307,7 +307,7 @@
             // 
             // radLabel20
             // 
-            this.radLabel20.Location = new System.Drawing.Point(25, 47);
+            this.radLabel20.Location = new System.Drawing.Point(23, 46);
             this.radLabel20.Name = "radLabel20";
             this.radLabel20.Size = new System.Drawing.Size(36, 18);
             this.radLabel20.TabIndex = 10;
@@ -315,14 +315,14 @@
             // 
             // txtThuTu
             // 
-            this.txtThuTu.Location = new System.Drawing.Point(423, 215);
+            this.txtThuTu.Location = new System.Drawing.Point(427, 243);
             this.txtThuTu.Name = "txtThuTu";
             this.txtThuTu.Size = new System.Drawing.Size(36, 20);
-            this.txtThuTu.TabIndex = 9;
+            this.txtThuTu.TabIndex = 12;
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(381, 216);
+            this.radLabel8.Location = new System.Drawing.Point(383, 244);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(39, 18);
             this.radLabel8.TabIndex = 15;

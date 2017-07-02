@@ -25,6 +25,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> so_trang_toi_da { get; set; }
         public string noi_dung_bang_gia { get; set; }
         public string day_so_luong_niem_yet { get; set; }
+        public string don_vi_tinh { get; set; }
     
         public virtual HANG_KHACH_HANG HANG_KHACH_HANG { get; set; }
     }

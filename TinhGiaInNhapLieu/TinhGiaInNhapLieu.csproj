@@ -74,6 +74,8 @@
       <DependentUpon>GiayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenter\GiayPresenter.cs" />
+    <Compile Include="Presenter\QuanLyBGiaThNhuaPresenter.cs" />
+    <Compile Include="Presenter\QuanLyBGiaDThiepPresenter.cs" />
     <Compile Include="Presenter\QuanLyCanGapPresenter.cs" />
     <Compile Include="Presenter\QuanLyBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\QuanLyCatDecalPresenter.cs" />
@@ -83,12 +85,25 @@
     <Compile Include="Presenter\QuanLyCanPhuPresenter.cs" />
     <Compile Include="Presenter\QuanLyKhoSanPhamPresenter.cs" />
     <Compile Include="Presenter\QuanLyBangGiaInNhanhPresenter.cs" />
+    <Compile Include="Presenter\QuanLyTChonThNhuaPresenter.cs" />
     <Compile Include="Presenter\QuanLyToLotDCMPPresenter.cs" />
     <Compile Include="Presenter\QuanLyToBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\QuanLyLoXoDongCuonPresenter.cs" />
     <Compile Include="Presenter\QuanLyNhuEpKimPresenter.cs" />
     <Compile Include="Presenter\QuanLyToInMayDigiPresenter.cs" />
     <Compile Include="Presenter\QuanLyMayInDigiPresenter.cs" />
+    <Compile Include="QuanLyBGiaThNhuaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyBGiaThNhuaForm.Designer.cs">
+      <DependentUpon>QuanLyBGiaThNhuaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBGiaDThiepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyBGiaDThiepForm.Designer.cs">
+      <DependentUpon>QuanLyBGiaDThiepForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyCanGapForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +179,19 @@
     <Compile Include="QuanLyDanhMucGiayForm.designer.cs">
       <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyTChonThNhuaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyTChonThNhuaForm.Designer.cs">
+      <DependentUpon>QuanLyTChonThNhuaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyTChonDThiepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyTChonDThiepForm.Designer.cs">
+      <DependentUpon>QuanLyTChonDThiepForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\QuanLyTChonDThiepPresenter.cs" />
     <Compile Include="QuanLyToLotDCMPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +248,10 @@
     <Compile Include="QuanLyMayInDigiForm.Designer.cs">
       <DependentUpon>QuanLyMayInDigiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IViewQuanLyBGiaThNhua.cs" />
+    <Compile Include="View\IViewQuanLyBGiaDThiep.cs" />
+    <Compile Include="View\IViewQuanLyTChonThNhua.cs" />
+    <Compile Include="View\IViewQuanLyTChonDThiep.cs" />
     <Compile Include="View\IViewDanhMucGiay.cs" />
     <Compile Include="View\IViewGiay.cs" />
     <Compile Include="View\IViewMayThanhPham.cs" />
@@ -244,6 +276,12 @@
       <DependentUpon>GiayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="QuanLyBGiaThNhuaForm.resx">
+      <DependentUpon>QuanLyBGiaThNhuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyBGiaDThiepForm.resx">
+      <DependentUpon>QuanLyBGiaDThiepForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="QuanLyCanGapForm.resx">
       <DependentUpon>QuanLyCanGapForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyDanhMucGiayForm.resx">
       <DependentUpon>QuanLyDanhMucGiayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyTChonThNhuaForm.resx">
+      <DependentUpon>QuanLyTChonThNhuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyTChonDThiepForm.resx">
+      <DependentUpon>QuanLyTChonDThiepForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyToLotDCMPForm.resx">
       <DependentUpon>QuanLyToLotDCMPForm.cs</DependentUpon>

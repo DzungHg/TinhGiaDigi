@@ -71,6 +71,31 @@
     <EntitySet Name="CAT_DECAL" EntityType="QuanLyGiaInModel.CAT_DECAL" />
     <EntitySet Name="BOI_BIA_CUNG" EntityType="QuanLyGiaInModel.BOI_BIA_CUNG" />
     <EntitySet Name="TO_BOI_BIA_CUNG" EntityType="QuanLyGiaInModel.TO_BOI_BIA_CUNG" />
+    <EntitySet Name="BANG_GIA_THE_NHUA" EntityType="QuanLyGiaInModel.BANG_GIA_THE_NHUA" />
+    <EntitySet Name="GIA_TUY_CHON_DANH_THIEP" EntityType="QuanLyGiaInModel.GIA_TUY_CHON_DANH_THIEP" />
+    <EntitySet Name="GIA_TUY_CHON_THE_NHUA" EntityType="QuanLyGiaInModel.GIA_TUY_CHON_THE_NHUA" />
+    <EntitySet Name="TUY_CHON_DANH_THIEP" EntityType="QuanLyGiaInModel.TUY_CHON_DANH_THIEP" />
+    <EntitySet Name="TUY_CHON_THE_NHUA" EntityType="QuanLyGiaInModel.TUY_CHON_THE_NHUA" />
+    <AssociationSet Name="FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP">
+      <End Role="BANG_GIA_DANH_THIEP" EntitySet="BANG_GIA_DANH_THIEP" />
+      <End Role="GIA_TUY_CHON_DANH_THIEP" EntitySet="GIA_TUY_CHON_DANH_THIEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG" Association="QuanLyGiaInModel.FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG">
+      <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
+      <End Role="BANG_GIA_THE_NHUA" EntitySet="BANG_GIA_THE_NHUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA">
+      <End Role="BANG_GIA_THE_NHUA" EntitySet="BANG_GIA_THE_NHUA" />
+      <End Role="GIA_TUY_CHON_THE_NHUA" EntitySet="GIA_TUY_CHON_THE_NHUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP" Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP">
+      <End Role="TUY_CHON_DANH_THIEP" EntitySet="TUY_CHON_DANH_THIEP" />
+      <End Role="GIA_TUY_CHON_DANH_THIEP" EntitySet="GIA_TUY_CHON_DANH_THIEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA" Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA">
+      <End Role="TUY_CHON_THE_NHUA" EntitySet="TUY_CHON_THE_NHUA" />
+      <End Role="GIA_TUY_CHON_THE_NHUA" EntitySet="GIA_TUY_CHON_THE_NHUA" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -182,6 +207,7 @@
     <Property Name="so_trang_toi_da" Type="Int32" />
     <Property Name="noi_dung_bang_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="HANG_KHACH_HANG">
     <Key>
@@ -198,6 +224,7 @@
     <Property Name="Loi_nhuan_offset_gia_cong" Type="Int32" />
     <NavigationProperty Name="BANG_GIA_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="BANG_GIA_DANH_THIEP" />
     <Property Name="ma_hieu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="BANG_GIA_THE_NHUA" Relationship="QuanLyGiaInModel.FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="BANG_GIA_THE_NHUA" />
   </EntityType>
   <Association Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
     <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -409,6 +436,8 @@
     <Property Name="noi_dung_bang_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="giay_bao_gom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="kho_to_chay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GIA_TUY_CHON_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" FromRole="BANG_GIA_DANH_THIEP" ToRole="GIA_TUY_CHON_DANH_THIEP" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
     <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -599,4 +628,129 @@
     <Property Name="gia_mua_to" Type="Int32" />
     <Property Name="thu_tu" Type="Int32" />
   </EntityType>
+  <EntityType Name="BANG_GIA_THE_NHUA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mo_ta" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="day_gia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="so_luong_tinh_toi_da" Type="Int32" />
+    <Property Name="khong_con" Type="Boolean" />
+    <Property Name="in_hai_mat" Type="Boolean" />
+    <Property Name="noi_dung_bang_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
+    <Property Name="kho_to_chay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ID_HANG_KHACH_HANG" Type="Int32" />
+    <NavigationProperty Name="HANG_KHACH_HANG" Relationship="QuanLyGiaInModel.FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG" FromRole="BANG_GIA_THE_NHUA" ToRole="HANG_KHACH_HANG" />
+    <NavigationProperty Name="GIA_TUY_CHON_THE_NHUA" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" FromRole="BANG_GIA_THE_NHUA" ToRole="GIA_TUY_CHON_THE_NHUA" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="vat_lieu_in_bao_gom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GIA_TUY_CHON_DANH_THIEP">
+    <Key>
+      <PropertyRef Name="ID_BANG_GIA_DANH_THIEP" />
+      <PropertyRef Name="ID_TUY_CHON_DANH_THIEP" />
+    </Key>
+    <Property Name="ID_BANG_GIA_DANH_THIEP" Type="Int32" Nullable="false" />
+    <Property Name="ID_TUY_CHON_DANH_THIEP" Type="Int32" Nullable="false" />
+    <Property Name="gia_ban" Type="Int32" />
+    <NavigationProperty Name="BANG_GIA_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" FromRole="GIA_TUY_CHON_DANH_THIEP" ToRole="BANG_GIA_DANH_THIEP" />
+    <NavigationProperty Name="TUY_CHON_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP" FromRole="GIA_TUY_CHON_DANH_THIEP" ToRole="TUY_CHON_DANH_THIEP" />
+  </EntityType>
+  <EntityType Name="GIA_TUY_CHON_THE_NHUA">
+    <Key>
+      <PropertyRef Name="ID_BANG_GIA_THE_NHUA" />
+      <PropertyRef Name="ID_TUY_CHON_THE_NHUA" />
+    </Key>
+    <Property Name="ID_BANG_GIA_THE_NHUA" Type="Int32" Nullable="false" />
+    <Property Name="ID_TUY_CHON_THE_NHUA" Type="Int32" Nullable="false" />
+    <Property Name="gia_ban" Type="Int32" />
+    <NavigationProperty Name="BANG_GIA_THE_NHUA" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" FromRole="GIA_TUY_CHON_THE_NHUA" ToRole="BANG_GIA_THE_NHUA" />
+    <NavigationProperty Name="TUY_CHON_THE_NHUA" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA" FromRole="GIA_TUY_CHON_THE_NHUA" ToRole="TUY_CHON_THE_NHUA" />
+  </EntityType>
+  <EntityType Name="TUY_CHON_DANH_THIEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
+    <NavigationProperty Name="GIA_TUY_CHON_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP" FromRole="TUY_CHON_DANH_THIEP" ToRole="GIA_TUY_CHON_DANH_THIEP" />
+  </EntityType>
+  <EntityType Name="TUY_CHON_THE_NHUA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
+    <NavigationProperty Name="GIA_TUY_CHON_THE_NHUA" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA" FromRole="TUY_CHON_THE_NHUA" ToRole="GIA_TUY_CHON_THE_NHUA" />
+  </EntityType>
+  <Association Name="FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP">
+    <End Type="QuanLyGiaInModel.BANG_GIA_DANH_THIEP" Role="BANG_GIA_DANH_THIEP" Multiplicity="1" />
+    <End Type="QuanLyGiaInModel.GIA_TUY_CHON_DANH_THIEP" Role="GIA_TUY_CHON_DANH_THIEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANG_GIA_DANH_THIEP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_DANH_THIEP">
+        <PropertyRef Name="ID_TUY_CHON_DANH_THIEP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG">
+    <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
+    <End Type="QuanLyGiaInModel.BANG_GIA_THE_NHUA" Role="BANG_GIA_THE_NHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_KHACH_HANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BANG_GIA_THE_NHUA">
+        <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA">
+    <End Type="QuanLyGiaInModel.BANG_GIA_THE_NHUA" Role="BANG_GIA_THE_NHUA" Multiplicity="1" />
+    <End Type="QuanLyGiaInModel.GIA_TUY_CHON_THE_NHUA" Role="GIA_TUY_CHON_THE_NHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANG_GIA_THE_NHUA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_THE_NHUA">
+        <PropertyRef Name="ID_BANG_GIA_THE_NHUA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP">
+    <End Type="QuanLyGiaInModel.TUY_CHON_DANH_THIEP" Role="TUY_CHON_DANH_THIEP" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QuanLyGiaInModel.GIA_TUY_CHON_DANH_THIEP" Role="GIA_TUY_CHON_DANH_THIEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUY_CHON_DANH_THIEP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_DANH_THIEP">
+        <PropertyRef Name="ID_TUY_CHON_DANH_THIEP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA">
+    <End Type="QuanLyGiaInModel.TUY_CHON_THE_NHUA" Role="TUY_CHON_THE_NHUA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="QuanLyGiaInModel.GIA_TUY_CHON_THE_NHUA" Role="GIA_TUY_CHON_THE_NHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUY_CHON_THE_NHUA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_THE_NHUA">
+        <PropertyRef Name="ID_TUY_CHON_THE_NHUA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

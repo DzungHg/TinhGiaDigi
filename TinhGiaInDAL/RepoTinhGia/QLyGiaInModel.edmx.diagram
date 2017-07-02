@@ -40,6 +40,16 @@
         <EntityTypeShape EntityType="QuanLyGiaInModel.CAT_DECAL" Width="1.5" PointX="11.25" PointY="12.5" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.BOI_BIA_CUNG" Width="1.5" PointX="15.375" PointY="0.75" IsExpanded="false" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.TO_BOI_BIA_CUNG" Width="1.5" PointX="15.5" PointY="4.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.BANG_GIA_THE_NHUA" Width="2.125" PointX="4.5" PointY="16.125" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.GIA_TUY_CHON_DANH_THIEP" Width="1.5" PointX="8" PointY="15" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.GIA_TUY_CHON_THE_NHUA" Width="1.5" PointX="7.375" PointY="18" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TUY_CHON_DANH_THIEP" Width="1.5" PointX="5.75" PointY="21" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.TUY_CHON_THE_NHUA" Width="1.5" PointX="10.25" PointY="20.25" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

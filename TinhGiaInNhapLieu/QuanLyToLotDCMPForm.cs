@@ -373,6 +373,11 @@ namespace TinhGiaInNhapLieu
 
         }
 
+        private void lstToLotDCMP_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

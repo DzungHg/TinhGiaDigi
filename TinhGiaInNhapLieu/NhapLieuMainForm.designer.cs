@@ -43,6 +43,7 @@
             this.btnQLyToInMayDigi = new System.Windows.Forms.Button();
             this.btnBangGiaInNhanh = new System.Windows.Forms.Button();
             this.btnKhoSanPham = new System.Windows.Forms.Button();
+            this.btnBangGiaDanhThiep = new System.Windows.Forms.Button();
             this.tabNgVatLieu = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnQuanLyDanhMucGiay = new System.Windows.Forms.Button();
@@ -62,6 +63,11 @@
             this.btnQuanLy_DongCuonMP = new System.Windows.Forms.Button();
             this.btnQuanLy_CatDecal = new System.Windows.Forms.Button();
             this.btnQuanLy_BoiBiaCung = new System.Windows.Forms.Button();
+            this.tabTuyChon = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnGiaTuyChonDanhThiep = new System.Windows.Forms.Button();
+            this.btnGiaTuyChonTheNhua = new System.Windows.Forms.Button();
+            this.btnBangGiaTheNhua = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -72,6 +78,8 @@
             this.flowLayoutPanel4.SuspendLayout();
             this.tabThanhPham.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            this.tabTuyChon.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -150,6 +158,7 @@
             this.tabCtrl.Controls.Add(this.tabChung);
             this.tabCtrl.Controls.Add(this.tabNgVatLieu);
             this.tabCtrl.Controls.Add(this.tabThanhPham);
+            this.tabCtrl.Controls.Add(this.tabTuyChon);
             this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtrl.Location = new System.Drawing.Point(0, 60);
             this.tabCtrl.Name = "tabCtrl";
@@ -175,6 +184,8 @@
             this.flowLayoutPanel1.Controls.Add(this.btnQLyToInMayDigi);
             this.flowLayoutPanel1.Controls.Add(this.btnBangGiaInNhanh);
             this.flowLayoutPanel1.Controls.Add(this.btnKhoSanPham);
+            this.flowLayoutPanel1.Controls.Add(this.btnBangGiaDanhThiep);
+            this.flowLayoutPanel1.Controls.Add(this.btnBangGiaTheNhua);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -220,6 +231,16 @@
             this.btnKhoSanPham.Text = "Khổ Sản phẩm";
             this.btnKhoSanPham.UseVisualStyleBackColor = true;
             this.btnKhoSanPham.Click += new System.EventHandler(this.btnKhoSanPham_Click);
+            // 
+            // btnBangGiaDanhThiep
+            // 
+            this.btnBangGiaDanhThiep.Location = new System.Drawing.Point(3, 46);
+            this.btnBangGiaDanhThiep.Name = "btnBangGiaDanhThiep";
+            this.btnBangGiaDanhThiep.Size = new System.Drawing.Size(92, 37);
+            this.btnBangGiaDanhThiep.TabIndex = 13;
+            this.btnBangGiaDanhThiep.Text = "Bảng giá Danh thiếp";
+            this.btnBangGiaDanhThiep.UseVisualStyleBackColor = true;
+            this.btnBangGiaDanhThiep.Click += new System.EventHandler(this.btnBangGiaDanhThiep_Click);
             // 
             // tabNgVatLieu
             // 
@@ -424,6 +445,58 @@
             this.btnQuanLy_BoiBiaCung.UseVisualStyleBackColor = true;
             this.btnQuanLy_BoiBiaCung.Click += new System.EventHandler(this.btnQuanLy_BoiBiaCung_Click);
             // 
+            // tabTuyChon
+            // 
+            this.tabTuyChon.Controls.Add(this.flowLayoutPanel2);
+            this.tabTuyChon.Location = new System.Drawing.Point(4, 22);
+            this.tabTuyChon.Name = "tabTuyChon";
+            this.tabTuyChon.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTuyChon.Size = new System.Drawing.Size(418, 207);
+            this.tabTuyChon.TabIndex = 4;
+            this.tabTuyChon.Text = "Tùy chọn";
+            this.tabTuyChon.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel2.Controls.Add(this.btnGiaTuyChonDanhThiep);
+            this.flowLayoutPanel2.Controls.Add(this.btnGiaTuyChonTheNhua);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(412, 201);
+            this.flowLayoutPanel2.TabIndex = 4;
+            // 
+            // btnGiaTuyChonDanhThiep
+            // 
+            this.btnGiaTuyChonDanhThiep.Location = new System.Drawing.Point(3, 3);
+            this.btnGiaTuyChonDanhThiep.Name = "btnGiaTuyChonDanhThiep";
+            this.btnGiaTuyChonDanhThiep.Size = new System.Drawing.Size(92, 37);
+            this.btnGiaTuyChonDanhThiep.TabIndex = 6;
+            this.btnGiaTuyChonDanhThiep.Text = "Giá Tùy chọn danh thiếp";
+            this.btnGiaTuyChonDanhThiep.UseVisualStyleBackColor = true;
+            this.btnGiaTuyChonDanhThiep.Click += new System.EventHandler(this.btnGiaTuyChonDanhThiep_Click);
+            // 
+            // btnGiaTuyChonTheNhua
+            // 
+            this.btnGiaTuyChonTheNhua.Location = new System.Drawing.Point(101, 3);
+            this.btnGiaTuyChonTheNhua.Name = "btnGiaTuyChonTheNhua";
+            this.btnGiaTuyChonTheNhua.Size = new System.Drawing.Size(92, 37);
+            this.btnGiaTuyChonTheNhua.TabIndex = 7;
+            this.btnGiaTuyChonTheNhua.Text = "Giá Tùy chọn thẻ nhựa";
+            this.btnGiaTuyChonTheNhua.UseVisualStyleBackColor = true;
+            this.btnGiaTuyChonTheNhua.Click += new System.EventHandler(this.btnGiaTuyChonTheNhua_Click);
+            // 
+            // btnBangGiaTheNhua
+            // 
+            this.btnBangGiaTheNhua.Location = new System.Drawing.Point(101, 46);
+            this.btnBangGiaTheNhua.Name = "btnBangGiaTheNhua";
+            this.btnBangGiaTheNhua.Size = new System.Drawing.Size(92, 37);
+            this.btnBangGiaTheNhua.TabIndex = 14;
+            this.btnBangGiaTheNhua.Text = "Bảng giá Thẻ nhựa";
+            this.btnBangGiaTheNhua.UseVisualStyleBackColor = true;
+            this.btnBangGiaTheNhua.Click += new System.EventHandler(this.btnBangGiaTheNhua_Click);
+            // 
             // NhapLieuMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,6 +526,8 @@
             this.flowLayoutPanel4.ResumeLayout(false);
             this.tabThanhPham.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
+            this.tabTuyChon.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,6 +569,12 @@
         private System.Windows.Forms.Button btnQuanLy_BoiBiaCung;
         private System.Windows.Forms.Button btnQuanLy_ToBoiBiaCung;
         private System.Windows.Forms.Button btnQuanLy_ToLotDongMoPhang;
+        private System.Windows.Forms.TabPage tabTuyChon;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btnGiaTuyChonDanhThiep;
+        private System.Windows.Forms.Button btnGiaTuyChonTheNhua;
+        private System.Windows.Forms.Button btnBangGiaDanhThiep;
+        private System.Windows.Forms.Button btnBangGiaTheNhua;
 
     }
 }

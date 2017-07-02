@@ -11,8 +11,8 @@ namespace TinhGiaInDAL.RepoTinhGia
     {
         IEnumerable<BangGiaDanhThiepBDO> DocTatCa();
         BangGiaDanhThiepBDO DocTheoId(int iD);
-        void Them(BangGiaDanhThiepBDO entityBDO);
-        void Sua(BangGiaDanhThiepBDO entityBDO);
-        void Xoa(int iD);     
+        string Them(BangGiaDanhThiepBDO entityBDO);
+        string Sua(BangGiaDanhThiepBDO entityBDO);
+        string Xoa(int iD);     
     }
 }

@@ -33,6 +33,8 @@
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            this.txtDienGiai = new Telerik.WinControls.UI.RadTextBox();
             this.txtTenNhaCC = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
@@ -48,14 +50,14 @@
             this.btnXoa = new Telerik.WinControls.UI.RadButton();
             this.btnHuy = new Telerik.WinControls.UI.RadButton();
             this.lstToLotDCMP = new Telerik.WinControls.UI.RadListView();
-            this.txtDienGiai = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDienGiai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNhaCC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
@@ -71,8 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstToLotDCMP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDienGiai)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +131,23 @@
             this.radGroupBox1.Size = new System.Drawing.Size(520, 145);
             this.radGroupBox1.TabIndex = 8;
             this.radGroupBox1.Text = "Chi tiết";
+            // 
+            // radLabel6
+            // 
+            this.radLabel6.Location = new System.Drawing.Point(291, 21);
+            this.radLabel6.Name = "radLabel6";
+            this.radLabel6.Size = new System.Drawing.Size(50, 18);
+            this.radLabel6.TabIndex = 24;
+            this.radLabel6.Text = "Diễn giải";
+            // 
+            // txtDienGiai
+            // 
+            this.txtDienGiai.AutoSize = false;
+            this.txtDienGiai.Location = new System.Drawing.Point(288, 45);
+            this.txtDienGiai.Multiline = true;
+            this.txtDienGiai.Name = "txtDienGiai";
+            this.txtDienGiai.Size = new System.Drawing.Size(211, 56);
+            this.txtDienGiai.TabIndex = 5;
             // 
             // txtTenNhaCC
             // 
@@ -254,24 +271,8 @@
             this.lstToLotDCMP.TabIndex = 17;
             this.lstToLotDCMP.Text = "radListView1";
             this.lstToLotDCMP.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
+            this.lstToLotDCMP.SelectedItemChanged += new System.EventHandler(this.lstToLotDCMP_SelectedItemChanged);
             this.lstToLotDCMP.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lstLoXo_ColumnCreating);
-            // 
-            // txtDienGiai
-            // 
-            this.txtDienGiai.AutoSize = false;
-            this.txtDienGiai.Location = new System.Drawing.Point(288, 45);
-            this.txtDienGiai.Multiline = true;
-            this.txtDienGiai.Name = "txtDienGiai";
-            this.txtDienGiai.Size = new System.Drawing.Size(211, 56);
-            this.txtDienGiai.TabIndex = 5;
-            // 
-            // radLabel6
-            // 
-            this.radLabel6.Location = new System.Drawing.Point(291, 21);
-            this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(50, 18);
-            this.radLabel6.TabIndex = 24;
-            this.radLabel6.Text = "Diễn giải";
             // 
             // QuanLyToLotDCMPForm
             // 
@@ -301,6 +302,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDienGiai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNhaCC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
@@ -316,8 +319,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstToLotDCMP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDienGiai)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

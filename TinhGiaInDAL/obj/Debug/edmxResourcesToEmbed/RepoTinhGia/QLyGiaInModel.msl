@@ -97,6 +97,7 @@
     <EntitySetMapping Name="BANG_GIA_IN_NHANH">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_IN_NHANH">
         <MappingFragment StoreEntitySet="BANG_GIA_IN_NHANH">
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="noi_dung_bang_gia" ColumnName="noi_dung_bang_gia" />
           <ScalarProperty Name="so_trang_toi_da" ColumnName="so_trang_toi_da" />
@@ -244,6 +245,7 @@
     <EntitySetMapping Name="BANG_GIA_DANH_THIEP">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_DANH_THIEP">
         <MappingFragment StoreEntitySet="BANG_GIA_DANH_THIEP">
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
           <ScalarProperty Name="kho_to_chay" ColumnName="kho_to_chay" />
           <ScalarProperty Name="giay_bao_gom" ColumnName="giay_bao_gom" />
           <ScalarProperty Name="noi_dung_bang_gia" ColumnName="noi_dung_bang_gia" />
@@ -444,6 +446,62 @@
           <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
           <ScalarProperty Name="gia_mua_to" ColumnName="gia_mua_to" />
           <ScalarProperty Name="do_day_cm" ColumnName="do_day_cm" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANG_GIA_THE_NHUA">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_THE_NHUA">
+        <MappingFragment StoreEntitySet="BANG_GIA_THE_NHUA">
+          <ScalarProperty Name="vat_lieu_in_bao_gom" ColumnName="vat_lieu_in_bao_gom" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ID_HANG_KHACH_HANG" ColumnName="ID_HANG_KHACH_HANG" />
+          <ScalarProperty Name="kho_to_chay" ColumnName="kho_to_chay" />
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="noi_dung_bang_gia" ColumnName="noi_dung_bang_gia" />
+          <ScalarProperty Name="in_hai_mat" ColumnName="in_hai_mat" />
+          <ScalarProperty Name="khong_con" ColumnName="khong_con" />
+          <ScalarProperty Name="so_luong_tinh_toi_da" ColumnName="so_luong_tinh_toi_da" />
+          <ScalarProperty Name="day_gia" ColumnName="day_gia" />
+          <ScalarProperty Name="day_so_luong" ColumnName="day_so_luong" />
+          <ScalarProperty Name="mo_ta" ColumnName="mo_ta" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIA_TUY_CHON_DANH_THIEP">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.GIA_TUY_CHON_DANH_THIEP">
+        <MappingFragment StoreEntitySet="GIA_TUY_CHON_DANH_THIEP">
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="ID_TUY_CHON_DANH_THIEP" ColumnName="ID_TUY_CHON_DANH_THIEP" />
+          <ScalarProperty Name="ID_BANG_GIA_DANH_THIEP" ColumnName="ID_BANG_GIA_DANH_THIEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIA_TUY_CHON_THE_NHUA">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.GIA_TUY_CHON_THE_NHUA">
+        <MappingFragment StoreEntitySet="GIA_TUY_CHON_THE_NHUA">
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="ID_TUY_CHON_THE_NHUA" ColumnName="ID_TUY_CHON_THE_NHUA" />
+          <ScalarProperty Name="ID_BANG_GIA_THE_NHUA" ColumnName="ID_BANG_GIA_THE_NHUA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUY_CHON_DANH_THIEP">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.TUY_CHON_DANH_THIEP">
+        <MappingFragment StoreEntitySet="TUY_CHON_DANH_THIEP">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUY_CHON_THE_NHUA">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.TUY_CHON_THE_NHUA">
+        <MappingFragment StoreEntitySet="TUY_CHON_THE_NHUA">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
           <ScalarProperty Name="ten" ColumnName="ten" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

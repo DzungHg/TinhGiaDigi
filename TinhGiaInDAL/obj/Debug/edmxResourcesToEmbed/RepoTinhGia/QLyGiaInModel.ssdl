@@ -17,6 +17,7 @@
     <Property Name="thu_tu" Type="int" />
     <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
     <Property Name="ID_HANG_KHACH_HANG" Type="int" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="BANG_GIA_IN_NHANH">
     <Key>
@@ -33,6 +34,26 @@
     <Property Name="so_trang_toi_da" Type="int" />
     <Property Name="khong_su_dung" Type="bit" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="BANG_GIA_THE_NHUA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="mo_ta" Type="nvarchar" MaxLength="150" />
+    <Property Name="day_so_luong" Type="nvarchar" MaxLength="50" />
+    <Property Name="day_gia" Type="nvarchar" MaxLength="50" />
+    <Property Name="so_luong_tinh_toi_da" Type="int" />
+    <Property Name="khong_con" Type="bit" />
+    <Property Name="in_hai_mat" Type="bit" />
+    <Property Name="noi_dung_bang_gia" Type="nvarchar(max)" />
+    <Property Name="vat_lieu_in_bao_gom" Type="nvarchar" MaxLength="20" />
+    <Property Name="thu_tu" Type="int" />
+    <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
+    <Property Name="ID_HANG_KHACH_HANG" Type="int" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="BOI_BIA_CUNG">
     <Key>
@@ -200,6 +221,24 @@
     <Property Name="Thu_tu" Type="int" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="GIA_TUY_CHON_DANH_THIEP">
+    <Key>
+      <PropertyRef Name="ID_BANG_GIA_DANH_THIEP" />
+      <PropertyRef Name="ID_TUY_CHON_DANH_THIEP" />
+    </Key>
+    <Property Name="ID_BANG_GIA_DANH_THIEP" Type="int" Nullable="false" />
+    <Property Name="ID_TUY_CHON_DANH_THIEP" Type="int" Nullable="false" />
+    <Property Name="gia_ban" Type="int" />
+  </EntityType>
+  <EntityType Name="GIA_TUY_CHON_THE_NHUA">
+    <Key>
+      <PropertyRef Name="ID_BANG_GIA_THE_NHUA" />
+      <PropertyRef Name="ID_TUY_CHON_THE_NHUA" />
+    </Key>
+    <Property Name="ID_BANG_GIA_THE_NHUA" Type="int" Nullable="false" />
+    <Property Name="ID_TUY_CHON_THE_NHUA" Type="int" Nullable="false" />
+    <Property Name="gia_ban" Type="int" />
   </EntityType>
   <EntityType Name="GIAY">
     <Key>
@@ -406,6 +445,22 @@
     <Property Name="gia_mua_to" Type="int" />
     <Property Name="thu_tu" Type="int" />
   </EntityType>
+  <EntityType Name="TUY_CHON_DANH_THIEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="thu_tu" Type="int" />
+  </EntityType>
+  <EntityType Name="TUY_CHON_THE_NHUA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="thu_tu" Type="int" />
+  </EntityType>
   <EntityType Name="YEU_CAU_TINH_GIA_IN">
     <Key>
       <PropertyRef Name="ID" />
@@ -443,6 +498,70 @@
       </Principal>
       <Dependent Role="BANG_GIA_IN_NHANH">
         <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG">
+    <End Role="HANG_KHACH_HANG" Type="Self.HANG_KHACH_HANG" Multiplicity="0..1" />
+    <End Role="BANG_GIA_THE_NHUA" Type="Self.BANG_GIA_THE_NHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_KHACH_HANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BANG_GIA_THE_NHUA">
+        <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP">
+    <End Role="BANG_GIA_DANH_THIEP" Type="Self.BANG_GIA_DANH_THIEP" Multiplicity="1" />
+    <End Role="GIA_TUY_CHON_DANH_THIEP" Type="Self.GIA_TUY_CHON_DANH_THIEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANG_GIA_DANH_THIEP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_DANH_THIEP">
+        <PropertyRef Name="ID_TUY_CHON_DANH_THIEP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP">
+    <End Role="TUY_CHON_DANH_THIEP" Type="Self.TUY_CHON_DANH_THIEP" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GIA_TUY_CHON_DANH_THIEP" Type="Self.GIA_TUY_CHON_DANH_THIEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUY_CHON_DANH_THIEP">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_DANH_THIEP">
+        <PropertyRef Name="ID_TUY_CHON_DANH_THIEP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA">
+    <End Role="BANG_GIA_THE_NHUA" Type="Self.BANG_GIA_THE_NHUA" Multiplicity="1" />
+    <End Role="GIA_TUY_CHON_THE_NHUA" Type="Self.GIA_TUY_CHON_THE_NHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BANG_GIA_THE_NHUA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_THE_NHUA">
+        <PropertyRef Name="ID_BANG_GIA_THE_NHUA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA">
+    <End Role="TUY_CHON_THE_NHUA" Type="Self.TUY_CHON_THE_NHUA" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GIA_TUY_CHON_THE_NHUA" Type="Self.GIA_TUY_CHON_THE_NHUA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUY_CHON_THE_NHUA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GIA_TUY_CHON_THE_NHUA">
+        <PropertyRef Name="ID_TUY_CHON_THE_NHUA" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -525,6 +644,7 @@
   <EntityContainer Name="QuanLyGiaInModelStoreContainer">
     <EntitySet Name="BANG_GIA_DANH_THIEP" EntityType="Self.BANG_GIA_DANH_THIEP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BANG_GIA_IN_NHANH" EntityType="Self.BANG_GIA_IN_NHANH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANG_GIA_THE_NHUA" EntityType="Self.BANG_GIA_THE_NHUA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BOI_BIA_CUNG" EntityType="Self.BOI_BIA_CUNG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CAN_GAP" EntityType="Self.CAN_GAP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CAN_PHU" EntityType="Self.CAN_PHU" Schema="dbo" store:Type="Tables" />
@@ -535,6 +655,8 @@
     <EntitySet Name="DONG_CUON_MO_PHANG" EntityType="Self.DONG_CUON_MO_PHANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DS_THANH_PHAM" EntityType="Self.DS_THANH_PHAM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EP_KIM" EntityType="Self.EP_KIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIA_TUY_CHON_DANH_THIEP" EntityType="Self.GIA_TUY_CHON_DANH_THIEP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIA_TUY_CHON_THE_NHUA" EntityType="Self.GIA_TUY_CHON_THE_NHUA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GIAY" EntityType="Self.GIAY" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HANG_KHACH_HANG" EntityType="Self.HANG_KHACH_HANG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IN_OFFSET_GIA_CONG" EntityType="Self.IN_OFFSET_GIA_CONG" Schema="dbo" store:Type="Tables" />
@@ -549,6 +671,8 @@
     <EntitySet Name="TO_BOI_BIA_CUNG" EntityType="Self.TO_BOI_BIA_CUNG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TO_IN_MAY_DIGI" EntityType="Self.TO_IN_MAY_DIGI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TO_LOT_MO_PHANG" EntityType="Self.TO_LOT_MO_PHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TUY_CHON_DANH_THIEP" EntityType="Self.TUY_CHON_DANH_THIEP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TUY_CHON_THE_NHUA" EntityType="Self.TUY_CHON_THE_NHUA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="YEU_CAU_TINH_GIA_IN" EntityType="Self.YEU_CAU_TINH_GIA_IN" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" Association="Self.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
       <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
@@ -557,6 +681,26 @@
     <AssociationSet Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG" Association="Self.FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
       <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
       <End Role="BANG_GIA_IN_NHANH" EntitySet="BANG_GIA_IN_NHANH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG" Association="Self.FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG">
+      <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
+      <End Role="BANG_GIA_THE_NHUA" EntitySet="BANG_GIA_THE_NHUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" Association="Self.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP">
+      <End Role="BANG_GIA_DANH_THIEP" EntitySet="BANG_GIA_DANH_THIEP" />
+      <End Role="GIA_TUY_CHON_DANH_THIEP" EntitySet="GIA_TUY_CHON_DANH_THIEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP" Association="Self.FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP">
+      <End Role="TUY_CHON_DANH_THIEP" EntitySet="TUY_CHON_DANH_THIEP" />
+      <End Role="GIA_TUY_CHON_DANH_THIEP" EntitySet="GIA_TUY_CHON_DANH_THIEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" Association="Self.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA">
+      <End Role="BANG_GIA_THE_NHUA" EntitySet="BANG_GIA_THE_NHUA" />
+      <End Role="GIA_TUY_CHON_THE_NHUA" EntitySet="GIA_TUY_CHON_THE_NHUA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA" Association="Self.FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA">
+      <End Role="TUY_CHON_THE_NHUA" EntitySet="TUY_CHON_THE_NHUA" />
+      <End Role="GIA_TUY_CHON_THE_NHUA" EntitySet="GIA_TUY_CHON_THE_NHUA" />
     </AssociationSet>
     <AssociationSet Name="FK_GIAY_DANH_MUC_GIAY" Association="Self.FK_GIAY_DANH_MUC_GIAY">
       <End Role="DANH_MUC_GIAY" EntitySet="DANH_MUC_GIAY" />

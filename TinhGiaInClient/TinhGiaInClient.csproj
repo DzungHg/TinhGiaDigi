@@ -132,6 +132,7 @@
       <DependentUpon>LietKeBaoGiaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\BaiIn.cs" />
+    <Compile Include="Model\BangGiaTheNhua.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
     <Compile Include="Model\Booklet\GiaInSachDigi.cs" />
     <Compile Include="Model\Booklet\MonDongCuon.cs" />
@@ -144,6 +145,8 @@
     <Compile Include="Model\GiaCatDecal.cs" />
     <Compile Include="Model\GiaDongCuonMoPhang.cs" />
     <Compile Include="Model\GiaDongCuonLoXo.cs" />
+    <Compile Include="Model\GiaTuyChonDanhThiep.cs" />
+    <Compile Include="Model\GiaTuyChonTheNhua.cs" />
     <Compile Include="Model\MucThPhBoiBiaCung.cs" />
     <Compile Include="Model\MucThPhCatDecal.cs" />
     <Compile Include="Model\MucDongCuonMoPhang.cs" />
@@ -171,6 +174,8 @@
     <Compile Include="Model\MayInDigi.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\LoXoDongCuon.cs" />
+    <Compile Include="Model\TuyChonTheNhua.cs" />
+    <Compile Include="Model\TuyChonDanhThiep.cs" />
     <Compile Include="Model\ToBoiBiaCung.cs" />
     <Compile Include="Model\ToLotMoPhang.cs" />
     <Compile Include="Model\Support\DuLieuTinhGiaInNhanhTheoMay.cs" />

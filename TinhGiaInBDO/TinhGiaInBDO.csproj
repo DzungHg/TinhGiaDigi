@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangGiaTheNhuaBDO.cs" />
     <Compile Include="BangGiaDanhThiepBDO.cs" />
     <Compile Include="BangGiaInNhanhBDO.cs" />
     <Compile Include="BoiBiaCungBDO.cs" />
@@ -50,12 +51,16 @@
     <Compile Include="DongCuonBDO.cs" />
     <Compile Include="CanPhuBDO.cs" />
     <Compile Include="DanhMucGiayBDO.cs" />
+    <Compile Include="GiaTuyChonTheNhuaBDO.cs" />
+    <Compile Include="GiaTuyChonDanhThiepBDO.cs" />
     <Compile Include="KhuonEpKimBDO.cs" />
     <Compile Include="MonThanhPhamBDO.cs" />
     <Compile Include="NguoiDungBDO.cs" />
     <Compile Include="LoXoDongCuonBDO.cs" />
     <Compile Include="ToBoiBiaCungBDO.cs" />
     <Compile Include="ToLotMoPhangBDO.cs" />
+    <Compile Include="TuyChonTheNhuaBDO.cs" />
+    <Compile Include="TuyChonDanhThiepBDO.cs" />
     <Compile Include="YeuCauTinhGiaInBDO.cs" />
     <Compile Include="NhuEpKimBDO.cs" />
     <Compile Include="OffsetGiaCongBDO.cs" />

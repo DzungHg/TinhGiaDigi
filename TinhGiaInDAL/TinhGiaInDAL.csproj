@@ -48,8 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepoTinhGia\BangGiaTheNhuaDAO.cs" />
     <Compile Include="RepoTinhGia\BangGiaDanhThiepDAO.cs" />
     <Compile Include="RepoTinhGia\BANG_GIA_DANH_THIEP.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\BANG_GIA_THE_NHUA.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\BOI_BIA_CUNG.cs">
@@ -68,16 +72,29 @@
     <Compile Include="RepoTinhGia\DONG_CUON_MO_PHANG.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\GiaTuyChonDanhThiepDAO.cs" />
+    <Compile Include="RepoTinhGia\GIA_TUY_CHON_DANH_THIEP.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\GIA_TUY_CHON_THE_NHUA.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\IBangGiaTheNhuaDAO.cs" />
     <Compile Include="RepoTinhGia\IBoiBiaCungDAO.cs" />
     <Compile Include="RepoTinhGia\ICatDecalDAO.cs" />
     <Compile Include="RepoTinhGia\IDongCuonMoPhangDAO.cs" />
     <Compile Include="RepoTinhGia\IDongCuonLoXoDAO.cs" />
+    <Compile Include="RepoTinhGia\IGiaTuyChonTheNhua.cs" />
     <Compile Include="RepoTinhGia\ILoXoDongCuonDAO.cs" />
+    <Compile Include="RepoTinhGia\IGiaTuyChonDanhThiep.cs" />
+    <Compile Include="RepoTinhGia\ITuyChonTheNhuaDAO.cs" />
+    <Compile Include="RepoTinhGia\ITuyChonDanhThiepDAO.cs" />
     <Compile Include="RepoTinhGia\IToBoiBiaCungDAO.cs" />
     <Compile Include="RepoTinhGia\IToLotMoPhangDAO.cs" />
     <Compile Include="RepoTinhGia\LO_XO_DONG_CUON.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\GiaTuyChonTheNhuaDAO.cs" />
     <Compile Include="RepoTinhGia\NguoiDungDAO.cs" />
     <Compile Include="RepoTinhGia\CAN_GAP.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
@@ -114,6 +131,8 @@
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\LoXoDongCuonDAO.cs" />
+    <Compile Include="RepoTinhGia\TuyChonTheNhuaDAO.cs" />
+    <Compile Include="RepoTinhGia\TuyChonDanhThiepDAO.cs" />
     <Compile Include="RepoTinhGia\ToBoiBiaCungDAO.cs" />
     <Compile Include="RepoTinhGia\ToLotMoPhangDAO.cs" />
     <Compile Include="RepoTinhGia\TINH_GIA_IN.cs">
@@ -123,6 +142,12 @@
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\TO_LOT_MO_PHANG.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\TUY_CHON_DANH_THIEP.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\TUY_CHON_THE_NHUA.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\YeuCauTinhGiaInDAO.cs" />
