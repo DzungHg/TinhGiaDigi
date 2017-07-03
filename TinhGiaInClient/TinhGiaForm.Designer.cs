@@ -60,8 +60,10 @@
             this.btnDong = new Telerik.WinControls.UI.RadButton();
             this.btnLuu = new Telerik.WinControls.UI.RadButton();
             this.pnlSubTotal = new Telerik.WinControls.UI.RadPanel();
-            this.txtThanhTien = new Telerik.WinControls.UI.RadTextBox();
             this.lblThanhTien = new Telerik.WinControls.UI.RadLabel();
+            this.txtThanhTien = new Telerik.WinControls.UI.RadTextBox();
+            this.tabTheNhua = new System.Windows.Forms.TabPage();
+            this.lvwTheNhua = new Telerik.WinControls.UI.RadListView();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
             this.tabInSPTo.SuspendLayout();
@@ -91,8 +93,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSubTotal)).BeginInit();
             this.pnlSubTotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).BeginInit();
+            this.tabTheNhua.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lvwTheNhua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -122,6 +126,7 @@
             this.tabCtrl01.Controls.Add(this.tabDanhThiep);
             this.tabCtrl01.Controls.Add(this.tabInSPTo);
             this.tabCtrl01.Controls.Add(this.tabInCuon);
+            this.tabCtrl01.Controls.Add(this.tabTheNhua);
             this.tabCtrl01.Location = new System.Drawing.Point(10, 228);
             this.tabCtrl01.Name = "tabCtrl01";
             this.tabCtrl01.SelectedIndex = 0;
@@ -406,6 +411,14 @@
             this.pnlSubTotal.Size = new System.Drawing.Size(522, 29);
             this.pnlSubTotal.TabIndex = 224;
             // 
+            // lblThanhTien
+            // 
+            this.lblThanhTien.Location = new System.Drawing.Point(216, 5);
+            this.lblThanhTien.Name = "lblThanhTien";
+            this.lblThanhTien.Size = new System.Drawing.Size(59, 18);
+            this.lblThanhTien.TabIndex = 237;
+            this.lblThanhTien.Text = "Thành tiền";
+            // 
             // txtThanhTien
             // 
             this.txtThanhTien.Location = new System.Drawing.Point(298, 5);
@@ -415,13 +428,28 @@
             this.txtThanhTien.TabStop = false;
             this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblThanhTien
+            // tabTheNhua
             // 
-            this.lblThanhTien.Location = new System.Drawing.Point(216, 5);
-            this.lblThanhTien.Name = "lblThanhTien";
-            this.lblThanhTien.Size = new System.Drawing.Size(59, 18);
-            this.lblThanhTien.TabIndex = 237;
-            this.lblThanhTien.Text = "Thành tiền";
+            this.tabTheNhua.Controls.Add(this.lvwTheNhua);
+            this.tabTheNhua.Location = new System.Drawing.Point(4, 22);
+            this.tabTheNhua.Name = "tabTheNhua";
+            this.tabTheNhua.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTheNhua.Size = new System.Drawing.Size(517, 169);
+            this.tabTheNhua.TabIndex = 13;
+            this.tabTheNhua.Text = "Thẻ nhựa";
+            this.tabTheNhua.UseVisualStyleBackColor = true;
+            // 
+            // lvwTheNhua
+            // 
+            this.lvwTheNhua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwTheNhua.ItemSpacing = -1;
+            this.lvwTheNhua.Location = new System.Drawing.Point(3, 3);
+            this.lvwTheNhua.Name = "lvwTheNhua";
+            this.lvwTheNhua.ShowGridLines = true;
+            this.lvwTheNhua.Size = new System.Drawing.Size(511, 163);
+            this.lvwTheNhua.TabIndex = 18;
+            this.lvwTheNhua.Text = "radListView1";
+            this.lvwTheNhua.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
             // 
             // TinhGiaForm
             // 
@@ -480,8 +508,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlSubTotal)).EndInit();
             this.pnlSubTotal.ResumeLayout(false);
             this.pnlSubTotal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).EndInit();
+            this.tabTheNhua.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lvwTheNhua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,6 +554,8 @@
         private Telerik.WinControls.UI.RadPanel pnlSubTotal;
         private Telerik.WinControls.UI.RadLabel lblThanhTien;
         private Telerik.WinControls.UI.RadTextBox txtThanhTien;
+        private System.Windows.Forms.TabPage tabTheNhua;
+        private Telerik.WinControls.UI.RadListView lvwTheNhua;
 
     }
 }

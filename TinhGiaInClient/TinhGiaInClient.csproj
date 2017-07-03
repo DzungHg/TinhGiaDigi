@@ -88,6 +88,12 @@
     <Compile Include="AboutBox.designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiaInTheNhuaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaInTheNhuaForm.Designer.cs">
+      <DependentUpon>GiaInTheNhuaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InToForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,7 @@
       <DependentUpon>LietKeBaoGiaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\BaiIn.cs" />
+    <Compile Include="Model\BaiInTheNhua.cs" />
     <Compile Include="Model\BangGiaTheNhua.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
     <Compile Include="Model\Booklet\GiaInSachDigi.cs" />
@@ -174,6 +181,9 @@
     <Compile Include="Model\MayInDigi.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\LoXoDongCuon.cs" />
+    <Compile Include="Model\Support\ITuyChonChon.cs" />
+    <Compile Include="Model\Support\TuyChonDanhThiepChon.cs" />
+    <Compile Include="Model\Support\TuyChonTheNhuaChon.cs" />
     <Compile Include="Model\TuyChonTheNhua.cs" />
     <Compile Include="Model\TuyChonDanhThiep.cs" />
     <Compile Include="Model\ToBoiBiaCung.cs" />
@@ -226,6 +236,7 @@
     <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
+    <Compile Include="Presenter\GiaTheNhuaPresenter.cs" />
     <Compile Include="Presenter\InSachDigiPresenter.cs" />
     <Compile Include="Presenter\ThCatDeCalPresenter.cs" />
     <Compile Include="Presenter\ThPhBoiBiaCungPresenter.cs" />
@@ -344,6 +355,7 @@
     <Compile Include="View\IViewBangGiaThanhPham.cs" />
     <Compile Include="View\IViewBaiIn.cs" />
     <Compile Include="View\IViewBangGiaGiay.cs" />
+    <Compile Include="View\IViewGiaTheNhua.cs" />
     <Compile Include="View\IViewGiaDanhThiep.cs" />
     <Compile Include="View\IViewGiaInOffset.cs" />
     <Compile Include="View\IViewGiaInNhanhThu.cs" />
@@ -393,6 +405,9 @@
     <Compile Include="View\IViewGiaInNhanh.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaInTheNhuaForm.resx">
+      <DependentUpon>GiaInTheNhuaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InToForm.resx">
       <DependentUpon>InToForm.cs</DependentUpon>

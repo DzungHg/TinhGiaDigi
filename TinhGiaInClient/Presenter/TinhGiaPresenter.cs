@@ -109,7 +109,7 @@ namespace TinhGiaInClient.Presenter
 
         public List<BaiInDanhThiep> DanhSachDanhThiep()
         {
-            return TinhGia.BaiInGiaDanhThiepS;
+            return TinhGia.BaiInDanhThiepS;
         }
 
         public void Them_DanhThiep(BaiInDanhThiep baiIn)
@@ -207,6 +207,50 @@ namespace TinhGiaInClient.Presenter
                 lst.Add(string.Format("{0:0,0.00}đ", sachIn.GiaChaoTong()));
 
                 dict.Add(sachIn.ID, lst);//hoàn tất tại đây
+            }
+            return dict;
+        }
+
+
+        #endregion
+        #region Phần Thẻ nhựa: thêm sửa, xóa bài in
+
+        public List<BaiInTheNhua> BaiInTheNhuaS()
+        {
+            return TinhGia.BaiInTheNhuaS;
+        }
+
+        public void Them_TheNhua(BaiInTheNhua baiIn)
+        {
+            TinhGia.ThemTheNhua(baiIn);
+        }
+       
+        public void Xoa_TheNhua(BaiInTheNhua baiIn)
+        {
+            TinhGia.XoaTheNhua(baiIn);
+        }
+        public BaiInTheNhua DocTheNhuaTheoID(int idBaiIn)
+        {
+            return TinhGia.DocTheNhuaTheoID(idBaiIn);
+        }
+        public void XoaTatCa_TheNhua()
+        {
+            TinhGia.XoaTatTheNhua();
+        }
+        public Dictionary<int, List<string>> TrinhBayDanhThiepS()
+        {
+
+            Dictionary<int, List<string>> dict = new Dictionary<int, List<string>>();
+            foreach (BaiInDanhThiep bIn in this.DanhSachDanhThiep())
+            {
+                var lst = new List<string>();
+                lst.Add(bIn.TenBangGia);
+                lst.Add(string.Format("{0} {1}", bIn.KichThuoc, bIn.TenGiayIn));
+                lst.Add(bIn.SoLuongHop.ToString());
+                lst.Add("Hộp 100");
+                lst.Add(string.Format("{0:0,0.00}đ", bIn.ThanhTien));
+
+                dict.Add(bIn.ID, lst);//hoàn tất tại đây
             }
             return dict;
         }

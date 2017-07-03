@@ -37,6 +37,7 @@ namespace TinhGiaInClient
             lvwBaiIn.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
             lvwDanhThiep.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
             lvwCuon.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
+            lvwTheNhua.SelectedIndexChanged += new EventHandler(ListView_SelectedIndexChanged);
 
             txtTieuDeTinhGia.TextChanged += new EventHandler(TextBoxe_TextChanged);
             txtTenNV.TextChanged += new EventHandler(TextBoxe_TextChanged);
@@ -555,6 +556,56 @@ namespace TinhGiaInClient
             lvwCuon.Columns[4].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
             lvwCuon.Columns[5].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
 
+        }
+        #endregion
+        #region Về thẻ nhựa
+        private void LoadTheNhuaListView()
+        {
+            lvwTheNhua.DataSource = tinhGiaPres.DanhSachDanhThiep();
+            lvwTheNhua.ValueMember = "ID";
+
+        }
+        private void ThemTheNhua()
+        {
+            var thongTinBanDau = new ThongTinBanDauChoDanhThiep
+            {
+                IdHangKhachHang = this.IdHangKhachHang(),
+                TinhTrangForm = FormStateS.New
+            };
+            var baiInTheNhua = new BaiInTheNhua(0, "", "", 10, 2);
+
+            var frm = new GiaInTheNhuaForm(thongTinBanDau, baiInTheNhua);
+            frm.Text = "Tính giá Thẻ nhựa";
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                XuLyNutOKTrenFormTheNhua(frm);
+                //MessageBox.Show(this.BaiInS.Count().ToString());
+                LoadDanhThiepListView();
+            }
+        }
+        private void XuLyNutOKTrenFormTheNhua(GiaInTheNhuaForm frm)
+        {
+                    switch (frm.TinhTrangForm)
+            {
+                case FormStateS.Edit:
+                            
+                case FormStateS.New:
+                    tinhGiaPres.Them_TheNhua(frm.DocBaiInDanhThiep());
+                    break;
+            }
+        }
+        private void XoaTheNhua()
+        {
+            if (this.IdDanhThiepChon > 0)
+            {
+                tinhGiaPres.Xoa_TheNhua(tinhGiaPres.DocDanhThiepTheoID(this.IdDanhThiepChon));
+                LoadDanhThiepListView();
+            }
         }
         #endregion
         private void btnSuaBaiIn_Click(object sender, EventArgs e)

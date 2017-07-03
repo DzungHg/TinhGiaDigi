@@ -16,6 +16,19 @@ namespace TinhGiaInClient.Model
         {
             this.IdHangKhachHang = idHangKhachHang;
         }
+        public TinhGiaIn()
+        {
+
+            _dsKetQuaBaiIn = new List<BaiIn>();
+            _chiTietGiaDanhThiep = new List<BaiInDanhThiep>();
+            _dsGiaInSach = new List<GiaInSachDigi>();
+            _baiInTheNhuaS = new List<BaiInTheNhua>();
+            ///Tạo tự động số chào giá:
+            ///SS/NN-TT-NN: SS từ ID hiện tại
+            //this.So =  string.Format("{0}/{1}-{2}-{3}", this.ID, ngayChaoGia.Year - 2000,
+            //     ngayChaoGia.Month, ngayChaoGia.Day);
+
+        }
 
         public int IdHangKhachHang
         { get; set; }
@@ -34,7 +47,7 @@ namespace TinhGiaInClient.Model
         }
 
         List<BaiInDanhThiep> _chiTietGiaDanhThiep;
-        public List<BaiInDanhThiep> BaiInGiaDanhThiepS
+        public List<BaiInDanhThiep> BaiInDanhThiepS
         {
             get { return _chiTietGiaDanhThiep; }
             set { _chiTietGiaDanhThiep = value; }
@@ -45,17 +58,11 @@ namespace TinhGiaInClient.Model
             get { return _dsGiaInSach; }
             set { _dsGiaInSach = value; }
         }
-        public TinhGiaIn()
+        List<BaiInTheNhua> _baiInTheNhuaS;
+        public List<BaiInTheNhua> BaiInTheNhuaS
         {
-
-            _dsKetQuaBaiIn = new List<BaiIn>();
-            _chiTietGiaDanhThiep = new List<BaiInDanhThiep>();
-            _dsGiaInSach = new List<GiaInSachDigi>(); 
-            ///Tạo tự động số chào giá:
-            ///SS/NN-TT-NN: SS từ ID hiện tại
-            //this.So =  string.Format("{0}/{1}-{2}-{3}", this.ID, ngayChaoGia.Year - 2000,
-           //     ngayChaoGia.Month, ngayChaoGia.Day);
-
+            get { return _baiInTheNhuaS; }
+            set { _baiInTheNhuaS = value; }
         }
               
         
@@ -135,11 +142,11 @@ namespace TinhGiaInClient.Model
         #region Phần Danh thiếp: thêm sửa, xóa Danh thiếp
         public void ThemDanhThiep(BaiInDanhThiep kQuaBaiIn)
         {
-            this.BaiInGiaDanhThiepS.Add(kQuaBaiIn);
+            this.BaiInDanhThiepS.Add(kQuaBaiIn);
         }
         public void SuaDanhThiep(BaiInDanhThiep baiInDanhThiep)
         {
-            var baiInSua = this.BaiInGiaDanhThiepS.Find(x => x.ID == baiInDanhThiep.ID);
+            var baiInSua = this.BaiInDanhThiepS.Find(x => x.ID == baiInDanhThiep.ID);
             baiInSua.SoMatIn = baiInDanhThiep.SoMatIn;
 
             baiInSua.IdBangGia = baiInDanhThiep.IdBangGia;
@@ -152,15 +159,15 @@ namespace TinhGiaInClient.Model
         }
         public void XoaDanhThiep(BaiInDanhThiep baiIn)
         {
-            this.BaiInGiaDanhThiepS.Remove(baiIn);
+            this.BaiInDanhThiepS.Remove(baiIn);
         }
         public BaiInDanhThiep DocDanhThiepTheoID(int idKQBaiIn)
         {
-            return this.BaiInGiaDanhThiepS.Find(x => x.ID == idKQBaiIn);
+            return this.BaiInDanhThiepS.Find(x => x.ID == idKQBaiIn);
         }
         public void XoaTatDanhThiep()
         {
-            this.BaiInGiaDanhThiepS.Clear();
+            this.BaiInDanhThiepS.Clear();
         }
         
         #endregion
@@ -183,14 +190,34 @@ namespace TinhGiaInClient.Model
             this.GiaInSachDigiS.Clear();
         }
         #endregion
-        #region Các tổng danh thiếp, bài in, cataloque
+        #region Phần Thẻ nhựa: thêm sửa, xóa Danh thiếp
+        public void ThemTheNhua(BaiInTheNhua kQuaBaiIn)
+        {
+            this.BaiInTheNhuaS.Add(kQuaBaiIn);
+        }
+
+        public void XoaTheNhua(BaiInTheNhua baiIn)
+        {
+            this.BaiInTheNhuaS.Remove(baiIn);
+        }
+        public BaiInTheNhua DocTheNhuaTheoID(int idKQBaiIn)
+        {
+            return this.BaiInTheNhuaS.Find(x => x.ID == idKQBaiIn);
+        }
+        public void XoaTatTheNhua()
+        {
+            this.BaiInTheNhuaS.Clear();
+        }
+
+        #endregion
+        #region Các tổng danh thiếp, bài in, cataloque, thẻ nhựa
         public decimal TongTienDanhThiep()
         {
             decimal kq = 0;
             //Danh thiếp
-            if (this.BaiInGiaDanhThiepS.Count > 0)
+            if (this.BaiInDanhThiepS.Count > 0)
             {
-                kq = this.BaiInGiaDanhThiepS.Sum(x => x.ThanhTien);            
+                kq = this.BaiInDanhThiepS.Sum(x => x.ThanhTien);            
             }
             return kq;
         }
@@ -226,20 +253,30 @@ namespace TinhGiaInClient.Model
             }
             return kq;
         }
+        public decimal TongTienTheNhua()
+        {
+            decimal kq = 0;
+            //Danh thiếp
+            if (this.BaiInTheNhuaS.Count > 0)
+            {
+                kq = this.BaiInTheNhuaS.Sum(x => x.ThanhTien());
+            }
+            return kq;
+        }
         #endregion
         #region Một số tóm tắt
         public decimal TongTriGiaChao()
         {
 
             return TongTienDanhThiep() + TongTienBaiInDaDieuChinhTienIn() +
-                TongTienCuon();
+                TongTienCuon() + TongTienTheNhua();
         
         }
         public List<string> NoiDungGiaChaoKhachHang()
         { ///từng dòng 
             var lst = new List<string>();           
             lst.Add("----------------");//Ngăn tiêu đề
-            if (this.BaiInGiaDanhThiepS.Count <= 0 && this.KetQuaBaiInS.Count <= 0)
+            if (this.BaiInDanhThiepS.Count <= 0 && this.KetQuaBaiInS.Count <= 0)
             {
                 lst.Add("Chưa có nội dung tính toán");
                 return lst;
@@ -247,13 +284,13 @@ namespace TinhGiaInClient.Model
             var j = 0; //dùng cho các mục tính giá
             var dSachMucTinhGia = ""; //dùng ghi nhận
             //Danh thiếp
-            if (this.BaiInGiaDanhThiepS.Count > 0)
+            if (this.BaiInDanhThiepS.Count > 0)
             {
                 j += 1;
-                dSachMucTinhGia += string.Format("Danh thiếp [{0}], ", this.BaiInGiaDanhThiepS.Count);
+                dSachMucTinhGia += string.Format("Danh thiếp [{0}], ", this.BaiInDanhThiepS.Count);
                 lst.Add(string.Format("{0}). Danh thiếp: ", j));
                 var i = 1;
-                foreach (BaiInDanhThiep bInDanhThiep in this.BaiInGiaDanhThiepS)
+                foreach (BaiInDanhThiep bInDanhThiep in this.BaiInDanhThiepS)
                 {                    
                     foreach (KeyValuePair<string, string> kvp in bInDanhThiep.TomTat_ChaoKH())
                     {
@@ -311,7 +348,27 @@ namespace TinhGiaInClient.Model
                 }
                 lst.Add("---Hết in Cuốn ---");
             }
-            
+            //Thẻ nhựa
+            if (this.BaiInTheNhuaS.Count > 0)
+            {
+                j += 1;
+                dSachMucTinhGia += string.Format("Danh thiếp [{0}], ", this.BaiInTheNhuaS.Count);
+                lst.Add(string.Format("{0}). Thẻ nhựa: ", j));
+                var i = 1;
+                foreach (BaiInTheNhua bInDanhThiep in this.BaiInTheNhuaS)
+                {
+                    foreach (KeyValuePair<string, string> kvp in bInDanhThiep.TomTat_ChaoKH())
+                    {
+                        lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value));
+                    }
+
+                    lst.Add(string.Format("---Hết{0}---", i));
+                    ++i;
+                }
+
+                lst.Add("---Hết Thẻ nhựa---");
+
+            }
 
             lst.Add("-----Tổng kết chào giá-----");
             lst.Add("KH đã thực hiện: " + dSachMucTinhGia);

@@ -230,6 +230,22 @@ namespace TinhGiaInClient.Model
 
             return result;
         }
+        public static decimal GiaTheNhua(string daySoLuong, string dayGia, int soLuong)
+        {///Dò số lượng lấy giá
+            ///Sau đó lấy giá tại khoảng đó nhân số lượng
+
+            int result = 0;
+
+            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(daySoLuong) ||
+                soLuong <= 0)
+                return result;
+          
+            var giaTheoKhoang = TinhToan.GiaTriTheoKhoang(daySoLuong, dayGia, soLuong);
+
+            result = giaTheoKhoang * soLuong;
+
+            return result;
+        }
         public static int SoConTrenToChayDigi(float giayRong, float giayDai,
             float conRong, float conDai )
         {
