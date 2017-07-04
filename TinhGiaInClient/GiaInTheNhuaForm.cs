@@ -29,11 +29,13 @@ namespace TinhGiaInClient
             txtHangKhachHang.Text = thongTinBanDau.TenHangKhachHang;
             
             LoadDanhSachBangGia();
+            cboBangGia.SelectedIndex = -1;
             cboBangGia.SelectedIndex = 0;
             //envents
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-           
+            txtTieuDe.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
             
             lblThanhTien.TextChanged += new EventHandler(TextBoxes_TextChanged);
         }
@@ -50,6 +52,11 @@ namespace TinhGiaInClient
             get;
             set;
         }
+        public string TieuDe
+        {
+            get {return txtTieuDe.Text;}
+            set { txtTieuDe.Text = value; }
+        }
         public string TenHangKH
         {
             get { return giaTheNhuaPres.TenHangKH(); }
@@ -60,13 +67,17 @@ namespace TinhGiaInClient
             get;
             set;
         }
-        int _idBangGiaChon;
+        int _idBangGiaChon = 0;
         public int IdBangGiaChon
         {
             get
             {
                 if (cboBangGia.SelectedValue != null)
-                    return int.Parse(cboBangGia.SelectedValue.ToString());
+                {
+                    int.TryParse(cboBangGia.SelectedValue.ToString(), out _idBangGiaChon);
+                    //MessageBox.Show(cboBangGia.SelectedValue.ToString());
+                    return _idBangGiaChon;
+                }
                 else
                     return 0;
             }
@@ -86,6 +97,11 @@ namespace TinhGiaInClient
             get { return txtKichThuoc.Text; }
             set { txtKichThuoc.Text = value; }
         }
+        public int SoTheToiDaTinh
+        {
+            get { return int.Parse(txtSoTheToiDa.Text); }
+            set { txtSoTheToiDa.Text = value.ToString(); }
+        }
         public int SoLuong
         {
             get { return int.Parse(txtSoLuong.Text); }
@@ -96,11 +112,11 @@ namespace TinhGiaInClient
         { 
             get { 
                 _idGiaTuyChonChonS = new List<int>();
-                if (lvwTuyChonThem.SelectedItems.Count >0)                
-                    for (int i = 0; i <lvwTuyChonThem.SelectedItems.Count; i++)
+                if (lvwTuyChonThem.CheckedItems.Count >0)
+                    for (int i = 0; i < lvwTuyChonThem.CheckedItems.Count; i++)
                     {
-                        var gia = (GiaTuyChonTheNhua)lvwTuyChonThem.SelectedItems[i].DataBoundItem;
-                        _idGiaTuyChonChonS.Add(gia.IdTuyChonTheNhua);
+                        var gia = (GiaTuyChonModel)lvwTuyChonThem.CheckedItems[i].DataBoundItem;                       
+                        _idGiaTuyChonChonS.Add(gia.IdTuyChon);
                     }
                 
                 return _idGiaTuyChonChonS;
@@ -119,7 +135,7 @@ namespace TinhGiaInClient
             get;
             set;
         }
-     
+        public bool DataChanged { get; set; }
         #endregion
         public BaiInTheNhua DocBaiInDanhThiep()
         {
@@ -133,15 +149,14 @@ namespace TinhGiaInClient
         }
         private void cboBangGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtNoiDungBangGia.Clear();
-            txtNoiDungBangGia.Text = giaTheNhuaPres.NoiDungBangGia();
+           
                             
             
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
             Telerik.WinControls.UI.RadTextBox tb;
-            if (sender is TextBox)
+            if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
                 
@@ -156,20 +171,45 @@ namespace TinhGiaInClient
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
             Telerik.WinControls.UI.RadTextBox t;
+
+            if (sender is Telerik.WinControls.UI.RadTextBox)
+            {
+                t = (Telerik.WinControls.UI.RadTextBox)sender;
+                if (t == txtSoLuong || t== txtTieuDe)
+                {                   
+                    DataChanged = true;
+                    BatTatNutTinh();
+                    
+                }                
+            }
+        }
+        private void BatTatNutTinh()
+        {
+            if (DataChanged)            
+                btnTinhKetQua.Enabled = true;
+            else
+                btnTinhKetQua.Enabled = false;
             
-            if (sender is TextBox)
+        }
+           
+
+        
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            Telerik.WinControls.UI.RadTextBox t;
+
+            if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 t = (Telerik.WinControls.UI.RadTextBox)sender;
                 if (t == txtSoLuong)
                 {
                     if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        txtSoLuong.Text = "1";
-                  
+                        this.SoLuong = 1;
                     
-                }                
+                }
             }
 
-           
+
 
         }
        private void CapNhatThanhTienLabels()
@@ -179,10 +219,7 @@ namespace TinhGiaInClient
                 
        }
 
-        private void CapNhatSoLuongTheToDa()
-        {
-            txtSoTheToiDa.Text = giaTheNhuaPres.SoHopToiDaTheoBangGia().ToString();
-        }
+       
         private void txtNoiDungBangGia_TextChanged(object sender, EventArgs e)
         {
 
@@ -236,6 +273,41 @@ namespace TinhGiaInClient
                }
            
      
+        }
+
+        private void cboBangGia_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            txtNoiDungBangGia.Clear();
+            txtSoTheToiDa.Clear();
+            giaTheNhuaPres.TrinhBayChiTietBangGia();
+            //Load Gia Tuy chon theo bang
+            lvwTuyChonThem.DataSource = giaTheNhuaPres.TuyChonSTheoBangGia();
+            lvwTuyChonThem.ValueMember = "IdTuyChon";
+            lvwTuyChonThem.DisplayMember = "TenTuyChon";
+
+        }
+
+        private void lvwTuyChonThem_SelectedItemChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnTinhKetQua_Click(object sender, EventArgs e)
+        {
+            CapNhatThanhTienLabels();
+            DataChanged = false;
+            BatTatNutTinh();
+        }
+
+        private void lvwTuyChonThem_SelectedItemsChanged(object sender, EventArgs e)
+        {
+            DataChanged = true;
+            BatTatNutTinh();
+        }
+
+        private void GiaInTheNhuaForm_Load(object sender, EventArgs e)
+        {
+            BatTatNutTinh();//Tắt
         }
     }
 }

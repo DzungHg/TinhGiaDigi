@@ -19,30 +19,38 @@ namespace TinhGiaInClient.Model
             
             this.SoLuongThe = soLuong;
             this.KichThuoc = kichthuoc;
-            this.SoMatIn = soMatIn;
+            this.SoMatIn = soMatIn;  
+            //Tạo thùng chứa
+           
+           
             //Tạo Id mới tăng dần
             _prevId += 1;
             this.ID = _prevId;
         }
         static int _prevId = 0;
-        public int ID { get; set; }
-     
-        public int SoMatIn { get; set; }
-        public int IdBangGia { get; set; }       
+
        
+        public int ID { get; set; }
+        public string TieuDe { get; set; }
+        public int SoMatIn { get; set; }
+        public int IdBangGia { get; set; }              
         public string KichThuoc { get; set; }
         public int SoLuongThe { get; set; }
         public string TenGiayBaoGom { get; set; }
         public GiayDeIn GiayIn { get; set; }
         
-        public TuyChonTheNhuaChon TuyChonChon { get; set; }
+        public TuyChonTheNhuaChon TuyChonSChon = new TuyChonTheNhuaChon();
+       
         public decimal TienIn { get; set; }
         public decimal ThanhTien()
         {
             decimal tienTuyChon = 0;
             decimal tienGiay = 0;
-            if (this.TuyChonChon != null)
-                tienTuyChon = this.TuyChonChon.GiaTong();
+            //Tùy chọn
+
+            if (this.TuyChonSChon.TuyChonS.Count > 0)
+                tienTuyChon = this.TuyChonSChon.GiaTong();
+            //giấy
             if (this.GiayIn != null)
                 tienGiay = this.GiayIn.ThanhTienGiay;
 
@@ -88,9 +96,9 @@ namespace TinhGiaInClient.Model
                 dict.Add("Giấy:", this.TenGiayBaoGom);
             }
             var tuyChonChon = "";
-            if (this.TuyChonChon != null)
+            if (this.TuyChonSChon != null)
             {
-                foreach(GiaTuyChonTheNhua gTChon in this.TuyChonChon.TuyChonS)
+                foreach(GiaTuyChonTheNhua gTChon in this.TuyChonSChon.TuyChonS)
                 {
                     tuyChonChon += gTChon.TenTuyChon + ", ";
                 }

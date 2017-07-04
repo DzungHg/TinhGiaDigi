@@ -181,6 +181,7 @@
     <Compile Include="Model\MayInDigi.cs" />
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\LoXoDongCuon.cs" />
+    <Compile Include="Model\Support\GiaTuyChonModel.cs" />
     <Compile Include="Model\Support\ITuyChonChon.cs" />
     <Compile Include="Model\Support\TuyChonDanhThiepChon.cs" />
     <Compile Include="Model\Support\TuyChonTheNhuaChon.cs" />

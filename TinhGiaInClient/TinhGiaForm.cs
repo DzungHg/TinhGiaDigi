@@ -120,6 +120,17 @@ namespace TinhGiaInClient
             }
             set { _idGiaSachDigiChon = value; }
         }
+        int _idTheNhuaChon = 0;
+        public int IdTheNhuaChon
+        {
+            get
+            {
+                if (lvwTheNhua.SelectedItems.Count > 0)
+                    int.TryParse(lvwTheNhua.SelectedItems[0].Text, out _idTheNhuaChon);
+                return _idTheNhuaChon;
+            }
+            set { _idTheNhuaChon = value; }
+        }
         public string TenHangKH
         {
             get { return cboHangKH.Text; }
@@ -199,6 +210,19 @@ namespace TinhGiaInClient
             lvwCuon.HideSelection = false;
             lvwCuon.FullRowSelect = true;
             //===hết
+            //Listview Thẻ nhựa
+
+            lvwTheNhua.Clear();
+            lvwTheNhua.Columns.Add("Id");
+            lvwTheNhua.Columns.Add("Tiêu đề");
+            lvwTheNhua.Columns.Add("Diễn giải");           
+            lvwTheNhua.Columns.Add("Số lượng");
+            lvwTheNhua.Columns.Add("Đơn vị");
+            lvwTheNhua.Columns.Add("Trị giá");
+
+            lvwTheNhua.View = System.Windows.Forms.View.Details;
+            lvwTheNhua.HideSelection = false;
+            lvwTheNhua.FullRowSelect = true;
         }
         private void LoadHangKhachHang()
         {
@@ -446,6 +470,9 @@ namespace TinhGiaInClient
                case 2:
                    ThemCuon();
                    break;
+               case 3:
+                   ThemTheNhua();
+                   break;
 
            }
 
@@ -561,8 +588,26 @@ namespace TinhGiaInClient
         #region Về thẻ nhựa
         private void LoadTheNhuaListView()
         {
-            lvwTheNhua.DataSource = tinhGiaPres.DanhSachDanhThiep();
-            lvwTheNhua.ValueMember = "ID";
+            //Xóa;
+            lvwTheNhua.Items.Clear();
+            if (tinhGiaPres.TrinhBayTheNhuaS().Count() <= 0)
+                return;
+
+            ListViewItem item;
+            foreach (KeyValuePair<int, List<string>> kvp in tinhGiaPres.TrinhBayTheNhuaS())
+            {
+                item = new ListViewItem();
+                item.Text = kvp.Key.ToString();
+                item.SubItems.AddRange(kvp.Value.ToArray());
+
+                lvwTheNhua.Items.Add(item);
+            }
+            lvwTheNhua.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwTheNhua.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwTheNhua.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwTheNhua.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+            lvwTheNhua.Columns[4].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwTheNhua.Columns[5].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
 
         }
         private void ThemTheNhua()
@@ -573,6 +618,10 @@ namespace TinhGiaInClient
                 TinhTrangForm = FormStateS.New
             };
             var baiInTheNhua = new BaiInTheNhua(0, "", "", 10, 2);
+            baiInTheNhua.TieuDe = "In thẻ VIP";
+            baiInTheNhua.KichThuoc = "8 x 5.5cm";
+            baiInTheNhua.SoLuongThe = 10;
+            
 
             var frm = new GiaInTheNhuaForm(thongTinBanDau, baiInTheNhua);
             frm.Text = "Tính giá Thẻ nhựa";
@@ -590,21 +639,22 @@ namespace TinhGiaInClient
         }
         private void XuLyNutOKTrenFormTheNhua(GiaInTheNhuaForm frm)
         {
-                    switch (frm.TinhTrangForm)
+            switch (frm.TinhTrangForm)
             {
                 case FormStateS.Edit:
-                            
+
                 case FormStateS.New:
                     tinhGiaPres.Them_TheNhua(frm.DocBaiInDanhThiep());
                     break;
             }
+            LoadTheNhuaListView();
         }
         private void XoaTheNhua()
         {
             if (this.IdDanhThiepChon > 0)
             {
-                tinhGiaPres.Xoa_TheNhua(tinhGiaPres.DocDanhThiepTheoID(this.IdDanhThiepChon));
-                LoadDanhThiepListView();
+                tinhGiaPres.Xoa_TheNhua(tinhGiaPres.DocTheNhuaTheoID(this.IdTheNhuaChon));
+                LoadTheNhuaListView();
             }
         }
         #endregion
@@ -624,12 +674,19 @@ namespace TinhGiaInClient
            {
                case 0:
                    XoaDanhThiep();
+                   LoadDanhThiepListView();
                    break;
                case 1:
                    XoaBaiIn();
+                   LoadTheNhuaListView();
                    break;
                case 2:
                    XoaInCuon();
+                   LoadCuonLenListView();
+                   break;
+               case 3:
+                   XoaTheNhua();
+                   LoadTheNhuaListView();
                    break;
            }
            CapNhatThanhTienTheoTab();   
@@ -790,6 +847,11 @@ namespace TinhGiaInClient
                    tinhGiaPres.XoaTatCa_Cuon();
                    LoadCuonLenListView();
                    break;
+               case 3:
+                   tinhGiaPres.XoaTatCa_TheNhua();
+                   LoadTheNhuaListView();
+                   break;
+
            }
            CapNhatThanhTienTheoTab();
            
@@ -875,6 +937,10 @@ namespace TinhGiaInClient
                case 2: //Cuốn
                    thanhTien = tinhGiaPres.TongGiaCuon();
                    break;
+               case 3: //Thẻ nhựa
+                   thanhTien = tinhGiaPres.TongGiaTheNhua();
+                   break;
+
            }
 
            txtThanhTien.Text = string.Format("{0:0,0.00}đ", thanhTien);
@@ -885,6 +951,12 @@ namespace TinhGiaInClient
        {
            pnlSubTotal.Width = tabCtrl01.Width;
            pnlSubTotal.Left = tabCtrl01.Left;
+       }
+
+       private void lvwTheNhua_ColumnCreating(object sender, Telerik.WinControls.UI.ListViewColumnCreatingEventArgs e)
+       {
+           
+        
        }
       
        

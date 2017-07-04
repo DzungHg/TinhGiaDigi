@@ -219,7 +219,30 @@ namespace TinhGiaInClient.Presenter
         {
             return TinhGia.BaiInTheNhuaS;
         }
+        public Dictionary<int, List<string>> TrinhBayTheNhuaS()
+        {/*
+            lvwDanhThiep.Columns.Add("Tiêu đề");
+            lvwDanhThiep.Columns.Add("Vật liệu");
+            lvwDanhThiep.Columns.Add("Kích thước");
+            lvwDanhThiep.Columns.Add("Số lượng");
+            lvwDanhThiep.Columns.Add("Đơn vị");
+            lvwDanhThiep.Columns.Add("Trị giá");
+          */
 
+            Dictionary<int, List<string>> dict = new Dictionary<int, List<string>>();
+            foreach (BaiInTheNhua bIn in this.BaiInTheNhuaS())
+            {
+                var lst = new List<string>();
+                lst.Add(bIn.TieuDe);
+                lst.Add(string.Format("{0}, {1}", bIn.KichThuoc, bIn.TenGiayBaoGom));
+                lst.Add(bIn.SoLuongThe.ToString());
+                lst.Add("Thẻ");
+                lst.Add(string.Format("{0:0,0.00}đ", bIn.ThanhTien()));
+
+                dict.Add(bIn.ID, lst);//hoàn tất tại đây
+            }
+            return dict;
+        }
         public void Them_TheNhua(BaiInTheNhua baiIn)
         {
             TinhGia.ThemTheNhua(baiIn);
@@ -237,23 +260,7 @@ namespace TinhGiaInClient.Presenter
         {
             TinhGia.XoaTatTheNhua();
         }
-        public Dictionary<int, List<string>> TrinhBayDanhThiepS()
-        {
-
-            Dictionary<int, List<string>> dict = new Dictionary<int, List<string>>();
-            foreach (BaiInDanhThiep bIn in this.DanhSachDanhThiep())
-            {
-                var lst = new List<string>();
-                lst.Add(bIn.TenBangGia);
-                lst.Add(string.Format("{0} {1}", bIn.KichThuoc, bIn.TenGiayIn));
-                lst.Add(bIn.SoLuongHop.ToString());
-                lst.Add("Hộp 100");
-                lst.Add(string.Format("{0:0,0.00}đ", bIn.ThanhTien));
-
-                dict.Add(bIn.ID, lst);//hoàn tất tại đây
-            }
-            return dict;
-        }
+       
 
 
         #endregion
@@ -299,6 +306,10 @@ namespace TinhGiaInClient.Presenter
         public decimal TongGiaCuon()
         {
             return this.TinhGia.TongTienCuon();
+        }
+        public decimal TongGiaTheNhua()
+        {
+            return this.TinhGia.TongTienTheNhua();
         }
         public string TomTatTinhGia_ChaoKH()
         {
