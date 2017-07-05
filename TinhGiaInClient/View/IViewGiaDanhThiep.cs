@@ -11,7 +11,7 @@ namespace TinhGiaInClient.View
     {
         int ID { get; set; }        
         int IdHangKH { get; set; }
-        string TenHangKH { get; set; }
+        string TieuDe { get; set; }
         int SoMatIn { get; set; }
         int IdBangGiaChon { get; set; }        
         GiayDeIn GiayDeInChon { get; set; }
@@ -21,9 +21,10 @@ namespace TinhGiaInClient.View
         int SoLuong { get; set; }
         decimal TienIn { get; set; }
         decimal TienGiay { get; set; }
-        decimal ThanhTien { get; set; }
-        string GiaTBHopInfo { get; set; }
+       
+        List<int> IdGiaTuyChonChonS { get; set; }  
         FormStateS TinhTrangForm { get; set; }
+        bool DataChanged { get; set; }
         /*
         List<ToChayDigi> ToChayDigiS { get; set; }
         List<BangGiaInNhanh> BangGiaInNhanhS { get; set; }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Model.Support;
 
 
 
@@ -13,11 +14,26 @@ namespace TinhGiaInClient.Presenter
     public class GiaDanhThiepPresenter
     {
         IViewGiaDanhThiep View;
+        BaiInDanhThiep MucBaiInDThiep;
         
-        public GiaDanhThiepPresenter(IViewGiaDanhThiep view)
+        public GiaDanhThiepPresenter(IViewGiaDanhThiep view, BaiInDanhThiep baiInDThiep)
         {
             View = view;
-            View.SoLuong = 1;
+            this.MucBaiInDThiep = baiInDThiep;
+
+            View.ID = this.MucBaiInDThiep.ID;
+            View.TieuDe = this.MucBaiInDThiep.TieuDe;
+            View.IdBangGiaChon = this.MucBaiInDThiep.IdBangGia;
+            View.SoLuong = this.MucBaiInDThiep.SoLuongHop;
+            View.GiayDeInChon = this.MucBaiInDThiep.ChonGiayIn;
+            //Gắn tùy chọ
+            if (this.MucBaiInDThiep.TuyChonSChon.TuyChonS.Count > 0)
+            {
+                foreach (GiaTuyChonDanhThiep tChon in this.MucBaiInDThiep.TuyChonSChon.TuyChonS)
+                {
+                    View.IdGiaTuyChonChonS.Add(tChon.IdTuyChonDanhThiep);
+                }
+            }
 
         
            
@@ -30,7 +46,7 @@ namespace TinhGiaInClient.Presenter
         {
             return HangKhachHang.LayTheoId(View.IdHangKH).LoiNhuanChenhLech;
         }
-        public Dictionary<int, string>BangGiaDanhThiepS()
+        /*public Dictionary<int, string>BangGiaDanhThiepS()
         {
             Dictionary<int, string> dict = new Dictionary<int, string>();
             foreach (BangGiaDanhThiep bg in BangGiaDanhThiep.DocTheoIdHangKH(View.IdHangKH))
@@ -38,47 +54,36 @@ namespace TinhGiaInClient.Presenter
                 dict.Add(bg.ID, bg.Ten);
             }
             return dict;
-        }
-        public int IdBangGiaChon()
+        }*/
+        public List<BangGiaDanhThiep> BangGiaDanhThiepS()
         {
-            var result = 0;
-            if (!string.IsNullOrEmpty(View.TenBangGiaChon))
-                result = this.BangGiaDanhThiepS().FirstOrDefault(x => x.Value == View.TenBangGiaChon).Key;
-            return result;
+            return BangGiaDanhThiep.DocTatCa();
         }
+       
         public int SoHopToiDaTheoBangGia()
         {
-            var idBangGia = BangGiaDanhThiepS().FirstOrDefault(x=> x.Value == View.TenBangGiaChon).Key;
-            return BangGiaDanhThiep.DocTheoId(idBangGia).SoHopToiDa;
+            
+            return BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).SoHopToiDa;
         }
         public string KhoToChay()
         {
-            if (this.IdBangGiaChon() <= 0)
+            if (View.IdBangGiaChon <= 0)
                 return "";
 
-            return BangGiaDanhThiep.DocTheoId(this.IdBangGiaChon()).KhoToChay;
+            return BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).KhoToChay;
         }
-       
+        
         public List<string> NoiDungBangGia()
         {
             var lst = new List<string>();
-            var idBangGia = this.BangGiaDanhThiepS().FirstOrDefault(x => x.Value == View.TenBangGiaChon).Key;
-            lst = BangGiaDanhThiep.DocTheoId(idBangGia).NoiDungBangGia.Split(';').ToList();
+            if (View.IdBangGiaChon > 0)    
+                lst = BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).NoiDungBangGia.Split(';').ToList();
             
             return lst;
         }
         public decimal GiaDanhThiepTheoBang()
         {
-            decimal result = 0;
-            var idBangGia = this.BangGiaDanhThiepS().FirstOrDefault(x => x.Value == View.TenBangGiaChon).Key;
-            if (idBangGia <= 0 || View.SoLuong <= 0)
-            {                
-                return result;
-            }
-            var bGiaINhanh = BangGiaDanhThiep.DocTheoId(idBangGia);
-            result = TinhToan.GiaDanhThiep(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoLuong);
-            
-            return result;
+            return this.MucBaiInDThiep.GiaDanhThiepTheoBang();
         }
         
         public string TenGiayChon()
@@ -105,36 +110,64 @@ namespace TinhGiaInClient.Presenter
         }
         public decimal ThanhTien()
         {
-            return DocBaiInDanhThiep().ThanhTien;
+            CapNhatMucBaiIn();
+            return this.MucBaiInDThiep.ThanhTien();
         }
         public string GiaTBInfo()
         {
-            return string.Format("{0:0,0.00}đ/hộp", this.DocBaiInDanhThiep().GiaTBHop);
+            CapNhatMucBaiIn();
+            return string.Format("{0:0,0.00}đ/hộp", this.MucBaiInDThiep.GiaTBHop);
+        }
+        public List<GiaTuyChonModel> TuyChonSTheoBangGia()
+        {//Làm laij
+            List<GiaTuyChonModel> lst = null;
+
+            var nguon = GiaTuyChonDanhThiep.DocTheoIdBangGia(View.IdBangGiaChon).Select(x => new GiaTuyChonModel
+            {
+                IdTuyChon = x.IdTuyChonDanhThiep,
+                TenTuyChon = string.Format("{0}: {1:0,0.00}đ", x.TenTuyChon, x.GiaBan),
+                GiaBan = (int)x.GiaBan
+            });
+            if (nguon != null)
+                lst = nguon.ToList();
+
+            return lst;
+        }
+        private void CapNhatTuyChonKemTheo()
+        {
+            //Xóa hết những gì có trước đó đã
+            this.MucBaiInDThiep.TuyChonSChon.TuyChonS.Clear();
+            //Cập nhật lại
+
+            if (View.IdGiaTuyChonChonS.Count > 0)
+            {
+                foreach (int idTuyChon in View.IdGiaTuyChonChonS)
+                {
+                    this.MucBaiInDThiep.TuyChonSChon.TuyChonS.Add(GiaTuyChonDanhThiep.DocTheoId(View.IdBangGiaChon, idTuyChon));
+
+                }
+
+            }
+
+        }
+        private void CapNhatMucBaiIn()
+        {
+            this.MucBaiInDThiep.ID = View.ID;
+            this.MucBaiInDThiep.IdBangGia = View.IdBangGiaChon;
+            this.MucBaiInDThiep.TieuDe = View.TieuDe;
+            this.MucBaiInDThiep.SoLuongHop = View.SoLuong;
+            this.MucBaiInDThiep.ChonGiayIn = View.GiayDeInChon;
+            this.MucBaiInDThiep.KichThuoc = View.KichThuoc;
+            this.MucBaiInDThiep.TenGiayIn = View.TenGiayChon;
+            //Gắn tùy chọ
+            CapNhatTuyChonKemTheo();
+
         }
         public BaiInDanhThiep DocBaiInDanhThiep()
         {
-            var soMatIn = MotHaiMat.MotMat;
-            var bangGiaDanhThiep = BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon);
-            if (bangGiaDanhThiep.InHaiMat)
-                soMatIn = MotHaiMat.HaiMat;
+            CapNhatMucBaiIn();
 
-            var baiInDanhThiep = new BaiInDanhThiep(View.IdBangGiaChon, View.TenBangGiaChon,
-                View.KichThuoc, View.SoLuong, soMatIn);
-           
-            //Điền thêm dữ liệu
-            baiInDanhThiep.IdBangGia = View.IdBangGiaChon;
-            baiInDanhThiep.TenBangGia = View.TenBangGiaChon;
-            baiInDanhThiep.TenGiayIn = this.TenGiayChon();           
-             
-            baiInDanhThiep.KichThuoc = View.KichThuoc;
-            baiInDanhThiep.SoLuongHop = View.SoLuong;            
-            baiInDanhThiep.TienIn = this.GiaDanhThiepTheoBang();
-            baiInDanhThiep.TienGiay = this.TienGiay();
-
-            if (View.TinhTrangForm == FormStateS.Edit)
-                baiInDanhThiep.ID = View.ID; //Do sửa lấy I di cũ
-           
-            return baiInDanhThiep;
+            return this.MucBaiInDThiep;
         }
     }
 }

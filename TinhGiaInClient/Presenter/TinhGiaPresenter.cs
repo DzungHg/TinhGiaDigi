@@ -149,11 +149,12 @@ namespace TinhGiaInClient.Presenter
             foreach (BaiInDanhThiep bIn in this.DanhSachDanhThiep())
             {
                 var lst = new List<string>();
-                lst.Add(bIn.TenBangGia);
-                lst.Add(string.Format("{0} {1}", bIn.KichThuoc, bIn.TenGiayIn));
+                lst.Add(bIn.TieuDe);
+                lst.Add(string.Format("{0} / {1} /{2}", bIn.KichThuoc, bIn.TenGiayIn,
+                                bIn.TenTuyChonSChon()));
                 lst.Add(bIn.SoLuongHop.ToString());
                 lst.Add("Hộp 100");
-                lst.Add(string.Format("{0:0,0.00}đ", bIn.ThanhTien));
+                lst.Add(string.Format("{0:0,0.00}đ", bIn.ThanhTien()));
 
                 dict.Add(bIn.ID, lst);//hoàn tất tại đây
             }
@@ -234,7 +235,8 @@ namespace TinhGiaInClient.Presenter
             {
                 var lst = new List<string>();
                 lst.Add(bIn.TieuDe);
-                lst.Add(string.Format("{0}, {1}", bIn.KichThuoc, bIn.TenGiayBaoGom));
+                lst.Add(string.Format("{0} / {1} /{2}", bIn.KichThuoc,
+                    bIn.TenGiayBaoGom, bIn.TenTuyChonSChon()));
                 lst.Add(bIn.SoLuongThe.ToString());
                 lst.Add("Thẻ");
                 lst.Add(string.Format("{0:0,0.00}đ", bIn.ThanhTien()));
@@ -351,6 +353,19 @@ namespace TinhGiaInClient.Presenter
             if (View.IdGiaSachDiGiChon >0 )
                 kq = TinhGia.DocCuonTheoID(View.IdGiaSachDiGiChon).TomTatChao_DichVu();
             
+            return kq;
+        }
+        public string TrinhBayNoiDungTheNhua()
+        {
+            var kq = "";
+            if (View.IdTheNhuaChon > 0)
+            {
+
+                foreach (KeyValuePair<string, string> str in TinhGia.DocTheNhuaTheoID(View.IdTheNhuaChon).TomTat_ChaoKH())
+                {
+                    kq += string.Format("{0} {1}" + '\r' + '\n', str.Key, str.Value);
+                }
+            }
             return kq;
         }
         #endregion

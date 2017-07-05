@@ -39,9 +39,8 @@ namespace TinhGiaInClient.Model
         public string TenGiayBaoGom { get; set; }
         public GiayDeIn GiayIn { get; set; }
         
-        public TuyChonTheNhuaChon TuyChonSChon = new TuyChonTheNhuaChon();
-       
-        public decimal TienIn { get; set; }
+        public GiaTuyChonTheNhuaChon TuyChonSChon = new GiaTuyChonTheNhuaChon();
+               
         public decimal ThanhTien()
         {
             decimal tienTuyChon = 0;
@@ -78,34 +77,42 @@ namespace TinhGiaInClient.Model
             }
             return kq;
         }
+        public string TenTuyChonSChon()
+        {
+            var kq = "";
+            if (this.TuyChonSChon.TuyChonS.Count > 0)
+            {
+                foreach (GiaTuyChonTheNhua gTCh in this.TuyChonSChon.TuyChonS)
+                {
+                    kq += gTCh.TenTuyChon + ",";
+                }
+            }
+            return kq;
+        }
        
         #region Tóm tắt bài in
       
         public Dictionary<string, string> TomTat_ChaoKH()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("STT:", this.ID.ToString());
-            dict.Add("Tên", "Kích thước " + this.KichThuoc);
+            dict.Add("ID:", this.ID.ToString());
+            dict.Add("", string.Format("{0} / {1}", this.TieuDe, this.KichThuoc)); //
             dict.Add("Số lượng:", string.Format("{0:0,0}", this.SoLuongThe));
             dict.Add("ĐV tính:", "thẻ");
             dict.Add("In:", string.Format("{0} mặt ", (int)this.SoMatIn));
             
             if (this.GiayIn != null)
             {
-                this.TenGiayBaoGom = this.GiayIn.TenGiayIn;
-                dict.Add("Giấy:", this.TenGiayBaoGom);
+                this.TenGiayBaoGom = this.GiayIn.TenGiayIn;                
             }
-            var tuyChonChon = "";
-            if (this.TuyChonSChon != null)
-            {
-                foreach(GiaTuyChonTheNhua gTChon in this.TuyChonSChon.TuyChonS)
-                {
-                    tuyChonChon += gTChon.TenTuyChon + ", ";
-                }
-                dict.Add("Thêm tùy chọn: ", tuyChonChon);
-            }
+            dict.Add("Giấy:", this.TenGiayBaoGom);
+
+            if (!string.IsNullOrEmpty(this.TenTuyChonSChon()))
+                dict.Add("Thêm tùy chọn: ", this.TenTuyChonSChon());
+            
             
             dict.Add("Trị giá: ", string.Format("{0:0,0.00}đ", this.ThanhTien()));
+            dict.Add("GiáTB/Thẻ: ", string.Format("{0:0,0.00}đ", this.GiaTBThe));
             return dict;
         }
         #endregion

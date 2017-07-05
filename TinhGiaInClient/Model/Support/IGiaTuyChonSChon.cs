@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model.Support
 {
-    public interface ITuyChonChon
-    {
+    public interface IGiaTuyChonSChon
+    {        
         decimal GiaTong();
     }
 }

@@ -182,9 +182,9 @@
     <Compile Include="Model\MonThanhPham.cs" />
     <Compile Include="Model\LoXoDongCuon.cs" />
     <Compile Include="Model\Support\GiaTuyChonModel.cs" />
-    <Compile Include="Model\Support\ITuyChonChon.cs" />
-    <Compile Include="Model\Support\TuyChonDanhThiepChon.cs" />
-    <Compile Include="Model\Support\TuyChonTheNhuaChon.cs" />
+    <Compile Include="Model\Support\IGiaTuyChonSChon.cs" />
+    <Compile Include="Model\Support\GiaTuyChonDanhThiepChon.cs" />
+    <Compile Include="Model\Support\GiaTuyChonTheNhuaChon.cs" />
     <Compile Include="Model\TuyChonTheNhua.cs" />
     <Compile Include="Model\TuyChonDanhThiep.cs" />
     <Compile Include="Model\ToBoiBiaCung.cs" />

@@ -20,6 +20,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     IdBangGiaDanhThiep = x.ID_BANG_GIA_DANH_THIEP,
                     IdTuyChonDanhThiep = x.ID_TUY_CHON_DANH_THIEP,
                     TenTuyChon =x.TUY_CHON_DANH_THIEP.ten, //chỉ get không set được
+                    TenBangGia = x.BANG_GIA_DANH_THIEP.ten_bang_gia,
                     GiaBan = (int)x.gia_ban
                 });
                 list = nguon.ToList();

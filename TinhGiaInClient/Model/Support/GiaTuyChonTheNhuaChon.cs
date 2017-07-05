@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model.Support
 {
-    public class TuyChonDanhThiepChon: ITuyChonChon
+    public class GiaTuyChonTheNhuaChon: IGiaTuyChonSChon
     {
-        public TuyChonDanhThiepChon()
+        public GiaTuyChonTheNhuaChon()
         {
-            _tuyChonS = new List<GiaTuyChonDanhThiep>();
+            _tuyChonS = new List<GiaTuyChonTheNhua>();
         }
-        private List<GiaTuyChonDanhThiep> _tuyChonS;
-        public List<GiaTuyChonDanhThiep> TuyChonS 
+        private List<GiaTuyChonTheNhua> _tuyChonS;
+        public List<GiaTuyChonTheNhua> TuyChonS 
         {
             get { return _tuyChonS; }
             set { _tuyChonS = value; }

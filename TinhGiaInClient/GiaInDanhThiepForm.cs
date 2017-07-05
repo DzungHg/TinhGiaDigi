@@ -18,21 +18,27 @@ namespace TinhGiaInClient
     
     public partial class GiaInDanhThiepForm : Form, IViewGiaDanhThiep
     {
-        public GiaInDanhThiepForm(ThongTinBanDauChoDanhThiep thongTinBanDau,  int idBaiInDanhthiep = 0 )
+        public GiaInDanhThiepForm(ThongTinBanDauChoDanhThiep thongTinBanDau, BaiInDanhThiep baiInDThiep,  int idBaiInDanhthiep = 0 )
         {
             InitializeComponent();            
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;        
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
             this.ID = idBaiInDanhthiep;
 
-            giaDanhThiepPres = new GiaDanhThiepPresenter(this);
+            giaDanhThiepPres = new GiaDanhThiepPresenter(this, baiInDThiep);
             txtHangKhachHang.Text = thongTinBanDau.TenHangKhachHang;
             
             LoadDanhSachBangGia();
+            cboBangGia.SelectedIndex = -1;
             cboBangGia.SelectedIndex = 0;
             //envents
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
+
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtTieuDe.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtTieuDe.Leave += new EventHandler(TextBoxes_Leave);
+
             lblTienIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
             lblTienGiay.TextChanged += new EventHandler(TextBoxes_TextChanged);
             lblThanhTien.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -44,7 +50,11 @@ namespace TinhGiaInClient
             get;
             set;
         }
-
+        public string TieuDe 
+        {
+            get { return txtTieuDe.Text; }
+            set { txtTieuDe.Text = value; }
+        }
         public int IdHangKH
         {
             get;
@@ -60,12 +70,14 @@ namespace TinhGiaInClient
             get;
             set;
         }
-        int _idBangGiaChon;
+        int _idBangGiaChon = 0;
         public int IdBangGiaChon
         {
             get
             {
-                return giaDanhThiepPres.IdBangGiaChon();
+                if (cboBangGia.SelectedValue != null)
+                    int.TryParse(cboBangGia.SelectedValue.ToString(), out _idBangGiaChon);
+                return _idBangGiaChon;
             }
             set { _idBangGiaChon = value; }
         }
@@ -132,33 +144,41 @@ namespace TinhGiaInClient
                 lblTienGiay.Text = string.Format("{0:0,0.00}đ", _tienGiay);
             }
         }
-        decimal _thanhTien;
-        public decimal ThanhTien
-        {
-            get
-            {
-                _thanhTien = giaDanhThiepPres.ThanhTien();
-                return _thanhTien;
-            }
-            set
-            {
-                _thanhTien = value;
-                lblThanhTien.Text = string.Format("{0:0,0.00}đ", _thanhTien);
-            }
-        }
         
-        public string GiaTBHopInfo
+       List<int> _idGiaTuyChonChonS;
+        public List<int> IdGiaTuyChonChonS
         {
-            get
-            {
-                return giaDanhThiepPres.GiaTBInfo();
+            get {
+                 _idGiaTuyChonChonS = new List<int>();
+                if (lbxTuyChon.CheckedItems.Count >0)
+                    for (int i = 0; i < lbxTuyChon.CheckedItems.Count; i++)
+                    {
+                        var gia = (GiaTuyChonModel)lbxTuyChon.CheckedItems[i];                       
+                        _idGiaTuyChonChonS.Add(gia.IdTuyChon);
+                    };
+                return _idGiaTuyChonChonS;
             }
             set
             {
-                lblGiaTB_Hop.Text = value;
+                _idGiaTuyChonChonS = value;
+                if (_idGiaTuyChonChonS.Count > 0)
+                {//check các item
+                    
+                    for (int i = 0; i < lbxTuyChon.Items.Count; i++)
+                    {
+                        GiaTuyChonModel obj = (GiaTuyChonModel)lbxTuyChon.Items[i];
+                        if (_idGiaTuyChonChonS.Contains(obj.IdTuyChon))
+                            lbxTuyChon.SetItemChecked(i, true);
+                    }
+                }
             }
         }
 
+        public bool DataChanged
+        {
+            get;
+            set;
+        }
         public FormStateS TinhTrangForm
         {
             get;
@@ -172,11 +192,15 @@ namespace TinhGiaInClient
         }
         private void LoadDanhSachBangGia()
         {
-            cboBangGia.Items.Clear();
-            foreach (KeyValuePair<int, string> kv in giaDanhThiepPres.BangGiaDanhThiepS())
-            {
-                cboBangGia.Items.Add(kv.Value);
-            }
+            cboBangGia.DataSource = giaDanhThiepPres.BangGiaDanhThiepS();
+            cboBangGia.ValueMember = "ID";
+            cboBangGia.DisplayMember = "Ten";
+        }
+        private void LoadTuyChonTheoBangGia()
+        {
+            ((ListBox)lbxTuyChon).DataSource = giaDanhThiepPres.TuyChonSTheoBangGia();
+            ((ListBox)lbxTuyChon).ValueMember = "IdTuyChon";
+            ((ListBox)lbxTuyChon).DisplayMember = "TenTuyChon";
         }
         private void cboBangGia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,6 +208,8 @@ namespace TinhGiaInClient
             txtNoiDungBangGia.Lines = giaDanhThiepPres.NoiDungBangGia().ToArray();
             this.TienIn = giaDanhThiepPres.GiaDanhThiepTheoBang();            
             this.TenGiayChon = giaDanhThiepPres.TenGiayChon();
+            //
+            LoadTuyChonTheoBangGia();
             
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
@@ -204,35 +230,53 @@ namespace TinhGiaInClient
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
             TextBox t;
-            Label lb;
+            
+            if (sender is TextBox)
+            {
+                t = (TextBox)sender;
+                if (t == txtSoLuong)
+                {
+
+                    this.DataChanged = true;
+                    BatTatNutTinh();
+                    
+                }
+                if (t == txtTieuDe)
+                {
+                    DataChanged = true;
+                }
+            }
+            
+
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            TextBox t;
+           
             if (sender is TextBox)
             {
                 t = (TextBox)sender;
                 if (t == txtSoLuong)
                 {
                     if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        txtSoLuong.Text = "1";
+                        this.SoLuong = 1;
+                    if (t == txtTieuDe)
+                    {
+                        if (string.IsNullOrEmpty(txtTieuDe.Text.Trim()))
+                            this.TieuDe = "Danh thiếp";
+                    }
+                    CapNhatCacLabelsTriGia();
                     this.TienIn = giaDanhThiepPres.GiaDanhThiepTheoBang();
-                    
-                }                
-            }
-            if (sender is Label)
-            {
-                lb = (Label)sender;
-                if (lb == lblTienIn)
-                {
-                    this.TienGiay = giaDanhThiepPres.TienGiay();
-                    this.ThanhTien = giaDanhThiepPres.ThanhTien();
-                }
-                if (lb== lblTienGiay)
-                {
-                    this.ThanhTien = giaDanhThiepPres.ThanhTien();
-                }
-                if (lb == lblThanhTien)
-                {
-                    lblGiaTB_Hop.Text = giaDanhThiepPres.GiaTBInfo();
+
                 }
             }
+        }
+        private void CapNhatCacLabelsTriGia()
+        {
+            this.TienIn = giaDanhThiepPres.GiaDanhThiepTheoBang();
+            lblThanhTien.Text = string.Format("{0:0,0.00}đ", giaDanhThiepPres.ThanhTien());
+            lblGiaTB_Hop.Text = giaDanhThiepPres.GiaTBInfo();
+
 
         }
         #region đổi giấy 
@@ -372,6 +416,13 @@ namespace TinhGiaInClient
             //MessageBox.Show("Số lỗi " + loiS.Count().ToString());
             return result;
         }
+        private void BatTatNutTinh()
+        {
+            if (this.DataChanged)
+                btnTinh.Enabled = DataChanged;
+            else
+                btnTinh.Enabled = false;
+        }
         private void GiaInDanhThiepForm_FormClosing(object sender, FormClosingEventArgs e)
         {
            
@@ -389,5 +440,29 @@ namespace TinhGiaInClient
            
      
         }
+
+        private void GiaInDanhThiepForm_Load(object sender, EventArgs e)
+        {
+            this.DataChanged = false;
+            BatTatNutTinh();
+        }
+
+        private void btnTinh_Click(object sender, EventArgs e)
+        {
+            CapNhatCacLabelsTriGia();
+            this.DataChanged = false;
+            BatTatNutTinh();
+            txtSoLuong.Focus();
+        }
+
+        private void lbxTuyChon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //CapNhatCacLabelsTriGia();
+            this.DataChanged = true;
+            BatTatNutTinh();
+        }
+
+
+       
     }
 }

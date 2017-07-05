@@ -378,6 +378,11 @@ namespace TinhGiaInClient
         {
             txtTomTatBaiIn.Text = tinhGiaPres.TrinhBayNoiDungInCuonDigi();
         }
+        private void LoadChiTietBaiInTheNhua()
+        {
+            txtTomTatBaiIn.Text = tinhGiaPres.TrinhBayNoiDungTheNhua();
+        }
+
         #endregion
         #region Về danh thiếp
         private void LoadDanhThiepListView()
@@ -412,8 +417,10 @@ namespace TinhGiaInClient
                 TinhTrangForm = FormStateS.New
             };
 
+            BaiInDanhThiep baiInDThiep = new BaiInDanhThiep(0, "", "9 x 5.5cm", 5, 2);
+            baiInDThiep.TieuDe = "Danh thiếp";
 
-            var frm = new GiaInDanhThiepForm(thongTinBanDau);
+            var frm = new GiaInDanhThiepForm(thongTinBanDau, baiInDThiep);
             frm.Text = "Tính giá danh thiếp";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -651,7 +658,7 @@ namespace TinhGiaInClient
         }
         private void XoaTheNhua()
         {
-            if (this.IdDanhThiepChon > 0)
+            if (this.IdTheNhuaChon > 0)
             {
                 tinhGiaPres.Xoa_TheNhua(tinhGiaPres.DocTheNhuaTheoID(this.IdTheNhuaChon));
                 LoadTheNhuaListView();
@@ -674,19 +681,19 @@ namespace TinhGiaInClient
            {
                case 0:
                    XoaDanhThiep();
-                   LoadDanhThiepListView();
+                   
                    break;
                case 1:
                    XoaBaiIn();
-                   LoadTheNhuaListView();
+                  
                    break;
                case 2:
                    XoaInCuon();
-                   LoadCuonLenListView();
+                   //Xóa load luôn trong Hàm rồi
                    break;
                case 3:
                    XoaTheNhua();
-                   LoadTheNhuaListView();
+                   
                    break;
            }
            CapNhatThanhTienTheoTab();   
@@ -710,6 +717,8 @@ namespace TinhGiaInClient
                }
                if (lv == lvwCuon)
                    LoadChiTietInCuonDigi();
+               if (lv == lvwTheNhua)
+                   LoadChiTietBaiInTheNhua();
            }
            //Cập nhật tổng kết bài
            txtTomTatTinhGia.Text = tinhGiaPres.TomTatTinhGia_ChaoKH();

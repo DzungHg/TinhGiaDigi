@@ -106,17 +106,19 @@ namespace TinhGiaInClient.Model
 
         #endregion
         //Chuyển đổi
-        private static void ChuyenDoiGiayBDOThanhDTO(GiaTuyChonTheNhuaBDO giayBDO, GiaTuyChonTheNhua giayDTO)
+        private static void ChuyenDoiGiayBDOThanhDTO(GiaTuyChonTheNhuaBDO giaTuyChonBDO, GiaTuyChonTheNhua giaTuyChonDTO)
         {
-            giayDTO.IdBangGiaTheNhua = giayBDO.IdBangGiaTheNhua;
-            giayDTO.IdTuyChonTheNhua = giayBDO.IdTuyChonTheNhua;
-            giayDTO.GiaBan = giayBDO.GiaBan;
+            giaTuyChonDTO.IdBangGiaTheNhua = giaTuyChonBDO.IdBangGiaTheNhua;
+            giaTuyChonDTO.IdTuyChonTheNhua = giaTuyChonBDO.IdTuyChonTheNhua;
+            giaTuyChonDTO.TenTuyChon = giaTuyChonBDO.TenTuyChon;
+            giaTuyChonDTO.TenBangGia = giaTuyChonBDO.TenBangGia;
+            giaTuyChonDTO.GiaBan = giaTuyChonBDO.GiaBan;
         }
-         private static void ChuyenDoiGiayDTOThanhBDO(GiaTuyChonTheNhua giayDTO, GiaTuyChonTheNhuaBDO giayBDO)
+        private static void ChuyenDoiGiayDTOThanhBDO(GiaTuyChonTheNhua giaTuyChonDTO, GiaTuyChonTheNhuaBDO giaTuyChonBDO)
         {
-            giayBDO.IdBangGiaTheNhua = giayDTO.IdBangGiaTheNhua;
-            giayBDO.IdTuyChonTheNhua = giayDTO.IdTuyChonTheNhua;            
-            giayBDO.GiaBan = giayDTO.GiaBan;
+            giaTuyChonBDO.IdBangGiaTheNhua = giaTuyChonDTO.IdBangGiaTheNhua;
+            giaTuyChonBDO.IdTuyChonTheNhua = giaTuyChonDTO.IdTuyChonTheNhua;
+            giaTuyChonBDO.GiaBan = giaTuyChonDTO.GiaBan;
         }
     }
 }

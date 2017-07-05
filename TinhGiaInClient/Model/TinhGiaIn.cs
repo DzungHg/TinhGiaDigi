@@ -144,7 +144,7 @@ namespace TinhGiaInClient.Model
         {
             this.BaiInDanhThiepS.Add(kQuaBaiIn);
         }
-        public void SuaDanhThiep(BaiInDanhThiep baiInDanhThiep)
+       /* public void SuaDanhThiep(BaiInDanhThiep baiInDanhThiep)
         {
             var baiInSua = this.BaiInDanhThiepS.Find(x => x.ID == baiInDanhThiep.ID);
             baiInSua.SoMatIn = baiInDanhThiep.SoMatIn;
@@ -156,7 +156,7 @@ namespace TinhGiaInClient.Model
             baiInSua.TienGiay = baiInDanhThiep.TienGiay;
             baiInSua.TienIn = baiInDanhThiep.TienIn;
           
-        }
+        }*/
         public void XoaDanhThiep(BaiInDanhThiep baiIn)
         {
             this.BaiInDanhThiepS.Remove(baiIn);
@@ -217,7 +217,7 @@ namespace TinhGiaInClient.Model
             //Danh thiếp
             if (this.BaiInDanhThiepS.Count > 0)
             {
-                kq = this.BaiInDanhThiepS.Sum(x => x.ThanhTien);            
+                kq = this.BaiInDanhThiepS.Sum(x => x.ThanhTien());            
             }
             return kq;
         }
