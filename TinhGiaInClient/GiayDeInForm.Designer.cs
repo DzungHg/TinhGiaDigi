@@ -53,12 +53,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoToChayTrenToLon = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTinhSoConTrenToChay = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtToChayDai = new System.Windows.Forms.TextBox();
+            this.txtToChayRong = new System.Windows.Forms.TextBox();
             this.btnChonGiay = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtToChayRong = new System.Windows.Forms.TextBox();
-            this.txtToChayDai = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnTinhSoConTrenToChay = new System.Windows.Forms.Button();
+            this.btnTinh = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             this.btnNhan.Location = new System.Drawing.Point(404, 339);
             this.btnNhan.Name = "btnNhan";
             this.btnNhan.Size = new System.Drawing.Size(75, 23);
-            this.btnNhan.TabIndex = 1;
+            this.btnNhan.TabIndex = 10;
             this.btnNhan.Text = "Nhận";
             this.btnNhan.UseVisualStyleBackColor = true;
             // 
@@ -275,6 +276,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTinh);
             this.groupBox1.Controls.Add(this.btnTinhSoConTrenToChay);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtToChayDai);
@@ -307,6 +309,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thiết đặt giấy in";
             // 
+            // btnTinhSoConTrenToChay
+            // 
+            this.btnTinhSoConTrenToChay.Location = new System.Drawing.Point(428, 28);
+            this.btnTinhSoConTrenToChay.Name = "btnTinhSoConTrenToChay";
+            this.btnTinhSoConTrenToChay.Size = new System.Drawing.Size(45, 23);
+            this.btnTinhSoConTrenToChay.TabIndex = 55;
+            this.btnTinhSoConTrenToChay.Text = "Tính";
+            this.btnTinhSoConTrenToChay.UseVisualStyleBackColor = true;
+            this.btnTinhSoConTrenToChay.Click += new System.EventHandler(this.btnTinhSoConTrenToChay_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(223, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 13);
+            this.label1.TabIndex = 54;
+            this.label1.Text = "x";
+            // 
+            // txtToChayDai
+            // 
+            this.txtToChayDai.Location = new System.Drawing.Point(241, 30);
+            this.txtToChayDai.Name = "txtToChayDai";
+            this.txtToChayDai.Size = new System.Drawing.Size(53, 20);
+            this.txtToChayDai.TabIndex = 2;
+            // 
+            // txtToChayRong
+            // 
+            this.txtToChayRong.Location = new System.Drawing.Point(164, 30);
+            this.txtToChayRong.Name = "txtToChayRong";
+            this.txtToChayRong.Size = new System.Drawing.Size(53, 20);
+            this.txtToChayRong.TabIndex = 1;
+            // 
             // btnChonGiay
             // 
             this.btnChonGiay.Location = new System.Drawing.Point(120, 88);
@@ -326,38 +361,15 @@
             this.label4.TabIndex = 23;
             this.label4.Text = "B3. Chọn giấy";
             // 
-            // txtToChayRong
+            // btnTinh
             // 
-            this.txtToChayRong.Location = new System.Drawing.Point(164, 30);
-            this.txtToChayRong.Name = "txtToChayRong";
-            this.txtToChayRong.Size = new System.Drawing.Size(53, 20);
-            this.txtToChayRong.TabIndex = 1;
-            // 
-            // txtToChayDai
-            // 
-            this.txtToChayDai.Location = new System.Drawing.Point(241, 30);
-            this.txtToChayDai.Name = "txtToChayDai";
-            this.txtToChayDai.Size = new System.Drawing.Size(53, 20);
-            this.txtToChayDai.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(223, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 13);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "x";
-            // 
-            // btnTinhSoConTrenToChay
-            // 
-            this.btnTinhSoConTrenToChay.Location = new System.Drawing.Point(428, 28);
-            this.btnTinhSoConTrenToChay.Name = "btnTinhSoConTrenToChay";
-            this.btnTinhSoConTrenToChay.Size = new System.Drawing.Size(45, 23);
-            this.btnTinhSoConTrenToChay.TabIndex = 55;
-            this.btnTinhSoConTrenToChay.Text = "Tính";
-            this.btnTinhSoConTrenToChay.UseVisualStyleBackColor = true;
-            this.btnTinhSoConTrenToChay.Click += new System.EventHandler(this.btnTinhSoConTrenToChay_Click);
+            this.btnTinh.Location = new System.Drawing.Point(250, 155);
+            this.btnTinh.Name = "btnTinh";
+            this.btnTinh.Size = new System.Drawing.Size(75, 23);
+            this.btnTinh.TabIndex = 9;
+            this.btnTinh.Text = "Tính";
+            this.btnTinh.UseVisualStyleBackColor = true;
+            this.btnTinh.Click += new System.EventHandler(this.btnTinh_Click);
             // 
             // GiayDeInForm
             // 
@@ -414,6 +426,7 @@
         private System.Windows.Forms.TextBox txtToChayDai;
         private System.Windows.Forms.TextBox txtToChayRong;
         private System.Windows.Forms.Button btnTinhSoConTrenToChay;
+        private System.Windows.Forms.Button btnTinh;
 
     }
 }

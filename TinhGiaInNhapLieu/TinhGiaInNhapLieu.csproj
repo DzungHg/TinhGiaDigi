@@ -79,6 +79,7 @@
     <Compile Include="Presenter\QuanLyCanGapPresenter.cs" />
     <Compile Include="Presenter\QuanLyBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\QuanLyCatDecalPresenter.cs" />
+    <Compile Include="Presenter\QuanLyDongCuonLXPresenter.cs" />
     <Compile Include="Presenter\QuanLyDongCuonMPPresenter.cs" />
     <Compile Include="Presenter\QuanLyEpKimPresenter.cs" />
     <Compile Include="Presenter\QuanLyDongCuonPresenter.cs" />
@@ -121,6 +122,12 @@
     </Compile>
     <Compile Include="QuanLyCatDecalForm.Designer.cs">
       <DependentUpon>QuanLyCatDecalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDongCuonLXoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyDongCuonLXoForm.Designer.cs">
+      <DependentUpon>QuanLyDongCuonLXoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyDongCuonMoPhangForm.cs">
       <SubType>Form</SubType>
@@ -250,6 +257,7 @@
     </Compile>
     <Compile Include="View\IViewQuanLyBGiaThNhua.cs" />
     <Compile Include="View\IViewQuanLyBGiaDThiep.cs" />
+    <Compile Include="View\IViewQuanLyDongCuonLX.cs" />
     <Compile Include="View\IViewQuanLyTChonThNhua.cs" />
     <Compile Include="View\IViewQuanLyTChonDThiep.cs" />
     <Compile Include="View\IViewDanhMucGiay.cs" />
@@ -290,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyCatDecalForm.resx">
       <DependentUpon>QuanLyCatDecalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyDongCuonLXoForm.resx">
+      <DependentUpon>QuanLyDongCuonLXoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyDongCuonMoPhangForm.resx">
       <DependentUpon>QuanLyDongCuonMoPhangForm.cs</DependentUpon>

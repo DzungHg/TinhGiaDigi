@@ -43,8 +43,11 @@ namespace TinhGiaInClient
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             lstNhuEpKim.SelectedIndexChanged += new EventHandler(TextBoxes_TextChanged);
             txtCao.TextChanged += new EventHandler(TextBoxes_TextChanged); 
-            txtRong.TextChanged += new EventHandler(TextBoxes_TextChanged); 
-          
+            txtRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtCao.Leave += new EventHandler(TextBoxes_Leave);
+            txtRong.Leave += new EventHandler(TextBoxes_Leave);
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtCao.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -197,7 +200,7 @@ namespace TinhGiaInClient
             }
         }
         #endregion
-
+        private bool dataChanged = false;
         private void LoadEpKim()
         {
             //Cán phủ
@@ -237,6 +240,24 @@ namespace TinhGiaInClient
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
+            
+
+            ListView lv;
+            if (sender is ListView)
+            {
+                lv = (ListView)sender;
+                if (lv == lstNhuEpKim)
+                {
+                    txtSoLuong.Enabled = true;
+                    txtDonViTinh.Enabled = true;
+                  
+                }
+            }
+            dataChanged = true;
+            BatTatNutTinhToan();
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
             TextBox tb;
             if (sender is TextBox)
             {
@@ -248,6 +269,7 @@ namespace TinhGiaInClient
                         this.SoLuong = 1;
 
                     CapNhatLabelGia();
+                    
                 }
                 if (tb == txtRong)
                 {
@@ -255,7 +277,7 @@ namespace TinhGiaInClient
                     if (string.IsNullOrEmpty(txtRong.Text))
                         this.KhoEpRong = 5f;
 
-                    CapNhatLabelGia();
+                    
                 }
                 if (tb == txtCao)
                 {
@@ -263,21 +285,18 @@ namespace TinhGiaInClient
                     if (string.IsNullOrEmpty(txtCao.Text))
                         this.KhoEpCao = 5f;
 
-                    CapNhatLabelGia();
-                }     
-            }
-            ListView lv;
-            if (sender is ListView)
-            {
-                lv = (ListView)sender;
-                if (lv == lstNhuEpKim)
-                {
-                    txtSoLuong.Enabled = true;
-                    txtDonViTinh.Enabled = true;
-                    CapNhatLabelGia();
+                    
                 }
             }
            
+
+        }
+        private void BatTatNutTinhToan()
+        {
+            if (dataChanged)
+                btnTinhToan.Enabled = dataChanged;
+            else
+                btnTinhToan.Enabled = false;
         }
         private void CapNhatLabelGia()
         {
@@ -310,6 +329,8 @@ namespace TinhGiaInClient
             txtSoLuong.Enabled = false;
             txtDonViTinh.Enabled = false;
             btnOK.Enabled = false;
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
 
         private bool KiemTraHopLe(ref string errorMessage)
@@ -395,6 +416,13 @@ namespace TinhGiaInClient
         public MucThanhPham LayMucThanhPham()
         {
             return epKimPres.LayMucThanhPham();
+        }
+
+        private void btnTinhToan_Click(object sender, EventArgs e)
+        {
+            CapNhatLabelGia();
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
 
         

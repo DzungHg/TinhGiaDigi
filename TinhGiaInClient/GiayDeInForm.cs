@@ -43,6 +43,7 @@ namespace TinhGiaInClient
             txtSoConTrenToIn.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToChayRong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToChayDai.KeyPress += new KeyPressEventHandler(InputValidator);
+
             txtSoToChayBuHao.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToChayTrenToLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToChayLyThuyet.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -55,6 +56,12 @@ namespace TinhGiaInClient
             lblSoToInTong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToChayRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToChayDai.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
+            txtSoConTrenToIn.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToChayBuHao.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToChayTrenToLon.Leave += new EventHandler(TextBoxes_Leave);
+           
+            
         }
         #region Implement Iview..
 
@@ -181,7 +188,7 @@ namespace TinhGiaInClient
         }
         public FormStateS TinhTrangForm { get; set; }
         #endregion
-        
+        private bool dataChanged = false;
         public GiayDeIn DocGiayDeIn()
         {
             return giayDeInPres.DocGiayDeIn();
@@ -201,7 +208,11 @@ namespace TinhGiaInClient
             BatTatNutOKTheoDieuKien();
             //if (this.PhuongPhapIn == PhuongPhapInS.KhongIn)
              //   ;
+            CapNhatMotSoTong();//Mặc định có
             CapNhatTriGiaVoLabels();
+            //Đưa form về chưa thay đổi
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
 
       
@@ -231,73 +242,67 @@ namespace TinhGiaInClient
             }
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
-        {
+        {                     
            
+            dataChanged = true;
+            BatTatNutTinhToan();
+           
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+
             TextBox tb;
             CheckBox chk;
-            Label lb;
-            if (sender is Label)
-            {
-                lb = (Label)sender;
-               
-                if (lb == lblSoToInTong)
-                {
-                    ;
-                }
-            }
+            
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-                if (tb == txtSoConTrenToIn)
-                {
-                    if (string.IsNullOrEmpty(txtSoConTrenToIn.Text))
-                    {
-                        txtSoConTrenToIn.Text = "1";
-
-                    }
-                    txtSoToChayLyThuyet.Text = giayDeInPres.SoToChayLyThuyetTinh().ToString() ;
-                }
-                if (tb == txtTenGiayIn)
-                {
-                    //Bẩy để cập nhật label
-                    this.SoConTrenToChay += 1;
-                    this.SoConTrenToChay -= 1;
-                    this.SoToChayTrenToLon += 1;
-                    this.SoToChayTrenToLon -= 1; //Bẩy
-
-                }
                 if (tb == txtToChayRong)
                 {
                     if (string.IsNullOrEmpty(txtToChayRong.Text.Trim()))
                     {
-                        txtToChayRong.Text = "1";
+                        this.ToChayRong = 5;
                     }
-                    
+                    TinhSoConTrenToChay();
                 }
 
                 if (tb == txtToChayDai)
                 {
                     if (string.IsNullOrEmpty(txtToChayDai.Text.Trim()))
                     {
-                        txtToChayDai.Text = "1";
+                        this.ToChayDai =10;
                     }
-
+                    TinhSoConTrenToChay();
                 }
-
-                if (tb == txtSoToChayLyThuyet)
+                if (tb == txtSoConTrenToIn)
                 {
-                    lblSoToInTong.Text = giayDeInPres.SoToChayTong().ToString();
-                   
-                    CapNhatTriGiaVoLabels();
+                    if (string.IsNullOrEmpty(txtSoConTrenToIn.Text))
+                    {
+                        this.SoConTrenToChay = 1;
+
+                    }
+                    //Cập nhật số tờ chạy lý thuyết
+                    txtSoToChayLyThuyet.Text = giayDeInPres.SoToChayLyThuyetTinh().ToString();
                 }
                 if (tb == txtSoToChayBuHao)
                 {
                     if (string.IsNullOrEmpty(txtSoToChayBuHao.Text))
                     {
-                        txtSoToChayBuHao.Text = "0";
+                        this.SoLuongToChayBuHao = 1;
                     }
+                    //Cập nhật số tờ chạy tổng
                     lblSoToInTong.Text = giayDeInPres.SoToChayTong().ToString();
                 }
+                
+                
+
+                if (tb == txtSoToChayLyThuyet)
+                {
+                    lblSoToInTong.Text = giayDeInPres.SoToChayTong().ToString();
+
+                    CapNhatTriGiaVoLabels();
+                }
+                
                 if (tb == txtSoToChayTrenToLon)
                 {
                     if (string.IsNullOrEmpty(txtSoToChayTrenToLon.Text))
@@ -305,12 +310,9 @@ namespace TinhGiaInClient
                         txtSoToChayTrenToLon.Text = "1";
                     }
                     txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
-                    
-                }
-                if (tb == txtSoToGiayLon)
-                {
                     CapNhatTriGiaVoLabels();
                 }
+               
 
             }
             if (sender is CheckBox)
@@ -318,14 +320,13 @@ namespace TinhGiaInClient
                 chk = (CheckBox)sender;
                 if (chk == chkGiayKhach)
                 {
-                   
-                        CapNhatTriGiaVoLabels();
-                        
-                    
+
+                    CapNhatTriGiaVoLabels();
+
                 }
 
             }
-            CapNhatTriGiaVoLabels();
+            
         }
         private void CapNhatTriGiaVoLabels()
         {
@@ -444,10 +445,14 @@ namespace TinhGiaInClient
             XuLyGiayKhachHangDua();
         }
 
-        private void btnTinhSoConTrenToChay_Click(object sender, EventArgs e)
+        private void TinhSoConTrenToChay()
         {
             this.SoConTrenToChay = TinhToan.SoConTrenToChayDigi(this.ToChayRong, this.ToChayDai,
-                            this.KichThuocSanPham.Rong, this.KichThuocSanPham.Dai);
+                           this.KichThuocSanPham.Rong, this.KichThuocSanPham.Dai);
+        }
+        private void btnTinhSoConTrenToChay_Click(object sender, EventArgs e)
+        {
+            TinhSoConTrenToChay();
 
         }
         private void BatTatNutOKTheoDieuKien()
@@ -464,7 +469,29 @@ namespace TinhGiaInClient
                 btnNhan.Enabled = false;
 
         }
-       
+       private void BatTatNutTinhToan()
+        {
+            if (dataChanged)
+                btnTinh.Enabled = dataChanged;
+            else
+                btnTinh.Enabled = false;
+        }
+        private void CapNhatMotSoTong()
+       {
+           //Cập nhật số tờ chạy lý thuyết
+           txtSoToChayLyThuyet.Text = giayDeInPres.SoToChayLyThuyetTinh().ToString();
+           txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
+           TinhSoConTrenToChay();
+           txtSoToChayLyThuyet.Text = giayDeInPres.SoToChayLyThuyetTinh().ToString();
+       }
+       private void btnTinh_Click(object sender, EventArgs e)
+       {
+           CapNhatMotSoTong();
+           CapNhatTriGiaVoLabels();
+           //Tắt nút tính
+           dataChanged = false;
+           BatTatNutTinhToan();
+       }
     }
 
 }

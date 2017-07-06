@@ -50,6 +50,10 @@ namespace TinhGiaInClient.UI
             txtGayDay.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtGayCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtGayDay.TextChanged += new EventHandler(TextBoxes_Leave);
+            txtGayCao.TextChanged += new EventHandler(TextBoxes_Leave);
+
             lstLoXo.SelectedItemChanged += new EventHandler(ListView_SelectedItemChanged);
 
             cboMayLoXo.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(DropDownList_SelectedIndexChanged);
@@ -217,7 +221,15 @@ namespace TinhGiaInClient.UI
             cboMayLoXo.DisplayMember = "Ten";
          
         }
-       
+        private bool dataChanged = false;
+
+        private void BatTatNutTinhToan()
+        {
+            if (dataChanged)
+                btnTinhToan.Enabled = dataChanged;
+            else
+                btnTinhToan.Enabled = false;
+        }
         private void LoadLoXoDongCuon()
         {
             lstLoXo.Columns.Clear();
@@ -253,24 +265,12 @@ namespace TinhGiaInClient.UI
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-            TextBox tb;
-            if (sender is TextBox)
-            {
-                tb = (TextBox)sender;
-                if (tb == txtSoLuong )
-                {
-                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        txtSoLuong.Text = "1";
-                    
-                }
-                //xử lý khi user xóa hết
-                if ( tb == txtGayCao)
-                    if (string.IsNullOrEmpty(txtGayCao.Text.Trim()))
-                        txtGayCao.Text = "30";
-
-                CapNhatLabelGia();
             
-            }
+
+                dataChanged = true;
+            BatTatNutTinhToan();
+            
+            
             /*Telerik.WinControls.UI.RadListView lv;
             if (sender is Telerik.WinControls.UI.RadListView)
             {
@@ -330,7 +330,8 @@ namespace TinhGiaInClient.UI
                 
                 btnNhan.Enabled = true;
             }
-            
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
 
         private bool KiemTraHopLe(ref string errorMessage)
@@ -383,7 +384,21 @@ namespace TinhGiaInClient.UI
 
         private void TextBoxes_Leave(object sender, EventArgs e)
         {
+            TextBox tb;
+            if (sender is TextBox)
+            {
+                tb = (TextBox)sender;
+                if (tb == txtSoLuong)
+                {
+                    if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
+                        txtSoLuong.Text = "10";
 
+                }
+                //xử lý khi user xóa hết
+                if (tb == txtGayCao)
+                    if (string.IsNullOrEmpty(txtGayCao.Text.Trim()))
+                        txtGayCao.Text = "30";
+            }
         }
 
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)
@@ -467,10 +482,18 @@ namespace TinhGiaInClient.UI
                 cb = (Telerik.WinControls.UI.RadDropDownList)sender;
                 if (cb == cboMayLoXo)
                 {
-                    CapNhatLabelGia();
+                    dataChanged = true;
+                    BatTatNutTinhToan();
                 }
 
             }
+        }
+
+        private void btnTinhToan_Click(object sender, EventArgs e)
+        {
+            CapNhatLabelGia();
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
 
         

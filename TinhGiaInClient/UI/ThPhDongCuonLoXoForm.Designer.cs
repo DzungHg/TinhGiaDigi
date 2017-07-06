@@ -50,17 +50,19 @@
             this.btnHuy = new Telerik.WinControls.UI.RadButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnTinhToan = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.lstLoXo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboMayLoXo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTinhToan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // lblGiaTB
             // 
             this.lblGiaTB.AutoSize = true;
-            this.lblGiaTB.Location = new System.Drawing.Point(94, 253);
+            this.lblGiaTB.Location = new System.Drawing.Point(300, 240);
             this.lblGiaTB.Name = "lblGiaTB";
             this.lblGiaTB.Size = new System.Drawing.Size(13, 13);
             this.lblGiaTB.TabIndex = 101;
@@ -69,7 +71,7 @@
             // lblThanhTien
             // 
             this.lblThanhTien.AutoSize = true;
-            this.lblThanhTien.Location = new System.Drawing.Point(94, 226);
+            this.lblThanhTien.Location = new System.Drawing.Point(92, 240);
             this.lblThanhTien.Name = "lblThanhTien";
             this.lblThanhTien.Size = new System.Drawing.Size(13, 13);
             this.lblThanhTien.TabIndex = 100;
@@ -169,7 +171,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 226);
+            this.label9.Location = new System.Drawing.Point(14, 240);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 113;
@@ -178,7 +180,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 253);
+            this.label10.Location = new System.Drawing.Point(222, 240);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 13);
             this.label10.TabIndex = 114;
@@ -251,11 +253,21 @@
             this.label11.TabIndex = 121;
             this.label11.Text = "Gáy dày";
             // 
+            // btnTinhToan
+            // 
+            this.btnTinhToan.Location = new System.Drawing.Point(94, 211);
+            this.btnTinhToan.Name = "btnTinhToan";
+            this.btnTinhToan.Size = new System.Drawing.Size(100, 24);
+            this.btnTinhToan.TabIndex = 7;
+            this.btnTinhToan.Text = "Tính";
+            this.btnTinhToan.Click += new System.EventHandler(this.btnTinhToan_Click);
+            // 
             // ThPhDongCuonLoXoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 323);
+            this.Controls.Add(this.btnTinhToan);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnHuy);
@@ -290,6 +302,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cboMayLoXo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTinhToan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,5 +333,6 @@
         private Telerik.WinControls.UI.RadButton btnHuy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label11;
+        private Telerik.WinControls.UI.RadButton btnTinhToan;
     }
 }

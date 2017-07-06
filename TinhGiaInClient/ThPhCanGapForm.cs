@@ -47,6 +47,8 @@ namespace TinhGiaInClient
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoDuongCan.KeyPress += new KeyPressEventHandler(InputValidator);
 
+            txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoDuongCan.Leave += new EventHandler(TextBoxes_Leave);
 
         }
         #region Implement Iview
@@ -144,6 +146,7 @@ namespace TinhGiaInClient
             set { txtThongTinBoSung.Text = value; }
         }
         #endregion
+        private bool dataChanged = false;
 
         private void LoadThanhPham()
         {
@@ -160,6 +163,12 @@ namespace TinhGiaInClient
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
+            dataChanged = true;
+            BatTatNutTinhToan();
+            btnOK.Enabled = true;
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
             TextBox tb;
             if (sender is TextBox)
             {
@@ -168,19 +177,24 @@ namespace TinhGiaInClient
                 {
                     //xử lý khi user xóa hết
                     if (string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        txtSoLuong.Text = "1";
-                   
+                        this.SoLuong = 10;
+
                 }
                 if (tb == txtSoDuongCan)
                 {
                     if (string.IsNullOrEmpty(txtSoDuongCan.Text.Trim()))
-                        txtSoDuongCan.Text = "1";
+                        this.SoDuongCan = 1;
+                    CapNhatCacNhanThanhTien();
                 }
-                //Cập nhật thông tin
-                lblThanhTien.Text = string.Format("{0:0,0.00}đ", canGapPres.ThanhTien_ThPh());
-                lblGiaTB.Text = string.Format("{0:0,0.00}đ", canGapPres.GiaTB_ThPh());
+               
             }
             btnOK.Enabled = true;
+        }
+        private void CapNhatCacNhanThanhTien()
+        {
+            //Cập nhật thông tin
+            lblThanhTien.Text = string.Format("{0:0,0.00}đ", canGapPres.ThanhTien_ThPh());
+            lblGiaTB.Text = string.Format("{0:0,0.00}đ", canGapPres.GiaTB_ThPh());
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
@@ -225,7 +239,8 @@ namespace TinhGiaInClient
             txtDonViTinh.Enabled = false;
             
             btnOK.Enabled = false;
-          
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
         private bool KiemTraHopLe(ref string errorMessage)
         {
@@ -269,12 +284,25 @@ namespace TinhGiaInClient
         {
 
         }
-
+        private void BatTatNutTinhToan()
+        {
+            if (dataChanged)
+                btnTinhToan.Enabled = dataChanged;
+            else
+                btnTinhToan.Enabled = false;
+        }
 
       
         public MucThanhPham LayMucThanhPham()
         {
             return canGapPres.LayMucThanhPham();
+        }
+
+        private void btnTinhToan_Click(object sender, EventArgs e)
+        {
+            CapNhatCacNhanThanhTien();
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
     }
 }

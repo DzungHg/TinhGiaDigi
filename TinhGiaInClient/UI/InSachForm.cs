@@ -283,7 +283,8 @@ namespace TinhGiaInClient.UI
             };
             var baiIn = new BaiIn("Bìa sách");
             baiIn.DienGiai = "Giấy, In, Thành phẩm, v.v.";
-            //Xác định bìa đơn hay bìa đôi để thêm kích thước và số lượng cho phù hợp
+            ///Xác định bìa đơn hay bìa đôi để thêm kích thước và số lượng cho phù hợp
+            ///bìa đơn là 2 trang rời, bìa đôi là 2 trang liền
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             if (monDongCuon.BiaDon)
             {                
@@ -368,20 +369,21 @@ namespace TinhGiaInClient.UI
             var baiIn = new BaiIn("Ruột sách");
             baiIn.DienGiai = "Giấy, In, Thành phẩm, v.v.";
             //Xác định ruột đôi hay ruột đơn để thêm kích thước và số lượng cho phù hợp
+            //Ruột đơn  là 2 trang rời, ruột đôi là 2 trang liền
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             if (monDongCuon.RuotDon)
             {
                 baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 2;
                 thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Ruột khổ: {0} x {1}cm" + '\r' + '\n',
-                    this.SachRong * 2 + this.GayDay, this.SachCao);
-                thongTinChoBaiIn.SanPhamRong = this.SachRong * 2;
+                    this.SachRong, this.SachCao);
+                thongTinChoBaiIn.SanPhamRong = this.SachRong;
             }
             else
             {
                 baiIn.SoLuong = baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 4; 
                 thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Ruột khổ: {0} x {1}cm" + '\r' + '\n',
-                    this.SachRong + this.GayDay, this.SachCao);
-                thongTinChoBaiIn.SanPhamRong = this.SachRong;
+                    this.SachRong * 2, this.SachCao);
+                thongTinChoBaiIn.SanPhamRong = this.SachRong * 2;
             }
             thongTinChoBaiIn.SanPhamCao = this.SachCao;
             baiIn.DonVi = "tờ";

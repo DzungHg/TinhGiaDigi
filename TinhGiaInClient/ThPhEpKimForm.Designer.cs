@@ -49,6 +49,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtThongTinHoTro = new System.Windows.Forms.TextBox();
+            this.btnTinhToan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
@@ -239,11 +240,22 @@
             this.txtThongTinHoTro.Size = new System.Drawing.Size(204, 37);
             this.txtThongTinHoTro.TabIndex = 1;
             // 
+            // btnTinhToan
+            // 
+            this.btnTinhToan.Location = new System.Drawing.Point(168, 170);
+            this.btnTinhToan.Name = "btnTinhToan";
+            this.btnTinhToan.Size = new System.Drawing.Size(75, 23);
+            this.btnTinhToan.TabIndex = 7;
+            this.btnTinhToan.Text = "Tính";
+            this.btnTinhToan.UseVisualStyleBackColor = true;
+            this.btnTinhToan.Click += new System.EventHandler(this.btnTinhToan_Click);
+            // 
             // ThPhEpKimForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(469, 294);
+            this.Controls.Add(this.btnTinhToan);
             this.Controls.Add(this.txtThongTinHoTro);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -297,5 +309,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtThongTinHoTro;
+        private System.Windows.Forms.Button btnTinhToan;
     }
 }

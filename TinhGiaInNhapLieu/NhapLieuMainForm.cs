@@ -492,6 +492,22 @@ namespace TinhGiaInNhapLieu
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
+        private void QuanLyDongCuonLoXo()
+        {
+            var frm = new QuanLyDongCuonLXoForm();
+            if (!CoTheMoFormNay(frm.Name)) //không có tên form
+                return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý Đóng cuốn Lò xo";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+        private void btnQuanLy_DCuonLXo_Click(object sender, EventArgs e)
+        {
+            QuanLyDongCuonLoXo();
+        }
        
        
     }

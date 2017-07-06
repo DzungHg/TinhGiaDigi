@@ -42,6 +42,7 @@
             this.txtThongTinBoSung = new System.Windows.Forms.TextBox();
             this.txtSoDuongCan = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnTinhToan = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOK
@@ -168,11 +169,22 @@
             this.label4.TabIndex = 107;
             this.label4.Text = "Số đường";
             // 
+            // btnTinhToan
+            // 
+            this.btnTinhToan.Location = new System.Drawing.Point(304, 139);
+            this.btnTinhToan.Name = "btnTinhToan";
+            this.btnTinhToan.Size = new System.Drawing.Size(75, 23);
+            this.btnTinhToan.TabIndex = 3;
+            this.btnTinhToan.Text = "Tính";
+            this.btnTinhToan.UseVisualStyleBackColor = true;
+            this.btnTinhToan.Click += new System.EventHandler(this.btnTinhToan_Click);
+            // 
             // ThPhCanGapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(433, 265);
+            this.Controls.Add(this.btnTinhToan);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtSoDuongCan);
             this.Controls.Add(this.txtThongTinBoSung);
@@ -212,5 +224,6 @@
         private System.Windows.Forms.TextBox txtThongTinBoSung;
         private System.Windows.Forms.TextBox txtSoDuongCan;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnTinhToan;
     }
 }

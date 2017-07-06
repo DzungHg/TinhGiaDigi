@@ -179,7 +179,15 @@ namespace TinhGiaInClient.UI
 
       
         #endregion
+        private bool dataChanged = false;
 
+        private void BatTatNutTinhToan()
+        {
+            if (dataChanged)
+                btnTinhToan.Enabled = dataChanged;
+            else
+                btnTinhToan.Enabled = false;
+        }
         private void LoadMayThanhPham()
         {
             //Cán phủ
@@ -197,26 +205,10 @@ namespace TinhGiaInClient.UI
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-            TextBox tb;
-            if (sender is TextBox)
-            {
-                tb = (TextBox)sender;
-                if (tb == txtSoLuong )
-                {
-                    if (! string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        CapNhatLabelGia();
-                    
-                }
-                
-                if ( tb == txtConRong)
-                    if (!string.IsNullOrEmpty(txtConRong.Text.Trim()))
-                        CapNhatLabelGia() ;
-
-                if (tb == txtConCao)
-                    if (!string.IsNullOrEmpty(txtConCao.Text.Trim()))
-                        CapNhatLabelGia() ;
+           dataChanged = true;
+            BatTatNutTinhToan();
             
-            }
+            
             /*Telerik.WinControls.UI.RadListView lv;
             if (sender is Telerik.WinControls.UI.RadListView)
             {
@@ -441,6 +433,13 @@ namespace TinhGiaInClient.UI
                 }
 
             }
+        }
+
+        private void btnTinhToan_Click(object sender, EventArgs e)
+        {
+            CapNhatLabelGia();
+            dataChanged = false;
+            BatTatNutTinhToan();
         }
 
         
