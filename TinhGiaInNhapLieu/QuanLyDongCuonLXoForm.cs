@@ -38,6 +38,12 @@ namespace TinhGiaInNhapLieu
             txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
             chkBiaToDon.TextChanged += new EventHandler(TextBoxes_TextChanged);
             chkRuotToDon.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
+            txtTen.Leave += new EventHandler(TextBoxes_Leave);
+            txtBHR.Leave += new EventHandler(TextBoxes_Leave);
+            txtTocDo.Leave += new EventHandler(TextBoxes_Leave);
+            txtThoiGianChuanBi.Leave += new EventHandler(TextBoxes_Leave);
+            txtDonViTinh.Leave += new EventHandler(TextBoxes_Leave);
          
             txtBHR.KeyPress += new KeyPressEventHandler(InputValidator);
             txtTocDo.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -210,7 +216,8 @@ namespace TinhGiaInNhapLieu
             txtDonViTinh.ReadOnly = readOnly;
             txtTocDo.ReadOnly = readOnly;
             txtThoiGianChuanBi.ReadOnly = readOnly;
-                        
+            chkBiaToDon.ReadOnly = readOnly;
+            chkRuotToDon.ReadOnly = readOnly;
             txtDaySoLuongCB.IsReadOnly = readOnly;
             txtDayLoiNhuanCB.IsReadOnly = readOnly;
             txtDaySoLuongNiemYet.ReadOnly = readOnly;

@@ -288,9 +288,9 @@ namespace TinhGiaInClient.UI
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             if (monDongCuon.BiaDon)
             {                
-                baiIn.SoLuong = this.SoCuon * 2;
+                baiIn.SoLuong = this.SoCuon * 2; //suy luật số lượng bìa
                 thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Bìa khổ: {0} x {1}cm" + '\r' + '\n',
-                    this.SachRong   + this.GayDay, this.SachCao);
+                    this.SachRong, this.SachCao);
                 thongTinChoBaiIn.SanPhamRong = this.SachRong;
                 
             }
@@ -376,14 +376,16 @@ namespace TinhGiaInClient.UI
                 baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 2;
                 thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Ruột khổ: {0} x {1}cm" + '\r' + '\n',
                     this.SachRong, this.SachCao);
-                thongTinChoBaiIn.SanPhamRong = this.SachRong;
+
+                thongTinChoBaiIn.SanPhamRong = this.SachRong;//Bài in bìa
             }
             else
             {
                 baiIn.SoLuong = baiIn.SoLuong = inSachPres.TongSoTrangRuot() / 4; 
                 thongTinChoBaiIn.YeuCauTinhGia += string.Format(" - Ruột khổ: {0} x {1}cm" + '\r' + '\n',
                     this.SachRong * 2, this.SachCao);
-                thongTinChoBaiIn.SanPhamRong = this.SachRong * 2;
+
+                thongTinChoBaiIn.SanPhamRong = this.SachRong * 2;//Ruôt rộng gấp đôi
             }
             thongTinChoBaiIn.SanPhamCao = this.SachCao;
             baiIn.DonVi = "tờ";

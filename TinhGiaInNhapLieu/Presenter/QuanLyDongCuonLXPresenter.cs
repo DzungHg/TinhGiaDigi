@@ -51,7 +51,8 @@ namespace TinhGiaInNhapLieu.Presenter
             View.DonViTinh = dongCuon.DonViTinh;
             View.TocDo = dongCuon.TocDoCuonGio;
             View.ThoiGianChuanBi = dongCuon.ThoiGianChuanBi;
-            
+            View.BiaToDon = dongCuon.BiaToDon;
+            View.RuotToDon = dongCuon.RuotToDon;
             View.DaySoLuongCoBan = dongCuon.DaySoLuong;
             View.DayLoiNhuanCoBan = dongCuon.DayLoiNhuan;
             View.DaySoLuongNiemYet = dongCuon.DaySoLuongNiemYet;
@@ -77,7 +78,8 @@ namespace TinhGiaInNhapLieu.Presenter
             dongCuon.BHR = View.BHR;
             dongCuon.DonViTinh = View.DonViTinh;
             dongCuon.TocDoCuonGio = View.TocDo;
-            
+            dongCuon.BiaToDon = View.BiaToDon;
+            dongCuon.RuotToDon = View.RuotToDon;
             dongCuon.ThoiGianChuanBi = View.ThoiGianChuanBi;
             dongCuon.DaySoLuong = View.DaySoLuongCoBan;
             dongCuon.DayLoiNhuan = View.DayLoiNhuanCoBan;

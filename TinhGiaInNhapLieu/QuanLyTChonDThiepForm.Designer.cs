@@ -30,33 +30,33 @@
         {
             this.pageView = new Telerik.WinControls.UI.RadPageView();
             this.pagTuyChon = new Telerik.WinControls.UI.RadPageViewPage();
+            this.btnCapNhatTuyChon = new Telerik.WinControls.UI.RadButton();
             this.chkListTuyChon = new Telerik.WinControls.UI.RadCheckedListBox();
             this.pagGiaTuyChon = new Telerik.WinControls.UI.RadPageViewPage();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.txtGiaBan = new Telerik.WinControls.UI.RadTextBox();
+            this.btnCapNhatGia = new Telerik.WinControls.UI.RadButton();
+            this.lvwGiaTuyChon = new Telerik.WinControls.UI.RadListView();
             this.btnHuy = new Telerik.WinControls.UI.RadButton();
             this.cboBangGia = new Telerik.WinControls.UI.RadDropDownList();
             this.btnNhan = new Telerik.WinControls.UI.RadButton();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.txtDienGiaiBangGia = new Telerik.WinControls.UI.RadTextBox();
-            this.btnCapNhatTuyChon = new Telerik.WinControls.UI.RadButton();
-            this.lvwGiaTuyChon = new Telerik.WinControls.UI.RadListView();
-            this.btnCapNhatGia = new Telerik.WinControls.UI.RadButton();
-            this.txtGiaBan = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pageView)).BeginInit();
             this.pageView.SuspendLayout();
             this.pagTuyChon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatTuyChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkListTuyChon)).BeginInit();
             this.pagGiaTuyChon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lvwGiaTuyChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboBangGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDienGiaiBangGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatTuyChon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lvwGiaTuyChon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.pageView.Controls.Add(this.pagGiaTuyChon);
             this.pageView.Location = new System.Drawing.Point(5, 102);
             this.pageView.Name = "pageView";
-            this.pageView.SelectedPage = this.pagTuyChon;
+            this.pageView.SelectedPage = this.pagGiaTuyChon;
             this.pageView.Size = new System.Drawing.Size(490, 236);
             this.pageView.TabIndex = 3;
             this.pageView.Text = "pagView";
@@ -81,6 +81,15 @@
             this.pagTuyChon.Name = "pagTuyChon";
             this.pagTuyChon.Size = new System.Drawing.Size(469, 188);
             this.pagTuyChon.Text = "Tùy chọn";
+            // 
+            // btnCapNhatTuyChon
+            // 
+            this.btnCapNhatTuyChon.Location = new System.Drawing.Point(333, 130);
+            this.btnCapNhatTuyChon.Name = "btnCapNhatTuyChon";
+            this.btnCapNhatTuyChon.Size = new System.Drawing.Size(110, 24);
+            this.btnCapNhatTuyChon.TabIndex = 5;
+            this.btnCapNhatTuyChon.Text = "Cập nhật";
+            this.btnCapNhatTuyChon.Click += new System.EventHandler(this.btnCapNhatTuyChon_Click);
             // 
             // chkListTuyChon
             // 
@@ -101,6 +110,43 @@
             this.pagGiaTuyChon.Name = "pagGiaTuyChon";
             this.pagGiaTuyChon.Size = new System.Drawing.Size(469, 188);
             this.pagGiaTuyChon.Text = "Giá tùy chọn";
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Location = new System.Drawing.Point(333, 60);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(44, 18);
+            this.radLabel1.TabIndex = 8;
+            this.radLabel1.Text = "Giá bán";
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.Location = new System.Drawing.Point(333, 84);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.Size = new System.Drawing.Size(100, 20);
+            this.txtGiaBan.TabIndex = 7;
+            // 
+            // btnCapNhatGia
+            // 
+            this.btnCapNhatGia.Location = new System.Drawing.Point(333, 130);
+            this.btnCapNhatGia.Name = "btnCapNhatGia";
+            this.btnCapNhatGia.Size = new System.Drawing.Size(110, 24);
+            this.btnCapNhatGia.TabIndex = 6;
+            this.btnCapNhatGia.Text = "Cập nhật Giá";
+            this.btnCapNhatGia.Click += new System.EventHandler(this.btnCapNhatGia_Click);
+            // 
+            // lvwGiaTuyChon
+            // 
+            this.lvwGiaTuyChon.ItemSpacing = -1;
+            this.lvwGiaTuyChon.Location = new System.Drawing.Point(3, 3);
+            this.lvwGiaTuyChon.Name = "lvwGiaTuyChon";
+            this.lvwGiaTuyChon.ShowGridLines = true;
+            this.lvwGiaTuyChon.Size = new System.Drawing.Size(305, 182);
+            this.lvwGiaTuyChon.TabIndex = 5;
+            this.lvwGiaTuyChon.Text = "radListView1";
+            this.lvwGiaTuyChon.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
+            this.lvwGiaTuyChon.SelectedItemChanged += new System.EventHandler(this.lvwGiaTuyChon_SelectedItemChanged);
+            this.lvwGiaTuyChon.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lvwGiaTuyChon_ColumnCreating);
             // 
             // btnHuy
             // 
@@ -149,53 +195,7 @@
             this.txtDienGiaiBangGia.Size = new System.Drawing.Size(276, 53);
             this.txtDienGiaiBangGia.TabIndex = 38;
             // 
-            // btnCapNhatTuyChon
-            // 
-            this.btnCapNhatTuyChon.Location = new System.Drawing.Point(333, 130);
-            this.btnCapNhatTuyChon.Name = "btnCapNhatTuyChon";
-            this.btnCapNhatTuyChon.Size = new System.Drawing.Size(110, 24);
-            this.btnCapNhatTuyChon.TabIndex = 5;
-            this.btnCapNhatTuyChon.Text = "Cập nhật";
-            this.btnCapNhatTuyChon.Click += new System.EventHandler(this.btnCapNhatTuyChon_Click);
-            // 
-            // lvwGiaTuyChon
-            // 
-            this.lvwGiaTuyChon.ItemSpacing = -1;
-            this.lvwGiaTuyChon.Location = new System.Drawing.Point(3, 3);
-            this.lvwGiaTuyChon.Name = "lvwGiaTuyChon";
-            this.lvwGiaTuyChon.ShowGridLines = true;
-            this.lvwGiaTuyChon.Size = new System.Drawing.Size(305, 182);
-            this.lvwGiaTuyChon.TabIndex = 5;
-            this.lvwGiaTuyChon.Text = "radListView1";
-            this.lvwGiaTuyChon.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
-            this.lvwGiaTuyChon.SelectedItemChanged += new System.EventHandler(this.lvwGiaTuyChon_SelectedItemChanged);
-            this.lvwGiaTuyChon.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lvwGiaTuyChon_ColumnCreating);
-            // 
-            // btnCapNhatGia
-            // 
-            this.btnCapNhatGia.Location = new System.Drawing.Point(333, 130);
-            this.btnCapNhatGia.Name = "btnCapNhatGia";
-            this.btnCapNhatGia.Size = new System.Drawing.Size(110, 24);
-            this.btnCapNhatGia.TabIndex = 6;
-            this.btnCapNhatGia.Text = "Cập nhật Giá";
-            this.btnCapNhatGia.Click += new System.EventHandler(this.btnCapNhatGia_Click);
-            // 
-            // txtGiaBan
-            // 
-            this.txtGiaBan.Location = new System.Drawing.Point(333, 84);
-            this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(100, 20);
-            this.txtGiaBan.TabIndex = 7;
-            // 
-            // radLabel1
-            // 
-            this.radLabel1.Location = new System.Drawing.Point(333, 60);
-            this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(44, 18);
-            this.radLabel1.TabIndex = 8;
-            this.radLabel1.Text = "Giá bán";
-            // 
-            // QuanLyGiaTChonDThiepForm
+            // QuanLyTChonDThiepForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -206,7 +206,7 @@
             this.Controls.Add(this.cboBangGia);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.pageView);
-            this.Name = "QuanLyGiaTChonDThiepForm";
+            this.Name = "QuanLyTChonDThiepForm";
             // 
             // 
             // 
@@ -216,19 +216,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.pageView)).EndInit();
             this.pageView.ResumeLayout(false);
             this.pagTuyChon.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatTuyChon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkListTuyChon)).EndInit();
             this.pagGiaTuyChon.ResumeLayout(false);
             this.pagGiaTuyChon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lvwGiaTuyChon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboBangGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDienGiaiBangGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatTuyChon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lvwGiaTuyChon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCapNhatGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -195,15 +195,15 @@ namespace TinhGiaInNhapLieu
         }
         private void lvwGiaTuyChon_ColumnCreating(object sender, Telerik.WinControls.UI.ListViewColumnCreatingEventArgs e)
         {
-            if (e.Column.FieldName == "IdBangGiaTheNhua")
+            if (e.Column.FieldName == "IdBangGiaDanhThiep")
             {
                 e.Column.Visible = false;
             }
-            if (e.Column.FieldName == "IdTuyChonTheNhua")
+            if (e.Column.FieldName == "IdTuyChonDanhThiep")
             {
                 e.Column.Visible = false;
             }
-            if (e.Column.FieldName == "Ten")
+            if (e.Column.FieldName == "TenBangGia")
             {
                 e.Column.Visible = false;
             }
