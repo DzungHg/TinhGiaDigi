@@ -72,13 +72,22 @@ namespace TinhGiaInClient.Presenter
 
             return result;
         }
+        public int TongSoMatCan()
+        {
+            var kq = 0;
+            if (View.SoLuong > 0)
+                kq = (View.SoLuong * View.SoMatCan);
+
+            return kq;
+        }
 
         public decimal GiaTB_ThPh()
         {
-            if (View.SoLuong <= 0)
+            if (TongSoMatCan() <= 0)
                 return 0;
-            return ThanhTien_ThPh() / View.SoLuong;
+            return ThanhTien_ThPh() / TongSoMatCan();
         }
+        
         private void CapNhatMucThanhPham()
         {
             if (this.MucCanPhu != null)

@@ -65,6 +65,11 @@ namespace TinhGiaInClient
 
             txtKhoCatRong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtKhoCatCao.KeyPress += new KeyPressEventHandler(InputValidator);
+
+            lvwGiaInNhanh.SelectedIndexChanged += new EventHandler(ListViews_SelectedIndexChanged);
+            lvwThanhPham.SelectedIndexChanged += new EventHandler(ListViews_SelectedIndexChanged);
+            lvwTruocIn.SelectedIndexChanged += new EventHandler(ListViews_SelectedIndexChanged);
+          
             //Khóa số txtSoluong khi sửa
             /*if (formState == (int)FormState.Edit)
                 txtSoLuong.Enabled = false;
@@ -342,7 +347,7 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormTrienKhaiSP_Click(frm);
-                
+                CapNhatTomTatBaiIn();
             }
 
         }
@@ -364,7 +369,7 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormTrienKhaiSP_Click(frm);//Cập nhật dữ liệu
-
+                CapNhatTomTatBaiIn();
 
             }
         }
@@ -411,6 +416,7 @@ namespace TinhGiaInClient
                     LoadThanhPhamLenListView();
                     break;
             }
+            
         }
         #endregion cấu hình SP
 
@@ -446,7 +452,7 @@ namespace TinhGiaInClient
             {
                 XuLyNutOKTrenFormChuanBiGiay_Click(frm);
                 //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
-                
+                CapNhatTomTatBaiIn();
             }
 
         }
@@ -500,7 +506,7 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormChuanBiGiay_Click(frm);//Cập nhật dữ liệu
-               
+                CapNhatTomTatBaiIn();
             }
 
 
@@ -625,7 +631,7 @@ namespace TinhGiaInClient
                         //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
                         LoadGiaInLenListView();
                         //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
+                        CapNhatTomTatBaiIn();
                     }
                     break;
                 case PhuongPhapInS.KhongIn:
@@ -646,7 +652,7 @@ namespace TinhGiaInClient
                         //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
                         LoadGiaInLenListView();
                         //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
-
+                        CapNhatTomTatBaiIn();
                     }
                     break;
 
@@ -1395,22 +1401,25 @@ namespace TinhGiaInClient
             LoadGiaInLenListView();
             //
 
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
+            CapNhatTomTatBaiIn();        
         }
-     
+        private void CapNhatTomTatBaiIn()
+        {
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();    
+        }
         private void btnXoaThanhPham_Click(object sender, EventArgs e)
         {
             baiInPres.XoaThanhPham(baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon));
             //Cần cập nhật lại listview Bài in
             LoadThanhPhamLenListView();
              //Cap nhat noi dung bai in
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
+            CapNhatTomTatBaiIn();       
         }
         private void btnXoaHetThanhPham_Click(object sender, EventArgs e)
         {
             baiInPres.XoaHetThanhPham();
             LoadThanhPhamLenListView();
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
+            CapNhatTomTatBaiIn();      
         }
         private void cmnuThPh_EpKim_Click(object sender, EventArgs e)
         {
@@ -1457,7 +1466,47 @@ namespace TinhGiaInClient
             if (!string.IsNullOrEmpty(txtTomTatBaiIn.Text))
                 Clipboard.SetText(txtTomTatBaiIn.Text);
         }
-      
+        private void ListViews_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListView lv;
+            if (sender is ListView)
+            {
+                lv = (ListView)sender;
+                if (lv == lvwGiaInNhanh)
+                {
+                    if (lv.SelectedItems.Count <= 0)
+                    {
+                        btnSuaGiaInNhanh.Enabled = false;
+                        btnXoaGiaInNhanh.Enabled = false;
+                        btnXoaHetBaiInNhanh.Enabled = false;
+                    }
+                    else
+                    {
+                        btnSuaGiaInNhanh.Enabled = true;
+                        btnXoaGiaInNhanh.Enabled = true;
+                        btnXoaHetBaiInNhanh.Enabled = true;
+                    }
+                }
+                if (lv == lvwThanhPham)
+                {
+                    if (lv.SelectedItems.Count <= 0)
+                    {
+                        btnSuaThanhPham.Enabled = false;
+                        btnXoaThanhPham.Enabled = false;
+                        btnXoaHetThanhPham.Enabled = false;
+                    }
+                    else
+                    {
+                        btnSuaThanhPham.Enabled = true;
+                        btnXoaThanhPham.Enabled = true;
+                        btnXoaHetThanhPham.Enabled = true;
+                    }
+                }
+
+            }
+           
+
+        }
        
         private void CapNhatTenHangKH()
         {
@@ -1487,6 +1536,24 @@ namespace TinhGiaInClient
                 this.SanPhamRong = frm.ChieuRong;
                 this.SanPhamCao = frm.ChieuCao;
             }
+        }
+
+        private void tabCtrl01_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //bật tắt các nút
+            if (tabCtrl01.SelectedTab == tabGiaIn)
+            {
+                ListViews_SelectedIndexChanged(lvwGiaInNhanh, e);
+            }
+            if (tabCtrl01.SelectedTab == tabThanhPham)
+            {
+                ListViews_SelectedIndexChanged(lvwThanhPham, e);
+            }
+            if (tabCtrl01.SelectedTab == tabTruocIn)
+            {
+                ListViews_SelectedIndexChanged(lvwTruocIn, e);
+            }
+           
         }
     }
 }

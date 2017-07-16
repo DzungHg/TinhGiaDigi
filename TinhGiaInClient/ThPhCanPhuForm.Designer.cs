@@ -43,6 +43,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbHaiMat = new System.Windows.Forms.RadioButton();
             this.rdbMotMat = new System.Windows.Forms.RadioButton();
+            this.lblSoMatCan = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // lblGiaTB
             // 
             this.lblGiaTB.AutoSize = true;
-            this.lblGiaTB.Location = new System.Drawing.Point(305, 199);
+            this.lblGiaTB.Location = new System.Drawing.Point(295, 199);
             this.lblGiaTB.Name = "lblGiaTB";
             this.lblGiaTB.Size = new System.Drawing.Size(60, 13);
             this.lblGiaTB.TabIndex = 101;
@@ -79,7 +80,7 @@
             // lblThanhTien
             // 
             this.lblThanhTien.AutoSize = true;
-            this.lblThanhTien.Location = new System.Drawing.Point(165, 199);
+            this.lblThanhTien.Location = new System.Drawing.Point(197, 199);
             this.lblThanhTien.Name = "lblThanhTien";
             this.lblThanhTien.Size = new System.Drawing.Size(58, 13);
             this.lblThanhTien.TabIndex = 100;
@@ -88,7 +89,7 @@
             // lblCanPhu_DonViTinh
             // 
             this.lblCanPhu_DonViTinh.AutoSize = true;
-            this.lblCanPhu_DonViTinh.Location = new System.Drawing.Point(307, 146);
+            this.lblCanPhu_DonViTinh.Location = new System.Drawing.Point(182, 175);
             this.lblCanPhu_DonViTinh.Name = "lblCanPhu_DonViTinh";
             this.lblCanPhu_DonViTinh.Size = new System.Drawing.Size(60, 13);
             this.lblCanPhu_DonViTinh.TabIndex = 99;
@@ -97,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(167, 165);
+            this.label2.Location = new System.Drawing.Point(182, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 98;
@@ -105,7 +106,7 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(231, 162);
+            this.txtSoLuong.Location = new System.Drawing.Point(248, 146);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(59, 20);
             this.txtSoLuong.TabIndex = 3;
@@ -139,10 +140,10 @@
             // 
             // txtDonViTinh
             // 
-            this.txtDonViTinh.Location = new System.Drawing.Point(308, 162);
+            this.txtDonViTinh.Location = new System.Drawing.Point(248, 172);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.ReadOnly = true;
-            this.txtDonViTinh.Size = new System.Drawing.Size(59, 20);
+            this.txtDonViTinh.Size = new System.Drawing.Size(34, 20);
             this.txtDonViTinh.TabIndex = 4;
             // 
             // txtThongTinBoSung
@@ -187,11 +188,21 @@
             this.rdbMotMat.Text = "1 mặt";
             this.rdbMotMat.UseVisualStyleBackColor = true;
             // 
+            // lblSoMatCan
+            // 
+            this.lblSoMatCan.AutoSize = true;
+            this.lblSoMatCan.Location = new System.Drawing.Point(295, 175);
+            this.lblSoMatCan.Name = "lblSoMatCan";
+            this.lblSoMatCan.Size = new System.Drawing.Size(24, 13);
+            this.lblSoMatCan.TabIndex = 104;
+            this.lblSoMatCan.Text = "mặt";
+            // 
             // ThPhCanPhuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 270);
+            this.Controls.Add(this.lblSoMatCan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtThongTinBoSung);
             this.Controls.Add(this.lblCanPhu_DonViTinh);
@@ -233,5 +244,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdbHaiMat;
         private System.Windows.Forms.RadioButton rdbMotMat;
+        private System.Windows.Forms.Label lblSoMatCan;
     }
 }

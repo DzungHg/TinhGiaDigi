@@ -142,7 +142,7 @@ namespace TinhGiaInClient.UI
                 TieuDeForm = tieuDeForm,
                 SoLuongToChay = 1,
                 TinhTrangForm = tinhTrangForm,
-                ThongDiepCanThiet = "Chỉ tính toán thử",
+                ThongDiepCanThiet = "Tính thử:" + '\n' + '\r',
 
             };
             return thongTinBanDau;
@@ -168,6 +168,10 @@ namespace TinhGiaInClient.UI
             mucThPhCanPhu.SoLuong = 50;
             mucThPhCanPhu.DonViTinh = "mặt";
             mucThPhCanPhu.SoMatCan = 1;
+            //Cập nhật lại thông ti ban đầu
+            thongTinBanDau.ThongDiepCanThiet += string.Format(" Khổ: {0} x {1}cm",
+                mucThPhCanPhu.ToChayRong, mucThPhCanPhu.ToChayDai);
+
             var frm = new ThPhCanPhuForm( thongTinBanDau, mucThPhCanPhu);
             
             frm.MinimizeBox = false;

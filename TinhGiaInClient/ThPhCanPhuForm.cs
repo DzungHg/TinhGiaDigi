@@ -266,6 +266,7 @@ namespace TinhGiaInClient
         {
             lblThanhTien.Text = string.Format("{0:0,0.00}đ", canPhuPres.ThanhTien_ThPh());
             lblGiaTB.Text = string.Format("{0:0,0.00}đ/{1}", canPhuPres.GiaTB_ThPh(), this.DonViTinh);
+            lblSoMatCan.Text = string.Format("{0:0,0} mặt", canPhuPres.TongSoMatCan());
         }
 
         private void ThanhPhamForm_Load(object sender, EventArgs e)

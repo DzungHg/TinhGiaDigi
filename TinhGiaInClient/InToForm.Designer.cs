@@ -77,7 +77,7 @@
             this.btnXoaGiaInNhanh = new System.Windows.Forms.Button();
             this.btnSuaGiaInNhanh = new System.Windows.Forms.Button();
             this.tabTruocIn = new System.Windows.Forms.TabPage();
-            this.lstTruocIn = new System.Windows.Forms.ListView();
+            this.lvwTruocIn = new System.Windows.Forms.ListView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -92,11 +92,11 @@
             this.lblIDBaiIn = new System.Windows.Forms.Label();
             this.txtDanDoThem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnGetProdTemplate = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
-            this.btnGetProdTemplate = new System.Windows.Forms.Button();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -408,6 +408,7 @@
             this.tabCtrl01.SelectedIndex = 0;
             this.tabCtrl01.Size = new System.Drawing.Size(391, 261);
             this.tabCtrl01.TabIndex = 94;
+            this.tabCtrl01.SelectedIndexChanged += new System.EventHandler(this.tabCtrl01_SelectedIndexChanged);
             // 
             // tabSanPham
             // 
@@ -562,7 +563,7 @@
             // tabTruocIn
             // 
             this.tabTruocIn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabTruocIn.Controls.Add(this.lstTruocIn);
+            this.tabTruocIn.Controls.Add(this.lvwTruocIn);
             this.tabTruocIn.Controls.Add(this.panel5);
             this.tabTruocIn.Location = new System.Drawing.Point(4, 22);
             this.tabTruocIn.Name = "tabTruocIn";
@@ -571,14 +572,14 @@
             this.tabTruocIn.TabIndex = 4;
             this.tabTruocIn.Text = "Trước In";
             // 
-            // lstTruocIn
+            // lvwTruocIn
             // 
-            this.lstTruocIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstTruocIn.Location = new System.Drawing.Point(3, 39);
-            this.lstTruocIn.Name = "lstTruocIn";
-            this.lstTruocIn.Size = new System.Drawing.Size(377, 193);
-            this.lstTruocIn.TabIndex = 3;
-            this.lstTruocIn.UseCompatibleStateImageBehavior = false;
+            this.lvwTruocIn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwTruocIn.Location = new System.Drawing.Point(3, 39);
+            this.lvwTruocIn.Name = "lvwTruocIn";
+            this.lvwTruocIn.Size = new System.Drawing.Size(377, 193);
+            this.lvwTruocIn.TabIndex = 3;
+            this.lvwTruocIn.UseCompatibleStateImageBehavior = false;
             // 
             // panel5
             // 
@@ -734,6 +735,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tổng quát";
             // 
+            // btnGetProdTemplate
+            // 
+            this.btnGetProdTemplate.Location = new System.Drawing.Point(14, 118);
+            this.btnGetProdTemplate.Name = "btnGetProdTemplate";
+            this.btnGetProdTemplate.Size = new System.Drawing.Size(88, 23);
+            this.btnGetProdTemplate.TabIndex = 245;
+            this.btnGetProdTemplate.Text = "Kích thước";
+            this.btnGetProdTemplate.UseVisualStyleBackColor = true;
+            this.btnGetProdTemplate.Click += new System.EventHandler(this.btnGetProdTemplate_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -765,16 +776,6 @@
             this.txtKhoCatRong.Name = "txtKhoCatRong";
             this.txtKhoCatRong.Size = new System.Drawing.Size(50, 20);
             this.txtKhoCatRong.TabIndex = 3;
-            // 
-            // btnGetProdTemplate
-            // 
-            this.btnGetProdTemplate.Location = new System.Drawing.Point(14, 118);
-            this.btnGetProdTemplate.Name = "btnGetProdTemplate";
-            this.btnGetProdTemplate.Size = new System.Drawing.Size(88, 23);
-            this.btnGetProdTemplate.TabIndex = 245;
-            this.btnGetProdTemplate.Text = "Kích thước";
-            this.btnGetProdTemplate.UseVisualStyleBackColor = true;
-            this.btnGetProdTemplate.Click += new System.EventHandler(this.btnGetProdTemplate_Click);
             // 
             // InToForm
             // 
@@ -853,7 +854,7 @@
         private System.Windows.Forms.Button btnXoaGiaInNhanh;
         private System.Windows.Forms.Button btnSuaGiaInNhanh;
         private System.Windows.Forms.TabPage tabTruocIn;
-        private System.Windows.Forms.ListView lstTruocIn;
+        private System.Windows.Forms.ListView lvwTruocIn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button15;
