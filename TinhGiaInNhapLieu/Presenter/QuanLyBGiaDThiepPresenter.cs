@@ -33,12 +33,13 @@ namespace TinhGiaInNhapLieu.Presenter
             View.NoiDungBangGia = "Cần thiết";
             View.IdHangKhachHang = 0;
             View.SoHopToiDa = 0;
-            View.GiayBaoGom = "C300";
+            View.GiayBaoGom = "Couche 300gsm";
             View.KhoToChay = "32 x 47cm";
             View.DaySoLuong = ";";
             View.DayGiaTrang = ";";
             View.DaySoLuongNiemYet = ";";
             View.InHaiMat = false;
+            View.SoDanhThiepTrenHop = 100;
             View.ThuTu = 100;
        
             View.KhongCon = false;
@@ -60,6 +61,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.DayGiaTrang = bangGiaIn.DayGia;
             View.GiayBaoGom = bangGiaIn.GiayBaoGom;
             View.KhoToChay = bangGiaIn.KhoToChay;
+            View.SoDanhThiepTrenHop = bangGiaIn.SoDanhThiepTrenHop;
             View.ThuTu = bangGiaIn.ThuTu;
           
             View.KhongCon = bangGiaIn.KhongCon;
@@ -86,7 +88,8 @@ namespace TinhGiaInNhapLieu.Presenter
             bGiaDThiep.DaySoLuong = View.DaySoLuong;
             bGiaDThiep.DayGia = View.DayGiaTrang;
             bGiaDThiep.KhoToChay = View.KhoToChay;
-            bGiaDThiep.GiayBaoGom = View.GiayBaoGom;     
+            bGiaDThiep.GiayBaoGom = View.GiayBaoGom;
+            bGiaDThiep.SoDanhThiepTrenHop = View.SoDanhThiepTrenHop;
             bGiaDThiep.ThuTu = View.ThuTu;
             bGiaDThiep.KhongCon = View.KhongCon;
 

@@ -744,3 +744,4 @@ E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhBoiBiaCun
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhBoiBiaCungForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiaInTheNhuaForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiaInTheNhuaForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiayInDanhThiepForm.resources

@@ -38,13 +38,18 @@ namespace TinhGiaInNhapLieu
             txtDaySoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtMucGia.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtDaySoLuongNiemYet.TextChanged += new EventHandler(TextBoxes_TextChanged);
-           
+            txtSoDanhThiepTrenHop.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             chkKhongSuDung.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
             chkIn2Mat.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
-           
+
+            txtSoHopToiDa.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoDanhThiepTrenHop.Leave += new EventHandler(TextBoxes_Leave);
+            txtGiayBao.Leave += new EventHandler(TextBoxes_Leave);
+
             txtSoHopToiDa.KeyPress += new KeyPressEventHandler(InputValidator);
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoDanhThiepTrenHop.KeyPress += new KeyPressEventHandler(InputValidator);
 
 
         }
@@ -118,6 +123,12 @@ namespace TinhGiaInNhapLieu
             get { return chkIn2Mat.Checked; }
                 set {chkIn2Mat.Checked = value; }
             }
+
+        public int SoDanhThiepTrenHop
+        {
+            get { return int.Parse(txtSoDanhThiepTrenHop.Text); }
+            set { txtSoDanhThiepTrenHop.Text = value.ToString(); }
+        }
         public string GiayBaoGom 
         {
             get { return txtGiayBao.Text; }
@@ -257,49 +268,38 @@ namespace TinhGiaInNhapLieu
             txtKhoToChay.ReadOnly = readOnly;
             cboHangKH.ReadOnly = readOnly;
             chkKhongSuDung.ReadOnly = readOnly;
-            
+            txtSoDanhThiepTrenHop.ReadOnly = readOnly;
         }
         private void XoaSachNoiDungTatCaTextBox()
         {
             quanLyBangGiaPres.TrinhBayThemMoi();
         }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            //Xử lý xóa hêt
+                Telerik.WinControls.UI.RadTextBox tb;
+                if (sender is Telerik.WinControls.UI.RadTextBox)
+                {
+                    tb = (Telerik.WinControls.UI.RadTextBox)sender;
+                    if (tb == txtSoHopToiDa)
+                        if (string.IsNullOrEmpty(txtSoHopToiDa.Text.Trim()))
+                            this.SoHopToiDa = 0;
+                    if (tb == txtThuTu)
+                        if (string.IsNullOrEmpty(txtThuTu.Text.Trim()))
+                            this.ThuTu = 0;
+
+                    if (tb == txtSoDanhThiepTrenHop)
+                        if (string.IsNullOrEmpty(txtSoDanhThiepTrenHop.Text.Trim()))
+                            this.SoDanhThiepTrenHop = 100;
+
+                    if (tb == txtGiayBao)
+                        if (string.IsNullOrEmpty(txtGiayBao.Text.Trim()))
+                            this.GiayBaoGom = "Couche 300gsm";
+                }
+        }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-            Telerik.WinControls.UI.RadTextBox tb;
-            if (sender is Telerik.WinControls.UI.RadTextBox)
-            {
-                tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen ||                  
-                    tb == txtSoHopToiDa || tb == txtThuTu ||
-                    tb == txtKhoToChay || tb == txtGiayBao
-                    )
-                {
-                    this.DataChanged = true;
-
-                }
-            }
-            Telerik.WinControls.UI.RadTextBoxControl tbc;
-            if (sender is Telerik.WinControls.UI.RadTextBoxControl)
-            {
-                tbc = (Telerik.WinControls.UI.RadTextBoxControl)sender;
-
-                if (tbc == txtMoTa || tbc == txtNoiDungBangGia)
-                   
-                {
-                    this.DataChanged = true;
-                }
-               
-               
-
-            }
-             Telerik.WinControls.UI.RadCheckBox chk;
-             if (sender is Telerik.WinControls.UI.RadCheckBox)
-             {
-                 chk = (Telerik.WinControls.UI.RadCheckBox)sender;
-                 if (chk == chkKhongSuDung || chk == chkIn2Mat)
-                     this.DataChanged = true;
-             }
-
+            this.DataChanged = true;
             btnLuu.Enabled = this.DataChanged;
 
         }
@@ -311,20 +311,13 @@ namespace TinhGiaInNhapLieu
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
                 //Chỉ thêm số chẵn      
                 if ( tb == txtThuTu ||
-                    tb == txtSoHopToiDa )//chỉ được nhập số chẵn 
+                    tb == txtSoHopToiDa || tb == txtSoDanhThiepTrenHop )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
               
-                //Xử lý xóa hêt
-               
-                if (tb == txtSoHopToiDa)
-                    if (string.IsNullOrEmpty(txtSoHopToiDa.Text.Trim()))
-                        txtSoHopToiDa.Text = "1";
-                if (tb == txtThuTu)
-                    if (string.IsNullOrEmpty(txtThuTu.Text.Trim()))
-                        txtThuTu.Text = "0";
+                
                
             }
         }

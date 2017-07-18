@@ -29,6 +29,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhoToChay = x.kho_to_chay,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoHopToiDa = (int)x.so_hop_toi_da,
+                    SoDanhThiepTrenHop = (int)x.so_danh_thiep_tren_hop,
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -56,6 +57,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhoToChay = x.kho_to_chay,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoHopToiDa = (int)x.so_hop_toi_da,
+                    SoDanhThiepTrenHop = (int)x.so_danh_thiep_tren_hop,
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -84,6 +86,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhoToChay = x.kho_to_chay,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoHopToiDa = (int)x.so_hop_toi_da,
+                    SoDanhThiepTrenHop = (int)x.so_danh_thiep_tren_hop,
                     ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
                 
@@ -181,6 +184,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.in_hai_mat = entityBDO.InHaiMat;
             entityDAO.giay_bao_gom = entityBDO.GiayBaoGom;
             entityDAO.kho_to_chay = entityBDO.KhoToChay;
+            entityDAO.so_danh_thiep_tren_hop = entityBDO.SoDanhThiepTrenHop;
             entityDAO.thu_tu = entityBDO.ThuTu;
         }
     }

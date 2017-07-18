@@ -23,6 +23,7 @@ namespace TinhGiaInClient.Model
         public string GiayBaoGom { get; set; }
         public string KhoToChay { get; set; }
         public int SoHopToiDa { get; set; }
+        public int SoDanhThiepTrenHop { get; set; }
         //==
         #region Các hàm static
         public static List<BangGiaDanhThiep> DocTatCa()
@@ -45,6 +46,7 @@ namespace TinhGiaInClient.Model
                     NoiDungBangGia = x.NoiDungBangGia,
                     GiayBaoGom = x.GiayBaoGom,
                     KhoToChay = x.KhoToChay,
+                    SoDanhThiepTrenHop = x.SoDanhThiepTrenHop,
                     ThuTu = x.ThuTu
 
                 }).OrderBy(x => x.ThuTu).ToList();
@@ -72,6 +74,7 @@ namespace TinhGiaInClient.Model
                     NoiDungBangGia = x.NoiDungBangGia,
                     GiayBaoGom = x.GiayBaoGom,
                     KhoToChay = x.KhoToChay,
+                    SoDanhThiepTrenHop = x.SoDanhThiepTrenHop,
                     ThuTu = x.ThuTu
 
                 }).OrderBy(x => x.ThuTu).ToList();
@@ -126,6 +129,7 @@ namespace TinhGiaInClient.Model
             bGiaDanhThiep.NoiDungBangGia = bGiaDanhThiepBDO.NoiDungBangGia;
             bGiaDanhThiep.GiayBaoGom = bGiaDanhThiepBDO.GiayBaoGom;
             bGiaDanhThiep.KhoToChay = bGiaDanhThiepBDO.KhoToChay;
+            bGiaDanhThiep.SoDanhThiepTrenHop = bGiaDanhThiepBDO.SoDanhThiepTrenHop;
         }
         private static void ChuyenDoDTOThanhBDO(BangGiaDanhThiep bGiaDanhThiep, BangGiaDanhThiepBDO bGiaDanhThiepBDO)
         {
@@ -142,6 +146,7 @@ namespace TinhGiaInClient.Model
             bGiaDanhThiepBDO.NoiDungBangGia = bGiaDanhThiep.NoiDungBangGia;
             bGiaDanhThiepBDO.GiayBaoGom = bGiaDanhThiep.GiayBaoGom;
             bGiaDanhThiepBDO.KhoToChay = bGiaDanhThiep.KhoToChay;
+            bGiaDanhThiepBDO.SoDanhThiepTrenHop = bGiaDanhThiep.SoDanhThiepTrenHop;
         }
         #endregion
 

@@ -65,6 +65,10 @@ namespace TinhGiaInClient.Presenter
             
             return BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).SoHopToiDa;
         }
+        public int SoDanhThiepTrenMoiHop()
+        {
+            return BangGiaDanhThiep.DocTheoId(View.IdBangGiaChon).SoDanhThiepTrenHop;
+        }
         public string KhoToChay()
         {
             if (View.IdBangGiaChon <= 0)

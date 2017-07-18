@@ -17,6 +17,7 @@
     <Property Name="thu_tu" Type="int" />
     <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
     <Property Name="ID_HANG_KHACH_HANG" Type="int" />
+    <Property Name="so_danh_thiep_tren_hop" Type="int" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="BANG_GIA_IN_NHANH">
@@ -54,6 +55,7 @@
     <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
     <Property Name="ID_HANG_KHACH_HANG" Type="int" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
+    <Property Name="kich_thuoc" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="BOI_BIA_CUNG">
     <Key>

@@ -94,6 +94,12 @@
     <Compile Include="GiaInTheNhuaForm.Designer.cs">
       <DependentUpon>GiaInTheNhuaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GiayInDanhThiepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiayInDanhThiepForm.Designer.cs">
+      <DependentUpon>GiayInDanhThiepForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InToForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,8 @@
     <Compile Include="Model\Support\IGiaTuyChonSChon.cs" />
     <Compile Include="Model\Support\GiaTuyChonDanhThiepChon.cs" />
     <Compile Include="Model\Support\GiaTuyChonTheNhuaChon.cs" />
+    <Compile Include="Model\Support\IThongTinBanDauChoGiayIn.cs" />
+    <Compile Include="Model\Support\ThongTinBanDauChoGiayInDanhThiep.cs" />
     <Compile Include="Model\TuyChonTheNhua.cs" />
     <Compile Include="Model\TuyChonDanhThiep.cs" />
     <Compile Include="Model\ToBoiBiaCung.cs" />
@@ -238,6 +246,7 @@
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
     <Compile Include="Presenter\GiaTheNhuaPresenter.cs" />
+    <Compile Include="Presenter\GiayInDanhThiepPresenter.cs" />
     <Compile Include="Presenter\InSachDigiPresenter.cs" />
     <Compile Include="Presenter\ThCatDeCalPresenter.cs" />
     <Compile Include="Presenter\ThPhBoiBiaCungPresenter.cs" />
@@ -361,6 +370,7 @@
     <Compile Include="View\IViewGiaInOffset.cs" />
     <Compile Include="View\IViewGiaInNhanhThu.cs" />
     <Compile Include="View\IViewGiaCanGap.cs" />
+    <Compile Include="View\IViewGiayInDanhThiep.cs" />
     <Compile Include="View\IViewInSachDigi.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
     <Compile Include="View\IViewThPhCatDecal.cs" />
@@ -409,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GiaInTheNhuaForm.resx">
       <DependentUpon>GiaInTheNhuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiayInDanhThiepForm.resx">
+      <DependentUpon>GiayInDanhThiepForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InToForm.resx">
       <DependentUpon>InToForm.cs</DependentUpon>

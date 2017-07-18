@@ -24,7 +24,7 @@ namespace TinhGiaInNhapLieu.View
         bool InHaiMat { get; set; }
         string GiayBaoGom { get; set; }
         string KhoToChay { get; set; }
-        
+        int SoDanhThiepTrenHop { get; set; }
         FormStateS TinhTrangForm { get; set; }
         bool DataChanged { get; set; }
         //

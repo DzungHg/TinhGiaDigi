@@ -438,6 +438,7 @@
     <Property Name="kho_to_chay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="GIA_TUY_CHON_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" FromRole="BANG_GIA_DANH_THIEP" ToRole="GIA_TUY_CHON_DANH_THIEP" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="so_danh_thiep_tren_hop" Type="Int32" />
   </EntityType>
   <Association Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
     <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -648,6 +649,7 @@
     <NavigationProperty Name="GIA_TUY_CHON_THE_NHUA" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" FromRole="BANG_GIA_THE_NHUA" ToRole="GIA_TUY_CHON_THE_NHUA" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="vat_lieu_in_bao_gom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="kich_thuoc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="GIA_TUY_CHON_DANH_THIEP">
     <Key>

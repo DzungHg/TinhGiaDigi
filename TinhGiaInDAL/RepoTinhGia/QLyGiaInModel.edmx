@@ -22,6 +22,7 @@
           <Property Name="thu_tu" Type="int" />
           <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
           <Property Name="ID_HANG_KHACH_HANG" Type="int" />
+          <Property Name="so_danh_thiep_tren_hop" Type="int" />
           <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="BANG_GIA_IN_NHANH">
@@ -59,6 +60,7 @@
           <Property Name="kho_to_chay" Type="nvarchar" MaxLength="20" />
           <Property Name="ID_HANG_KHACH_HANG" Type="int" />
           <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
+          <Property Name="kich_thuoc" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="BOI_BIA_CUNG">
           <Key>
@@ -1174,6 +1176,7 @@
           <Property Name="kho_to_chay" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="GIA_TUY_CHON_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_BANG_GIA_DANH_THIEP" FromRole="BANG_GIA_DANH_THIEP" ToRole="GIA_TUY_CHON_DANH_THIEP" />
           <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="so_danh_thiep_tren_hop" Type="Int32" />
         </EntityType>
         <Association Name="FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG">
           <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -1384,6 +1387,7 @@
           <NavigationProperty Name="GIA_TUY_CHON_THE_NHUA" Relationship="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" FromRole="BANG_GIA_THE_NHUA" ToRole="GIA_TUY_CHON_THE_NHUA" />
           <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="vat_lieu_in_bao_gom" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="kich_thuoc" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="GIA_TUY_CHON_DANH_THIEP">
           <Key>
@@ -1739,6 +1743,7 @@
           <EntitySetMapping Name="BANG_GIA_DANH_THIEP">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_DANH_THIEP">
               <MappingFragment StoreEntitySet="BANG_GIA_DANH_THIEP">
+                <ScalarProperty Name="so_danh_thiep_tren_hop" ColumnName="so_danh_thiep_tren_hop" />
                 <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
                 <ScalarProperty Name="kho_to_chay" ColumnName="kho_to_chay" />
                 <ScalarProperty Name="giay_bao_gom" ColumnName="giay_bao_gom" />
@@ -1948,6 +1953,7 @@
           <EntitySetMapping Name="BANG_GIA_THE_NHUA">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_THE_NHUA">
               <MappingFragment StoreEntitySet="BANG_GIA_THE_NHUA">
+                <ScalarProperty Name="kich_thuoc" ColumnName="kich_thuoc" />
                 <ScalarProperty Name="vat_lieu_in_bao_gom" ColumnName="vat_lieu_in_bao_gom" />
                 <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
                 <ScalarProperty Name="ID_HANG_KHACH_HANG" ColumnName="ID_HANG_KHACH_HANG" />

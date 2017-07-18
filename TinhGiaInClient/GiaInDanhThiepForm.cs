@@ -229,7 +229,9 @@ namespace TinhGiaInClient
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-            TextBox t;
+            this.DataChanged = true;
+            BatTatNutTinh();
+           /* TextBox t;
             
             if (sender is TextBox)
             {
@@ -243,9 +245,21 @@ namespace TinhGiaInClient
                 }
                 if (t == txtTieuDe)
                 {
-                    DataChanged = true;
+                    this.DataChanged = true;
+                    BatTatNutTinh();
                 }
             }
+           
+            Label lb;
+            if (sender is Label)
+            {
+                lb = (Label)sender;
+                if (lb == lblTienGiay)
+                {
+                    this.DataChanged = true;
+                    BatTatNutTinh();
+                }
+            }*/
             
 
         }
@@ -280,19 +294,24 @@ namespace TinhGiaInClient
 
         }
         #region đổi giấy 
-        private ThongTinBanDauChoGiayIn thongTinBanDauChoGiayIn(FormStateS tinhTrangForm)
+        private ThongTinBanDauChoGiayInDanhThiep thongTinBanDauChoGiayIn(FormStateS tinhTrangForm)
         {
-            var thongTinBanDau = new ThongTinBanDauChoGiayIn();
+            var thongTinBanDau = new ThongTinBanDauChoGiayInDanhThiep();
             thongTinBanDau.TinhTrangForm = tinhTrangForm;
-            thongTinBanDau.SoLuongSanPham = this.SoLuong * 100;
-            thongTinBanDau.LaInDanhThiep = true;//In danh thiếp để tắt nút tính số con
+            thongTinBanDau.KichThuocSanPham = new KichThuocPhang
+            {
+                Rong = 9 + 0.4f,
+                Dai = 5.5f + 0.4f
+            };
+            thongTinBanDau.SoLuongSanPham = this.SoLuong; //Số hộp
+            thongTinBanDau.SoDanhThiepTrenHop = giaDanhThiepPres.SoDanhThiepTrenMoiHop(); //lấy từ đatabase
             thongTinBanDau.IdHangKhachHang = this.IdHangKH;
             thongTinBanDau.IdToIn_MayInChon = 1; //Đưa tượng trưng
             thongTinBanDau.PhuongPhapIn = PhuongPhapInS.Toner;
             thongTinBanDau.ThongTinCanThiet = string.Format("Danh thiếp {0} " + '\r' + '\n',
                 this.KichThuoc)
-                + string.Format("Số lượng {0} cái ({1} hộp)" + '\r' + '\n',
-                this.SoLuong * 100, this.SoLuong)
+                + string.Format("Số hộp: {0})" + '\r' + '\n',
+                this.SoLuong)
                 + "Cần cẩn thận chọn khổ giấy";
 
             return thongTinBanDau;
@@ -304,7 +323,7 @@ namespace TinhGiaInClient
             var mucGiayDeIn = new GiayDeIn(32, 47, 1, 1, 1,
                 1, false, 0, "", 1, 1, 1, 0);//
             //Tiến hành gắn
-            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(FormStateS.New), mucGiayDeIn);
+            var frm = new GiayInDanhThiepForm(thongTinBanDauChoGiayIn(FormStateS.New), mucGiayDeIn);
             frm.Text = "[Đổi] Giấy in Danh thiếp";
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -323,7 +342,7 @@ namespace TinhGiaInClient
             if (this.GiayDeInChon == null)
                 return;
 
-            var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(FormStateS.Edit), this.GiayDeInChon);
+            var frm = new GiayInDanhThiepForm(thongTinBanDauChoGiayIn(FormStateS.Edit), this.GiayDeInChon);
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -343,7 +362,7 @@ namespace TinhGiaInClient
 
 
         }
-        private void XuLyNutOKTrenFormChuanBiGiay_Click(GiayDeInForm frm)
+        private void XuLyNutOKTrenFormChuanBiGiay_Click(GiayInDanhThiepForm frm)
         {
             
             switch (frm.TinhTrangForm)

@@ -19,6 +19,7 @@ namespace TinhGiaInBDO
         public string NoiDungBangGia { get; set; }
         public string GiayBaoGom { get; set; }
         public string KhoToChay { get; set; }
+        public int SoDanhThiepTrenHop { get; set; }
         public int ThuTu { get; set; }
         public bool KhongCon { get; set; }
     }

@@ -33,6 +33,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string giay_bao_gom { get; set; }
         public string kho_to_chay { get; set; }
         public string don_vi_tinh { get; set; }
+        public Nullable<int> so_danh_thiep_tren_hop { get; set; }
     
         public virtual HANG_KHACH_HANG HANG_KHACH_HANG { get; set; }
         public virtual ICollection<GIA_TUY_CHON_DANH_THIEP> GIA_TUY_CHON_DANH_THIEP { get; set; }
