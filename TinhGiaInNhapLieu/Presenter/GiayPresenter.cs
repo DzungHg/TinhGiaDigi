@@ -34,7 +34,7 @@ namespace TinhGiaInNhapLieu.Presenter
                     View.DienGiai = "Diễn giải";
                     View.TenGiay = "giấy";
                     View.MaGiayNhaCungCap = "Mã NCC";
-                    View.MaTuDat = "Mã tự đặt";
+                    View.MaTuDat = "";
                     View.GiaMua = 250;
                     View.ChieuNgan = 32;
                     View.ChieuDai = 47;

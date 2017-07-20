@@ -241,7 +241,8 @@ namespace TinhGiaInNhapLieu
                 }
                 if (tb == txtMaGiayNCC)
                 {
-                    txtMaGiayTuDat.Text = txtMaGiayNCC.Text.Trim();
+                    if (string.IsNullOrEmpty(txtMaGiayTuDat.Text.Trim()))
+                        txtMaGiayTuDat.Text = txtMaGiayNCC.Text.Trim();
                 }
                 if (tb == txtTenGiay || tb == txtChieuDai || tb == txtChieuNgan ||
                     tb == txtDinhLuong)
