@@ -48,7 +48,7 @@ namespace TinhGiaInClient.Model
             //Tùy chọn
 
             if (this.TuyChonSChon.TuyChonS.Count > 0)
-                tienTuyChon = this.TuyChonSChon.GiaTong();
+                tienTuyChon = this.TuyChonSChon.GiaTong() * this.SoLuongThe;
             //giấy
             if (this.GiayIn != null)
                 tienGiay = this.GiayIn.ThanhTienGiay;

@@ -76,7 +76,7 @@ namespace TinhGiaInClient.Model
         {
             decimal kq = 0;
             if (this.TuyChonSChon.TuyChonS.Count > 0)
-                kq = this.TuyChonSChon.GiaTong();
+                kq = this.TuyChonSChon.GiaTong() * this.SoLuongHop;
 
             return kq;
         }
