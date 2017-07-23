@@ -10,6 +10,7 @@ namespace TinhGiaInClient.Model.Support
     {
         public string ThongTinCanThiet { get; set; }
         public int SoLuongSanPham { get; set; }
+        public string DonViTinhSanPham { get; set; }
         public KichThuocPhang KichThuocSanPham { get; set; }
        
 

@@ -16,6 +16,9 @@ namespace TinhGiaInClient.UI
 {
     public partial class TinhThuForm : Form
     {
+        GiaInNhanhThuForm frmGiaInNhanh;
+        GiayDeInForm frmGiayDeIn;
+
         public TinhThuForm()
         {
             InitializeComponent();
@@ -42,6 +45,19 @@ namespace TinhGiaInClient.UI
         private string TenMayTinhHienTai()
         {
             return System.Environment.MachineName;
+        }
+        private void ByByWindows(object sender, FormClosedEventArgs e)
+        {
+            Form frm;
+            if (sender is Form)
+            {
+                frm = (Form)sender;
+                if (frm == frmGiaInNhanh)
+                    frmGiaInNhanh = null;
+                if (frm == frmGiaInNhanh)
+                    frmGiayDeIn = null;
+            }
+
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -252,14 +268,22 @@ namespace TinhGiaInClient.UI
 
         private void btnGiaInNhanh_Click(object sender, EventArgs e)
         {
+            if (frmGiaInNhanh == null)
+            {
+                frmGiaInNhanh = new GiaInNhanhThuForm((int)FormStateS.View,
+               int.Parse(cboHangKH.SelectedValue.ToString()));
+                frmGiaInNhanh.FormClosed += new FormClosedEventHandler(ByByWindows);
+                frmGiaInNhanh.Text = "Tính thử " + cboHangKH.Text;
+                frmGiaInNhanh.MinimizeBox = false;
+                frmGiaInNhanh.MaximizeBox = false;
+                frmGiaInNhanh.StartPosition = FormStartPosition.CenterParent;
+                frmGiaInNhanh.Show();
 
-            var frm = new GiaInNhanhThuForm((int)FormStateS.View,
-                int.Parse(cboHangKH.SelectedValue.ToString()));
-            frm.Text = "Tính thử " + cboHangKH.Text;
-            frm.MinimizeBox = false;
-            frm.MaximizeBox = false;
-            frm.StartPosition = FormStartPosition.CenterParent;            
-            frm.Show();
+
+            }
+            else
+                frmGiaInNhanh.Focus();
+           
            
         }
 
@@ -293,6 +317,7 @@ namespace TinhGiaInClient.UI
             var thongTinBanDauLX = new  ThongTinBanDauDongCuon();
             thongTinBanDauLX.TinhTrangForm =  FormStateS.View;
             thongTinBanDauLX.TieuDeForm = "Đóng cuốn [Tính thử]";
+            thongTinBanDauLX.MoTextSoLuongCuon = true;
             //Tạo mục đóng cuốn
             var mucDongCuonLX = new MucDongCuonLoXo();
             mucDongCuonLX.IdBaiIn = 1;
@@ -452,6 +477,42 @@ namespace TinhGiaInClient.UI
         private void btnTinhThu_BoiBiaCung_Click(object sender, EventArgs e)
         {
             TinhThuBoiBiaCung();
+        }
+
+        private void btnGiaGiayIn_Click(object sender, EventArgs e)
+        {
+
+            if (frmGiayDeIn == null)
+            {
+                //Thông tin ban đầu
+                var kichThuocSP = new KichThuocPhang
+                {
+                    Rong = 32,
+                    Dai = 22
+                };
+                var thongTinBanDau = new ThongTinBanDauChoGiayIn();
+                thongTinBanDau.IdHangKhachHang = this.IdHangKhachHang;
+                thongTinBanDau.TinhTrangForm = FormStateS.TinhThu;
+                thongTinBanDau.KichThuocSanPham = kichThuocSP;
+                thongTinBanDau.DonViTinhSanPham = "Tờ";
+                thongTinBanDau.SoLuongSanPham = 10;
+                thongTinBanDau.ThongTinCanThiet = string.Format("Khổ SP A4: {0} x {1}cm",
+                    kichThuocSP.Rong, kichThuocSP.Dai);
+
+                //Giây de in
+                GiayDeIn giayDeIn = new GiayDeIn(32, 47, 2, 1, 0, 0, false,
+                    0, "", 1, 5, 1, 0);
+                frmGiayDeIn = new GiayDeInForm(thongTinBanDau, giayDeIn);
+                frmGiayDeIn.FormClosed += new FormClosedEventHandler(ByByWindows);
+                frmGiayDeIn.Text = "Tính thử " + cboHangKH.Text;
+                frmGiayDeIn.MinimizeBox = false;
+                frmGiayDeIn.MaximizeBox = false;
+                frmGiayDeIn.StartPosition = FormStartPosition.CenterParent;
+                frmGiayDeIn.Show();
+            }
+            else
+                frmGiayDeIn.Focus();
+           
         }
     }
 }

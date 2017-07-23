@@ -464,6 +464,7 @@ namespace TinhGiaInClient
             thongTinBanDau.IdHangKhachHang = baiIn.IdHangKH;
             thongTinBanDau.TinhTrangForm = tinhTrangForm;
             thongTinBanDau.SoLuongSanPham = baiIn.SoLuong;
+            thongTinBanDau.DonViTinhSanPham = baiIn.DonVi;
             thongTinBanDau.LaInDanhThiep = false;
             //lấy kích thước sp
             KichThuocPhang kichThuocSP = new KichThuocPhang();

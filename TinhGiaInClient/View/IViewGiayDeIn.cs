@@ -23,7 +23,8 @@ namespace TinhGiaInClient.View
         float ToChayDai { get; set; }
        
         int SoLuongSanPham { get; set; }
-        KichThuocPhang KichThuocSanPham { get; set; }
+        float  SanPhamRong { get; set; }
+        float SanPhamCao { get; set; }
         int SoConTrenToChay { get; set; }
         int SoLuongToChayLyThuyet { get; }
         int SoLuongToChayBuHao { get; set; }

@@ -25,7 +25,10 @@ namespace TinhGiaInClient
             this.SoLuongSanPham = thongTinBanDau.SoLuongSanPham;
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;
             this.PhuongPhapIn = thongTinBanDau.PhuongPhapIn;
-            this.KichThuocSanPham = thongTinBanDau.KichThuocSanPham;
+            this.SanPhamRong = thongTinBanDau.KichThuocSanPham.Rong;
+            this.SanPhamCao = thongTinBanDau.KichThuocSanPham.Dai;
+            lblDonViTinh.Text = thongTinBanDau.DonViTinhSanPham;
+            
             if (thongTinBanDau.LaInDanhThiep) //bắt nút tính số con
                 btnTinhSoConTrenToChay.Enabled = false;
             else
@@ -43,6 +46,9 @@ namespace TinhGiaInClient
             txtSoConTrenToIn.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToChayRong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToChayDai.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoLuongSP.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSPRong.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSPCao.KeyPress += new KeyPressEventHandler(InputValidator);
 
             txtSoToChayBuHao.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToChayTrenToLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -50,7 +56,9 @@ namespace TinhGiaInClient
             txtSoConTrenToIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToGiayLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtTenGiayIn.TextChanged += new EventHandler(TextBoxes_TextChanged);
-
+            txtSoLuongSP.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSPRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSPCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
             chkGiayKhach.CheckedChanged += new EventHandler(TextBoxes_TextChanged);
            
             lblSoToInTong.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -60,6 +68,9 @@ namespace TinhGiaInClient
             txtSoConTrenToIn.Leave += new EventHandler(TextBoxes_Leave);
             txtSoToChayBuHao.Leave += new EventHandler(TextBoxes_Leave);
             txtSoToChayTrenToLon.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoLuongSP.Leave += new EventHandler(TextBoxes_Leave);
+            txtSPRong.Leave += new EventHandler(TextBoxes_Leave);
+            txtSPCao.Leave += new EventHandler(TextBoxes_Leave);
            
             
         }
@@ -105,8 +116,24 @@ namespace TinhGiaInClient
             set { chkGiayKhach.Checked = value; }
         }
         
-        public int SoLuongSanPham { get; set; }
-        public KichThuocPhang KichThuocSanPham { get; set; }
+        public int SoLuongSanPham 
+        { 
+            get {return int.Parse(txtSoLuongSP.Text);}
+            set {txtSoLuongSP.Text = value.ToString(); }
+        }
+       
+        public float SanPhamRong
+        {
+            get {return float.Parse(txtSPRong.Text);}
+            set { txtSPRong.Text = value.ToString();}
+
+        }
+         public float SanPhamCao
+        {
+            get {return float.Parse(txtSPCao.Text);}
+            set { txtSPCao.Text = value.ToString();}
+
+        }
         public float ToChayRong {  
             get
             {
@@ -193,21 +220,31 @@ namespace TinhGiaInClient
         {
             return giayDeInPres.DocGiayDeIn();
         }
-     
-      
+
+
         private void ChuanBiGiayForm_Load(object sender, EventArgs e)
         {
-           
-            //Khóa nếu view
-            if (this.TinhTrangForm == FormStateS.View)
-                KhoaCacControlsChoView();
+
+            //Khóa controls theo formState
+            switch (this.TinhTrangForm)
+            {
+                case FormStateS.View:
+                    KhoaCacControlsChoView();
+                    break;
+                case FormStateS.TinhThu:
+                    KhoaCacControlsCho_TinhThu();
+                    break;
+                default:
+                    KhoaCacControlsCho_NewEdit();
+                    break;
+            }
 
             lblTieuDeForm.Text = this.Text;
             XuLyGiayKhachHangDua();//Swicth
             //Bật tắt nút Nhận
             BatTatNutOKTheoDieuKien();
             //if (this.PhuongPhapIn == PhuongPhapInS.KhongIn)
-             //   ;
+            //   ;
             CapNhatMotSoTong();//Mặc định có
             CapNhatTriGiaVoLabels();
             //Đưa form về chưa thay đổi
@@ -224,13 +261,14 @@ namespace TinhGiaInClient
                 t = (TextBox)sender;
                 //Paper tab prod paper
                 if (t == txtSoToChayBuHao || t == txtSoToChayLyThuyet || t == txtSoToChayTrenToLon ||
-                    t == txtSoConTrenToIn)//chỉ được nhập số chẵn 
+                    t == txtSoConTrenToIn || t == txtSoLuongSP)//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
                 
-                if (t == txtToChayRong || t == txtToChayDai)
+                if (t == txtToChayRong || t == txtToChayDai ||
+                    t == txtSPRong || t == txtSPCao)
                     //nhập được số thập phân 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46)
@@ -257,6 +295,23 @@ namespace TinhGiaInClient
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
+                if (tb == txtSPRong)
+                {
+                    if (string.IsNullOrEmpty(txtSPRong.Text.Trim()))
+                    {
+                        this.SanPhamRong = 31;
+                    }
+                    TinhSoConTrenToChay();
+                }
+                if (tb == txtSPCao)
+                {
+                    if (string.IsNullOrEmpty(txtSPCao.Text.Trim()))
+                    {
+                        this.SanPhamCao = 21;
+                    }
+                    TinhSoConTrenToChay();
+                }
+
                 if (tb == txtToChayRong)
                 {
                     if (string.IsNullOrEmpty(txtToChayRong.Text.Trim()))
@@ -312,6 +367,8 @@ namespace TinhGiaInClient
                     txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
                     CapNhatTriGiaVoLabels();
                 }
+
+
                
 
             }
@@ -336,6 +393,8 @@ namespace TinhGiaInClient
             txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
             lblGiaBan.Text = string.Format(info, "{0:c}/tờ", this.GiaBan);
             lblThanhTien.Text = string.Format(info, "{0:c}/tờ", this.ThanhTien);
+            txtGiaGiayTB_SPham.Text = string.Format(info, "{0:c}",
+                Math.Round(this.ThanhTien / this.SoLuongSanPham, 0));
            
         }
         private void KhoaCacControlsChoView()
@@ -347,6 +406,18 @@ namespace TinhGiaInClient
             txtSoToChayLyThuyet.Enabled = false;
             txtSoToChayBuHao.Enabled = false;
             txtSoToChayTrenToLon.Enabled = false;
+        }
+        private void KhoaCacControlsCho_NewEdit()
+        {
+            grbSanPham.Enabled = false;
+            grbSanPham.TabStop = false;
+
+            
+        }
+        private void KhoaCacControlsCho_TinhThu()
+        {
+            grbSanPham.Enabled = true;
+            grbSanPham.TabStop = true;
         }
         private bool KiemTraHopLe(ref string errorMessage)
         {
@@ -448,7 +519,7 @@ namespace TinhGiaInClient
         private void TinhSoConTrenToChay()
         {
             this.SoConTrenToChay = TinhToan.SoConTrenToChayDigi(this.ToChayRong, this.ToChayDai,
-                           this.KichThuocSanPham.Rong, this.KichThuocSanPham.Dai);
+                           this.SanPhamRong, this.SanPhamCao);
         }
         private void btnTinhSoConTrenToChay_Click(object sender, EventArgs e)
         {

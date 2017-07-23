@@ -41,8 +41,9 @@
             this.btnTinhThu_GiaDongCuonLoXo = new System.Windows.Forms.Button();
             this.btnTinhThu_DongCuonMoPhang = new System.Windows.Forms.Button();
             this.btnTinhThu_CatDecal = new System.Windows.Forms.Button();
-            this.pnlTop = new System.Windows.Forms.Panel();
             this.btnTinhThu_BoiBiaCung = new System.Windows.Forms.Button();
+            this.pnlTop = new System.Windows.Forms.Panel();
+            this.btnGiaGiayIn = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flowLayoutPanel2.Controls.Add(this.btnGiaInNhanh);
+            this.flowLayoutPanel2.Controls.Add(this.btnGiaGiayIn);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_CanPhu);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_CanGap);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_DongCuon);
@@ -115,7 +117,7 @@
             // 
             // btnTinhThu_CanPhu
             // 
-            this.btnTinhThu_CanPhu.Location = new System.Drawing.Point(101, 3);
+            this.btnTinhThu_CanPhu.Location = new System.Drawing.Point(199, 3);
             this.btnTinhThu_CanPhu.Name = "btnTinhThu_CanPhu";
             this.btnTinhThu_CanPhu.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_CanPhu.TabIndex = 6;
@@ -125,7 +127,7 @@
             // 
             // btnTinhThu_CanGap
             // 
-            this.btnTinhThu_CanGap.Location = new System.Drawing.Point(199, 3);
+            this.btnTinhThu_CanGap.Location = new System.Drawing.Point(297, 3);
             this.btnTinhThu_CanGap.Name = "btnTinhThu_CanGap";
             this.btnTinhThu_CanGap.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_CanGap.TabIndex = 7;
@@ -135,7 +137,7 @@
             // 
             // btnTinhThu_DongCuon
             // 
-            this.btnTinhThu_DongCuon.Location = new System.Drawing.Point(297, 3);
+            this.btnTinhThu_DongCuon.Location = new System.Drawing.Point(3, 46);
             this.btnTinhThu_DongCuon.Name = "btnTinhThu_DongCuon";
             this.btnTinhThu_DongCuon.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_DongCuon.TabIndex = 4;
@@ -145,7 +147,7 @@
             // 
             // btnTinhThu_EpKim
             // 
-            this.btnTinhThu_EpKim.Location = new System.Drawing.Point(3, 46);
+            this.btnTinhThu_EpKim.Location = new System.Drawing.Point(101, 46);
             this.btnTinhThu_EpKim.Name = "btnTinhThu_EpKim";
             this.btnTinhThu_EpKim.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_EpKim.TabIndex = 8;
@@ -155,7 +157,7 @@
             // 
             // btnTinhThu_GiaDongCuonLoXo
             // 
-            this.btnTinhThu_GiaDongCuonLoXo.Location = new System.Drawing.Point(101, 46);
+            this.btnTinhThu_GiaDongCuonLoXo.Location = new System.Drawing.Point(199, 46);
             this.btnTinhThu_GiaDongCuonLoXo.Name = "btnTinhThu_GiaDongCuonLoXo";
             this.btnTinhThu_GiaDongCuonLoXo.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_GiaDongCuonLoXo.TabIndex = 10;
@@ -165,7 +167,7 @@
             // 
             // btnTinhThu_DongCuonMoPhang
             // 
-            this.btnTinhThu_DongCuonMoPhang.Location = new System.Drawing.Point(199, 46);
+            this.btnTinhThu_DongCuonMoPhang.Location = new System.Drawing.Point(297, 46);
             this.btnTinhThu_DongCuonMoPhang.Name = "btnTinhThu_DongCuonMoPhang";
             this.btnTinhThu_DongCuonMoPhang.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_DongCuonMoPhang.TabIndex = 11;
@@ -175,13 +177,23 @@
             // 
             // btnTinhThu_CatDecal
             // 
-            this.btnTinhThu_CatDecal.Location = new System.Drawing.Point(297, 46);
+            this.btnTinhThu_CatDecal.Location = new System.Drawing.Point(3, 89);
             this.btnTinhThu_CatDecal.Name = "btnTinhThu_CatDecal";
             this.btnTinhThu_CatDecal.Size = new System.Drawing.Size(92, 37);
             this.btnTinhThu_CatDecal.TabIndex = 12;
             this.btnTinhThu_CatDecal.Text = "Cắt Decal";
             this.btnTinhThu_CatDecal.UseVisualStyleBackColor = true;
             this.btnTinhThu_CatDecal.Click += new System.EventHandler(this.btnTinhThu_CatDecal_Click);
+            // 
+            // btnTinhThu_BoiBiaCung
+            // 
+            this.btnTinhThu_BoiBiaCung.Location = new System.Drawing.Point(101, 89);
+            this.btnTinhThu_BoiBiaCung.Name = "btnTinhThu_BoiBiaCung";
+            this.btnTinhThu_BoiBiaCung.Size = new System.Drawing.Size(92, 37);
+            this.btnTinhThu_BoiBiaCung.TabIndex = 13;
+            this.btnTinhThu_BoiBiaCung.Text = "Bồi Bìa cứng";
+            this.btnTinhThu_BoiBiaCung.UseVisualStyleBackColor = true;
+            this.btnTinhThu_BoiBiaCung.Click += new System.EventHandler(this.btnTinhThu_BoiBiaCung_Click);
             // 
             // pnlTop
             // 
@@ -193,15 +205,15 @@
             this.pnlTop.Size = new System.Drawing.Size(412, 36);
             this.pnlTop.TabIndex = 5;
             // 
-            // btnTinhThu_BoiBiaCung
+            // btnGiaGiayIn
             // 
-            this.btnTinhThu_BoiBiaCung.Location = new System.Drawing.Point(3, 89);
-            this.btnTinhThu_BoiBiaCung.Name = "btnTinhThu_BoiBiaCung";
-            this.btnTinhThu_BoiBiaCung.Size = new System.Drawing.Size(92, 37);
-            this.btnTinhThu_BoiBiaCung.TabIndex = 13;
-            this.btnTinhThu_BoiBiaCung.Text = "Bồi Bìa cứng";
-            this.btnTinhThu_BoiBiaCung.UseVisualStyleBackColor = true;
-            this.btnTinhThu_BoiBiaCung.Click += new System.EventHandler(this.btnTinhThu_BoiBiaCung_Click);
+            this.btnGiaGiayIn.Location = new System.Drawing.Point(101, 3);
+            this.btnGiaGiayIn.Name = "btnGiaGiayIn";
+            this.btnGiaGiayIn.Size = new System.Drawing.Size(92, 37);
+            this.btnGiaGiayIn.TabIndex = 14;
+            this.btnGiaGiayIn.Text = "Giá giấy in";
+            this.btnGiaGiayIn.UseVisualStyleBackColor = true;
+            this.btnGiaGiayIn.Click += new System.EventHandler(this.btnGiaGiayIn_Click);
             // 
             // TinhThuForm
             // 
@@ -243,6 +255,7 @@
         private System.Windows.Forms.Button btnTinhThu_CatDecal;
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnTinhThu_BoiBiaCung;
+        private System.Windows.Forms.Button btnGiaGiayIn;
 
     }
 }

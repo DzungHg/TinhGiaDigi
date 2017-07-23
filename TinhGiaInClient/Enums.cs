@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient
 {
-    public enum FormStateS { View = 0, New = 1, Edit = 2, Get = 3 }
+    public enum FormStateS { View = 0, New = 1, Edit = 2, Get = 3, TinhThu = 10 }
     public enum SapXepTinhGiaS { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoTieuDe = 3 }
     public enum ChieuSapXepS { Ascending = 0, Descending = 1 }
     public enum LoaiThanhPhamS { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4,
