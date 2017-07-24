@@ -34,6 +34,17 @@ namespace TinhGiaInClient.Presenter
             View.IdGiay = MucGiayDeIn.IdGiay;
 
         }
+        public string TenGiayDeIn()
+        {
+            var kq = "";
+            if (View.IdGiay > 0)
+            {
+                kq = string.Format("[{0}] {1}",
+                    Giay.DocGiayTheoId(View.IdGiay).TenDanhMucGiay,
+                    Giay.DocGiayTheoId(View.IdGiay).TenGiayMoRong);
+            }
+            return kq;
+        }
         private void KhoiTaoGiaTriBanDau()
         {            
           /*  

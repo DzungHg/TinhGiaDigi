@@ -31,6 +31,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     GiaMua = (int)x.Gia_mua,
                     KhongCon = (bool)x.Khong_con,                    
                     IdDanhMucGiay = (int)x.ID_DANH_MUC_GIAY,
+                    TenDanhMucGiay = x.DANH_MUC_GIAY.Ten, //Tham chiếu
                     TonKho = (bool)x.Ton_kho,
 
                     ThuTu = (int)x.Thu_tu
@@ -61,6 +62,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     TenGiayMoRong = x.ten_mo_rong,
                     KhongCon = (bool)x.Khong_con,                   
                     IdDanhMucGiay = (int)x.ID_DANH_MUC_GIAY,
+                    TenDanhMucGiay = x.DANH_MUC_GIAY.Ten, //tham chiếu
                     TonKho = (bool)x.Ton_kho,
                     ThuTu = (int)x.Thu_tu
                 });
@@ -90,6 +92,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     GiaMua = (int)x.Gia_mua,
                     KhongCon = (bool)x.Khong_con,                   
                     IdDanhMucGiay = (int)x.ID_DANH_MUC_GIAY,
+                    TenDanhMucGiay = x.DANH_MUC_GIAY.Ten, //Tham chiếu
                     TonKho = (bool)x.Ton_kho,                    
                     ThuTu = (int)x.Thu_tu
                 });
@@ -107,7 +110,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             try
             {
                 kq = KiemTraTrung(entityBDO.TenGiay, entityBDO.KhoGiay,
-                        entityBDO.DinhLuong);
+                        entityBDO.DinhLuong, entityBDO.IdDanhMucGiay);
                 if (kq != "")
                     return kq;
                 GIAY entity = new GIAY();
@@ -132,7 +135,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 try
                 {
                     kq = KiemTraTrung(entityBDO.TenGiay, entityBDO.KhoGiay, 
-                        entityBDO.DinhLuong, entityBDO.ID);
+                        entityBDO.DinhLuong, entityBDO.IdDanhMucGiay, entityBDO.ID);
                     if (kq != "")
                         return kq;
                      
@@ -196,11 +199,12 @@ namespace TinhGiaInDAL.RepoTinhGia
 
         }
         private string KiemTraTrung(string tenGiay, string khoGiay,
-                        int dinhLuong, int id = 0)
+                        int dinhLuong, int idDanhMuc, int id = 0)
         {
             string kq = "";
             var entity = db.GIAYs.SingleOrDefault(x => ((x.Ten_giay == tenGiay) &&
-                (x.Kho_giay == khoGiay) && x.Dinh_luong == dinhLuong));
+                (x.Kho_giay == khoGiay) && x.Dinh_luong == dinhLuong 
+                && x.ID_DANH_MUC_GIAY == idDanhMuc));
             if (entity != null && entity.ID != id)
                 kq = string.Format("Tên Giấy {0} {1} {2}gsm đã có", tenGiay,
                             khoGiay, dinhLuong);

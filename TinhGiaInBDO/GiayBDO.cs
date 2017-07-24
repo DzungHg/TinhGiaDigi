@@ -21,6 +21,7 @@ namespace TinhGiaInBDO
         public int GiaMua { get; set; }
         public bool KhongCon { get; set; }        
         public int IdDanhMucGiay { get; set; }
+        public string TenDanhMucGiay { get; set; }
         public bool TonKho { get; set; }
         public int ThuTu { get; set; }
     }

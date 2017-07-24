@@ -465,7 +465,7 @@ namespace TinhGiaInClient
             {
                 this.IdGiay = frm.GiayChon.ID;
 
-                txtTenGiayIn.Text = frm.GiayChon.TenGiayMoRong;
+                txtTenGiayIn.Text = giayDeInPres.TenGiayDeIn();
                 
                 CapNhatTriGiaVoLabels();
                 //Bật tắt nút nhận

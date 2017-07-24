@@ -22,6 +22,7 @@ namespace TinhGiaInClient.Model
         public string TenGiayMoRong { get; set; }
         public int GiaMua { get; set; }        
         public int IdDanhMucGiay { get; set; }
+        public string TenDanhMucGiay { get; set; } //Tham chiếu
         public bool TonKho { get; set; }
         public bool KhongCon { get; set; }
         public int ThuTu { get; set; }
@@ -77,6 +78,7 @@ namespace TinhGiaInClient.Model
                     GiaMua = x.GiaMua,
                     KhongCon = x.KhongCon,                   
                     IdDanhMucGiay = x.IdDanhMucGiay,
+                    TenDanhMucGiay = x.TenDanhMucGiay, //Chỉ tham chiếu không chỉnh sửa
                     TonKho = x.TonKho,
                     ThuTu = x.ThuTu
 
@@ -140,11 +142,12 @@ namespace TinhGiaInClient.Model
             giay.GiaMua = giayBDO.GiaMua;
             giay.KhongCon = giayBDO.KhongCon;            
             giay.IdDanhMucGiay = giayBDO.IdDanhMucGiay;
+            giay.TenDanhMucGiay = giayBDO.TenDanhMucGiay;//Chỉ tham chiếu không chỉnh sửa được
             giay.TonKho = giayBDO.TonKho;
             giay.ThuTu = giayBDO.ThuTu;
         }
         private static void ChuyenDoiGiayDTOThanhBDO(Giay giay, GiayBDO giayBDO)
-        {
+        {//Chuyển đổi để lưu lại
             giayBDO.ID = giay.ID;
             giayBDO.MaGiayNCC = giay.MaGiayNCC;
             giayBDO.MaGiayTuDat = giay.MaGiayTuDat;

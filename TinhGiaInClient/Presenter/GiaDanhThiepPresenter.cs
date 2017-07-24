@@ -57,7 +57,7 @@ namespace TinhGiaInClient.Presenter
         }*/
         public List<BangGiaDanhThiep> BangGiaDanhThiepS()
         {
-            return BangGiaDanhThiep.DocTatCa();
+            return BangGiaDanhThiep.DocTheoIdHangKH(View.IdHangKH);
         }
        
         public int SoHopToiDaTheoBangGia()

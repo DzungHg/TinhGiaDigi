@@ -320,7 +320,7 @@ namespace TinhGiaInClient
         private void DoiGiayMoi()
         {
             //Tao giay de in
-            var mucGiayDeIn = new GiayDeIn(32, 47, 1, 1, 1,
+            var mucGiayDeIn = new GiayDeIn(32, 48.5f, 1, 0, 1,
                 1, false, 0, "", 1, 1, 1, 0);//
             //Tiến hành gắn
             var frm = new GiayInDanhThiepForm(thongTinBanDauChoGiayIn(FormStateS.New), mucGiayDeIn);
@@ -356,7 +356,7 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormChuanBiGiay_Click(frm);//Cập nhật dữ liệu
-
+              
 
             }
 
@@ -372,6 +372,8 @@ namespace TinhGiaInClient
                     this.TenGiayChon = this.GiayDeInChon.TenGiayIn;
                     this.TienGiay = this.GiayDeInChon.ThanhTienGiay;
                     txtSoLuong.Enabled = false;//Lock lại
+                    //Cập nhật tính toán
+                    TinhToanToanBo();
                     break;
                 case FormStateS.Edit:
                     //Đổi ID vì thêm mới là có id mới
@@ -379,6 +381,8 @@ namespace TinhGiaInClient
                     this.TenGiayChon = this.GiayDeInChon.TenGiayIn;
                     this.TienGiay = this.GiayDeInChon.ThanhTienGiay;
                     txtSoLuong.Enabled = false;//Lock lại
+                    //Cập nhật tính toán
+                    TinhToanToanBo();
                     break;
             }
         }
@@ -466,12 +470,16 @@ namespace TinhGiaInClient
             BatTatNutTinh();
         }
 
-        private void btnTinh_Click(object sender, EventArgs e)
+        private void TinhToanToanBo()
         {
             CapNhatCacLabelsTriGia();
             this.DataChanged = false;
             BatTatNutTinh();
             txtSoLuong.Focus();
+        }
+        private void btnTinh_Click(object sender, EventArgs e)
+        {
+            TinhToanToanBo();
         }
 
         private void lbxTuyChon_SelectedIndexChanged(object sender, EventArgs e)
