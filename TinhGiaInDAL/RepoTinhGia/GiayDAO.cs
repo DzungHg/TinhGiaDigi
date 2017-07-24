@@ -203,8 +203,8 @@ namespace TinhGiaInDAL.RepoTinhGia
         {
             string kq = "";
             var entity = db.GIAYs.SingleOrDefault(x => ((x.Ten_giay == tenGiay) &&
-                (x.Kho_giay == khoGiay) && x.Dinh_luong == dinhLuong 
-                && x.ID_DANH_MUC_GIAY == idDanhMuc));
+                (x.Kho_giay == khoGiay) && (x.Dinh_luong == dinhLuong) 
+                && (x.ID_DANH_MUC_GIAY == idDanhMuc)));
             if (entity != null && entity.ID != id)
                 kq = string.Format("Tên Giấy {0} {1} {2}gsm đã có", tenGiay,
                             khoGiay, dinhLuong);
