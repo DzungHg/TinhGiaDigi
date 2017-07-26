@@ -228,6 +228,7 @@
             this.txtNoiDungTinhGia.Multiline = true;
             this.txtNoiDungTinhGia.Name = "txtNoiDungTinhGia";
             this.txtNoiDungTinhGia.ReadOnly = true;
+            this.txtNoiDungTinhGia.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtNoiDungTinhGia.Size = new System.Drawing.Size(194, 399);
             this.txtNoiDungTinhGia.TabIndex = 5;
             // 

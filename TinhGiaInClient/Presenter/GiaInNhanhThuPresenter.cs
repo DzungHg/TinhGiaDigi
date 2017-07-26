@@ -22,7 +22,7 @@ namespace TinhGiaInClient.Presenter
         public Dictionary<int, string>BangGiaInNhanhS()
         {
             Dictionary<int, string> dict = new Dictionary<int, string>();
-            foreach (BangGiaInNhanh bg in BangGiaInNhanh.DocTatCa())
+            foreach (BangGiaInNhanh bg in BangGiaInNhanh.DocTheoIdHangKH(View.IdHangKH))
             {
                 dict.Add(bg.ID, bg.TenBangGia);
             }

@@ -333,11 +333,12 @@ namespace TinhGiaInClient.Model
             }
             return kq;
         }
+
         public Dictionary<string, string> TomTat_ChaoKH()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("STT:", this.ID.ToString());
-            dict.Add("Tên dịch vụ:", this.TieuDe);
+            dict.Add("ID:", this.ID.ToString());
+            dict.Add("Tiêu đề:", this.TieuDe);
             dict.Add("Số lượng:", string.Format("{0:0,0}",this.SoLuong));
             dict.Add("ĐV tính:", this.DonVi);
             if (this.CauHinhSP != null)

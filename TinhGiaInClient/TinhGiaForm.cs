@@ -483,8 +483,9 @@ namespace TinhGiaInClient
 
            }
 
-           CapNhatThanhTienTheoTab();    
-
+           CapNhatThanhTienTheoTab();
+           //Cập nhật tổng kết bài
+           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
        }
         #region VeCuon
         private void ThemCuon()
@@ -696,7 +697,9 @@ namespace TinhGiaInClient
                    
                    break;
            }
-           CapNhatThanhTienTheoTab();   
+           CapNhatThanhTienTheoTab();
+           //Cập nhật tổng kết bài
+           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
        }
               
 
@@ -720,8 +723,8 @@ namespace TinhGiaInClient
                if (lv == lvwTheNhua)
                    LoadChiTietBaiInTheNhua();
            }
-           //Cập nhật tổng kết bài
-           txtTomTatTinhGia.Text = tinhGiaPres.TomTatTinhGia_ChaoKH();
+          
+           //txtTomTatTinhGia.Text = tinhGiaPres.TomTatTinhGia_ChaoKH();
            //Cập nhật thành tiền
            CapNhatThanhTienTheoTab();
        }
@@ -825,6 +828,8 @@ namespace TinhGiaInClient
        }
        private void btnLuu_Click(object sender, EventArgs e)
        {
+           //Cập nhật lại tóm tắt cho chắc
+           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
            if (LuuLai())
                MakeFormChange(false);
        }
@@ -863,6 +868,8 @@ namespace TinhGiaInClient
 
            }
            CapNhatThanhTienTheoTab();
+           //Cập nhật tổng kết bài
+           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
            
        }
 

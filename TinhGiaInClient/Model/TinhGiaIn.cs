@@ -105,7 +105,7 @@ namespace TinhGiaInClient.Model
             return kq;
         }
         
-        public decimal TongTienInBaiIn()//Gom lại tính gộp
+        public decimal TongTienInBaiInTinhLai()//Gom lại tính gộp
         {
             decimal kq = 0;
             var idBangGiaInNhanh = 0;
@@ -130,13 +130,23 @@ namespace TinhGiaInClient.Model
                 {
 
                     var giaInNhanh = new GiaInNhanhKetHopBangGia_May(this.TongSoTrangInA4BaiIn(),
-                        idBangGiaInNhanh, idMayInDigiChon, TyLeMarkupSales());
+                        idBangGiaInNhanh, idMayInDigiChon, this.TyLeMarkupSales());
                     kq = giaInNhanh.GiaBan();
                 }
             }
 
             return kq;
         }
+        public decimal TongTienBaiInChuaDieuChinhGiaIn() //Chưa điều chỉnh giá
+        {
+            decimal kq = 0;
+            if (this.KetQuaBaiInS.Count > 0)
+                kq = this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn());
+
+            return kq;
+
+        }
+
         #endregion
 
         #region Phần Danh thiếp: thêm sửa, xóa Danh thiếp
@@ -222,25 +232,21 @@ namespace TinhGiaInClient.Model
             return kq;
         }
 
-        public decimal TongTienBaiIn() //Không điều chỉnh giá in
-        {
-            decimal kq = 0;
-            if (this.KetQuaBaiInS.Count > 0)
-                kq = this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn());
-
-            return kq;
-            
-        }
+     
         public decimal TongTienBaiInDaDieuChinhTienIn()
         {
             decimal kq = 0;
             if (_dsKetQuaBaiIn.Count() > 0)
             { //Tính hơi khác trừ tiền in theo từng bài ra
+                //Tính tổng tiền in
                 var tongTienInToanBoBai = _dsKetQuaBaiIn.Sum(x => x.TongTienIn());
-                var tienConLaiKhongGomIn = _dsKetQuaBaiIn.Sum(x => x.TriGiaBaiIn()) -
-                                tongTienInToanBoBai; //Để tính gom tiền in riêng
-                kq += (tienConLaiKhongGomIn + this.TongTienInBaiIn());
+                //Tiền còn lại không bao gồm in
+                var tienConLaiKhongGomIn = this.TongTienBaiInChuaDieuChinhGiaIn()
+                    - tongTienInToanBoBai;
+                //Kết quả = Số tiền còn lại không tính in + tổng số tiền in bài in đã điều chỉnh
+                kq = tienConLaiKhongGomIn + this.TongTienInBaiInTinhLai();
             }
+
             return kq;
         }
         public decimal TongTienCuon()
@@ -268,7 +274,7 @@ namespace TinhGiaInClient.Model
         public decimal TongTriGiaChao()
         {
 
-            return TongTienDanhThiep() + TongTienBaiInDaDieuChinhTienIn() +
+            return TongTienDanhThiep() + this.TongTienBaiInDaDieuChinhTienIn() +
                 TongTienCuon() + TongTienTheNhua();
         
         }
@@ -324,8 +330,12 @@ namespace TinhGiaInClient.Model
                     ++i;
                 }
                 lst.Add("--- Tóm tắt in theo bài ---");
-                lst.Add(string.Format("Tổng trang in gộp: {0}", this.TongSoTrangInA4BaiIn()));
-                lst.Add(string.Format("Tổng tiền in gộp: {0:0,0.00}đ", this.TongTienInBaiIn()));                
+                lst.Add(string.Format("---Tổng trị giá bài chưa tính lại tiền in: {0:0,0.00}đ",
+                    this.TongTienBaiInChuaDieuChinhGiaIn()));
+                lst.Add(string.Format("---Tổng trang in gộp: {0}", this.TongSoTrangInA4BaiIn()));
+                lst.Add(string.Format("---Tổng tiền in gộp: {0:0,0.00}đ", this.TongTienInBaiInTinhLai()));
+                lst.Add(string.Format("---Tổng trị giá bài in đã tính lại tiền in: {0:0,0.00}đ",
+                    this.TongTienBaiInDaDieuChinhTienIn()));
                 lst.Add("---Hết in theo bài---");
             }
            
