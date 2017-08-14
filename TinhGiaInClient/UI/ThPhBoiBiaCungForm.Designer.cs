@@ -30,7 +30,6 @@
         {
             this.lblGiaTB = new System.Windows.Forms.Label();
             this.lblThanhTien = new System.Windows.Forms.Label();
-            this.lblCanPhu_DonViTinh = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.lblTieuDeForm = new System.Windows.Forms.Label();
@@ -77,19 +76,10 @@
             this.lblThanhTien.TabIndex = 100;
             this.lblThanhTien.Text = "0";
             // 
-            // lblCanPhu_DonViTinh
-            // 
-            this.lblCanPhu_DonViTinh.AutoSize = true;
-            this.lblCanPhu_DonViTinh.Location = new System.Drawing.Point(182, 142);
-            this.lblCanPhu_DonViTinh.Name = "lblCanPhu_DonViTinh";
-            this.lblCanPhu_DonViTinh.Size = new System.Drawing.Size(27, 13);
-            this.lblCanPhu_DonViTinh.TabIndex = 99;
-            this.lblCanPhu_DonViTinh.Text = "ĐVT";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 161);
+            this.label2.Location = new System.Drawing.Point(9, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 98;
@@ -97,10 +87,10 @@
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Location = new System.Drawing.Point(99, 158);
+            this.txtSoLuong.Location = new System.Drawing.Point(98, 185);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(62, 20);
-            this.txtSoLuong.TabIndex = 4;
+            this.txtSoLuong.TabIndex = 5;
             // 
             // lblTieuDeForm
             // 
@@ -113,10 +103,10 @@
             // 
             // txtDonViTinh
             // 
-            this.txtDonViTinh.Location = new System.Drawing.Point(176, 158);
+            this.txtDonViTinh.Location = new System.Drawing.Point(170, 185);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.Size = new System.Drawing.Size(43, 20);
-            this.txtDonViTinh.TabIndex = 5;
+            this.txtDonViTinh.TabIndex = 6;
             // 
             // label3
             // 
@@ -138,15 +128,15 @@
             // 
             // txtSoToBoiTrenTamBia
             // 
-            this.txtSoToBoiTrenTamBia.Location = new System.Drawing.Point(99, 184);
+            this.txtSoToBoiTrenTamBia.Location = new System.Drawing.Point(98, 159);
             this.txtSoToBoiTrenTamBia.Name = "txtSoToBoiTrenTamBia";
             this.txtSoToBoiTrenTamBia.Size = new System.Drawing.Size(62, 20);
-            this.txtSoToBoiTrenTamBia.TabIndex = 6;
+            this.txtSoToBoiTrenTamBia.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 187);
+            this.label6.Location = new System.Drawing.Point(11, 162);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 109;
@@ -155,7 +145,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(167, 187);
+            this.label7.Location = new System.Drawing.Point(166, 162);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(18, 13);
             this.label7.TabIndex = 111;
@@ -249,9 +239,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(9, 135);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 119;
-            this.label5.Text = "Tấm rộng";
+            this.label5.Text = "Tấm cao";
             // 
             // txtTamCao
             // 
@@ -295,7 +285,6 @@
             this.Controls.Add(this.lblTieuDeForm);
             this.Controls.Add(this.lblGiaTB);
             this.Controls.Add(this.lblThanhTien);
-            this.Controls.Add(this.lblCanPhu_DonViTinh);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSoLuong);
             this.Name = "ThPhBoiBiaCungForm";
@@ -320,7 +309,6 @@
 
         private System.Windows.Forms.Label lblGiaTB;
         private System.Windows.Forms.Label lblThanhTien;
-        private System.Windows.Forms.Label lblCanPhu_DonViTinh;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label lblTieuDeForm;
