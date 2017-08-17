@@ -110,7 +110,11 @@ namespace TinhGiaInClient.Presenter
                 return result;
             }
             var bGiaINhanh = BangGiaInNhanh.DocTheoId(idBangGia);
-            result = TinhToan.GiaInNhanhTheoBang(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
+            if (bGiaINhanh.GiaTheoKhoang)
+                result = TinhToan.GiaInNhanhTheoKhoang(bGiaINhanh, View.SoTrangA4);
+            else
+                result = TinhToan.GiaInNhanhTheoBang(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
+
             giaTBTrang = result / View.SoTrangA4;
             return result;
         }

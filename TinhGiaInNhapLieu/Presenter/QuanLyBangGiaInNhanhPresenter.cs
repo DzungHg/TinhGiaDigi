@@ -38,6 +38,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.DayGiaTrang = ";";
             View.DaySoLuongNiemYet = ";";
             View.ThuTu = 100;
+            View.GiaTheoKhoang = false;
        
             View.KhongSuDung = false;
         }
@@ -58,6 +59,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.DayGiaTrang = bangGiaIn.DayGia;
             View.DaySoLuongNiemYet = bangGiaIn.DaySoLuongNiemYet;
             View.ThuTu = bangGiaIn.ThuTu;
+            View.GiaTheoKhoang = bangGiaIn.GiaTheoKhoang;
           
             View.KhongSuDung = bangGiaIn.KhongSuDung;
             
@@ -72,28 +74,29 @@ namespace TinhGiaInNhapLieu.Presenter
         }
         public void Luu(ref string thongDiep)
         {
-            BangGiaInNhanh toInMayDigi = new BangGiaInNhanh();
-            toInMayDigi.ID = View.ID; 
-            toInMayDigi.TenBangGia = View.Ten;
-            toInMayDigi.MoTa = View.MoTa;
-            toInMayDigi.NoiDungBangGia = View.NoiDungBangGia;
-            toInMayDigi.IdHangKhachHang = View.IdHangKhachHang;
+            BangGiaInNhanh bangGiaInNhanh = new BangGiaInNhanh();
+            bangGiaInNhanh.ID = View.ID; 
+            bangGiaInNhanh.TenBangGia = View.Ten;
+            bangGiaInNhanh.MoTa = View.MoTa;
+            bangGiaInNhanh.NoiDungBangGia = View.NoiDungBangGia;
+            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;
            
-            toInMayDigi.IdHangKhachHang = View.IdHangKhachHang;
+            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;
           
-            toInMayDigi.SoTrangToiDa = View.SoTrangToiDaTinh;
-            toInMayDigi.DaySoLuong = View.DaySoLuong;
-            toInMayDigi.DayGia = View.DayGiaTrang;
-            toInMayDigi.DaySoLuongNiemYet = View.DaySoLuongNiemYet;                 
-            toInMayDigi.ThuTu = View.ThuTu;
-            toInMayDigi.KhongSuDung = View.KhongSuDung;
+            bangGiaInNhanh.SoTrangToiDa = View.SoTrangToiDaTinh;
+            bangGiaInNhanh.DaySoLuong = View.DaySoLuong;
+            bangGiaInNhanh.DayGia = View.DayGiaTrang;
+            bangGiaInNhanh.DaySoLuongNiemYet = View.DaySoLuongNiemYet;
+            bangGiaInNhanh.GiaTheoKhoang = View.GiaTheoKhoang;   
+            bangGiaInNhanh.ThuTu = View.ThuTu;
+            bangGiaInNhanh.KhongSuDung = View.KhongSuDung;
             switch (View.TinhTrangForm)
             {
                 case TinhGiaInClient.FormStateS.Edit:
-                    BangGiaInNhanh.Sua(ref thongDiep, toInMayDigi);
+                    BangGiaInNhanh.Sua(ref thongDiep, bangGiaInNhanh);
                     break;
                 case TinhGiaInClient.FormStateS.New:
-                    thongDiep = BangGiaInNhanh.Them(toInMayDigi);
+                    thongDiep = BangGiaInNhanh.Them(bangGiaInNhanh);
                     break;
 
             }

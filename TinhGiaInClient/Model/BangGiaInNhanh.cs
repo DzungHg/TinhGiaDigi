@@ -21,6 +21,7 @@ namespace TinhGiaInClient.Model
         public int SoTrangToiDa { get; set; }
         public string NoiDungBangGia { get; set; }
         public string DaySoLuongNiemYet { get; set; }
+        public bool GiaTheoKhoang { get; set; }
         //==
         #region Các hàm static
         public static List<BangGiaInNhanh> DocTatCa()
@@ -40,6 +41,7 @@ namespace TinhGiaInClient.Model
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
                     NoiDungBangGia = x.NoiDungBangGia,
+                    GiaTheoKhoang = x.GiaTheoKhoang,
                     ThuTu = x.ThuTu
 
                 }).OrderBy(x => x.ThuTu).ToList();
@@ -70,6 +72,7 @@ namespace TinhGiaInClient.Model
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
                     NoiDungBangGia = x.NoiDungBangGia,
+                    GiaTheoKhoang = x.GiaTheoKhoang,
                     ThuTu = x.ThuTu
 
                 }).OrderBy(x => x.ThuTu).ToList();
@@ -94,6 +97,7 @@ namespace TinhGiaInClient.Model
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
                     NoiDungBangGia = x.NoiDungBangGia,
+                    GiaTheoKhoang = x.GiaTheoKhoang,
                     ThuTu = x.ThuTu
 
                 }).OrderBy(x => x.ThuTu).ToList();
@@ -145,7 +149,8 @@ namespace TinhGiaInClient.Model
             bGiaInNhanh.IdHangKhachHang = bGiaInNhanhBDO.IdHangKhachHang;
             bGiaInNhanh.SoTrangToiDa = bGiaInNhanhBDO.SoTrangToiDa;
             bGiaInNhanh.NoiDungBangGia = bGiaInNhanhBDO.NoiDungBangGia;
-            bGiaInNhanh.DaySoLuongNiemYet = bGiaInNhanhBDO.DaySoLuongNiemYet; 
+            bGiaInNhanh.DaySoLuongNiemYet = bGiaInNhanhBDO.DaySoLuongNiemYet;
+            bGiaInNhanh.GiaTheoKhoang = bGiaInNhanhBDO.GiaTheoKhoang;
         }
         private static void ChuyenDoiBangGiaInNhanhDTOThanhBDO(BangGiaInNhanh bGiaInNhanh, BangGiaInNhanhBDO bGiaInNhanhBDO)
         {
@@ -159,7 +164,8 @@ namespace TinhGiaInClient.Model
             bGiaInNhanhBDO.IdHangKhachHang = bGiaInNhanh.IdHangKhachHang;
             bGiaInNhanhBDO.SoTrangToiDa = bGiaInNhanh.SoTrangToiDa;
             bGiaInNhanhBDO.NoiDungBangGia = bGiaInNhanh.NoiDungBangGia;
-            bGiaInNhanhBDO.DaySoLuongNiemYet = bGiaInNhanh.DaySoLuongNiemYet; 
+            bGiaInNhanhBDO.DaySoLuongNiemYet = bGiaInNhanh.DaySoLuongNiemYet;
+            bGiaInNhanhBDO.GiaTheoKhoang = bGiaInNhanh.GiaTheoKhoang;
         }
         #endregion
 

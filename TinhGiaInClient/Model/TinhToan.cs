@@ -246,6 +246,23 @@ namespace TinhGiaInClient.Model
 
             return result;
         }
+        public static decimal GiaInNhanhTheoKhoang(BangGiaInNhanh bangGiaInNhanh, int soTrangA4)
+        {///Dò số lượng lấy giá
+            ///Sau đó lấy giá tại khoảng đó nhân số lượng
+
+            var ketQua = 0;
+
+            if (!bangGiaInNhanh.GiaTheoKhoang)
+                return 0;
+
+
+            var giaTheoKhoang = TinhToan.GiaTriTheoKhoang(bangGiaInNhanh.DaySoLuong,
+                bangGiaInNhanh.DayGia, soTrangA4);
+
+            ketQua = giaTheoKhoang * soTrangA4;
+
+            return ketQua;
+        }
         public static int SoConTrenToChayDigi(float giayRong, float giayDai,
             float conRong, float conDai )
         {

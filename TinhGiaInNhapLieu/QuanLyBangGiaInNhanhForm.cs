@@ -112,7 +112,17 @@ namespace TinhGiaInNhapLieu
                 cboHangKH.SelectedValue = _idHangKH;
             }
         }
-       
+        public bool GiaTheoKhoang
+        {
+            get
+            {
+                return chkGiaTheoKhoang.Checked;
+            }
+            set
+            {
+                chkGiaTheoKhoang.Checked = value;
+            }
+        }
         public int ThuTu
         {
             get

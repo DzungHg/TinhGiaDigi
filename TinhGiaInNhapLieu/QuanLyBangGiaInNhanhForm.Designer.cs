@@ -59,6 +59,7 @@
             this.btnSua = new Telerik.WinControls.UI.RadButton();
             this.btnXoa = new Telerik.WinControls.UI.RadButton();
             this.btnHuy = new Telerik.WinControls.UI.RadButton();
+            this.chkGiaTheoKhoang = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstBangGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen)).BeginInit();
@@ -91,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGiaTheoKhoang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,6 +149,7 @@
             // radGroupBox1
             // 
             this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.radGroupBox1.Controls.Add(this.chkGiaTheoKhoang);
             this.radGroupBox1.Controls.Add(this.radLabel5);
             this.radGroupBox1.Controls.Add(this.lblDienGiaiHangKH);
             this.radGroupBox1.Controls.Add(this.radLabel4);
@@ -372,6 +375,14 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
+            // chkGiaTheoKhoang
+            // 
+            this.chkGiaTheoKhoang.Location = new System.Drawing.Point(365, 201);
+            this.chkGiaTheoKhoang.Name = "chkGiaTheoKhoang";
+            this.chkGiaTheoKhoang.Size = new System.Drawing.Size(103, 18);
+            this.chkGiaTheoKhoang.TabIndex = 12;
+            this.chkGiaTheoKhoang.Text = "Giá theo khoảng";
+            // 
             // QuanLyBangGiaInNhanhForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,6 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGiaTheoKhoang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -466,5 +478,6 @@
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadTextBoxControl txtNoiDungBangGia;
         private Telerik.WinControls.UI.RadTextBox txtMucGia;
+        private Telerik.WinControls.UI.RadCheckBox chkGiaTheoKhoang;
     }
 }

@@ -36,6 +36,7 @@
     <Property Name="khong_su_dung" Type="bit" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
+    <Property Name="gia_theo_khoang" Type="bit" />
   </EntityType>
   <EntityType Name="BANG_GIA_THE_NHUA">
     <Key>

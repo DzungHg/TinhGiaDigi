@@ -97,6 +97,7 @@
     <EntitySetMapping Name="BANG_GIA_IN_NHANH">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_IN_NHANH">
         <MappingFragment StoreEntitySet="BANG_GIA_IN_NHANH">
+          <ScalarProperty Name="gia_theo_khoang" ColumnName="gia_theo_khoang" />
           <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
           <ScalarProperty Name="noi_dung_bang_gia" ColumnName="noi_dung_bang_gia" />

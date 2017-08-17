@@ -41,6 +41,7 @@
           <Property Name="khong_su_dung" Type="bit" />
           <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
           <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
+          <Property Name="gia_theo_khoang" Type="bit" />
         </EntityType>
         <EntityType Name="BANG_GIA_THE_NHUA">
           <Key>
@@ -946,6 +947,7 @@
           <Property Name="noi_dung_bang_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="gia_theo_khoang" Type="Boolean" />
         </EntityType>
         <EntityType Name="HANG_KHACH_HANG">
           <Key>
@@ -1595,6 +1597,7 @@
           <EntitySetMapping Name="BANG_GIA_IN_NHANH">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.BANG_GIA_IN_NHANH">
               <MappingFragment StoreEntitySet="BANG_GIA_IN_NHANH">
+                <ScalarProperty Name="gia_theo_khoang" ColumnName="gia_theo_khoang" />
                 <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
                 <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
                 <ScalarProperty Name="noi_dung_bang_gia" ColumnName="noi_dung_bang_gia" />

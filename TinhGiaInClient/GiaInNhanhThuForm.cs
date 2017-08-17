@@ -231,11 +231,13 @@ namespace TinhGiaInClient
                 if (t == txtSoLuongToChay)//
                 {
                     //Cập nhật số trang A4
-                    txtSoTrangA4.Text = this.SoTrangA4.ToString();                 
+                    if (!string.IsNullOrEmpty(txtSoLuongToChay.Text.Trim()))                   
+                        txtSoTrangA4.Text = this.SoTrangA4.ToString();                 
                 }
                 if (t == txtSoTrangA4)//
-                {                    
-                    CapNhatKetQuaTinh();
+                {                  
+                        
+                        CapNhatKetQuaTinh();
                 }
 
             }

@@ -27,6 +27,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     NoiDungBangGia = x.noi_dung_bang_gia,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
+                    GiaTheoKhoang = (bool)x.gia_theo_khoang,
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -52,6 +53,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     NoiDungBangGia = x.noi_dung_bang_gia,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
+                    GiaTheoKhoang = (bool)x.gia_theo_khoang,
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -78,6 +80,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     NoiDungBangGia = x.noi_dung_bang_gia,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
+                    GiaTheoKhoang = (bool)x.gia_theo_khoang,
                     ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
                 
@@ -173,6 +176,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.so_trang_toi_da = entityBDO.SoTrangToiDa;
             entityDAO.noi_dung_bang_gia = entityBDO.NoiDungBangGia;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
+            entityDAO.gia_theo_khoang = entityBDO.GiaTheoKhoang;
             entityDAO.thu_tu = entityBDO.ThuTu;
         }
     }

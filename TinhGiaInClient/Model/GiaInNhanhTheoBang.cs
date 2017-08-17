@@ -26,8 +26,15 @@ namespace TinhGiaInClient.Model
             if (this.IdBangGiaInNhanh <= 0)
                 return 0;
             var bangGiaInNhanh = BangGiaInNhanh.DocTheoId(this.IdBangGiaInNhanh);
-            ketQua = TinhToan.GiaInNhanhTheoBang(bangGiaInNhanh.DaySoLuong,
-                bangGiaInNhanh.DayGia, soLuong);
+            if (!bangGiaInNhanh.GiaTheoKhoang) //tính theo  lũy tiến
+                ketQua = TinhToan.GiaInNhanhTheoBang(bangGiaInNhanh.DaySoLuong,
+                    bangGiaInNhanh.DayGia, soLuong);
+            else //tính theo khoảng
+            {
+                var giaTrangTrongKhoang = TinhToan.GiaTriTheoKhoang(bangGiaInNhanh.DaySoLuong,
+                    bangGiaInNhanh.DayGia, this.SoLuongA4);
+                ketQua = giaTrangTrongKhoang * this.SoLuongA4;
+            }
             return ketQua;
         }
 

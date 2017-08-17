@@ -208,6 +208,7 @@
     <Property Name="noi_dung_bang_gia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="gia_theo_khoang" Type="Boolean" />
   </EntityType>
   <EntityType Name="HANG_KHACH_HANG">
     <Key>

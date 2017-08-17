@@ -22,6 +22,7 @@ namespace TinhGiaInNhapLieu.View
       
         int SoTrangToiDaTinh { get; set; }        
         bool KhongSuDung { get; set; }
+        bool GiaTheoKhoang { get; set; }
         FormStateS TinhTrangForm { get; set; }
         bool DataChanged { get; set; }
     }
