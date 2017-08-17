@@ -9,10 +9,10 @@ using TinhGiaInNhapLieu.View;
 namespace TinhGiaInNhapLieu.Presenter
 {
     
-    public class QuanLyBangGiaInNhanhPresenter
+    public class QuanLyBGiaInNhanhPresenter
     {
         IViewQuanLyBangGiaInNhanh View;
-        public QuanLyBangGiaInNhanhPresenter(IViewQuanLyBangGiaInNhanh view)
+        public QuanLyBGiaInNhanhPresenter(IViewQuanLyBangGiaInNhanh view)
         { 
             View = view;
             
@@ -72,6 +72,29 @@ namespace TinhGiaInNhapLieu.Presenter
 
             return kq;
         }
+        public void NhanDoiBangGia(ref string thongDiep)
+        {
+            if (View.ID <= 0)
+            {
+                thongDiep = "Thất bại";
+                return;
+            }
+            var bangGiaInNhanh = new BangGiaInNhanh();
+            
+            bangGiaInNhanh.TenBangGia = View.Ten + " Copy";
+            bangGiaInNhanh.MoTa = View.MoTa;
+            bangGiaInNhanh.NoiDungBangGia = View.NoiDungBangGia;
+            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;
+            bangGiaInNhanh.SoTrangToiDa = View.SoTrangToiDaTinh;
+            bangGiaInNhanh.DaySoLuong = View.DaySoLuong;
+            bangGiaInNhanh.DayGia = View.DayGiaTrang;
+            bangGiaInNhanh.DaySoLuongNiemYet = View.DaySoLuongNiemYet;
+            bangGiaInNhanh.GiaTheoKhoang = View.GiaTheoKhoang;
+            bangGiaInNhanh.ThuTu = View.ThuTu;
+            bangGiaInNhanh.KhongSuDung = View.KhongSuDung;
+
+            thongDiep = BangGiaInNhanh.Them(bangGiaInNhanh);
+        }
         public void Luu(ref string thongDiep)
         {
             BangGiaInNhanh bangGiaInNhanh = new BangGiaInNhanh();
@@ -79,9 +102,7 @@ namespace TinhGiaInNhapLieu.Presenter
             bangGiaInNhanh.TenBangGia = View.Ten;
             bangGiaInNhanh.MoTa = View.MoTa;
             bangGiaInNhanh.NoiDungBangGia = View.NoiDungBangGia;
-            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;
-           
-            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;
+            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;           
           
             bangGiaInNhanh.SoTrangToiDa = View.SoTrangToiDaTinh;
             bangGiaInNhanh.DaySoLuong = View.DaySoLuong;

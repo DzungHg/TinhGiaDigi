@@ -1,6 +1,6 @@
 ﻿namespace TinhGiaInNhapLieu
 {
-    partial class QuanLyBangGiaInNhanhForm
+    partial class QuanLyBGiaInNhanhForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnLuu = new Telerik.WinControls.UI.RadButton();
             this.lstBangGia = new Telerik.WinControls.UI.RadListControl();
+            this.cMnu1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuNhanDoiBangGia = new System.Windows.Forms.ToolStripMenuItem();
             this.txtTen = new Telerik.WinControls.UI.RadTextBox();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.chkGiaTheoKhoang = new Telerik.WinControls.UI.RadCheckBox();
             this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
             this.lblDienGiaiHangKH = new Telerik.WinControls.UI.RadLabel();
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
@@ -59,15 +63,16 @@
             this.btnSua = new Telerik.WinControls.UI.RadButton();
             this.btnXoa = new Telerik.WinControls.UI.RadButton();
             this.btnHuy = new Telerik.WinControls.UI.RadButton();
-            this.chkGiaTheoKhoang = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstBangGia)).BeginInit();
+            this.cMnu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGiaTheoKhoang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDienGiaiHangKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
@@ -92,7 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkGiaTheoKhoang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,12 +111,28 @@
             // 
             // lstBangGia
             // 
+            this.lstBangGia.ContextMenuStrip = this.cMnu1;
             this.lstBangGia.Location = new System.Drawing.Point(9, 73);
             this.lstBangGia.Name = "lstBangGia";
             this.lstBangGia.Size = new System.Drawing.Size(145, 290);
             this.lstBangGia.TabIndex = 3;
             this.lstBangGia.Text = "radListControl1";
             this.lstBangGia.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstMayIn_SelectedIndexChanged);
+            // 
+            // cMnu1
+            // 
+            this.cMnu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNhanDoiBangGia});
+            this.cMnu1.Name = "cMnu1";
+            this.cMnu1.Size = new System.Drawing.Size(173, 48);
+            this.cMnu1.Opening += new System.ComponentModel.CancelEventHandler(this.cMnu1_Opening);
+            // 
+            // mnuNhanDoiBangGia
+            // 
+            this.mnuNhanDoiBangGia.Name = "mnuNhanDoiBangGia";
+            this.mnuNhanDoiBangGia.Size = new System.Drawing.Size(172, 22);
+            this.mnuNhanDoiBangGia.Text = "Nhân đôi bảng gia";
+            this.mnuNhanDoiBangGia.Click += new System.EventHandler(this.mnuNhanDoiBangGia_Click);
             // 
             // txtTen
             // 
@@ -177,6 +197,14 @@
             this.radGroupBox1.Size = new System.Drawing.Size(484, 310);
             this.radGroupBox1.TabIndex = 8;
             this.radGroupBox1.Text = "Cấu hình tờ in";
+            // 
+            // chkGiaTheoKhoang
+            // 
+            this.chkGiaTheoKhoang.Location = new System.Drawing.Point(365, 201);
+            this.chkGiaTheoKhoang.Name = "chkGiaTheoKhoang";
+            this.chkGiaTheoKhoang.Size = new System.Drawing.Size(103, 18);
+            this.chkGiaTheoKhoang.TabIndex = 12;
+            this.chkGiaTheoKhoang.Text = "Giá theo khoảng";
             // 
             // radLabel5
             // 
@@ -375,15 +403,7 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
-            // chkGiaTheoKhoang
-            // 
-            this.chkGiaTheoKhoang.Location = new System.Drawing.Point(365, 201);
-            this.chkGiaTheoKhoang.Name = "chkGiaTheoKhoang";
-            this.chkGiaTheoKhoang.Size = new System.Drawing.Size(103, 18);
-            this.chkGiaTheoKhoang.TabIndex = 12;
-            this.chkGiaTheoKhoang.Text = "Giá theo khoảng";
-            // 
-            // QuanLyBangGiaInNhanhForm
+            // QuanLyBGiaInNhanhForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -398,7 +418,7 @@
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.lstBangGia);
             this.Controls.Add(this.btnLuu);
-            this.Name = "QuanLyBangGiaInNhanhForm";
+            this.Name = "QuanLyBGiaInNhanhForm";
             // 
             // 
             // 
@@ -407,6 +427,7 @@
             this.Load += new System.EventHandler(this.QuanLyMayInDigiFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lstBangGia)).EndInit();
+            this.cMnu1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
@@ -414,6 +435,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGiaTheoKhoang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDienGiaiHangKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
@@ -438,7 +460,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkGiaTheoKhoang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -479,5 +500,7 @@
         private Telerik.WinControls.UI.RadTextBoxControl txtNoiDungBangGia;
         private Telerik.WinControls.UI.RadTextBox txtMucGia;
         private Telerik.WinControls.UI.RadCheckBox chkGiaTheoKhoang;
+        private System.Windows.Forms.ContextMenuStrip cMnu1;
+        private System.Windows.Forms.ToolStripMenuItem mnuNhanDoiBangGia;
     }
 }

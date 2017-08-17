@@ -13,13 +13,13 @@ using TinhGiaInClient;
 
 namespace TinhGiaInNhapLieu
 {
-    public partial class QuanLyBangGiaInNhanhForm : Telerik.WinControls.UI.RadForm, IViewQuanLyBangGiaInNhanh
+    public partial class QuanLyBGiaInNhanhForm : Telerik.WinControls.UI.RadForm, IViewQuanLyBangGiaInNhanh
     {
 
-        public QuanLyBangGiaInNhanhForm()
+        public QuanLyBGiaInNhanhForm()
         {
             InitializeComponent();
-            quanLyBangGiaPres = new QuanLyBangGiaInNhanhPresenter(this);
+            quanLyBangGiaPres = new QuanLyBGiaInNhanhPresenter(this);
             LoadBangGia();
             LoadHangKhachHang();
 
@@ -47,7 +47,7 @@ namespace TinhGiaInNhapLieu
 
 
         }
-        QuanLyBangGiaInNhanhPresenter quanLyBangGiaPres;
+        QuanLyBGiaInNhanhPresenter quanLyBangGiaPres;
         #region implementIView
         int _idToInMayDigi = 0;
         public int ID
@@ -426,6 +426,23 @@ namespace TinhGiaInNhapLieu
         private void cboHangKH_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             lblDienGiaiHangKH.Text = quanLyBangGiaPres.DienGiaiHangKhachHang();
+        }
+
+        private void cMnu1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void mnuNhanDoiBangGia_Click(object sender, EventArgs e)
+        {
+            var thongDiep = "";
+            if (MessageBox.Show("Bạn nhân đôi " + this.Ten, "Chú ý", MessageBoxButtons.OKCancel
+                , MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
+            {
+                quanLyBangGiaPres.NhanDoiBangGia(ref thongDiep);
+                MessageBox.Show(thongDiep);
+                LoadBangGia();
+            }
         }
 
 

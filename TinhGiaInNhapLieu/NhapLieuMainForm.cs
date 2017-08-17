@@ -220,7 +220,7 @@ namespace TinhGiaInNhapLieu
 
         private void btnBangGiaInNhanh_Click(object sender, EventArgs e)
         {
-            var frm = new QuanLyBangGiaInNhanhForm();
+            var frm = new QuanLyBGiaInNhanhForm();
             if (!CoTheMoFormNay(frm.Name)) //không có tên form
                 return;
             //Qua khỏi

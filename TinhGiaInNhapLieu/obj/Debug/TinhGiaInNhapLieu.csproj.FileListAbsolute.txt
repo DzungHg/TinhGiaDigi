@@ -364,7 +364,6 @@ E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.exe.licenses
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyToInMayDigiForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyMayInDigiForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyKhoSanPhamForm.resources
-E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyBangGiaInNhanhForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyCanPhuForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyCanGapForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyDongCuonForm.resources
@@ -407,3 +406,4 @@ D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyBGiaDT
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyDongCuonLXoForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyTChonThNhuaForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyTChonDThiepForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyBGiaInNhanhForm.resources
