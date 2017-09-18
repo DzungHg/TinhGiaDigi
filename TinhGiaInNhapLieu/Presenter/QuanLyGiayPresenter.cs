@@ -57,7 +57,28 @@ namespace TinhGiaInNhapLieu.Presenter
                 }
             return dict;
         }
-       
+        public string TenGiayMoRongTheoId(int idGiay)
+        {
+            var kq = "";
+            if (idGiay > 0)
+                kq = Giay.DocGiayTheoId(idGiay).TenGiayMoRong;
+            return kq;
+        }
+        public void NhanDoiGiay(ref string thongDiep, int idGiayChon)
+        {
+            var message = "Lỗi có thể do idGiay <=0";
+            
+            if (idGiayChon > 0)
+            {
+                var giay = Giay.DocGiayTheoId(idGiayChon);
+                //Thêm copy vào tên
+                Giay.SoCopyTam ++; //Tạo copy để khỏi trùng tên giấy
+                giay.TenGiay +=  string.Format(" copy{0}", Giay.SoCopyTam);
+                //Thêm mới
+                message = Giay.Them(giay);                               
+            }
+            thongDiep = message;
+        }
         public void XoaGiay(int paperId)
         {
             ;

@@ -47,6 +47,8 @@
             this.cmuXoaGiay = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmuNhanDoiGiay = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitCont2)).BeginInit();
@@ -185,34 +187,36 @@
             this.cmuThemGiay,
             this.cmuSuaGiay,
             this.toolStripMenuItem1,
+            this.cmuNhanDoiGiay,
+            this.toolStripMenuItem2,
             this.cmuXoaGiay});
             this.cmu.Name = "cmu";
-            this.cmu.Size = new System.Drawing.Size(132, 76);
+            this.cmu.Size = new System.Drawing.Size(153, 126);
             this.cmu.Opening += new System.ComponentModel.CancelEventHandler(this.cmu_Opening);
             // 
             // cmuThemGiay
             // 
             this.cmuThemGiay.Name = "cmuThemGiay";
-            this.cmuThemGiay.Size = new System.Drawing.Size(131, 22);
+            this.cmuThemGiay.Size = new System.Drawing.Size(152, 22);
             this.cmuThemGiay.Text = "Thêm Giấy";
             this.cmuThemGiay.Click += new System.EventHandler(this.cmuThemGiay_Click);
             // 
             // cmuSuaGiay
             // 
             this.cmuSuaGiay.Name = "cmuSuaGiay";
-            this.cmuSuaGiay.Size = new System.Drawing.Size(131, 22);
+            this.cmuSuaGiay.Size = new System.Drawing.Size(152, 22);
             this.cmuSuaGiay.Text = "Sửa Giấy";
             this.cmuSuaGiay.Click += new System.EventHandler(this.cmuSuaGiay_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(128, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // cmuXoaGiay
             // 
             this.cmuXoaGiay.Name = "cmuXoaGiay";
-            this.cmuXoaGiay.Size = new System.Drawing.Size(131, 22);
+            this.cmuXoaGiay.Size = new System.Drawing.Size(152, 22);
             this.cmuXoaGiay.Text = "Xóa Giấy";
             // 
             // panel4
@@ -233,6 +237,18 @@
             this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Giấy theo Danh mục";
+            // 
+            // cmuNhanDoiGiay
+            // 
+            this.cmuNhanDoiGiay.Name = "cmuNhanDoiGiay";
+            this.cmuNhanDoiGiay.Size = new System.Drawing.Size(152, 22);
+            this.cmuNhanDoiGiay.Text = "Nhân đôi Giấy";
+            this.cmuNhanDoiGiay.Click += new System.EventHandler(this.cmuNhanDoiGiay_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
             // QuanLyGiayForm
             // 
@@ -280,6 +296,8 @@
         private System.Windows.Forms.ToolStripMenuItem cmuSuaGiay;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cmuXoaGiay;
+        private System.Windows.Forms.ToolStripMenuItem cmuNhanDoiGiay;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
 
     }
 }

@@ -192,6 +192,20 @@ namespace TinhGiaInNhapLieu
             SuaGiay();
         }
 
+        private void cmuNhanDoiGiay_Click(object sender, EventArgs e)
+        {
+            var thongDiep = "";
+            var tenGiay = quanLyGiayPres.TenGiayMoRongTheoId(this.IdGiayChon);
+
+            if (MessageBox.Show("Bạn nhân đôi " + tenGiay, "Chú ý", MessageBoxButtons.OKCancel
+                , MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
+            {
+                quanLyGiayPres.NhanDoiGiay(ref thongDiep, this.IdGiayChon);
+                MessageBox.Show(thongDiep);
+                LoadGiayTheoDanhMuc();
+            }
+        }
+
        
     }
 

@@ -26,7 +26,9 @@ namespace TinhGiaInClient.Model
         public bool TonKho { get; set; }
         public bool KhongCon { get; set; }
         public int ThuTu { get; set; }
+        
         //==
+        public static int SoCopyTam { get; set; }//Dùng nhân đôi tên giây khỏi trùng
         #region Các hàm static
         public static List<Giay> DocTatCa()
         {
