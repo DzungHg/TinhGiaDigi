@@ -301,9 +301,12 @@ namespace TinhGiaInClient.Presenter
         {
             return this.TinhGia.TongTienDanhThiep();
         }
-        public decimal TongGiaBaiInDieuChinhTienIn()
+        public decimal TongGiaBaiIn()
         {
-            return this.TinhGia.TongTienBaiInDaDieuChinhTienIn();
+            if (View.GopGiaInTheoBai)
+                return this.TinhGia.TongTienBaiInDaDieuChinhTienIn();
+            else
+                return this.TinhGia.TongTienBaiInChuaDieuChinhGiaIn();
         }
         public decimal TongGiaCuon()
         {
@@ -312,6 +315,47 @@ namespace TinhGiaInClient.Presenter
         public decimal TongGiaTheNhua()
         {
             return this.TinhGia.TongTienTheNhua();
+        }
+        #region Một số tóm tắt
+        public string TomTatTab_DanhThiep()
+        {
+            var kq = "";
+            
+            foreach (string st in TinhGia.NoiDungGiaChaoKH_DanhThiep())
+            {
+                kq += st + '\r' + '\n';
+            }
+            return kq;
+        }
+        public string TomTatTab_BaiIn()
+        {
+            var kq = "";
+
+            foreach (string st in TinhGia.NoiDungGiaChaoKH_InTheoBai())
+            {
+                kq += st + '\r' + '\n';
+            }
+            return kq;
+        }
+        public string TomTatTab_InCuon()
+        {
+            var kq = "";
+
+            foreach (string st in TinhGia.NoiDungGiaChaoKH_InSach())
+            {
+                kq += st + '\r' + '\n';
+            }
+            return kq;
+        }
+        public string TomTatTab_TheNhua()
+        {
+            var kq = "";
+
+            foreach (string st in TinhGia.NoiDungGiaChaoKH_TheNhua())
+            {
+                kq += st + '\r' + '\n';
+            }
+            return kq;
         }
         public string TomTatTinhGia_ChaoKH()
         {
@@ -325,6 +369,8 @@ namespace TinhGiaInClient.Presenter
             }
             return result;
         }
+
+        #endregion
         public string TrinhBayNoiDungBaiIn()
         {
             string result = "";

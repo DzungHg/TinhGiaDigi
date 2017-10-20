@@ -4967,17 +4967,17 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadButtonElement.ButtonFillElement">
             <summary>
-            Gets the FillPrimitive element that is reponsible for painting of the background of the control
+            Gets the FillPrimitive element that is responsible for painting of the background of the control
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadButtonElement.BorderElement">
             <summary>        
-            Gets the BorderPrimitive element that is reponsible for painting of the border of the control        
+            Gets the BorderPrimitive element that is responsible for painting of the border of the control        
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadButtonElement.TextElement">
             <summary>        
-            Gets the TextPrimitive element that is reponsible for painting of the border of the control        
+            Gets the TextPrimitive element that is responsible for painting of the text of the control        
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadButtonElement.ImagePrimitive">
@@ -7666,7 +7666,7 @@
         </member>
         <member name="M:Telerik.WinControls.UI.RadSpinElement.PerformStep(System.Decimal)">
             <summary>
-            increase or decrease value in the numeric up/dowm with step value
+            increase or decrease value in the numeric up/down with step value
             </summary>
             <param name="step"></param>
         </member>
@@ -9641,10 +9641,10 @@
             the year value when a short year (single-digit or two-digit year) is entered in the input.
             </summary>
             <value>
-            The year when the century starts. Default is 2029.
+            The year when the century starts. Default is 1930.
             </value>
             <remarks>
-            Having a value of 2029 indicates that a short year will be interpreted as a year between 1930 and 2029. 
+            Having a value of 1930 indicates that a short year will be interpreted as a year between 1930 and 2029. 
             For example 55 will be interpreted as 1955 but 12 -- as 2012 
             </remarks>
         </member>
@@ -29134,6 +29134,18 @@
             Gets the RadPageViewElement that owns this item.
             </summary>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadPageViewItem.UseMnemonic">
+            <summary>
+            Gets or sets the use mnemonic.
+            </summary>
+            <value>The use mnemonic.</value>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadPageViewItem.ShowKeyboardCues">
+            <summary>
+            Gets or sets the show keyboard cues.
+            </summary>
+            <value>The show keyboard cues.</value>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadPageViewStripItem.AutoCorrectOrientation">
             <summary>
             Gets or sets a property which determines whether to consider the ItemBorderAndFillOrientation of RadPageViewElement.
@@ -47865,6 +47877,17 @@
             </summary>
             <value><c>true</c> if [wrapped around]; otherwise, <c>false</c>.</value>
         </member>
+        <member name="P:Telerik.WinControls.UI.RadPageView.UseMnemonic">
+            <summary>
+            Determines whether ampersand character will be treated as mnemonic or not.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.UI.RadPageView.AllowShowFocusCues">
+            <summary>
+            Indicates focus cues display, when available, based on the corresponding control type and the current UI state.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:Telerik.WinControls.UI.RadPageViewObject.Owner">
             <summary>
             Gets the <see cref="T:Telerik.WinControls.UI.RadPageView"/> instance that this object is associated with.
@@ -52611,7 +52634,7 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadDateTimePickerCalendar.DropDownSizingMode">
             <summary>
-            Gets or sets the drop down sizing mode. The mode can be: horizontal, veritcal or a combination of them.
+            Gets or sets the drop down sizing mode. The mode can be: horizontal, vertical or a combination of them.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadDateTimePickerCalendar.DropDownMinSize">
@@ -56964,6 +56987,7 @@
             <summary>
             	<span id="ctl00_ContentPlaceHolder1_src1_resRC_ctl01_LabelAbstract">Gets or sets
             a value indicating whether this is a multiline TextBox control.</span>
+            When the value is true, the AutoSize property is automatically changed to false and the user needs to take care of the height of this control.
             </summary>
         </member>
         <member name="P:Telerik.WinControls.UI.RadTextBoxBase.NullText">
@@ -57766,11 +57790,6 @@
         <member name="M:Telerik.WinControls.UI.RadRibbonBarGroup.CollapseElementToStep(System.Int32)">
             <summary>Collapses the chunk.</summary>
         </member>
-        <member name="E:Telerik.WinControls.UI.RadRibbonBarGroup.DialogButtonClick">
-            <summary>
-            Occurs when Dialog Button is clicked
-            </summary>
-        </member>
         <member name="P:Telerik.WinControls.UI.RadRibbonBarGroup.GroupBorder">
             <summary>
             Gets an instance of the <see cref="T:Telerik.WinControls.Primitives.BorderPrimitive"/>class
@@ -57814,7 +57833,12 @@
         </member>
         <member name="P:Telerik.WinControls.UI.RadRibbonBarGroup.CollapsingPriority">
             <summary>
-            Get or Set collapsing order weight - biger mean to start collapsing from this RadRibbonbarGroup
+            Get or Set collapsing order weight - bigger mean to start collapsing from this RadRibbonbarGroup
+            </summary>
+        </member>
+        <member name="E:Telerik.WinControls.UI.RadRibbonBarGroup.DialogButtonClick">
+            <summary>
+            Occurs when Dialog Button is clicked
             </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.RadRibbonBarCommandTabCollection">

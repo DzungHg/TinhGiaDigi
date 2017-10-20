@@ -270,7 +270,120 @@ namespace TinhGiaInClient.Model
             return kq;
         }
         #endregion
-        #region Một số tóm tắt
+        #region Tóm tăt cas subs theo, danh thiếp, bài in, cata,thẻ nhựa
+        public List<string> NoiDungGiaChaoKH_DanhThiep()
+        {
+            var lst = new List<string>();
+            var dSachMucTinhGia = "";
+
+            if (this.BaiInDanhThiepS.Count > 0)
+            {
+
+                dSachMucTinhGia += string.Format("---Danh thiếp [{0}]---, ", this.BaiInDanhThiepS.Count);
+
+                
+                foreach (BaiInDanhThiep bInDanhThiep in this.BaiInDanhThiepS)
+                {
+                    foreach (KeyValuePair<string, string> kvp in bInDanhThiep.TomTat_ChaoKH())
+                    {
+                        lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value));
+                    }
+                    
+                    
+                }
+                lst.Add("---Tóm tắt in Danh thiếp---");
+                lst.Add(string.Format("----Tổng trị giá: {0:0,0.00}đ", this.BaiInDanhThiepS.Sum(x => x.ThanhTien())));
+
+                lst.Add("---Hết danh thiếp---");
+            }   
+            
+            return lst;
+        }
+        public List<string> NoiDungGiaChaoKH_InTheoBai()
+        {
+            var lst = new List<string>();
+            var dSachMucTinhGia = "";
+
+            if (this.KetQuaBaiInS.Count > 0)
+            {
+
+                dSachMucTinhGia += string.Format("---In theo bài [{0}]---, ", this.BaiInDanhThiepS.Count);
+
+                
+                foreach (BaiIn kQuaBaiIn in this.KetQuaBaiInS)
+                {
+                    foreach (KeyValuePair<string, string> kvp in kQuaBaiIn.TomTat_ChaoKH())
+                    {
+                        lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value));
+                    }
+
+                   
+                }
+                lst.Add("---Tóm tắt in theo bài (gốc)---");
+                lst.Add(string.Format("----Tổng trang in A4: {0:0,0}", this.KetQuaBaiInS.Sum(x => x.TongSoTrangInA4())));
+                lst.Add(string.Format("----Tổng tiền in: {0:0,0.00}đ", this.KetQuaBaiInS.Sum(x => x.TongTienIn())));
+                lst.Add(string.Format("----Tổng trị giá: {0:0,0.00}đ", this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn())));
+                lst.Add("---Hết Bài in---");
+            }
+
+            return lst;
+        }
+        public List<string> NoiDungGiaChaoKH_InSach()
+        {
+            var lst = new List<string>();
+            var dSachMucTinhGia = "";
+
+            if (this.GiaInSachDigiS.Count > 0)
+            {
+
+                dSachMucTinhGia += string.Format("---In Cuốn [{0}]---, ", this.BaiInDanhThiepS.Count);
+
+                var i = 1;
+                foreach (GiaInSachDigi giaInSachDigi in this.GiaInSachDigiS)
+                {
+                    
+                        lst.Add(string.Format("{0}). {1}", i, giaInSachDigi.TomTatChao_DichVu()));
+                    
+                    ++i;
+                }
+                lst.Add("---Tóm tắt In cuốn---");
+                lst.Add(string.Format("----Tổng trang in A4: {0:0,0}", this.GiaInSachDigiS.Sum(x => x.TongSoTrangA4In())));
+                lst.Add(string.Format("----Tổng tiền in: {0:0,0.00}đ", this.GiaInSachDigiS.Sum(x => x.TienInSach())));
+                lst.Add(string.Format("----Tổng trị giá: {0:0,0.00}đ", this.GiaInSachDigiS.Sum(x => x.GiaChaoTong())));
+                lst.Add("---Hết In cuốn---");
+            }
+
+            return lst;
+        }
+        public List<string> NoiDungGiaChaoKH_TheNhua()
+        {
+            var lst = new List<string>();
+            var dSachMucTinhGia = "";
+
+            if (this.BaiInTheNhuaS.Count > 0)
+            {
+
+                dSachMucTinhGia += string.Format("---Thẻ nhựa [{0}]---, ", this.BaiInDanhThiepS.Count);
+
+              
+                foreach (BaiInTheNhua bInTheNhua in this.BaiInTheNhuaS)
+                {
+                    foreach (KeyValuePair<string, string> kvp in bInTheNhua.TomTat_ChaoKH())
+                    {
+                        lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value));
+                    }
+
+                   
+                }
+                lst.Add("---Tóm tắt in Thẻ nhựa---");
+                lst.Add(string.Format("----Tổng trị giá: {0:0,0.00}đ", this.BaiInTheNhuaS.Sum(x => x.ThanhTien())));                
+                lst.Add("---Hết thẻ nhựa---");
+            }
+
+            return lst;
+        }
+        #endregion
+        #region Tóm tắt tổng
         public decimal TongTriGiaChao()
         {
 
@@ -282,32 +395,20 @@ namespace TinhGiaInClient.Model
         { ///từng dòng 
             var lst = new List<string>();           
             lst.Add("----------------");//Ngăn tiêu đề
-            if (this.BaiInDanhThiepS.Count <= 0 && this.KetQuaBaiInS.Count <= 0)
-            {
-                lst.Add("Chưa có nội dung tính toán");
-                return lst;
-            }
+           
             var j = 0; //dùng cho các mục tính giá
-            var dSachMucTinhGia = ""; //dùng ghi nhận
+            
             //Danh thiếp
-            if (this.BaiInDanhThiepS.Count > 0)
+            if (this.NoiDungGiaChaoKH_DanhThiep().Count > 0)
             {
                 j += 1;
-                dSachMucTinhGia += string.Format("Danh thiếp [{0}], ", this.BaiInDanhThiepS.Count);
-                lst.Add(string.Format("{0}). Danh thiếp: ", j));
-                var i = 1;
-                foreach (BaiInDanhThiep bInDanhThiep in this.BaiInDanhThiepS)
-                {                    
-                    foreach (KeyValuePair<string, string> kvp in bInDanhThiep.TomTat_ChaoKH())
-                    {
-                        lst.Add(string.Format("{0} {1}", kvp.Key, kvp.Value));
-                    }
-
-                    lst.Add(string.Format("---Hết{0}---", i));
-                    ++i;
+            
+                lst.Add(string.Format("Mục {0}) ", j));
+                foreach(string str in this.NoiDungGiaChaoKH_DanhThiep())
+                {
+                    lst.Add(string.Format("--{0}", str));
                 }
-
-                lst.Add("---Hết danh thiếp---");
+               
 
             }
             //Phần bài in

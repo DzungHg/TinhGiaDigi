@@ -79,9 +79,14 @@ namespace TinhGiaInClient
             get { return txtTenKhachHang.Text; }
             set { txtTenKhachHang.Text = value; }
         }
+        public string TomTatTinhGia
+        {
+            get { return txtTomTatTinhGia.Text; }
+            set { txtTomTatTinhGia.Text = value; }
+        }
         public FormStateS TinhTrangForm { get; set; }
       
-        public string TomTatChaoKH
+        public string TomTatTungMucChaoKH
         {
             get { return txtTomTatBaiIn.Text; }
             set { txtTomTatBaiIn.Text = value; }
@@ -140,7 +145,11 @@ namespace TinhGiaInClient
         {
             return tinhGiaPres.IdHangKH();
         }
-
+        public bool GopGiaInTheoBai
+        {
+            get { return chkGopSoTrangInTo.Checked; }
+            set {chkGopSoTrangInTo.Checked = value;}
+        }//Gộp lại khi cần tính nhiều bài 1 lần
         public Boolean FormChanged { get; set; }
        
       
@@ -485,7 +494,7 @@ namespace TinhGiaInClient
 
            CapNhatThanhTienTheoTab();
            //Cập nhật tổng kết bài
-           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
+           this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
        }
         #region VeCuon
         private void ThemCuon()
@@ -699,7 +708,7 @@ namespace TinhGiaInClient
            }
            CapNhatThanhTienTheoTab();
            //Cập nhật tổng kết bài
-           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
+           this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
        }
               
 
@@ -829,7 +838,7 @@ namespace TinhGiaInClient
        private void btnLuu_Click(object sender, EventArgs e)
        {
            //Cập nhật lại tóm tắt cho chắc
-           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
+           this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
            if (LuuLai())
                MakeFormChange(false);
        }
@@ -869,7 +878,7 @@ namespace TinhGiaInClient
            }
            CapNhatThanhTienTheoTab();
            //Cập nhật tổng kết bài
-           this.TomTatChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
+           this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTinhGia_ChaoKH();
            
        }
 
@@ -937,30 +946,56 @@ namespace TinhGiaInClient
            CapNhatTextNutThemXoa();
            //Cập nhật thành tiền từng tab
            CapNhatThanhTienTheoTab();
+           CapNhatTomTatNoiDungTheoTab();
        }
 
        private void CapNhatThanhTienTheoTab()
        {
+           //và đóng mở cập nhật nút checkbox gom
            decimal thanhTien = 0;
            switch (tabCtrl01.SelectedIndex)
            {
                case 0: //Danh thiếp
                    thanhTien = tinhGiaPres.TongGiaDanhThiep();
+                   chkGopSoTrangInTo.Visible = false;
                    break;
                case 1: //Bài in
-                   thanhTien = tinhGiaPres.TongGiaBaiInDieuChinhTienIn();
+                   thanhTien = tinhGiaPres.TongGiaBaiIn();
+                   chkGopSoTrangInTo.Visible = true;
                    break;
                case 2: //Cuốn
                    thanhTien = tinhGiaPres.TongGiaCuon();
+                   chkGopSoTrangInTo.Visible = false;
                    break;
                case 3: //Thẻ nhựa
                    thanhTien = tinhGiaPres.TongGiaTheNhua();
+                   chkGopSoTrangInTo.Visible = false;
                    break;
 
            }
 
            txtThanhTien.Text = string.Format("{0:0,0.00}đ", thanhTien);
 
+       }
+        private void CapNhatTomTatNoiDungTheoTab()
+       {
+            //Theo tổng tab
+           switch (tabCtrl01.SelectedIndex)
+           {
+               case 0: //Danh thiếp
+                   this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTab_DanhThiep();
+                   break;
+               case 1: //Bài in
+                   this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTab_BaiIn();
+                   break;
+               case 2: //Cuốn
+                   this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTab_InCuon();
+                   break;
+               case 3: //Thẻ nhựa
+                   this.TomTatTungMucChaoKH = tinhGiaPres.TomTatTab_TheNhua();
+                   break;
+
+           }
        }
 
        private void TinhGiaForm_Resize(object sender, EventArgs e)

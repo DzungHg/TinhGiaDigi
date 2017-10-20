@@ -198,7 +198,7 @@
         </member>
         <member name="F:Telerik.WinControls.UI.Export.DisplayFormatType.GeneralDate">
             <summary>
-            Displays numeric or date values as formatted date values
+            Displays numeric or date values as short date format
             </summary>
         </member>
         <member name="F:Telerik.WinControls.UI.Export.DisplayFormatType.ShortDate">
@@ -214,6 +214,16 @@
         <member name="F:Telerik.WinControls.UI.Export.DisplayFormatType.LongDate">
             <summary>
             Displays numeric or date values as long date format
+            </summary>
+        </member>
+        <member name="F:Telerik.WinControls.UI.Export.DisplayFormatType.ShortDateTime">
+            <summary>
+            Displays numeric or date values as a combination of the short date and short time patterns, separated by a space.
+            </summary>
+        </member>
+        <member name="F:Telerik.WinControls.UI.Export.DisplayFormatType.LongDateTime">
+            <summary>
+            Displays numeric or date values as a combination of the long date and long time patterns, separated by a space.
             </summary>
         </member>
         <member name="F:Telerik.WinControls.UI.Export.DisplayFormatType.Currency">
@@ -1991,6 +2001,11 @@
             </summary>
             <param name="accEvent"></param>
             <param name="childId"></param>
+        </member>
+        <member name="P:Telerik.WinControls.RadControl.EnableDpiScaling">
+            <summary>
+            Gets or sets a value indicating whether the RadControls scaling logic will be used when the application is run in a high DPI environment.
+            </summary>
         </member>
         <member name="P:Telerik.WinControls.RadControl.IsLoaded">
             <summary>
@@ -4242,12 +4257,12 @@
         </member>
         <member name="E:Telerik.WinControls.RadItem.KeyDown">
             <summary>
-            Occurs when the RadItem has focus and the user pressees a key down
+            Occurs when the RadItem has focus and the user presses a key down
             </summary>
         </member>
         <member name="E:Telerik.WinControls.RadItem.KeyPress">
             <summary>
-            Occurs when the RadItem has focus and the user pressees a key
+            Occurs when the RadItem has focus and the user presses a key
             </summary>
         </member>
         <member name="E:Telerik.WinControls.RadItem.KeyUp">
@@ -9767,6 +9782,11 @@
             </summary>
             <value>The current.</value>
         </member>
+        <member name="P:Telerik.WinControls.Data.RadListSource`1.CreateATransactionForEveryValueSetting">
+            <summary>
+            Gets or sets a value indicating whether each value setting should be encapsulaed in its own BeginEdit EndEditTransaction.
+            </summary>
+        </member>
         <member name="P:Telerik.WinControls.Data.RadListSource`1.CollectionView">
             <summary>
             Gets the collection view.
@@ -14115,6 +14135,16 @@
             </summary>
             <param name="htmlTag"></param>
             <returns></returns>
+        </member>
+        <member name="P:Telerik.WinControls.TextPrimitiveUtils.TinyHTMLParsers.LinkColor">
+            <summary>
+            Gets or sets the color used to display a non-visited hyperlink.
+            </summary>
+        </member>
+        <member name="P:Telerik.WinControls.TextPrimitiveUtils.TinyHTMLParsers.LinkClickedColor">
+            <summary>
+            Gets or sets the color used to display a visited hyperlink.
+            </summary>
         </member>
         <member name="T:Telerik.WinControls.UI.StringTokenizer">
             <summary>
@@ -18509,7 +18539,7 @@
             current <see cref="T:Telerik.WinControls.Zip.OperationStream"/> object does not match the underlying stream.  
             For example, this exception is thrown when using <see cref="F:Telerik.WinControls.Zip.StreamOperationMode.Read"/> with an underlying stream that is write only.  </exception>
             <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="offset"/> parameter is less than zero.-or- The <paramref name="count"/> parameter is less than zero. </exception>
-            <exception cref="T:System.ArgumentException">Thesum of the <paramref name="count"/> and <paramref name="offset"/> parameters is longer than the length of the buffer. </exception>
+            <exception cref="T:System.ArgumentException">The sum of the <paramref name="count"/> and <paramref name="offset"/> parameters is larger than the length of the buffer. </exception>
         </member>
         <member name="M:Telerik.WinControls.Zip.OperationStream.Seek(System.Int64,System.IO.SeekOrigin)">
             <summary>
@@ -18680,7 +18710,7 @@
             current <see cref="T:Telerik.WinControls.Zip.OperationStream"/> object does not match the underlying stream.  
             For example, this exception is thrown when using <see cref="F:Telerik.WinControls.Zip.StreamOperationMode.Read"/> with an underlying stream that is write only.  </exception>
             <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="offset"/> parameter is less than zero.-or- The <paramref name="count"/> parameter is less than zero. </exception>
-            <exception cref="T:System.ArgumentException">Thesum of the <paramref name="count"/> and <paramref name="offset"/> parameters is longer than the length of the buffer. </exception>
+            <exception cref="T:System.ArgumentException">The sum of the <paramref name="count"/> and <paramref name="offset"/> parameters is larger than the length of the buffer. </exception>
         </member>
         <member name="M:Telerik.WinControls.Zip.CompressedStream.SetLength(System.Int64)">
             <summary>
