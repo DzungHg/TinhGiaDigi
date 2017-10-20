@@ -37,6 +37,7 @@
             this.tabInCuon = new System.Windows.Forms.TabPage();
             this.lvwCuon = new System.Windows.Forms.ListView();
             this.tabTheNhua = new System.Windows.Forms.TabPage();
+            this.lvwTheNhua = new System.Windows.Forms.ListView();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.txtTomTatTinhGia = new Telerik.WinControls.UI.RadTextBoxControl();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
@@ -63,7 +64,7 @@
             this.pnlSubTotal = new Telerik.WinControls.UI.RadPanel();
             this.lblThanhTien = new Telerik.WinControls.UI.RadLabel();
             this.txtThanhTien = new Telerik.WinControls.UI.RadTextBox();
-            this.lvwTheNhua = new System.Windows.Forms.ListView();
+            this.chkGopSoTrangInTo = new Telerik.WinControls.UI.RadCheckBox();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
             this.tabInSPTo.SuspendLayout();
@@ -96,6 +97,7 @@
             this.pnlSubTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGopSoTrangInTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,6 +201,18 @@
             this.tabTheNhua.TabIndex = 13;
             this.tabTheNhua.Text = "Thẻ nhựa";
             this.tabTheNhua.UseVisualStyleBackColor = true;
+            // 
+            // lvwTheNhua
+            // 
+            this.lvwTheNhua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwTheNhua.FullRowSelect = true;
+            this.lvwTheNhua.GridLines = true;
+            this.lvwTheNhua.Location = new System.Drawing.Point(3, 3);
+            this.lvwTheNhua.MultiSelect = false;
+            this.lvwTheNhua.Name = "lvwTheNhua";
+            this.lvwTheNhua.Size = new System.Drawing.Size(511, 163);
+            this.lvwTheNhua.TabIndex = 12;
+            this.lvwTheNhua.UseCompatibleStateImageBehavior = false;
             // 
             // radGroupBox1
             // 
@@ -414,6 +428,7 @@
             // 
             // pnlSubTotal
             // 
+            this.pnlSubTotal.Controls.Add(this.chkGopSoTrangInTo);
             this.pnlSubTotal.Controls.Add(this.lblThanhTien);
             this.pnlSubTotal.Controls.Add(this.txtThanhTien);
             this.pnlSubTotal.Location = new System.Drawing.Point(13, 429);
@@ -438,17 +453,13 @@
             this.txtThanhTien.TabStop = false;
             this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lvwTheNhua
+            // chkGopSoTrangInTo
             // 
-            this.lvwTheNhua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvwTheNhua.FullRowSelect = true;
-            this.lvwTheNhua.GridLines = true;
-            this.lvwTheNhua.Location = new System.Drawing.Point(3, 3);
-            this.lvwTheNhua.MultiSelect = false;
-            this.lvwTheNhua.Name = "lvwTheNhua";
-            this.lvwTheNhua.Size = new System.Drawing.Size(511, 163);
-            this.lvwTheNhua.TabIndex = 12;
-            this.lvwTheNhua.UseCompatibleStateImageBehavior = false;
+            this.chkGopSoTrangInTo.Location = new System.Drawing.Point(11, 6);
+            this.chkGopSoTrangInTo.Name = "chkGopSoTrangInTo";
+            this.chkGopSoTrangInTo.Size = new System.Drawing.Size(83, 18);
+            this.chkGopSoTrangInTo.TabIndex = 238;
+            this.chkGopSoTrangInTo.Text = "Gộp trang in";
             // 
             // TinhGiaForm
             // 
@@ -510,6 +521,7 @@
             this.pnlSubTotal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGopSoTrangInTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -554,6 +566,7 @@
         private Telerik.WinControls.UI.RadTextBox txtThanhTien;
         private System.Windows.Forms.TabPage tabTheNhua;
         private System.Windows.Forms.ListView lvwTheNhua;
+        private Telerik.WinControls.UI.RadCheckBox chkGopSoTrangInTo;
 
     }
 }
