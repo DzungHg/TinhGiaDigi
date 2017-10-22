@@ -62,9 +62,9 @@
             this.btnDong = new Telerik.WinControls.UI.RadButton();
             this.btnLuu = new Telerik.WinControls.UI.RadButton();
             this.pnlSubTotal = new Telerik.WinControls.UI.RadPanel();
+            this.chkGopSoTrangInTo = new Telerik.WinControls.UI.RadCheckBox();
             this.lblThanhTien = new Telerik.WinControls.UI.RadLabel();
             this.txtThanhTien = new Telerik.WinControls.UI.RadTextBox();
-            this.chkGopSoTrangInTo = new Telerik.WinControls.UI.RadCheckBox();
             this.tabCtrl01.SuspendLayout();
             this.tabDanhThiep.SuspendLayout();
             this.tabInSPTo.SuspendLayout();
@@ -95,9 +95,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlSubTotal)).BeginInit();
             this.pnlSubTotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGopSoTrangInTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkGopSoTrangInTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -233,6 +233,7 @@
             this.txtTomTatTinhGia.Name = "txtTomTatTinhGia";
             this.txtTomTatTinhGia.Size = new System.Drawing.Size(240, 139);
             this.txtTomTatTinhGia.TabIndex = 8;
+            this.txtTomTatTinhGia.Enter += new System.EventHandler(this.txtTomTatTinhGia_Enter);
             // 
             // radLabel2
             // 
@@ -436,6 +437,15 @@
             this.pnlSubTotal.Size = new System.Drawing.Size(522, 29);
             this.pnlSubTotal.TabIndex = 224;
             // 
+            // chkGopSoTrangInTo
+            // 
+            this.chkGopSoTrangInTo.Location = new System.Drawing.Point(11, 6);
+            this.chkGopSoTrangInTo.Name = "chkGopSoTrangInTo";
+            this.chkGopSoTrangInTo.Size = new System.Drawing.Size(83, 18);
+            this.chkGopSoTrangInTo.TabIndex = 238;
+            this.chkGopSoTrangInTo.Text = "Gộp trang in";
+            this.chkGopSoTrangInTo.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.chkGopSoTrangInTo_ToggleStateChanged);
+            // 
             // lblThanhTien
             // 
             this.lblThanhTien.Location = new System.Drawing.Point(216, 5);
@@ -452,14 +462,6 @@
             this.txtThanhTien.TabIndex = 225;
             this.txtThanhTien.TabStop = false;
             this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // chkGopSoTrangInTo
-            // 
-            this.chkGopSoTrangInTo.Location = new System.Drawing.Point(11, 6);
-            this.chkGopSoTrangInTo.Name = "chkGopSoTrangInTo";
-            this.chkGopSoTrangInTo.Size = new System.Drawing.Size(83, 18);
-            this.chkGopSoTrangInTo.TabIndex = 238;
-            this.chkGopSoTrangInTo.Text = "Gộp trang in";
             // 
             // TinhGiaForm
             // 
@@ -519,9 +521,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlSubTotal)).EndInit();
             this.pnlSubTotal.ResumeLayout(false);
             this.pnlSubTotal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkGopSoTrangInTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblThanhTien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkGopSoTrangInTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

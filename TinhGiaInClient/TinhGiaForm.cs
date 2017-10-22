@@ -1009,6 +1009,16 @@ namespace TinhGiaInClient
            
         
        }
+
+       private void chkGopSoTrangInTo_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+       {
+           CapNhatThanhTienTheoTab();
+       }
+
+       private void txtTomTatTinhGia_Enter(object sender, EventArgs e)
+       {
+           this.TomTatTinhGia = tinhGiaPres.TomTatTinhGia_ChaoKH();
+       }
       
        
     }

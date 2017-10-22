@@ -69,7 +69,7 @@ namespace TinhGiaInClient.Model
             set { _dienGiaiMayIn = value; }
         }
 
-        string _tenPhuongPhapIn;
+        string _tenPhuongPhapIn = "Chưa In";
         public string TenPhuongPhapIn
         {
             get
@@ -85,6 +85,9 @@ namespace TinhGiaInClient.Model
                         break;
                     case PhuongPhapInS.KhongIn:
                         _tenPhuongPhapIn = "Không In";
+                        break;
+                    default:
+                        _tenPhuongPhapIn = "Chưa In";
                         break;
                 }
 

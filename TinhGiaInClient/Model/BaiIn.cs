@@ -354,7 +354,7 @@ namespace TinhGiaInClient.Model
                 dict.Add("Tiền giấy:", string.Format("{0:0,00.00}đ", tienGiay));
             }
             //Chi tiết in và Tính in
-            var tenPPIn = "";
+            var tenPPIn = "Chưa có";
             foreach(MucGiaIn giaIn in this.GiaInS)
             {
                 tenPPIn += string.Format("{0} /{1} M" + "; ", giaIn.TenPhuongPhapIn,
