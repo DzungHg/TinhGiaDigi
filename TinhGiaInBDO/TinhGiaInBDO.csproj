@@ -46,6 +46,7 @@
     <Compile Include="CatDecalBDO.cs" />
     <Compile Include="DongCuonMoPhangBDO.cs" />
     <Compile Include="DongCuonLoXoBDO.cs" />
+    <Compile Include="BeDapBDO.cs" />
     <Compile Include="EpKimBDO.cs" />
     <Compile Include="CanGapBDO.cs" />
     <Compile Include="DongCuonBDO.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="DanhMucGiayBDO.cs" />
     <Compile Include="GiaTuyChonTheNhuaBDO.cs" />
     <Compile Include="GiaTuyChonDanhThiepBDO.cs" />
+    <Compile Include="KhuonBeBDO.cs" />
     <Compile Include="KhuonEpKimBDO.cs" />
     <Compile Include="MonThanhPhamBDO.cs" />
     <Compile Include="NguoiDungBDO.cs" />
