@@ -118,18 +118,6 @@ E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInA
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04_r1\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.csprojResolveAssemblyReference.cache
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04_r1\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.dll
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04_r1\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.pdb
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.dll.config
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.pdb
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.SqlServer.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInBDO.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInBDO.pdb
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.xml
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.csprojResolveAssemblyReference.cache
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInDAL\obj\Debug\TinhGiaInDAL.pdb
 E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.dll.config
 E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.dll
 E:\GitHub\TinhGiaDigi\TinhGiaInDAL\bin\Debug\TinhGiaInDAL.pdb

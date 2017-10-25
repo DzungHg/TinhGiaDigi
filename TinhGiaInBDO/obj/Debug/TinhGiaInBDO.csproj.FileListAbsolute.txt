@@ -48,11 +48,6 @@ E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInA
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04_r1\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.csprojResolveAssemblyReference.cache
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04_r1\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.dll
 E:\My Datas\C_SharpProjects\Client_QuanLyGiaIn\QuanLyGiaIn_n17th02_13\TinhGiaInApp21_04_r1\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.pdb
-D:\GitHub\TinhGiaDigi\TinhGiaInBDO\bin\Debug\TinhGiaInBDO.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInBDO\bin\Debug\TinhGiaInBDO.pdb
-D:\GitHub\TinhGiaDigi\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.csprojResolveAssemblyReference.cache
-D:\GitHub\TinhGiaDigi\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.dll
-D:\GitHub\TinhGiaDigi\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.pdb
 E:\GitHub\TinhGiaDigi\TinhGiaInBDO\bin\Debug\TinhGiaInBDO.dll
 E:\GitHub\TinhGiaDigi\TinhGiaInBDO\bin\Debug\TinhGiaInBDO.pdb
 E:\GitHub\TinhGiaDigi\TinhGiaInBDO\obj\Debug\TinhGiaInBDO.csprojResolveAssemblyReference.cache

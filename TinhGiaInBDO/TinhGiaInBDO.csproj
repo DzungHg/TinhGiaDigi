@@ -46,7 +46,7 @@
     <Compile Include="CatDecalBDO.cs" />
     <Compile Include="DongCuonMoPhangBDO.cs" />
     <Compile Include="DongCuonLoXoBDO.cs" />
-    <Compile Include="BeDapBDO.cs" />
+    <Compile Include="MayBeBDO.cs" />
     <Compile Include="EpKimBDO.cs" />
     <Compile Include="CanGapBDO.cs" />
     <Compile Include="DongCuonBDO.cs" />
