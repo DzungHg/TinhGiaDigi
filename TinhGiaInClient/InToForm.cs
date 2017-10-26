@@ -962,7 +962,7 @@ namespace TinhGiaInClient
                     mucThPhBe.KhoToChayRong = baiIn.GiayDeInIn.ToChayRong;
                     mucThPhBe.KhoToChayDai = baiIn.GiayDeInIn.ToChayDai;
                     mucThPhBe.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
-                    mucThPhBe.SoLuongToBe = mucThPhBe.SoLuongToChay;
+                    mucThPhBe.SoLuong = mucThPhBe.SoLuongToChay;
 
                     var frm6 = new ThPhBeForm(thongTinBanDauThPh, mucThPhBe);
 

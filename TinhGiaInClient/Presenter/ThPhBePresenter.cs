@@ -34,7 +34,7 @@ namespace TinhGiaInClient.Presenter
             View.KhoBeCao = this.MucBe.KhoBeCao;
             View.KhoBeRong = this.MucBe.KhoBeRong;
             View.SoLuongToChay = this.MucBe.SoLuongToChay;
-            View.SoLuong = this.MucBe.SoLuongToBe;
+            View.SoLuong = this.MucBe.SoLuong;
             //Nếu mới
             if (View.TinhTrangForm == FormStateS.New)
                 LamLai();
