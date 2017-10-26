@@ -150,6 +150,8 @@
     <Compile Include="Model\BaiInTheNhua.cs" />
     <Compile Include="Model\BangGiaTheNhua.cs" />
     <Compile Include="Model\BangGiaDanhThiep.cs" />
+    <Compile Include="Model\GiaBoiNhieuLop.cs" />
+    <Compile Include="Model\MayBoiNhieuLop.cs" />
     <Compile Include="Model\Booklet\GiaInSachDigi.cs" />
     <Compile Include="Model\Booklet\MonDongCuon.cs" />
     <Compile Include="Model\Booklet\Sach.cs" />

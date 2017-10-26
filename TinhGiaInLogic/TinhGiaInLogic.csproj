@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BangGiaTheNhuaLogic.cs" />
     <Compile Include="BangGiaDanhThiepLogic.cs" />
+    <Compile Include="MayBoiNhieuLopLogic.cs" />
     <Compile Include="BoiBiaCungLogic.cs" />
     <Compile Include="CatDecalLogic.cs" />
     <Compile Include="DongCuonMoPhangLogic.cs" />

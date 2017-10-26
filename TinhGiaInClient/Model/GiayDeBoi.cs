@@ -11,14 +11,14 @@ namespace TinhGiaInClient.Model
     {
         private static int _id = 0;
         public int ID { get; set; }
-        public float ToChayRong { get; set; }
-        public float ToChayDai { get; set; }
+        public float ToBoiRong { get; set; }
+        public float ToBoiDai { get; set; }
         public string KhoToChay
         {
             get
             {
-                return string.Format("{0} x {1}cm", this.ToChayRong,
-                    this.ToChayDai);
+                return string.Format("{0} x {1}cm", this.ToBoiRong,
+                    this.ToBoiDai);
             }
             set { ; }
         }
@@ -47,8 +47,8 @@ namespace TinhGiaInClient.Model
                     string tenGiayIn, int idBaiIn, int soToBoiTrenToLon,
                     int soToLonTong, decimal thanhTienGiay)
         {
-            this.ToChayRong = toBoiRong;
-            this.ToChayDai = toBoiDai;
+            this.ToBoiRong = toBoiRong;
+            this.ToBoiDai = toBoiDai;
 
             
             this.SoToBoiBuHao = soToBoiBuHao;
@@ -65,7 +65,20 @@ namespace TinhGiaInClient.Model
             _id += 1;
             this.ID = _id;
         }
-        
+        public List<string>ThongTinGiayBoi()
+        {
+            var lst = new List<string>();
+            var giay = Giay.DocGiayTheoId(this.IdGiay);
+            if (giay != null)
+            {
+                lst.Add(string.Format("Tên: {0}", this.TenGiayIn));
+                lst.Add(string.Format("Định lượng: {0}gsm", giay.DinhLuong));
+                lst.Add(string.Format("Khổ: {0}", giay.KhoGiay));
+                lst.Add(string.Format("Số lượng: {0} tờ", this.SoToLonTong));
+                lst.Add(string.Format("Số lượng: {0:0,0.00}đ", this.ThanhTienGiay));
+            }
+            return lst;
+        }
                       
 
     }

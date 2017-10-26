@@ -432,7 +432,7 @@ namespace TinhGiaInClient.Model
                 
                 lst.Add(string.Format("Mục {0}:", j));
 
-                var i = 1;
+               
 
                 foreach (string str in this.NoiDungGiaChaoKH_InSach())
                 {

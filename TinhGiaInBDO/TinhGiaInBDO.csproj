@@ -42,6 +42,7 @@
     <Compile Include="BangGiaTheNhuaBDO.cs" />
     <Compile Include="BangGiaDanhThiepBDO.cs" />
     <Compile Include="BangGiaInNhanhBDO.cs" />
+    <Compile Include="MayBoiNhieuLopBDO.cs" />
     <Compile Include="BoiBiaCungBDO.cs" />
     <Compile Include="CatDecalBDO.cs" />
     <Compile Include="DongCuonMoPhangBDO.cs" />

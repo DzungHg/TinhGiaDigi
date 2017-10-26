@@ -24,7 +24,7 @@ namespace TinhGiaInClient
             this.ThongTinBaiIn_CauHinh = thongTinBanDau.ThongTinCanThiet;
            
             this.IdHangKH = thongTinBanDau.IdHangKhachHang;
-            this.PhuongPhapIn = thongTinBanDau.PhuongPhapIn;
+            
            
             
             
@@ -253,7 +253,7 @@ namespace TinhGiaInClient
         {
 
             TextBox tb;
-            CheckBox chk;
+           
             
             if (sender is TextBox)
             {
@@ -438,10 +438,10 @@ namespace TinhGiaInClient
         private void CapNhatMotSoTong()
        {
            //Cập nhật số tờ chạy lý thuyết
-           txtSoToBoiLyThuyet.Text = giayDeBoiPres.SoToChayLyThuyetTinh().ToString();
+           txtSoToBoiLyThuyet.Text = giayDeBoiPres.SoToBoiTongTong().ToString();
            txtSoToGiayLon.Text = giayDeBoiPres.SoToGiayLon().ToString();
            TinhToBoiTrenToLon();
-           txtSoToBoiLyThuyet.Text = giayDeBoiPres.SoToChayLyThuyetTinh().ToString();
+           //txtSoToBoiLyThuyet.Text = 
        }
        private void btnTinh_Click(object sender, EventArgs e)
        {

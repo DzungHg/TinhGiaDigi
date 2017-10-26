@@ -10,7 +10,7 @@ namespace TinhGiaInClient
     public enum SapXepTinhGiaS { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoTieuDe = 3 }
     public enum ChieuSapXepS { Ascending = 0, Descending = 1 }
     public enum LoaiThanhPhamS { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4,
-                                Be = 5, CatDecal = 6, BoiBiaCung = 7, GiaCongNgoai = 10 }
+                                Be = 5, CatDecal = 6, BoiBiaCung = 7, BoiNhieuLop = 8, GiaCongNgoai = 12 }
     public enum KieuDongCuonS { Kim = 1, LoXo = 2, Keo = 3, MoPhang = 4 }
     public enum MauInS { BonMau = 0, MotMau = 1, SauMau = 2 }
     public enum PhuongPhapInS { Toner = 1, HPIndigo = 2, Offset = 3, KhoLon = 4, KhongIn = 0 }

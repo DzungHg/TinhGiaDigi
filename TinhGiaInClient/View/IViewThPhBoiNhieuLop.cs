@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient.View
 {
@@ -12,7 +13,8 @@ namespace TinhGiaInClient.View
         float ToBoiRong { get; set; }
         float ToBoiCao { get; set; }
          int IdGiayBoiGiuaChon { get; set; }         
-         int SoToLotGiua { get; set; }
+         int SoLopLotGiua { get; set; }
+         GiayDeBoi GiayDeBoiChon { get; set; }
          
     }
 }

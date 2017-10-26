@@ -21,9 +21,9 @@ namespace TinhGiaInClient.Presenter
 
             View.ID = MucGiayDeBoi.ID;
             View.IdBaiIn = MucGiayDeBoi.IdBaiIn;
-            View.ToBoiRong = MucGiayDeBoi.ToChayRong;
-            View.ToBoiCao = MucGiayDeBoi.ToChayDai;
-            
+            View.ToBoiRong = MucGiayDeBoi.ToBoiRong;
+            View.ToBoiCao = MucGiayDeBoi.ToBoiDai;
+            View.SoLuongToBoiLyThuyet = MucGiayDeBoi.SoToBoiLyThuyet;
             View.SoLuongToBoiBuHao = MucGiayDeBoi.SoToBoiBuHao;
            
             View.TenGiayBoi = MucGiayDeBoi.TenGiayIn;
@@ -129,20 +129,20 @@ namespace TinhGiaInClient.Presenter
             return GiaBanChoKhach() * View.SoToGiayLon;
 
         }
-        private void CapNhatMucGiayDeIn()
+        private void CapNhatMucGiayDeBoi()
         {
             if (this.MucGiayDeBoi != null)
             {
                 this.MucGiayDeBoi.ID = View.ID;
                 this.MucGiayDeBoi.IdBaiIn = View.IdBaiIn;
-                this.MucGiayDeBoi.SoConTrenToChay = 0;
+               
                 this.MucGiayDeBoi.SoToBoiBuHao = View.SoLuongToBoiBuHao;
-                this.MucGiayDeBoi.GiayKhachDua = false;
+               
                 this.MucGiayDeBoi.TenGiayIn = View.TenGiayBoi;
                 this.MucGiayDeBoi.SoToBoiLyThuyet = View.SoLuongToBoiLyThuyet;
-                this.MucGiayDeBoi.ToChayRong = View.ToBoiRong;
-                this.MucGiayDeBoi.ToChayDai = View.ToBoiCao;
-                this.MucGiayDeBoi.SoToBoiTong = this.SoToBoiTongTong();
+                this.MucGiayDeBoi.ToBoiRong = View.ToBoiRong;
+                this.MucGiayDeBoi.ToBoiDai = View.ToBoiCao;
+               
                 this.MucGiayDeBoi.SoToBoiTrenToLon = View.SoToChayTrenToLon;
                 this.MucGiayDeBoi.SoToLonTong = View.SoToGiayLon; 
                
@@ -154,7 +154,7 @@ namespace TinhGiaInClient.Presenter
         }
         public GiayDeBoi DocGiayDeBoi()
         {
-            CapNhatMucGiayDeIn();            
+            CapNhatMucGiayDeBoi();            
             return this.MucGiayDeBoi;
         }
     }

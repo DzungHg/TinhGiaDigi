@@ -749,3 +749,5 @@ D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\EntityFramework.SqlServer.xml
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\Telerik.WinControls.xml
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\Telerik.WinControls.UI.xml
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\TinhGiaInDAL.pdb
+E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiayDeBoiForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhBoiNhieuLopForm.resources

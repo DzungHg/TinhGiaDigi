@@ -44,15 +44,10 @@
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.spcChiTietBaiIn = new System.Windows.Forms.SplitContainer();
             this.trvMucLucBaiIn = new System.Windows.Forms.TreeView();
-            this.cmuThemMucVoBaiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuChuanBiGiay = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuGanGiaIn = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmuThanhPham = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuThPh_CanPhu = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CanGap = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_Be = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CatDecal = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_BoiBiaCung = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,13 +92,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
-            this.cmnuThPh_Be = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuThPh_BoiNhieuLop = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuCauHinhToiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuChuanBiGiay = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuGanGiaIn = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
             this.spcChiTietBaiIn.Panel2.SuspendLayout();
             this.spcChiTietBaiIn.SuspendLayout();
-            this.cmuThemMucVoBaiIn.SuspendLayout();
+            this.cmuThanhPham.SuspendLayout();
             this.tabCtrl01.SuspendLayout();
             this.tabSanPham.SuspendLayout();
             this.tabGiay.SuspendLayout();
@@ -114,6 +116,7 @@
             this.tabThanhPham.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.cmnuCauHinhToiIn.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -253,7 +256,7 @@
             // 
             // trvMucLucBaiIn
             // 
-            this.trvMucLucBaiIn.ContextMenuStrip = this.cmuThemMucVoBaiIn;
+            this.trvMucLucBaiIn.ContextMenuStrip = this.cmuThanhPham;
             this.trvMucLucBaiIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trvMucLucBaiIn.Location = new System.Drawing.Point(0, 0);
             this.trvMucLucBaiIn.Name = "trvMucLucBaiIn";
@@ -261,62 +264,22 @@
             this.trvMucLucBaiIn.TabIndex = 103;
             this.trvMucLucBaiIn.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvMucLuc_AfterSelect);
             // 
-            // cmuThemMucVoBaiIn
+            // cmuThanhPham
             // 
-            this.cmuThemMucVoBaiIn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuGanCauHinhSP,
-            this.toolStripMenuItem1,
-            this.cmnuChuanBiGiay,
-            this.toolStripMenuItem2,
-            this.cmnuGanGiaIn,
-            this.toolStripMenuItem3,
+            this.cmuThanhPham.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmnuThPh_CanPhu,
             this.cmnuThPh_CanGap,
             this.cmnuThPh_Be,
             this.cmnuThPh_EpKim,
             this.cmnuThPh_CatDecal,
+            this.toolStripMenuItem5,
+            this.cmnuThPh_BoiNhieuLop,
             this.cmnuThPh_BoiBiaCung,
             this.toolStripMenuItem4,
             this.cmnuThPh_GiaCongNgoai});
-            this.cmuThemMucVoBaiIn.Name = "cmnuGiayChoSP";
-            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(155, 270);
-            this.cmuThemMucVoBaiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
-            // 
-            // cmnuGanCauHinhSP
-            // 
-            this.cmnuGanCauHinhSP.Name = "cmnuGanCauHinhSP";
-            this.cmnuGanCauHinhSP.Size = new System.Drawing.Size(154, 22);
-            this.cmnuGanCauHinhSP.Text = "Cấu hình SP";
-            this.cmnuGanCauHinhSP.Click += new System.EventHandler(this.cmnuGanCauHinhSP_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(151, 6);
-            // 
-            // cmnuChuanBiGiay
-            // 
-            this.cmnuChuanBiGiay.Name = "cmnuChuanBiGiay";
-            this.cmnuChuanBiGiay.Size = new System.Drawing.Size(154, 22);
-            this.cmnuChuanBiGiay.Text = "Chuẩn bị Giấy";
-            this.cmnuChuanBiGiay.Click += new System.EventHandler(this.cmnuChuanBiGiay_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(151, 6);
-            // 
-            // cmnuGanGiaIn
-            // 
-            this.cmnuGanGiaIn.Name = "cmnuGanGiaIn";
-            this.cmnuGanGiaIn.Size = new System.Drawing.Size(154, 22);
-            this.cmnuGanGiaIn.Text = "Giá In";
-            this.cmnuGanGiaIn.Click += new System.EventHandler(this.cmnuGanGiaIn_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(151, 6);
+            this.cmuThanhPham.Name = "cmnuGiayChoSP";
+            this.cmuThanhPham.Size = new System.Drawing.Size(155, 214);
+            this.cmuThanhPham.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuThPh_CanPhu
             // 
@@ -331,6 +294,13 @@
             this.cmnuThPh_CanGap.Size = new System.Drawing.Size(154, 22);
             this.cmnuThPh_CanGap.Text = "Cấn Gấp";
             this.cmnuThPh_CanGap.Click += new System.EventHandler(this.cmnuThPh_CanGap_Click);
+            // 
+            // cmnuThPh_Be
+            // 
+            this.cmnuThPh_Be.Name = "cmnuThPh_Be";
+            this.cmnuThPh_Be.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_Be.Text = "Bế";
+            this.cmnuThPh_Be.Click += new System.EventHandler(this.cmnuThPh_Be_Click);
             // 
             // cmnuThPh_EpKim
             // 
@@ -398,7 +368,6 @@
             // 
             // tabCtrl01
             // 
-            this.tabCtrl01.ContextMenuStrip = this.cmuThemMucVoBaiIn;
             this.tabCtrl01.Controls.Add(this.tabSanPham);
             this.tabCtrl01.Controls.Add(this.tabGiay);
             this.tabCtrl01.Controls.Add(this.tabGiaIn);
@@ -415,6 +384,7 @@
             // tabSanPham
             // 
             this.tabSanPham.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabSanPham.ContextMenuStrip = this.cmnuCauHinhToiIn;
             this.tabSanPham.Controls.Add(this.txtCauHinhSP);
             this.tabSanPham.Controls.Add(this.btnXoaCauHinhSP);
             this.tabSanPham.Controls.Add(this.btnSuaCauHinhSP);
@@ -460,6 +430,7 @@
             // tabGiay
             // 
             this.tabGiay.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.tabGiay.ContextMenuStrip = this.cmnuCauHinhToiIn;
             this.tabGiay.Controls.Add(this.btnXoaGiayDeIn);
             this.tabGiay.Controls.Add(this.btnSuaGiayIn);
             this.tabGiay.Controls.Add(this.txtGiayDeIn);
@@ -514,6 +485,7 @@
             // 
             // lvwGiaInNhanh
             // 
+            this.lvwGiaInNhanh.ContextMenuStrip = this.cmnuCauHinhToiIn;
             this.lvwGiaInNhanh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwGiaInNhanh.Location = new System.Drawing.Point(0, 36);
             this.lvwGiaInNhanh.Name = "lvwGiaInNhanh";
@@ -523,6 +495,7 @@
             // 
             // panel2
             // 
+            this.panel2.ContextMenuStrip = this.cmnuCauHinhToiIn;
             this.panel2.Controls.Add(this.btnXoaHetBaiInNhanh);
             this.panel2.Controls.Add(this.btnXoaGiaInNhanh);
             this.panel2.Controls.Add(this.btnSuaGiaInNhanh);
@@ -576,6 +549,7 @@
             // 
             // lvwTruocIn
             // 
+            this.lvwTruocIn.ContextMenuStrip = this.cmnuCauHinhToiIn;
             this.lvwTruocIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwTruocIn.Location = new System.Drawing.Point(3, 39);
             this.lvwTruocIn.Name = "lvwTruocIn";
@@ -585,6 +559,7 @@
             // 
             // panel5
             // 
+            this.panel5.ContextMenuStrip = this.cmnuCauHinhToiIn;
             this.panel5.Controls.Add(this.button13);
             this.panel5.Controls.Add(this.button15);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -625,6 +600,7 @@
             // 
             // lvwThanhPham
             // 
+            this.lvwThanhPham.ContextMenuStrip = this.cmuThanhPham;
             this.lvwThanhPham.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvwThanhPham.Location = new System.Drawing.Point(3, 39);
             this.lvwThanhPham.Name = "lvwThanhPham";
@@ -634,6 +610,7 @@
             // 
             // panel7
             // 
+            this.panel7.ContextMenuStrip = this.cmuThanhPham;
             this.panel7.Controls.Add(this.btnXoaHetThanhPham);
             this.panel7.Controls.Add(this.btnXoaThanhPham);
             this.panel7.Controls.Add(this.btnSuaThanhPham);
@@ -779,12 +756,59 @@
             this.txtKhoCatRong.Size = new System.Drawing.Size(50, 20);
             this.txtKhoCatRong.TabIndex = 3;
             // 
-            // cmnuThPh_Be
+            // toolStripMenuItem5
             // 
-            this.cmnuThPh_Be.Name = "cmnuThPh_Be";
-            this.cmnuThPh_Be.Size = new System.Drawing.Size(154, 22);
-            this.cmnuThPh_Be.Text = "Bế";
-            this.cmnuThPh_Be.Click += new System.EventHandler(this.cmnuThPh_Be_Click);
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(151, 6);
+            // 
+            // cmnuThPh_BoiNhieuLop
+            // 
+            this.cmnuThPh_BoiNhieuLop.Name = "cmnuThPh_BoiNhieuLop";
+            this.cmnuThPh_BoiNhieuLop.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_BoiNhieuLop.Text = "Bồi nhiều lớp";
+            this.cmnuThPh_BoiNhieuLop.Click += new System.EventHandler(this.cmnuThPh_BoiNhieuLop_Click);
+            // 
+            // cmnuCauHinhToiIn
+            // 
+            this.cmnuCauHinhToiIn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnuGanCauHinhSP,
+            this.toolStripSeparator1,
+            this.cmnuChuanBiGiay,
+            this.toolStripSeparator2,
+            this.cmnuGanGiaIn});
+            this.cmnuCauHinhToiIn.Name = "cmnuGiayChoSP";
+            this.cmnuCauHinhToiIn.Size = new System.Drawing.Size(149, 82);
+            // 
+            // cmnuGanCauHinhSP
+            // 
+            this.cmnuGanCauHinhSP.Name = "cmnuGanCauHinhSP";
+            this.cmnuGanCauHinhSP.Size = new System.Drawing.Size(148, 22);
+            this.cmnuGanCauHinhSP.Text = "Cấu hình SP";
+            this.cmnuGanCauHinhSP.Click += new System.EventHandler(this.cmnuGanCauHinhSP_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // cmnuChuanBiGiay
+            // 
+            this.cmnuChuanBiGiay.Name = "cmnuChuanBiGiay";
+            this.cmnuChuanBiGiay.Size = new System.Drawing.Size(148, 22);
+            this.cmnuChuanBiGiay.Text = "Chuẩn bị Giấy";
+            this.cmnuChuanBiGiay.Click += new System.EventHandler(this.cmnuChuanBiGiay_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // cmnuGanGiaIn
+            // 
+            this.cmnuGanGiaIn.Name = "cmnuGanGiaIn";
+            this.cmnuGanGiaIn.Size = new System.Drawing.Size(152, 22);
+            this.cmnuGanGiaIn.Text = "Giá In";
+            this.cmnuGanGiaIn.Click += new System.EventHandler(this.cmnuGanGiaIn_Click);
             // 
             // InToForm
             // 
@@ -809,7 +833,7 @@
             this.spcChiTietBaiIn.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).EndInit();
             this.spcChiTietBaiIn.ResumeLayout(false);
-            this.cmuThemMucVoBaiIn.ResumeLayout(false);
+            this.cmuThanhPham.ResumeLayout(false);
             this.tabCtrl01.ResumeLayout(false);
             this.tabSanPham.ResumeLayout(false);
             this.tabSanPham.PerformLayout();
@@ -823,6 +847,7 @@
             this.panel7.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.cmnuCauHinhToiIn.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -877,13 +902,7 @@
         private System.Windows.Forms.Label lblHangKhachHang;
         private System.Windows.Forms.Label lblIDBaiIn;
         private System.Windows.Forms.Button btnCopyToClipBoardNoiDungMucChon;
-        private System.Windows.Forms.ContextMenuStrip cmuThemMucVoBaiIn;
-        private System.Windows.Forms.ToolStripMenuItem cmnuGanCauHinhSP;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cmnuChuanBiGiay;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem cmnuGanGiaIn;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ContextMenuStrip cmuThanhPham;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_CanPhu;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_CanGap;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_EpKim;
@@ -899,5 +918,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.Button btnGetProdTemplate;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_Be;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem cmnuThPh_BoiNhieuLop;
+        private System.Windows.Forms.ContextMenuStrip cmnuCauHinhToiIn;
+        private System.Windows.Forms.ToolStripMenuItem cmnuGanCauHinhSP;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem cmnuChuanBiGiay;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem cmnuGanGiaIn;
     }
 }

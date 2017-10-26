@@ -102,6 +102,7 @@
       <End Role="MAY_BE" EntitySet="MAY_BE" />
       <End Role="KHUON_BE" EntitySet="KHUON_BE" />
     </AssociationSet>
+    <EntitySet Name="MAY_BOI_NHIEU_LOP" EntityType="QuanLyGiaInModel.MAY_BOI_NHIEU_LOP" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -806,4 +807,22 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="MAY_BOI_NHIEU_LOP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="dien_giai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BHR" Type="Int32" />
+    <Property Name="toc_do_tam_gio" Type="Int32" />
+    <Property Name="phi_keo_met_vuong" Type="Int32" />
+    <Property Name="thoi_gian_chuan_bi" Type="Double" />
+    <Property Name="day_so_luong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="day_loi_nhuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
+  </EntityType>
 </Schema>

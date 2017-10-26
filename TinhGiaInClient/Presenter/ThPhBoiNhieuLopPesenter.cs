@@ -30,7 +30,7 @@ namespace TinhGiaInClient.Presenter
             View.SoLuong = mucThPham.SoLuong;
             View.DonViTinh = mucThPham.DonViTinh;
             View.IdGiayBoiGiuaChon = mucThPham.IdGiayBoiGiuaChon;
-            View.SoToLotGiua = mucThPham.SoToLotGiua;
+            View.SoLopLotGiua = mucThPham.SoToLotGiua;
             //Nếu mới
             if (View.TinhTrangForm == FormStateS.New)
                 LamLai();
@@ -46,7 +46,7 @@ namespace TinhGiaInClient.Presenter
             View.SoLuong = MucBoiNhieuLop.SoLuongToChay;
             View.ToBoiRong = MucBoiNhieuLop.ToBoiRong;
             View.ToBoiCao = MucBoiNhieuLop.ToBoiCao;
-            View.SoToLotGiua = 0;
+            View.SoLopLotGiua = 0;
         }
 
         
@@ -59,27 +59,23 @@ namespace TinhGiaInClient.Presenter
             return HangKhachHang.LayTheoId(idHangKH).Ten;
         }
 
-        public List<BoiBiaCung> ThanhPhamS()
+        public List<MayBoiNhieuLop> ThanhPhamS()
         {
-            return BoiBiaCung.DocTatCa();
+            return MayBoiNhieuLop.DocTatCa();
         }
        
         public decimal ThanhTien_ThPh()
         {
-            decimal kq = 0;            
-           
-            var boiBiaCung = BoiBiaCung.DocTheoId(View.IdThanhPhamChon);
-            
-            if (View.IdGiayBoiGiuaChon <= 0)
-                return 0;//Không thể không có nhũ
-            var toBoiBia = ToBoiBiaCung.DocTheoId(View.IdGiayBoiGiuaChon);
-            
-           
-            var giaDongCuon = new GiaBoiBiaCung(View.SoLuong, boiBiaCung, 
-                            View.ToBoiRong, View.ToBoiCao,toBoiBia,
-                            View.SoToLotGiua, this.TyLeMarkUp());
+            decimal kq = 0;
 
-            kq = giaDongCuon.ThanhTienSales();
+            var boiBiaCung = MayBoiNhieuLop.DocTheoId(View.IdThanhPhamChon);
+            
+                                   
+            var giaBoi = new GiaBoiNhieuLop(View.SoLuong, boiBiaCung, 
+                            View.ToBoiRong, View.ToBoiCao, View.GiayDeBoiChon,
+                            View.SoLopLotGiua, this.TyLeMarkUp());
+
+            kq = giaBoi.ThanhTienSales();
 
             return kq;
         }
@@ -106,7 +102,7 @@ namespace TinhGiaInClient.Presenter
                 this.MucBoiNhieuLop.SoLuong = View.SoLuong;
                 this.MucBoiNhieuLop.DonViTinh = View.DonViTinh;
                 this.MucBoiNhieuLop.ThanhTien = View.ThanhTien;
-                this.MucBoiNhieuLop.SoToLotGiua = View.SoToLotGiua;
+                this.MucBoiNhieuLop.SoToLotGiua = View.SoLopLotGiua;
 
                 this.MucBoiNhieuLop.IdGiayBoiGiuaChon = View.IdGiayBoiGiuaChon;
             }

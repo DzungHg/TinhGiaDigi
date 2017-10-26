@@ -53,6 +53,7 @@
         <EntityTypeShape EntityType="QuanLyGiaInModel.KHUON_BE" Width="1.5" PointX="17.625" PointY="14.375" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_BE" Width="1.5" PointX="15.375" PointY="14" />
         <AssociationConnector Association="QuanLyGiaInModel.FK_KHUON_BE_MAY_BE" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_BOI_NHIEU_LOP" Width="1.5" PointX="0.75" PointY="15.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

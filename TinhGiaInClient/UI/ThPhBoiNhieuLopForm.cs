@@ -48,17 +48,17 @@ namespace TinhGiaInClient.UI
             //Envent
 
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
-            txtSoToLot.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoLopLot.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToBoiRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToBoiCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
-            txtSoToLot.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoLopLot.Leave += new EventHandler(TextBoxes_Leave);
             txtToBoiRong.Leave += new EventHandler(TextBoxes_Leave);
             txtToBoiCao.Leave += new EventHandler(TextBoxes_Leave);
 
             txtSoLuong.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtSoToLot.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoLopLot.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToBoiRong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToBoiCao.KeyPress += new KeyPressEventHandler(InputValidator);
 
@@ -186,18 +186,19 @@ namespace TinhGiaInClient.UI
 
 
 
-        public int SoToLotGiua
+        public int SoLopLotGiua
         {
             get
             {
-                return int.Parse(txtSoToLot.Text);
+                return int.Parse(txtSoLopLot.Text);
             }
             set
             {
-                txtSoToLot.Text = value.ToString();
+                txtSoLopLot.Text = value.ToString();
             }
         }
-
+        public GiayDeBoi GiayDeBoiChon
+        { get; set; }
       
         #endregion
 
@@ -238,11 +239,11 @@ namespace TinhGiaInClient.UI
                         CapNhatLabelGia();
                 }
                 //xử lý khi user xóa hết bên Leave
-                if (tb == txtSoToLot)
+                if (tb == txtSoLopLot)
                 {
-                    if (!string.IsNullOrEmpty(txtSoToLot.Text.Trim()))
+                    if (!string.IsNullOrEmpty(txtSoLopLot.Text.Trim()))
                         CapNhatLabelGia();
-                    if (this.SoToLotGiua <= 0)
+                    if (this.SoLopLotGiua <= 0)
                         btnLayGiay.Enabled = false;
                     else
                         btnLayGiay.Enabled = true;
@@ -275,7 +276,7 @@ namespace TinhGiaInClient.UI
             {
                 t = (TextBox)sender;
                 
-                if (t == txtSoLuong || t == txtSoToLot )//chỉ được nhập số chẵn 
+                if (t == txtSoLuong || t == txtSoLopLot )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
@@ -384,9 +385,9 @@ namespace TinhGiaInClient.UI
                         this.ToBoiCao = 10;
                 }
                 
-                if (tb == txtSoToLot)
-                    if (string.IsNullOrEmpty(txtSoToLot.Text.Trim()))
-                        this.SoToLotGiua = 1;               
+                if (tb == txtSoLopLot)
+                    if (string.IsNullOrEmpty(txtSoLopLot.Text.Trim()))
+                        this.SoLopLotGiua = 1;               
 
             }
         }
@@ -470,6 +471,60 @@ namespace TinhGiaInClient.UI
                     CapNhatLabelGia();
                 }
 
+            }
+        }
+
+        private void btnLayGiay_Click(object sender, EventArgs e)
+        {
+            //Thong tin ban đầu
+            if (this.SoLopLotGiua <= 0)
+            {
+                return;
+            }
+            var thongTinBanDau = new ThongTinBanDauChoGiayIn();
+            thongTinBanDau.TinhTrangForm = FormStateS.New;
+            thongTinBanDau.ThongTinCanThiet = "Bồi giấy";
+
+            //Tao giay de bồi
+            var soLuongToBoi = this.SoLuong * this.SoLopLotGiua;
+            var mucGiayDeBoi = new GiayDeBoi(this.ToBoiRong, this.ToBoiCao,
+                0, soLuongToBoi, 0, "", 0, 0,0,0);//
+            //Tiến hành gắn
+
+            var frm = new GiayDeBoiForm(thongTinBanDau, mucGiayDeBoi);
+            frm.Text = "[Mới] Giấy lót bồi";
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                XuLyNutOKTrenFormChuanBiGiay_Click(frm);
+                //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+
+            }
+        }
+        private void XuLyNutOKTrenFormChuanBiGiay_Click(GiayDeBoiForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    this.GiayDeBoiChon = frm.DocGiayDeIn();
+                    txtThongTinGiayLot.Lines = this.GiayDeBoiChon.ThongTinGiayBoi().ToArray();
+
+                    txtSoLuong.Enabled = false;//Lock lại
+                    //Cập nhật tính toán
+                    //TinhToanToanBo();
+                    break;
+                case FormStateS.Edit:
+                    //Đổi ID vì thêm mới là có id mới
+                    this.GiayDeBoiChon = frm.DocGiayDeIn();
+                    txtThongTinGiayLot.Lines = this.GiayDeBoiChon.ThongTinGiayBoi().ToArray();
+                    txtSoLuong.Enabled = false;//Lock lại
+                    //Cập nhật tính toán
+                    //TinhToanToanBo();
+                    break;
             }
         }
      

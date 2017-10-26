@@ -36,7 +36,7 @@
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtSoToLot = new System.Windows.Forms.TextBox();
+            this.txtSoLopLot = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -129,21 +129,21 @@
             this.label4.TabIndex = 105;
             this.label4.Text = "Thông tin giấy lót";
             // 
-            // txtSoToLot
+            // txtSoLopLot
             // 
-            this.txtSoToLot.Location = new System.Drawing.Point(98, 159);
-            this.txtSoToLot.Name = "txtSoToLot";
-            this.txtSoToLot.Size = new System.Drawing.Size(62, 20);
-            this.txtSoToLot.TabIndex = 4;
+            this.txtSoLopLot.Location = new System.Drawing.Point(98, 159);
+            this.txtSoLopLot.Name = "txtSoLopLot";
+            this.txtSoLopLot.Size = new System.Drawing.Size(62, 20);
+            this.txtSoLopLot.TabIndex = 4;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 162);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 13);
+            this.label6.Size = new System.Drawing.Size(57, 13);
             this.label6.TabIndex = 109;
-            this.label6.Text = "Số tờ lót";
+            this.label6.Text = "Số lớp lót";
             // 
             // label7
             // 
@@ -274,6 +274,7 @@
             this.btnLayGiay.Size = new System.Drawing.Size(83, 24);
             this.btnLayGiay.TabIndex = 124;
             this.btnLayGiay.Text = "Lấy giấy";
+            this.btnLayGiay.Click += new System.EventHandler(this.btnLayGiay_Click);
             // 
             // ThPhBoiNhieuLopForm
             // 
@@ -296,7 +297,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtSoToLot);
+            this.Controls.Add(this.txtSoLopLot);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.label3);
@@ -334,7 +335,7 @@
         private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtSoToLot;
+        private System.Windows.Forms.TextBox txtSoLopLot;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;

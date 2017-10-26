@@ -984,7 +984,7 @@ namespace TinhGiaInClient
                     break;
                 #endregion
 
-                #region mục bồi bìa cứng
+                #region mục bồi bìa cứng, bồi nhiều lớp
                 case LoaiThanhPhamS.BoiBiaCung:
                     var thongDiep5 = string.Format("Số lượng {0} {1}",
                         baiIn.SoLuong, baiIn.DonVi);
@@ -1013,6 +1013,40 @@ namespace TinhGiaInClient
                     if (frm5.DialogResult == System.Windows.Forms.DialogResult.OK)
                     {
                         XuLyNutOKClick_FormBoiBiaCung(frm5);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+                case LoaiThanhPhamS.BoiNhieuLop:
+                    var thongDiep7 = string.Format("Số tờ chạy {0} {1}",
+                        baiIn.GiayDeInIn.SoToChayTong, baiIn.DonVi);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep7;
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Nhiều lớp";
+                    thongTinBanDauThPh.MoTextSoLuong = true;
+                    //tạo mục thành phẩm đóng cuốn
+                    var mucThPhBoiNhieuLop = new MucThPhBoiNhieuLop();
+                    mucThPhBoiNhieuLop.IdBaiIn = baiIn.ID;
+                    mucThPhBoiNhieuLop.IdHangKhachHang = baiIn.IdHangKH;
+                    mucThPhBoiNhieuLop.LoaiThanhPham = LoaiThanhPhamS.BoiNhieuLop;
+                    mucThPhBoiNhieuLop.SoLuong = this.SoLuong;
+                    mucThPhBoiNhieuLop.ToBoiRong = baiIn.GiayDeInIn.ToChayRong;
+                    mucThPhBoiNhieuLop.ToBoiCao = baiIn.GiayDeInIn.ToChayDai;
+                    mucThPhBoiNhieuLop.DonViTinh = "tấm";
+
+                    var frm7 = new ThPhBoiNhieuLopForm(thongTinBanDauThPh, mucThPhBoiNhieuLop);
+
+                    frm7.MinimizeBox = false;
+                    frm7.MaximizeBox = false;
+                    frm7.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua ỏm
+                    frm7.IdBaiIn = baiIn.ID;
+                    frm7.IdHangKhachHang = baiIn.IdHangKH;
+                    frm7.ShowDialog();
+                    if (frm7.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormBoiNhieuLop(frm7);
                         //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
                         LoadThanhPhamLenListView();
                         //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
@@ -1192,6 +1226,33 @@ namespace TinhGiaInClient
 
                     }
                     break;
+                case LoaiThanhPhamS.BoiNhieuLop:
+                    var thongDiep8 = string.Format("Số tờ chạy {0} tờ + '\n' + '\r'",
+                        baiIn.GiayDeInIn.SoToChayTong)
+                        + string.Format("Khổ tờ chạy: {0} x {1}cm" + '\n' + '\r',
+                        baiIn.CauHinhSP.KhoCatRong, baiIn.CauHinhSP.KhoCatCao);
+
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep8;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Bồi nhiều lớp";
+                    thongTinBanDauThPh.MoTextSoLuong = true;
+                    var frm8 = new ThPhBoiNhieuLopForm(thongTinBanDauThPh, (MucThPhBoiNhieuLop)mucThPh);
+
+                    frm8.MinimizeBox = false;
+                    frm8.MaximizeBox = false;
+                    frm8.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua form                   
+
+                    frm8.ShowDialog();
+                    if (frm8.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+
+                        XuLyNutOKClick_FormBoiNhieuLop(frm8);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
                 case LoaiThanhPhamS.CatDecal:
                     var thongDiep6 = string.Format("Số lượng {0} con / khổ tờ chạy: {1}" + '\n' + '\r',
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong)
@@ -1357,8 +1418,27 @@ namespace TinhGiaInClient
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
         }
         #endregion
-        #region Xử lý form bồi bìa cứng
+        #region Xử lý form bồi bìa cứng, bồi nhiều lớp
         private void XuLyNutOKClick_FormBoiBiaCung(ThPhBoiBiaCungForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+
+                    baiInPres.ThemThanhPham(frm.LayMucThanhPham());
+                    break;
+                case FormStateS.Edit:
+                    //Tạo 
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không còn 
+                    //Gọi để cập nhật
+                    frm.LayMucThanhPham();
+                    break;
+            }
+            //Cap nhat noi dung bai in
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
+        }
+        private void XuLyNutOKClick_FormBoiNhieuLop(ThPhBoiNhieuLopForm frm)
         {
 
             switch (frm.TinhTrangForm)
@@ -1648,6 +1728,11 @@ namespace TinhGiaInClient
         private void cmnuThPh_Be_Click(object sender, EventArgs e)
         {
             ThemThanhPham(this.ID, LoaiThanhPhamS.Be);
+        }
+
+        private void cmnuThPh_BoiNhieuLop_Click(object sender, EventArgs e)
+        {
+            ThemThanhPham(this.ID, LoaiThanhPhamS.BoiNhieuLop);
         }
     }
 }
