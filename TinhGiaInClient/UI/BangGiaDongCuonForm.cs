@@ -206,7 +206,7 @@ namespace TinhGiaInClient.UI
         }
         private void ShowFormEpKim()
         {
-            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            var thongTinBanDau = new ThongTinBanDauThanhPham
             {
                 IdBaiIn = 1,
                 IdHangKhachHang = this.IdHangKHChon,

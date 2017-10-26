@@ -45,6 +45,8 @@
     <Compile Include="CatDecalLogic.cs" />
     <Compile Include="DongCuonMoPhangLogic.cs" />
     <Compile Include="DongCuonLoXoLogic.cs" />
+    <Compile Include="KhuonBeLogic.cs" />
+    <Compile Include="MayBeLogic.cs" />
     <Compile Include="GiaTuyChonDanhThiepLogic.cs" />
     <Compile Include="GiaTuyChonTheNhuaLogic.cs" />
     <Compile Include="NguoiDungLogic.cs" />

@@ -97,6 +97,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
+            this.cmnuThPh_Be = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -271,13 +272,14 @@
             this.toolStripMenuItem3,
             this.cmnuThPh_CanPhu,
             this.cmnuThPh_CanGap,
+            this.cmnuThPh_Be,
             this.cmnuThPh_EpKim,
             this.cmnuThPh_CatDecal,
             this.cmnuThPh_BoiBiaCung,
             this.toolStripMenuItem4,
             this.cmnuThPh_GiaCongNgoai});
             this.cmuThemMucVoBaiIn.Name = "cmnuGiayChoSP";
-            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(155, 226);
+            this.cmuThemMucVoBaiIn.Size = new System.Drawing.Size(155, 270);
             this.cmuThemMucVoBaiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuGanCauHinhSP
@@ -777,6 +779,13 @@
             this.txtKhoCatRong.Size = new System.Drawing.Size(50, 20);
             this.txtKhoCatRong.TabIndex = 3;
             // 
+            // cmnuThPh_Be
+            // 
+            this.cmnuThPh_Be.Name = "cmnuThPh_Be";
+            this.cmnuThPh_Be.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_Be.Text = "Bế";
+            this.cmnuThPh_Be.Click += new System.EventHandler(this.cmnuThPh_Be_Click);
+            // 
             // InToForm
             // 
             this.AcceptButton = this.btnOK;
@@ -889,5 +898,6 @@
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_BoiBiaCung;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.Button btnGetProdTemplate;
+        private System.Windows.Forms.ToolStripMenuItem cmnuThPh_Be;
     }
 }

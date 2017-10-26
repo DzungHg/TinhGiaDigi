@@ -10,7 +10,7 @@ namespace TinhGiaInClient.Model.Support
     {
         string ThongDiepCanThiet { get; set; }
         FormStateS TinhTrangForm { get; set; }
-        
+
         string TieuDeForm { get; set; }
       
        

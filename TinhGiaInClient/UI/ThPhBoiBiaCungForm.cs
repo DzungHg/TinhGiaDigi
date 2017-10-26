@@ -17,7 +17,7 @@ namespace TinhGiaInClient.UI
     public partial class ThPhBoiBiaCungForm : Telerik.WinControls.UI.RadForm, IViewThPhBoiBiaCung
     {
         ThPhBoiBiaCungPresenter thPhMoPhangPres;
-        public ThPhBoiBiaCungForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhBoiBiaCung mucThBoiBiaCung)
+        public ThPhBoiBiaCungForm(ThongTinBanDauThanhPham thongTinBanDau, MucThPhBoiBiaCung mucThBoiBiaCung)
         {
             InitializeComponent();
 

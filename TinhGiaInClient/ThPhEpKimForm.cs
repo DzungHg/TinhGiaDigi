@@ -17,7 +17,7 @@ namespace TinhGiaInClient
     public partial class ThPhEpKimForm : Form, IViewThPhEpKim
     {
         ThPhEpKimPresenter epKimPres;
-        public ThPhEpKimForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhEpKim mucThPham)
+        public ThPhEpKimForm(ThongTinBanDauThanhPham thongTinBanDau, MucThPhEpKim mucThPham)
         {
             InitializeComponent();
 

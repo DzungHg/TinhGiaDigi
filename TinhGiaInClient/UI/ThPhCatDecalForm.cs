@@ -17,7 +17,7 @@ namespace TinhGiaInClient.UI
     public partial class ThPhCatDecalForm : Telerik.WinControls.UI.RadForm, IViewThPhCatDecal
     {
         ThPhCatDecalPresenter thPhMoPhangPres;
-        public ThPhCatDecalForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThPhCatDecal mucThPhCatDecal)
+        public ThPhCatDecalForm(ThongTinBanDauThanhPham thongTinBanDau, MucThPhCatDecal mucThPhCatDecal)
         {
             InitializeComponent();
 

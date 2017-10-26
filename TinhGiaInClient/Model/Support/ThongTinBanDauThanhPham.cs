@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient.Model.Support
 {
-    public struct ThongTinBanDauChoThanhPham
+    public struct ThongTinBanDauThanhPham
     {
         public int IdBaiIn { get; set; }
         

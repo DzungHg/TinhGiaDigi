@@ -50,6 +50,9 @@
         <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_BANG_GIA_THE_NHUA" />
         <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_DANH_THIEP_TUY_CHON_DANH_THIEP" />
         <AssociationConnector Association="QuanLyGiaInModel.FK_GIA_TUY_CHON_THE_NHUA_TUY_CHON_THE_NHUA" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.KHUON_BE" Width="1.5" PointX="17.625" PointY="14.375" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_BE" Width="1.5" PointX="15.375" PointY="14" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_KHUON_BE_MAY_BE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

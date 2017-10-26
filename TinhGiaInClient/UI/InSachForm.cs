@@ -431,9 +431,9 @@ namespace TinhGiaInClient.UI
         }
         #endregion
         #region Đóng cuốn
-        private ThongTinBanDauChoThanhPham ThongTinBanDauCuonKeo()
+        private ThongTinBanDauThanhPham ThongTinBanDauCuonKeo()
         {
-            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            var thongTinBanDau = new ThongTinBanDauThanhPham
             {
 
                 IdBaiIn = this.ID,

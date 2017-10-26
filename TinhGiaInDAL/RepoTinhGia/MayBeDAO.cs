@@ -15,22 +15,19 @@ namespace TinhGiaInDAL.RepoTinhGia
             List<MayBeBDO> list = null;
             try
             {
-                var nguon = db.EP_KIM.Select(x => new MayBeBDO
+                var nguon = db.MAY_BE.Select(x => new MayBeBDO
                 {
                     ID = x.ID,
-                    Ten = x.Ten,
+                    Ten = x.ten,
                     BHR = (int)x.BHR,
-                    TocDoConGio = (int)x.Toc_do_con,
-                    ThoiGianChuanBi = (float)x.Thoi_gian_chuan_bi,                   
-                    DaySoLuong = x.Day_so_luong,
-                    DayLoiNhuan = x.Day_loi_nhuan,
-                    LaViTinh = (bool)x.La_vi_tinh,
-                    PhiNguyenVatLieuChuanBi = (int)x.Phi_ngvl_chuan_bi,
-                    GiaKhuonCm2 = (int)x.Gia_khuon_cm2,
-                    Ma_01 = x.ma_01,
+                    TocDoTamGio = (int)x.toc_do_con,
+                    ThoiGianChuanBi = (float)x.thoi_gian_chuan_bi,                   
+                    DaySoLuong = x.day_so_luong,
+                    DayLoiNhuan = x.day_loi_nhuan,                   
+                    PhiNguyenVatLieuChuanBi = (int)x.phi_ngvl_chuan_bi,                                        
                     DonViTinh = x.don_vi_tinh,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    ThuTu = (int)x.Thu_tu
+                    ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
             }
@@ -46,22 +43,21 @@ namespace TinhGiaInDAL.RepoTinhGia
             MayBeBDO dm = null;
             try
             {
-                var nguon = db.EP_KIM.Where(x => x.ID == iD).Select(x => new EpKimBDO
+                var nguon = db.MAY_BE.Where(x => x.ID == iD).Select(x => new MayBeBDO
                 {
                     ID = x.ID,
-                    Ten = x.Ten,
+                    Ten = x.ten,
                     BHR = (int)x.BHR,
-                    TocDoConGio = (int)x.Toc_do_con,
-                    ThoiGianChuanBi = (float)x.Thoi_gian_chuan_bi,                   
-                    DaySoLuong = x.Day_so_luong,
-                    DayLoiNhuan = x.Day_loi_nhuan,
-                    LaViTinh = (bool)x.La_vi_tinh,
-                    PhiNguyenVatLieuChuanBi = (int)x.Phi_ngvl_chuan_bi,
-                    GiaKhuonCm2 = (int)x.Gia_khuon_cm2,
-                    Ma_01 = x.ma_01,
+                    TocDoTamGio = (int)x.toc_do_con,
+                    ThoiGianChuanBi = (float)x.thoi_gian_chuan_bi,                   
+                    DaySoLuong = x.day_so_luong,
+                    DayLoiNhuan = x.day_loi_nhuan,
+                  
+                    PhiNguyenVatLieuChuanBi = (int)x.phi_ngvl_chuan_bi,                    
+                    
                     DonViTinh = x.don_vi_tinh,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    ThuTu = (int)x.Thu_tu
+                    ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
                 dm = nguon;
             }
@@ -78,22 +74,22 @@ namespace TinhGiaInDAL.RepoTinhGia
                 kq = KiemTraTrung(entityBDO.Ten);
                 if (kq != "")
                     return kq;
-                EP_KIM entity = new EP_KIM();
+                MAY_BE entity = new MAY_BE();
                 ChuyenBDOThanhDAO(entityBDO, entity);
-                db.EP_KIM.Add(entity);
+                db.MAY_BE.Add(entity);
                 db.SaveChanges();
                 kq = string.Format("Máy ép kim:{0}", entity.ID);
             }
             catch
             {
-                kq = string.Format("Thêm Máy ép kim {0} lỗi!", entityBDO.ID);
+                kq = string.Format("Thêm Máy bế {0} lỗi!", entityBDO.ID);
             }
             return kq;
         }
 
         public string Sua(MayBeBDO entityBDO)
         {
-            EP_KIM entity = db.EP_KIM.Where(x => x.ID == entityBDO.ID).SingleOrDefault();
+            MAY_BE entity = db.MAY_BE.Where(x => x.ID == entityBDO.ID).SingleOrDefault();
             var kq = "";
             if (entity != null)
             {
@@ -132,21 +128,21 @@ namespace TinhGiaInDAL.RepoTinhGia
                 kq = string.Format("Tên {0} đã có rồi!", value);
             return kq;
         }
-        private void ChuyenBDOThanhDAO(MayBeBDO entityBDO, EP_KIM entityDAO)
+        private void ChuyenBDOThanhDAO(MayBeBDO entityBDO, MAY_BE entityDAO)
         {
             entityDAO.ID = entityBDO.ID;
-            entityDAO.Ten = entityBDO.Ten;
+            entityDAO.ten = entityBDO.Ten;
             entityDAO.BHR = entityBDO.BHR;
-            entityDAO.Toc_do_con = entityBDO.TocDoConGio;
-            entityDAO.Thoi_gian_chuan_bi = entityBDO.ThoiGianChuanBi;
-            entityDAO.Phi_ngvl_chuan_bi = entityBDO.PhiNguyenVatLieuChuanBi;
-            entityDAO.Day_so_luong = entityBDO.DaySoLuong;
-            entityDAO.Day_loi_nhuan = entityBDO.DayLoiNhuan;
-            entityDAO.ma_01 = entityBDO.Ma_01;
+            entityDAO.toc_do_con = entityBDO.TocDoTamGio;
+            entityDAO.thoi_gian_chuan_bi = entityBDO.ThoiGianChuanBi;
+            entityDAO.phi_ngvl_chuan_bi = entityBDO.PhiNguyenVatLieuChuanBi;
+            entityDAO.day_so_luong = entityBDO.DaySoLuong;
+            entityDAO.day_loi_nhuan = entityBDO.DayLoiNhuan;
+            
             entityDAO.don_vi_tinh = entityBDO.DonViTinh;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
-            entityDAO.La_vi_tinh = entityBDO.LaViTinh;
-            entityDAO.Thu_tu = entityBDO.ThuTu;
+            
+            entityDAO.thu_tu = entityBDO.ThuTu;
         }
         #endregion
 

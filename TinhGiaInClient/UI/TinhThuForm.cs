@@ -145,10 +145,10 @@ namespace TinhGiaInClient.UI
         {
             
         }
-        private ThongTinBanDauChoThanhPham thongTinBanDauChoThPh(int idHangKH, LoaiThanhPhamS loaiThPham,
+        private ThongTinBanDauThanhPham thongTinBanDauChoThPh(int idHangKH, LoaiThanhPhamS loaiThPham,
                         FormStateS tinhTrangForm, string tieuDeForm, string donViTinh)
         {
-            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            var thongTinBanDau = new ThongTinBanDauThanhPham
             {
                 IdBaiIn = 1,
                 IdHangKhachHang = idHangKH,
@@ -415,7 +415,7 @@ namespace TinhGiaInClient.UI
         private void TinhThu_CatDecal()
         {
             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
-            var thongTinBanDau = new ThongTinBanDauChoThanhPham();
+            var thongTinBanDau = new ThongTinBanDauThanhPham();
             thongTinBanDau.DonViTinh = "Con";
             thongTinBanDau.TinhTrangForm = FormStateS.View;
             thongTinBanDau.TieuDeForm = "Cắt decal [Tính thử]";
@@ -450,7 +450,7 @@ namespace TinhGiaInClient.UI
         private void TinhThuBoiBiaCung()
         {
             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
-            var thongTinBanDauMP = new ThongTinBanDauChoThanhPham();
+            var thongTinBanDauMP = new ThongTinBanDauThanhPham();
             thongTinBanDauMP.MoTextSoLuong = true;
             thongTinBanDauMP.TinhTrangForm = FormStateS.View;
             thongTinBanDauMP.TieuDeForm = "Bồi bìa cứng [Tính thử]";

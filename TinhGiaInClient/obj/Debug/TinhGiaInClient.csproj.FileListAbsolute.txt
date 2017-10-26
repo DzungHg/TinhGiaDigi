@@ -692,3 +692,4 @@ E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhBoiBiaCun
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiaInTheNhuaForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiayInDanhThiepForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\TinhGiaInClient.exe.config
+E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhBeForm.resources

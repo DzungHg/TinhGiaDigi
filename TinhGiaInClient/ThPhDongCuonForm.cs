@@ -17,7 +17,7 @@ namespace TinhGiaInClient
     public partial class ThPhDongCuonForm : Form, IViewThanhPham
     {
         DongCuonPresenter dongCuonPres;
-        public ThPhDongCuonForm(ThongTinBanDauChoThanhPham thongTinBanDau, MucThanhPham mucThPham)
+        public ThPhDongCuonForm(ThongTinBanDauThanhPham thongTinBanDau, MucThanhPham mucThPham)
         {
             InitializeComponent();
 

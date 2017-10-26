@@ -136,10 +136,10 @@ namespace TinhGiaInNhapLieu
         {
             
         }
-        private ThongTinBanDauChoThanhPham thongTinBanDauChoThPh(int idHangKH, LoaiThanhPhamS loaiThPham,
+        private ThongTinBanDauThanhPham thongTinBanDauChoThPh(int idHangKH, LoaiThanhPhamS loaiThPham,
                         FormStateS tinhTrangForm, string tieuDeForm, string donViTinh)
         {
-            var thongTinBanDau = new ThongTinBanDauChoThanhPham
+            var thongTinBanDau = new ThongTinBanDauThanhPham
             {
                 IdBaiIn = 1,
                 IdHangKhachHang = idHangKH,

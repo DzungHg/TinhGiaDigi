@@ -768,11 +768,11 @@ namespace TinhGiaInClient
             }
         }
         
-        private ThongTinBanDauChoThanhPham thongTinBanDauChoThanhPham(int idBaiIn, int idHangKH, int soLuongSP, string donViTinh,
+        private ThongTinBanDauThanhPham thongTinBanDauChoThanhPham(int idBaiIn, int idHangKH, int soLuongSP, string donViTinh,
             int soToChay, LoaiThanhPhamS loaiThPh,
                 string thongDiepThem, FormStateS tinhTrangForm, string tieuDeForm )
         {
-            var thongTinBanDau = new ThongTinBanDauChoThanhPham ();
+            var thongTinBanDau = new ThongTinBanDauThanhPham ();
             thongTinBanDau.IdBaiIn = idBaiIn;
             thongTinBanDau.IdHangKhachHang = idHangKH;
             thongTinBanDau.ThongDiepCanThiet = thongDiepThem;
@@ -943,6 +943,47 @@ namespace TinhGiaInClient
 
                     }
                     break;
+                #region Bế
+                case LoaiThanhPhamS.Be:
+                    var thongDiep6 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Số tờ chạy {2}",
+                       baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep6;
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Bế";
+                    thongTinBanDauThPh.LoaiThanhPham = LoaiThanhPhamS.Be;
+                    //tạo mới mục ép kim
+                    var mucThPhBe= new MucThPhBe();
+                    mucThPhBe.IdBaiIn = baiIn.ID;
+                    mucThPhBe.IdHangKhachHang = baiIn.IdHangKH;
+                    mucThPhBe.LoaiThanhPham = LoaiThanhPhamS.Be;
+                    mucThPhBe.SoLuong = baiIn.SoLuong; //Tạm
+                    //mucThPhBe.DonViTinh = "con";
+                    mucThPhBe.KhoBeRong = baiIn.GiayDeInIn.ToChayRong;
+                    mucThPhBe.KhoBeCao = baiIn.GiayDeInIn.ToChayDai;
+                    mucThPhBe.KhoToChayRong = baiIn.GiayDeInIn.ToChayRong;
+                    mucThPhBe.KhoToChayDai = baiIn.GiayDeInIn.ToChayDai;
+                    mucThPhBe.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
+                    mucThPhBe.SoLuongToBe = mucThPhBe.SoLuongToChay;
+
+                    var frm6 = new ThPhBeForm(thongTinBanDauThPh, mucThPhBe);
+
+                    frm6.MinimizeBox = false;
+                    frm6.MaximizeBox = false;
+                    frm6.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua ỏm
+                    frm6.IdBaiIn = baiIn.ID;
+                    frm6.IdHangKhachHang = baiIn.IdHangKH;
+                    frm6.ShowDialog();
+                    if (frm6.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormBe(frm6);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+                #endregion
+
                 #region mục bồi bìa cứng
                 case LoaiThanhPhamS.BoiBiaCung:
                     var thongDiep5 = string.Format("Số lượng {0} {1}",
@@ -1078,7 +1119,7 @@ namespace TinhGiaInClient
 
                     }
                     break;
-                    
+                #region Ép kim, Bế
                 case LoaiThanhPhamS.EpKim:
                     var thongDiep4 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Số tờ chạy {2}",
                         baiIn.SoLuong,  baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
@@ -1100,7 +1141,31 @@ namespace TinhGiaInClient
                         //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
 
                     }
-                    break;               
+                    break;
+                case LoaiThanhPhamS.Be:
+                    var thongDiep7 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Số tờ chạy {2}",
+                        baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
+                    thongTinBanDauThPh.ThongDiepCanThiet = thongDiep7;
+                    thongTinBanDauThPh.TieuDeForm = "[Sửa] Bế";
+                    var frm7 = new ThPhBeForm(thongTinBanDauThPh, (MucThPhBe)mucThPh);
+
+                    frm7.MinimizeBox = false;
+                    frm7.MaximizeBox = false;
+                    frm7.StartPosition = FormStartPosition.CenterParent;
+                    //Data gởi qua form                   
+
+                    frm7.ShowDialog();
+                    if (frm7.DialogResult == System.Windows.Forms.DialogResult.OK)
+                    {
+                        XuLyNutOKClick_FormBe(frm7);
+                        //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
+                        LoadThanhPhamLenListView();
+                        //Cập nhật lại danh sách bài in đã nằm trong LoadGiay
+
+                    }
+                    break;
+                #endregion
+                #region Bồi, căt decal, dán
                 case LoaiThanhPhamS.BoiBiaCung:
                     var thongDiep5 = string.Format("Số lượng {0} con / khổ tờ chạy: {1}" + '\n' + '\r',
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong)
@@ -1152,6 +1217,7 @@ namespace TinhGiaInClient
 
                     }
                     break;
+                #endregion
                 case LoaiThanhPhamS.GiaCongNgoai:
                     var thongDiep12 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Khổ tờ chạy {2}",
                         baiIn.SoLuong, baiIn.GiayDeInIn.KhoToChay, baiIn.GiayDeInIn.SoToChayTong);
@@ -1236,6 +1302,27 @@ namespace TinhGiaInClient
             {
                 case FormStateS.New:
                    
+                    baiInPres.ThemThanhPham(frm.LayMucThanhPham());
+                    break;
+                case FormStateS.Edit:
+                    //Tạo 
+                    //baiInPres.SuaThanhPham(frm.LayMucThanhPham());//Không còn 
+                    //Gọi để cập nhật
+                    frm.LayMucThanhPham();
+                    break;
+            }
+            //Cap nhat noi dung bai in
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
+        }
+        #endregion
+        #region Bế
+        private void XuLyNutOKClick_FormBe(ThPhBeForm frm)
+        {
+
+            switch (frm.TinhTrangForm)
+            {
+                case FormStateS.New:
+
                     baiInPres.ThemThanhPham(frm.LayMucThanhPham());
                     break;
                 case FormStateS.Edit:
@@ -1426,6 +1513,7 @@ namespace TinhGiaInClient
         {
             ThemThanhPham(this.ID, LoaiThanhPhamS.EpKim);
         }
+       
 
         private void cmnuThPh_Khac_Click(object sender, EventArgs e)
         {
@@ -1555,6 +1643,11 @@ namespace TinhGiaInClient
                 ListViews_SelectedIndexChanged(lvwTruocIn, e);
             }
            
+        }
+
+        private void cmnuThPh_Be_Click(object sender, EventArgs e)
+        {
+            ThemThanhPham(this.ID, LoaiThanhPhamS.Be);
         }
     }
 }

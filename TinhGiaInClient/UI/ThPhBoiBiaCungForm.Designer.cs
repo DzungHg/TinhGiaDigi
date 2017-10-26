@@ -111,11 +111,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 81);
+            this.label3.Location = new System.Drawing.Point(12, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 103;
-            this.label3.Text = "Máy đóng";
+            this.label3.Text = "Máy bồi";
             // 
             // label4
             // 
@@ -292,7 +292,7 @@
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Đóng mở phẳng";
+            this.Text = "Bồi bìa cứng";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ThPhCanPhuForm_FormClosing);
             this.Load += new System.EventHandler(this.ThanhPhamForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstToBoi)).EndInit();

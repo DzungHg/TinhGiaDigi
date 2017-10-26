@@ -58,5 +58,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<GIA_TUY_CHON_THE_NHUA> GIA_TUY_CHON_THE_NHUA { get; set; }
         public virtual DbSet<TUY_CHON_DANH_THIEP> TUY_CHON_DANH_THIEP { get; set; }
         public virtual DbSet<TUY_CHON_THE_NHUA> TUY_CHON_THE_NHUA { get; set; }
+        public virtual DbSet<KHUON_BE> KHUON_BE { get; set; }
+        public virtual DbSet<MAY_BE> MAY_BE { get; set; }
     }
 }

@@ -151,17 +151,22 @@
     <Compile Include="Model\CatDecal.cs" />
     <Compile Include="Model\DongCuonMoPhang.cs" />
     <Compile Include="Model\DongCuonLoXo.cs" />
+    <Compile Include="Model\GiaBe.cs" />
+    <Compile Include="Model\KhuonBe.cs" />
+    <Compile Include="Model\MayBe.cs" />
     <Compile Include="Model\GiaBoiBiaCung.cs" />
     <Compile Include="Model\GiaCatDecal.cs" />
     <Compile Include="Model\GiaDongCuonMoPhang.cs" />
     <Compile Include="Model\GiaDongCuonLoXo.cs" />
     <Compile Include="Model\GiaTuyChonDanhThiep.cs" />
     <Compile Include="Model\GiaTuyChonTheNhua.cs" />
+    <Compile Include="Model\MucThPhBoiNhieuLop.cs" />
     <Compile Include="Model\MucThPhBoiBiaCung.cs" />
     <Compile Include="Model\MucThPhCatDecal.cs" />
     <Compile Include="Model\MucDongCuonMoPhang.cs" />
     <Compile Include="Model\MucDongCuonLoXo.cs" />
     <Compile Include="Model\MucThPhCanGap.cs" />
+    <Compile Include="Model\MucThPhBe.cs" />
     <Compile Include="Model\MucThPhEpKim.cs" />
     <Compile Include="Model\MucThPhCanPhu.cs" />
     <Compile Include="Model\MucThPhGiaCongNgoai.cs" />
@@ -190,6 +195,7 @@
     <Compile Include="Model\Support\GiaTuyChonTheNhuaChon.cs" />
     <Compile Include="Model\Support\IThongTinBanDauChoGiayIn.cs" />
     <Compile Include="Model\Support\ThongTinBanDauChoGiayInDanhThiep.cs" />
+    <Compile Include="Model\Support\ThongTinBanDauBaiBe.cs" />
     <Compile Include="Model\TuyChonTheNhua.cs" />
     <Compile Include="Model\TuyChonDanhThiep.cs" />
     <Compile Include="Model\ToBoiBiaCung.cs" />
@@ -246,9 +252,11 @@
     <Compile Include="Presenter\GiayInDanhThiepPresenter.cs" />
     <Compile Include="Presenter\InSachDigiPresenter.cs" />
     <Compile Include="Presenter\ThCatDeCalPresenter.cs" />
+    <Compile Include="Presenter\ThPhBoiNhieuLopPesenter.cs" />
     <Compile Include="Presenter\ThPhBoiBiaCungPresenter.cs" />
     <Compile Include="Presenter\ThPhDongCuonMoPhangPresenter.cs" />
     <Compile Include="Presenter\ThPhDongCuonLoXoPresenter.cs" />
+    <Compile Include="Presenter\ThPhBePresenter.cs" />
     <Compile Include="Presenter\ThPhGiaCongNgoaiPresenter.cs" />
     <Compile Include="Presenter\GiaDanhThiepPresenter.cs" />
     <Compile Include="Model\BaiInDanhThiep.cs" />
@@ -273,11 +281,23 @@
     <Compile Include="UI\InSachForm.Designer.cs">
       <DependentUpon>InSachForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ThPhBoiNhieuLopForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThPhBoiNhieuLopForm.Designer.cs">
+      <DependentUpon>ThPhBoiNhieuLopForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ThPhBoiBiaCungForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\ThPhBoiBiaCungForm.Designer.cs">
       <DependentUpon>ThPhBoiBiaCungForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ThPhBeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ThPhBeForm.Designer.cs">
+      <DependentUpon>ThPhBeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\TinhThuForm.cs">
       <SubType>Form</SubType>
@@ -369,11 +389,13 @@
     <Compile Include="View\IViewGiaCanGap.cs" />
     <Compile Include="View\IViewGiayInDanhThiep.cs" />
     <Compile Include="View\IViewInSachDigi.cs" />
+    <Compile Include="View\IViewThPhBoiNhieuLop.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
     <Compile Include="View\IViewThPhCatDecal.cs" />
     <Compile Include="View\IViewThPhBoiBiaCung.cs" />
     <Compile Include="View\IViewThPhDongCuonMoPhang.cs" />
     <Compile Include="View\IViewThPhDongCuonLoXo.cs" />
+    <Compile Include="View\IViewThPhBe.cs" />
     <Compile Include="View\IViewThPhEpKim.cs" />
     <Compile Include="View\IViewLietKeTinhGia.cs" />
     <Compile Include="View\IViewThanhPham.cs" />
@@ -451,8 +473,14 @@
     <EmbeddedResource Include="UI\InSachForm.resx">
       <DependentUpon>InSachForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThPhBoiNhieuLopForm.resx">
+      <DependentUpon>ThPhBoiNhieuLopForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ThPhBoiBiaCungForm.resx">
       <DependentUpon>ThPhBoiBiaCungForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ThPhBeForm.resx">
+      <DependentUpon>ThPhBeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\TinhThuForm.resx">
       <DependentUpon>TinhThuForm.cs</DependentUpon>
