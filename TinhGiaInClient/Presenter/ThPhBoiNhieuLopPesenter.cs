@@ -29,11 +29,21 @@ namespace TinhGiaInClient.Presenter
             View.ToBoiCao = mucThPham.ToBoiCao;
             View.SoLuong = mucThPham.SoLuong;
             View.DonViTinh = mucThPham.DonViTinh;
-            View.IdGiayBoiGiuaChon = mucThPham.IdGiayBoiGiuaChon;
+            //View.IdGiayBoiGiuaChon = mucThPham.IdGiayBoiGiuaChon;
+            View.GiayDeBoiChon = mucThPham.GiayBoiChon;
             View.SoLopLotGiua = mucThPham.SoToLotGiua;
             //Nếu mới
-            if (View.TinhTrangForm == FormStateS.New)
-                LamLai();
+            switch (View.TinhTrangForm)
+            {
+                case FormStateS.New:
+                    LamLai();
+                    break;
+                case FormStateS.Edit:
+                    
+                    break;
+            }
+           
+            
 
 
         }
@@ -47,6 +57,7 @@ namespace TinhGiaInClient.Presenter
             View.ToBoiRong = MucBoiNhieuLop.ToBoiRong;
             View.ToBoiCao = MucBoiNhieuLop.ToBoiCao;
             View.SoLopLotGiua = 0;
+            View.GiayDeBoiChon = null;
         }
 
         
@@ -93,7 +104,7 @@ namespace TinhGiaInClient.Presenter
             if (this.MucBoiNhieuLop != null)
             {
                 this.MucBoiNhieuLop.IdBaiIn = View.IdBaiIn;
-                this.MucBoiNhieuLop.TenThanhPham = View.TenThanhPhamChon;
+                this.MucBoiNhieuLop.TenThanhPham = string.Format("Bồi nhiều lớp/{0}", View.TenThanhPhamChon);
                 this.MucBoiNhieuLop.IdThanhPhamChon = View.IdThanhPhamChon;
                 this.MucBoiNhieuLop.IdHangKhachHang = View.IdHangKhachHang;
                 this.MucBoiNhieuLop.LoaiThanhPham = View.LoaiThPh;
@@ -104,7 +115,8 @@ namespace TinhGiaInClient.Presenter
                 this.MucBoiNhieuLop.ThanhTien = View.ThanhTien;
                 this.MucBoiNhieuLop.SoToLotGiua = View.SoLopLotGiua;
 
-                this.MucBoiNhieuLop.IdGiayBoiGiuaChon = View.IdGiayBoiGiuaChon;
+                //this.MucBoiNhieuLop.IdGiayBoiGiuaChon = View.IdGiayBoiGiuaChon;
+                this.MucBoiNhieuLop.GiayBoiChon = View.GiayDeBoiChon;
             }
         }
         public MucThPhBoiNhieuLop LayMucThanhPham()

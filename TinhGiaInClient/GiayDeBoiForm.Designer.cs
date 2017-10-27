@@ -49,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoToChayTrenToLon = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTenGiayBoi = new System.Windows.Forms.TextBox();
             this.btnTinhGiaGiay = new System.Windows.Forms.Button();
             this.btnTinhSoConTrenToChay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.txtToBoiRong = new System.Windows.Forms.TextBox();
             this.btnChonGiay = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTenGiayBoi = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,6 +217,7 @@
             // 
             this.txtSoToBoiLyThuyet.Location = new System.Drawing.Point(163, 61);
             this.txtSoToBoiLyThuyet.Name = "txtSoToBoiLyThuyet";
+            this.txtSoToBoiLyThuyet.ReadOnly = true;
             this.txtSoToBoiLyThuyet.Size = new System.Drawing.Size(54, 20);
             this.txtSoToBoiLyThuyet.TabIndex = 2;
             // 
@@ -268,6 +269,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thiết đặt giấy bồi";
             // 
+            // txtTenGiayBoi
+            // 
+            this.txtTenGiayBoi.Location = new System.Drawing.Point(164, 90);
+            this.txtTenGiayBoi.Name = "txtTenGiayBoi";
+            this.txtTenGiayBoi.ReadOnly = true;
+            this.txtTenGiayBoi.Size = new System.Drawing.Size(161, 20);
+            this.txtTenGiayBoi.TabIndex = 56;
+            // 
             // btnTinhGiaGiay
             // 
             this.btnTinhGiaGiay.Location = new System.Drawing.Point(250, 173);
@@ -282,7 +291,7 @@
             // 
             this.btnTinhSoConTrenToChay.Location = new System.Drawing.Point(249, 134);
             this.btnTinhSoConTrenToChay.Name = "btnTinhSoConTrenToChay";
-            this.btnTinhSoConTrenToChay.Size = new System.Drawing.Size(76, 23);
+            this.btnTinhSoConTrenToChay.Size = new System.Drawing.Size(95, 23);
             this.btnTinhSoConTrenToChay.TabIndex = 55;
             this.btnTinhSoConTrenToChay.Text = "Tính số tờ";
             this.btnTinhSoConTrenToChay.UseVisualStyleBackColor = true;
@@ -329,14 +338,6 @@
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "B3. Chọn giấy";
-            // 
-            // txtTenGiayBoi
-            // 
-            this.txtTenGiayBoi.Location = new System.Drawing.Point(164, 90);
-            this.txtTenGiayBoi.Name = "txtTenGiayBoi";
-            this.txtTenGiayBoi.ReadOnly = true;
-            this.txtTenGiayBoi.Size = new System.Drawing.Size(161, 20);
-            this.txtTenGiayBoi.TabIndex = 56;
             // 
             // GiayDeBoiForm
             // 

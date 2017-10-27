@@ -89,7 +89,7 @@ namespace TinhGiaInClient.Presenter
         {
 
             int kq = 0;
-            if (SoToBoiTongTong() <= 0)
+            if (SoToBoiTongTong() <= 0 || View.SoToChayTrenToLon <=0)
                 return kq;
             //Tiếp nếu quá
             if (SoToBoiTongTong()  % View.SoToChayTrenToLon > 0)//Chia lẻ

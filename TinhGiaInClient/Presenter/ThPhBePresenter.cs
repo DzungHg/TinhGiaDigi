@@ -101,7 +101,7 @@ namespace TinhGiaInClient.Presenter
             {
                 this.MucBe.ID = View.ID;
                 this.MucBe.IdBaiIn = View.IdBaiIn;
-                this.MucBe.TenThanhPham = View.TenThanhPhamChon;
+                this.MucBe.TenThanhPham = string.Format("Bế/{0}", View.TenThanhPhamChon);
                 this.MucBe.IdThanhPhamChon = View.IdThanhPhamChon;
                 this.MucBe.IdHangKhachHang = View.IdHangKhachHang;
                 this.MucBe.LoaiThanhPham = View.LoaiThPh;

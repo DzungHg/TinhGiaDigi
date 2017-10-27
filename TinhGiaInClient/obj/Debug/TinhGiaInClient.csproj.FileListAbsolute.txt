@@ -751,3 +751,4 @@ D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\Telerik.WinControls.UI.xml
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\bin\Debug\TinhGiaInDAL.pdb
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiayDeBoiForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhBoiNhieuLopForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiayDeBoiForm.resources

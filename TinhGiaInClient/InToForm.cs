@@ -809,6 +809,7 @@ namespace TinhGiaInClient
             //Tiến hành gắn
             switch (loaiThPh)
             {
+                #region Cán phủ, cấn gấp, cắt decal, ép kim
                 case LoaiThanhPhamS.CanPhu:
                     var thongDiep1 = string.Format("Số tờ chạy: {0} / Khổ: {1}",
                        baiIn.GiayDeInIn.SoToChayTong, baiIn.GiayDeInIn.KhoToChay);
@@ -943,6 +944,7 @@ namespace TinhGiaInClient
 
                     }
                     break;
+                #endregion
                 #region Bế
                 case LoaiThanhPhamS.Be:
                     var thongDiep6 = string.Format("Số lượng {0} / khổ tờ chạy: {1} / Số tờ chạy {2}",
@@ -986,8 +988,11 @@ namespace TinhGiaInClient
 
                 #region mục bồi bìa cứng, bồi nhiều lớp
                 case LoaiThanhPhamS.BoiBiaCung:
-                    var thongDiep5 = string.Format("Số lượng {0} {1}",
+                    var thongDiep5 = string.Format("Tờ chạy: {0}" + '\r' + '\n',
+                        baiIn.GiayDeInIn.KhoToChay);
+                        thongDiep5 += string.Format("Số lượng SP: {0} {1}" + '\r' + '\n',
                         baiIn.SoLuong, baiIn.DonVi);
+                    
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep5;
                     thongTinBanDauThPh.TieuDeForm = "[Mới] Bồi bìa cứng";
                     thongTinBanDauThPh.MoTextSoLuong = true;
@@ -1020,17 +1025,21 @@ namespace TinhGiaInClient
                     }
                     break;
                 case LoaiThanhPhamS.BoiNhieuLop:
-                    var thongDiep7 = string.Format("Số tờ chạy {0} {1}",
-                        baiIn.GiayDeInIn.SoToChayTong, baiIn.DonVi);
+                    var thongDiep7 = string.Format("Tờ chạy: {0}" + '\r' + '\n',
+                        baiIn.GiayDeInIn.KhoToChay);
+                        thongDiep7 += string.Format("Số lượng {0} {1}" + '\r' + '\n',
+                        baiIn.GiayDeInIn.SoToChayTong, "tấm");
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep7;
-                    thongTinBanDauThPh.TieuDeForm = "[Mới] Nhiều lớp";
+                    thongTinBanDauThPh.TieuDeForm = "[Mới] Bồi nhiều lớp";
                     thongTinBanDauThPh.MoTextSoLuong = true;
                     //tạo mục thành phẩm đóng cuốn
                     var mucThPhBoiNhieuLop = new MucThPhBoiNhieuLop();
                     mucThPhBoiNhieuLop.IdBaiIn = baiIn.ID;
                     mucThPhBoiNhieuLop.IdHangKhachHang = baiIn.IdHangKH;
                     mucThPhBoiNhieuLop.LoaiThanhPham = LoaiThanhPhamS.BoiNhieuLop;
-                    mucThPhBoiNhieuLop.SoLuong = this.SoLuong;
+                    mucThPhBoiNhieuLop.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
+                    //mucThPhBoiNhieuLop.SoLuong = baiIn.GiayDeInIn.SoToChayTong; //lấy số lượng theo tờ chạy
+                    mucThPhBoiNhieuLop.SoToLotGiua = 0; //không lót giữa
                     mucThPhBoiNhieuLop.ToBoiRong = baiIn.GiayDeInIn.ToChayRong;
                     mucThPhBoiNhieuLop.ToBoiCao = baiIn.GiayDeInIn.ToChayDai;
                     mucThPhBoiNhieuLop.DonViTinh = "tấm";
@@ -1227,10 +1236,10 @@ namespace TinhGiaInClient
                     }
                     break;
                 case LoaiThanhPhamS.BoiNhieuLop:
-                    var thongDiep8 = string.Format("Số tờ chạy {0} tờ + '\n' + '\r'",
-                        baiIn.GiayDeInIn.SoToChayTong)
-                        + string.Format("Khổ tờ chạy: {0} x {1}cm" + '\n' + '\r',
-                        baiIn.CauHinhSP.KhoCatRong, baiIn.CauHinhSP.KhoCatCao);
+                     var thongDiep8 = string.Format("Tờ chạy: {0}" + '\r' + '\n',
+                        baiIn.GiayDeInIn.KhoToChay);
+                        thongDiep8 += string.Format("Số lượng {0} {1}" + '\r' + '\n',
+                        baiIn.GiayDeInIn.SoToChayTong, "tấm");
 
                     thongTinBanDauThPh.ThongDiepCanThiet = thongDiep8;
                     thongTinBanDauThPh.TieuDeForm = "[Sửa] Bồi nhiều lớp";

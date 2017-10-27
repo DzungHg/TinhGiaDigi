@@ -53,11 +53,13 @@
             this.txtThongTinGiayLot = new System.Windows.Forms.TextBox();
             this.btnLamLai = new Telerik.WinControls.UI.RadButton();
             this.btnLayGiay = new Telerik.WinControls.UI.RadButton();
+            this.btnTinh = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.cboMayBoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLamLai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayGiay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -256,7 +258,7 @@
             this.txtThongTinGiayLot.Multiline = true;
             this.txtThongTinGiayLot.Name = "txtThongTinGiayLot";
             this.txtThongTinGiayLot.ReadOnly = true;
-            this.txtThongTinGiayLot.Size = new System.Drawing.Size(211, 101);
+            this.txtThongTinGiayLot.Size = new System.Drawing.Size(211, 79);
             this.txtThongTinGiayLot.TabIndex = 122;
             // 
             // btnLamLai
@@ -266,6 +268,7 @@
             this.btnLamLai.Size = new System.Drawing.Size(83, 24);
             this.btnLamLai.TabIndex = 123;
             this.btnLamLai.Text = "Làm lại";
+            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
             // 
             // btnLayGiay
             // 
@@ -276,11 +279,21 @@
             this.btnLayGiay.Text = "Lấy giấy";
             this.btnLayGiay.Click += new System.EventHandler(this.btnLayGiay_Click);
             // 
+            // btnTinh
+            // 
+            this.btnTinh.Location = new System.Drawing.Point(246, 184);
+            this.btnTinh.Name = "btnTinh";
+            this.btnTinh.Size = new System.Drawing.Size(83, 24);
+            this.btnTinh.TabIndex = 124;
+            this.btnTinh.Text = "Tính";
+            this.btnTinh.Click += new System.EventHandler(this.btnTinh_Click);
+            // 
             // ThPhBoiNhieuLopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 292);
+            this.Controls.Add(this.btnTinh);
             this.Controls.Add(this.btnLayGiay);
             this.Controls.Add(this.btnLamLai);
             this.Controls.Add(this.txtThongTinGiayLot);
@@ -319,6 +332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLamLai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayGiay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnTinh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -352,5 +366,6 @@
         private System.Windows.Forms.TextBox txtThongTinGiayLot;
         private Telerik.WinControls.UI.RadButton btnLamLai;
         private Telerik.WinControls.UI.RadButton btnLayGiay;
+        private Telerik.WinControls.UI.RadButton btnTinh;
     }
 }

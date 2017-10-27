@@ -43,8 +43,17 @@ namespace TinhGiaInClient.UI
             {
                 this.IdThanhPhamChon = mucThPhBoiBiaCung.IdThanhPhamChon;
                
-                this.IdGiayBoiGiuaChon = mucThPhBoiBiaCung.IdGiayBoiGiuaChon;
+                //this.IdGiayBoiGiuaChon = mucThPhBoiBiaCung.IdGiayBoiGiuaChon;
             }
+            //Tiếp xem nếu có giấy bồi khong
+            if (this.TinhTrangForm == FormStateS.Edit)
+            {
+                //Cập nhật thông tin giấy bồi:
+                if (this.GiayDeBoiChon != null)
+                    txtThongTinGiayLot.Lines = this.GiayDeBoiChon.ThongTinGiayBoi().ToArray();
+                //Tính toán
+                CapNhatLabelGia(true);
+        }
             //Envent
 
             txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
@@ -223,7 +232,7 @@ namespace TinhGiaInClient.UI
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-                if (tb == txtSoLuong )
+                /*if (tb == txtSoLuong )
                 {
                     if (!string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
                         CapNhatLabelGia();                    
@@ -231,18 +240,18 @@ namespace TinhGiaInClient.UI
                 if (tb == txtToBoiRong)
                 {
                     if (!string.IsNullOrEmpty(txtToBoiRong.Text.Trim()))
-                        CapNhatLabelGia();
+                        ;
                 }
                 if (tb == txtToBoiCao)
                 {
                     if (!string.IsNullOrEmpty(txtToBoiCao.Text.Trim()))
-                        CapNhatLabelGia();
-                }
+                        ;
+                }*/
                 //xử lý khi user xóa hết bên Leave
                 if (tb == txtSoLopLot)
                 {
-                    if (!string.IsNullOrEmpty(txtSoLopLot.Text.Trim()))
-                        CapNhatLabelGia();
+                    //if (!string.IsNullOrEmpty(txtSoLopLot.Text.Trim()))
+                     //   CapNhatLabelGia();
                     if (this.SoLopLotGiua <= 0)
                         btnLayGiay.Enabled = false;
                     else
@@ -264,10 +273,18 @@ namespace TinhGiaInClient.UI
             }*/
            
         }
-        private void CapNhatLabelGia()
+        private void CapNhatLabelGia(bool capNhat)
         {
-            lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhBoiNhieuLopPres.ThanhTien_ThPh());
-            lblGiaTB.Text = string.Format("{0:0,0.00}đ/{1}", thPhBoiNhieuLopPres.GiaTB_ThPh(), this.DonViTinh);
+            if (capNhat)
+            {
+                lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhBoiNhieuLopPres.ThanhTien_ThPh());
+                lblGiaTB.Text = string.Format("{0:0,0.00}đ/{1}", thPhBoiNhieuLopPres.GiaTB_ThPh(), this.DonViTinh);
+            }
+            else
+            {
+                lblThanhTien.Text = "";
+                lblGiaTB.Text = "";
+            }
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
@@ -397,7 +414,7 @@ namespace TinhGiaInClient.UI
             txtSoLuong.Enabled = true;
             txtDonViTinh.Enabled = true;
             btnNhan.Enabled = true;
-            CapNhatLabelGia();
+            
         }
         public MucThanhPham LayMucThanhPham()
         {
@@ -457,7 +474,7 @@ namespace TinhGiaInClient.UI
         private void ListView_SelectedItemChanged(object sender, EventArgs e)
         {
 
-            CapNhatLabelGia();
+            CapNhatLabelGia(true);
 
         }
         private void DropDownList_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
@@ -468,7 +485,7 @@ namespace TinhGiaInClient.UI
                 cb = (Telerik.WinControls.UI.RadDropDownList)sender;
                 if (cb == cboMayBoi)
                 {
-                    CapNhatLabelGia();
+                    CapNhatLabelGia(true);
                 }
 
             }
@@ -482,8 +499,19 @@ namespace TinhGiaInClient.UI
                 return;
             }
             var thongTinBanDau = new ThongTinBanDauChoGiayIn();
-            thongTinBanDau.TinhTrangForm = FormStateS.New;
-            thongTinBanDau.ThongTinCanThiet = "Bồi giấy";
+            ///Nếu mới chưa có giấy bồi là mới còn có giáy bồi là edit
+            if (this.GiayDeBoiChon == null)
+            {
+                thongTinBanDau.TinhTrangForm = FormStateS.New;
+                thongTinBanDau.ThongTinCanThiet = "[Mới] Lấy giấy bồi";
+            }
+            else
+            {
+                thongTinBanDau.TinhTrangForm = FormStateS.Edit;
+                thongTinBanDau.ThongTinCanThiet = "[Sửa] Lấy giấy bồi";
+            }
+
+            
 
             //Tao giay de bồi
             var soLuongToBoi = this.SoLuong * this.SoLopLotGiua;
@@ -526,6 +554,17 @@ namespace TinhGiaInClient.UI
                     //TinhToanToanBo();
                     break;
             }
+        }
+
+        private void btnTinh_Click(object sender, EventArgs e)
+        {
+            CapNhatLabelGia(true);
+        }
+
+        private void btnLamLai_Click(object sender, EventArgs e)
+        {
+            thPhBoiNhieuLopPres.LamLai();
+            CapNhatLabelGia(false);
         }
      
 

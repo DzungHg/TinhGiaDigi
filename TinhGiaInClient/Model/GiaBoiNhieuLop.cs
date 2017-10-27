@@ -71,8 +71,12 @@ namespace TinhGiaInClient.Model
                 return 0;
 
             var tyLeMK = (decimal)this.TyLeMarkUp / 100;
-            result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK)
-                + this.ToBoi.ThanhTienGiay;//Cộng thêm tiền giấy lót vô
+            if (this.ToBoi != null) //Có tờ bồi
+                result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK)
+                    + this.ToBoi.ThanhTienGiay;//Cộng thêm tiền giấy lót vô
+            else //Không bồi lót
+                result = this.ThanhTienCoBan(this.SoLuong) + this.ThanhTienCoBan(this.SoLuong) * tyLeMK / (1 - tyLeMK);
+
             return Math.Round(result);
         }
         public decimal GiaTBTrenDonVi()

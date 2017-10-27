@@ -92,7 +92,7 @@ namespace TinhGiaInClient.Presenter
             if (this.MucBoiBiaCung != null)
             {
                 this.MucBoiBiaCung.IdBaiIn = View.IdBaiIn;
-                this.MucBoiBiaCung.TenThanhPham = View.TenThanhPhamChon;
+                this.MucBoiBiaCung.TenThanhPham = string.Format("Bồi bìa cứng/{0}", View.TenThanhPhamChon);
                 this.MucBoiBiaCung.IdThanhPhamChon = View.IdThanhPhamChon;
                 this.MucBoiBiaCung.IdHangKhachHang = View.IdHangKhachHang;
                 this.MucBoiBiaCung.LoaiThanhPham = View.LoaiThPh;

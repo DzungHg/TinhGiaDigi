@@ -416,6 +416,7 @@ namespace TinhGiaInClient
         private void btnTinhSoConTrenToChay_Click(object sender, EventArgs e)
         {
             TinhToBoiTrenToLon();
+            CapNhatMotSoTong();
 
         }
         private void BatTatNutOKTheoDieuKien()
