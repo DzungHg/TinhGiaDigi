@@ -228,11 +228,11 @@ namespace TinhGiaInClient.UI
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-            TextBox tb;
+           /*TextBox tb;
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-                /*if (tb == txtSoLuong )
+                if (tb == txtSoLuong )
                 {
                     if (!string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
                         CapNhatLabelGia();                    
@@ -246,20 +246,16 @@ namespace TinhGiaInClient.UI
                 {
                     if (!string.IsNullOrEmpty(txtToBoiCao.Text.Trim()))
                         ;
-                }*/
+                }
                 //xử lý khi user xóa hết bên Leave
-                if (tb == txtSoLopLot)
+                
+                  if (tb == txtSoLopLot)
                 {
-                    //if (!string.IsNullOrEmpty(txtSoLopLot.Text.Trim()))
-                     //   CapNhatLabelGia();
-                    if (this.SoLopLotGiua <= 0)
-                        btnLayGiay.Enabled = false;
-                    else
-                        btnLayGiay.Enabled = true;
+                    ;
                 }
                 
             
-            }
+            }*/
             /*Telerik.WinControls.UI.RadListView lv;
             if (sender is Telerik.WinControls.UI.RadListView)
             {
@@ -271,7 +267,7 @@ namespace TinhGiaInClient.UI
                     CapNhatLabelGia();
                 }
             }*/
-           
+            ChoKhongChoNutNhan();
         }
         private void CapNhatLabelGia(bool capNhat)
         {
@@ -328,7 +324,10 @@ namespace TinhGiaInClient.UI
                 
                 btnNhan.Enabled = true;
             }
-            
+            //Lừa để bât tắt nút lấy giấy
+            var soLop = this.SoLopLotGiua;
+            this.SoLopLotGiua = -1;
+            this.SoLopLotGiua = soLop;
         }
 
         private bool KiemTraHopLe(ref string errorMessage)
@@ -565,9 +564,32 @@ namespace TinhGiaInClient.UI
         {
             thPhBoiNhieuLopPres.LamLai();
             CapNhatLabelGia(false);
+            ChoKhongChoNutNhan();
         }
      
+        private void ChoKhongChoNutNhan()
+        {
+            ///các đk cho: nếu só lợp >0 thì giấy bồi phải có
+            ///số lượng >0
+            ///
+            bool kq = true;
+            if (this.SoLopLotGiua > 0)
+            {
+                if (this.GiayDeBoiChon == null)
+                    kq = false;
+                else
+                    kq = true;
+            }
+            else
+                if (this.GiayDeBoiChon != null)
+                    this.GiayDeBoiChon = null; //lớp giữã sẽ không có
 
+            if (this.SoLuong <= 0 || this.ToBoiCao <=0
+                || this.ToBoiRong <= 0)
+                kq = false;
+
+            btnNhan.Enabled = kq;
+        }
   
     }
 }
