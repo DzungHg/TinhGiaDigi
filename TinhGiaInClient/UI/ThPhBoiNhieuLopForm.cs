@@ -273,6 +273,7 @@ namespace TinhGiaInClient.UI
         {
             if (capNhat)
             {
+                
                 lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhBoiNhieuLopPres.ThanhTien_ThPh());
                 lblGiaTB.Text = string.Format("{0:0,0.00}đ/{1}", thPhBoiNhieuLopPres.GiaTB_ThPh(), this.DonViTinh);
             }
@@ -495,31 +496,42 @@ namespace TinhGiaInClient.UI
             //Thong tin ban đầu
             if (this.SoLopLotGiua <= 0)
             {
+                MessageBox.Show("Bạn cần lớp số lớp lót");
+                txtSoLopLot.Focus();
                 return;
             }
             var thongTinBanDau = new ThongTinBanDauChoGiayIn();
+            
+            var strThongTin = string.Format(" Tờ bồi: {0} x {1}cm" + '\r' + '\n',
+                this.ToBoiRong, this.ToBoiCao);
+            strThongTin += string.Format("Tờ lót giữa: {0} tờ", thPhBoiNhieuLopPres.SoToLotGiua());
+
             ///Nếu mới chưa có giấy bồi là mới còn có giáy bồi là edit
             if (this.GiayDeBoiChon == null)
             {
                 thongTinBanDau.TinhTrangForm = FormStateS.New;
-                thongTinBanDau.ThongTinCanThiet = "[Mới] Lấy giấy bồi";
+                thongTinBanDau.ThongTinCanThiet = "[Mới] Chọn giấy bồi" + '\r' + '\n';
+                thongTinBanDau.ThongTinCanThiet += strThongTin;
+               
             }
             else
             {
                 thongTinBanDau.TinhTrangForm = FormStateS.Edit;
-                thongTinBanDau.ThongTinCanThiet = "[Sửa] Lấy giấy bồi";
+                thongTinBanDau.ThongTinCanThiet = "[Sửa] Giấy để bồi";
+                thongTinBanDau.ThongTinCanThiet += strThongTin;
             }
 
             
 
             //Tao giay de bồi
-            var soLuongToBoi = this.SoLuong * this.SoLopLotGiua;
+            var soLuongToBoi = thPhBoiNhieuLopPres.SoToLotGiua();
             var mucGiayDeBoi = new GiayDeBoi(this.ToBoiRong, this.ToBoiCao,
                 0, soLuongToBoi, 0, "", 0, 0,0,0);//
             //Tiến hành gắn
 
             var frm = new GiayDeBoiForm(thongTinBanDau, mucGiayDeBoi);
-            frm.Text = "[Mới] Giấy lót bồi";
+            frm.Text = "BỒI NHIỀU LỚP";
+
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.StartPosition = FormStartPosition.CenterParent;
@@ -565,6 +577,7 @@ namespace TinhGiaInClient.UI
             thPhBoiNhieuLopPres.LamLai();
             CapNhatLabelGia(false);
             ChoKhongChoNutNhan();
+            txtSoLuong.Enabled = true;
         }
      
         private void ChoKhongChoNutNhan()

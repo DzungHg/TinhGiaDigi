@@ -1039,7 +1039,7 @@ namespace TinhGiaInClient
                     mucThPhBoiNhieuLop.LoaiThanhPham = LoaiThanhPhamS.BoiNhieuLop;
                     mucThPhBoiNhieuLop.SoLuongToChay = baiIn.GiayDeInIn.SoToChayTong;
                     //mucThPhBoiNhieuLop.SoLuong = baiIn.GiayDeInIn.SoToChayTong; //lấy số lượng theo tờ chạy
-                    mucThPhBoiNhieuLop.SoToLotGiua = 0; //không lót giữa
+                    mucThPhBoiNhieuLop.SoLopLotGiua = 0; //không lót giữa
                     mucThPhBoiNhieuLop.ToBoiRong = baiIn.GiayDeInIn.ToChayRong;
                     mucThPhBoiNhieuLop.ToBoiCao = baiIn.GiayDeInIn.ToChayDai;
                     mucThPhBoiNhieuLop.DonViTinh = "tấm";

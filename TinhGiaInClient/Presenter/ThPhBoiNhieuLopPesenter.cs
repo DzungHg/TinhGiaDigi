@@ -31,7 +31,7 @@ namespace TinhGiaInClient.Presenter
             View.DonViTinh = mucThPham.DonViTinh;
             //View.IdGiayBoiGiuaChon = mucThPham.IdGiayBoiGiuaChon;
             View.GiayDeBoiChon = mucThPham.GiayBoiChon;
-            View.SoLopLotGiua = mucThPham.SoToLotGiua;
+            View.SoLopLotGiua = mucThPham.SoLopLotGiua;
             //Nếu mới
             switch (View.TinhTrangForm)
             {
@@ -59,7 +59,10 @@ namespace TinhGiaInClient.Presenter
             View.SoLopLotGiua = 0;
             View.GiayDeBoiChon = null;
         }
-
+        public int SoToLotGiua()
+        {
+            return View.SoLopLotGiua * View.SoLuong;
+        }
         
         public int TyLeMarkUp()
         {
@@ -113,7 +116,7 @@ namespace TinhGiaInClient.Presenter
                 this.MucBoiNhieuLop.SoLuong = View.SoLuong;
                 this.MucBoiNhieuLop.DonViTinh = View.DonViTinh;
                 this.MucBoiNhieuLop.ThanhTien = View.ThanhTien;
-                this.MucBoiNhieuLop.SoToLotGiua = View.SoLopLotGiua;
+                this.MucBoiNhieuLop.SoLopLotGiua = View.SoLopLotGiua;
 
                 //this.MucBoiNhieuLop.IdGiayBoiGiuaChon = View.IdGiayBoiGiuaChon;
                 this.MucBoiNhieuLop.GiayBoiChon = View.GiayDeBoiChon;

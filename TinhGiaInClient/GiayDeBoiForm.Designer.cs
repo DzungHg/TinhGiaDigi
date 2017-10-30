@@ -274,7 +274,7 @@
             this.txtTenGiayBoi.Location = new System.Drawing.Point(164, 90);
             this.txtTenGiayBoi.Name = "txtTenGiayBoi";
             this.txtTenGiayBoi.ReadOnly = true;
-            this.txtTenGiayBoi.Size = new System.Drawing.Size(161, 20);
+            this.txtTenGiayBoi.Size = new System.Drawing.Size(266, 20);
             this.txtTenGiayBoi.TabIndex = 56;
             // 
             // btnTinhGiaGiay

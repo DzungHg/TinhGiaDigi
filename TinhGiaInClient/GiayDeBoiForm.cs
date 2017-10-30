@@ -206,7 +206,7 @@ namespace TinhGiaInClient
             lblTieuDeForm.Text = this.Text;
            
             //Bật tắt nút Nhận
-            BatTatNutOKTheoDieuKien();
+            BatTatNutNhanTheoDieuKien();
             //if (this.PhuongPhapIn == PhuongPhapInS.KhongIn)
             //   ;
             CapNhatMotSoTong();//Mặc định có
@@ -390,13 +390,13 @@ namespace TinhGiaInClient
                 //Cập nhật IdGiay trước
                 this.IdGiay = frm.GiayChon.ID;
                 //Cập nhật tiếp các chi tiết
-
-                //txtTenGiayBoi.Text = giayDeInPres.TenGiayDeIn();
+                
+                
                 giayDeBoiPres.CapNhatGiayDeBoi();
-
+                CapNhatMotSoTong();
                 CapNhatTriGiaVoLabels();
                 //Bật tắt nút nhận
-                BatTatNutOKTheoDieuKien();
+                BatTatNutNhanTheoDieuKien();
                 
             }
            
@@ -419,14 +419,20 @@ namespace TinhGiaInClient
             CapNhatMotSoTong();
 
         }
-        private void BatTatNutOKTheoDieuKien()
+        private void BatTatNutNhanTheoDieuKien()
         {
+            var kq = true;
             if (this.IdGiay > 0)
             {
-                btnNhan.Enabled = true;
+                if (this.ToBoiRong <=0 || ToBoiCao <= 0)
+                    kq  = false;
+                if (this.SoToChayTrenToLon <= 0)
+                    kq = false;
             }
             else
-                btnNhan.Enabled = false;
+                kq = false;
+
+            btnNhan.Enabled = kq;
 
         }
        private void BatTatNutTinhToan()
