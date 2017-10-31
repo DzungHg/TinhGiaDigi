@@ -27,9 +27,9 @@ namespace TinhGiaInClient.Presenter
             View.SoLuongToBoiBuHao = MucGiayDeBoi.SoToBoiBuHao;
            
             View.TenGiayBoi = MucGiayDeBoi.TenGiayIn;
-            
-           
+                     
             View.SoToChayTrenToLon = MucGiayDeBoi.SoToBoiTrenToLon;
+            
             
             View.IdGiay = MucGiayDeBoi.IdGiay;
 
@@ -146,7 +146,8 @@ namespace TinhGiaInClient.Presenter
                 this.MucGiayDeBoi.SoToBoiTrenToLon = View.SoToChayTrenToLon;
                 this.MucGiayDeBoi.SoToLonTong = View.SoToGiayLon; 
                
-                this.MucGiayDeBoi.SoToBoiTrenToLon = View.SoToChayTrenToLon;
+                this.MucGiayDeBoi.SoToBoiTrenToLon =  View.SoToChayTrenToLon;
+             
                 this.MucGiayDeBoi.IdGiay = View.IdGiay;
                 this.MucGiayDeBoi.ThanhTienGiay = View.ThanhTien;
                

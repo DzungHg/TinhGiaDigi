@@ -282,7 +282,7 @@ namespace TinhGiaInClient.UI
         {
             
 
-                dataChanged = true;
+            dataChanged = true;
             BatTatNutTinhToan();
             
             
@@ -412,7 +412,11 @@ namespace TinhGiaInClient.UI
                 //xử lý khi user xóa hết
                 if (tb == txtKhoBeRong)
                     if (string.IsNullOrEmpty(txtKhoBeRong.Text.Trim()))
-                        txtKhoBeRong.Text = "30";
+                        txtKhoBeRong.Text = "1";
+                //xử lý khi user xóa hết
+                if (tb == txtKhoBeCao)
+                    if (string.IsNullOrEmpty(txtKhoBeCao.Text.Trim()))
+                        txtKhoBeCao.Text = "1";
             }
         }
 

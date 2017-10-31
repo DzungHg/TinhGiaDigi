@@ -40,7 +40,7 @@ namespace TinhGiaInClient
             
             //event
             txtSoToBoiBuHao.KeyPress += new KeyPressEventHandler(InputValidator);
-            txtSoToChayTrenToLon.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToBoiTrenToLon.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoToBoiLyThuyet.KeyPress += new KeyPressEventHandler(InputValidator);
            
             txtToBoiRong.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -48,7 +48,7 @@ namespace TinhGiaInClient
            
 
             txtSoToBoiBuHao.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtSoToChayTrenToLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtSoToBoiTrenToLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoToBoiLyThuyet.TextChanged += new EventHandler(TextBoxes_TextChanged);
            
             txtSoToGiayLon.TextChanged += new EventHandler(TextBoxes_TextChanged);
@@ -61,7 +61,7 @@ namespace TinhGiaInClient
 
           
             txtSoToBoiBuHao.Leave += new EventHandler(TextBoxes_Leave);
-            txtSoToChayTrenToLon.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToBoiTrenToLon.Leave += new EventHandler(TextBoxes_Leave);
            
            
             
@@ -154,11 +154,11 @@ namespace TinhGiaInClient
         {
             get
             {
-                return int.Parse(txtSoToChayTrenToLon.Text);
+                return int.Parse(txtSoToBoiTrenToLon.Text);
             }
             set
             {
-                txtSoToChayTrenToLon.Text = value.ToString();
+                txtSoToBoiTrenToLon.Text = value.ToString();
             }
         }
         public int SoToGiayLon
@@ -224,7 +224,7 @@ namespace TinhGiaInClient
             {
                 t = (TextBox)sender;
                 //Paper tab prod paper
-                if (t == txtSoToBoiBuHao || t == txtSoToBoiLyThuyet || t == txtSoToChayTrenToLon    )//chỉ được nhập số chẵn 
+                if (t == txtSoToBoiBuHao || t == txtSoToBoiLyThuyet || t == txtSoToBoiTrenToLon    )//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
@@ -297,11 +297,11 @@ namespace TinhGiaInClient
                     CapNhatTriGiaVoLabels();
                 }
                 
-                if (tb == txtSoToChayTrenToLon)
+                if (tb == txtSoToBoiTrenToLon)
                 {
-                    if (string.IsNullOrEmpty(txtSoToChayTrenToLon.Text))
+                    if (string.IsNullOrEmpty(txtSoToBoiTrenToLon.Text))
                     {
-                        txtSoToChayTrenToLon.Text = "1";
+                        txtSoToBoiTrenToLon.Text = "1";
                     }
                     txtSoToGiayLon.Text = giayDeBoiPres.SoToGiayLon().ToString();
                     CapNhatTriGiaVoLabels();
@@ -333,7 +333,7 @@ namespace TinhGiaInClient
           
             txtSoToBoiLyThuyet.Enabled = false;
             txtSoToBoiBuHao.Enabled = false;
-            txtSoToChayTrenToLon.Enabled = false;
+            txtSoToBoiTrenToLon.Enabled = false;
         }
       
        
@@ -345,7 +345,7 @@ namespace TinhGiaInClient
             
 
            
-            if (string.IsNullOrEmpty(txtSoToChayTrenToLon.Text))
+            if (string.IsNullOrEmpty(txtSoToBoiTrenToLon.Text))
                 loiS.Add("Số tờ giấy lớn trống");
             if (string.IsNullOrEmpty(txtSoToBoiBuHao.Text))
                 loiS.Add("Cần để 0 chứ không thể rỗng");
@@ -380,7 +380,9 @@ namespace TinhGiaInClient
 
         private void btnChonGiay_Click(object sender, EventArgs e)
         {
-            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.Get, this.IdHangKH);
+            var thongTinGiayChon =giayDeBoiPres.TenGiayDeIn();
+
+            BangGiaGiayForm frm = new BangGiaGiayForm(FormStateS.Get, this.IdHangKH, thongTinGiayChon);
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Bảng giá giấy theo hạng KH ";
@@ -388,7 +390,8 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 //Cập nhật IdGiay trước
-                this.IdGiay = frm.GiayChon.ID;
+                if (frm.GiayChon != null)
+                    this.IdGiay = frm.GiayChon.ID;
                 //Cập nhật tiếp các chi tiết
                 
                 

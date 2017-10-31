@@ -67,18 +67,18 @@
             // 
             // txtDienGiaiHangKH
             // 
-            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(359, 11);
+            this.txtDienGiaiHangKH.Location = new System.Drawing.Point(242, 3);
             this.txtDienGiaiHangKH.Multiline = true;
             this.txtDienGiaiHangKH.Name = "txtDienGiaiHangKH";
             this.txtDienGiaiHangKH.ReadOnly = true;
-            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(269, 32);
+            this.txtDienGiaiHangKH.Size = new System.Drawing.Size(205, 40);
             this.txtDienGiaiHangKH.TabIndex = 6;
             // 
             // cboHangKhachHang
             // 
             this.cboHangKhachHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHangKhachHang.FormattingEnabled = true;
-            this.cboHangKhachHang.Location = new System.Drawing.Point(209, 16);
+            this.cboHangKhachHang.Location = new System.Drawing.Point(85, 16);
             this.cboHangKhachHang.Name = "cboHangKhachHang";
             this.cboHangKhachHang.Size = new System.Drawing.Size(135, 21);
             this.cboHangKhachHang.TabIndex = 5;
@@ -89,9 +89,9 @@
             this.lblTieuDeForm.AutoSize = true;
             this.lblTieuDeForm.Location = new System.Drawing.Point(9, 19);
             this.lblTieuDeForm.Name = "lblTieuDeForm";
-            this.lblTieuDeForm.Size = new System.Drawing.Size(194, 13);
+            this.lblTieuDeForm.Size = new System.Drawing.Size(54, 13);
             this.lblTieuDeForm.TabIndex = 1;
-            this.lblTieuDeForm.Text = "GIÁ GIẤY THEO HẠNG KHÁCH HÀNG";
+            this.lblTieuDeForm.Text = "Hạng KH:";
             // 
             // panel2
             // 
@@ -107,7 +107,7 @@
             // btnNhan
             // 
             this.btnNhan.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnNhan.Location = new System.Drawing.Point(333, 5);
+            this.btnNhan.Location = new System.Drawing.Point(381, 5);
             this.btnNhan.Name = "btnNhan";
             this.btnNhan.Size = new System.Drawing.Size(75, 23);
             this.btnNhan.TabIndex = 1;
@@ -118,7 +118,7 @@
             // btnHuy
             // 
             this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHuy.Location = new System.Drawing.Point(174, 5);
+            this.btnHuy.Location = new System.Drawing.Point(76, 5);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(75, 23);
             this.btnHuy.TabIndex = 0;
@@ -224,6 +224,7 @@
             this.Name = "BangGiaGiayForm";
             this.Text = "Bảng giá Giấy";
             this.Load += new System.EventHandler(this.ChuanBiGiayForm_Load);
+            this.Resize += new System.EventHandler(this.BangGiaGiayForm_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

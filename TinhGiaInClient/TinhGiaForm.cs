@@ -274,13 +274,15 @@ namespace TinhGiaInClient
             var thongTinChoBaiIn = new ThongTinBanDauChoBaiIn{
                 IdHangKhachHang = this.IdHangKhachHang(),
                 TinhTrangForm = FormStateS.New,
-                YeuCauTinhGia = ""
+                YeuCauTinhGia = "",
+                SanPhamRong = 21f,
+                SanPhamCao = 29.7f
             };
             var baiIn = new BaiIn("Bài in");
             baiIn.TieuDe = "Tiêu đề";
             baiIn.DienGiai = "Giấy, In, Thành phẩm, ...";
             baiIn.SoLuong = 10;
-            baiIn.DonVi = "đvt";
+            baiIn.DonVi = "tờ";
             baiIn.IdHangKH = this.IdHangKhachHang();
             var frm = new InToForm(thongTinChoBaiIn, baiIn);
             

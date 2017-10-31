@@ -32,6 +32,7 @@ namespace TinhGiaInClient.Presenter
             //View.IdGiayBoiGiuaChon = mucThPham.IdGiayBoiGiuaChon;
             View.GiayDeBoiChon = mucThPham.GiayBoiChon;
             View.SoLopLotGiua = mucThPham.SoLopLotGiua;
+            
             //Nếu mới
             switch (View.TinhTrangForm)
             {

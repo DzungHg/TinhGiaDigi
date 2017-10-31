@@ -50,6 +50,8 @@
             this.cmnuThPh_Be = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CatDecal = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuThPh_BoiNhieuLop = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_BoiBiaCung = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuThPh_GiaCongNgoai = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +60,12 @@
             this.txtTomTatBaiIn = new System.Windows.Forms.TextBox();
             this.tabCtrl01 = new System.Windows.Forms.TabControl();
             this.tabSanPham = new System.Windows.Forms.TabPage();
+            this.cmnuCauHinhToiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuChuanBiGiay = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuGanGiaIn = new System.Windows.Forms.ToolStripMenuItem();
             this.txtCauHinhSP = new System.Windows.Forms.TextBox();
             this.btnXoaCauHinhSP = new System.Windows.Forms.Button();
             this.btnSuaCauHinhSP = new System.Windows.Forms.Button();
@@ -87,19 +95,12 @@
             this.lblIDBaiIn = new System.Windows.Forms.Label();
             this.txtDanDoThem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnGetProdTemplate = new System.Windows.Forms.Button();
+            this.btnLayKichThuocSP = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuThPh_BoiNhieuLop = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuCauHinhToiIn = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmnuGanCauHinhSP = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuChuanBiGiay = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmnuGanGiaIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnLamLai = new System.Windows.Forms.Button();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -108,6 +109,7 @@
             this.cmuThanhPham.SuspendLayout();
             this.tabCtrl01.SuspendLayout();
             this.tabSanPham.SuspendLayout();
+            this.cmnuCauHinhToiIn.SuspendLayout();
             this.tabGiay.SuspendLayout();
             this.tabGiaIn.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -116,7 +118,6 @@
             this.tabThanhPham.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.cmnuCauHinhToiIn.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -175,7 +176,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(314, 6);
+            this.btnCancel.Location = new System.Drawing.Point(321, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 6;
@@ -226,6 +227,7 @@
             // pnlFooter
             // 
             this.pnlFooter.AutoScroll = true;
+            this.pnlFooter.Controls.Add(this.btnLamLai);
             this.pnlFooter.Controls.Add(this.btnOK);
             this.pnlFooter.Controls.Add(this.btnCancel);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -278,7 +280,7 @@
             this.toolStripMenuItem4,
             this.cmnuThPh_GiaCongNgoai});
             this.cmuThanhPham.Name = "cmnuGiayChoSP";
-            this.cmuThanhPham.Size = new System.Drawing.Size(155, 214);
+            this.cmuThanhPham.Size = new System.Drawing.Size(155, 192);
             this.cmuThanhPham.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuThPh_CanPhu
@@ -315,6 +317,18 @@
             this.cmnuThPh_CatDecal.Size = new System.Drawing.Size(154, 22);
             this.cmnuThPh_CatDecal.Text = "Cắt Decal";
             this.cmnuThPh_CatDecal.Click += new System.EventHandler(this.cmnuThPh_CatDecal_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(151, 6);
+            // 
+            // cmnuThPh_BoiNhieuLop
+            // 
+            this.cmnuThPh_BoiNhieuLop.Name = "cmnuThPh_BoiNhieuLop";
+            this.cmnuThPh_BoiNhieuLop.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_BoiNhieuLop.Text = "Bồi nhiều lớp";
+            this.cmnuThPh_BoiNhieuLop.Click += new System.EventHandler(this.cmnuThPh_BoiNhieuLop_Click);
             // 
             // cmnuThPh_BoiBiaCung
             // 
@@ -363,7 +377,7 @@
             this.txtTomTatBaiIn.Name = "txtTomTatBaiIn";
             this.txtTomTatBaiIn.ReadOnly = true;
             this.txtTomTatBaiIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 202);
+            this.txtTomTatBaiIn.Size = new System.Drawing.Size(250, 213);
             this.txtTomTatBaiIn.TabIndex = 212;
             // 
             // tabCtrl01
@@ -394,6 +408,49 @@
             this.tabSanPham.Size = new System.Drawing.Size(383, 235);
             this.tabSanPham.TabIndex = 0;
             this.tabSanPham.Text = "Cấu hình SP";
+            // 
+            // cmnuCauHinhToiIn
+            // 
+            this.cmnuCauHinhToiIn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnuGanCauHinhSP,
+            this.toolStripSeparator1,
+            this.cmnuChuanBiGiay,
+            this.toolStripSeparator2,
+            this.cmnuGanGiaIn});
+            this.cmnuCauHinhToiIn.Name = "cmnuGiayChoSP";
+            this.cmnuCauHinhToiIn.Size = new System.Drawing.Size(149, 82);
+            this.cmnuCauHinhToiIn.Opening += new System.ComponentModel.CancelEventHandler(this.cmnuCauHinhToiIn_Opening);
+            // 
+            // cmnuGanCauHinhSP
+            // 
+            this.cmnuGanCauHinhSP.Name = "cmnuGanCauHinhSP";
+            this.cmnuGanCauHinhSP.Size = new System.Drawing.Size(148, 22);
+            this.cmnuGanCauHinhSP.Text = "Cấu hình SP";
+            this.cmnuGanCauHinhSP.Click += new System.EventHandler(this.cmnuGanCauHinhSP_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            // 
+            // cmnuChuanBiGiay
+            // 
+            this.cmnuChuanBiGiay.Name = "cmnuChuanBiGiay";
+            this.cmnuChuanBiGiay.Size = new System.Drawing.Size(148, 22);
+            this.cmnuChuanBiGiay.Text = "Chuẩn bị Giấy";
+            this.cmnuChuanBiGiay.Click += new System.EventHandler(this.cmnuChuanBiGiay_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(145, 6);
+            // 
+            // cmnuGanGiaIn
+            // 
+            this.cmnuGanGiaIn.Name = "cmnuGanGiaIn";
+            this.cmnuGanGiaIn.Size = new System.Drawing.Size(148, 22);
+            this.cmnuGanGiaIn.Text = "Giá In";
+            this.cmnuGanGiaIn.Click += new System.EventHandler(this.cmnuGanGiaIn_Click);
             // 
             // txtCauHinhSP
             // 
@@ -692,7 +749,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnGetProdTemplate);
+            this.groupBox1.Controls.Add(this.btnLayKichThuocSP);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtKhoCatCao);
@@ -714,15 +771,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tổng quát";
             // 
-            // btnGetProdTemplate
+            // btnLayKichThuocSP
             // 
-            this.btnGetProdTemplate.Location = new System.Drawing.Point(14, 118);
-            this.btnGetProdTemplate.Name = "btnGetProdTemplate";
-            this.btnGetProdTemplate.Size = new System.Drawing.Size(88, 23);
-            this.btnGetProdTemplate.TabIndex = 245;
-            this.btnGetProdTemplate.Text = "Kích thước";
-            this.btnGetProdTemplate.UseVisualStyleBackColor = true;
-            this.btnGetProdTemplate.Click += new System.EventHandler(this.btnGetProdTemplate_Click);
+            this.btnLayKichThuocSP.Location = new System.Drawing.Point(14, 118);
+            this.btnLayKichThuocSP.Name = "btnLayKichThuocSP";
+            this.btnLayKichThuocSP.Size = new System.Drawing.Size(88, 23);
+            this.btnLayKichThuocSP.TabIndex = 245;
+            this.btnLayKichThuocSP.Text = "Kích thước";
+            this.btnLayKichThuocSP.UseVisualStyleBackColor = true;
+            this.btnLayKichThuocSP.Click += new System.EventHandler(this.btnGetProdTemplate_Click);
             // 
             // label9
             // 
@@ -756,59 +813,15 @@
             this.txtKhoCatRong.Size = new System.Drawing.Size(50, 20);
             this.txtKhoCatRong.TabIndex = 3;
             // 
-            // toolStripMenuItem5
+            // btnLamLai
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(151, 6);
-            // 
-            // cmnuThPh_BoiNhieuLop
-            // 
-            this.cmnuThPh_BoiNhieuLop.Name = "cmnuThPh_BoiNhieuLop";
-            this.cmnuThPh_BoiNhieuLop.Size = new System.Drawing.Size(154, 22);
-            this.cmnuThPh_BoiNhieuLop.Text = "Bồi nhiều lớp";
-            this.cmnuThPh_BoiNhieuLop.Click += new System.EventHandler(this.cmnuThPh_BoiNhieuLop_Click);
-            // 
-            // cmnuCauHinhToiIn
-            // 
-            this.cmnuCauHinhToiIn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuGanCauHinhSP,
-            this.toolStripSeparator1,
-            this.cmnuChuanBiGiay,
-            this.toolStripSeparator2,
-            this.cmnuGanGiaIn});
-            this.cmnuCauHinhToiIn.Name = "cmnuGiayChoSP";
-            this.cmnuCauHinhToiIn.Size = new System.Drawing.Size(149, 82);
-            // 
-            // cmnuGanCauHinhSP
-            // 
-            this.cmnuGanCauHinhSP.Name = "cmnuGanCauHinhSP";
-            this.cmnuGanCauHinhSP.Size = new System.Drawing.Size(148, 22);
-            this.cmnuGanCauHinhSP.Text = "Cấu hình SP";
-            this.cmnuGanCauHinhSP.Click += new System.EventHandler(this.cmnuGanCauHinhSP_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
-            // 
-            // cmnuChuanBiGiay
-            // 
-            this.cmnuChuanBiGiay.Name = "cmnuChuanBiGiay";
-            this.cmnuChuanBiGiay.Size = new System.Drawing.Size(148, 22);
-            this.cmnuChuanBiGiay.Text = "Chuẩn bị Giấy";
-            this.cmnuChuanBiGiay.Click += new System.EventHandler(this.cmnuChuanBiGiay_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
-            // 
-            // cmnuGanGiaIn
-            // 
-            this.cmnuGanGiaIn.Name = "cmnuGanGiaIn";
-            this.cmnuGanGiaIn.Size = new System.Drawing.Size(152, 22);
-            this.cmnuGanGiaIn.Text = "Giá In";
-            this.cmnuGanGiaIn.Click += new System.EventHandler(this.cmnuGanGiaIn_Click);
+            this.btnLamLai.Location = new System.Drawing.Point(184, 6);
+            this.btnLamLai.Name = "btnLamLai";
+            this.btnLamLai.Size = new System.Drawing.Size(88, 23);
+            this.btnLamLai.TabIndex = 246;
+            this.btnLamLai.Text = "Làm lại";
+            this.btnLamLai.UseVisualStyleBackColor = true;
+            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
             // 
             // InToForm
             // 
@@ -837,6 +850,7 @@
             this.tabCtrl01.ResumeLayout(false);
             this.tabSanPham.ResumeLayout(false);
             this.tabSanPham.PerformLayout();
+            this.cmnuCauHinhToiIn.ResumeLayout(false);
             this.tabGiay.ResumeLayout(false);
             this.tabGiay.PerformLayout();
             this.tabGiaIn.ResumeLayout(false);
@@ -847,7 +861,6 @@
             this.panel7.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.cmnuCauHinhToiIn.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -916,7 +929,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_BoiBiaCung;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
-        private System.Windows.Forms.Button btnGetProdTemplate;
+        private System.Windows.Forms.Button btnLayKichThuocSP;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_Be;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_BoiNhieuLop;
@@ -926,5 +939,6 @@
         private System.Windows.Forms.ToolStripMenuItem cmnuChuanBiGiay;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem cmnuGanGiaIn;
+        private System.Windows.Forms.Button btnLamLai;
     }
 }

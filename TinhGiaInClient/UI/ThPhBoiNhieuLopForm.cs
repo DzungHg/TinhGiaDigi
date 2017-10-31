@@ -267,7 +267,7 @@ namespace TinhGiaInClient.UI
                     CapNhatLabelGia();
                 }
             }*/
-            ChoKhongChoNutNhan();
+            
         }
         private void CapNhatLabelGia(bool capNhat)
         {
@@ -394,12 +394,12 @@ namespace TinhGiaInClient.UI
                 if (tb == txtToBoiRong)
                 {
                     if (string.IsNullOrEmpty(txtToBoiRong.Text.Trim()))
-                        this.ToBoiRong = 10;
+                        this.ToBoiRong = 1;
                 }
                 if (tb == txtToBoiCao)
                 {
                     if (string.IsNullOrEmpty(txtToBoiCao.Text.Trim()))
-                        this.ToBoiCao = 10;
+                        this.ToBoiCao = 1;
                 }
                 
                 if (tb == txtSoLopLot)
@@ -407,6 +407,7 @@ namespace TinhGiaInClient.UI
                         this.SoLopLotGiua = 1;               
 
             }
+            ChoKhongChoNutNhan();
         }
 
         private void lstNhuEpKim_SelectedIndexChanged(object sender, EventArgs e)
@@ -525,12 +526,31 @@ namespace TinhGiaInClient.UI
 
             //Tao giay de bồi
             var soLuongToBoi = thPhBoiNhieuLopPres.SoToLotGiua();
+            var soToBuHao = 0;
+            var idGiay = 0;
+            var tenGiayIn = "";
+            var soToBoiTrenToLon = 0;
+            var soToLonTong = 0;
+            if (this.GiayDeBoiChon != null)
+            {
+                soToBuHao = this.GiayDeBoiChon.SoToBoiBuHao;
+                soLuongToBoi = this.GiayDeBoiChon.SoToBoiLyThuyet;
+                idGiay = this.GiayDeBoiChon.IdGiay;
+                tenGiayIn = this.GiayDeBoiChon.TenGiayIn;
+                soToBoiTrenToLon = this.GiayDeBoiChon.SoToBoiTrenToLon;
+                soToLonTong = this.GiayDeBoiChon.SoToLonTong;
+            }
             var mucGiayDeBoi = new GiayDeBoi(this.ToBoiRong, this.ToBoiCao,
-                0, soLuongToBoi, 0, "", 0, 0,0,0);//
+                soToBuHao, soLuongToBoi, idGiay, tenGiayIn, 0,
+                soToBoiTrenToLon, soToLonTong, 0);//
+
             //Tiến hành gắn
 
             var frm = new GiayDeBoiForm(thongTinBanDau, mucGiayDeBoi);
-            frm.Text = "BỒI NHIỀU LỚP";
+            if (this.GiayDeBoiChon == null)
+                frm.Text = "[Mới] BỒI NHIỀU LỚP";
+            else
+                frm.Text = "[Sửa] BỒI NHIỀU LỚP";
 
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;

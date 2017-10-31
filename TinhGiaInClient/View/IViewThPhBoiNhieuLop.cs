@@ -15,6 +15,7 @@ namespace TinhGiaInClient.View
          int IdGiayBoiGiuaChon { get; set; }         
          int SoLopLotGiua { get; set; }
          GiayDeBoi GiayDeBoiChon { get; set; }
+        
          
     }
 }

@@ -254,6 +254,7 @@ namespace TinhGiaInClient
         private void BaiInForm_Load(object sender, EventArgs e)
         {
             lblTieuDeForm.Text = this.Text;
+            BatNutNhan();
         }
         private bool KiemTraHopLe(ref string errorMessage)
         {
@@ -349,6 +350,10 @@ namespace TinhGiaInClient
                 XuLyNutOKTrenFormTrienKhaiSP_Click(frm);
                 CapNhatTomTatBaiIn();
             }
+            //Khóa các control về kích thước và số lượg
+            KhoaMoControlsSoLuongKichThuoc(true);
+            //Bật tắt
+            BatNutNhan();
 
         }
         private void SuaCauHinhSP()
@@ -372,6 +377,9 @@ namespace TinhGiaInClient
                 CapNhatTomTatBaiIn();
 
             }
+            //Khóa
+            KhoaMoControlsSoLuongKichThuoc(true);
+            BatNutNhan();
         }
         private void btnSuaCauHinhSP_Click(object sender, EventArgs e)
         {
@@ -381,10 +389,16 @@ namespace TinhGiaInClient
         }
         private void btnXoaCauHinhSP_Click(object sender, EventArgs e)
         {
+            XoaCauHinhSP();
+           
+        }
+        private void XoaCauHinhSP()
+        {
             baiInPres.XoaCauHinhSanPham();
             this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
-           
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();      
+            //Mở một số controls:
+            KhoaMoControlsSoLuongKichThuoc(false);
         }
 
         private void XuLyNutOKTrenFormTrienKhaiSP_Click(CauHinhSPForm frm)
@@ -416,7 +430,14 @@ namespace TinhGiaInClient
                     LoadThanhPhamLenListView();
                     break;
             }
-            
+            //Cập nhật lại khổ sản phẩm trong bài in
+            var baiIn = baiInPres.DocBaiIn();
+            if (baiIn.CoCauHinh)
+            {
+                this.SanPhamRong = baiIn.CauHinhSP.KhoCatRong;
+                this.SanPhamCao = baiIn.CauHinhSP.KhoCatCao;
+            }
+
         }
         #endregion cấu hình SP
 
@@ -454,7 +475,7 @@ namespace TinhGiaInClient
                 //MessageBox.Show(this.CauHinhSanPhamS.Count().ToString());
                 CapNhatTomTatBaiIn();
             }
-
+            BatNutNhan();
         }
         private ThongTinBanDauChoGiayIn thongTinBanDauChoGiayIn(BaiIn baiIn, FormStateS tinhTrangForm)
         {
@@ -510,6 +531,7 @@ namespace TinhGiaInClient
                 CapNhatTomTatBaiIn();
             }
 
+            BatNutNhan();
 
         }
         private void XuLyNutOKTrenFormChuanBiGiay_Click(GiayDeInForm frm)
@@ -658,6 +680,7 @@ namespace TinhGiaInClient
                     break;
 
             }
+            BatNutNhan();
         }
         private void SuaGiaIn()
         {
@@ -687,6 +710,7 @@ namespace TinhGiaInClient
                     LoadGiaInLenListView();//đã cập nhật luôn 
                 }
             }
+            BatNutNhan();
         }
 
         private void XuLyNutOKTrenFormGiaIn_Click(GiaInNhanhForm frm)
@@ -1563,15 +1587,23 @@ namespace TinhGiaInClient
 
         private void btnXoaGiayDeIn_Click(object sender, EventArgs e)
         {
+            XoaGiay();
+        }
+        private void XoaGiay()
+        {
             if (this.ID > 0)
             {
                 baiInPres.XoaGiayDeIn();
                 this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
             }
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();    
         }
 
         private void btnXoaHetBaiInNhanh_Click(object sender, EventArgs e)
+        {
+            XoaBaiInSach();
+        }
+        private void XoaBaiInSach()
         {
             baiInPres.XoaHetGiaIn();
             //Cập nhật lại listview
@@ -1594,9 +1626,13 @@ namespace TinhGiaInClient
         }
         private void btnXoaHetThanhPham_Click(object sender, EventArgs e)
         {
+            XoaThanhPhamSach();
+        }
+        private void XoaThanhPhamSach()
+        {
             baiInPres.XoaHetThanhPham();
             LoadThanhPhamLenListView();
-            CapNhatTomTatBaiIn();      
+            CapNhatTomTatBaiIn();  
         }
         private void cmnuThPh_EpKim_Click(object sender, EventArgs e)
         {
@@ -1742,6 +1778,113 @@ namespace TinhGiaInClient
         private void cmnuThPh_BoiNhieuLop_Click(object sender, EventArgs e)
         {
             ThemThanhPham(this.ID, LoaiThanhPhamS.BoiNhieuLop);
+        }
+        private void BatNutNhan()
+        {
+            var kq = true;
+           
+            var baiIn = baiInPres.DocBaiIn();
+            if (baiIn == null)
+            {
+                btnOK.Enabled = false;
+                return;
+            }
+            //Xem phương pháp in
+            if (!baiIn.CoCauHinh)
+            {
+                kq = false;
+            }
+            else
+            {
+                if (!baiIn.CoGiayIn)
+                    kq = false;
+                if (baiIn.CauHinhSP.PhuongPhapIn != PhuongPhapInS.KhongIn)
+                {
+                    if (baiIn.GiaInS.Count <= 0)
+                        kq = false;
+                }
+            }
+
+            btnOK.Enabled = kq;
+        }
+
+        private void cmnuCauHinhToiIn_Opening(object sender, CancelEventArgs e)
+        {
+            var baiIn = baiInPres.DocBaiIn();
+            if (baiIn.CoCauHinh)
+            {
+                //Cấu hình
+                cmnuGanCauHinhSP.Enabled = false;
+                btnSuaCauHinhSP.Enabled = true;
+                //Phương pháp in
+                if (baiIn.CauHinhSP.PhuongPhapIn == PhuongPhapInS.KhongIn)
+                {
+                    cmnuGanGiaIn.Enabled = false;
+                    btnSuaGiaInNhanh.Enabled = false;
+                }
+                else
+                {
+
+                    cmnuGanGiaIn.Enabled = true;
+                    btnSuaGiaInNhanh.Enabled = true;
+                }
+                //Giấy
+                if (baiIn.CoGiayIn)
+                {
+                    cmnuChuanBiGiay.Enabled = false;
+                    btnSuaGiayIn.Enabled = true;
+                }
+                else
+                {
+                    cmnuChuanBiGiay.Enabled = true;
+                    btnSuaGiayIn.Enabled = false;
+                }
+            }
+            else
+            {
+                cmnuGanCauHinhSP.Enabled = true;
+                btnSuaCauHinhSP.Enabled = false;
+            }
+            
+        }
+        private void KhoaMoControlsSoLuongKichThuoc(bool khoa)
+        {
+            if (khoa)
+            {
+                txtSoLuong.Enabled = false;
+                txtKhoCatCao.Enabled = false;
+                txtKhoCatRong.Enabled = false;
+                txtDonVi.Enabled = false;
+                btnLayKichThuocSP.Enabled = false;
+            } else
+            {
+                txtSoLuong.Enabled = true;
+                txtKhoCatCao.Enabled = true;
+                txtKhoCatRong.Enabled = true;
+                txtDonVi.Enabled = true;
+                btnLayKichThuocSP.Enabled = true;
+            }
+        }
+        private void LamLai()
+        {
+            KhoaMoControlsSoLuongKichThuoc(false);
+            //
+            this.SanPhamRong = 21;
+            this.SanPhamCao = 29.7f;
+            this.SoLuong = 10;
+            //bài in
+            XoaCauHinhSP();
+            XoaGiay();
+            XoaBaiInSach();
+            XoaThanhPhamSach();
+            btnLayKichThuocSP.Focus();
+            //bật nút nhận
+            BatNutNhan();
+        }
+
+        private void btnLamLai_Click(object sender, EventArgs e)
+        {
+            LamLai();                       
         }
     }
 }

@@ -16,7 +16,7 @@ namespace TinhGiaInClient
     public partial class BangGiaGiayForm : Form, IViewBangGiaGiay
     {
         BangGiaGiayPresenter bangGiaGiayPres;
-        public BangGiaGiayForm(FormStateS tinhTrangForm, int idHangKh = 0)
+        public BangGiaGiayForm(FormStateS tinhTrangForm, int idHangKh = 0, string thongTinGiayChonCu = "")
         {
             InitializeComponent();
             this.TinhTrangForm = tinhTrangForm;
@@ -25,6 +25,10 @@ namespace TinhGiaInClient
             LoadHangKhachHang();
             this.IdHangKHChon = idHangKh;//Bẩy thử
             LoadNhaCungCapGiay();
+            /*if (!string.IsNullOrEmpty(thongTinGiayChonCu))
+            {
+                txtThongTinGiayChonCu.Text = thongTinGiayChonCu;
+            }*/
           
         }
         #region Implement Iview..
@@ -129,6 +133,8 @@ namespace TinhGiaInClient
                     cboHangKhachHang.Enabled = true;
                     break;
             }
+            cboHangKhachHang.Left = lblTieuDeForm.Left + lblTieuDeForm.Width + 5;
+            txtDienGiaiHangKH.Left = cboHangKhachHang.Left + cboHangKhachHang.Width + 5;
         }
 
         private void cboNhaCC_SelectedIndexChanged(object sender, EventArgs e)
@@ -276,6 +282,13 @@ namespace TinhGiaInClient
         private void btnNhan_Click(object sender, EventArgs e)
         {
             this.GiayChon = bangGiaGiayPres.GiayChon();
+        }
+
+        private void BangGiaGiayForm_Resize(object sender, EventArgs e)
+        {
+            btnHuy.Left = lbxDanhMucGiay.Left +  (lbxDanhMucGiay.Width - btnHuy.Width) / 2;
+            btnNhan.Left = (lbxDanhMucGiay.Left + lbxDanhMucGiay.Width) + (lvwGiay.Width - btnNhan.Width) / 2;
+
         }
        
         
