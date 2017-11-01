@@ -56,10 +56,10 @@ namespace TinhGiaInClient.UI
         }
             //Envent
 
-            txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
+            /*txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
             txtSoLopLot.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToBoiRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtToBoiCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtToBoiCao.TextChanged += new EventHandler(TextBoxes_TextChanged);*/
 
             txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
             txtSoLopLot.Leave += new EventHandler(TextBoxes_Leave);
@@ -206,6 +206,27 @@ namespace TinhGiaInClient.UI
                 txtSoLopLot.Text = value.ToString();
             }
         }
+        public KieuBoiNhieuLop KieuBoi
+        {
+            get
+            {
+                if (rdbBoiDap.IsChecked)
+                {
+                    return KieuBoiNhieuLop.BoiDap;
+
+                }
+                else
+                    return KieuBoiNhieuLop.BoiLotGiua;
+            }
+            set
+            {
+                if (value == KieuBoiNhieuLop.BoiDap)
+                    rdbBoiDap.IsChecked = true;
+                else
+                    rdbBoiLotGiua.IsChecked = true;
+            }
+        }
+
         public GiayDeBoi GiayDeBoiChon
         { get; set; }
       
@@ -226,13 +247,13 @@ namespace TinhGiaInClient.UI
         {
 
         }
-        private void TextBoxes_TextChanged(object sender, EventArgs e)
+        /*private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-           /*TextBox tb;
+          TextBox tb;
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-                if (tb == txtSoLuong )
+               if (tb == txtSoLuong )
                 {
                     if (!string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
                         CapNhatLabelGia();                    
@@ -249,14 +270,16 @@ namespace TinhGiaInClient.UI
                 }
                 //xử lý khi user xóa hết bên Leave
                 
-                  if (tb == txtSoLopLot)
+                if (tb == txtSoLopLot)
                 {
+                    
                     ;
                 }
                 
             
-            }*/
-            /*Telerik.WinControls.UI.RadListView lv;
+            }
+
+            Telerik.WinControls.UI.RadListView lv;
             if (sender is Telerik.WinControls.UI.RadListView)
             {
                 lv = (Telerik.WinControls.UI.RadListView)sender;
@@ -266,9 +289,9 @@ namespace TinhGiaInClient.UI
                     txtDonViTinh.Enabled = true;
                     CapNhatLabelGia();
                 }
-            }*/
+            }
             
-        }
+        }*/
         private void CapNhatLabelGia(bool capNhat)
         {
             if (capNhat)
@@ -401,10 +424,21 @@ namespace TinhGiaInClient.UI
                     if (string.IsNullOrEmpty(txtToBoiCao.Text.Trim()))
                         this.ToBoiCao = 1;
                 }
-                
+
                 if (tb == txtSoLopLot)
+                {
                     if (string.IsNullOrEmpty(txtSoLopLot.Text.Trim()))
-                        this.SoLopLotGiua = 1;               
+                    {
+                        this.SoLopLotGiua = 0;
+
+                    }
+                    if (this.SoLopLotGiua <= 0)
+
+                        btnLayGiay.Enabled = false;
+
+                    else
+                        btnLayGiay.Enabled = true;
+                }
 
             }
             ChoKhongChoNutNhan();
@@ -589,7 +623,9 @@ namespace TinhGiaInClient.UI
 
         private void btnTinh_Click(object sender, EventArgs e)
         {
+            
             CapNhatLabelGia(true);
+            ChoKhongChoNutNhan();
         }
 
         private void btnLamLai_Click(object sender, EventArgs e)
@@ -609,7 +645,10 @@ namespace TinhGiaInClient.UI
             if (this.SoLopLotGiua > 0)
             {
                 if (this.GiayDeBoiChon == null)
+                {
+                    MessageBox.Show("Bạn chưa giấy bồi!");
                     kq = false;
+                }
                 else
                     kq = true;
             }
@@ -620,7 +659,16 @@ namespace TinhGiaInClient.UI
             if (this.SoLuong <= 0 || this.ToBoiCao <=0
                 || this.ToBoiRong <= 0)
                 kq = false;
-
+            //Bồi thêm phải có 1 lớp
+            if (this.KieuBoi == KieuBoiNhieuLop.BoiDap)
+            {
+                if (this.SoLopLotGiua <= 0)
+                {
+                    MessageBox.Show("Kiểu bồi này bạn cần ít nhất 1 tờ lót");
+                    txtSoLopLot.Focus();
+                    kq = false;
+                }
+            }
             btnNhan.Enabled = kq;
         }
   

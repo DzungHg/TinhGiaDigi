@@ -54,12 +54,19 @@
             this.btnLamLai = new Telerik.WinControls.UI.RadButton();
             this.btnLayGiay = new Telerik.WinControls.UI.RadButton();
             this.btnTinh = new Telerik.WinControls.UI.RadButton();
+            this.grbKieuBoi = new Telerik.WinControls.UI.RadGroupBox();
+            this.rdbBoiDap = new Telerik.WinControls.UI.RadRadioButton();
+            this.rdbBoiLotGiua = new Telerik.WinControls.UI.RadRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.cboMayBoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLamLai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayGiay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grbKieuBoi)).BeginInit();
+            this.grbKieuBoi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiDap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiLotGiua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +102,7 @@
             this.txtSoLuong.Location = new System.Drawing.Point(98, 185);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(62, 20);
-            this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.TabIndex = 6;
             // 
             // lblTieuDeForm
             // 
@@ -111,7 +118,7 @@
             this.txtDonViTinh.Location = new System.Drawing.Point(170, 185);
             this.txtDonViTinh.Name = "txtDonViTinh";
             this.txtDonViTinh.Size = new System.Drawing.Size(43, 20);
-            this.txtDonViTinh.TabIndex = 6;
+            this.txtDonViTinh.TabIndex = 7;
             // 
             // label3
             // 
@@ -125,7 +132,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(335, 81);
+            this.label4.Location = new System.Drawing.Point(412, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 105;
@@ -136,7 +143,7 @@
             this.txtSoLopLot.Location = new System.Drawing.Point(98, 159);
             this.txtSoLopLot.Name = "txtSoLopLot";
             this.txtSoLopLot.Size = new System.Drawing.Size(62, 20);
-            this.txtSoLopLot.TabIndex = 4;
+            this.txtSoLopLot.TabIndex = 5;
             // 
             // label6
             // 
@@ -254,12 +261,12 @@
             // 
             // txtThongTinGiayLot
             // 
-            this.txtThongTinGiayLot.Location = new System.Drawing.Point(246, 100);
+            this.txtThongTinGiayLot.Location = new System.Drawing.Point(323, 101);
             this.txtThongTinGiayLot.Multiline = true;
             this.txtThongTinGiayLot.Name = "txtThongTinGiayLot";
             this.txtThongTinGiayLot.ReadOnly = true;
             this.txtThongTinGiayLot.Size = new System.Drawing.Size(211, 79);
-            this.txtThongTinGiayLot.TabIndex = 122;
+            this.txtThongTinGiayLot.TabIndex = 9;
             // 
             // btnLamLai
             // 
@@ -272,10 +279,10 @@
             // 
             // btnLayGiay
             // 
-            this.btnLayGiay.Location = new System.Drawing.Point(246, 70);
+            this.btnLayGiay.Location = new System.Drawing.Point(323, 71);
             this.btnLayGiay.Name = "btnLayGiay";
             this.btnLayGiay.Size = new System.Drawing.Size(83, 24);
-            this.btnLayGiay.TabIndex = 124;
+            this.btnLayGiay.TabIndex = 8;
             this.btnLayGiay.Text = "Lấy giấy";
             this.btnLayGiay.Click += new System.EventHandler(this.btnLayGiay_Click);
             // 
@@ -284,15 +291,44 @@
             this.btnTinh.Location = new System.Drawing.Point(246, 184);
             this.btnTinh.Name = "btnTinh";
             this.btnTinh.Size = new System.Drawing.Size(83, 24);
-            this.btnTinh.TabIndex = 124;
+            this.btnTinh.TabIndex = 10;
             this.btnTinh.Text = "Tính";
             this.btnTinh.Click += new System.EventHandler(this.btnTinh_Click);
+            // 
+            // grbKieuBoi
+            // 
+            this.grbKieuBoi.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.grbKieuBoi.Controls.Add(this.rdbBoiLotGiua);
+            this.grbKieuBoi.Controls.Add(this.rdbBoiDap);
+            this.grbKieuBoi.HeaderText = "Kiểu bồi";
+            this.grbKieuBoi.Location = new System.Drawing.Point(194, 109);
+            this.grbKieuBoi.Name = "grbKieuBoi";
+            this.grbKieuBoi.Size = new System.Drawing.Size(115, 69);
+            this.grbKieuBoi.TabIndex = 4;
+            this.grbKieuBoi.Text = "Kiểu bồi";
+            // 
+            // rdbBoiDap
+            // 
+            this.rdbBoiDap.Location = new System.Drawing.Point(10, 21);
+            this.rdbBoiDap.Name = "rdbBoiDap";
+            this.rdbBoiDap.Size = new System.Drawing.Size(58, 18);
+            this.rdbBoiDap.TabIndex = 0;
+            this.rdbBoiDap.Text = "Bồi đắp";
+            // 
+            // rdbBoiLotGiua
+            // 
+            this.rdbBoiLotGiua.Location = new System.Drawing.Point(10, 45);
+            this.rdbBoiLotGiua.Name = "rdbBoiLotGiua";
+            this.rdbBoiLotGiua.Size = new System.Drawing.Size(77, 18);
+            this.rdbBoiLotGiua.TabIndex = 1;
+            this.rdbBoiLotGiua.Text = "Bồi lót giữa";
             // 
             // ThPhBoiNhieuLopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 292);
+            this.ClientSize = new System.Drawing.Size(538, 292);
+            this.Controls.Add(this.grbKieuBoi);
             this.Controls.Add(this.btnTinh);
             this.Controls.Add(this.btnLayGiay);
             this.Controls.Add(this.btnLamLai);
@@ -333,6 +369,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnLamLai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayGiay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grbKieuBoi)).EndInit();
+            this.grbKieuBoi.ResumeLayout(false);
+            this.grbKieuBoi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiDap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiLotGiua)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -367,5 +408,8 @@
         private Telerik.WinControls.UI.RadButton btnLamLai;
         private Telerik.WinControls.UI.RadButton btnLayGiay;
         private Telerik.WinControls.UI.RadButton btnTinh;
+        private Telerik.WinControls.UI.RadGroupBox grbKieuBoi;
+        private Telerik.WinControls.UI.RadRadioButton rdbBoiLotGiua;
+        private Telerik.WinControls.UI.RadRadioButton rdbBoiDap;
     }
 }

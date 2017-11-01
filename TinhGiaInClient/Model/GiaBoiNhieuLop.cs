@@ -15,9 +15,10 @@ namespace TinhGiaInClient.Model
         public MayBoiNhieuLop MayBoi { get; set; }
         public GiayDeBoi ToBoi { get; set; }
         public int SoLopLot { get; set; }
-
+        public KieuBoiNhieuLop KieuBoi { get; set; }
         public GiaBoiNhieuLop(int soLuongTamBoi, MayBoiNhieuLop boiBiaCung,
-            float tamRong, float tamCao, GiayDeBoi toBoi, int soLopLot, int tyLeMarkUpSales)
+            float tamRong, float tamCao, GiayDeBoi toBoi,
+            int soLopLot, KieuBoiNhieuLop kieuBoi, int tyLeMarkUpSales)
         {
             this.SoLuong = soLuongTamBoi;
             this.TamRong = tamRong;
@@ -25,6 +26,7 @@ namespace TinhGiaInClient.Model
             this.MayBoi = boiBiaCung;
             this.ToBoi = toBoi;
             this.SoLopLot = soLopLot;
+            this.KieuBoi = kieuBoi;
             this.TyLeMarkUp = tyLeMarkUpSales;
         }
         public decimal ChiPhiChayMotLop (int soLuong)
@@ -48,8 +50,17 @@ namespace TinhGiaInClient.Model
         public decimal ChiPhi(int soLuong)
         {
             ///Tính theo số lượng tờ lót
-            decimal kq = ChiPhiChayMotLop(this.SoLuong)
-                * (this.SoLopLot + 1); //cách tính vậy
+            decimal kq = ChiPhiChayMotLop(this.SoLuong);
+            switch (this.KieuBoi)
+            {
+                case KieuBoiNhieuLop.BoiDap:
+                    kq += kq * (this.SoLopLot);
+                    break;
+                case KieuBoiNhieuLop.BoiLotGiua:
+                    kq += kq * (this.SoLopLot + 1);
+                    break;
+            }
+            
           
             return kq;
         }

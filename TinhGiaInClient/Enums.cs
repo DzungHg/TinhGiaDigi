@@ -17,6 +17,7 @@ namespace TinhGiaInClient
     public enum MotHaiMat { MotMat = 1, HaiMat = 2}
     public enum PrintSideColorS { FourFour = 1, FourOne = 2, FourZero = 3, OneOne = 4, OneZero = 5 }
     public enum LoaiBangGia { InNhanh = 0, InNhanhTheoMay = 1, InOffset = 2, InKhoLon = 3 }
+    public enum KieuBoiNhieuLop { BoiDap = 0, BoiLotGiua = 1}
 
     public static class Enumss
     {

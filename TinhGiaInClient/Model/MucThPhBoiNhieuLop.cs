@@ -19,6 +19,7 @@ namespace TinhGiaInClient.Model
         public int SoLuongToChay { get; set; }
         public float KhoToChayRong { get; set; }
         public float KhoToChayDai { get; set; }
+        public KieuBoiNhieuLop KieuBoi { get; set; }
         public int SoToLotGiua {
             get { return this.SoLopLotGiua * SoLuong; }
         }

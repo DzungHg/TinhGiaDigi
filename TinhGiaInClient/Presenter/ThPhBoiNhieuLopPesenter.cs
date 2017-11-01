@@ -32,6 +32,7 @@ namespace TinhGiaInClient.Presenter
             //View.IdGiayBoiGiuaChon = mucThPham.IdGiayBoiGiuaChon;
             View.GiayDeBoiChon = mucThPham.GiayBoiChon;
             View.SoLopLotGiua = mucThPham.SoLopLotGiua;
+            View.KieuBoi = mucThPham.KieuBoi;
             
             //Nếu mới
             switch (View.TinhTrangForm)
@@ -59,6 +60,8 @@ namespace TinhGiaInClient.Presenter
             View.ToBoiCao = MucBoiNhieuLop.ToBoiCao;
             View.SoLopLotGiua = 0;
             View.GiayDeBoiChon = null;
+            View.KieuBoi = KieuBoiNhieuLop.BoiDap;
+            View.SoLopLotGiua = 1;
         }
         public int SoToLotGiua()
         {
@@ -88,7 +91,7 @@ namespace TinhGiaInClient.Presenter
                                    
             var giaBoi = new GiaBoiNhieuLop(View.SoLuong, boiBiaCung, 
                             View.ToBoiRong, View.ToBoiCao, View.GiayDeBoiChon,
-                            View.SoLopLotGiua, this.TyLeMarkUp());
+                            View.SoLopLotGiua, View.KieuBoi, this.TyLeMarkUp());
 
             kq = giaBoi.ThanhTienSales();
 
@@ -118,7 +121,7 @@ namespace TinhGiaInClient.Presenter
                 this.MucBoiNhieuLop.DonViTinh = View.DonViTinh;
                 this.MucBoiNhieuLop.ThanhTien = View.ThanhTien;
                 this.MucBoiNhieuLop.SoLopLotGiua = View.SoLopLotGiua;
-
+                this.MucBoiNhieuLop.KieuBoi = View.KieuBoi;
                 //this.MucBoiNhieuLop.IdGiayBoiGiuaChon = View.IdGiayBoiGiuaChon;
                 this.MucBoiNhieuLop.GiayBoiChon = View.GiayDeBoiChon;
             }
