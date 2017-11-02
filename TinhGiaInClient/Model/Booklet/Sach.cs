@@ -15,9 +15,16 @@ namespace TinhGiaInClient.Model.Booklet
         public float ChieuRong { get; set; }
         public float ChieuCao { get; set; }
         public float GayDay { get; set; }
+        public bool BiaLayNgoai { get; set; }//Làm riêng sau đó lắp vô hay khách mang tới
         public int TongSoTrang
         {
-            get { return this.SoTrangBia + this.SoTrangRuot; }
+            get
+            {
+                if (!this.BiaLayNgoai)
+                    return this.SoTrangBia + this.SoTrangRuot;
+                else
+                    return this.SoTrangRuot;
+            }
         }
     }
 

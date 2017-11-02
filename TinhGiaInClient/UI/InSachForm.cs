@@ -143,6 +143,11 @@ namespace TinhGiaInClient.UI
                 txtSoCuon.Text = value.ToString();
             }
         }
+        public bool BiaLayNgoai
+        {
+            get { return chkBiaLayNgoai.Checked; }
+            set { chkBiaLayNgoai.Checked = value; }
+        }
         public int IdHangKhachHang { get; set; }
         public BaiIn Bia 
         { 
@@ -740,7 +745,8 @@ namespace TinhGiaInClient.UI
             if (e.SelectedPage == wzRuotBia && dangDiToi)
             {
                 if (this.Bia == null )
-                    MessageBox.Show("Chú ý Bìa chưa có!");
+                    if (!this.BiaLayNgoai)
+                        MessageBox.Show("Bìa chưa có!");
 
                 if (this.Ruot == null)
                 {
@@ -863,6 +869,20 @@ namespace TinhGiaInClient.UI
             {
                 this.SachRong = frm.ChieuRong;
                 this.SachCao = frm.ChieuCao;
+            }
+        }
+
+        private void chkBiaLayNgoai_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            if (chkBiaLayNgoai.Checked)
+            {
+                this.SoTrangBia = 0;
+                txtSoTrangBia.Enabled = false;
+            }
+            else
+            {
+                txtSoTrangBia.Enabled = true;
+                this.SoTrangBia = 4;
             }
         }
 

@@ -31,6 +31,7 @@ namespace TinhGiaInClient.Presenter
             View.Ruot = this.GiaSachDigi.InRuot;
             View.GiaInChiTiet = this.GiaSachDigi.GiaInChiTiet;
             View.DongCuon = this.GiaSachDigi.DongCuon;
+            View.BiaLayNgoai = this.GiaSachDigi.QuiCachSach.BiaLayNgoai;
            
         }
         public List<MonDongCuon> MonDongCuonS()
@@ -65,7 +66,7 @@ namespace TinhGiaInClient.Presenter
             this.GiaSachDigi.InRuot = View.Ruot;
             this.GiaSachDigi.GiaInChiTiet = View.GiaInChiTiet;
             this.GiaSachDigi.DongCuon = View.DongCuon;
-           
+            this.GiaSachDigi.QuiCachSach.BiaLayNgoai = View.BiaLayNgoai;
            
             
         }

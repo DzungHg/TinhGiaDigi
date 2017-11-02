@@ -17,6 +17,7 @@ namespace TinhGiaInClient.View
         float SachCao { get; set; }
         float GayDay { get; set; }
         int SoCuon { get; set; }
+        bool BiaLayNgoai { get; set; }
         BaiIn Bia { get; set; }
         BaiIn Ruot { get; set; }
         MucGiaIn GiaInChiTiet { get; set; }
