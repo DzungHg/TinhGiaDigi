@@ -103,6 +103,7 @@
       <End Role="KHUON_BE" EntitySet="KHUON_BE" />
     </AssociationSet>
     <EntitySet Name="MAY_BOI_NHIEU_LOP" EntityType="QuanLyGiaInModel.MAY_BOI_NHIEU_LOP" />
+    <EntitySet Name="MAY_KHOAN_BO_GOC" EntityType="QuanLyGiaInModel.MAY_KHOAN_BO_GOC" />
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -817,6 +818,25 @@
     <Property Name="BHR" Type="Int32" />
     <Property Name="toc_do_tam_gio" Type="Int32" />
     <Property Name="phi_keo_met_vuong" Type="Int32" />
+    <Property Name="thoi_gian_chuan_bi" Type="Double" />
+    <Property Name="day_so_luong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="day_loi_nhuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ma_01" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="thu_tu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MAY_KHOAN_BO_GOC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="tieu_de" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dien_giai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BHR" Type="Int32" />
+    <Property Name="toc_do_block_gio" Type="Int32" />
+    <Property Name="phi_dung_cu_theo_block" Type="Int32" />
     <Property Name="thoi_gian_chuan_bi" Type="Double" />
     <Property Name="day_so_luong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="day_loi_nhuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />

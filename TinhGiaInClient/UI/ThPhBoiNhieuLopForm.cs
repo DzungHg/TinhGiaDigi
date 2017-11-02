@@ -30,8 +30,7 @@ namespace TinhGiaInClient.UI
 
             thPhBoiNhieuLopPres = new ThPhBoiNhieuLopPresenter(this, mucThPhBoiBiaCung);
             LoadMayBoi();
-            cboMayBoi.SelectedIndex = -1;
-            cboMayBoi.SelectedIndex = 0;
+          
             //Load Nhu ep
         
             
@@ -52,14 +51,14 @@ namespace TinhGiaInClient.UI
                 if (this.GiayDeBoiChon != null)
                     txtThongTinGiayLot.Lines = this.GiayDeBoiChon.ThongTinGiayBoi().ToArray();
                 //Tính toán
-                CapNhatLabelGia(true);
-        }
+                CapNhatLabelGia();
+            }
             //Envent
 
-            /*txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
+            txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
             txtSoLopLot.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToBoiRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtToBoiCao.TextChanged += new EventHandler(TextBoxes_TextChanged);*/
+            txtToBoiCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
             txtSoLuong.Leave += new EventHandler(TextBoxes_Leave);
             txtSoLopLot.Leave += new EventHandler(TextBoxes_Leave);
@@ -247,16 +246,16 @@ namespace TinhGiaInClient.UI
         {
 
         }
-        /*private void TextBoxes_TextChanged(object sender, EventArgs e)
+        private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
-          TextBox tb;
+          /*TextBox tb;
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
                if (tb == txtSoLuong )
                 {
                     if (!string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        CapNhatLabelGia();                    
+                        ;                  
                 }
                 if (tb == txtToBoiRong)
                 {
@@ -278,33 +277,22 @@ namespace TinhGiaInClient.UI
                 
             
             }
-
-            Telerik.WinControls.UI.RadListView lv;
-            if (sender is Telerik.WinControls.UI.RadListView)
-            {
-                lv = (Telerik.WinControls.UI.RadListView)sender;
-                if (lv == lstLoXo)
-                {
-                    txtSoLuong.Enabled = true;
-                    txtDonViTinh.Enabled = true;
-                    CapNhatLabelGia();
-                }
-            }
+            */
+            ClearCacLabelTinhToan();
             
-        }*/
-        private void CapNhatLabelGia(bool capNhat)
+        }
+        private void CapNhatLabelGia()
         {
-            if (capNhat)
-            {
-                
-                lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhBoiNhieuLopPres.ThanhTien_ThPh());
-                lblGiaTB.Text = string.Format("{0:0,0.00}đ/{1}", thPhBoiNhieuLopPres.GiaTB_ThPh(), this.DonViTinh);
-            }
-            else
-            {
-                lblThanhTien.Text = "";
-                lblGiaTB.Text = "";
-            }
+
+
+            lblThanhTien.Text = string.Format("{0:0,0.00}đ", thPhBoiNhieuLopPres.ThanhTien_ThPh());
+            lblGiaTB.Text = string.Format("{0:0,0.00}đ/{1}", thPhBoiNhieuLopPres.GiaTB_ThPh(), this.DonViTinh);
+
+        }
+        private void ClearCacLabelTinhToan()
+        {
+            lblThanhTien.Text = "";
+            lblGiaTB.Text = "";
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
@@ -352,6 +340,9 @@ namespace TinhGiaInClient.UI
             var soLop = this.SoLopLotGiua;
             this.SoLopLotGiua = -1;
             this.SoLopLotGiua = soLop;
+            //bẩy:
+            cboMayBoi.SelectedIndex = -1;
+            cboMayBoi.SelectedIndex = 0;
         }
 
         private bool KiemTraHopLe(ref string errorMessage)
@@ -509,7 +500,7 @@ namespace TinhGiaInClient.UI
         private void ListView_SelectedItemChanged(object sender, EventArgs e)
         {
 
-            CapNhatLabelGia(true);
+            CapNhatLabelGia();
 
         }
         private void DropDownList_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
@@ -520,7 +511,7 @@ namespace TinhGiaInClient.UI
                 cb = (Telerik.WinControls.UI.RadDropDownList)sender;
                 if (cb == cboMayBoi)
                 {
-                    CapNhatLabelGia(true);
+                    CapNhatLabelGia();
                 }
 
             }
@@ -624,14 +615,14 @@ namespace TinhGiaInClient.UI
         private void btnTinh_Click(object sender, EventArgs e)
         {
             
-            CapNhatLabelGia(true);
+            CapNhatLabelGia();
             ChoKhongChoNutNhan();
         }
 
         private void btnLamLai_Click(object sender, EventArgs e)
         {
             thPhBoiNhieuLopPres.LamLai();
-            CapNhatLabelGia(false);
+            ClearCacLabelTinhToan();
             ChoKhongChoNutNhan();
             txtSoLuong.Enabled = true;
         }

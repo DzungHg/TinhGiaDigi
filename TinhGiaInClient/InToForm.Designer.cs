@@ -42,13 +42,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
+            this.btnLamLai = new System.Windows.Forms.Button();
             this.spcChiTietBaiIn = new System.Windows.Forms.SplitContainer();
             this.trvMucLucBaiIn = new System.Windows.Forms.TreeView();
             this.cmuThanhPham = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuThPh_CanPhu = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CanGap = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmnuThPh_Be = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_KhoanBoGoc = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuThPh_EpKim = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuThPh_Be = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuThPh_CatDecal = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuThPh_BoiNhieuLop = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,7 +103,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
-            this.btnLamLai = new System.Windows.Forms.Button();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -236,6 +238,16 @@
             this.pnlFooter.Size = new System.Drawing.Size(842, 41);
             this.pnlFooter.TabIndex = 232;
             // 
+            // btnLamLai
+            // 
+            this.btnLamLai.Location = new System.Drawing.Point(184, 6);
+            this.btnLamLai.Name = "btnLamLai";
+            this.btnLamLai.Size = new System.Drawing.Size(88, 23);
+            this.btnLamLai.TabIndex = 246;
+            this.btnLamLai.Text = "Làm lại";
+            this.btnLamLai.UseVisualStyleBackColor = true;
+            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
+            // 
             // spcChiTietBaiIn
             // 
             this.spcChiTietBaiIn.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -271,8 +283,10 @@
             this.cmuThanhPham.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmnuThPh_CanPhu,
             this.cmnuThPh_CanGap,
-            this.cmnuThPh_Be,
+            this.cmnuThPh_KhoanBoGoc,
+            this.toolStripSeparator3,
             this.cmnuThPh_EpKim,
+            this.cmnuThPh_Be,
             this.cmnuThPh_CatDecal,
             this.toolStripMenuItem5,
             this.cmnuThPh_BoiNhieuLop,
@@ -280,72 +294,84 @@
             this.toolStripMenuItem4,
             this.cmnuThPh_GiaCongNgoai});
             this.cmuThanhPham.Name = "cmnuGiayChoSP";
-            this.cmuThanhPham.Size = new System.Drawing.Size(155, 192);
+            this.cmuThanhPham.Size = new System.Drawing.Size(157, 220);
             this.cmuThanhPham.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuThPh_CanPhu
             // 
             this.cmnuThPh_CanPhu.Name = "cmnuThPh_CanPhu";
-            this.cmnuThPh_CanPhu.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_CanPhu.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_CanPhu.Text = "Cán phủ";
             this.cmnuThPh_CanPhu.Click += new System.EventHandler(this.cmnuThanhPham_Click);
             // 
             // cmnuThPh_CanGap
             // 
             this.cmnuThPh_CanGap.Name = "cmnuThPh_CanGap";
-            this.cmnuThPh_CanGap.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_CanGap.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_CanGap.Text = "Cấn Gấp";
             this.cmnuThPh_CanGap.Click += new System.EventHandler(this.cmnuThPh_CanGap_Click);
             // 
-            // cmnuThPh_Be
+            // cmnuThPh_KhoanBoGoc
             // 
-            this.cmnuThPh_Be.Name = "cmnuThPh_Be";
-            this.cmnuThPh_Be.Size = new System.Drawing.Size(154, 22);
-            this.cmnuThPh_Be.Text = "Bế";
-            this.cmnuThPh_Be.Click += new System.EventHandler(this.cmnuThPh_Be_Click);
+            this.cmnuThPh_KhoanBoGoc.Name = "cmnuThPh_KhoanBoGoc";
+            this.cmnuThPh_KhoanBoGoc.Size = new System.Drawing.Size(156, 22);
+            this.cmnuThPh_KhoanBoGoc.Text = "Khoan / Bo góc";
+            this.cmnuThPh_KhoanBoGoc.Click += new System.EventHandler(this.cmnuThPh_KhoanBoGoc_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(153, 6);
             // 
             // cmnuThPh_EpKim
             // 
             this.cmnuThPh_EpKim.Name = "cmnuThPh_EpKim";
-            this.cmnuThPh_EpKim.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_EpKim.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_EpKim.Text = "Ép kim";
             this.cmnuThPh_EpKim.Click += new System.EventHandler(this.cmnuThPh_EpKim_Click);
+            // 
+            // cmnuThPh_Be
+            // 
+            this.cmnuThPh_Be.Name = "cmnuThPh_Be";
+            this.cmnuThPh_Be.Size = new System.Drawing.Size(156, 22);
+            this.cmnuThPh_Be.Text = "Bế";
+            this.cmnuThPh_Be.Click += new System.EventHandler(this.cmnuThPh_Be_Click);
             // 
             // cmnuThPh_CatDecal
             // 
             this.cmnuThPh_CatDecal.Name = "cmnuThPh_CatDecal";
-            this.cmnuThPh_CatDecal.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_CatDecal.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_CatDecal.Text = "Cắt Decal";
             this.cmnuThPh_CatDecal.Click += new System.EventHandler(this.cmnuThPh_CatDecal_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(151, 6);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(153, 6);
             // 
             // cmnuThPh_BoiNhieuLop
             // 
             this.cmnuThPh_BoiNhieuLop.Name = "cmnuThPh_BoiNhieuLop";
-            this.cmnuThPh_BoiNhieuLop.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_BoiNhieuLop.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_BoiNhieuLop.Text = "Bồi nhiều lớp";
             this.cmnuThPh_BoiNhieuLop.Click += new System.EventHandler(this.cmnuThPh_BoiNhieuLop_Click);
             // 
             // cmnuThPh_BoiBiaCung
             // 
             this.cmnuThPh_BoiBiaCung.Name = "cmnuThPh_BoiBiaCung";
-            this.cmnuThPh_BoiBiaCung.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_BoiBiaCung.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_BoiBiaCung.Text = "Bồi bìa cứng";
             this.cmnuThPh_BoiBiaCung.Click += new System.EventHandler(this.cmnuThPh_BoiBiaCung_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(151, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(153, 6);
             // 
             // cmnuThPh_GiaCongNgoai
             // 
             this.cmnuThPh_GiaCongNgoai.Name = "cmnuThPh_GiaCongNgoai";
-            this.cmnuThPh_GiaCongNgoai.Size = new System.Drawing.Size(154, 22);
+            this.cmnuThPh_GiaCongNgoai.Size = new System.Drawing.Size(156, 22);
             this.cmnuThPh_GiaCongNgoai.Text = "Gia công ngoài";
             this.cmnuThPh_GiaCongNgoai.Click += new System.EventHandler(this.cmnuThPh_Khac_Click);
             // 
@@ -813,16 +839,6 @@
             this.txtKhoCatRong.Size = new System.Drawing.Size(50, 20);
             this.txtKhoCatRong.TabIndex = 3;
             // 
-            // btnLamLai
-            // 
-            this.btnLamLai.Location = new System.Drawing.Point(184, 6);
-            this.btnLamLai.Name = "btnLamLai";
-            this.btnLamLai.Size = new System.Drawing.Size(88, 23);
-            this.btnLamLai.TabIndex = 246;
-            this.btnLamLai.Text = "Làm lại";
-            this.btnLamLai.UseVisualStyleBackColor = true;
-            this.btnLamLai.Click += new System.EventHandler(this.btnLamLai_Click);
-            // 
             // InToForm
             // 
             this.AcceptButton = this.btnOK;
@@ -840,6 +856,7 @@
             this.Text = "In theo bài";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaiInForm_FormClosing);
             this.Load += new System.EventHandler(this.BaiInForm_Load);
+            this.Resize += new System.EventHandler(this.InToForm_Resize);
             this.pnlFooter.ResumeLayout(false);
             this.spcChiTietBaiIn.Panel1.ResumeLayout(false);
             this.spcChiTietBaiIn.Panel2.ResumeLayout(false);
@@ -940,5 +957,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem cmnuGanGiaIn;
         private System.Windows.Forms.Button btnLamLai;
+        private System.Windows.Forms.ToolStripMenuItem cmnuThPh_KhoanBoGoc;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }

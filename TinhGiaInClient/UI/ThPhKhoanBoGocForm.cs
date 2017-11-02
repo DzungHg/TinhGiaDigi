@@ -30,9 +30,7 @@ namespace TinhGiaInClient.UI
 
             thPhKhoanBoGocPres = new ThPhKhoanBoGocPresenter(this, mucThPhKHoanBoGoc);
             LoadMayMoc();
-            cboMayMoc.SelectedIndex = -1;
-            cboMayMoc.SelectedIndex = 0;
-            //Load Nhu ep
+           
 
 
             //Load
@@ -52,12 +50,11 @@ namespace TinhGiaInClient.UI
                 //Tính toán
                 CapNhatLabelGia(true);
             }
-            //Envent
+            //Events
 
-            /*txtSoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);           
-            txtSoLopLot.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtToBoiRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtToBoiCao.TextChanged += new EventHandler(TextBoxes_TextChanged);*/
+            txtSoLuongBlock.TextChanged += new EventHandler(TextBoxes_TextChanged);           
+            txtSoLanKhoanBoTrenBlock.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            
 
             txtSoLuongBlock.Leave += new EventHandler(TextBoxes_Leave);
             txtSoLanKhoanBoTrenBlock.Leave += new EventHandler(TextBoxes_Leave);
@@ -69,11 +66,9 @@ namespace TinhGiaInClient.UI
             txtKichThuocBlock.KeyPress += new KeyPressEventHandler(InputValidator);
             txtSoLuongBlock.KeyPress += new KeyPressEventHandler(InputValidator);
 
-
-
             cboMayMoc.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(DropDownList_SelectedIndexChanged);
-
-
+            
+           
 
         }
         #region Implement Iview
@@ -212,55 +207,33 @@ namespace TinhGiaInClient.UI
 
 
 
-        private void txtSoLuong_CanPhu_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        /*private void TextBoxes_TextChanged(object sender, EventArgs e)
+       
+        private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
           TextBox tb;
             if (sender is TextBox)
             {
                 tb = (TextBox)sender;
-               if (tb == txtSoLuong )
+               if (tb == txtSoLanKhoanBoTrenBlock )
                 {
-                    if (!string.IsNullOrEmpty(txtSoLuong.Text.Trim()))
-                        CapNhatLabelGia();                    
-                }
-                if (tb == txtToBoiRong)
-                {
-                    if (!string.IsNullOrEmpty(txtToBoiRong.Text.Trim()))
-                        ;
-                }
-                if (tb == txtToBoiCao)
-                {
-                    if (!string.IsNullOrEmpty(txtToBoiCao.Text.Trim()))
-                        ;
-                }
-                //xử lý khi user xóa hết bên Leave
-                
-                if (tb == txtSoLopLot)
-                {
+                    if (!string.IsNullOrEmpty(txtSoLanKhoanBoTrenBlock.Text.Trim()))
+                         lblTongSoLanKhoanBo.Text = string.Format("{0:0,0} lần",
+                            thPhKhoanBoGocPres.TongSoLanKhoanBoGoc());
                     
-                    ;
                 }
-                
-            
+                if (tb == txtSoLuongBlock)
+                {
+                    if (!string.IsNullOrEmpty(txtSoLuongBlock.Text.Trim()))
+                        lblTongSoLanKhoanBo.Text = string.Format("{0:0,0} lần",
+                            thPhKhoanBoGocPres.TongSoLanKhoanBoGoc());   
+                }
+
+                ClearCacLabelKetQuaTinh();
             }
 
-            Telerik.WinControls.UI.RadListView lv;
-            if (sender is Telerik.WinControls.UI.RadListView)
-            {
-                lv = (Telerik.WinControls.UI.RadListView)sender;
-                if (lv == lstLoXo)
-                {
-                    txtSoLuong.Enabled = true;
-                    txtDonViTinh.Enabled = true;
-                    CapNhatLabelGia();
-                }
-            }
+         
             
-        }*/
+        }
         private void CapNhatLabelGia(bool capNhat)
         {
             if (capNhat)
@@ -274,6 +247,11 @@ namespace TinhGiaInClient.UI
                 lblThanhTien.Text = "";
                 lblGiaTB.Text = "";
             }
+        }
+        private void ClearCacLabelKetQuaTinh()
+        {
+            lblThanhTien.Text = "";
+            lblGiaTB.Text = "";
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
@@ -317,6 +295,9 @@ namespace TinhGiaInClient.UI
 
                 btnNhan.Enabled = true;
             }
+            //gài để có việc thay đổi tiêu đề
+            cboMayMoc.SelectedIndex = -1;
+            cboMayMoc.SelectedIndex = 0;
             //Lừa để bât tắt nút lấy giấy
             var soLop = this.SoLanKhoanBoTrenMoiBlock;
             this.SoLanKhoanBoTrenMoiBlock = -1;
@@ -404,12 +385,6 @@ namespace TinhGiaInClient.UI
             return thPhKhoanBoGocPres.LayMucThanhPham();
         }
 
-        private void cboMayMoc_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
-        {
-            //cập nhật tiêu đề
-            lblTieuDeForm.Text = thPhKhoanBoGocPres.TieuDeThPh();
-        }
-
 
 
 
@@ -428,6 +403,9 @@ namespace TinhGiaInClient.UI
                 cb = (Telerik.WinControls.UI.RadDropDownList)sender;
                 if (cb == cboMayMoc)
                 {
+                    //cập nhật tiêu đề
+                    lblTieuDeForm.Text = thPhKhoanBoGocPres.TieuDeThPh();
+                    lblSoLanKhoanBoTrenBlock.Text = string.Format("Số lần {0} /block", this.TieuDe);
                     CapNhatLabelGia(true);
                 }
 

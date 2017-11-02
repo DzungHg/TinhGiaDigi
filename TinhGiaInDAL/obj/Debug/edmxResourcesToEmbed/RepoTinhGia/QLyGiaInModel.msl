@@ -559,5 +559,25 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MAY_KHOAN_BO_GOC">
+      <EntityTypeMapping TypeName="QuanLyGiaInModel.MAY_KHOAN_BO_GOC">
+        <MappingFragment StoreEntitySet="MAY_KHOAN_BO_GOC">
+          <ScalarProperty Name="thu_tu" ColumnName="thu_tu" />
+          <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />
+          <ScalarProperty Name="don_vi_tinh" ColumnName="don_vi_tinh" />
+          <ScalarProperty Name="ma_01" ColumnName="ma_01" />
+          <ScalarProperty Name="day_loi_nhuan" ColumnName="day_loi_nhuan" />
+          <ScalarProperty Name="day_so_luong" ColumnName="day_so_luong" />
+          <ScalarProperty Name="thoi_gian_chuan_bi" ColumnName="thoi_gian_chuan_bi" />
+          <ScalarProperty Name="phi_dung_cu_theo_block" ColumnName="phi_dung_cu_theo_block" />
+          <ScalarProperty Name="toc_do_block_gio" ColumnName="toc_do_block_gio" />
+          <ScalarProperty Name="BHR" ColumnName="BHR" />
+          <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
+          <ScalarProperty Name="tieu_de" ColumnName="tieu_de" />
+          <ScalarProperty Name="ten" ColumnName="ten" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

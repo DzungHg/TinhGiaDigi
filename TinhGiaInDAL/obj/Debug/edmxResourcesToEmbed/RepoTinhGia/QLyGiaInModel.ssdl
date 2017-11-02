@@ -409,6 +409,25 @@
     <Property Name="Thoi_gian_du_lieu_bien_doi" Type="float" />
     <Property Name="thu_tu" Type="int" />
   </EntityType>
+  <EntityType Name="MAY_KHOAN_BO_GOC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="100" />
+    <Property Name="tieu_de" Type="nvarchar" MaxLength="50" />
+    <Property Name="dien_giai" Type="nvarchar(max)" />
+    <Property Name="BHR" Type="int" />
+    <Property Name="toc_do_block_gio" Type="int" />
+    <Property Name="phi_dung_cu_theo_block" Type="int" />
+    <Property Name="thoi_gian_chuan_bi" Type="float" />
+    <Property Name="day_so_luong" Type="nvarchar(max)" />
+    <Property Name="day_loi_nhuan" Type="nvarchar(max)" />
+    <Property Name="ma_01" Type="nvarchar" MaxLength="30" />
+    <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
+    <Property Name="thu_tu" Type="int" />
+  </EntityType>
   <EntityType Name="NGUOI_DUNG">
     <Key>
       <PropertyRef Name="ID" />
@@ -731,6 +750,7 @@
     <EntitySet Name="MAY_BE" EntityType="Self.MAY_BE" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MAY_BOI_NHIEU_LOP" EntityType="Self.MAY_BOI_NHIEU_LOP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MAY_IN_DIGI" EntityType="Self.MAY_IN_DIGI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MAY_KHOAN_BO_GOC" EntityType="Self.MAY_KHOAN_BO_GOC" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NGUOI_DUNG" EntityType="Self.NGUOI_DUNG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NHU_EP_KIM" EntityType="Self.NHU_EP_KIM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TINH_GIA_IN" EntityType="Self.TINH_GIA_IN" Schema="dbo" store:Type="Tables" />

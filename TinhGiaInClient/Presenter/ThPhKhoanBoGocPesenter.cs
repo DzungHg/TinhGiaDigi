@@ -63,7 +63,7 @@ namespace TinhGiaInClient.Presenter
                 this.MucKhoanBoGoc.KhoSanPhamRong, this.MucKhoanBoGoc.KhoSanPhamCao);
            
         }
-        public int SoToLotGiua()
+        public int TongSoLanKhoanBoGoc()
         {
             return View.SoLanKhoanBoTrenMoiBlock * View.SoLuong;
         }
@@ -93,16 +93,14 @@ namespace TinhGiaInClient.Presenter
         {
             decimal kq = 0;
 
-          /*  var boiBiaCung = MayBoiNhieuLop.DocTheoId(View.IdThanhPhamChon);
+           var mayMoc = MayKhoanBoGoc.DocTheoId(View.IdThanhPhamChon);
             
                                    
-            var giaBoi = new GiaBoiNhieuLop(View.SoLuong, boiBiaCung, 
-                            View.KichThuocBlock, View.SoLuongBlock, View.GiayDeBoiChon,
-                            View.SoLanKhoanBoTrenMoiBlock, View.KieuBoi, this.TyLeMarkUp());
+            var giaBoi = new GiaKhoanBoGoc(View.SoLuong, mayMoc,
+                            View.SoLanKhoanBoTrenMoiBlock, this.TyLeMarkUp());
 
             kq = giaBoi.ThanhTienSales();
-           */
-
+           
             return kq;
         }
 

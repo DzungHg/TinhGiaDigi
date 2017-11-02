@@ -35,7 +35,7 @@
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSoLanKhoanBoTrenBlock = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblSoLanKhoanBoTrenBlock = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtThongTinHoTro = new System.Windows.Forms.TextBox();
@@ -60,7 +60,7 @@
             // lblGiaTB
             // 
             this.lblGiaTB.AutoSize = true;
-            this.lblGiaTB.Location = new System.Drawing.Point(306, 213);
+            this.lblGiaTB.Location = new System.Drawing.Point(252, 213);
             this.lblGiaTB.Name = "lblGiaTB";
             this.lblGiaTB.Size = new System.Drawing.Size(13, 13);
             this.lblGiaTB.TabIndex = 101;
@@ -69,7 +69,7 @@
             // lblThanhTien
             // 
             this.lblThanhTien.AutoSize = true;
-            this.lblThanhTien.Location = new System.Drawing.Point(107, 213);
+            this.lblThanhTien.Location = new System.Drawing.Point(96, 213);
             this.lblThanhTien.Name = "lblThanhTien";
             this.lblThanhTien.Size = new System.Drawing.Size(13, 13);
             this.lblThanhTien.TabIndex = 100;
@@ -111,19 +111,19 @@
             // 
             // txtSoLanKhoanBoTrenBlock
             // 
-            this.txtSoLanKhoanBoTrenBlock.Location = new System.Drawing.Point(98, 159);
+            this.txtSoLanKhoanBoTrenBlock.Location = new System.Drawing.Point(162, 159);
             this.txtSoLanKhoanBoTrenBlock.Name = "txtSoLanKhoanBoTrenBlock";
             this.txtSoLanKhoanBoTrenBlock.Size = new System.Drawing.Size(62, 20);
             this.txtSoLanKhoanBoTrenBlock.TabIndex = 5;
             // 
-            // label6
+            // lblSoLanKhoanBoTrenBlock
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 162);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
-            this.label6.TabIndex = 109;
-            this.label6.Text = "Số lần  / block";
+            this.lblSoLanKhoanBoTrenBlock.AutoSize = true;
+            this.lblSoLanKhoanBoTrenBlock.Location = new System.Drawing.Point(9, 162);
+            this.lblSoLanKhoanBoTrenBlock.Name = "lblSoLanKhoanBoTrenBlock";
+            this.lblSoLanKhoanBoTrenBlock.Size = new System.Drawing.Size(80, 13);
+            this.lblSoLanKhoanBoTrenBlock.TabIndex = 109;
+            this.lblSoLanKhoanBoTrenBlock.Text = "Số lần  / block";
             // 
             // label9
             // 
@@ -137,7 +137,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(222, 213);
+            this.label10.Location = new System.Drawing.Point(207, 213);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 13);
             this.label10.TabIndex = 114;
@@ -160,7 +160,6 @@
             this.cboMayMoc.Size = new System.Drawing.Size(194, 20);
             this.cboMayMoc.TabIndex = 1;
             this.cboMayMoc.Text = "radDropDownList1";
-            this.cboMayMoc.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.cboMayMoc_SelectedIndexChanged);
             // 
             // btnNhan
             // 
@@ -256,7 +255,7 @@
             this.Controls.Add(this.txtThongTinHoTro);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblSoLanKhoanBoTrenBlock);
             this.Controls.Add(this.txtSoLanKhoanBoTrenBlock);
             this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.label3);
@@ -293,7 +292,7 @@
         private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSoLanKhoanBoTrenBlock;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblSoLanKhoanBoTrenBlock;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtThongTinHoTro;
