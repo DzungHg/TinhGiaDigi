@@ -61,5 +61,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual DbSet<KHUON_BE> KHUON_BE { get; set; }
         public virtual DbSet<MAY_BE> MAY_BE { get; set; }
         public virtual DbSet<MAY_BOI_NHIEU_LOP> MAY_BOI_NHIEU_LOP { get; set; }
+        public virtual DbSet<MAY_KHOAN_BO_GOC> MAY_KHOAN_BO_GOC { get; set; }
     }
 }

@@ -56,6 +56,8 @@
     <Compile Include="RepoTinhGia\BANG_GIA_THE_NHUA.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\IMayKhoanBoGocDAO.cs" />
+    <Compile Include="RepoTinhGia\MayKhoanBoGocDAO.cs" />
     <Compile Include="RepoTinhGia\MayBoiNhieuLopDAO.cs" />
     <Compile Include="RepoTinhGia\BOI_BIA_CUNG.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
@@ -107,6 +109,9 @@
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\MAY_BOI_NHIEU_LOP.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\MAY_KHOAN_BO_GOC.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepoTinhGia\NguoiDungDAO.cs" />

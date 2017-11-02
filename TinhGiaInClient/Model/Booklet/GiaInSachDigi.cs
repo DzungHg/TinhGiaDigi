@@ -220,6 +220,10 @@ namespace TinhGiaInClient.Model.Booklet
         private string TomTatQuiCach()
         {
             var str = "";
+            var strThongTinBia = "";
+            if (this.QuiCachSach.BiaLayNgoai)
+                strThongTinBia = " Bìa ngoài ";
+
             str = this.TieuDe + '\r' + '\n'
                 + string.Format( " + Khổ: {0} x {1}cm" + '\r' + '\n',
                     this.QuiCachSach.ChieuRong, this.QuiCachSach.ChieuCao)
@@ -227,8 +231,8 @@ namespace TinhGiaInClient.Model.Booklet
                     this.SoCuon)
                 + string.Format( " + Số trang/Cuốn: {0} trg" + '\r' + '\n',
                     this.TongSoTrangSach)
-                + string.Format( " ++ Bìa: {0} trang" + '\r' + '\n',
-                    this.QuiCachSach.SoTrangBia)
+                + string.Format( " ++ Bìa: {0}{1} trang" + '\r' + '\n',
+                    strThongTinBia, this.QuiCachSach.SoTrangBia)
                 + string.Format( " +++ Giấy in Bìa: {0}" + '\r' + '\n',
                     this.TenGiayInBia())
                 + string.Format(" +++ Th. phẩm Bìa: {0}" + '\r' + '\n',

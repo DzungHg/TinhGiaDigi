@@ -28,12 +28,13 @@ namespace TinhGiaInClient.Presenter
         public Dictionary<int, List<string>> GiayTheoDanhMucS()
         {           
             Dictionary<int, List<string>> dict = new Dictionary<int, List<string>>();
+            var giaMuaGiay = 0;//để o cho nhân viên xem
             foreach (GiaGiayNiemYet giaGiay in GiaGiayNiemYet.DocTheoDanhMucGiay_HangKH(View.IdDanhMucGiayChon,
                                 View.IdHangKHChon))
             {
                 var lst = new List<string>();
                 lst.Add(giaGiay.Ten);
-                lst.Add(string.Format("{0:0,0.00}đ/tờ", giaGiay.GiaMua));
+                lst.Add(string.Format("{0:0,0.00}đ/tờ", giaMuaGiay));
                 lst.Add(string.Format("{0:0,0.00}đ/tờ", giaGiay.GiaBan()));
                 lst.Add(giaGiay.TenHangKhachHang());
 
