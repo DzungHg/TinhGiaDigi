@@ -513,7 +513,7 @@ namespace TinhGiaInClient
                 ChieuCao = 10,
                 ChieuRong = 5,
                 GayDay = 0.5f,
-                KieuDongCuon = KieuDongCuonS.Keo,
+                KieuDongCuon = KieuDongCuonS.KimKeoNep,
                 SoTrangBia = 4,
                 SoTrangRuot = 8
             };

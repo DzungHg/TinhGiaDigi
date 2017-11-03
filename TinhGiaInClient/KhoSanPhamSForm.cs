@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TinhGiaInClient.Model;
+
 using TinhGiaInClient.View;
+using TinhGiaInClient.Presenter;
 
 namespace TinhGiaInClient
 {
-    public partial class KhoSanPhamSForm : Form 
+    public partial class KhoSanPhamSForm : Form, IViewKhoSanPham 
     {
         #region implement IViewProdMan
         
         private int _id = 0;
 
-        public int SelProdSizeId
+        public int IdChon
         {
             get
             {
@@ -33,20 +34,16 @@ namespace TinhGiaInClient
             set { _id = value; }
         }
         float _rong = 0;
-        public float ChieuRong
+        public float Rong
         {
-            get
-            {
-                if (lvwKhoSanPham.SelectedItems.Count > 0)
-                {
-                    float.TryParse(lvwKhoSanPham.SelectedItems[0].SubItems[2].Text, out _rong);
-                }
-                return _rong;
-            }
+            get;
+            set;
         }
+        public float Cao
+        { get; set; }
 
-        float _cao = 0;
-        public float ChieuCao
+       /* float _cao = 0;
+        public float Cao
         {
             get
             {
@@ -56,9 +53,9 @@ namespace TinhGiaInClient
                 }
                 return _cao;
             }
-        }
-
-        string _ten = "";
+        }*/
+        public string TenKho { get; set; }
+       /* string _ten = "";
         public string TenKho
         {
             get
@@ -69,14 +66,17 @@ namespace TinhGiaInClient
                 }
                 return _ten;
             }
-        }
+        }*/
 
         public FormStateS TinhTrangForm { get; set; }
         #endregion
-        
+
+        KhoSanPhamPresenter khoSanPhamPres = null;
         public KhoSanPhamSForm(FormStateS formState)
         {
             InitializeComponent();
+            khoSanPhamPres = new KhoSanPhamPresenter(this);
+
             cmnu_AddNew.Click += new EventHandler(MenuItems_Click);
             cmnu_Edit.Click += new EventHandler(MenuItems_Click);
             cmnu_Delete.Click += new EventHandler(MenuItems_Click);
@@ -142,33 +142,33 @@ namespace TinhGiaInClient
             lvwKhoSanPham.Clear();
             lvwKhoSanPham.Columns.Add("Id");
             lvwKhoSanPham.Columns.Add("Tên");
-            lvwKhoSanPham.Columns.Add("Rộng");
-            lvwKhoSanPham.Columns.Add("Cao");
+            lvwKhoSanPham.Columns.Add("Rộng x Cao");
             lvwKhoSanPham.Columns.Add("Diễn giải");
             lvwKhoSanPham.View = System.Windows.Forms.View.Details;
             lvwKhoSanPham.HideSelection = false;
             lvwKhoSanPham.FullRowSelect = true;
 
-            if (KhoSanPham.DocTatCa().Count() > 0)
+
+            ListViewItem item;
+            foreach (KeyValuePair<int, List<string>> kvp in khoSanPhamPres.KhoSanPhamS())
             {
-                ListViewItem item;
-                foreach (KhoSanPham kho in KhoSanPham.DocTatCa())
+                item = new ListViewItem();
+                item.Text = kvp.Key.ToString();
+                foreach (string str in kvp.Value)
                 {
-                    item = new ListViewItem();
-                    item.Text = kho.ID.ToString();
-                    
-                    item.SubItems.Add(kho.Ten);
-                    item.SubItems.Add(kho.KhoCatRong.ToString());
-                    item.SubItems.Add(kho.KhoCatCao.ToString());
-                    item.SubItems.Add(kho.DienGiai);
-                    lvwKhoSanPham.Items.Add(item);
-                    
+
+                    item.SubItems.Add(str);
+
                 }
-                lvwKhoSanPham.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwKhoSanPham.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
-                lvwKhoSanPham.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
-                lvwKhoSanPham.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+                lvwKhoSanPham.Items.Add(item);
+
             }
+
+            lvwKhoSanPham.Columns[0].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwKhoSanPham.Columns[1].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lvwKhoSanPham.Columns[2].AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize);
+            lvwKhoSanPham.Columns[3].AutoResize(ColumnHeaderAutoResizeStyle.ColumnContent);
+
         }
         private void PaperCateManForm_Load(object sender, EventArgs e)
         {
@@ -182,10 +182,10 @@ namespace TinhGiaInClient
         {
             if (lvwKhoSanPham.SelectedItems.Count > 0)
             {
-                SelProdSizeId = int.Parse(lvwKhoSanPham.SelectedItems[0].Text);
+                IdChon = int.Parse(lvwKhoSanPham.SelectedItems[0].Text);
                 //prodSizeManPres.DisplayProdSize();//Cập nhật các thuộc tính
             }
-            else { SelProdSizeId = -1; }
+            else { IdChon = -1; }
 
         }
 
@@ -215,6 +215,7 @@ namespace TinhGiaInClient
                     break;
                 
             }
+            BatNutNhan();
         }
 
         private void KhoSanPhamSForm_Resize(object sender, EventArgs e)
@@ -222,10 +223,33 @@ namespace TinhGiaInClient
             lvwKhoSanPham.Width = this.ClientSize.Width - 20;
             lvwKhoSanPham.Left = (this.ClientSize.Width - lvwKhoSanPham.Width) / 2;
             btnDong.Left = (this.ClientSize.Width - btnDong.Width) / 2;
+
+            lvwKhoSanPham.Height = this.ClientSize.Height - btnDong.Height - 6;
+            lvwKhoSanPham.Top = 2;
+            btnDong.Top = lvwKhoSanPham.Top + lvwKhoSanPham.Height + 2;
+        }
+
+        private void lvwKhoSanPham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            khoSanPhamPres.CapNhatChiTietKhoSanPham();
+            BatNutNhan();
+        }
+
+        private void BatNutNhan()
+        {
+            var kq = true;
+            if (this.IdChon <= 0 || this.Rong <= 0 ||
+                this.Cao <= 0)
+                kq = false;
+
+            btnDong.Enabled = kq;
         }
 
 
 
-        
+
+
+
+
     }
 }

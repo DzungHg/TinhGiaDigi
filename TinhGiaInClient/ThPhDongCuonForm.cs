@@ -14,19 +14,20 @@ using TinhGiaInClient.Model;
 
 namespace TinhGiaInClient
 {
-    public partial class ThPhDongCuonForm : Form, IViewThanhPham
+    public partial class ThPhDongCuonForm : Form, IViewThPhDongCuon
     {
-        DongCuonPresenter dongCuonPres;
-        public ThPhDongCuonForm(ThongTinBanDauThanhPham thongTinBanDau, MucThanhPham mucThPham)
+        ThPhDongCuonPresenter dongCuonPres;
+        public ThPhDongCuonForm(ThongTinBanDauThanhPham thongTinBanDau, MucDongCuon mucThPham)
         {
             InitializeComponent();
 
             this.ThongTinHoTro = thongTinBanDau.ThongDiepCanThiet;
             this.Text = thongTinBanDau.TieuDeForm;
             this.TinhTrangForm = thongTinBanDau.TinhTrangForm;
-                       
+            //Mở đóng số lượng
+            this.MoTextSoLuong = thongTinBanDau.MoTextSoLuong;
 
-            dongCuonPres = new DongCuonPresenter(this, mucThPham);
+            dongCuonPres = new ThPhDongCuonPresenter(this, mucThPham);
             //dongCuonPres.KhoiTaoBanDau();
             LoadThanhPham();
             //Bẫy
@@ -117,11 +118,26 @@ namespace TinhGiaInClient
             get;
             set;
         }
+        public string TieuDe
+        {
+            get
+            {
+                return lblTieuDe.Text;
+            }
+            set
+            {
+                lblTieuDe.Text = value;
+            }
+        }
+        public KieuDongCuonS KieuDongCuon { get; set; }
+        public float GayCao { get; set; }
+        public float GayDay { get; set; }
         public string ThongTinHoTro
         {
             get { return txtThongTinHoTro.Text; }
             set { txtThongTinHoTro.Text = value; }
         }
+        public bool MoTextSoLuong { get; set; }
         public FormStateS TinhTrangForm
         {
             get;
@@ -184,9 +200,15 @@ namespace TinhGiaInClient
                 lb = (ListBox)sender;
                 if (lb == lbxThanhPham)
                 {
-                    txtSoLuong.Enabled = true;
+                    //Xem xét txtSoluong
+                    if (this.MoTextSoLuong)
+                        txtSoLuong.Enabled = true;
+                    else
+                        txtSoLuong.Enabled = false;
+
                     txtDonViTinh.Enabled = true;
                     btnOK.Enabled = true;
+                    this.TieuDe = dongCuonPres.TieuDeDongCuon();
                 }
                
             }
@@ -254,5 +276,7 @@ namespace TinhGiaInClient
         {
             return dongCuonPres.LayMucThanhPham();
         }
+
+      
     }
 }

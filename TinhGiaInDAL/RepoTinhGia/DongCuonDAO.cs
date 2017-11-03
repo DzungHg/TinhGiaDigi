@@ -19,6 +19,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 {
                     ID = x.ID,
                     Ten = x.Ten,
+                    TieuDe = x.tieu_de,
                     BHR = (int)x.BHR,
                     ThoiGianChuanBi = (float)x.Thoi_gian_chuan_bi,
                     TocDoCuonGio = (int)x.Toc_do_cuon,
@@ -50,6 +51,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 {
                     ID = x.ID,
                     Ten = x.Ten,
+                    TieuDe = x.tieu_de,
                     BHR = (int)x.BHR,
                     ThoiGianChuanBi = (float)x.Thoi_gian_chuan_bi,
                     TocDoCuonGio = (int)x.Toc_do_cuon,
@@ -120,6 +122,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         {
             entityDAO.ID = entityBDO.ID;
             entityDAO.Ten = entityBDO.Ten;
+            entityDAO.tieu_de = entityBDO.TieuDe;
             entityDAO.BHR = entityBDO.BHR;
             entityDAO.Toc_do_cuon = entityBDO.TocDoCuonGio;
             entityDAO.Thoi_gian_chuan_bi = entityBDO.ThoiGianChuanBi;

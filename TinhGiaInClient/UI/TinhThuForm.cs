@@ -223,11 +223,13 @@ namespace TinhGiaInClient.UI
             var idHangKH = int.Parse(cboHangKH.SelectedValue.ToString());
             var thongTinBanDau = this.thongTinBanDauChoThPh(idHangKH, LoaiThanhPhamS.DongCuon,
                 FormStateS.View, "Đóng cuốn [Tính thử]", "Cuốn");
+            thongTinBanDau.MoTextSoLuong = true;
             //tạo mục thành phẩm đóng cuốn
-            var mucThPhamDongCuon = new MucThanhPham();
+            var mucThPhamDongCuon = new MucDongCuon();
             mucThPhamDongCuon.IdBaiIn = 1;
             mucThPhamDongCuon.IdHangKhachHang = this.IdHangKhachHang;
             mucThPhamDongCuon.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+            mucThPhamDongCuon.KieuDongCuon = KieuDongCuonS.KimKeoNep;
             mucThPhamDongCuon.SoLuong = 1; //Cần xác định sau
             mucThPhamDongCuon.DonViTinh = "cuốn";
 

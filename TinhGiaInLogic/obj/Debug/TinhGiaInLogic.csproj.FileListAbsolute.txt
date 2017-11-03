@@ -119,3 +119,14 @@ E:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\EntityFramework.xml
 E:\GitHub\TinhGiaDigi\TinhGiaInLogic\obj\Debug\TinhGiaInLogic.csprojResolveAssemblyReference.cache
 E:\GitHub\TinhGiaDigi\TinhGiaInLogic\obj\Debug\TinhGiaInLogic.dll
 E:\GitHub\TinhGiaDigi\TinhGiaInLogic\obj\Debug\TinhGiaInLogic.pdb
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\TinhGiaInLogic.dll
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\TinhGiaInLogic.pdb
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\TinhGiaInBDO.dll
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\TinhGiaInDAL.dll
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\EntityFramework.dll
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\TinhGiaInBDO.pdb
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\TinhGiaInDAL.pdb
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\bin\Debug\EntityFramework.xml
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\obj\Debug\TinhGiaInLogic.csprojResolveAssemblyReference.cache
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\obj\Debug\TinhGiaInLogic.dll
+D:\GitHub\TinhGiaDigi\TinhGiaInLogic\obj\Debug\TinhGiaInLogic.pdb

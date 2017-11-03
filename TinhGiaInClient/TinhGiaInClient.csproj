@@ -171,6 +171,7 @@
     <Compile Include="Model\GiaDongCuonLoXo.cs" />
     <Compile Include="Model\GiaTuyChonDanhThiep.cs" />
     <Compile Include="Model\GiaTuyChonTheNhua.cs" />
+    <Compile Include="Model\MucDongCuon.cs" />
     <Compile Include="Model\MucThPhKhoanBoGoc.cs" />
     <Compile Include="Model\MucThPhBoiNhieuLop.cs" />
     <Compile Include="Model\MucThPhBoiBiaCung.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Presenter\GiayDeBoiPresenter.cs" />
     <Compile Include="Presenter\GiayInDanhThiepPresenter.cs" />
     <Compile Include="Presenter\InSachDigiPresenter.cs" />
+    <Compile Include="Presenter\KhoSanPhamPresenter.cs" />
     <Compile Include="Presenter\ThCatDeCalPresenter.cs" />
     <Compile Include="Presenter\ThPhKhoanBoGocPesenter.cs" />
     <Compile Include="Presenter\ThPhBoiNhieuLopPesenter.cs" />
@@ -410,6 +412,8 @@
     <Compile Include="View\IViewGiayDeBoi.cs" />
     <Compile Include="View\IViewGiayInDanhThiep.cs" />
     <Compile Include="View\IViewInSachDigi.cs" />
+    <Compile Include="View\IViewKhoSanPham.cs" />
+    <Compile Include="View\IViewThPhDongCuon.cs" />
     <Compile Include="View\IViewThPhKhoanBoGoc.cs" />
     <Compile Include="View\IViewThPhBoiNhieuLop.cs" />
     <Compile Include="View\IViewThPhCanPhu.cs" />
@@ -421,7 +425,7 @@
     <Compile Include="View\IViewThPhEpKim.cs" />
     <Compile Include="View\IViewLietKeTinhGia.cs" />
     <Compile Include="View\IViewThanhPham.cs" />
-    <Compile Include="Presenter\DongCuonPresenter.cs" />
+    <Compile Include="Presenter\ThPhDongCuonPresenter.cs" />
     <Compile Include="Presenter\TinhGiaPresenter.cs" />
     <Compile Include="Presenter\CauHinhSanPhamPresenter.cs" />
     <Compile Include="TinhGiaForm.cs">

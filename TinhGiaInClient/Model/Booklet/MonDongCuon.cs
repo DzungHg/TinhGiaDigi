@@ -38,7 +38,7 @@ namespace TinhGiaInClient.Model.Booklet
                     Ten = dc.Ten,
                     BiaDon = dc.BiaToDon,
                     RuotDon = dc.RuotToDon,
-                    KieuDongCuon = KieuDongCuonS.Keo //Chỉ đại diện
+                    KieuDongCuon = KieuDongCuonS.KimKeoNep //Chỉ đại diện
                 };
                 
 

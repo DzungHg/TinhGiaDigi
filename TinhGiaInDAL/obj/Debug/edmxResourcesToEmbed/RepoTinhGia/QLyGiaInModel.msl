@@ -157,6 +157,7 @@
     <EntitySetMapping Name="DONG_CUON">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.DONG_CUON">
         <MappingFragment StoreEntitySet="DONG_CUON">
+          <ScalarProperty Name="tieu_de" ColumnName="tieu_de" />
           <ScalarProperty Name="ruot_to_don" ColumnName="ruot_to_don" />
           <ScalarProperty Name="bia_to_don" ColumnName="bia_to_don" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />

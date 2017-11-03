@@ -103,6 +103,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtKhoCatCao = new System.Windows.Forms.TextBox();
             this.txtKhoCatRong = new System.Windows.Forms.TextBox();
+            this.lblThongTinCanhBaoNutNhan = new System.Windows.Forms.Label();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcChiTietBaiIn)).BeginInit();
             this.spcChiTietBaiIn.Panel1.SuspendLayout();
@@ -839,12 +840,23 @@
             this.txtKhoCatRong.Size = new System.Drawing.Size(50, 20);
             this.txtKhoCatRong.TabIndex = 3;
             // 
+            // lblThongTinCanhBaoNutNhan
+            // 
+            this.lblThongTinCanhBaoNutNhan.AutoSize = true;
+            this.lblThongTinCanhBaoNutNhan.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblThongTinCanhBaoNutNhan.Location = new System.Drawing.Point(188, 218);
+            this.lblThongTinCanhBaoNutNhan.Name = "lblThongTinCanhBaoNutNhan";
+            this.lblThongTinCanhBaoNutNhan.Size = new System.Drawing.Size(48, 13);
+            this.lblThongTinCanhBaoNutNhan.TabIndex = 241;
+            this.lblThongTinCanhBaoNutNhan.Text = "thông tin";
+            // 
             // InToForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 550);
+            this.Controls.Add(this.lblThongTinCanhBaoNutNhan);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblHangKhachHang);
             this.Controls.Add(this.label2);
@@ -959,5 +971,6 @@
         private System.Windows.Forms.Button btnLamLai;
         private System.Windows.Forms.ToolStripMenuItem cmnuThPh_KhoanBoGoc;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.Label lblThongTinCanhBaoNutNhan;
     }
 }

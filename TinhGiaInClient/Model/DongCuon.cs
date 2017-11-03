@@ -11,6 +11,7 @@ namespace TinhGiaInClient.Model
     public class DongCuon : ThanhPhamBase
     {
         //Bổ sung thêm thuộc tính
+        public string TieuDe { get; set; }
         public int TocDoCuonGio { get; set; }
         public int PhiNgVLCuon { get; set; }
         public bool BiaToDon { get; set; }
@@ -23,6 +24,7 @@ namespace TinhGiaInClient.Model
             {                
                 ID = x.ID,
                 Ten = x.Ten,
+                TieuDe = x.TieuDe,
                 BHR = x.BHR,
                 TocDoCuonGio = x.TocDoCuonGio,
                 ThoiGianChuanBi = x.ThoiGianChuanBi,
@@ -67,6 +69,7 @@ namespace TinhGiaInClient.Model
         {
             dongCuonDTO.ID = dongCuonBDO.ID;
             dongCuonDTO.Ten = dongCuonBDO.Ten;
+            dongCuonDTO.TieuDe = dongCuonBDO.TieuDe;
             dongCuonDTO.BHR = dongCuonBDO.BHR;
             dongCuonDTO.TocDoCuonGio = dongCuonBDO.TocDoCuonGio;
             dongCuonDTO.ThoiGianChuanBi = dongCuonBDO.ThoiGianChuanBi;
@@ -84,6 +87,7 @@ namespace TinhGiaInClient.Model
         {
             dongCuonBDO.ID = dongCuonDTO.ID;
             dongCuonBDO.Ten = dongCuonDTO.Ten;
+            dongCuonBDO.TieuDe = dongCuonDTO.TieuDe;
             dongCuonBDO.BHR = dongCuonDTO.BHR;
             dongCuonBDO.TocDoCuonGio = dongCuonDTO.TocDoCuonGio;
             dongCuonBDO.ThoiGianChuanBi = dongCuonDTO.ThoiGianChuanBi;

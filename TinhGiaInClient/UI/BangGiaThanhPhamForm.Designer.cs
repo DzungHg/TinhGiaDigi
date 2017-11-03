@@ -214,6 +214,7 @@
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "BangGiaThanhPhamForm";
+            this.Load += new System.EventHandler(this.BangGiaThanhPhamForm_Load);
             this.Resize += new System.EventHandler(this.BangGiaThanhPhamForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpHangKH)).EndInit();

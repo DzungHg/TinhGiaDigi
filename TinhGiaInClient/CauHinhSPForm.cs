@@ -311,8 +311,8 @@ namespace TinhGiaInClient
             frm.ShowDialog();
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                this.KhoCatRong = frm.ChieuRong;
-                this.KhoCatCao = frm.ChieuCao;                
+                this.KhoCatRong = frm.Rong;
+                this.KhoCatCao = frm.Cao;                
             }
         }
 

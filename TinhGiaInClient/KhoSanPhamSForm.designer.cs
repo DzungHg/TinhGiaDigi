@@ -45,10 +45,11 @@
             this.lvwKhoSanPham.Location = new System.Drawing.Point(12, 12);
             this.lvwKhoSanPham.MultiSelect = false;
             this.lvwKhoSanPham.Name = "lvwKhoSanPham";
-            this.lvwKhoSanPham.Size = new System.Drawing.Size(297, 188);
+            this.lvwKhoSanPham.Size = new System.Drawing.Size(442, 203);
             this.lvwKhoSanPham.TabIndex = 0;
             this.lvwKhoSanPham.UseCompatibleStateImageBehavior = false;
             this.lvwKhoSanPham.View = System.Windows.Forms.View.Details;
+            this.lvwKhoSanPham.SelectedIndexChanged += new System.EventHandler(this.lvwKhoSanPham_SelectedIndexChanged);
             // 
             // cmnu_Main
             // 
@@ -82,7 +83,7 @@
             // btnDong
             // 
             this.btnDong.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnDong.Location = new System.Drawing.Point(112, 206);
+            this.btnDong.Location = new System.Drawing.Point(187, 230);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(75, 23);
             this.btnDong.TabIndex = 4;
@@ -94,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 241);
+            this.ClientSize = new System.Drawing.Size(466, 265);
             this.Controls.Add(this.btnDong);
             this.Controls.Add(this.lvwKhoSanPham);
             this.Name = "KhoSanPhamSForm";

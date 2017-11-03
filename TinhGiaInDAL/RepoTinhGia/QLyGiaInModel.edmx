@@ -148,6 +148,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ten" Type="nvarchar" MaxLength="100" />
+          <Property Name="tieu_de" Type="nvarchar" MaxLength="50" />
           <Property Name="BHR" Type="int" />
           <Property Name="Toc_do_cuon" Type="int" />
           <Property Name="Thoi_gian_chuan_bi" Type="float" />
@@ -1159,6 +1160,7 @@
           <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="bia_to_don" Type="Boolean" />
           <Property Name="ruot_to_don" Type="Boolean" />
+          <Property Name="tieu_de" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="EP_KIM">
           <Key>
@@ -1833,6 +1835,7 @@
           <EntitySetMapping Name="DONG_CUON">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.DONG_CUON">
               <MappingFragment StoreEntitySet="DONG_CUON">
+                <ScalarProperty Name="tieu_de" ColumnName="tieu_de" />
                 <ScalarProperty Name="ruot_to_don" ColumnName="ruot_to_don" />
                 <ScalarProperty Name="bia_to_don" ColumnName="bia_to_don" />
                 <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />

@@ -8,6 +8,7 @@ namespace TinhGiaInBDO
 {
     public class DongCuonBDO : MayThanhPhamBaseBDO
     {
+        public string TieuDe { get; set; }
         public int TocDoCuonGio { get; set; }
         public int PhiNgVLCuon { get; set; }
         public bool BiaToDon { get; set; }

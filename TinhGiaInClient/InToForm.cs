@@ -1832,8 +1832,8 @@ namespace TinhGiaInClient
             frm.ShowDialog();
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                this.SanPhamRong = frm.ChieuRong;
-                this.SanPhamCao = frm.ChieuCao;
+                this.SanPhamRong = frm.Rong;
+                this.SanPhamCao = frm.Cao;
             }
         }
 
@@ -1891,13 +1891,15 @@ namespace TinhGiaInClient
                 {
                     if (baiIn.GiaInS.Count <= 0)
                     {
-                        MessageBox.Show("Bạn chọn In cần có Giá in");
+                        lblThongTinCanhBaoNutNhan.Text = "Bạn chọn In cần có Giá in!";
                         kq = false;
                     }
                 }
             }
 
             btnOK.Enabled = kq;
+            if (kq) //True cho phép nhận thôi cảnh báo
+                lblThongTinCanhBaoNutNhan.Text = "";
         }
 
         private void cmnuCauHinhToiIn_Opening(object sender, CancelEventArgs e)
@@ -1989,6 +1991,8 @@ namespace TinhGiaInClient
             lblTomTatBaiIn.Left = txtTomTatBaiIn.Left;
             btnCopyToClipBoardNoiDungMucChon.Left = txtTomTatBaiIn.Left + 
                 (txtTomTatBaiIn.Width - btnCopyToClipBoardNoiDungMucChon.Width) -2;
+            //
+            lblThongTinCanhBaoNutNhan.Left = trvMucLucBaiIn.Left + trvMucLucBaiIn.Width + 2;
         }
 
        

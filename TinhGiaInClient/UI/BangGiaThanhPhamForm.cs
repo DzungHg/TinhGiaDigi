@@ -240,5 +240,10 @@ namespace TinhGiaInClient.UI
            
             frm.ShowDialog();
         }
+
+        private void BangGiaThanhPhamForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

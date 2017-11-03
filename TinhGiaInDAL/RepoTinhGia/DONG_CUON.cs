@@ -28,5 +28,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string day_so_luong_niem_yet { get; set; }
         public Nullable<bool> bia_to_don { get; set; }
         public Nullable<bool> ruot_to_don { get; set; }
+        public string tieu_de { get; set; }
     }
 }

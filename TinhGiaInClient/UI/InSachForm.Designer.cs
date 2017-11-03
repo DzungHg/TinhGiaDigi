@@ -36,6 +36,7 @@
             this.btnCopyChaoKHLe = new Telerik.WinControls.UI.RadButton();
             this.txtTomTatTinhGia = new Telerik.WinControls.UI.RadTextBoxControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkBiaLayNgoai = new Telerik.WinControls.UI.RadCheckBox();
             this.btnLayKichThuoc = new Telerik.WinControls.UI.RadButton();
             this.lbxDongCuon = new Telerik.WinControls.UI.RadListControl();
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
@@ -73,7 +74,7 @@
             this.wzRuotBia = new Telerik.WinControls.UI.WizardPage();
             this.wzInAn = new Telerik.WinControls.UI.WizardPage();
             this.wzDongCuon = new Telerik.WinControls.UI.WizardPage();
-            this.chkBiaLayNgoai = new Telerik.WinControls.UI.RadCheckBox();
+            this.lblDongCuonDaChon = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).BeginInit();
             this.radWiz1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayKichThuoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbxDongCuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
@@ -114,7 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblDongCuonDaChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -219,6 +221,15 @@
             this.panel1.Size = new System.Drawing.Size(549, 309);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // chkBiaLayNgoai
+            // 
+            this.chkBiaLayNgoai.Location = new System.Drawing.Point(209, 158);
+            this.chkBiaLayNgoai.Name = "chkBiaLayNgoai";
+            this.chkBiaLayNgoai.Size = new System.Drawing.Size(67, 18);
+            this.chkBiaLayNgoai.TabIndex = 7;
+            this.chkBiaLayNgoai.Text = "Bìa ngoài";
+            this.chkBiaLayNgoai.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.chkBiaLayNgoai_ToggleStateChanged);
             // 
             // btnLayKichThuoc
             // 
@@ -449,6 +460,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.lblDongCuonDaChon);
             this.panel4.Controls.Add(this.txtChiTietDongCuon);
             this.panel4.Controls.Add(this.btnXoaDongCuon);
             this.panel4.Controls.Add(this.btnThemDongCuon);
@@ -469,7 +481,7 @@
             // 
             // btnXoaDongCuon
             // 
-            this.btnXoaDongCuon.Location = new System.Drawing.Point(33, 64);
+            this.btnXoaDongCuon.Location = new System.Drawing.Point(34, 101);
             this.btnXoaDongCuon.Name = "btnXoaDongCuon";
             this.btnXoaDongCuon.Size = new System.Drawing.Size(110, 24);
             this.btnXoaDongCuon.TabIndex = 4;
@@ -478,11 +490,11 @@
             // 
             // btnThemDongCuon
             // 
-            this.btnThemDongCuon.Location = new System.Drawing.Point(33, 25);
+            this.btnThemDongCuon.Location = new System.Drawing.Point(34, 62);
             this.btnThemDongCuon.Name = "btnThemDongCuon";
             this.btnThemDongCuon.Size = new System.Drawing.Size(110, 24);
             this.btnThemDongCuon.TabIndex = 3;
-            this.btnThemDongCuon.Text = "Đóng Cuốn";
+            this.btnThemDongCuon.Text = "Lấy Đóng Cuốn";
             this.btnThemDongCuon.Click += new System.EventHandler(this.btnThemDongCuon_Click);
             // 
             // panel5
@@ -532,14 +544,13 @@
             this.wzDongCuon.Name = "wzDongCuon";
             this.wzDongCuon.Title = "Đóng cuốn";
             // 
-            // chkBiaLayNgoai
+            // lblDongCuonDaChon
             // 
-            this.chkBiaLayNgoai.Location = new System.Drawing.Point(209, 158);
-            this.chkBiaLayNgoai.Name = "chkBiaLayNgoai";
-            this.chkBiaLayNgoai.Size = new System.Drawing.Size(67, 18);
-            this.chkBiaLayNgoai.TabIndex = 7;
-            this.chkBiaLayNgoai.Text = "Bìa ngoài";
-            this.chkBiaLayNgoai.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.chkBiaLayNgoai_ToggleStateChanged);
+            this.lblDongCuonDaChon.Location = new System.Drawing.Point(34, 25);
+            this.lblDongCuonDaChon.Name = "lblDongCuonDaChon";
+            this.lblDongCuonDaChon.Size = new System.Drawing.Size(89, 18);
+            this.lblDongCuonDaChon.TabIndex = 10;
+            this.lblDongCuonDaChon.Text = "Đóng cuốn chọn";
             // 
             // InSachForm
             // 
@@ -562,6 +573,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayKichThuoc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lbxDongCuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
@@ -590,12 +602,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaBia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemBia)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietDongCuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaDongCuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblDongCuonDaChon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -648,5 +661,6 @@
         private Telerik.WinControls.UI.RadButton btnCopyChaoKHLe;
         private Telerik.WinControls.UI.RadButton btnLayKichThuoc;
         private Telerik.WinControls.UI.RadCheckBox chkBiaLayNgoai;
+        private Telerik.WinControls.UI.RadLabel lblDongCuonDaChon;
     }
 }

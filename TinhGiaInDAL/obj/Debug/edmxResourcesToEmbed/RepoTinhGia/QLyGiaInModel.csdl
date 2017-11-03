@@ -333,6 +333,7 @@
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="bia_to_don" Type="Boolean" />
     <Property Name="ruot_to_don" Type="Boolean" />
+    <Property Name="tieu_de" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="EP_KIM">
     <Key>

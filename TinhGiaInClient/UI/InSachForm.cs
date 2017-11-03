@@ -477,18 +477,19 @@ namespace TinhGiaInClient.UI
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             switch (monDongCuon.KieuDongCuon) //Thiết lập chỉ 2 loại keo và lò xo
             {
-                case KieuDongCuonS.Keo:
+                case KieuDongCuonS.KimKeoNep:
                     //Điều chỉnh thông tin ban đầu
                     var thongTinBanDauCuonKeo = ThongTinBanDauCuonKeo();
                     thongTinBanDauCuonKeo.TinhTrangForm = FormStateS.New;
                     thongTinBanDauCuonKeo.TieuDeForm = "[Mới] Đóng cuốn";
 
                     //tạo mục thành phẩm đóng cuốn
-                    var mucThPhamDongCuon = new MucThanhPham();
+                    var mucThPhamDongCuon = new MucDongCuon();
                     mucThPhamDongCuon.IdBaiIn = this.ID;
                     mucThPhamDongCuon.IdHangKhachHang = this.IdHangKhachHang;
                     mucThPhamDongCuon.IdThanhPhamChon = inSachPres.DocMonDongCuonTheoID().IdGoc;
                     mucThPhamDongCuon.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
+                    mucThPhamDongCuon.KieuDongCuon = KieuDongCuonS.KimKeoNep;
                     mucThPhamDongCuon.SoLuong = this.SoCuon;
                     mucThPhamDongCuon.DonViTinh = "cuốn";
 
@@ -578,12 +579,12 @@ namespace TinhGiaInClient.UI
             var monDongCuon = inSachPres.DocMonDongCuonTheoID();
             switch (monDongCuon.KieuDongCuon) //Thiết lập chỉ 2 loại keo và lò xo
             {
-                case KieuDongCuonS.Keo:
+                case KieuDongCuonS.KimKeoNep:
                     var thongTinChoCuonKeo = this.ThongTinBanDauCuonKeo();
 
                     thongTinChoCuonKeo.TieuDeForm = "[Sửa] Đóng cuốn";
 
-                    var frm1 = new ThPhDongCuonForm(thongTinChoCuonKeo, this.DongCuon);
+                    var frm1 = new ThPhDongCuonForm(thongTinChoCuonKeo, (MucDongCuon)this.DongCuon);
 
                     frm1.MinimizeBox = false;
                     frm1.MaximizeBox = false;
@@ -827,10 +828,12 @@ namespace TinhGiaInClient.UI
         private void lbxDongCuon_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             //Khi thay đổi cách đóng cuốn thì phải xóa đóng cuốn cũ
+            lblDongCuonDaChon.Text = "Đã chọn: " +  lbxDongCuon.SelectedItem.Text;
             if (this.DongCuon != null)
             {
                 this.DongCuon = null;
                 CapNhatChiTietDongCuon();
+                
             }
         }
 
@@ -867,8 +870,8 @@ namespace TinhGiaInClient.UI
             frm.ShowDialog();
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                this.SachRong = frm.ChieuRong;
-                this.SachCao = frm.ChieuCao;
+                this.SachRong = frm.Rong;
+                this.SachCao = frm.Cao;
             }
         }
 
