@@ -17,7 +17,8 @@ namespace TinhGiaInDAL.RepoTinhGia
             {
                 var nguon = db.NY_GIA_IN_NHANH.Select(x => new NiemYetGiaInNhanhBDO
                 {
-                    ID = x.ID,                    
+                    ID = x.ID,                   
+                    Ten = x.ten,
                     DienGiai = x.dien_giai,
                     IdBangGia = (int)x.ID_BANG_GIA,
                     KhongSuDung = (bool)x.khong_su_dung,
@@ -42,6 +43,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 var nguon = db.NY_GIA_IN_NHANH.Where(x => x.ID_HANG_KHACH_HANG == idHangKH).Select(x => new NiemYetGiaInNhanhBDO
                 {
                     ID = x.ID,
+                    Ten = x.ten,
                     DienGiai = x.dien_giai,
                     IdBangGia = (int)x.ID_BANG_GIA,
                     KhongSuDung = (bool)x.khong_su_dung,
@@ -66,6 +68,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 item = db.NY_GIA_IN_NHANH.Where(x=> x.ID == iD).Select(x => new NiemYetGiaInNhanhBDO
                 {
                     ID = x.ID,
+                    Ten = x.ten,
                     DienGiai = x.dien_giai,
                     IdBangGia = (int)x.ID_BANG_GIA,
                     KhongSuDung = (bool)x.khong_su_dung,
@@ -91,7 +94,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 try
                 {
                     //Kiểm tra xem bị trùng IDBangGia Khong
-                    kq = KiemTraTrung(entityBDO.IdBangGia);
+                    kq = KiemTraTrung(entityBDO.Ten);
                     if (kq != "")
                     {                        
                         return kq;
@@ -123,7 +126,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 try
                 {
                     //Kiểm tra bị trùng ID bảng giá không
-                    var kqKiemTrung = KiemTraTrung(entityBDO.IdBangGia, entityBDO.ID);
+                    var kqKiemTrung = KiemTraTrung(entityBDO.Ten, entityBDO.ID);
                     if (kqKiemTrung != "")
                     {
                         thongDiep = kqKiemTrung;
@@ -150,10 +153,10 @@ namespace TinhGiaInDAL.RepoTinhGia
         {
             throw new NotImplementedException();
         }
-        private string KiemTraTrung(int value, int id = 0)
+        private string KiemTraTrung(string value, int id = 0)
         {
             string kq = "";
-            var entity = db.NY_GIA_IN_NHANH.SingleOrDefault(x => x.ID_BANG_GIA == value);
+            var entity = db.NY_GIA_IN_NHANH.SingleOrDefault(x => x.ten == value);
             if (entity != null && entity.ID != id)
                 kq = string.Format("Tên {0} đã có rồi!", value);
             return kq;
@@ -163,6 +166,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ID = entityBDO.ID;
           
             entityDAO.dien_giai = entityBDO.DienGiai;
+            entityDAO.ten = entityBDO.Ten;
             entityDAO.ID_BANG_GIA = entityBDO.IdBangGia;
             
             entityDAO.khong_su_dung = entityBDO.KhongSuDung;

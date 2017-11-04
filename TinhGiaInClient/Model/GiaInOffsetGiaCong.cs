@@ -39,18 +39,18 @@ namespace TinhGiaInClient.Model
 
             switch (this.KieuInOffset)
             {
-                case (int)Enumss.KieuInOffset.MotMat:
+                case (int)EnumsS.KieuInOffset.MotMat:
                     if (this.SoMatIn - soMatCoBan > 0)
                         soMatInVuotCoBan = this.SoMatIn - soMatCoBan;
                     tienInGiaCong = giaInMotLan + soMatInVuotCoBan * giaMotMatVuotCoBan;
                     break;
-                case (int)Enumss.KieuInOffset.TuTro:
-                case (int)Enumss.KieuInOffset.TuTroNhip:
+                case (int)EnumsS.KieuInOffset.TuTro:
+                case (int)EnumsS.KieuInOffset.TuTroNhip:
                     if (this.SoMatIn - soMatCoBan > 0)
                         soMatInVuotCoBan = this.SoMatIn - soMatCoBan;
                     tienInGiaCong = giaInMotLan + soMatInVuotCoBan * giaMotMatVuotCoBan;
                     break;
-                case (int)Enumss.KieuInOffset.AB:// là in 2 kẽm
+                case (int)EnumsS.KieuInOffset.AB:// là in 2 kẽm
                     if (this.SoMatIn / 2 - soMatCoBan > 0)
                         soMatInVuotCoBan = (this.SoMatIn /2 - soMatCoBan) * 2;
                     tienInGiaCong = (giaInMotLan * 2) + soMatInVuotCoBan * giaMotMatVuotCoBan;

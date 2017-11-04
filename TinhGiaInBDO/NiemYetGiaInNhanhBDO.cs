@@ -8,7 +8,8 @@ namespace TinhGiaInBDO
 {
     public class NiemYetGiaInNhanhBDO
     {
-        public int ID { get; set; }       
+        public int ID { get; set; }
+        public string Ten { get; set; }
         public string DienGiai { get; set; }
         public int IdBangGia { get; set; }
         public int IdHangKhachHang { get; set; }        

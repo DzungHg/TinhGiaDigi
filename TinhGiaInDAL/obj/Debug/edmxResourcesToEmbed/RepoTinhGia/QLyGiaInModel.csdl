@@ -866,6 +866,7 @@
     <Property Name="thu_tu" Type="Int32" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="loai_bang_gia" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="dien_giai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="BANG_GIA_THEO_BUOC">
     <Key>
@@ -879,6 +880,7 @@
     <Property Name="thu_tu" Type="Int32" />
     <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="loai_bang_gia" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="dien_giai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="NY_GIA_IN_NHANH">
     <Key>
@@ -894,6 +896,7 @@
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="LOAI_BANG_GIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="HANG_KHACH_HANG" Relationship="QuanLyGiaInModel.FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG" FromRole="NY_GIA_IN_NHANH" ToRole="HANG_KHACH_HANG" />
+    <Property Name="ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG">
     <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />

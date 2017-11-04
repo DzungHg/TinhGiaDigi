@@ -56,12 +56,12 @@ namespace TinhGiaInClient.Presenter
             int result = 0;
             switch (View.KieuInOffset)
             {
-                case (int)Enumss.KieuInOffset.AB:
-                case (int)Enumss.KieuInOffset.TuTro:
-                case (int)Enumss.KieuInOffset.TuTroNhip:
+                case (int)EnumsS.KieuInOffset.AB:
+                case (int)EnumsS.KieuInOffset.TuTro:
+                case (int)EnumsS.KieuInOffset.TuTroNhip:
                     result = View.SoToChay * 2;
                     break;
-                case (int)Enumss.KieuInOffset.MotMat:                
+                case (int)EnumsS.KieuInOffset.MotMat:                
                     result = View.SoToChay * 1;
                     break;
             }

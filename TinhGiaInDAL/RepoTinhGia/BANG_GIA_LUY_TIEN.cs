@@ -22,5 +22,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<int> thu_tu { get; set; }
         public string don_vi_tinh { get; set; }
         public string loai_bang_gia { get; set; }
+        public string dien_giai { get; set; }
     }
 }

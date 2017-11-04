@@ -8,9 +8,11 @@ using TinhGiaInLogic;
 
 namespace TinhGiaInClient.Model
 {
+    
     public class NiemYetGiaInNhanh
     {
         public int ID { get; set; }
+        public string Ten { get; set; }
         public string DienGiai { get; set; }
         public int IdBangGia { get; set; }
         public int IdHangKhachHang { get; set; }
@@ -19,6 +21,21 @@ namespace TinhGiaInClient.Model
         public bool KhongSuDung { get; set; }
         public string DaySoLuongNiemYet { get; set; }
         public string LoaiBangGia { get; set; }//CONTS
+
+        string _tenMR = "";
+        public string TenMR
+        {
+            get {
+                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                    _tenMR = string.Format("[L. Tiến]{0}", this.Ten);
+                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                    _tenMR = string.Format("[Bước]{0}", this.Ten);
+                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
+                    _tenMR = string.Format("[Gói]{0}", this.Ten);
+                return _tenMR;
+
+            }
+        }
         //==
         #region Các hàm static
         public static List<NiemYetGiaInNhanh> DocTatCa()
@@ -32,7 +49,7 @@ namespace TinhGiaInClient.Model
                     ID = x.ID,
                     DienGiai = x.DienGiai,
                     IdBangGia = x.IdBangGia,
-                   
+                    Ten = x.Ten,
                     KhongSuDung = x.KhongSuDung,
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
@@ -60,6 +77,7 @@ namespace TinhGiaInClient.Model
                 nguon = giayLogic.DocTheoIdHangKH(idHangKH).Where(x => (x.IdHangKhachHang == idHangKH) && (x.KhongSuDung == false)).Select(x => new NiemYetGiaInNhanh
                 {
                     ID = x.ID,
+                    Ten = x.Ten,
                     DienGiai = x.DienGiai,
                     IdBangGia = x.IdBangGia,
                     KhongSuDung = x.KhongSuDung,
@@ -85,7 +103,7 @@ namespace TinhGiaInClient.Model
                     ID = x.ID,
                     DienGiai = x.DienGiai,
                     IdBangGia = x.IdBangGia,
-
+                    Ten = x.Ten,
                     KhongSuDung = x.KhongSuDung,
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
@@ -133,6 +151,7 @@ namespace TinhGiaInClient.Model
         private static void ChuyenDoiNiemYetGiaInNhanhBDOThanhDTO(NiemYetGiaInNhanhBDO bGiaInNhanhBDO, NiemYetGiaInNhanh bGiaInNhanh)
         {
             bGiaInNhanh.ID = bGiaInNhanhBDO.ID;
+            bGiaInNhanh.Ten = bGiaInNhanhBDO.Ten;
             bGiaInNhanh.DienGiai = bGiaInNhanhBDO.DienGiai;
             bGiaInNhanh.IdBangGia = bGiaInNhanhBDO.IdBangGia;
             bGiaInNhanh.KhongSuDung = bGiaInNhanhBDO.KhongSuDung;
@@ -147,7 +166,7 @@ namespace TinhGiaInClient.Model
             bGiaInNhanhBDO.ID = bGiaInNhanh.ID;
             bGiaInNhanhBDO.DienGiai = bGiaInNhanh.DienGiai;
             bGiaInNhanhBDO.IdBangGia = bGiaInNhanh.IdBangGia;
-          
+            bGiaInNhanhBDO.Ten = bGiaInNhanh.Ten;
             bGiaInNhanhBDO.KhongSuDung = bGiaInNhanh.KhongSuDung;
             bGiaInNhanhBDO.ThuTu = bGiaInNhanh.ThuTu;
             bGiaInNhanhBDO.IdHangKhachHang = bGiaInNhanh.IdHangKhachHang;

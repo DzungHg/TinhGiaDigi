@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BangGiaDO.cs" />
+    <Compile Include="BangGiaBDO.cs" />
     <Compile Include="NiemYetGiaInNhanhBDO.cs" />
     <Compile Include="BangGiaTheoBuocBDO.cs" />
     <Compile Include="BangGiaLuyTienBDO.cs" />

@@ -44,6 +44,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ten" Type="nvarchar" MaxLength="150" />
+    <Property Name="dien_giai" Type="nvarchar" MaxLength="250" />
     <Property Name="day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="day_gia" Type="nvarchar" MaxLength="150" />
     <Property Name="khong_con" Type="bit" />
@@ -77,6 +78,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ten" Type="nvarchar" MaxLength="150" />
+    <Property Name="dien_giai" Type="nvarchar" MaxLength="250" />
     <Property Name="day_so_luong" Type="nvarchar" MaxLength="150" />
     <Property Name="day_gia" Type="nvarchar" MaxLength="150" />
     <Property Name="khong_con" Type="bit" />
@@ -483,6 +485,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ten" Type="nvarchar" MaxLength="50" />
     <Property Name="dien_giai" Type="nvarchar" MaxLength="255" />
     <Property Name="ID_BANG_GIA" Type="int" />
     <Property Name="thu_tu" Type="int" />

@@ -10,18 +10,22 @@ namespace TinhGiaInNhapLieu.View
     public interface IViewNiemYetGiaInNhanh
     {
         int ID { get; set; }
-        string Ten { get; set; }
+        string TenNiemYet { get; set; }
+       
         string DienGiai { get; set; }
         string LoaiBangGia { get; set; }
-        
+        int IdBangGia { get; set; }
+        string TenBangGia { get; set; }
         int IdHangKhachHang { get; set; }
         int ThuTu { get; set; }
         string DaySoLuongNiemYet { get; set; }
       
-        int SoTrangToiDaTinh { get; set; }        
+        int SoTrangToiDa { get; set; }        
         bool KhongSuDung { get; set; }
         
         FormStateS TinhTrangForm { get; set; }
         bool DataChanged { get; set; }
+        //bổ sung
+       
     }
 }

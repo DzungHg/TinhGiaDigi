@@ -12,7 +12,7 @@ namespace TinhGiaInClient.Model
     {
         public int ID { get; set; }
         public string Ten { get; set; }
-
+        public string DienGiai { get; set; }
         public string DaySoLuong { get; set; }
         public string DayGia { get; set; }
 

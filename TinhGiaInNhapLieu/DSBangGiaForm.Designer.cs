@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.lstBangGia = new Telerik.WinControls.UI.RadListView();
-            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            this.lblTieuDe = new Telerik.WinControls.UI.RadLabel();
             this.btnNhan = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.lstBangGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTieuDe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -50,14 +50,14 @@
             this.lstBangGia.SelectedItemChanged += new System.EventHandler(this.lstBangGia_SelectedItemChanged);
             this.lstBangGia.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lstBangGia_ColumnCreating);
             // 
-            // radLabel2
+            // lblTieuDe
             // 
-            this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(65, 12);
-            this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(163, 25);
-            this.radLabel2.TabIndex = 18;
-            this.radLabel2.Text = "LÒ XO ĐÓNG CUỐN";
+            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDe.Location = new System.Drawing.Point(91, 12);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(105, 25);
+            this.lblTieuDe.TabIndex = 18;
+            this.lblTieuDe.Text = "DANH SÁCH";
             // 
             // btnNhan
             // 
@@ -75,7 +75,7 @@
             this.ClientSize = new System.Drawing.Size(292, 257);
             this.Controls.Add(this.btnNhan);
             this.Controls.Add(this.lstBangGia);
-            this.Controls.Add(this.radLabel2);
+            this.Controls.Add(this.lblTieuDe);
             this.Name = "DSBangGiaForm";
             // 
             // 
@@ -83,8 +83,9 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "DSBangGiaForm";
             this.Load += new System.EventHandler(this.DSBangGiaForm_Load);
+            this.Resize += new System.EventHandler(this.DSBangGiaForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.lstBangGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTieuDe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -95,7 +96,7 @@
         #endregion
 
         private Telerik.WinControls.UI.RadListView lstBangGia;
-        private Telerik.WinControls.UI.RadLabel radLabel2;
+        private Telerik.WinControls.UI.RadLabel lblTieuDe;
         private Telerik.WinControls.UI.RadButton btnNhan;
     }
 }

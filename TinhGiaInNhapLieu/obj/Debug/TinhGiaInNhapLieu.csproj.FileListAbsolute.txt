@@ -408,3 +408,5 @@ D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.exe.licenses
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.exe
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.pdb
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.DSBangGiaForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.DSBangGiaForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.NiemYetGiaInNhanhForm.resources

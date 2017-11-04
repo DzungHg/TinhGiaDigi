@@ -29,7 +29,7 @@ namespace TinhGiaInClient.Model
         public static BangGiaBase DocTheoIDvaLoai(int id, string loai)
         {
             BangGiaBase bg = null;
-            bg = DanhSachBangGia.DanhSachS().Where(x => x.ID == id && x.LoaiBangGia == loai.Trim()).SingleOrDefault();
+            bg = DanhSachBangGia.DanhSachS().Where(x => x.ID == id && x.LoaiBangGia == loai).SingleOrDefault();
             return bg;
         }
         

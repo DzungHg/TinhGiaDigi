@@ -23,25 +23,27 @@ namespace TinhGiaInNhapLieu
             LoadBangGia();
             LoadHangKhachHang();
 
-            lstBangGia.SelectedIndex = -1;
-            lstBangGia.SelectedIndex = 0;
+            lstNiemYet.SelectedIndex = -1;
+            lstNiemYet.SelectedIndex = 0;
             //Event
             txtTen.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            
+           
           
-            txtNoiDungBangGia.TextChanged += new EventHandler(TextBoxes_TextChanged);
-          
-            txtMoTa.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtDienGiai.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtThuTu.TextChanged += new EventHandler(TextBoxes_TextChanged);
           
             txtSoTrangToiDaTinh.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtDaySoLuong.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            txtMucGia.TextChanged += new EventHandler(TextBoxes_TextChanged);
+          
             txtDaySoLuongNiemYet.TextChanged += new EventHandler(TextBoxes_TextChanged);
            
 
-            chkKhongSuDung.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);   
-          
-           
+            chkKhongSuDung.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
+
+            txtTen.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoTrangToiDaTinh.Leave += new EventHandler(TextBoxes_Leave);
+            txtThuTu.Leave += new EventHandler(TextBoxes_Leave);
+
             txtSoTrangToiDaTinh.KeyPress += new KeyPressEventHandler(InputValidator);
             txtThuTu.KeyPress += new KeyPressEventHandler(InputValidator);
 
@@ -52,51 +54,43 @@ namespace TinhGiaInNhapLieu
         int _idToInMayDigi = 0;
         public int ID
         {
-            get { if (lstBangGia.SelectedValue != null)
-                int.TryParse(lstBangGia.SelectedValue.ToString(), out _idToInMayDigi) ;
+            get { if (lstNiemYet.SelectedValue != null)
+                int.TryParse(lstNiemYet.SelectedValue.ToString(), out _idToInMayDigi) ;
             return _idToInMayDigi;
             }
             set { _idToInMayDigi = value;
             
             }
         }
-        public string Ten
-        {
-            get
-            {
-                return txtTen.Text;
-            }
-            set
-            {
-                txtTen.Text = value;
-            }
-        }
-
-        public string NoiDungBangGia
-        {
-            get
-            {
-                return txtNoiDungBangGia.Text;
-            }
-            set
-            {
-                txtNoiDungBangGia.Text = value;
-            }
-        }
+       
+     
 
         public string DienGiai
         {
             get
             {
-                return txtMoTa.Text;
+                return txtDienGiai.Text;
             }
             set
             {
-                txtMoTa.Text = value;
+                txtDienGiai.Text = value;
             }
         }
-
-       
+        public int IdBangGia
+        {
+            get;
+            set;
+        }
+        public string TenBangGia
+        {
+            get { return lblTenBangGia.Text; }
+            set { lblTenBangGia.Text = value; }
+        }
+        public string LoaiBangGia
+        {
+            get { return lblLoaiBangGia.Text; }
+            set { lblLoaiBangGia.Text = value; }
+        }
        
         int _idHangKH;
         public int IdHangKhachHang
@@ -112,17 +106,7 @@ namespace TinhGiaInNhapLieu
                 cboHangKH.SelectedValue = _idHangKH;
             }
         }
-        public bool GiaTheoKhoang
-        {
-            get
-            {
-                return chkGiaTheoKhoang.Checked;
-            }
-            set
-            {
-                chkGiaTheoKhoang.Checked = value;
-            }
-        }
+       
         public int ThuTu
         {
             get
@@ -150,31 +134,6 @@ namespace TinhGiaInNhapLieu
         }
     
 
-        
-
-        public string DaySoLuong
-        {
-            get
-            {
-                return txtDaySoLuong.Text;
-            }
-            set
-            {
-                txtDaySoLuong.Text = value;
-            }
-        }
-
-        public string DayGiaTrang
-        {
-            get
-            {
-                return txtMucGia.Text;
-            }
-            set
-            {
-                txtMucGia.Text = value;
-            }
-        }
 
         public string DaySoLuongNiemYet
         {
@@ -188,7 +147,12 @@ namespace TinhGiaInNhapLieu
             }
         }
 
-      
+        public string TenNiemYet
+        {
+            get
+            { return txtTen.Text; }
+            set { txtTen.Text = value; }
+        }
 
       
         public bool KhongSuDung
@@ -202,7 +166,7 @@ namespace TinhGiaInNhapLieu
                 chkKhongSuDung.Checked = value;
             }
         }
-        public int SoTrangToiDaTinh
+        public int SoTrangToiDa
         {
             get
             {
@@ -217,9 +181,9 @@ namespace TinhGiaInNhapLieu
         private void LoadBangGia()
         {
 
-            lstBangGia.DataSource = quanLyBangGiaPres.BangGiaInNhanhS();
-            lstBangGia.ValueMember = "ID";
-            lstBangGia.DisplayMember = "TenBangGia";
+            lstNiemYet.DataSource = quanLyBangGiaPres.DanhSachNiemYet();
+            lstNiemYet.ValueMember = "ID";
+            lstNiemYet.DisplayMember = "Ten";
            
             //Binding bindSource = new Binding("MayInDigi", nguon, "ID");
             
@@ -236,22 +200,7 @@ namespace TinhGiaInNhapLieu
 
 
         }
-        private void DatReadOnlyTextBox(bool readOnly)
-        {
-            txtTen.ReadOnly = readOnly;
-            txtNoiDungBangGia.IsReadOnly = readOnly;                  
-          
-            txtMoTa.IsReadOnly = readOnly;
-            txtSoTrangToiDaTinh.ReadOnly = readOnly;                        
-            txtDaySoLuong.ReadOnly = readOnly;
-            txtMucGia.ReadOnly = readOnly;
-            txtDaySoLuongNiemYet.ReadOnly = readOnly;
-            txtThuTu.ReadOnly = readOnly;
-           
-            cboHangKH.ReadOnly = readOnly;
-            chkKhongSuDung.ReadOnly = readOnly;
-            
-        }
+       
         private void XoaSachNoiDungTatCaTextBox()
         {
             quanLyBangGiaPres.TrinhBayThemMoi();
@@ -262,7 +211,7 @@ namespace TinhGiaInNhapLieu
             if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen ||                  
+                if (tb == txtTen || tb ==  txtDaySoLuongNiemYet ||                  
                     tb == txtSoTrangToiDaTinh || tb == txtThuTu 
                     )
                 {
@@ -275,7 +224,7 @@ namespace TinhGiaInNhapLieu
             {
                 tbc = (Telerik.WinControls.UI.RadTextBoxControl)sender;
 
-                if (tbc == txtMoTa || tbc == txtNoiDungBangGia)
+                if (tbc == txtDienGiai )
                    
                 {
                     this.DataChanged = true;
@@ -301,6 +250,25 @@ namespace TinhGiaInNhapLieu
 
             btnLuu.Enabled = this.DataChanged;
 
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            Telerik.WinControls.UI.RadTextBox tb;
+            if (sender is Telerik.WinControls.UI.RadTextBox)
+            {
+                tb = (Telerik.WinControls.UI.RadTextBox)sender;
+                if (tb == txtTen)
+                    if (string.IsNullOrEmpty(txtTen.Text.Trim()))
+                        this.TenNiemYet = "Tên";
+                if (   tb == txtSoTrangToiDaTinh)
+                    if (string.IsNullOrEmpty(txtSoTrangToiDaTinh.Text.Trim()))
+                        this.SoTrangToiDa = 0;
+                if (tb == txtThuTu)
+                    if (string.IsNullOrEmpty(txtThuTu.Text.Trim()))
+                        this.ThuTu = 0;
+               
+                
+            }
         }
         private void InputValidator(object sender, KeyPressEventArgs e)
         {
@@ -328,6 +296,50 @@ namespace TinhGiaInNhapLieu
             }
         }
 
+        private void BatTatCacNutDuLieuTheoDieuKienForm()
+        {
+            switch (this.TinhTrangForm)
+            {
+                case FormStateS.View:
+                    btnThem.Enabled = true;
+                    btnSua.Enabled = true;
+                    btnXoa.Enabled = true;
+                    btnHuy.Enabled = false;
+                    DatReadOnlyTextBox(true);
+                    break;
+                case FormStateS.New:
+                    btnSua.Enabled = false;
+                    btnXoa.Enabled = false;
+                    btnThem.Enabled = false;
+                    btnHuy.Enabled = true;
+                    DatReadOnlyTextBox(false);
+                    break;
+                case FormStateS.Edit:
+                    btnSua.Enabled = false;
+                    btnXoa.Enabled = false;
+                    btnThem.Enabled = false;
+                    btnHuy.Enabled = true;
+                    DatReadOnlyTextBox(false);
+                    break;
+
+
+            }
+        }
+        private void DatReadOnlyTextBox(bool readOnly)
+        {
+            txtTen.ReadOnly = readOnly; //luôn là vậy
+
+            txtDienGiai.IsReadOnly = readOnly;
+            txtSoTrangToiDaTinh.ReadOnly = readOnly;
+
+            txtDaySoLuongNiemYet.ReadOnly = readOnly;
+            txtThuTu.ReadOnly = readOnly;
+
+            cboHangKH.ReadOnly = readOnly;
+            chkKhongSuDung.ReadOnly = readOnly;
+            btnChonBangGia.Enabled = !readOnly; //Enable
+
+        }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -340,25 +352,20 @@ namespace TinhGiaInNhapLieu
             //Lưu xong:
             this.DataChanged = false;
             this.TinhTrangForm = TinhGiaInClient.FormStateS.View;
+            BatTatCacNutDuLieuTheoDieuKienForm();
             btnLuu.Enabled = this.DataChanged;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnHuy.Enabled = false;
-            DatReadOnlyTextBox(true);
-            lstBangGia.Enabled = true;
+           
+            
+            lstNiemYet.Enabled = true;
             LoadBangGia();
         }
 
-        private void radButton1_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
             this.TinhTrangForm = TinhGiaInClient.FormStateS.New;
-            lstBangGia.Enabled = false;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnThem.Enabled = false;
-            btnHuy.Enabled = true;
-            DatReadOnlyTextBox(false);
+            lstNiemYet.Enabled = false;
+            BatTatCacNutDuLieuTheoDieuKienForm();
+            
             XoaSachNoiDungTatCaTextBox();
             this.DataChanged = false;
             btnLuu.Enabled = this.DataChanged;
@@ -367,29 +374,24 @@ namespace TinhGiaInNhapLieu
         private void QuanLyMayInDigiFrom_Load(object sender, EventArgs e)
         {
             //Bật tắt các nút
-            btnDong.Enabled = true;
+           
             btnLuu.Enabled = this.DataChanged;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            btnHuy.Enabled = false;
-            DatReadOnlyTextBox(true);
+            BatTatCacNutDuLieuTheoDieuKienForm();
+            //MessageBox.Show(this.TinhTrangForm.ToString());
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
             this.TinhTrangForm = TinhGiaInClient.FormStateS.Edit;
-            lstBangGia.Enabled = false;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
-            btnThem.Enabled = false;
-            btnHuy.Enabled = true;
-            DatReadOnlyTextBox(false);
+            lstNiemYet.Enabled = false;
+            BatTatCacNutDuLieuTheoDieuKienForm();
+           
             
         }
 
         private void lstMayIn_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            quanLyBangGiaPres.TrinhBayChiTietMayIn();
+            quanLyBangGiaPres.TrinhBayChiTietNiemYet();
             this.DataChanged = false;
             btnLuu.Enabled = this.DataChanged;
             lblIDBanGia.Text = this.ID.ToString();
@@ -399,12 +401,11 @@ namespace TinhGiaInNhapLieu
         {
             btnDong.Enabled = true;
             this.DataChanged = false;
-            btnLuu.Enabled = this.DataChanged;
-            btnThem.Enabled = true;
-            btnSua.Enabled = true;
-            DatReadOnlyTextBox(true);
-            quanLyBangGiaPres.TrinhBayChiTietMayIn();
-            lstBangGia.Enabled = true;
+            this.TinhTrangForm = FormStateS.View;
+            BatTatCacNutDuLieuTheoDieuKienForm();
+          
+            quanLyBangGiaPres.TrinhBayChiTietNiemYet();
+            lstNiemYet.Enabled = true;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
@@ -425,7 +426,7 @@ namespace TinhGiaInNhapLieu
 
         private void cboHangKH_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            lblDienGiaiHangKH.Text = quanLyBangGiaPres.DienGiaiHangKhachHang();
+            lblDienGiaiHangKH.Text = quanLyBangGiaPres.DienGiaiHangKH();
         }
 
         private void cMnu1_Opening(object sender, CancelEventArgs e)
@@ -433,17 +434,46 @@ namespace TinhGiaInNhapLieu
 
         }
 
-        private void mnuNhanDoiBangGia_Click(object sender, EventArgs e)
+        private void btnChonBangGia_Click(object sender, EventArgs e)
         {
-            var thongDiep = "";
-            if (MessageBox.Show("Bạn nhân đôi " + this.Ten, "Chú ý", MessageBoxButtons.OKCancel
-                , MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
+            DSBangGiaForm frm = new DSBangGiaForm();
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Danh sách bảng giá ";
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
-                quanLyBangGiaPres.NhanDoiBangGia(ref thongDiep);
-                MessageBox.Show(thongDiep);
-                LoadBangGia();
+                this.IdBangGia = frm.IdBangGiaChon;
+                this.LoaiBangGia = frm.LoaiBangGia;
+                if (string.IsNullOrEmpty(this.TenNiemYet))
+                    this.TenNiemYet = quanLyBangGiaPres.TenBangGia(this.IdBangGia, this.LoaiBangGia);
+                
+
             }
         }
+
+        private void radLabel20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblIDBanGia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radLabel16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSoTrangToiDaTinh_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+       
+        
 
 
 

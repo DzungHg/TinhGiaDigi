@@ -65,16 +65,16 @@ namespace TinhGiaInClient
         {
             get {
                 if (rdbMotMat.Checked)
-                    _kieuIn = (int)Enumss.KieuInOffset.MotMat;
+                    _kieuIn = (int)EnumsS.KieuInOffset.MotMat;
 
                 if (rdbTuTro.Checked)
-                    _kieuIn = (int)Enumss.KieuInOffset.TuTro;
+                    _kieuIn = (int)EnumsS.KieuInOffset.TuTro;
 
                 if (rdbTuTroNhip.Checked)
-                    _kieuIn = (int)Enumss.KieuInOffset.TuTroNhip;
+                    _kieuIn = (int)EnumsS.KieuInOffset.TuTroNhip;
 
                 if (rdbAB.Checked)
-                    _kieuIn = (int)Enumss.KieuInOffset.AB;
+                    _kieuIn = (int)EnumsS.KieuInOffset.AB;
                
                
                     return _kieuIn;

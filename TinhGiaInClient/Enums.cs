@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TinhGiaInClient
 {
-    public enum FormStateS { View = 0, New = 1, Edit = 2, Get = 3, TinhThu = 10 }
+    public enum FormStateS { View = 0, New = 1, Edit = 2, Get = 3, Delete = 4, TinhThu = 10 }
     public enum SapXepTinhGiaS { Khong = 0, TheoNgay = 1, TheoNhanVien = 2, TheoTieuDe = 3 }
     public enum ChieuSapXepS { Ascending = 0, Descending = 1 }
     public enum LoaiThanhPhamS { CanPhu = 1, CanGap = 2, DongCuon = 3, EpKim = 4,
@@ -19,10 +19,16 @@ namespace TinhGiaInClient
     public enum PrintSideColorS { FourFour = 1, FourOne = 2, FourZero = 3, OneOne = 4, OneZero = 5 }
     public enum LoaiBangGia { InNhanh = 0, InNhanhTheoMay = 1, InOffset = 2, InKhoLon = 3 }
     public enum KieuBoiNhieuLop { BoiDap = 0, BoiLotGiua = 1}
-
-    public static class Enumss
+    //
+    
+    public static class EnumsS
     {
-       
+        //Hằng bảng giá in
+        public const string cBangGiaLuyTien = "BG_LUY_TIEN";
+        public const string cBangGiaBuoc = "BG_BUOC";
+        public const string cBangGiaGoi = "BG_GOI";
+        //
+
         public enum SideSel { OneSide = 1, TwoSide = 2 }
         public enum QntyCalc { Lot = 1001, Piece = 1, Hundred = 100, Thousand = 1000 }
         public enum InkCoverPct { None = 0, Five = 5, Ten = 10, Fifteen = 15, Thirty = 30 }

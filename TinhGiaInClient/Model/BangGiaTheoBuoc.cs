@@ -24,6 +24,7 @@ namespace TinhGiaInClient.Model
                 {
                     ID = x.ID,
                     Ten = x.Ten,
+                    DienGiai = x.DienGiai,
                     DaySoLuong = x.DaySoLuong,
                     DayGia = x.DayGia,
                     LoaiBangGia = x.LoaiBangGia,
@@ -73,6 +74,7 @@ namespace TinhGiaInClient.Model
         {
             bangGia.ID = bangGiaBDO.ID;
             bangGia.Ten = bangGiaBDO.Ten;
+            bangGia.DienGiai = bangGiaBDO.DienGiai;
             bangGia.LoaiBangGia = bangGiaBDO.LoaiBangGia;
             bangGia.DaySoLuong = bangGiaBDO.DaySoLuong;
             bangGia.DayGia = bangGiaBDO.DayGia;
@@ -85,7 +87,7 @@ namespace TinhGiaInClient.Model
         {
             bangGiaBDO.ID = bangGia.ID;
             bangGiaBDO.Ten = bangGia.Ten;
-           
+            bangGiaBDO.DienGiai = bangGia.DienGiai;
             bangGiaBDO.DaySoLuong = bangGia.DaySoLuong;
             bangGiaBDO.DayGia = bangGia.DayGia;
             bangGiaBDO.DonViTinh = bangGia.DonViTinh;

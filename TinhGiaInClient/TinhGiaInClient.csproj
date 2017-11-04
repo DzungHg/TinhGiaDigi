@@ -269,6 +269,7 @@
     <Compile Include="Presenter\GiaTheNhuaPresenter.cs" />
     <Compile Include="Presenter\GiayDeBoiPresenter.cs" />
     <Compile Include="Presenter\GiayInDanhThiepPresenter.cs" />
+    <Compile Include="Presenter\HoTro.cs" />
     <Compile Include="Presenter\InSachDigiPresenter.cs" />
     <Compile Include="Presenter\KhoSanPhamPresenter.cs" />
     <Compile Include="Presenter\ThCatDeCalPresenter.cs" />

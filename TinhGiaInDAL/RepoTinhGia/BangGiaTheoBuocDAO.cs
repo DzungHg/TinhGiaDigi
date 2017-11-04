@@ -19,6 +19,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 {
                     ID = x.ID,
                     Ten = x.ten,
+                    DienGiai = x.dien_giai,
                     DayGia = x.day_gia,
                     DaySoLuong = x.day_so_luong,
                     KhongCon = (bool)x.khong_con,
@@ -43,6 +44,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 {
                     ID = x.ID,
                     Ten = x.ten,
+                    DienGiai = x.dien_giai,
                     DayGia = x.day_gia,
                     DaySoLuong = x.day_so_luong,
                     KhongCon = (bool)x.khong_con,
@@ -134,7 +136,8 @@ namespace TinhGiaInDAL.RepoTinhGia
         private void ChuyenBDOThanhDAO(BangGiaTheoBuocBDO entityBDO, BANG_GIA_THEO_BUOC entityDAO)
         {
             entityDAO.ID = entityBDO.ID;
-            entityDAO.ten= entityBDO.Ten;            
+            entityDAO.ten= entityBDO.Ten;
+            entityDAO.dien_giai = entityBDO.DienGiai;
             entityDAO.day_gia = entityBDO.DayGia;
             entityDAO.day_so_luong = entityBDO.DaySoLuong;
             entityDAO.khong_con = entityBDO.KhongCon;

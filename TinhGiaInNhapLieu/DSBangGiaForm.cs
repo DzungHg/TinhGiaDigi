@@ -31,6 +31,7 @@ namespace TinhGiaInNhapLieu
             lstBangGia.DataMember = "ID";
 
         }
+        public string Ten { get; set; }
 
         public void BatNutNhan()
         {
@@ -62,6 +63,13 @@ namespace TinhGiaInNhapLieu
 
                 e.Column.Width = 100;
             }
+            if (e.Column.FieldName == "DienGiai")
+            {
+                e.Column.HeaderText = "Diễn giải";
+
+                e.Column.Width = 150;
+            }
+
             if (e.Column.FieldName == "DaySoLuong")
             {
                 e.Column.Visible = false;
@@ -90,7 +98,7 @@ namespace TinhGiaInNhapLieu
             {
                 e.Column.HeaderText = "Loại";
 
-                e.Column.Width = 50;
+                e.Column.Width = 100;
             }
         }
 
@@ -110,6 +118,23 @@ namespace TinhGiaInNhapLieu
                 }
                 BatNutNhan();
             
+        }
+
+        private void DSBangGiaForm_Resize(object sender, EventArgs e)
+        {
+            lstBangGia.Width = ClientSize.Width - 4;
+            lstBangGia.Height = ClientSize.Height - lblTieuDe.Height - btnNhan.Height - 6 ;
+            lblTieuDe.Left = (this.ClientSize.Width - lblTieuDe.Width) / 2;
+            lblTieuDe.Top = 2;
+            lstBangGia.Top = lblTieuDe.Top + lblTieuDe.Height + 2;
+            lstBangGia.Left = (this.ClientSize.Width - lstBangGia.Width) / 2;
+
+            btnNhan.Left = (this.ClientSize.Width - btnNhan.Width) /2 ;
+            btnNhan.Top = lstBangGia.Top + lstBangGia.Height + 2;
+            
+
+
+
         }
     }
 }

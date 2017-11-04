@@ -511,7 +511,15 @@ namespace TinhGiaInNhapLieu
 
         private void btnNY_GiaInNhanh_Click(object sender, EventArgs e)
         {
-            var frm = new DSBangGiaForm();
+            var frm = new NiemYetGiaInNhanhForm();
+            frm.TinhTrangForm = FormStateS.View;
+            //if (!CoTheMoFormNay(frm.Name)) //không có tên form
+             //   return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Niêm yết giá in nhanh";
+            frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }
        

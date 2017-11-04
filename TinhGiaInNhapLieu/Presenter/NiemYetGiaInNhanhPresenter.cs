@@ -17,9 +17,9 @@ namespace TinhGiaInNhapLieu.Presenter
             View = view;
             
         }
-        public List<BangGiaInNhanh> BangGiaInNhanhS()
+        public List<NiemYetGiaInNhanh> DanhSachNiemYet()
         {
-            return BangGiaInNhanh.DocTatCa();
+            return NiemYetGiaInNhanh.DocTatCa();
         }
         public List<HangKhachHang> HangKhachHangS()
         {
@@ -28,43 +28,64 @@ namespace TinhGiaInNhapLieu.Presenter
         public void TrinhBayThemMoi()
         {
             View.ID = 0;
-            View.Ten = "";
+            View.IdBangGia = 0;
             View.DienGiai = "Mô tả";
-            View.NoiDungBangGia = "Cần thiết";
+            
             View.IdHangKhachHang = 0;
-            View.SoTrangToiDaTinh = 0;
-                  
-            View.DaySoLuong = ";";
-            View.DayGiaTrang = ";";
+            View.SoTrangToiDa = 0;
+
+            View.LoaiBangGia = "";
             View.DaySoLuongNiemYet = ";";
             View.ThuTu = 100;
-            View.GiaTheoKhoang = false;
+            
        
             View.KhongSuDung = false;
         }
-        public void TrinhBayChiTietMayIn()
+        public void TrinhBayChiTietNiemYet()
         {
             if (View.ID <= 0)
                 return;
 
-            var bangGiaIn = BangGiaInNhanh.DocTheoId(View.ID);
-            View.ID = bangGiaIn.ID;
-            View.Ten = bangGiaIn.TenBangGia;
-            View.DienGiai = bangGiaIn.MoTa;
-            View.NoiDungBangGia = bangGiaIn.NoiDungBangGia;
-            View.IdHangKhachHang = bangGiaIn.IdHangKhachHang;
+            var niemYetGia = NiemYetGiaInNhanh.DocTheoId(View.ID);
+            View.ID = niemYetGia.ID;
+            View.TenNiemYet = niemYetGia.Ten;
+            View.DienGiai = niemYetGia.DienGiai;
+            View.IdBangGia  = niemYetGia.IdBangGia;
+            View.LoaiBangGia = niemYetGia.LoaiBangGia;
+            View.IdHangKhachHang = niemYetGia.IdHangKhachHang;
           
-            View.SoTrangToiDaTinh = bangGiaIn.SoTrangToiDa;
-            View.DaySoLuong = bangGiaIn.DaySoLuong;
-            View.DayGiaTrang = bangGiaIn.DayGia;
-            View.DaySoLuongNiemYet = bangGiaIn.DaySoLuongNiemYet;
-            View.ThuTu = bangGiaIn.ThuTu;
-            View.GiaTheoKhoang = bangGiaIn.GiaTheoKhoang;
+            View.SoTrangToiDa = niemYetGia.SoTrangToiDa;
+           
+            View.DaySoLuongNiemYet = niemYetGia.DaySoLuongNiemYet;
+            View.ThuTu = niemYetGia.ThuTu;
+            
           
-            View.KhongSuDung = bangGiaIn.KhongSuDung;
+            View.KhongSuDung = niemYetGia.KhongSuDung;
+            //Cập nhật chi tiết BG
+            CapNhatChiTietBangGia();
+
             
         }
-        public string DienGiaiHangKhachHang()
+        public string TenBangGia (int iDBangGia, string loaiBangGia)
+        {
+            var kq = "";
+            if (iDBangGia > 0 && !string.IsNullOrEmpty(loaiBangGia))
+            {
+                kq  = DanhSachBangGia.DocTheoIDvaLoai(iDBangGia, loaiBangGia).Ten;               
+
+            }
+            return kq;
+        }
+        public void CapNhatChiTietBangGia()
+        {
+            if (View.IdBangGia >0 && !string.IsNullOrEmpty(View.LoaiBangGia) )
+            {
+                var bangGia = DanhSachBangGia.DocTheoIDvaLoai(View.IdBangGia, View.LoaiBangGia);
+                View.TenBangGia = bangGia.Ten;
+                
+            }
+        }
+        public string DienGiaiHangKH()
         {
             var kq = "";
             if (View.IdHangKhachHang > 0)
@@ -72,52 +93,30 @@ namespace TinhGiaInNhapLieu.Presenter
 
             return kq;
         }
-        public void NhanDoiBangGia(ref string thongDiep)
-        {
-            if (View.ID <= 0)
-            {
-                thongDiep = "Thất bại";
-                return;
-            }
-            var bangGiaInNhanh = new BangGiaInNhanh();
-            
-            bangGiaInNhanh.TenBangGia = View.Ten + " Copy";
-            bangGiaInNhanh.MoTa = View.DienGiai;
-            bangGiaInNhanh.NoiDungBangGia = View.NoiDungBangGia;
-            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;
-            bangGiaInNhanh.SoTrangToiDa = View.SoTrangToiDaTinh;
-            bangGiaInNhanh.DaySoLuong = View.DaySoLuong;
-            bangGiaInNhanh.DayGia = View.DayGiaTrang;
-            bangGiaInNhanh.DaySoLuongNiemYet = View.DaySoLuongNiemYet;
-            bangGiaInNhanh.GiaTheoKhoang = View.GiaTheoKhoang;
-            bangGiaInNhanh.ThuTu = View.ThuTu;
-            bangGiaInNhanh.KhongSuDung = View.KhongSuDung;
-
-            thongDiep = BangGiaInNhanh.Them(bangGiaInNhanh);
-        }
+        
         public void Luu(ref string thongDiep)
         {
-            BangGiaInNhanh bangGiaInNhanh = new BangGiaInNhanh();
-            bangGiaInNhanh.ID = View.ID; 
-            bangGiaInNhanh.TenBangGia = View.Ten;
-            bangGiaInNhanh.MoTa = View.DienGiai;
-            bangGiaInNhanh.NoiDungBangGia = View.NoiDungBangGia;
-            bangGiaInNhanh.IdHangKhachHang = View.IdHangKhachHang;           
+            var niemYetGia = new NiemYetGiaInNhanh();
+            niemYetGia.ID = View.ID;
+            niemYetGia.Ten = View.TenNiemYet;
+            niemYetGia.DienGiai = View.DienGiai;
+            niemYetGia.IdBangGia = View.IdBangGia;
           
-            bangGiaInNhanh.SoTrangToiDa = View.SoTrangToiDaTinh;
-            bangGiaInNhanh.DaySoLuong = View.DaySoLuong;
-            bangGiaInNhanh.DayGia = View.DayGiaTrang;
-            bangGiaInNhanh.DaySoLuongNiemYet = View.DaySoLuongNiemYet;
-            bangGiaInNhanh.GiaTheoKhoang = View.GiaTheoKhoang;   
-            bangGiaInNhanh.ThuTu = View.ThuTu;
-            bangGiaInNhanh.KhongSuDung = View.KhongSuDung;
+            niemYetGia.IdHangKhachHang = View.IdHangKhachHang;
+            niemYetGia.LoaiBangGia = View.LoaiBangGia;
+            niemYetGia.SoTrangToiDa = View.SoTrangToiDa;
+           
+            niemYetGia.DaySoLuongNiemYet = View.DaySoLuongNiemYet;
+           
+            niemYetGia.ThuTu = View.ThuTu;
+            niemYetGia.KhongSuDung = View.KhongSuDung;
             switch (View.TinhTrangForm)
             {
                 case TinhGiaInClient.FormStateS.Edit:
-                    BangGiaInNhanh.Sua(ref thongDiep, bangGiaInNhanh);
+                    NiemYetGiaInNhanh.Sua(ref thongDiep, niemYetGia);
                     break;
                 case TinhGiaInClient.FormStateS.New:
-                    thongDiep = BangGiaInNhanh.Them(bangGiaInNhanh);
+                    thongDiep =  NiemYetGiaInNhanh.Them(niemYetGia);
                     break;
 
             }
