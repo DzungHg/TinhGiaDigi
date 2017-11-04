@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangGiaDO.cs" />
+    <Compile Include="NiemYetGiaInNhanhBDO.cs" />
+    <Compile Include="BangGiaTheoBuocBDO.cs" />
+    <Compile Include="BangGiaLuyTienBDO.cs" />
     <Compile Include="BangGiaTheNhuaBDO.cs" />
     <Compile Include="BangGiaDanhThiepBDO.cs" />
     <Compile Include="BangGiaInNhanhBDO.cs" />

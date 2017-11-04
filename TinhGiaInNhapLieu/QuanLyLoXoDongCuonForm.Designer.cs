@@ -271,6 +271,7 @@
             this.lstLoXo.TabIndex = 17;
             this.lstLoXo.Text = "radListView1";
             this.lstLoXo.ViewType = Telerik.WinControls.UI.ListViewType.DetailsView;
+            this.lstLoXo.SelectedItemChanged += new System.EventHandler(this.lstLoXo_SelectedItemChanged);
             this.lstLoXo.ColumnCreating += new Telerik.WinControls.UI.ListViewColumnCreatingEventHandler(this.lstLoXo_ColumnCreating);
             // 
             // QuanLyLoXoDongCuonForm

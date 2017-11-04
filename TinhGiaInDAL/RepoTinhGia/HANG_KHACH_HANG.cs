@@ -20,6 +20,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             this.MARK_UP_LOI_NHUAN_GIAY = new HashSet<MARK_UP_LOI_NHUAN_GIAY>();
             this.BANG_GIA_DANH_THIEP = new HashSet<BANG_GIA_DANH_THIEP>();
             this.BANG_GIA_THE_NHUA = new HashSet<BANG_GIA_THE_NHUA>();
+            this.NY_GIA_IN_NHANH = new HashSet<NY_GIA_IN_NHANH>();
         }
     
         public int ID { get; set; }
@@ -35,5 +36,6 @@ namespace TinhGiaInDAL.RepoTinhGia
         public virtual ICollection<MARK_UP_LOI_NHUAN_GIAY> MARK_UP_LOI_NHUAN_GIAY { get; set; }
         public virtual ICollection<BANG_GIA_DANH_THIEP> BANG_GIA_DANH_THIEP { get; set; }
         public virtual ICollection<BANG_GIA_THE_NHUA> BANG_GIA_THE_NHUA { get; set; }
+        public virtual ICollection<NY_GIA_IN_NHANH> NY_GIA_IN_NHANH { get; set; }
     }
 }

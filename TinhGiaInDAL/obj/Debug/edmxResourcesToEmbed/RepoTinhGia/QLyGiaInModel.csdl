@@ -104,6 +104,13 @@
     </AssociationSet>
     <EntitySet Name="MAY_BOI_NHIEU_LOP" EntityType="QuanLyGiaInModel.MAY_BOI_NHIEU_LOP" />
     <EntitySet Name="MAY_KHOAN_BO_GOC" EntityType="QuanLyGiaInModel.MAY_KHOAN_BO_GOC" />
+    <EntitySet Name="BANG_GIA_LUY_TIEN" EntityType="QuanLyGiaInModel.BANG_GIA_LUY_TIEN" />
+    <EntitySet Name="BANG_GIA_THEO_BUOC" EntityType="QuanLyGiaInModel.BANG_GIA_THEO_BUOC" />
+    <EntitySet Name="NY_GIA_IN_NHANH" EntityType="QuanLyGiaInModel.NY_GIA_IN_NHANH" />
+    <AssociationSet Name="FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG" Association="QuanLyGiaInModel.FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG">
+      <End Role="HANG_KHACH_HANG" EntitySet="HANG_KHACH_HANG" />
+      <End Role="NY_GIA_IN_NHANH" EntitySet="NY_GIA_IN_NHANH" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="KHO_SAN_PHAM">
     <Key>
@@ -234,6 +241,7 @@
     <NavigationProperty Name="BANG_GIA_DANH_THIEP" Relationship="QuanLyGiaInModel.FK_BANG_GIA_DANH_THIEP_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="BANG_GIA_DANH_THIEP" />
     <Property Name="ma_hieu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="BANG_GIA_THE_NHUA" Relationship="QuanLyGiaInModel.FK_BANG_GIA_THE_NHUA_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="BANG_GIA_THE_NHUA" />
+    <NavigationProperty Name="NY_GIA_IN_NHANH" Relationship="QuanLyGiaInModel.FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG" FromRole="HANG_KHACH_HANG" ToRole="NY_GIA_IN_NHANH" />
   </EntityType>
   <Association Name="FK_BANG_GIA_IN_NHANH_HANG_KHACH_HANG">
     <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
@@ -846,4 +854,57 @@
     <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="thu_tu" Type="Int32" />
   </EntityType>
+  <EntityType Name="BANG_GIA_LUY_TIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="day_gia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="khong_con" Type="Boolean" />
+    <Property Name="thu_tu" Type="Int32" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="loai_bang_gia" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BANG_GIA_THEO_BUOC">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ten" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="day_so_luong" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="day_gia" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="khong_con" Type="Boolean" />
+    <Property Name="thu_tu" Type="Int32" />
+    <Property Name="don_vi_tinh" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="loai_bang_gia" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="NY_GIA_IN_NHANH">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dien_giai" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ID_BANG_GIA" Type="Int32" />
+    <Property Name="thu_tu" Type="Int32" />
+    <Property Name="ID_HANG_KHACH_HANG" Type="Int32" />
+    <Property Name="so_trang_toi_da" Type="Int32" />
+    <Property Name="khong_su_dung" Type="Boolean" />
+    <Property Name="day_so_luong_niem_yet" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="LOAI_BANG_GIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HANG_KHACH_HANG" Relationship="QuanLyGiaInModel.FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG" FromRole="NY_GIA_IN_NHANH" ToRole="HANG_KHACH_HANG" />
+  </EntityType>
+  <Association Name="FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG">
+    <End Type="QuanLyGiaInModel.HANG_KHACH_HANG" Role="HANG_KHACH_HANG" Multiplicity="0..1" />
+    <End Type="QuanLyGiaInModel.NY_GIA_IN_NHANH" Role="NY_GIA_IN_NHANH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANG_KHACH_HANG">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NY_GIA_IN_NHANH">
+        <PropertyRef Name="ID_HANG_KHACH_HANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

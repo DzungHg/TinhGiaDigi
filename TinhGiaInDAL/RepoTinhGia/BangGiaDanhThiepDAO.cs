@@ -89,7 +89,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     SoDanhThiepTrenHop = (int)x.so_danh_thiep_tren_hop,
                     ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
-                
+
             }
             catch { }
 
@@ -137,7 +137,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 {
                     kq = KiemTraTrung(entityBDO.Ten, entityBDO.ID);
                     if (kq != "")
-                    {                       
+                    {
                         return kq;
                     }
                     ChuyenBDOThanhDAO(entityBDO, entity);
@@ -152,7 +152,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             }
             else
             {
-                kq = string.Format("Mục tin {0} không tồn tại!", entity.ID);               
+                kq = string.Format("Mục tin {0} không tồn tại!", entity.ID);
             }
             return kq;
         }
@@ -169,7 +169,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                 kq = string.Format("Tên {0} đã có rồi!", value);
             return kq;
         }
-#endregion
+        #endregion
         private void ChuyenBDOThanhDAO(BangGiaDanhThiepBDO entityBDO, BANG_GIA_DANH_THIEP entityDAO)
         {
             entityDAO.ID = entityBDO.ID;

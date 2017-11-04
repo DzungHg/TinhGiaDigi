@@ -48,14 +48,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RepoTinhGia\NiemYetGiaInNhanhDAO.cs" />
+    <Compile Include="RepoTinhGia\BangGiaTheoBuocDAO.cs" />
+    <Compile Include="RepoTinhGia\BangGiaLuyTienDAO.cs" />
     <Compile Include="RepoTinhGia\BangGiaTheNhuaDAO.cs" />
     <Compile Include="RepoTinhGia\BangGiaDanhThiepDAO.cs" />
     <Compile Include="RepoTinhGia\BANG_GIA_DANH_THIEP.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\BANG_GIA_LUY_TIEN.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepoTinhGia\BANG_GIA_THEO_BUOC.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RepoTinhGia\BANG_GIA_THE_NHUA.cs">
       <DependentUpon>QLyGiaInModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepoTinhGia\INiemYetGiaInNhanhDAO.cs" />
+    <Compile Include="RepoTinhGia\IBangGiaTheoBuocDAO.cs" />
+    <Compile Include="RepoTinhGia\IBangGiaLuyTienDAO.cs" />
     <Compile Include="RepoTinhGia\IMayKhoanBoGocDAO.cs" />
     <Compile Include="RepoTinhGia\MayKhoanBoGocDAO.cs" />
     <Compile Include="RepoTinhGia\MayBoiNhieuLopDAO.cs" />
@@ -151,6 +163,9 @@
     </Compile>
     <Compile Include="RepoTinhGia\LoXoDongCuonDAO.cs" />
     <Compile Include="RepoTinhGia\KhuonBeDAO.cs" />
+    <Compile Include="RepoTinhGia\NY_GIA_IN_NHANH.cs">
+      <DependentUpon>QLyGiaInModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RepoTinhGia\TuyChonTheNhuaDAO.cs" />
     <Compile Include="RepoTinhGia\TuyChonDanhThiepDAO.cs" />
     <Compile Include="RepoTinhGia\ToBoiBiaCungDAO.cs" />

@@ -371,6 +371,11 @@ namespace TinhGiaInNhapLieu
 
         }
 
+        private void lstLoXo_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

@@ -55,6 +55,10 @@
         <AssociationConnector Association="QuanLyGiaInModel.FK_KHUON_BE_MAY_BE" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_BOI_NHIEU_LOP" Width="1.5" PointX="0.75" PointY="15.75" />
         <EntityTypeShape EntityType="QuanLyGiaInModel.MAY_KHOAN_BO_GOC" Width="1.5" PointX="16.375" PointY="5.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.BANG_GIA_LUY_TIEN" Width="1.5" PointX="16.375" PointY="10.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.BANG_GIA_THEO_BUOC" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="QuanLyGiaInModel.NY_GIA_IN_NHANH" Width="1.5" PointX="5.125" PointY="23.625" />
+        <AssociationConnector Association="QuanLyGiaInModel.FK_NY_GIA_IN_NHANH_HANG_KHACH_HANG" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

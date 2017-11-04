@@ -64,11 +64,13 @@
             this.btnQuanLy_DCuonMP = new System.Windows.Forms.Button();
             this.btnQuanLy_CatDecal = new System.Windows.Forms.Button();
             this.btnQuanLy_BoiBiaCung = new System.Windows.Forms.Button();
+            this.btnQuanLy_DCuonLXo = new System.Windows.Forms.Button();
             this.tabTuyChon = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGiaTuyChonDanhThiep = new System.Windows.Forms.Button();
             this.btnGiaTuyChonTheNhua = new System.Windows.Forms.Button();
-            this.btnQuanLy_DCuonLXo = new System.Windows.Forms.Button();
+            this.tabNiemYetGia = new System.Windows.Forms.TabPage();
+            this.btnNY_GiaInNhanh = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -81,6 +83,7 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.tabTuyChon.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.tabNiemYetGia.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -160,6 +163,7 @@
             this.tabCtrl.Controls.Add(this.tabNgVatLieu);
             this.tabCtrl.Controls.Add(this.tabThanhPham);
             this.tabCtrl.Controls.Add(this.tabTuyChon);
+            this.tabCtrl.Controls.Add(this.tabNiemYetGia);
             this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtrl.Location = new System.Drawing.Point(0, 60);
             this.tabCtrl.Name = "tabCtrl";
@@ -457,6 +461,16 @@
             this.btnQuanLy_BoiBiaCung.UseVisualStyleBackColor = true;
             this.btnQuanLy_BoiBiaCung.Click += new System.EventHandler(this.btnQuanLy_BoiBiaCung_Click);
             // 
+            // btnQuanLy_DCuonLXo
+            // 
+            this.btnQuanLy_DCuonLXo.Location = new System.Drawing.Point(297, 46);
+            this.btnQuanLy_DCuonLXo.Name = "btnQuanLy_DCuonLXo";
+            this.btnQuanLy_DCuonLXo.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLy_DCuonLXo.TabIndex = 12;
+            this.btnQuanLy_DCuonLXo.Text = "Đ. Cuốn Lò xo";
+            this.btnQuanLy_DCuonLXo.UseVisualStyleBackColor = true;
+            this.btnQuanLy_DCuonLXo.Click += new System.EventHandler(this.btnQuanLy_DCuonLXo_Click);
+            // 
             // tabTuyChon
             // 
             this.tabTuyChon.Controls.Add(this.flowLayoutPanel2);
@@ -499,15 +513,26 @@
             this.btnGiaTuyChonTheNhua.UseVisualStyleBackColor = true;
             this.btnGiaTuyChonTheNhua.Click += new System.EventHandler(this.btnGiaTuyChonTheNhua_Click);
             // 
-            // btnQuanLy_DCuonLXo
+            // tabNiemYetGia
             // 
-            this.btnQuanLy_DCuonLXo.Location = new System.Drawing.Point(297, 46);
-            this.btnQuanLy_DCuonLXo.Name = "btnQuanLy_DCuonLXo";
-            this.btnQuanLy_DCuonLXo.Size = new System.Drawing.Size(92, 37);
-            this.btnQuanLy_DCuonLXo.TabIndex = 12;
-            this.btnQuanLy_DCuonLXo.Text = "Đ. Cuốn Lò xo";
-            this.btnQuanLy_DCuonLXo.UseVisualStyleBackColor = true;
-            this.btnQuanLy_DCuonLXo.Click += new System.EventHandler(this.btnQuanLy_DCuonLXo_Click);
+            this.tabNiemYetGia.Controls.Add(this.btnNY_GiaInNhanh);
+            this.tabNiemYetGia.Location = new System.Drawing.Point(4, 22);
+            this.tabNiemYetGia.Name = "tabNiemYetGia";
+            this.tabNiemYetGia.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNiemYetGia.Size = new System.Drawing.Size(418, 207);
+            this.tabNiemYetGia.TabIndex = 5;
+            this.tabNiemYetGia.Text = "Niêm yết giá";
+            this.tabNiemYetGia.UseVisualStyleBackColor = true;
+            // 
+            // btnNY_GiaInNhanh
+            // 
+            this.btnNY_GiaInNhanh.Location = new System.Drawing.Point(8, 6);
+            this.btnNY_GiaInNhanh.Name = "btnNY_GiaInNhanh";
+            this.btnNY_GiaInNhanh.Size = new System.Drawing.Size(92, 37);
+            this.btnNY_GiaInNhanh.TabIndex = 10;
+            this.btnNY_GiaInNhanh.Text = "Giá in nhanh";
+            this.btnNY_GiaInNhanh.UseVisualStyleBackColor = true;
+            this.btnNY_GiaInNhanh.Click += new System.EventHandler(this.btnNY_GiaInNhanh_Click);
             // 
             // NhapLieuMainForm
             // 
@@ -540,6 +565,7 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tabTuyChon.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.tabNiemYetGia.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,6 +614,8 @@
         private System.Windows.Forms.Button btnBangGiaDanhThiep;
         private System.Windows.Forms.Button btnBangGiaTheNhua;
         private System.Windows.Forms.Button btnQuanLy_DCuonLXo;
+        private System.Windows.Forms.TabPage tabNiemYetGia;
+        private System.Windows.Forms.Button btnNY_GiaInNhanh;
 
     }
 }
