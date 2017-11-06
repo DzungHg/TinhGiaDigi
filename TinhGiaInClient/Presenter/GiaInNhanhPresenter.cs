@@ -21,7 +21,7 @@ namespace TinhGiaInClient.Presenter
 
             View.ID = MucGiaInNhanh.ID;
             View.IdMayInOrToIn = MucGiaInNhanh.IdMayIn;
-            View.IdNiemYetChon = MucGiaInNhanh.IdBangGiaInNhanh;
+            View.IdNiemYetChon = MucGiaInNhanh.IdNiemYetGiaInNhanh;
             View.IdBaiIn = MucGiaInNhanh.IdBaiIn;
             View.IdHangKH = MucGiaInNhanh.IdHangKhachHang;
             View.SoToChay = MucGiaInNhanh.SoToChay;
@@ -144,7 +144,7 @@ namespace TinhGiaInClient.Presenter
                 MucGiaInNhanh.IdBaiIn = View.IdBaiIn;
                 MucGiaInNhanh.PhuongPhapIn = View.PhuongPhapIn;
                 MucGiaInNhanh.IdMayIn = View.IdMayInOrToIn;
-                MucGiaInNhanh.IdBangGiaInNhanh = View.IdNiemYetChon;
+                MucGiaInNhanh.IdNiemYetGiaInNhanh = View.IdNiemYetChon;
                 MucGiaInNhanh.SoTrangIn = View.SoTrangA4;
                 MucGiaInNhanh.IdHangKhachHang = View.IdHangKH;
                 MucGiaInNhanh.SoToChay = View.SoToChay;

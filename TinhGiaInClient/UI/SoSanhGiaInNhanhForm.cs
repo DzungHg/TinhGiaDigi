@@ -328,11 +328,61 @@ namespace TinhGiaInClient.UI
             kq = strB.ToString();
             return kq;
         }
+        private string XayDungBangGia(ListView listView)
+        {
+            var kq = "";
 
+            if (listView.Items.Count <= 0)
+                return "";
+            //Tính
+            //Lấy cột
+            for (int i = 0; i < listView.Columns.Count; i++)
+            {
+                kq += listView.Columns[i].Text + "\t";
+            }
+            kq += "\r" + "\n";
+            var strB = new StringBuilder();
+            strB.Append(kq);
+            var str2 = "";
+            var str3 = "";
+            //Lấy hàng
+            foreach (ListViewItem item in listView.Items)
+            {
+                str2 = item.Text + "\t";
+                for (int i = 1; i < item.SubItems.Count; i++)
+                {
+                    str3 += item.SubItems[i].Text + "\t";
+
+                }
+                //nối 2 và 3
+                //MessageBox.Show(str3);
+                //break;
+                str2 += str3 + "\r" + "\n";
+
+                strB.Append(str2);
+                str3 = "";
+                str2 = "";
+                //kq += str2;
+            }
+            kq = strB.ToString();
+            return kq;
+        }
         private void btnCopy_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(this.LayChuoiKetQua()))
                 Clipboard.SetText(this.LayChuoiKetQua());
+        }
+
+        private void btnCopyBangGiaA_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.XayDungBangGia(lvwTrinhBayBangGiaA)))
+                Clipboard.SetText(this.XayDungBangGia(lvwTrinhBayBangGiaA));
+        }
+
+        private void btnCopyBangGiaB_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(this.XayDungBangGia(lvwTrinhBayBangGiaB)))
+                Clipboard.SetText(this.XayDungBangGia(lvwTrinhBayBangGiaB));
         }
 
 

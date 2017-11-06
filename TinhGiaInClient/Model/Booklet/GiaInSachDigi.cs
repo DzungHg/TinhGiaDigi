@@ -133,7 +133,7 @@ namespace TinhGiaInClient.Model.Booklet
 
             decimal kq = 0;
             //Lấy mục giá in đầu tiên để tính
-            var idBangGiaInNhanh = this.InRuot.GiaInS[0].IdBangGiaInNhanh;
+            var idBangGiaInNhanh = this.InRuot.GiaInS[0].IdNiemYetGiaInNhanh;
             var idToInDigi = this.InRuot.GiaInS[0].IdMayIn;
             var tyLeMarkUpSalesIn = HangKhachHang.LayTheoId(this.IdHangKhachHang).LoiNhuanChenhLech;
             /// Đoạn này tạm ngừng vì giá in cataloque là riêng //đã sửa lại

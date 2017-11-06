@@ -755,3 +755,4 @@ D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.GiayDeBoiForm.re
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhKhoanBoGocForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ThPhKhoanBoGocForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.SoSanhGiaInNhanhForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.SoSanhGiaInNhanhForm.resources

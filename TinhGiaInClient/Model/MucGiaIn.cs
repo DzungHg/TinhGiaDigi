@@ -15,7 +15,7 @@ namespace TinhGiaInClient.Model
         public PhuongPhapInS PhuongPhapIn { get; set; }
         public int SoMatIn { get; set; }        
         public int IdMayIn { get; set; }
-        public int IdBangGiaInNhanh { get; set; }
+        public int IdNiemYetGiaInNhanh { get; set; }
         public int SoToChay { get; set; }
         public int SoTrangIn { get; set; }
         public decimal TienIn { get; set; }

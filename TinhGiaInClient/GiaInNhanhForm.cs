@@ -29,11 +29,10 @@ namespace TinhGiaInClient
             giaInPres = new GiaInNhanhPresenter(this, giaIn);
             //Nạp bảng giá vô combo
             LoadNiemYetGia();
-            cboNiemYetGia.SelectedIndex = -1;
-            cboNiemYetGia.SelectedIndex = 0;
+            
             //Chọn bảng giá ở đây
             if (this.TinhTrangForm == FormStateS.Edit)
-                this.IdNiemYetChon = giaIn.IdBangGiaInNhanh;
+                this.IdNiemYetChon = giaIn.IdNiemYetGiaInNhanh;
 
             //-event            
             txtSoTrangA4.TextChanged += new EventHandler(TextBoxes_TextedChanged);

@@ -215,16 +215,16 @@ namespace TinhGiaInClient.Model
         //--- Đoạn này lấy IdBangGia và Id máy in nhanh dùng cho tính tổng tiền
         //-- in của Tính giá trong ngày
       
-        public int IdBangGiaInNhanhChung()
+        public int IdNiemYetGiaInNhanhChung()
         {
             var kq = 0;
             if (this.GiaInS.Count > 0)
             {
                 foreach (MucGiaIn giaIn in this.GiaInS)
                 {
-                    if (giaIn.IdBangGiaInNhanh > 0)
+                    if (giaIn.IdNiemYetGiaInNhanh > 0)
                     {
-                        kq = giaIn.IdBangGiaInNhanh;
+                        kq = giaIn.IdNiemYetGiaInNhanh;
                         break;
                     }
                 }
@@ -238,7 +238,7 @@ namespace TinhGiaInClient.Model
             {
                 foreach (MucGiaIn giaIn in this.GiaInS)
                 {
-                    if (giaIn.IdBangGiaInNhanh > 0)
+                    if (giaIn.IdNiemYetGiaInNhanh > 0)
                     {
                         kq = giaIn.IdMayIn;
                         break;

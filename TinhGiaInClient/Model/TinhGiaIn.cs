@@ -108,29 +108,33 @@ namespace TinhGiaInClient.Model
         public decimal TongTienInBaiInTinhLai()//Gom lại tính gộp
         {
             decimal kq = 0;
-            var idBangGiaInNhanh = 0;
+            var idNiemYetGiaInNhanh = 0;
             var idMayInDigiChon = 0;
             if (this.TongSoTrangInA4BaiIn() > 0)
             {
                 //Tìm mục nào có IdBangGiaInNhanh chung > 0 thì dừng
                 foreach (BaiIn baiIn in this.KetQuaBaiInS)
                 {
-                    if (baiIn.IdBangGiaInNhanhChung() > 0)
+                    if (baiIn.IdNiemYetGiaInNhanhChung() > 0)
                     {
-                        idBangGiaInNhanh = baiIn.IdBangGiaInNhanhChung();
+                        idNiemYetGiaInNhanh = baiIn.IdNiemYetGiaInNhanhChung();
                         idMayInDigiChon = baiIn.IdMayInDigiChung();
                     }
 
                 }
-                if (idBangGiaInNhanh <= 0 || idMayInDigiChon <= 0)
+                if (idNiemYetGiaInNhanh <= 0 || idMayInDigiChon <= 0)
                 {
                     kq = 0;
                 }
                 else
                 {
+                    //Tạo bảng giá in nhanh
+                    var bangGia = DanhSachBangGia.DocTheoIDvaLoai(NiemYetGiaInNhanh.DocTheoId(idNiemYetGiaInNhanh).IdBangGia,
+                        NiemYetGiaInNhanh.DocTheoId(idNiemYetGiaInNhanh).LoaiBangGia);
+                    var soTrangToiDa = NiemYetGiaInNhanh.DocTheoId(idNiemYetGiaInNhanh).SoTrangToiDa;
 
                     var giaInNhanh = new GiaInNhanhKetHopBangGia_May(this.TongSoTrangInA4BaiIn(),
-                        idBangGiaInNhanh, idMayInDigiChon, this.TyLeMarkupSales());
+                        bangGia, soTrangToiDa, idMayInDigiChon, this.TyLeMarkupSales());
                     kq = giaInNhanh.GiaBan();
                 }
             }

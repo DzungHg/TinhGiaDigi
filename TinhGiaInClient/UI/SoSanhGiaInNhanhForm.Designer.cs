@@ -48,6 +48,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lvwKetQua = new System.Windows.Forms.ListView();
             this.btnCopy = new System.Windows.Forms.Button();
+            this.btnCopyBangGiaA = new System.Windows.Forms.Button();
+            this.btnCopyBangGiaB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboNiemYetGiaA
@@ -72,7 +74,7 @@
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(318, 456);
+            this.btnClose.Location = new System.Drawing.Point(330, 473);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(90, 23);
             this.btnClose.TabIndex = 10;
@@ -235,12 +237,34 @@
             this.btnCopy.UseVisualStyleBackColor = true;
             this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
+            // btnCopyBangGiaA
+            // 
+            this.btnCopyBangGiaA.Location = new System.Drawing.Point(122, 440);
+            this.btnCopyBangGiaA.Name = "btnCopyBangGiaA";
+            this.btnCopyBangGiaA.Size = new System.Drawing.Size(90, 23);
+            this.btnCopyBangGiaA.TabIndex = 126;
+            this.btnCopyBangGiaA.Text = "Copy";
+            this.btnCopyBangGiaA.UseVisualStyleBackColor = true;
+            this.btnCopyBangGiaA.Click += new System.EventHandler(this.btnCopyBangGiaA_Click);
+            // 
+            // btnCopyBangGiaB
+            // 
+            this.btnCopyBangGiaB.Location = new System.Drawing.Point(330, 440);
+            this.btnCopyBangGiaB.Name = "btnCopyBangGiaB";
+            this.btnCopyBangGiaB.Size = new System.Drawing.Size(90, 23);
+            this.btnCopyBangGiaB.TabIndex = 127;
+            this.btnCopyBangGiaB.Text = "Copy";
+            this.btnCopyBangGiaB.UseVisualStyleBackColor = true;
+            this.btnCopyBangGiaB.Click += new System.EventHandler(this.btnCopyBangGiaB_Click);
+            // 
             // SoSanhGiaInNhanhForm
             // 
             this.AcceptButton = this.btnTinh;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 491);
+            this.ClientSize = new System.Drawing.Size(754, 508);
+            this.Controls.Add(this.btnCopyBangGiaB);
+            this.Controls.Add(this.btnCopyBangGiaA);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.lvwKetQua);
             this.Controls.Add(this.label9);
@@ -293,5 +317,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListView lvwKetQua;
         private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.Button btnCopyBangGiaA;
+        private System.Windows.Forms.Button btnCopyBangGiaB;
     }
 }
