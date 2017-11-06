@@ -34,7 +34,7 @@
             this.rdbIn4_0 = new System.Windows.Forms.RadioButton();
             this.rdbIn4_4 = new System.Windows.Forms.RadioButton();
             this.rdbIn4_1 = new System.Windows.Forms.RadioButton();
-            this.cboBangGia = new System.Windows.Forms.ComboBox();
+            this.cboNiemYetGia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
@@ -53,6 +53,7 @@
             this.txtSoLuongToChay = new System.Windows.Forms.TextBox();
             this.cboToInDigi = new System.Windows.Forms.ComboBox();
             this.lblA4TrenToIn = new System.Windows.Forms.Label();
+            this.lblTenLoaiBangGia = new System.Windows.Forms.Label();
             this.grbMatIn.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,15 +127,15 @@
             this.rdbIn4_1.Text = "4/1";
             this.rdbIn4_1.UseVisualStyleBackColor = true;
             // 
-            // cboBangGia
+            // cboNiemYetGia
             // 
-            this.cboBangGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBangGia.FormattingEnabled = true;
-            this.cboBangGia.Location = new System.Drawing.Point(15, 62);
-            this.cboBangGia.Name = "cboBangGia";
-            this.cboBangGia.Size = new System.Drawing.Size(164, 21);
-            this.cboBangGia.TabIndex = 2;
-            this.cboBangGia.SelectedIndexChanged += new System.EventHandler(this.cboBangGia_SelectedIndexChanged);
+            this.cboNiemYetGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNiemYetGia.FormattingEnabled = true;
+            this.cboNiemYetGia.Location = new System.Drawing.Point(15, 62);
+            this.cboNiemYetGia.Name = "cboNiemYetGia";
+            this.cboNiemYetGia.Size = new System.Drawing.Size(164, 21);
+            this.cboNiemYetGia.TabIndex = 2;
+            this.cboNiemYetGia.SelectedIndexChanged += new System.EventHandler(this.cboBangGia_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -243,7 +244,7 @@
             // 
             // lvwBangGia
             // 
-            this.lvwBangGia.Location = new System.Drawing.Point(15, 89);
+            this.lvwBangGia.Location = new System.Drawing.Point(15, 112);
             this.lvwBangGia.Name = "lvwBangGia";
             this.lvwBangGia.Size = new System.Drawing.Size(164, 153);
             this.lvwBangGia.TabIndex = 3;
@@ -261,7 +262,7 @@
             // 
             // txtSoTrangToiDa
             // 
-            this.txtSoTrangToiDa.Location = new System.Drawing.Point(109, 248);
+            this.txtSoTrangToiDa.Location = new System.Drawing.Point(109, 271);
             this.txtSoTrangToiDa.Name = "txtSoTrangToiDa";
             this.txtSoTrangToiDa.ReadOnly = true;
             this.txtSoTrangToiDa.Size = new System.Drawing.Size(70, 20);
@@ -271,7 +272,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 251);
+            this.label9.Location = new System.Drawing.Point(16, 274);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 13);
             this.label9.TabIndex = 110;
@@ -303,12 +304,22 @@
             this.lblA4TrenToIn.TabIndex = 113;
             this.lblA4TrenToIn.Text = "x ? A4";
             // 
+            // lblTenLoaiBangGia
+            // 
+            this.lblTenLoaiBangGia.AutoSize = true;
+            this.lblTenLoaiBangGia.Location = new System.Drawing.Point(16, 86);
+            this.lblTenLoaiBangGia.Name = "lblTenLoaiBangGia";
+            this.lblTenLoaiBangGia.Size = new System.Drawing.Size(63, 13);
+            this.lblTenLoaiBangGia.TabIndex = 114;
+            this.lblTenLoaiBangGia.Text = "Tên loại BG";
+            // 
             // GiaInNhanhThuForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 349);
+            this.Controls.Add(this.lblTenLoaiBangGia);
             this.Controls.Add(this.lblA4TrenToIn);
             this.Controls.Add(this.cboToInDigi);
             this.Controls.Add(this.txtSoLuongToChay);
@@ -327,7 +338,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cboBangGia);
+            this.Controls.Add(this.cboNiemYetGia);
             this.Controls.Add(this.grbMatIn);
             this.Name = "GiaInNhanhThuForm";
             this.Text = "TinhGiaInForm";
@@ -348,7 +359,7 @@
         private System.Windows.Forms.RadioButton rdbIn4_0;
         private System.Windows.Forms.RadioButton rdbIn4_4;
         private System.Windows.Forms.RadioButton rdbIn4_1;
-        private System.Windows.Forms.ComboBox cboBangGia;
+        private System.Windows.Forms.ComboBox cboNiemYetGia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnOK;
@@ -367,5 +378,6 @@
         private System.Windows.Forms.TextBox txtSoLuongToChay;
         private System.Windows.Forms.ComboBox cboToInDigi;
         private System.Windows.Forms.Label lblA4TrenToIn;
+        private System.Windows.Forms.Label lblTenLoaiBangGia;
     }
 }

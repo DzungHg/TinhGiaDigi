@@ -27,7 +27,7 @@ namespace TinhGiaInClient.Model
                 return 0;
             var bangGiaInNhanh = BangGiaInNhanh.DocTheoId(this.IdBangGiaInNhanh);
             if (!bangGiaInNhanh.GiaTheoKhoang) //tính theo  lũy tiến
-                ketQua = TinhToan.GiaInNhanhTheoBang(bangGiaInNhanh.DaySoLuong,
+                ketQua = TinhToan.GiaInLuyTien(bangGiaInNhanh.DaySoLuong,
                     bangGiaInNhanh.DayGia, soLuong);
             else //tính theo khoảng
             {

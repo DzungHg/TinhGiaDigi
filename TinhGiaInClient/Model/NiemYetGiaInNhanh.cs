@@ -21,18 +21,36 @@ namespace TinhGiaInClient.Model
         public bool KhongSuDung { get; set; }
         public string DaySoLuongNiemYet { get; set; }
         public string LoaiBangGia { get; set; }//CONTS
+        public bool DuocGomTrang { get; set; }
 
         string _tenMR = "";
         public string TenMR
         {
             get {
                 if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
-                    _tenMR = string.Format("[L. Tiến]{0}", this.Ten);
+                    _tenMR = string.Format("[L. Tiến] {0}", this.Ten);
                 if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
-                    _tenMR = string.Format("[Bước]{0}", this.Ten);
+                    _tenMR = string.Format("[Bước] {0}", this.Ten);
                 if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
-                    _tenMR = string.Format("[Gói]{0}", this.Ten);
+                    _tenMR = string.Format("[Gói] {0}", this.Ten);
                 return _tenMR;
+
+            }
+        }
+
+        string _tenLoaiBG = "";
+        
+        public string TenLoaiBangGia
+        {
+            get
+            {
+                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                    _tenLoaiBG = "Lũy tiến";
+                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                    _tenLoaiBG = "Theo Bước";
+                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
+                    _tenLoaiBG = " Theo Gói";
+                return _tenLoaiBG;
 
             }
         }
@@ -51,6 +69,7 @@ namespace TinhGiaInClient.Model
                     IdBangGia = x.IdBangGia,
                     Ten = x.Ten,
                     KhongSuDung = x.KhongSuDung,
+                    DuocGomTrang = x.DuocGomTrang,
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
                     DaySoLuongNiemYet = x.DaySoLuongNiemYet,
@@ -81,6 +100,7 @@ namespace TinhGiaInClient.Model
                     DienGiai = x.DienGiai,
                     IdBangGia = x.IdBangGia,
                     KhongSuDung = x.KhongSuDung,
+                    DuocGomTrang = x.DuocGomTrang,
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
                     DaySoLuongNiemYet = x.DaySoLuongNiemYet,
@@ -105,6 +125,7 @@ namespace TinhGiaInClient.Model
                     IdBangGia = x.IdBangGia,
                     Ten = x.Ten,
                     KhongSuDung = x.KhongSuDung,
+                    DuocGomTrang = x.DuocGomTrang,
                     IdHangKhachHang = x.IdHangKhachHang,
                     SoTrangToiDa = x.SoTrangToiDa,
                     DaySoLuongNiemYet = x.DaySoLuongNiemYet,
@@ -155,6 +176,7 @@ namespace TinhGiaInClient.Model
             bGiaInNhanh.DienGiai = bGiaInNhanhBDO.DienGiai;
             bGiaInNhanh.IdBangGia = bGiaInNhanhBDO.IdBangGia;
             bGiaInNhanh.KhongSuDung = bGiaInNhanhBDO.KhongSuDung;
+            bGiaInNhanh.DuocGomTrang = bGiaInNhanhBDO.DuocGomTrang;
             bGiaInNhanh.ThuTu = bGiaInNhanhBDO.ThuTu;
             bGiaInNhanh.IdHangKhachHang = bGiaInNhanhBDO.IdHangKhachHang;
             bGiaInNhanh.SoTrangToiDa = bGiaInNhanhBDO.SoTrangToiDa;           
@@ -171,7 +193,7 @@ namespace TinhGiaInClient.Model
             bGiaInNhanhBDO.ThuTu = bGiaInNhanh.ThuTu;
             bGiaInNhanhBDO.IdHangKhachHang = bGiaInNhanh.IdHangKhachHang;
             bGiaInNhanhBDO.SoTrangToiDa = bGiaInNhanh.SoTrangToiDa;
-           
+            bGiaInNhanhBDO.DuocGomTrang = bGiaInNhanh.DuocGomTrang;
             bGiaInNhanhBDO.DaySoLuongNiemYet = bGiaInNhanh.DaySoLuongNiemYet;
             bGiaInNhanhBDO.LoaiBangGia = bGiaInNhanh.LoaiBangGia;
         }

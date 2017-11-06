@@ -39,7 +39,7 @@ namespace TinhGiaInClient.UI
             }
         }
         int _idMonThanhPham = 0;
-        public int IdBangGiaChon
+        public int IdNiemYetGiaChon
         {
             get
             {
@@ -53,6 +53,7 @@ namespace TinhGiaInClient.UI
                 _idMonThanhPham = value;
             }
         }
+        public int SoTrangToiDaTheoNiemYet { get; set; }
         public string DaySoluong 
         {
             get { return txtDaySoLuong.Text; }
@@ -207,6 +208,11 @@ namespace TinhGiaInClient.UI
             {
                 txtDaySoLuong.Text = "10;11";
             }
+        }
+
+        private void BangGiaInNhanhForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

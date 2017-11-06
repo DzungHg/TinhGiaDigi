@@ -613,6 +613,7 @@
     <EntitySetMapping Name="NY_GIA_IN_NHANH">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.NY_GIA_IN_NHANH">
         <MappingFragment StoreEntitySet="NY_GIA_IN_NHANH">
+          <ScalarProperty Name="duoc_gom_trang" ColumnName="duoc_gom_trang" />
           <ScalarProperty Name="ten" ColumnName="ten" />
           <ScalarProperty Name="LOAI_BANG_GIA" ColumnName="LOAI_BANG_GIA" />
           <ScalarProperty Name="day_so_luong_niem_yet" ColumnName="day_so_luong_niem_yet" />

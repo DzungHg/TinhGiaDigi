@@ -16,7 +16,7 @@ namespace TinhGiaInClient.View
         int TyLeLoiNhuanTheoHangKH { get; set; }
         int  SoMatIn { get; set; }
         int IdMayInOrToIn { get; set; }       
-        int IdBangGiaInNhanhChon { get; set; }
+        int IdNiemYetChon { get; set; }
         int SoToChay { get; set; }
         int SoTrangA4 { get; }
         int SoTrangToiDaTheoBangGia { get; set; }
@@ -25,6 +25,12 @@ namespace TinhGiaInClient.View
         string ThongTinGiay { get; set; }
         PhuongPhapInS PhuongPhapIn { get; }
         FormStateS TinhTrangForm { get; set; }
+        //Thêm mới
+        
+        string TenLoaiBangGia { get; set; }
+        string LoaiBangGiaNiemYet { get; set; }
+       
+        string DienGiaiNiemYet { get; set; }
         /*
         List<ToChayDigi> ToChayDigiS { get; set; }
         List<BangGiaInNhanh> BangGiaInNhanhS { get; set; }

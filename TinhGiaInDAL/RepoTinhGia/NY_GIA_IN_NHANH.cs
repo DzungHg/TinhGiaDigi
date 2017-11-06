@@ -24,6 +24,7 @@ namespace TinhGiaInDAL.RepoTinhGia
         public string day_so_luong_niem_yet { get; set; }
         public string LOAI_BANG_GIA { get; set; }
         public string ten { get; set; }
+        public Nullable<bool> duoc_gom_trang { get; set; }
     
         public virtual HANG_KHACH_HANG HANG_KHACH_HANG { get; set; }
     }

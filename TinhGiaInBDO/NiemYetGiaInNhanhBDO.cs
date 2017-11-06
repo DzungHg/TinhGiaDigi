@@ -18,5 +18,6 @@ namespace TinhGiaInBDO
         public bool KhongSuDung { get; set; }
         public string DaySoLuongNiemYet { get; set; }
         public string LoaiBangGia { get; set; }//CONTS
+        public bool DuocGomTrang { get; set; }
     }
 }

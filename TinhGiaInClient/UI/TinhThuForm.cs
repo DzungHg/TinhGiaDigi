@@ -16,7 +16,7 @@ namespace TinhGiaInClient.UI
 {
     public partial class TinhThuForm : Form
     {
-        GiaInNhanhThuForm frmGiaInNhanh;
+        //GiaInNhanhThuForm frmGiaInNhanh;
         GiayDeInForm frmGiayDeIn;
 
         public TinhThuForm()
@@ -52,10 +52,11 @@ namespace TinhGiaInClient.UI
             if (sender is Form)
             {
                 frm = (Form)sender;
-                if (frm == frmGiaInNhanh)
+                /*if (frm == frmGiaInNhanh)
                     frmGiaInNhanh = null;
                 if (frm == frmGiaInNhanh)
                     frmGiayDeIn = null;
+                 */
             }
 
         }
@@ -269,7 +270,7 @@ namespace TinhGiaInClient.UI
         }
 
         private void btnGiaInNhanh_Click(object sender, EventArgs e)
-        {
+        {/*
             if (frmGiaInNhanh == null)
             {
                 frmGiaInNhanh = new GiaInNhanhThuForm((int)FormStateS.View,
@@ -284,8 +285,15 @@ namespace TinhGiaInClient.UI
 
             }
             else
-                frmGiaInNhanh.Focus();
-           
+                frmGiaInNhanh.Focus();*/
+            var frmGiaInNhanh = new GiaInNhanhThuForm((int)FormStateS.View,
+                int.Parse(cboHangKH.SelectedValue.ToString()));
+            
+            frmGiaInNhanh.Text = "Tính thử " + cboHangKH.Text;
+            frmGiaInNhanh.MinimizeBox = false;
+            frmGiaInNhanh.MaximizeBox = false;
+            frmGiaInNhanh.StartPosition = FormStartPosition.CenterParent;
+            frmGiaInNhanh.Show();
            
         }
 
@@ -515,6 +523,17 @@ namespace TinhGiaInClient.UI
             else
                 frmGiayDeIn.Focus();
            
+        }
+
+        private void btnSoSanhGiaInNhanh_Click(object sender, EventArgs e)
+        {
+            var frm = new SoSanhGiaInNhanhForm();
+
+            frm.Text = "SO SÁNH GIÁ IN NHANH";
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.Show();
         }
     }
 }

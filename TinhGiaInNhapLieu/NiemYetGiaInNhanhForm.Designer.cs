@@ -32,7 +32,7 @@
             this.btnLuu = new Telerik.WinControls.UI.RadButton();
             this.cMnu1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuNhanDoiBangGia = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtTen = new Telerik.WinControls.UI.RadTextBox();
+            this.txtTenNiemYet = new Telerik.WinControls.UI.RadTextBox();
             this.lblLoaiBangGia = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
@@ -58,9 +58,10 @@
             this.lstNiemYet = new Telerik.WinControls.UI.RadListControl();
             this.lblTenBangGia = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.chkDuocGomTrang = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             this.cMnu1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNiemYet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblLoaiBangGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
@@ -86,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstNiemYet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTenBangGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDuocGomTrang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +96,7 @@
             this.btnLuu.Location = new System.Drawing.Point(370, 331);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(110, 24);
-            this.btnLuu.TabIndex = 11;
+            this.btnLuu.TabIndex = 13;
             this.btnLuu.Text = "Lưu ";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
@@ -112,13 +114,13 @@
             this.mnuNhanDoiBangGia.Size = new System.Drawing.Size(172, 22);
             this.mnuNhanDoiBangGia.Text = "Nhân đôi bảng gia";
             // 
-            // txtTen
+            // txtTenNiemYet
             // 
-            this.txtTen.Location = new System.Drawing.Point(312, 73);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.ReadOnly = true;
-            this.txtTen.Size = new System.Drawing.Size(140, 20);
-            this.txtTen.TabIndex = 1;
+            this.txtTenNiemYet.Location = new System.Drawing.Point(312, 73);
+            this.txtTenNiemYet.Name = "txtTenNiemYet";
+            this.txtTenNiemYet.ReadOnly = true;
+            this.txtTenNiemYet.Size = new System.Drawing.Size(140, 20);
+            this.txtTenNiemYet.TabIndex = 1;
             // 
             // lblLoaiBangGia
             // 
@@ -200,10 +202,10 @@
             // 
             // chkKhongSuDung
             // 
-            this.chkKhongSuDung.Location = new System.Drawing.Point(597, 257);
+            this.chkKhongSuDung.Location = new System.Drawing.Point(587, 261);
             this.chkKhongSuDung.Name = "chkKhongSuDung";
             this.chkKhongSuDung.Size = new System.Drawing.Size(84, 18);
-            this.chkKhongSuDung.TabIndex = 7;
+            this.chkKhongSuDung.TabIndex = 8;
             this.chkKhongSuDung.Text = "Khg sử dụng";
             // 
             // radLabel15
@@ -252,7 +254,7 @@
             this.btnDong.Location = new System.Drawing.Point(159, 331);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(110, 24);
-            this.btnDong.TabIndex = 13;
+            this.btnDong.TabIndex = 15;
             this.btnDong.Text = "Đóng";
             this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
@@ -261,7 +263,7 @@
             this.btnThem.Location = new System.Drawing.Point(308, 300);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(110, 24);
-            this.btnThem.TabIndex = 8;
+            this.btnThem.TabIndex = 11;
             this.btnThem.Text = "Thêm";
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -270,7 +272,7 @@
             this.btnSua.Location = new System.Drawing.Point(425, 300);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(110, 24);
-            this.btnSua.TabIndex = 9;
+            this.btnSua.TabIndex = 12;
             this.btnSua.Text = "Sửa";
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
@@ -279,7 +281,7 @@
             this.btnXoa.Location = new System.Drawing.Point(541, 300);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(110, 24);
-            this.btnXoa.TabIndex = 10;
+            this.btnXoa.TabIndex = 21;
             this.btnXoa.Text = "Xóa";
             // 
             // btnHuy
@@ -287,7 +289,7 @@
             this.btnHuy.Location = new System.Drawing.Point(486, 331);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(110, 24);
-            this.btnHuy.TabIndex = 12;
+            this.btnHuy.TabIndex = 14;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -334,11 +336,20 @@
             this.radLabel1.TabIndex = 11;
             this.radLabel1.Text = "Tên bảng giá gắn";
             // 
+            // chkDuocGomTrang
+            // 
+            this.chkDuocGomTrang.Location = new System.Drawing.Point(587, 237);
+            this.chkDuocGomTrang.Name = "chkDuocGomTrang";
+            this.chkDuocGomTrang.Size = new System.Drawing.Size(103, 18);
+            this.chkDuocGomTrang.TabIndex = 7;
+            this.chkDuocGomTrang.Text = "Được gom trang";
+            // 
             // NiemYetGiaInNhanhForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 367);
+            this.Controls.Add(this.chkDuocGomTrang);
             this.Controls.Add(this.radLabel1);
             this.Controls.Add(this.lblTenBangGia);
             this.Controls.Add(this.radLabel3);
@@ -356,7 +367,7 @@
             this.Controls.Add(this.txtDienGiai);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.cboHangKH);
-            this.Controls.Add(this.txtTen);
+            this.Controls.Add(this.txtTenNiemYet);
             this.Controls.Add(this.radLabel16);
             this.Controls.Add(this.lblLoaiBangGia);
             this.Controls.Add(this.txtSoTrangToiDaTinh);
@@ -375,7 +386,7 @@
             this.Load += new System.EventHandler(this.QuanLyMayInDigiFrom_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).EndInit();
             this.cMnu1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenNiemYet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblLoaiBangGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
@@ -401,6 +412,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lstNiemYet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTenBangGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkDuocGomTrang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -410,7 +422,7 @@
         #endregion
 
         private Telerik.WinControls.UI.RadButton btnLuu;
-        private Telerik.WinControls.UI.RadTextBox txtTen;
+        private Telerik.WinControls.UI.RadTextBox txtTenNiemYet;
         private Telerik.WinControls.UI.RadLabel lblLoaiBangGia;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadLabel radLabel8;
@@ -438,5 +450,6 @@
         private Telerik.WinControls.UI.RadListControl lstNiemYet;
         private Telerik.WinControls.UI.RadLabel lblTenBangGia;
         private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadCheckBox chkDuocGomTrang;
     }
 }

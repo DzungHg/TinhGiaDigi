@@ -27,6 +27,12 @@ namespace TinhGiaInClient
         public const string cBangGiaLuyTien = "BG_LUY_TIEN";
         public const string cBangGiaBuoc = "BG_BUOC";
         public const string cBangGiaGoi = "BG_GOI";
+        //Dãy số lượng tính thử mặc định
+        public const string cDaySoLuongA4TinhThu = "10;50;80;100;120;130;150;170;200;" +
+                                                   "250;300;350;400;450;500;550;600;650;" +
+                                                   "700;750;800;850;900;950;1000;1100; " +
+                                                   "1200;1300;1400;1500;2000;3000;4000;" +
+                                                   "5000;6000;7000;8000;9000;10000;15000;20000";
         //
 
         public enum SideSel { OneSide = 1, TwoSide = 2 }

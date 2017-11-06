@@ -50,7 +50,7 @@
     <Property Name="khong_con" Type="bit" />
     <Property Name="thu_tu" Type="int" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
-    <Property Name="loai_bang_gia" Type="char" MaxLength="16" />
+    <Property Name="loai_bang_gia" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="BANG_GIA_THE_NHUA">
     <Key>
@@ -84,7 +84,7 @@
     <Property Name="khong_con" Type="bit" />
     <Property Name="thu_tu" Type="int" />
     <Property Name="don_vi_tinh" Type="nvarchar" MaxLength="20" />
-    <Property Name="loai_bang_gia" Type="char" MaxLength="16" />
+    <Property Name="loai_bang_gia" Type="varchar" MaxLength="16" />
   </EntityType>
   <EntityType Name="BOI_BIA_CUNG">
     <Key>
@@ -494,6 +494,7 @@
     <Property Name="khong_su_dung" Type="bit" />
     <Property Name="day_so_luong_niem_yet" Type="nvarchar" MaxLength="200" />
     <Property Name="LOAI_BANG_GIA" Type="varchar" MaxLength="20" />
+    <Property Name="duoc_gom_trang" Type="bit" />
   </EntityType>
   <EntityType Name="TINH_GIA_IN">
     <Key>

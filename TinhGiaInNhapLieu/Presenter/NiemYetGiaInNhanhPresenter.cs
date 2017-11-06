@@ -29,11 +29,13 @@ namespace TinhGiaInNhapLieu.Presenter
         {
             View.ID = 0;
             View.IdBangGia = 0;
+            View.TenBangGia = "";
             View.DienGiai = "Mô tả";
-            
+            View.TenNiemYet = "";
             View.IdHangKhachHang = 0;
             View.SoTrangToiDa = 0;
-
+            View.DuocGomTrang = false;
+            View.KhongSuDung = false;
             View.LoaiBangGia = "";
             View.DaySoLuongNiemYet = ";";
             View.ThuTu = 100;
@@ -53,13 +55,10 @@ namespace TinhGiaInNhapLieu.Presenter
             View.IdBangGia  = niemYetGia.IdBangGia;
             View.LoaiBangGia = niemYetGia.LoaiBangGia;
             View.IdHangKhachHang = niemYetGia.IdHangKhachHang;
-          
-            View.SoTrangToiDa = niemYetGia.SoTrangToiDa;
-           
+            View.DuocGomTrang = niemYetGia.DuocGomTrang;
+            View.SoTrangToiDa = niemYetGia.SoTrangToiDa;           
             View.DaySoLuongNiemYet = niemYetGia.DaySoLuongNiemYet;
-            View.ThuTu = niemYetGia.ThuTu;
-            
-          
+            View.ThuTu = niemYetGia.ThuTu;                      
             View.KhongSuDung = niemYetGia.KhongSuDung;
             //Cập nhật chi tiết BG
             CapNhatChiTietBangGia();
@@ -110,6 +109,7 @@ namespace TinhGiaInNhapLieu.Presenter
            
             niemYetGia.ThuTu = View.ThuTu;
             niemYetGia.KhongSuDung = View.KhongSuDung;
+            niemYetGia.DuocGomTrang = View.DuocGomTrang;
             switch (View.TinhTrangForm)
             {
                 case TinhGiaInClient.FormStateS.Edit:

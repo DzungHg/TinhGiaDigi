@@ -38,16 +38,16 @@ namespace TinhGiaInClient.Presenter
         {
             return HangKhachHang.LayTheoId(View.IdHangKHChon).LoiNhuanChenhLech;
         }
-        public List<BangGiaInNhanh> BangGiaInNhanhS()
+        public List<NiemYetGiaInNhanh> BangGiaInNhanhS()
         {
-            return BangGiaInNhanh.DocConDungTheoIdHangKH(View.IdHangKHChon);
+            return NiemYetGiaInNhanh.DocConDungTheoIdHangKH(View.IdHangKHChon);
         }
        
         public void TrinhBayDuLieuInNhanhChon()
         {
-            var bangGiaInNhanh = BangGiaInNhanh.DocTheoId(View.IdBangGiaChon);
+            var bangGiaInNhanh = NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetGiaChon);
             //var count = MonThanhPham.DocTatCaDichVuThanhPham().Count();
-            List<string> lst = bangGiaInNhanh.NoiDungBangGia.Split(';').ToList();
+            /*List<string> lst = bangGiaInNhanh.NoiDungBangGia.Split(';').ToList();
             View.NoiDungBangGia = "";
             foreach (string str in lst)
             {
@@ -56,7 +56,21 @@ namespace TinhGiaInClient.Presenter
              
             View.DaySoluong = bangGiaInNhanh.DaySoLuongNiemYet;
             View.DonViTinh = "Trang A4";
-        
+            */
+            View.NoiDungBangGia = "";
+            View.SoTrangToiDaTheoNiemYet = bangGiaInNhanh.SoTrangToiDa;
+        }
+        private BangGiaBase DocBangGiaChon()
+        {
+            BangGiaBase kq = null;
+            if (View.IdNiemYetGiaChon > 0)
+            {
+                var niemYetGia = NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetGiaChon);
+
+                kq = DanhSachBangGia.DocTheoIDvaLoai(niemYetGia.IdBangGia,
+                    niemYetGia.LoaiBangGia);
+            }
+            return kq;
         }
         public SoLuongTinh [] SoLuongTinhS()
         {
@@ -81,7 +95,7 @@ namespace TinhGiaInClient.Presenter
         {          
             decimal ketQua = 0;
             //ketQua = new GiaInNhanhTheoBang(soLuong, View.IdBangGiaChon).ThanhTienSales();            
-            ketQua = new GiaInNhanhKetHopBangGia_May(soLuong, View.IdBangGiaChon, 1,
+            ketQua = new GiaInNhanhKetHopBangGia_May(soLuong, this.DocBangGiaChon(), View.SoTrangToiDaTheoNiemYet, 1,
                 this.TyLeMarkUpTheoHangKH()).GiaBan(); //Mã tờ in chọn 1 vì chuẩn luôn            
             return ketQua;
         }
@@ -113,7 +127,7 @@ namespace TinhGiaInClient.Presenter
         public string LuuDaySoLuong()
         {
             var mg = "";
-            var bangGia = BangGiaInNhanh.DocTheoId( View.IdBangGiaChon);
+            var bangGia = BangGiaInNhanh.DocTheoId( View.IdNiemYetGiaChon);
             bangGia.DaySoLuongNiemYet = View.DaySoluong;
             BangGiaInNhanh.Sua(ref mg, bangGia);
 

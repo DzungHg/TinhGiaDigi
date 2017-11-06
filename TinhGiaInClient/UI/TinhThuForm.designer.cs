@@ -34,6 +34,7 @@
             this.cboHangKH = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGiaInNhanh = new System.Windows.Forms.Button();
+            this.btnGiaGiayIn = new System.Windows.Forms.Button();
             this.btnTinhThu_CanPhu = new System.Windows.Forms.Button();
             this.btnTinhThu_CanGap = new System.Windows.Forms.Button();
             this.btnTinhThu_DongCuon = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.btnTinhThu_CatDecal = new System.Windows.Forms.Button();
             this.btnTinhThu_BoiBiaCung = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.btnGiaGiayIn = new System.Windows.Forms.Button();
+            this.btnSoSanhGiaInNhanh = new System.Windows.Forms.Button();
             this.pnlBottom.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -98,6 +99,7 @@
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_DongCuonMoPhang);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_CatDecal);
             this.flowLayoutPanel2.Controls.Add(this.btnTinhThu_BoiBiaCung);
+            this.flowLayoutPanel2.Controls.Add(this.btnSoSanhGiaInNhanh);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 36);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
@@ -114,6 +116,16 @@
             this.btnGiaInNhanh.Text = "Giá In nhanh";
             this.btnGiaInNhanh.UseVisualStyleBackColor = true;
             this.btnGiaInNhanh.Click += new System.EventHandler(this.btnGiaInNhanh_Click);
+            // 
+            // btnGiaGiayIn
+            // 
+            this.btnGiaGiayIn.Location = new System.Drawing.Point(101, 3);
+            this.btnGiaGiayIn.Name = "btnGiaGiayIn";
+            this.btnGiaGiayIn.Size = new System.Drawing.Size(92, 37);
+            this.btnGiaGiayIn.TabIndex = 14;
+            this.btnGiaGiayIn.Text = "Giá giấy in";
+            this.btnGiaGiayIn.UseVisualStyleBackColor = true;
+            this.btnGiaGiayIn.Click += new System.EventHandler(this.btnGiaGiayIn_Click);
             // 
             // btnTinhThu_CanPhu
             // 
@@ -205,15 +217,15 @@
             this.pnlTop.Size = new System.Drawing.Size(412, 36);
             this.pnlTop.TabIndex = 5;
             // 
-            // btnGiaGiayIn
+            // btnSoSanhGiaInNhanh
             // 
-            this.btnGiaGiayIn.Location = new System.Drawing.Point(101, 3);
-            this.btnGiaGiayIn.Name = "btnGiaGiayIn";
-            this.btnGiaGiayIn.Size = new System.Drawing.Size(92, 37);
-            this.btnGiaGiayIn.TabIndex = 14;
-            this.btnGiaGiayIn.Text = "Giá giấy in";
-            this.btnGiaGiayIn.UseVisualStyleBackColor = true;
-            this.btnGiaGiayIn.Click += new System.EventHandler(this.btnGiaGiayIn_Click);
+            this.btnSoSanhGiaInNhanh.Location = new System.Drawing.Point(199, 89);
+            this.btnSoSanhGiaInNhanh.Name = "btnSoSanhGiaInNhanh";
+            this.btnSoSanhGiaInNhanh.Size = new System.Drawing.Size(92, 37);
+            this.btnSoSanhGiaInNhanh.TabIndex = 15;
+            this.btnSoSanhGiaInNhanh.Text = "So sánh giá In nhanh";
+            this.btnSoSanhGiaInNhanh.UseVisualStyleBackColor = true;
+            this.btnSoSanhGiaInNhanh.Click += new System.EventHandler(this.btnSoSanhGiaInNhanh_Click);
             // 
             // TinhThuForm
             // 
@@ -256,6 +268,7 @@
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Button btnTinhThu_BoiBiaCung;
         private System.Windows.Forms.Button btnGiaGiayIn;
+        private System.Windows.Forms.Button btnSoSanhGiaInNhanh;
 
     }
 }

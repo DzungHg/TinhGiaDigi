@@ -11,17 +11,19 @@ namespace TinhGiaInClient.Model
     {
         public int SoLuongA4 { get; set; }
         private int TyLeMarkUpSales { get; set; }
-        private int IdBangGiaInNhanh { get; set; }
+        private BangGiaBase BangGiaInNhanh { get; set; }
+        private int SoTrangToiDaTheoBang { get; set; }
         private int IdToInDiGi { get; set; }
         
         private DuLieuTinhGiaInNhanhTheoMay duLieuInDigi;
-        public GiaInNhanhKetHopBangGia_May( int soTrangA4, int idBangGiaInNhanh,
-                    int idToInDigi, int tyLeMarkUpSales)
+        public GiaInNhanhKetHopBangGia_May( int soTrangA4, BangGiaBase bgGiaInNhanh,
+                        int soTrangToiDa, int idToInDigi, int tyLeMarkUpSales)
         {
             this.IdToInDiGi = idToInDigi;
-            this.IdBangGiaInNhanh = idBangGiaInNhanh;
+            this.BangGiaInNhanh = bgGiaInNhanh;
             this.SoLuongA4 = soTrangA4;
             this.TyLeMarkUpSales = tyLeMarkUpSales;
+            this.SoTrangToiDaTheoBang = soTrangToiDa;
             //Chú ý chỉ in 4 màu
             if (idToInDigi > 0)
             {
@@ -39,17 +41,17 @@ namespace TinhGiaInClient.Model
         }
         public decimal GiaBan()
         {
-            if (this.IdBangGiaInNhanh <= 0 || this.IdToInDiGi <= 0)
+            if (this.BangGiaInNhanh == null || this.IdToInDiGi <= 0)
                 return 0;
-
+            //Tiếp
             decimal kq = 0;
 
-            var gioiHanSoTrangTheoBangGia = BangGiaInNhanh.DocTheoId(this.IdBangGiaInNhanh).SoTrangToiDa;
+            var gioiHanSoTrangTheoBangGia = this.SoTrangToiDaTheoBang;
 
             if (gioiHanSoTrangTheoBangGia > 0 &&  this.SoLuongA4 > gioiHanSoTrangTheoBangGia)
                 kq = new GiaInNhanhTheoMay(duLieuInDigi, this.SoLuongA4, this.TyLeMarkUpSales).ThanhTienSales();
             else                
-                kq = new GiaInNhanhTheoBang(this.SoLuongA4, this.IdBangGiaInNhanh).ThanhTienSales();
+                kq = new GiaInNhanhNiemYet(this.SoLuongA4, this.BangGiaInNhanh).ThanhTienSales();
 
             return Math.Round(kq);
         }

@@ -133,7 +133,7 @@ namespace TinhGiaInClient.Model
             return result;
 
         }
-        public static decimal GiaInNhanhTheoBang(string khoangSoLuong, string khoangGia, int soTrangA4)
+        public static decimal GiaInLuyTien(string khoangSoLuong, string khoangGia, int soTrangA4)
         {
 
             if (string.IsNullOrEmpty(khoangSoLuong) || string.IsNullOrEmpty(khoangGia) || soTrangA4 <= 0)
@@ -178,7 +178,22 @@ namespace TinhGiaInClient.Model
 
             return result;
         }
+        public static decimal GiaBuoc(string daySoLuong, string dayGia, int soLuong)
+        {///Dò số lượng lấy giá
+            ///Sau đó lấy giá tại khoảng đó nhân số lượng
 
+            int result = 0;
+
+            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(daySoLuong) ||
+                soLuong <= 0)
+                return result;
+          
+            var giaTheoKhoang = TinhToan.GiaTriTheoKhoang(daySoLuong, dayGia, soLuong);
+
+            result = giaTheoKhoang * soLuong;
+
+            return result;
+        }
         public static decimal GiaDanhThiep(string daySoLuong, string dayGia, int soLuong)
         {///Dò số lượng lấy giá
             ///Sau đó lấy giá tại khoảng đó nhân số lượng

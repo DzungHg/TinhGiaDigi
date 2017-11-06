@@ -19,14 +19,16 @@ namespace TinhGiaInNhapLieu
         public NiemYetGiaInNhanhForm()
         {
             InitializeComponent();
-            quanLyBangGiaPres = new NiemYetGiaInNhanhPresenter(this);
-            LoadBangGia();
+
+            niemYetGiaPres = new NiemYetGiaInNhanhPresenter(this);
+
+            LoadNiemYetGia();
             LoadHangKhachHang();
 
             lstNiemYet.SelectedIndex = -1;
             lstNiemYet.SelectedIndex = 0;
             //Event
-            txtTen.TextChanged += new EventHandler(TextBoxes_TextChanged);
+            txtTenNiemYet.TextChanged += new EventHandler(TextBoxes_TextChanged);
             
            
           
@@ -40,7 +42,7 @@ namespace TinhGiaInNhapLieu
 
             chkKhongSuDung.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
 
-            txtTen.Leave += new EventHandler(TextBoxes_Leave);
+            txtTenNiemYet.Leave += new EventHandler(TextBoxes_Leave);
             txtSoTrangToiDaTinh.Leave += new EventHandler(TextBoxes_Leave);
             txtThuTu.Leave += new EventHandler(TextBoxes_Leave);
 
@@ -49,7 +51,7 @@ namespace TinhGiaInNhapLieu
 
 
         }
-        NiemYetGiaInNhanhPresenter quanLyBangGiaPres;
+        NiemYetGiaInNhanhPresenter niemYetGiaPres;
         #region implementIView
         int _idToInMayDigi = 0;
         public int ID
@@ -63,7 +65,11 @@ namespace TinhGiaInNhapLieu
             }
         }
        
-     
+        public bool DuocGomTrang
+        {
+            get { return chkDuocGomTrang.Checked; }
+            set { chkDuocGomTrang.Checked = value; }
+        }
 
         public string DienGiai
         {
@@ -150,8 +156,8 @@ namespace TinhGiaInNhapLieu
         public string TenNiemYet
         {
             get
-            { return txtTen.Text; }
-            set { txtTen.Text = value; }
+            { return txtTenNiemYet.Text; }
+            set { txtTenNiemYet.Text = value; }
         }
 
       
@@ -178,21 +184,18 @@ namespace TinhGiaInNhapLieu
             }
         }
         #endregion
-        private void LoadBangGia()
+        private void LoadNiemYetGia()
         {
 
-            lstNiemYet.DataSource = quanLyBangGiaPres.DanhSachNiemYet();
+            lstNiemYet.DataSource = niemYetGiaPres.DanhSachNiemYet();
             lstNiemYet.ValueMember = "ID";
-            lstNiemYet.DisplayMember = "Ten";
-           
-            //Binding bindSource = new Binding("MayInDigi", nguon, "ID");
-            
+            lstNiemYet.DisplayMember = "Ten";                    
             
         }
         private void LoadHangKhachHang()
         {
 
-            cboHangKH.DataSource = quanLyBangGiaPres.HangKhachHangS();
+            cboHangKH.DataSource = niemYetGiaPres.HangKhachHangS();
             cboHangKH.ValueMember = "ID";
             cboHangKH.DisplayMember = "Ten";
 
@@ -201,17 +204,14 @@ namespace TinhGiaInNhapLieu
 
         }
        
-        private void XoaSachNoiDungTatCaTextBox()
-        {
-            quanLyBangGiaPres.TrinhBayThemMoi();
-        }
+        
         private void TextBoxes_TextChanged(object sender, EventArgs e)
         {
             Telerik.WinControls.UI.RadTextBox tb;
             if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen || tb ==  txtDaySoLuongNiemYet ||                  
+                if (tb == txtTenNiemYet || tb ==  txtDaySoLuongNiemYet ||                  
                     tb == txtSoTrangToiDaTinh || tb == txtThuTu 
                     )
                 {
@@ -257,8 +257,8 @@ namespace TinhGiaInNhapLieu
             if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen)
-                    if (string.IsNullOrEmpty(txtTen.Text.Trim()))
+                if (tb == txtTenNiemYet)
+                    if (string.IsNullOrEmpty(txtTenNiemYet.Text.Trim()))
                         this.TenNiemYet = "Tên";
                 if (   tb == txtSoTrangToiDaTinh)
                     if (string.IsNullOrEmpty(txtSoTrangToiDaTinh.Text.Trim()))
@@ -327,7 +327,7 @@ namespace TinhGiaInNhapLieu
         }
         private void DatReadOnlyTextBox(bool readOnly)
         {
-            txtTen.ReadOnly = readOnly; //luôn là vậy
+            txtTenNiemYet.ReadOnly = readOnly; //luôn là vậy
 
             txtDienGiai.IsReadOnly = readOnly;
             txtSoTrangToiDaTinh.ReadOnly = readOnly;
@@ -337,6 +337,7 @@ namespace TinhGiaInNhapLieu
 
             cboHangKH.ReadOnly = readOnly;
             chkKhongSuDung.ReadOnly = readOnly;
+            chkDuocGomTrang.ReadOnly = readOnly;
             btnChonBangGia.Enabled = !readOnly; //Enable
 
         }
@@ -347,7 +348,7 @@ namespace TinhGiaInNhapLieu
 
             //Kiểm tra xong
             var thongDiep = "";
-            quanLyBangGiaPres.Luu(ref thongDiep);
+            niemYetGiaPres.Luu(ref thongDiep);
             MessageBox.Show(thongDiep);
             //Lưu xong:
             this.DataChanged = false;
@@ -357,16 +358,16 @@ namespace TinhGiaInNhapLieu
            
             
             lstNiemYet.Enabled = true;
-            LoadBangGia();
+            LoadNiemYetGia();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             this.TinhTrangForm = TinhGiaInClient.FormStateS.New;
-            lstNiemYet.Enabled = false;
+            lstNiemYet.Enabled = false;                        
+            //XoaSachNoiDungTatCaTextBox();
+            niemYetGiaPres.TrinhBayThemMoi();
             BatTatCacNutDuLieuTheoDieuKienForm();
-            
-            XoaSachNoiDungTatCaTextBox();
             this.DataChanged = false;
             btnLuu.Enabled = this.DataChanged;
         }
@@ -391,7 +392,7 @@ namespace TinhGiaInNhapLieu
 
         private void lstMayIn_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            quanLyBangGiaPres.TrinhBayChiTietNiemYet();
+            niemYetGiaPres.TrinhBayChiTietNiemYet();
             this.DataChanged = false;
             btnLuu.Enabled = this.DataChanged;
             lblIDBanGia.Text = this.ID.ToString();
@@ -404,7 +405,7 @@ namespace TinhGiaInNhapLieu
             this.TinhTrangForm = FormStateS.View;
             BatTatCacNutDuLieuTheoDieuKienForm();
           
-            quanLyBangGiaPres.TrinhBayChiTietNiemYet();
+            niemYetGiaPres.TrinhBayChiTietNiemYet();
             lstNiemYet.Enabled = true;
         }
 
@@ -426,7 +427,7 @@ namespace TinhGiaInNhapLieu
 
         private void cboHangKH_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            lblDienGiaiHangKH.Text = quanLyBangGiaPres.DienGiaiHangKH();
+            lblDienGiaiHangKH.Text = niemYetGiaPres.DienGiaiHangKH();
         }
 
         private void cMnu1_Opening(object sender, CancelEventArgs e)
@@ -446,7 +447,7 @@ namespace TinhGiaInNhapLieu
                 this.IdBangGia = frm.IdBangGiaChon;
                 this.LoaiBangGia = frm.LoaiBangGia;
                 if (string.IsNullOrEmpty(this.TenNiemYet))
-                    this.TenNiemYet = quanLyBangGiaPres.TenBangGia(this.IdBangGia, this.LoaiBangGia);
+                    this.TenNiemYet = niemYetGiaPres.TenBangGia(this.IdBangGia, this.LoaiBangGia);
                 
 
             }
@@ -472,8 +473,6 @@ namespace TinhGiaInNhapLieu
 
         }
 
-       
-        
 
 
 
@@ -481,6 +480,7 @@ namespace TinhGiaInNhapLieu
 
 
 
-     
+
+
     }
 }

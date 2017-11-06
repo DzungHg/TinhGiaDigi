@@ -8,7 +8,7 @@ namespace TinhGiaInClient.Presenter
 {
     public static class HoTro
     {
-        public Dictionary<string, string> TrinhBayBangGiaLuyTien(string khoangSoLuong, string khoangGia, string donViTinh)
+        public static Dictionary<string, string> TrinhBayBangGiaLuyTien(string khoangSoLuong, string khoangGia, string donViTinh)
         {
             Dictionary<string, string> st_dict = new Dictionary<string, string>();
 
@@ -26,7 +26,7 @@ namespace TinhGiaInClient.Presenter
                 for (i = 0; i < tmp_st_arrKey.Length - 1; i++)
                 {
                     soLuongTam += int.Parse(tmp_st_arrKey[i + 1]) - int.Parse(tmp_st_arrKey[i]);
-                    tmp_st_arrKey[i] = string.Format("{0} - {1} " + donViTinh, soDauTien, soLuongTam);
+                    tmp_st_arrKey[i] = string.Format("{0} - {1} {2}", soDauTien, soLuongTam, donViTinh);
                     soDauTien = soLuongTam + 1;
 
                 }
@@ -34,13 +34,13 @@ namespace TinhGiaInClient.Presenter
 
                 for (i = 0; i < tmp_st_arrKey.Length; i++)
                 {
-                    st_dict.Add(tmp_st_arrKey[i], tmp_st_arrGia[i]);
+                    st_dict.Add(tmp_st_arrKey[i], string.Format("{0:0,0}đ", tmp_st_arrGia[i]));
                 }
             }
            
             return st_dict;
         }
-         public Dictionary<string, string> TrinhBayBangGiaBuoc(string khoangSoLuong, string khoangGia, string donViTinh)
+        public static Dictionary<string, string> TrinhBayBangGiaBuoc(string khoangSoLuong, string khoangGia, string donViTinh)
         {
             var dict = new Dictionary<string, string>();
             if (!string.IsNullOrEmpty(khoangSoLuong) && !string.IsNullOrEmpty(khoangGia))
@@ -49,9 +49,26 @@ namespace TinhGiaInClient.Presenter
                 //Tạo bản dãy
                 var arrKey = khoangSoLuong.Split(';');//Tạo bản dãy
                 var arrValue = khoangGia.Split(';');
-            }
+                //Biến đổi số lượng
+                var soLuongTam = 0;
+                var soDauTien = int.Parse(arrKey[0]);
+                for (int i = 0; i < arrKey.Length - 1; i++)
+                {
+                    soLuongTam += int.Parse(arrKey[i + 1]) - int.Parse(arrKey[i]);
+                    arrKey[i] = string.Format("{0} - {1} {2}", soDauTien, soLuongTam, donViTinh);
+                    soDauTien = soLuongTam + 1;
 
-            return dict;
+                }
+                //Biến đổi tiếp key của Dict
+
+                for (int i = 0; i < arrKey.Length; i++)
+                {
+                    dict.Add(arrKey[i], arrValue[i]);
+                }
+            }
+           
+            return dict;           
+           
         }
     }
 }

@@ -150,6 +150,7 @@
     <Compile Include="Model\BaiInTheNhua.cs" />
     <Compile Include="Model\BangGiaBase.cs" />
     <Compile Include="Model\DanhSachBangGia.cs" />
+    <Compile Include="Model\GiaInNhanhNiemYet.cs" />
     <Compile Include="Model\NiemYetGiaInNhanh.cs" />
     <Compile Include="Model\BangGiaTheoBuoc.cs" />
     <Compile Include="Model\BangGiaLuyTien.cs" />
@@ -266,6 +267,7 @@
     <Compile Include="Presenter\BangGiaThanhPhamPresenter.cs" />
     <Compile Include="Presenter\BaiInPresenter.cs" />
     <Compile Include="Presenter\BangGiaGiayPresenter.cs" />
+    <Compile Include="Presenter\SoSanhGiaInNhanhThuPresenter.cs" />
     <Compile Include="Presenter\GiaTheNhuaPresenter.cs" />
     <Compile Include="Presenter\GiayDeBoiPresenter.cs" />
     <Compile Include="Presenter\GiayInDanhThiepPresenter.cs" />
@@ -296,6 +298,12 @@
     </Compile>
     <Compile Include="UI\BangGiaDongCuonForm.Designer.cs">
       <DependentUpon>BangGiaDongCuonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SoSanhGiaInNhanhForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SoSanhGiaInNhanhForm.Designer.cs">
+      <DependentUpon>SoSanhGiaInNhanhForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\InSachForm.cs">
       <SubType>Form</SubType>
@@ -410,6 +418,7 @@
     <Compile Include="View\IViewBangGiaThanhPham.cs" />
     <Compile Include="View\IViewBaiIn.cs" />
     <Compile Include="View\IViewBangGiaGiay.cs" />
+    <Compile Include="View\IViewSoSanhGiaInNhanh.cs" />
     <Compile Include="View\IViewGiaTheNhua.cs" />
     <Compile Include="View\IViewGiaDanhThiep.cs" />
     <Compile Include="View\IViewGiaInOffset.cs" />
@@ -504,6 +513,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\BangGiaDongCuonForm.resx">
       <DependentUpon>BangGiaDongCuonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SoSanhGiaInNhanhForm.resx">
+      <DependentUpon>SoSanhGiaInNhanhForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\InSachForm.resx">
       <DependentUpon>InSachForm.cs</DependentUpon>

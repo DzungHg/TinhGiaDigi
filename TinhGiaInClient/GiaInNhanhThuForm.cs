@@ -24,7 +24,8 @@ namespace TinhGiaInClient
             this.IdHangKH = idHangKH;
             giaInPres = new GiaInNhanhThuPresenter(this);
             //Nạp bảng giá vô combo
-            LoadBangGia();
+            this.FormCanDong = !LoadNiemYetGia();
+
             LoadToChayDigi();
             cboToInDigi.SelectedIndex = 1;
             cboToInDigi.SelectedIndex = 0;
@@ -38,17 +39,24 @@ namespace TinhGiaInClient
             rdbIn4_1.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
             rdbIn4_0.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
 
-            cboBangGia.SelectedIndexChanged += new EventHandler(TextBoxes_TextedChanged);
-            cboToInDigi.SelectedIndexChanged += new EventHandler(TextBoxes_TextedChanged);
+            cboNiemYetGia.SelectedIndexChanged += new EventHandler(TextBoxes_TextedChanged);
+            cboToInDigi.SelectedIndexChanged += new EventHandler(ComboBoxes_SelectedIndexChanged);
             
         }
         #region implement Iview
-        public int ID
+        int _idNiemYet = 0;
+        public int IdNiemYetChon
         {
-            get;
-            set;
+            get
+            {
+                if (cboNiemYetGia.SelectedValue != null)
+                    int.TryParse(cboNiemYetGia.SelectedValue.ToString(),
+                        out _idNiemYet);
+                return _idNiemYet;
+            }
+            set { cboNiemYetGia.SelectedValue = value; }
         }
-
+        public string LoaiBangGiaNiemYet { get; set; }
         public int IdBaiIn
         {
             get;
@@ -102,12 +110,17 @@ namespace TinhGiaInClient
         {
             get
             {
-                return cboBangGia.Text;
+                return cboNiemYetGia.Text;
             }
             set
             {
-                cboBangGia.Text = value; 
+                cboNiemYetGia.Text = value; 
             }
+        }
+        public string TenLoaiBangGia
+        {
+            get { return lblTenLoaiBangGia.Text; }
+            set { lblTenLoaiBangGia.Text = value; }
         }
         public int SoTrangA4
         {
@@ -142,15 +155,20 @@ namespace TinhGiaInClient
         }
 
         #endregion
-        private void LoadBangGia()
+        public bool FormCanDong { get; set; }
+        private bool LoadNiemYetGia()
         {
-            cboBangGia.Items.Clear();
-            foreach (KeyValuePair<int,string> kvp in giaInPres.BangGiaInNhanhS())
+            var kq = true;
+            if (giaInPres.NiemYetGiaInNhanhS().Count > 0)
             {
-                cboBangGia.Items.Add(kvp.Value);
-            
+                cboNiemYetGia.DataSource = giaInPres.NiemYetGiaInNhanhS();
+                cboNiemYetGia.DisplayMember = "Ten";
+                cboNiemYetGia.ValueMember = "ID";
+
             }
-            cboBangGia.SelectedIndex = 0;
+            else kq = false;
+            
+            return kq;
         }
         private void LoadToChayDigi()
         {
@@ -181,8 +199,19 @@ namespace TinhGiaInClient
         {
             
           
-            TrinhBayBangGia();
-
+            //TrinhBayBangGia();
+            if (this.FormCanDong) //thiếu dữ liệu giá niêm yết
+            {
+                //this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                //this.Close();
+                MessageBox.Show("Đối tượng Khách hàng này chưa có bảng giá");
+                this.Shown += new EventHandler(MyForm_CloseOnStart);
+            }
+            else
+            {
+                cboNiemYetGia.SelectedIndex = -1;
+                cboNiemYetGia.SelectedIndex = 0; //có lỗi khi không có dữ liệu
+            }
        
             rdbIn4_0.Checked = true;
             rdbIn4_4.Checked = true;
@@ -193,9 +222,13 @@ namespace TinhGiaInClient
                 txtSoLuongToChay.ReadOnly = false;
             }
         }
+        private void MyForm_CloseOnStart(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         private void RadioButtons_CheckedChanged(object sender, EventArgs e)
         {
-            LoadBangGia();
+            LoadNiemYetGia();
 
         }
         private void TrinhBayBangGia()
@@ -208,7 +241,7 @@ namespace TinhGiaInClient
             lvwBangGia.Columns.Add("Số lượng");
             lvwBangGia.Columns.Add("Giá/Trang");
             ListViewItem item;
-            if (giaInPres.TrinhBayBangGia().Count() > 0)
+            if (giaInPres.TrinhBayBangGia() != null )
             {
                 foreach (KeyValuePair<string, string> kvp in
                     giaInPres.TrinhBayBangGia())
@@ -241,15 +274,25 @@ namespace TinhGiaInClient
                 }
 
             }
+          
+        }
+        private void ComboBoxes_SelectedIndexChanged(object sender, EventArgs e)
+        {            
             ComboBox cb;
             if (sender is ComboBox)
             {
                 cb = (ComboBox)sender;
-                if (cb == cboBangGia ||cb == cboToInDigi)
+                if (cb == cboNiemYetGia || cb == cboToInDigi)
                 {
-                    CapNhatKetQuaTinh();
+                   
                     lblA4TrenToIn.Text = string.Format("( x {0} A4)", giaInPres.SoA4TheoToInDigi());
+                    giaInPres.TrinhBayChiTietNiemYet();
+                    //Phải theo thứ tự
+                    TrinhBayBangGia();
+                    //Cập nhật chi tiét
+                    CapNhatKetQuaTinh();
                 }
+               
             }
         }
         private void CapNhatKetQuaTinh()
@@ -300,9 +343,9 @@ namespace TinhGiaInClient
 
         private void cboBangGia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TrinhBayBangGia();
+           
+
             
-            this.SoTrangToiDaTheoBangGia = giaInPres.SoTrangToiDaTheoBangGia();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

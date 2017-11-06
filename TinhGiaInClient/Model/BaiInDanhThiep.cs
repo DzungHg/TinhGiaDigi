@@ -60,7 +60,7 @@ namespace TinhGiaInClient.Model
             if (this.IdBangGia > 0)
             {
                 var bangGia = BangGiaDanhThiep.DocTheoId(this.IdBangGia);
-                return TinhToan.GiaDanhThiep(bangGia.DaySoLuong, bangGia.DayGia, this.SoLuongHop);
+                return TinhToan.GiaBuoc(bangGia.DaySoLuong, bangGia.DayGia, this.SoLuongHop);
             }
             return kq;
         }

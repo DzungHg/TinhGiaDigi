@@ -19,7 +19,7 @@ namespace TinhGiaInClient.Presenter
             View.SoToChay = 50;
         }
        
-        public Dictionary<int, string>BangGiaInNhanhS()
+        /*public Dictionary<int, string>BangGiaInNhanhS()
         {
             Dictionary<int, string> dict = new Dictionary<int, string>();
             foreach (BangGiaInNhanh bg in BangGiaInNhanh.DocTheoIdHangKH(View.IdHangKH))
@@ -27,6 +27,10 @@ namespace TinhGiaInClient.Presenter
                 dict.Add(bg.ID, bg.TenBangGia);
             }
             return dict;
+        }*/
+       public List<NiemYetGiaInNhanh>NiemYetGiaInNhanhS()
+        {
+           return NiemYetGiaInNhanh.DocTheoIdHangKH(View.IdHangKH);
         }
         public List<ToInMayDigi>ToChayDigiS()
         {
@@ -36,11 +40,17 @@ namespace TinhGiaInClient.Presenter
         {
             return HangKhachHang.LayTheoId(View.IdHangKH).LoiNhuanChenhLech;
         }
-        public int SoTrangToiDaTheoBangGia()
+        public void TrinhBayChiTietNiemYet()
         {
-            var idBangGia = BangGiaInNhanhS().FirstOrDefault(x=> x.Value == View.TenBangGiaChon).Key;
-            return BangGiaInNhanh.DocTheoId(idBangGia).SoTrangToiDa;
+            if (View.IdNiemYetChon > 0)
+            {
+                var niemYet = NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetChon);
+                View.SoTrangToiDaTheoBangGia = niemYet.SoTrangToiDa;
+                View.LoaiBangGiaNiemYet = niemYet.LoaiBangGia.Trim();
+                View.TenLoaiBangGia = niemYet.TenLoaiBangGia;
+            }
         }
+        
         public int SoA4TheoToInDigi()
         {
             return ToInMayDigi.DocTheoId(View.IdToInDigiChon).QuiA4;
@@ -64,7 +74,34 @@ namespace TinhGiaInClient.Presenter
             }
             return result;
         }
-       
+        private BangGiaBase DocBangGiaChon()
+        {
+            BangGiaBase kq = null;
+            if (View.IdNiemYetChon >0 )
+            {
+                var niemYetGia = NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetChon);
+                
+                kq = DanhSachBangGia.DocTheoIDvaLoai(niemYetGia.IdBangGia,
+                    niemYetGia.LoaiBangGia);
+            }
+            return kq;
+        }
+        public Dictionary<string, string> TrinhBayBangGia()
+        {
+            Dictionary<string, string> kq = null;
+            if (this.DocBangGiaChon() != null)
+            {
+                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaLuyTien)
+                    kq = HoTro.TrinhBayBangGiaLuyTien(this.DocBangGiaChon().DaySoLuong,
+                        this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
+
+                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaBuoc)
+                    kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon().DaySoLuong,
+                        this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
+            }
+            return kq;
+        }
+       /*
         public Dictionary<string, string> TrinhBayBangGia()
         {
             Dictionary<string, string> st_dict = new Dictionary<string, string>();
@@ -99,24 +136,33 @@ namespace TinhGiaInClient.Presenter
                 }
             }
             return st_dict;
-        }
+        }*/
         public decimal GiaInNhanhTheoBang(ref decimal giaTBTrang)
         {
-            decimal result = 0;
-            var idBangGia = this.BangGiaInNhanhS().FirstOrDefault(x => x.Value == View.TenBangGiaChon).Key;
-            if (idBangGia <= 0 || View.SoTrangA4 <= 0)
+            decimal kq = 0;
+            giaTBTrang = 0;
+            
+            if (this.DocBangGiaChon() != null)
             {
-                giaTBTrang = 0;
-                return result;
-            }
-            var bGiaINhanh = BangGiaInNhanh.DocTheoId(idBangGia);
-            if (bGiaINhanh.GiaTheoKhoang)
-                result = TinhToan.GiaInNhanhTheoKhoang(bGiaINhanh, View.SoTrangA4);
-            else
-                result = TinhToan.GiaInNhanhTheoBang(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
+                
+                if ( View.SoTrangA4 <= 0)
+                {
+                    giaTBTrang = 0;
+                    return kq;
+                }
+                var bGiaINhanh = this.DocBangGiaChon();
+                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                {
+                    kq = TinhToan.GiaInLuyTien(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
+                }
+                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                    kq = TinhToan.GiaBuoc(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
+                else
+                    
 
-            giaTBTrang = result / View.SoTrangA4;
-            return result;
+                giaTBTrang = Math.Round(kq / View.SoTrangA4);
+            }
+            return kq;
         }
         public decimal TinhGiaCuoiCung(ref decimal giaTBTrang)
         {            

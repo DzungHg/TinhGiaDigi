@@ -22,6 +22,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     DienGiai = x.dien_giai,
                     IdBangGia = (int)x.ID_BANG_GIA,
                     KhongSuDung = (bool)x.khong_su_dung,
+                    DuocGomTrang = (bool)x.duoc_gom_trang,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,                    
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
@@ -47,6 +48,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     DienGiai = x.dien_giai,
                     IdBangGia = (int)x.ID_BANG_GIA,
                     KhongSuDung = (bool)x.khong_su_dung,
+                    DuocGomTrang = (bool)x.duoc_gom_trang,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
@@ -72,6 +74,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     DienGiai = x.dien_giai,
                     IdBangGia = (int)x.ID_BANG_GIA,
                     KhongSuDung = (bool)x.khong_su_dung,
+                    DuocGomTrang = (bool)x.duoc_gom_trang,
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
@@ -172,7 +175,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.khong_su_dung = entityBDO.KhongSuDung;
             entityDAO.ID_HANG_KHACH_HANG = entityBDO.IdHangKhachHang;
             entityDAO.so_trang_toi_da = entityBDO.SoTrangToiDa;
-            
+            entityDAO.duoc_gom_trang = entityBDO.DuocGomTrang;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
             entityDAO.LOAI_BANG_GIA = entityBDO.LoaiBangGia;
             entityDAO.thu_tu = entityBDO.ThuTu;
