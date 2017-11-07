@@ -80,7 +80,7 @@ namespace TinhGiaInClient.Presenter
                 var arrKey = khoangSoLuong.Split(';');//Tạo bản dãy
                 var arrValue = khoangGia.Split(';');
                 
-                for (int i = 0; i < arrKey.Length - 1; i++)
+                for (int i = 0; i < arrKey.Length; i++)
                 {
                     dict.Add(string.Format("{0:0,0} A4 giá: ", int.Parse(arrKey[i])),
                         string.Format("{0:0,0.00}đ", int.Parse(arrValue[i])));

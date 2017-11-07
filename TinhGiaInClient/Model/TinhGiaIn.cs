@@ -64,9 +64,26 @@ namespace TinhGiaInClient.Model
             get { return _baiInTheNhuaS; }
             set { _baiInTheNhuaS = value; }
         }
-              
         
-        #region Phần Bài in: thêm sửa, xóa bài in
+        public bool ChoTinhGopTrangIn ()
+        {
+            var kq = false;
+            if (this.KetQuaBaiInS.Count >0)
+            {
+                foreach (BaiIn bi in this.KetQuaBaiInS)
+                {
+                    if (bi.ChoTinhGopTrang())
+                    {
+                        kq = true;
+                        break;
+                    }
+                }
+            }
+
+            return kq;
+        }
+        
+        #region Phần Bài in: thêm sửa, xóa bài in và...
         public void ThemBaiIn(BaiIn kQuaBaiIn)
         {
             this.KetQuaBaiInS.Add(kQuaBaiIn);
@@ -105,7 +122,7 @@ namespace TinhGiaInClient.Model
             return kq;
         }
         
-        public decimal TongTienInBaiInTinhLai()//Gom lại tính gộp
+        public decimal TongTienInTatCaBaiInTinhGopTrangIn()//Gom lại tính gộp
         {
             decimal kq = 0;
             var idNiemYetGiaInNhanh = 0;
@@ -248,7 +265,7 @@ namespace TinhGiaInClient.Model
                 var tienConLaiKhongGomIn = this.TongTienBaiInChuaDieuChinhGiaIn()
                     - tongTienInToanBoBai;
                 //Kết quả = Số tiền còn lại không tính in + tổng số tiền in bài in đã điều chỉnh
-                kq = tienConLaiKhongGomIn + this.TongTienInBaiInTinhLai();
+                kq = tienConLaiKhongGomIn + this.TongTienInTatCaBaiInTinhGopTrangIn();
             }
 
             return kq;

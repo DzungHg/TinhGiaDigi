@@ -33,7 +33,7 @@ namespace TinhGiaInClient
 
             set { _id = value; }
         }
-        float _rong = 0;
+        //float _rong = 0;
         public float Rong
         {
             get;

@@ -135,7 +135,6 @@
             this.cboNiemYetGia.Name = "cboNiemYetGia";
             this.cboNiemYetGia.Size = new System.Drawing.Size(164, 21);
             this.cboNiemYetGia.TabIndex = 2;
-            this.cboNiemYetGia.SelectedIndexChanged += new System.EventHandler(this.cboBangGia_SelectedIndexChanged);
             // 
             // label1
             // 

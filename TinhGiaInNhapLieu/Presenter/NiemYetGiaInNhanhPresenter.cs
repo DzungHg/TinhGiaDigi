@@ -77,12 +77,17 @@ namespace TinhGiaInNhapLieu.Presenter
         }
         public void CapNhatChiTietBangGia()
         {
-            if (View.IdBangGia >0 && !string.IsNullOrEmpty(View.LoaiBangGia) )
+            try
             {
-                var bangGia = DanhSachBangGia.DocTheoIDvaLoai(View.IdBangGia, View.LoaiBangGia);
-                View.TenBangGia = bangGia.Ten;
-                
+                if (View.IdBangGia > 0 && !string.IsNullOrEmpty(View.LoaiBangGia))
+                {
+                    var bangGia = DanhSachBangGia.DocTheoIDvaLoai(View.IdBangGia, View.LoaiBangGia);
+                    View.TenBangGia = bangGia.Ten;
+
+                }
             }
+            catch
+            { }
         }
         public string DienGiaiHangKH()
         {

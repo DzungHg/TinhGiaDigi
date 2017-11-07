@@ -39,7 +39,7 @@ namespace TinhGiaInClient
             rdbIn4_1.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
             rdbIn4_0.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
 
-            cboNiemYetGia.SelectedIndexChanged += new EventHandler(TextBoxes_TextedChanged);
+            cboNiemYetGia.SelectedIndexChanged += new EventHandler(ComboBoxes_SelectedIndexChanged); 
             cboToInDigi.SelectedIndexChanged += new EventHandler(ComboBoxes_SelectedIndexChanged);
             
         }
@@ -234,7 +234,6 @@ namespace TinhGiaInClient
         private void TrinhBayBangGia()
         {
             
-
             //MessageBox.Show(PrintPriceCalc.TrinhBayBangGiaKhoang(this.KhoangSoLuong, this.KhoangGia).Count().ToString());
             lvwBangGia.View = System.Windows.Forms.View.Details;
             lvwBangGia.Clear();
@@ -282,13 +281,22 @@ namespace TinhGiaInClient
             if (sender is ComboBox)
             {
                 cb = (ComboBox)sender;
-                if (cb == cboNiemYetGia || cb == cboToInDigi)
+                if (cb == cboNiemYetGia )
                 {
                    
                     lblA4TrenToIn.Text = string.Format("( x {0} A4)", giaInPres.SoA4TheoToInDigi());
                     giaInPres.TrinhBayChiTietNiemYet();
-                    //Phải theo thứ tự
+                    //Trình bày bảng giá //theo thứ tự
                     TrinhBayBangGia();
+                    //Xóa hết lbl
+                    lblA4TrenToIn.Text = "";
+                    lblGiaTB_A4.Text = "";
+                    lblThanhTien.Text = "";
+
+                    CapNhatKetQuaTinh();
+                }
+                if (cb == cboToInDigi)
+                {
                     //Cập nhật chi tiét
                     CapNhatKetQuaTinh();
                 }

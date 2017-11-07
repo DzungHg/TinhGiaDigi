@@ -212,7 +212,7 @@ namespace TinhGiaInClient.Model
             for (i = 0; i < daySLuongS.Length; i++)
             {
 
-                if ((soLuong - int.Parse(daySLuongS[i])) <= 0)
+                if ((soLuong - int.Parse(daySLuongS[i])) < 0)
                 {
                     //Thoát xử lý vị trí i kể cả khi lớn hơn cuối cùng
                     break;
@@ -229,11 +229,12 @@ namespace TinhGiaInClient.Model
             }
             else
             {
-                soTrangChenhLechTaiI = int.Parse(daySLuongS[arI - 1]) - soLuong;
+                soTrangChenhLechTaiI = soLuong - int.Parse(daySLuongS[arI - 1]) ;
                 giaGoiTaiI = decimal.Parse(dayGiaS[arI - 1]);
-                giaTBTrang = giaGoiTaiI / int.Parse(daySLuongS[arI - 1]);
 
-                kq = giaGoiTaiI + giaTBTrang;
+                //giá TB trang sẽ cao nếu khách lấy lẻ
+                giaTBTrang = giaGoiTaiI / int.Parse(daySLuongS[arI - 1]);                
+                kq = giaGoiTaiI + giaTBTrang * soTrangChenhLechTaiI;
 
             }
 

@@ -91,15 +91,15 @@ namespace TinhGiaInClient.Presenter
             Dictionary<string, string> kq = null;
             if (this.DocBangGiaChon() != null)
             {
-                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaLuyTien)
+                if (View.LoaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaLuyTien)
                     kq = HoTro.TrinhBayBangGiaLuyTien(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
 
-                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaBuoc)
+                if (View.LoaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaBuoc)
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
 
-                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaGoi)
+                if (View.LoaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaGoi)
                     kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
             }

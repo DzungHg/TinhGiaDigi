@@ -103,6 +103,18 @@ namespace TinhGiaInClient
             }
             set { _idBaiInChon = value; }
         }
+
+        bool _duocGopTrangCuaBaiIn;
+        public bool DuocGopTrangInCuaBaiIn
+        {
+            get { return _duocGopTrangCuaBaiIn; }
+            set
+            {
+                _duocGopTrangCuaBaiIn = value;
+                //chkGopSoTrangInTo.Checked = _duocGopTrangCuaBaiIn;
+            }
+        }
+
         int _idDanhThiepChon = 0;
         public int IdDanhThiepChon
         {
@@ -145,11 +157,7 @@ namespace TinhGiaInClient
         {
             return tinhGiaPres.IdHangKH();
         }
-        public bool GopGiaInTheoBai
-        {
-            get { return chkGopSoTrangInTo.Checked; }
-            set {chkGopSoTrangInTo.Checked = value;}
-        }//Gộp lại khi cần tính nhiều bài 1 lần
+      
         public Boolean FormChanged { get; set; }
        
       
@@ -484,6 +492,9 @@ namespace TinhGiaInClient
                    break;
                case 1:
                    ThemBaiIn();
+                   //Cập nhật việc được gộp trang không
+                   tinhGiaPres.CapNhatDuocGopTrangInTheoBaiIn();
+                   MessageBox.Show(this.DuocGopTrangInCuaBaiIn.ToString());
                    break;
                case 2:
                    ThemCuon();
@@ -1014,6 +1025,13 @@ namespace TinhGiaInClient
 
        private void chkGopSoTrangInTo_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
        {
+           if (this.DuocGopTrangInCuaBaiIn)
+           {
+               chkGopSoTrangInTo.Checked = true;
+           }
+           else
+               chkGopSoTrangInTo.Checked = false;
+
            CapNhatThanhTienTheoTab();
        }
 
