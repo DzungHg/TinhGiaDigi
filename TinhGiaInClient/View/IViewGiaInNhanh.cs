@@ -20,6 +20,7 @@ namespace TinhGiaInClient.View
         int SoToChay { get; set; }
         int SoTrangA4 { get; }
         int SoTrangToiDaTheoBangGia { get; set; }
+        bool ChoTinhGopTrang { get; set; }
         decimal TienIn { get; set; }
         string GiaTBTrangInfo { get; set; }
         string ThongTinGiay { get; set; }

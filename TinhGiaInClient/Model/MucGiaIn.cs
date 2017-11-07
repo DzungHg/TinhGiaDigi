@@ -16,6 +16,7 @@ namespace TinhGiaInClient.Model
         public int SoMatIn { get; set; }        
         public int IdMayIn { get; set; }
         public int IdNiemYetGiaInNhanh { get; set; }
+        public bool ChoTinhGopTrang { get; set; }
         public int SoToChay { get; set; }
         public int SoTrangIn { get; set; }
         public decimal TienIn { get; set; }

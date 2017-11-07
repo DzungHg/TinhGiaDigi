@@ -73,6 +73,19 @@ namespace TinhGiaInClient.Model
 
            return this.GiaInS.Count();
        }
+       public bool ChoTinhGopTrang() //Quyết định cho gộp trang hay không
+       {
+           var kq = false;
+           foreach (MucGiaIn muc in this.GiaInS)
+           {
+               if (muc.ChoTinhGopTrang)
+               {
+                   kq = true; //Chỉ cần 1 mục cho gộp là gộp
+                   break;
+               }
+           }
+           return kq;
+       }
        public int SoLuongThanhPhamKem()
        {
            return this.ThanhPhamS.Count();
@@ -337,21 +350,21 @@ namespace TinhGiaInClient.Model
         public Dictionary<string, string> TomTat_ChaoKH()
         {
             Dictionary<string, string> dict = new Dictionary<string, string>();
-            dict.Add("ID:", this.ID.ToString());
-            dict.Add("Tiêu đề:", this.TieuDe);
-            dict.Add("Số lượng:", string.Format("{0:0,0}",this.SoLuong));
-            dict.Add("ĐV tính:", this.DonVi);
+            dict.Add("ID:" + "\t", this.ID.ToString());
+            dict.Add("Tiêu đề:" + "\t", this.TieuDe);
+            dict.Add("Số lượng:" + "\t", string.Format("{0:0,0}", this.SoLuong));
+            dict.Add("ĐV tính:" + "\t", this.DonVi);
             if (this.CauHinhSP != null)
             {
-                dict.Add("Khổ Th. Phẩm:", string.Format("{0} x {1}cm",
+                dict.Add("Khổ Th. Phẩm:" + "\t", string.Format("{0} x {1}cm",
                     this.CauHinhSP.KhoCatRong, this.CauHinhSP.KhoCatCao));
             }
             decimal tienGiay = 0;
             if (this.GiayDeInIn != null)
-            {                
-                dict.Add("Giấy in:", this.GiayDeInIn.TenGiayIn);
+            {
+                dict.Add("Giấy in:" + "\t", this.GiayDeInIn.TenGiayIn);
                 tienGiay = this.GiayDeInIn.ThanhTienGiay;
-                dict.Add("Tiền giấy:", string.Format("{0:0,00.00}đ", tienGiay));
+                dict.Add("Tiền giấy:" + "\t", string.Format("{0:0,00.00}đ", tienGiay));
             }
             //Chi tiết in và Tính in
             var tenPPIn = "Chưa có";
@@ -360,24 +373,24 @@ namespace TinhGiaInClient.Model
                 tenPPIn += string.Format("{0} /{1} M" + "; ", giaIn.TenPhuongPhapIn,
                                   + giaIn.SoMatIn);
             }
-            dict.Add("In: ", tenPPIn);
+            dict.Add("In: " + "\t", tenPPIn);
             decimal thanhTienIn = 0;
             if (this.SoLuongGiaInKemTheo() > 0)
             {
                 var soTrangIn = this.GiaInS.Sum(x => x.SoTrangIn);
                 thanhTienIn = this.GiaInS.Sum(x => x.TienIn);
-                dict.Add("+ Số trang in:", string.Format("{0:0,0} trang/mặt", soTrangIn));
-                dict.Add("+ Thành tiền in:", string.Format("{0:0,0.00}đ", thanhTienIn));
+                dict.Add("+ Số trang in:" + "\t", string.Format("{0:0,0} trang/mặt", soTrangIn));
+                dict.Add("+ Thành tiền in:" + "\t", string.Format("{0:0,0.00}đ", thanhTienIn));
             }
             //Tính thành phẩm
             
             if (this.SoLuongThanhPhamKem() > 0)
-            {               
-                dict.Add("DV thành phẩm:", this.LietKeCacDichVuThanhPham());
+            {
+                dict.Add("DV thành phẩm:" + "\t", this.LietKeCacDichVuThanhPham());
                 dict.Add("Tiền Th. Phẩm:", string.Format("{0:0,0.00}đ", this.TienThanhPham()));
             }
 
-            dict.Add("Tổng giá bài in: ", string.Format("{0:0,0.00}đ",
+            dict.Add("Tổng giá bài in: " + "\t", string.Format("{0:0,0.00}đ",
                 tienGiay + thanhTienIn + this.TienThanhPham()));
             return dict;
         }

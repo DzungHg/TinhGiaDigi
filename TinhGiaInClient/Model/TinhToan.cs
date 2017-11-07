@@ -182,7 +182,7 @@ namespace TinhGiaInClient.Model
         {///Dò số lượng lấy giá
             ///Sau đó lấy giá tại khoảng đó nhân số lượng
 
-            int result = 0;
+            decimal result = 0;
 
             if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(daySoLuong) ||
                 soLuong <= 0)
@@ -194,13 +194,58 @@ namespace TinhGiaInClient.Model
 
             return result;
         }
+        public static decimal GiaGoi (string daySoLuong, string dayGia, int soLuong)
+        {
+            decimal kq = 0;
+            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(dayGia) ||
+                soLuong <= 0)
+                return 0;
+            ///V dụ 100 trang 100k, 200tr 400.000 k
+            ///nếu  nhỏ hơn số lượng
+            ///đầu tien
+           
+            var dayGiaS = dayGia.Split(';');
+            var daySLuongS = daySoLuong.Split(';');
+            decimal giaTBTrang = 0;
+            decimal giaMin = decimal.Parse(dayGiaS[0]);
+            var i = 0;
+            for (i = 0; i < daySLuongS.Length; i++)
+            {
+
+                if ((soLuong - int.Parse(daySLuongS[i])) <= 0)
+                {
+                    //Thoát xử lý vị trí i kể cả khi lớn hơn cuối cùng
+                    break;
+                }
+
+            }
+            var arI = i;
+            //Xác định số lượng vả giá
+            var soTrangChenhLechTaiI = 0;
+            decimal giaGoiTaiI = 0;
+            if (arI <= 0) //mục đầu tiên
+            {
+                kq = decimal.Parse(dayGiaS[arI]);
+            }
+            else
+            {
+                soTrangChenhLechTaiI = int.Parse(daySLuongS[arI - 1]) - soLuong;
+                giaGoiTaiI = decimal.Parse(dayGiaS[arI - 1]);
+                giaTBTrang = giaGoiTaiI / int.Parse(daySLuongS[arI - 1]);
+
+                kq = giaGoiTaiI + giaTBTrang;
+
+            }
+
+            return kq;
+        }
         public static decimal GiaDanhThiep(string daySoLuong, string dayGia, int soLuong)
         {///Dò số lượng lấy giá
             ///Sau đó lấy giá tại khoảng đó nhân số lượng
 
             int result = 0;
 
-            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(daySoLuong) ||
+            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(dayGia) ||
                 soLuong <= 0)
                 return result;
             /*
@@ -251,7 +296,7 @@ namespace TinhGiaInClient.Model
 
             int result = 0;
 
-            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(daySoLuong) ||
+            if (string.IsNullOrEmpty(daySoLuong) || string.IsNullOrEmpty(dayGia) ||
                 soLuong <= 0)
                 return result;
           

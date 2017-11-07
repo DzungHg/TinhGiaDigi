@@ -22,6 +22,7 @@ namespace TinhGiaInClient.Presenter
             View.ID = MucGiaInNhanh.ID;
             View.IdMayInOrToIn = MucGiaInNhanh.IdMayIn;
             View.IdNiemYetChon = MucGiaInNhanh.IdNiemYetGiaInNhanh;
+            View.ChoTinhGopTrang = MucGiaInNhanh.ChoTinhGopTrang;
             View.IdBaiIn = MucGiaInNhanh.IdBaiIn;
             View.IdHangKH = MucGiaInNhanh.IdHangKhachHang;
             View.SoToChay = MucGiaInNhanh.SoToChay;
@@ -60,12 +61,14 @@ namespace TinhGiaInClient.Presenter
                 View.SoTrangToiDaTheoBangGia = niemYet.SoTrangToiDa;
                 View.LoaiBangGiaNiemYet = niemYet.LoaiBangGia.Trim();
                 View.TenLoaiBangGia = niemYet.TenLoaiBangGia;
+                View.DienGiaiNiemYet = niemYet.DienGiai;
+                View.ChoTinhGopTrang = niemYet.DuocGomTrang;
             }
         }
         public int SoTrangToiDaTheoBangGia()
         {
             
-            return BangGiaInNhanh.DocTheoId(View.IdNiemYetChon).SoTrangToiDa;
+            return NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetChon).SoTrangToiDa;
         }
         public string TenToInDigiChon()
         {

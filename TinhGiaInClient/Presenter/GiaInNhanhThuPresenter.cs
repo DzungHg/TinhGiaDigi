@@ -98,6 +98,10 @@ namespace TinhGiaInClient.Presenter
                 if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaBuoc)
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
+
+                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaGoi)
+                    kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon().DaySoLuong,
+                        this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
             }
             return kq;
         }
@@ -157,7 +161,9 @@ namespace TinhGiaInClient.Presenter
                 }
                 if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
                     kq = TinhToan.GiaBuoc(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
-                else
+
+                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
+                    kq = TinhToan.GiaGoi(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
                     
 
                 giaTBTrang = Math.Round(kq / View.SoTrangA4);

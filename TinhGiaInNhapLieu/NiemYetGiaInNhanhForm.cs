@@ -41,7 +41,7 @@ namespace TinhGiaInNhapLieu
            
 
             chkKhongSuDung.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
-
+            chkDuocGomTrang.CheckStateChanged += new EventHandler(TextBoxes_TextChanged);
             txtTenNiemYet.Leave += new EventHandler(TextBoxes_Leave);
             txtSoTrangToiDaTinh.Leave += new EventHandler(TextBoxes_Leave);
             txtThuTu.Leave += new EventHandler(TextBoxes_Leave);
@@ -245,6 +245,9 @@ namespace TinhGiaInNhapLieu
              {
                  chk = (Telerik.WinControls.UI.RadCheckBox)sender;
                  if (chk == chkKhongSuDung)
+                     this.DataChanged = true;
+
+                 if (chk == chkDuocGomTrang)
                      this.DataChanged = true;
              }
 

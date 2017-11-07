@@ -133,6 +133,7 @@ namespace TinhGiaInClient
             get { return txtDienGiaiNiemYet.Text; }
             set { txtDienGiaiNiemYet.Text = value; }
         }
+        public bool ChoTinhGopTrang { get; set; }
         public int SoTrangA4
         {
             get
@@ -253,7 +254,7 @@ namespace TinhGiaInClient
             lvwBangGia.Columns.Add("Số lượng");
             lvwBangGia.Columns.Add("Giá/Trang");
             ListViewItem item;
-            if (giaInPres.TrinhBayBangGia().Count() > 0)
+            if (giaInPres.TrinhBayBangGia() != null)
             {
                 foreach (KeyValuePair<string, string> kvp in
                     giaInPres.TrinhBayBangGia())

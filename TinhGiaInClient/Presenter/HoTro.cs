@@ -70,5 +70,27 @@ namespace TinhGiaInClient.Presenter
             return dict;           
            
         }
+        public static Dictionary<string, string> TrinhBayBangGiaGoi(string khoangSoLuong, string khoangGia, string donViTinh)
+        {
+            var dict = new Dictionary<string, string>();
+            if (!string.IsNullOrEmpty(khoangSoLuong) && !string.IsNullOrEmpty(khoangGia))
+            {
+
+                //Tạo bản dãy
+                var arrKey = khoangSoLuong.Split(';');//Tạo bản dãy
+                var arrValue = khoangGia.Split(';');
+                
+                for (int i = 0; i < arrKey.Length - 1; i++)
+                {
+                    dict.Add(string.Format("{0:0,0} A4 giá: ", int.Parse(arrKey[i])),
+                        string.Format("{0:0,0.00}đ", int.Parse(arrValue[i])));
+
+                }
+           
+            }
+
+            return dict;
+
+        }
     }
 }

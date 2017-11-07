@@ -41,6 +41,8 @@ namespace TinhGiaInClient.Model
         {  // số trang a4, Giá đại lý         
             decimal result = 0;
             float tyLeLNCoBan = (float)TinhToan.GiaTriTheoKhoang(this.DongCuon.DaySoLuong, this.DongCuon.DayLoiNhuan, this.SoLuong) / 100;
+            if (tyLeLNCoBan >= 1f) //chêm vô sợ chia 0
+                tyLeLNCoBan = 0.9f;
 
             result = this.ChiPhi(soLuong) + this.ChiPhi(soLuong) * (decimal)tyLeLNCoBan / (decimal)(1 - tyLeLNCoBan);
             return result;
