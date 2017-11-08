@@ -57,6 +57,9 @@ namespace TinhGiaInClient.Presenter
         }
         public bool DuocGopTrangInTheoBaiIn()
         {
+            //Xem xét được gộp không
+            //Còn quyết định gộp sẽ cung cấp cho classs TinhGia
+            //Để gộp
             return this.TinhGia.ChoTinhGopTrangIn();
         }
 
@@ -107,7 +110,10 @@ namespace TinhGiaInClient.Presenter
             return dict;
         }
 
-
+        public void CapNhatQuyetDinhGopGia()
+        {
+            this.TinhGia.QuyetDinhGopTrangInBaiIn = View.QuyetDinhGopTrangIn;
+        }
         #endregion
         #region Phần Danh Thiếp: thêm sửa, xóa bài in
 
@@ -307,7 +313,7 @@ namespace TinhGiaInClient.Presenter
         }
         public decimal TongGiaBaiIn()
         {
-            if (this.DuocGopTrangInTheoBaiIn())
+            if (View.QuyetDinhGopTrangIn)
                 return this.TinhGia.TongTienBaiInDaDieuChinhTienIn();
             else
                 return this.TinhGia.TongTienBaiInChuaDieuChinhGiaIn();
@@ -337,7 +343,18 @@ namespace TinhGiaInClient.Presenter
 
             foreach (string st in TinhGia.NoiDungGiaChaoKH_InTheoBai())
             {
-                kq += st + '\r' + '\n';
+                kq += st + "\r" + "\n";
+            }
+            //Thêm phần khấu trừ bài in
+            if (View.QuyetDinhGopTrangIn)
+            {
+                var str2 = "---Có gộp tiền in: " + "\r" + "\n";
+                str2 += string.Format("Tiền in khấu trừ: {0:0,0.00}đ" + "\r" + "\n",
+                    this.TinhGia.TienInDaKhauTruTheoBai());
+                str2 += string.Format("Tổng giá bài in còn: {0:0,0.00}đ" + "\r" + "\n",
+                    this.TinhGia.TongTienBaiInDaDieuChinhTienIn());
+
+                kq += str2;
             }
             return kq;
         }

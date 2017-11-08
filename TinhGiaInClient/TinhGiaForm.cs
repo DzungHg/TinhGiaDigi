@@ -67,8 +67,12 @@ namespace TinhGiaInClient
             get { return txtTieuDeTinhGia.Text; }
             set { txtTieuDeTinhGia.Text = value; }
         }
-        
-     
+
+        public bool QuyetDinhGopTrangIn 
+        {// chỉ lấy giá trị này để tính gộp
+            get { return chkGopSoTrangInTo.Checked; }
+            
+        }//Chỉ dành cho bài in
         public string TenNhanVien
         {
             get { return txtTenNV.Text; }
@@ -1023,9 +1027,11 @@ namespace TinhGiaInClient
                if (chkGopSoTrangInTo.Checked) //nếu lỡ check
                    chkGopSoTrangInTo.Checked = false;
            }
-              
-
+           //Quan trọng vì tính gộp giá là do mục này
+           tinhGiaPres.CapNhatQuyetDinhGopGia();
+           //
            CapNhatThanhTienTheoTab();
+           CapNhatTomTatNoiDungTheoTab();
        }
 
        private void txtTomTatTinhGia_Enter(object sender, EventArgs e)

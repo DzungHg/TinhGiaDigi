@@ -45,7 +45,8 @@ namespace TinhGiaInClient.Model
             get { return _dsKetQuaBaiIn; }
             set { _dsKetQuaBaiIn = value; }
         }
-
+        public bool QuyetDinhGopTrangInBaiIn
+        { get; set; }
         List<BaiInDanhThiep> _chiTietGiaDanhThiep;
         public List<BaiInDanhThiep> BaiInDanhThiepS
         {
@@ -83,7 +84,7 @@ namespace TinhGiaInClient.Model
             return kq;
         }
         
-        #region Phần Bài in: thêm sửa, xóa bài in và...
+        #region Phần Bài in: thêm sửa, xóa bài in và một số hàm để tính gộp tiền in...
         public void ThemBaiIn(BaiIn kQuaBaiIn)
         {
             this.KetQuaBaiInS.Add(kQuaBaiIn);
@@ -111,6 +112,8 @@ namespace TinhGiaInClient.Model
         {
             this.KetQuaBaiInS.Clear();
         }
+
+        
         //Thêm một số hàm
         public int TongSoTrangInA4BaiIn()
         {
@@ -122,7 +125,7 @@ namespace TinhGiaInClient.Model
             return kq;
         }
         
-        public decimal TongTienInTatCaBaiInTinhGopTrangIn()//Gom lại tính gộp
+        public decimal TongTienInTatCaBaiInTinhGopTrang()//Gom lại tính gộp
         {
             decimal kq = 0;
             var idNiemYetGiaInNhanh = 0;
@@ -158,15 +161,7 @@ namespace TinhGiaInClient.Model
 
             return kq;
         }
-        public decimal TongTienBaiInChuaDieuChinhGiaIn() //Chưa điều chỉnh giá
-        {
-            decimal kq = 0;
-            if (this.KetQuaBaiInS.Count > 0)
-                kq = this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn());
-
-            return kq;
-
-        }
+       
 
         #endregion
 
@@ -202,7 +197,7 @@ namespace TinhGiaInClient.Model
         }
         
         #endregion
-        #region Phần Cuốn: thêm sửa, xóa bài in
+        #region Phần Cuốn: thêm sửa, xóa
         public void ThemCuon(GiaInSachDigi giaCuonDigi)
         {
             this.GiaInSachDigiS.Add(giaCuonDigi);
@@ -253,7 +248,15 @@ namespace TinhGiaInClient.Model
             return kq;
         }
 
-     
+        public decimal TongTienBaiInChuaDieuChinhGiaIn() //Chưa điều chỉnh giá
+        {
+            decimal kq = 0;
+            if (this.KetQuaBaiInS.Count > 0)
+                kq = this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn());
+
+            return kq;
+
+        }   
         public decimal TongTienBaiInDaDieuChinhTienIn()
         {
             decimal kq = 0;
@@ -265,10 +268,15 @@ namespace TinhGiaInClient.Model
                 var tienConLaiKhongGomIn = this.TongTienBaiInChuaDieuChinhGiaIn()
                     - tongTienInToanBoBai;
                 //Kết quả = Số tiền còn lại không tính in + tổng số tiền in bài in đã điều chỉnh
-                kq = tienConLaiKhongGomIn + this.TongTienInTatCaBaiInTinhGopTrangIn();
+                kq = tienConLaiKhongGomIn + this.TongTienInTatCaBaiInTinhGopTrang();
             }
 
             return kq;
+        }
+        public decimal TienInDaKhauTruTheoBai()
+        {
+            return this.TongTienBaiInChuaDieuChinhGiaIn() -
+                TongTienBaiInDaDieuChinhTienIn();
         }
         public decimal TongTienCuon()
         {
@@ -340,7 +348,7 @@ namespace TinhGiaInClient.Model
 
                    
                 }
-                lst.Add("---Tóm tắt in theo bài (gốc)---");
+                lst.Add("---Tóm tắt in chưa gộp trang in---");
                 lst.Add(string.Format("----Tổng trang in A4: {0:0,0}", this.KetQuaBaiInS.Sum(x => x.TongSoTrangInA4())));
                 lst.Add(string.Format("----Tổng tiền in: {0:0,0.00}đ", this.KetQuaBaiInS.Sum(x => x.TongTienIn())));
                 lst.Add(string.Format("----Tổng trị giá: {0:0,0.00}đ", this.KetQuaBaiInS.Sum(x => x.TriGiaBaiIn())));
@@ -407,9 +415,15 @@ namespace TinhGiaInClient.Model
         #region Tóm tắt tổng
         public decimal TongTriGiaChao()
         {
+            decimal kq = 0;
+            if (this.QuyetDinhGopTrangInBaiIn)
+                kq = TongTienDanhThiep() + this.TongTienBaiInDaDieuChinhTienIn() +
+                    TongTienCuon() + TongTienTheNhua();
+            else
+                kq = TongTienDanhThiep() + this.TongTienBaiInChuaDieuChinhGiaIn() +
+                    TongTienCuon() + TongTienTheNhua();
 
-            return TongTienDanhThiep() + this.TongTienBaiInDaDieuChinhTienIn() +
-                TongTienCuon() + TongTienTheNhua();
+            return kq;
         
         }
         public List<string> NoiDungGiaChaoKhachHang()
@@ -476,6 +490,8 @@ namespace TinhGiaInClient.Model
             }
 
             lst.Add("-----Tổng kết chào giá-----");            
+            if (this.QuyetDinhGopTrangInBaiIn)
+                lst.Add(string.Format("Bài in đã khấu trừ tiền in: {0:0,0.00}đ", TienInDaKhauTruTheoBai()));
             lst.Add(string.Format("Tổng chào giá: {0:0,0.00}đ", this.TongTriGiaChao()));
 
             return lst;
