@@ -29,6 +29,8 @@ namespace TinhGiaInClient.Model
         public int SoToChayTong { get; set; }
         public bool GiayKhachDua {get; set; }
         public int IdGiay { get; set; }
+        public float GiayLonRong { get; set; }
+        public float GiayLonCao { get; set; }
         public string TenGiayIn { get; set; }        
          public int IdBaiIn { get; set; } //Gắn 
         public int SoToChayTrenToLon { get; set; }

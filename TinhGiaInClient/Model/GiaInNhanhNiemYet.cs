@@ -23,15 +23,23 @@ namespace TinhGiaInClient.Model
         public decimal ThanhTienCoBan(int soLuong)
         {
             decimal ketQua = 0;
-            if (this.BangGiaInNhanh == null)
+            if (this.BangGiaInNhanh == null || soLuong == 0)
                 return 0;
             //Qua, tính tiếp
-            if (this.BangGiaInNhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
-                {
+            switch (this.BangGiaInNhanh.LoaiBangGia.Trim())
+            {
+                case EnumsS.cBangGiaLuyTien:
+
                     ketQua = TinhToan.GiaInLuyTien(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
-                }
-            if (this.BangGiaInNhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
-                ketQua = TinhToan.GiaBuoc(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
+                    break;
+                case EnumsS.cBangGiaBuoc:
+
+                    ketQua = TinhToan.GiaBuoc(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
+                    break;
+                case EnumsS.cBangGiaGoi:
+                    ketQua = TinhToan.GiaGoi(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
+                    break;
+            }
                         
             return ketQua;
         }

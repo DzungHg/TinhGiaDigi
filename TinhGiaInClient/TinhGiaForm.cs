@@ -104,16 +104,7 @@ namespace TinhGiaInClient
             set { _idBaiInChon = value; }
         }
 
-        bool _duocGopTrangCuaBaiIn;
-        public bool DuocGopTrangInCuaBaiIn
-        {
-            get { return _duocGopTrangCuaBaiIn; }
-            set
-            {
-                _duocGopTrangCuaBaiIn = value;
-                //chkGopSoTrangInTo.Checked = _duocGopTrangCuaBaiIn;
-            }
-        }
+        
 
         int _idDanhThiepChon = 0;
         public int IdDanhThiepChon
@@ -292,7 +283,7 @@ namespace TinhGiaInClient
             baiIn.SoLuong = 10;
             baiIn.DonVi = "tờ";
             baiIn.IdHangKH = this.IdHangKhachHang();
-            var frm = new InToForm(thongTinChoBaiIn, baiIn);
+            var frm = new BaiInToForm(thongTinChoBaiIn, baiIn);
             
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -366,7 +357,7 @@ namespace TinhGiaInClient
             }
         }
         
-        private void XuLyNutOKTrenFormBaiIn_Click(InToForm frm)
+        private void XuLyNutOKTrenFormBaiIn_Click(BaiInToForm frm)
         {
             /*var baiIn = new KetQuaBaiIn();
             baiIn.DonVi = frm.DonViTinh;
@@ -492,9 +483,8 @@ namespace TinhGiaInClient
                    break;
                case 1:
                    ThemBaiIn();
-                   //Cập nhật việc được gộp trang không
-                   tinhGiaPres.CapNhatDuocGopTrangInTheoBaiIn();
-                   MessageBox.Show(this.DuocGopTrangInCuaBaiIn.ToString());
+                  
+                   //MessageBox.Show(this.DuocGopTrangInCuaBaiIn.ToString());
                    break;
                case 2:
                    ThemCuon();
@@ -1025,12 +1015,15 @@ namespace TinhGiaInClient
 
        private void chkGopSoTrangInTo_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
        {
-           if (this.DuocGopTrangInCuaBaiIn)
+           //xét xem có cho Gộp trang in hay không
+           var duocGopTrang = tinhGiaPres.DuocGopTrangInTheoBaiIn();
+           //Nếu True thì cho phép check được
+           if (!duocGopTrang)
            {
-               chkGopSoTrangInTo.Checked = true;
+               if (chkGopSoTrangInTo.Checked) //nếu lỡ check
+                   chkGopSoTrangInTo.Checked = false;
            }
-           else
-               chkGopSoTrangInTo.Checked = false;
+              
 
            CapNhatThanhTienTheoTab();
        }

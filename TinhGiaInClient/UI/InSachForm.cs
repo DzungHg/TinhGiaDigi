@@ -311,7 +311,7 @@ namespace TinhGiaInClient.UI
             baiIn.DonVi = "Tờ";
             baiIn.IdHangKH = this.IdHangKhachHang;
 
-            var frm = new InToForm(thongTinChoBaiIn, baiIn);
+            var frm = new BaiInToForm(thongTinChoBaiIn, baiIn);
 
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -325,7 +325,7 @@ namespace TinhGiaInClient.UI
                 //LoadBaiInLenListView();
             }
         }
-        private void XuLyNutOKTrenFormBaiInBia(InToForm frm)
+        private void XuLyNutOKTrenFormBaiInBia(BaiInToForm frm)
         {
             switch (frm.TinhTrangForm)
             {
@@ -395,7 +395,7 @@ namespace TinhGiaInClient.UI
             thongTinChoBaiIn.SanPhamCao = this.SachCao;
             baiIn.DonVi = "tờ";
             baiIn.IdHangKH = this.IdHangKhachHang;
-            var frm = new InToForm(thongTinChoBaiIn, baiIn);
+            var frm = new BaiInToForm(thongTinChoBaiIn, baiIn);
 
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
@@ -408,7 +408,7 @@ namespace TinhGiaInClient.UI
                
             }
         }
-        private void XuLyNutOKTrenFormBaiInRuot(InToForm frm)
+        private void XuLyNutOKTrenFormBaiInRuot(BaiInToForm frm)
         {
             switch (frm.TinhTrangForm)
             {

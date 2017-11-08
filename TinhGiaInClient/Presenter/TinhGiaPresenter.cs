@@ -55,10 +55,9 @@ namespace TinhGiaInClient.Presenter
         {
             return TinhGia.KetQuaBaiInS;
         }
-        public void CapNhatDuocGopTrangInTheoBaiIn()
+        public bool DuocGopTrangInTheoBaiIn()
         {
-            View.DuocGopTrangInCuaBaiIn = 
-                this.TinhGia.ChoTinhGopTrangIn();
+            return this.TinhGia.ChoTinhGopTrangIn();
         }
 
         public void Them_BaiIn(BaiIn baiIn)
@@ -308,7 +307,7 @@ namespace TinhGiaInClient.Presenter
         }
         public decimal TongGiaBaiIn()
         {
-            if (View.DuocGopTrangInCuaBaiIn)
+            if (this.DuocGopTrangInTheoBaiIn())
                 return this.TinhGia.TongTienBaiInDaDieuChinhTienIn();
             else
                 return this.TinhGia.TongTienBaiInChuaDieuChinhGiaIn();

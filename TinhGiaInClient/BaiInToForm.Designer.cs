@@ -1,6 +1,6 @@
 ﻿namespace TinhGiaInClient
 {
-    partial class InToForm
+    partial class BaiInToForm
     {
         /// <summary>
         /// Required designer variable.

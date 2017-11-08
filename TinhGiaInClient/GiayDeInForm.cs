@@ -110,6 +110,8 @@ namespace TinhGiaInClient
                 txtTenGiayIn.Text = value;
             }
         }
+        public float GiayLonRong { get; set; }
+        public float GiayLonCao { get; set; }
         public bool GiayKhachDua
         {
             get { return chkGiayKhach.Checked; }
@@ -280,7 +282,26 @@ namespace TinhGiaInClient
             }
         }
         private void TextBoxes_TextChanged(object sender, EventArgs e)
-        {                     
+        {
+            TextBox tb;
+            if (sender is TextBox)
+            {
+                tb = (TextBox)sender;
+                if (tb == txtSoToChayBuHao && this.IdGiay >0)
+                {
+                    if (!string.IsNullOrEmpty(txtSoToChayBuHao.Text.Trim()))
+                        //Tính
+                        this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
+
+                }
+                if (tb == txtSoToChayLyThuyet && this.IdGiay > 0)
+                {
+                    if (!string.IsNullOrEmpty(txtSoToChayLyThuyet.Text.Trim()))
+                        //Tính
+                        this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
+
+                }
+            }
            
             dataChanged = true;
             BatTatNutTinhToan();
@@ -363,7 +384,16 @@ namespace TinhGiaInClient
                     if (string.IsNullOrEmpty(txtSoToChayTrenToLon.Text))
                     {
                         txtSoToChayTrenToLon.Text = "1";
+                    } else
+                    {
+                        var soToChayTrenToLonTuTinh = giayDeInPres.SoToChayTrenToLon();
+                        if (this.SoToChayTrenToLon > soToChayTrenToLonTuTinh)
+                        {
+                            MessageBox.Show("Số tờ chạy máy tự tính ít hơn bạn tính!");
+                            btnTinhToChayTrenToLon.Focus();
+                        }
                     }
+
                     txtSoToGiayLon.Text = giayDeInPres.SoToGiayLon().ToString();
                     CapNhatTriGiaVoLabels();
                 }
@@ -479,7 +509,11 @@ namespace TinhGiaInClient
                 this.IdGiay = frm.GiayChon.ID;
 
                 txtTenGiayIn.Text = giayDeInPres.TenGiayDeIn();
-                
+                //Thứ tự nha:
+                giayDeInPres.CapNhatChiTietGiayChon();
+                //Tiếp
+                this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
+                //Cập nhật giá trị
                 CapNhatTriGiaVoLabels();
                 //Bật tắt nút nhận
                 BatTatNutOKTheoDieuKien();
@@ -493,7 +527,7 @@ namespace TinhGiaInClient
             {
                 if (string.IsNullOrEmpty(this.TenGiayIn.Trim()))
                 {
-                    this.TenGiayIn = "Giấy khách";
+                    this.TenGiayIn = " Đề nghị ghi rõ tên giấy/kích thước/số tờ";
                 }
                 txtTenGiayIn.Focus();
                 this.IdGiay = - 1;
@@ -514,6 +548,7 @@ namespace TinhGiaInClient
         private void chkGiayKhach_CheckedChanged(object sender, EventArgs e)
         {
             XuLyGiayKhachHangDua();
+            this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
         }
 
         private void TinhSoConTrenToChay()
@@ -543,9 +578,9 @@ namespace TinhGiaInClient
        private void BatTatNutTinhToan()
         {
             if (dataChanged)
-                btnTinh.Enabled = dataChanged;
+                btnTinhGiaGiay.Enabled = dataChanged;
             else
-                btnTinh.Enabled = false;
+                btnTinhGiaGiay.Enabled = false;
         }
         private void CapNhatMotSoTong()
        {
@@ -562,6 +597,11 @@ namespace TinhGiaInClient
            //Tắt nút tính
            dataChanged = false;
            BatTatNutTinhToan();
+       }
+
+       private void btnTinhToChayTrenToLon_Click(object sender, EventArgs e)
+       {
+           this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
        }
     }
 

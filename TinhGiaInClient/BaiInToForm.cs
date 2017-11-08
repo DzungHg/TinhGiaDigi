@@ -16,11 +16,11 @@ using TinhGiaInClient.UI;
 
 namespace TinhGiaInClient
 {
-    public partial class InToForm : Form, IViewBaiIn
+    public partial class BaiInToForm : Form, IViewBaiIn
     {
        
        
-        public InToForm(ThongTinBanDauChoBaiIn thongTinBanDau,  BaiIn baiIn)
+        public BaiInToForm(ThongTinBanDauChoBaiIn thongTinBanDau,  BaiIn baiIn)
         {
             InitializeComponent();
             //Chú ý theo thứ tự
@@ -459,9 +459,9 @@ namespace TinhGiaInClient
                 return;
             }           
             //Tao giay de in
-          
-            var mucGiayDeIn = new GiayDeIn(32, 47, 1, 1, 1,
-                1, false, 0, "", baiIn.ID, 1, 1, 0);//
+            
+            var mucGiayDeIn = new GiayDeIn(baiIn.CauHinhSP.ToChayRong(), baiIn.CauHinhSP.ToChayCao(),
+                1, 1, 1, 1, false, 0, "", baiIn.ID, 1, 1, 0);//
             //Tiến hành gắn
             var frm = new GiayDeInForm(thongTinBanDauChoGiayIn(baiIn, FormStateS.New), mucGiayDeIn);
             frm.MinimizeBox = false;

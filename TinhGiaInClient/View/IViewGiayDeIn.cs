@@ -17,7 +17,10 @@ namespace TinhGiaInClient.View
         string ThongTinBaiIn_CauHinh { get; set; }
         int IdGiay { get; set; }        
         string TenGiayIn { get; set; }
+        float GiayLonRong { get; set; }
+        float GiayLonCao { get; set; }
         bool GiayKhachDua { get; set; }
+
         PhuongPhapInS PhuongPhapIn { get; set; }
         float ToChayRong { get; set; }
         float ToChayDai { get; set; }

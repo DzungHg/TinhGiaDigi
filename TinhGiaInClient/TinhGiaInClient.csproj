@@ -103,11 +103,11 @@
     <Compile Include="GiayInDanhThiepForm.Designer.cs">
       <DependentUpon>GiayInDanhThiepForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InToForm.cs">
+    <Compile Include="BaiInToForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InToForm.Designer.cs">
-      <DependentUpon>InToForm.cs</DependentUpon>
+    <Compile Include="BaiInToForm.Designer.cs">
+      <DependentUpon>BaiInToForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BangGiaGiayForm.cs">
       <SubType>Form</SubType>
@@ -486,8 +486,8 @@
     <EmbeddedResource Include="GiayInDanhThiepForm.resx">
       <DependentUpon>GiayInDanhThiepForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InToForm.resx">
-      <DependentUpon>InToForm.cs</DependentUpon>
+    <EmbeddedResource Include="BaiInToForm.resx">
+      <DependentUpon>BaiInToForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BangGiaGiayForm.resx">
       <DependentUpon>BangGiaGiayForm.cs</DependentUpon>

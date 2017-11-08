@@ -230,9 +230,9 @@ namespace TinhGiaInClient.Model.Booklet
                     this.QuiCachSach.ChieuRong, this.QuiCachSach.ChieuCao)
                 + string.Format( " + Số lượng: {0} cuốn" + '\r' + '\n',
                     this.SoCuon)
-                + string.Format( " + Số trang/Cuốn: {0} trg" + '\r' + '\n',
-                    this.TongSoTrangSach)
-                + string.Format( " ++ Bìa: {0}{1} trang" + '\r' + '\n',
+                + string.Format( " + Số trang/Cuốn: {0:0,0} trg" + '\r' + '\n',
+                    this.QuiCachSach.TongSoTrang)
+                + string.Format( " ++ Bìa: {0}/{1} trang" + '\r' + '\n',
                     strThongTinBia, this.QuiCachSach.SoTrangBia)
                 + string.Format( " +++ Giấy in Bìa: {0}" + '\r' + '\n',
                     this.TenGiayInBia())
@@ -267,8 +267,8 @@ namespace TinhGiaInClient.Model.Booklet
                     this.TienGiayInBia())
                     + string.Format(" + Tiền giấy Ruột: {0: 0,0.00}đ" + '\r' + '\n',
                     this.TienGiayInRuot())
-                    + string.Format(" + Tiền In: {0: 0,0.00}đ" + '\r' + '\n',
-                    this.TienInSach())
+                    + string.Format(" + Tiền In: {0: 0,0.00}đ / {1:0,0} trg" + '\r' + '\n',
+                    this.TienInSach(), this.TongSoTrangA4In())
                     + string.Format(" + Tiền thành phẩm và đóng cuốn: {0: 0,0.00}đ" + '\r' + '\n',
                     this.TienThanhPhamBiaVaRuot() + this.TienDongCuon())
                     + string.Format(" + Tổng trị giá: {0: 0,0.00}đ" + '\r' + '\n',

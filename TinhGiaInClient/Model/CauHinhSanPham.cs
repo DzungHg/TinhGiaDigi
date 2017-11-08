@@ -53,6 +53,7 @@ namespace TinhGiaInClient.Model
         }
         #endregion
         public int IdMayIn { get; set; }//Tờ in
+        
         public PhuongPhapInS PhuongPhapIn { get; set; }
        
         public string KhoMayIn 
@@ -79,12 +80,52 @@ namespace TinhGiaInClient.Model
             }
             set { ;}
         }
+        public float ToChayRong()
+        {
+            var kq = 0f;
+            switch (this.PhuongPhapIn)
+            {
+                case PhuongPhapInS.KhongIn:
+                    kq = 0;
+                    break;
+                case PhuongPhapInS.Offset:
+                    kq = OffsetGiaCong.DocTheoId(this.IdMayIn).KhoInRongMax;
+                    break;
+                case PhuongPhapInS.Toner:
+                    kq = ToInMayDigi.DocTheoId(this.IdMayIn).Rong;
+                    break;
+                default:
+                    kq = 32f;
+                    break;
+            }
+            return kq;
+        }
+        public float ToChayCao()
+        {
+            var kq = 0f;
+            switch (this.PhuongPhapIn)
+            {
+                case PhuongPhapInS.KhongIn:
+                    kq = 0;
+                    break;
+                case PhuongPhapInS.Offset:
+                    kq = OffsetGiaCong.DocTheoId(this.IdMayIn).KhoInDaiMax;
+                    break;
+                case PhuongPhapInS.Toner:
+                    kq = ToInMayDigi.DocTheoId(this.IdMayIn).Cao;
+                    break;
+                default:
+                    kq = 48.5f;
+                    break;
+            }
+            return kq;
+        }
         public string TenPhuongPhapIn
         {
            
             get
             {
-                var kq = "";
+                var kq = "Chưa biết";
                 switch (this.PhuongPhapIn)
                 {
                     case PhuongPhapInS.Toner:

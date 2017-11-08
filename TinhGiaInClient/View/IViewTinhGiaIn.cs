@@ -17,7 +17,7 @@ namespace TinhGiaInClient.View
         string TenKhachHang { get; set; }
         string TieuDeTinhGia { get; set; }
         string TenHangKH { get; set; }
-        bool DuocGopTrangInCuaBaiIn { get; set; }
+        
         string TomTatTinhGia { get; set; }
         FormStateS TinhTrangForm { get; set; }
        //Danh sách sp

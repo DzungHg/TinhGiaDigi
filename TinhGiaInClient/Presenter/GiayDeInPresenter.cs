@@ -25,14 +25,17 @@ namespace TinhGiaInClient.Presenter
             View.ToChayDai = MucGiayDeIn.ToChayDai;
             View.SoConTrenToChay = MucGiayDeIn.SoConTrenToChay;
             View.SoLuongToChayBuHao = MucGiayDeIn.SoToChayBuHao;
-            View.GiayKhachDua = MucGiayDeIn.GiayKhachDua;
+            View.IdGiay = MucGiayDeIn.IdGiay;
             View.TenGiayIn = MucGiayDeIn.TenGiayIn;
+            View.GiayLonRong = MucGiayDeIn.GiayLonRong;
+            View.GiayLonCao = MucGiayDeIn.GiayLonCao;
+            View.GiayKhachDua = MucGiayDeIn.GiayKhachDua;
+            
             
            
             View.SoToChayTrenToLon = MucGiayDeIn.SoToChayTrenToLon;
             
-            View.IdGiay = MucGiayDeIn.IdGiay;
-
+           
         }
         public string TenGiayDeIn()
         {
@@ -55,6 +58,17 @@ namespace TinhGiaInClient.Presenter
             View.ToChayRong = 1;
            */
 
+        }
+        public void CapNhatChiTietGiayChon()
+        {
+            if (View.IdGiay >0)
+            {
+                var giay = Giay.DocGiayTheoId(View.IdGiay);
+                View.TenGiayIn = string.Format("[{0}] {1}",
+                    giay.TenDanhMucGiay,giay.TenGiayMoRong);
+                View.GiayLonRong = giay.ChieuNgan;
+                View.GiayLonCao = giay.ChieuDai;
+            }
         }
         public int SoToChayLyThuyetTinh()
         {
@@ -85,11 +99,24 @@ namespace TinhGiaInClient.Presenter
             return result;
 
         }
+        public int SoToChayTrenToLon()
+        {
+            var kq = 0;
+            if (View.ToChayRong <= 0 || View.ToChayDai <= 0 ||
+                View.GiayLonRong <= 0 || View.GiayLonCao <= 0)                
+                return kq;
+
+            //vượt
+            kq = TinhToan.SoConTrenToChayDigi(View.GiayLonRong, View.GiayLonCao,
+                View.ToChayRong, View.ToChayDai);
+            return kq;
+        }
         public int SoToGiayLon()
         {
 
             int kq = 0;
-            if (View.SoConTrenToChay <= 0 || View.SoLuongSanPham <= 0)
+            if (View.SoConTrenToChay <= 0 || View.SoLuongSanPham <= 0 ||
+                View.SoToChayTrenToLon <= 0)
                 return kq;
             //Tiếp nếu quá
             if (SoToChayTong()  % View.SoToChayTrenToLon > 0)//Chia lẻ
@@ -139,15 +166,17 @@ namespace TinhGiaInClient.Presenter
                 this.MucGiayDeIn.SoToChayBuHao = View.SoLuongToChayBuHao;
                 this.MucGiayDeIn.GiayKhachDua = View.GiayKhachDua;
                 this.MucGiayDeIn.TenGiayIn = View.TenGiayIn;
+                this.MucGiayDeIn.IdGiay = View.IdGiay;
+                this.MucGiayDeIn.GiayLonRong = View.GiayLonRong;
+                this.MucGiayDeIn.GiayLonCao = View.GiayLonCao;
                 this.MucGiayDeIn.SoToChayLyThuyet = View.SoLuongToChayLyThuyet;
                 this.MucGiayDeIn.ToChayRong = View.ToChayRong;
                 this.MucGiayDeIn.ToChayDai = View.ToChayDai;
                 this.MucGiayDeIn.SoToChayTong = this.SoToChayTong();
                 this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
-                this.MucGiayDeIn.SoToLonTong = View.SoToGiayLon; 
-               
+                this.MucGiayDeIn.SoToLonTong = View.SoToGiayLon;                
                 this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
-                this.MucGiayDeIn.IdGiay = View.IdGiay;
+                
                 this.MucGiayDeIn.ThanhTienGiay = View.ThanhTien;
                
             }

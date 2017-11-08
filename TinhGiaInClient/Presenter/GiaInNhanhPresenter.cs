@@ -100,34 +100,40 @@ namespace TinhGiaInClient.Presenter
                 if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaBuoc)
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
+
+                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaGoi)
+                    kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon().DaySoLuong,
+                        this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
             }
             return kq;
         }
        
-        public decimal GiaInNhanhTheoBang(ref decimal giaTBTrang)
+        public decimal GiaInNhanhTheoBang(ref decimal giaTBTrang)//Chưa xài tới
         {
             decimal kq = 0;
             giaTBTrang = 0;
-
-            if (this.DocBangGiaChon() != null)
+            if (this.DocBangGiaChon() == null || View.SoTrangA4 <= 0)
             {
-
-                if (View.SoTrangA4 <= 0)
-                {
-                    giaTBTrang = 0;
-                    return kq;
+                return kq;
+            }
+            //Vượt tiép
+           
+                var bGiaInNhanh = this.DocBangGiaChon();
+                switch (bGiaInNhanh.LoaiBangGia.Trim())
+                { 
+                    case EnumsS.cBangGiaLuyTien:                
+                        kq = TinhToan.GiaInLuyTien(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, View.SoTrangA4);
+                        break;
+                    case EnumsS.cBangGiaBuoc:
+                        kq = TinhToan.GiaBuoc(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, View.SoTrangA4);
+                        break;
+                    case EnumsS.cBangGiaGoi:
+                         kq = TinhToan.GiaGoi(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, View.SoTrangA4);
+                        break;
                 }
-                var bGiaINhanh = this.DocBangGiaChon();
-                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
-                {
-                    kq = TinhToan.GiaInLuyTien(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
-                }
-                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
-                    kq = TinhToan.GiaBuoc(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
-                
 
                 giaTBTrang = Math.Round(kq / View.SoTrangA4);
-            }
+            
             return kq;
         }
         public decimal TinhGiaCuoiCung(ref decimal giaTBTrang) //Ngưng dùng
@@ -148,6 +154,7 @@ namespace TinhGiaInClient.Presenter
                 MucGiaInNhanh.PhuongPhapIn = View.PhuongPhapIn;
                 MucGiaInNhanh.IdMayIn = View.IdMayInOrToIn;
                 MucGiaInNhanh.IdNiemYetGiaInNhanh = View.IdNiemYetChon;
+                MucGiaInNhanh.ChoTinhGopTrang = View.ChoTinhGopTrang;
                 MucGiaInNhanh.SoTrangIn = View.SoTrangA4;
                 MucGiaInNhanh.IdHangKhachHang = View.IdHangKH;
                 MucGiaInNhanh.SoToChay = View.SoToChay;
