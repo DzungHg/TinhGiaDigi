@@ -390,6 +390,11 @@ namespace TinhGiaInClient
         private void btnXoaCauHinhSP_Click(object sender, EventArgs e)
         {
             XoaCauHinhSP();
+            //Phải xóa giấy và mọi thứ còn lại sau đó mở khóa
+            XoaGiay();
+            XoaThanhPhamSach();
+            //Mở một số controls:
+            KhoaMoControlsSoLuongKichThuoc(false);
            
         }
         private void XoaCauHinhSP()
@@ -397,8 +402,7 @@ namespace TinhGiaInClient
             baiInPres.XoaCauHinhSanPham();
             this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();      
-            //Mở một số controls:
-            KhoaMoControlsSoLuongKichThuoc(false);
+           
         }
 
         private void XuLyNutOKTrenFormTrienKhaiSP_Click(CauHinhSPForm frm)
@@ -419,7 +423,7 @@ namespace TinhGiaInClient
                     //baiInPres.CapNhatCHSPVoBaiIn(frm.DocCauHinhSanPham());
                     frm.DocCauHinhSanPham();//Để nó tự cập nhật
                     this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
-                    //Bắt đàu xóa
+                    //Xóa hết mọi thứ liên quan
                     baiInPres.XoaGiayDeIn();
                     baiInPres.XoaHetGiaIn();
                     baiInPres.XoaHetThanhPham();
@@ -547,6 +551,8 @@ namespace TinhGiaInClient
                 case FormStateS.Edit:
                     frm.DocGiayDeIn();//Đọc để cập nhật
                     this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
+                    //Phải xóa hết thành phẩm
+                    XoaThanhPhamSach();
                     break;
             }
         }

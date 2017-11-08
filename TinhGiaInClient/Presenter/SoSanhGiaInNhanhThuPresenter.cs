@@ -71,15 +71,26 @@ namespace TinhGiaInClient.Presenter
         public Dictionary<string, string> TrinhBayBangGia(string loaiBangGiaNiemYet, int idNiemYetChon)
         {
             Dictionary<string, string> kq = null;
-            if (this.DocBangGiaChon(idNiemYetChon) != null)
+            if (this.DocBangGiaChon(idNiemYetChon) == null)
+                return kq;
+            switch (loaiBangGiaNiemYet.Trim())
             {
-                if (loaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaLuyTien)
+                case EnumsS.cBangGiaLuyTien:
+
                     kq = HoTro.TrinhBayBangGiaLuyTien(this.DocBangGiaChon(idNiemYetChon).DaySoLuong,
                         this.DocBangGiaChon(idNiemYetChon).DayGia, this.DocBangGiaChon(idNiemYetChon).DonViTinh);
+                    break;
 
-                if (loaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaBuoc)
+                case EnumsS.cBangGiaBuoc:
+
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon(idNiemYetChon).DaySoLuong,
                         this.DocBangGiaChon(idNiemYetChon).DayGia, this.DocBangGiaChon(idNiemYetChon).DonViTinh);
+                    break;
+                case EnumsS.cBangGiaGoi:
+
+                    kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon(idNiemYetChon).DaySoLuong,
+                        this.DocBangGiaChon(idNiemYetChon).DayGia, this.DocBangGiaChon(idNiemYetChon).DonViTinh);
+                    break;
             }
             return kq;
         }

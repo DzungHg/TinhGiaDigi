@@ -516,7 +516,7 @@ namespace TinhGiaInClient.UI
                     var mucDongCuon = new MucDongCuonLoXo();
                     mucDongCuon.IdBaiIn = this.ID;
                     mucDongCuon.IdHangKhachHang = this.IdHangKhachHang;
-                    mucDongCuon.SoLuong = 10; //Vì số lượng có thể không trùng
+                    mucDongCuon.SoLuong = this.SoCuon; //Vì số lượng có thể không trùng
                     mucDongCuon.DonViTinh = "cuốn";
                     mucDongCuon.GayCao = this.SachCao;
                     mucDongCuon.GayDay = this.GayDay;
@@ -545,7 +545,7 @@ namespace TinhGiaInClient.UI
                     var mucDongCuonMP = new MucDongCuonMoPhang();
                     mucDongCuonMP.IdBaiIn = this.ID;
                     mucDongCuonMP.IdHangKhachHang = this.IdHangKhachHang;
-                    mucDongCuonMP.SoLuong = 10; //Vì số lượng có thể không trùng
+                    mucDongCuonMP.SoLuong = this.SoCuon; //Vì số lượng có thể không trùng
                     mucDongCuonMP.DonViTinh = "cuốn";
                     mucDongCuonMP.SoToDoi = this.SoTrangRuot / 2;                    
                     mucDongCuonMP.LoaiThanhPham = LoaiThanhPhamS.DongCuon;
