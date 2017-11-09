@@ -46,15 +46,26 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lvwBangGia = new System.Windows.Forms.ListView();
             this.label8 = new System.Windows.Forms.Label();
             this.txtToInDigiChon = new System.Windows.Forms.TextBox();
+            this.txtSoLuongToChay = new System.Windows.Forms.TextBox();
+            this.tCtrlBangGia = new System.Windows.Forms.TabControl();
+            this.tabBangGia = new System.Windows.Forms.TabPage();
+            this.tabDienGiai = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCopyBangGia = new System.Windows.Forms.Button();
             this.txtSoTrangToiDa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtSoLuongToChay = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.lblLoaiBangGia = new System.Windows.Forms.Label();
+            this.lvwBangGia = new System.Windows.Forms.ListView();
             this.txtDienGiaiNiemYet = new System.Windows.Forms.TextBox();
             this.grbMatIn.SuspendLayout();
+            this.tCtrlBangGia.SuspendLayout();
+            this.tabBangGia.SuspendLayout();
+            this.tabDienGiai.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbMatIn
@@ -113,7 +124,7 @@
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(280, 341);
+            this.btnClose.Location = new System.Drawing.Point(122, 352);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(90, 23);
             this.btnClose.TabIndex = 10;
@@ -124,7 +135,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(430, 341);
+            this.btnOK.Location = new System.Drawing.Point(329, 352);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(90, 23);
             this.btnOK.TabIndex = 5;
@@ -232,15 +243,6 @@
             this.label7.TabIndex = 105;
             this.label7.Text = "Giá TB/A4";
             // 
-            // lvwBangGia
-            // 
-            this.lvwBangGia.Location = new System.Drawing.Point(21, 143);
-            this.lvwBangGia.Name = "lvwBangGia";
-            this.lvwBangGia.Size = new System.Drawing.Size(222, 195);
-            this.lvwBangGia.TabIndex = 4;
-            this.lvwBangGia.UseCompatibleStateImageBehavior = false;
-            this.lvwBangGia.View = System.Windows.Forms.View.Details;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -258,24 +260,6 @@
             this.txtToInDigiChon.Size = new System.Drawing.Size(199, 20);
             this.txtToInDigiChon.TabIndex = 5;
             // 
-            // txtSoTrangToiDa
-            // 
-            this.txtSoTrangToiDa.Location = new System.Drawing.Point(172, 344);
-            this.txtSoTrangToiDa.Name = "txtSoTrangToiDa";
-            this.txtSoTrangToiDa.ReadOnly = true;
-            this.txtSoTrangToiDa.Size = new System.Drawing.Size(70, 20);
-            this.txtSoTrangToiDa.TabIndex = 109;
-            this.txtSoTrangToiDa.Text = "0";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(128, 347);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 110;
-            this.label9.Text = "Tối đa";
-            // 
             // txtSoLuongToChay
             // 
             this.txtSoLuongToChay.Location = new System.Drawing.Point(349, 120);
@@ -285,38 +269,127 @@
             this.txtSoLuongToChay.TabIndex = 7;
             this.txtSoLuongToChay.Text = "0";
             // 
+            // tCtrlBangGia
+            // 
+            this.tCtrlBangGia.Controls.Add(this.tabBangGia);
+            this.tCtrlBangGia.Controls.Add(this.tabDienGiai);
+            this.tCtrlBangGia.Location = new System.Drawing.Point(20, 87);
+            this.tCtrlBangGia.Name = "tCtrlBangGia";
+            this.tCtrlBangGia.SelectedIndex = 0;
+            this.tCtrlBangGia.Size = new System.Drawing.Size(223, 257);
+            this.tCtrlBangGia.TabIndex = 3;
+            // 
+            // tabBangGia
+            // 
+            this.tabBangGia.BackColor = System.Drawing.SystemColors.Control;
+            this.tabBangGia.Controls.Add(this.lvwBangGia);
+            this.tabBangGia.Controls.Add(this.panel1);
+            this.tabBangGia.Location = new System.Drawing.Point(4, 22);
+            this.tabBangGia.Name = "tabBangGia";
+            this.tabBangGia.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBangGia.Size = new System.Drawing.Size(215, 231);
+            this.tabBangGia.TabIndex = 0;
+            this.tabBangGia.Text = "Bảng giá";
+            // 
+            // tabDienGiai
+            // 
+            this.tabDienGiai.BackColor = System.Drawing.SystemColors.Control;
+            this.tabDienGiai.Controls.Add(this.txtDienGiaiNiemYet);
+            this.tabDienGiai.Controls.Add(this.panel2);
+            this.tabDienGiai.Location = new System.Drawing.Point(4, 22);
+            this.tabDienGiai.Name = "tabDienGiai";
+            this.tabDienGiai.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDienGiai.Size = new System.Drawing.Size(215, 231);
+            this.tabDienGiai.TabIndex = 1;
+            this.tabDienGiai.Text = "Diễn giải";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCopyBangGia);
+            this.panel1.Controls.Add(this.txtSoTrangToiDa);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 196);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(209, 32);
+            this.panel1.TabIndex = 5;
+            // 
+            // btnCopyBangGia
+            // 
+            this.btnCopyBangGia.Location = new System.Drawing.Point(3, 3);
+            this.btnCopyBangGia.Name = "btnCopyBangGia";
+            this.btnCopyBangGia.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyBangGia.TabIndex = 111;
+            this.btnCopyBangGia.Text = "Copy";
+            this.btnCopyBangGia.UseVisualStyleBackColor = true;
+            this.btnCopyBangGia.Click += new System.EventHandler(this.btnCopyBangGia_Click);
+            // 
+            // txtSoTrangToiDa
+            // 
+            this.txtSoTrangToiDa.Location = new System.Drawing.Point(136, 4);
+            this.txtSoTrangToiDa.Name = "txtSoTrangToiDa";
+            this.txtSoTrangToiDa.ReadOnly = true;
+            this.txtSoTrangToiDa.Size = new System.Drawing.Size(70, 20);
+            this.txtSoTrangToiDa.TabIndex = 109;
+            this.txtSoTrangToiDa.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(92, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 110;
+            this.label9.Text = "Tối đa";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblLoaiBangGia);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(209, 30);
+            this.panel2.TabIndex = 5;
+            // 
             // lblLoaiBangGia
             // 
             this.lblLoaiBangGia.AutoSize = true;
-            this.lblLoaiBangGia.Location = new System.Drawing.Point(21, 84);
+            this.lblLoaiBangGia.Location = new System.Drawing.Point(63, 5);
             this.lblLoaiBangGia.Name = "lblLoaiBangGia";
             this.lblLoaiBangGia.Size = new System.Drawing.Size(71, 13);
             this.lblLoaiBangGia.TabIndex = 112;
             this.lblLoaiBangGia.Text = "Loại bảng giá";
             // 
+            // lvwBangGia
+            // 
+            this.lvwBangGia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwBangGia.Location = new System.Drawing.Point(3, 3);
+            this.lvwBangGia.Name = "lvwBangGia";
+            this.lvwBangGia.Size = new System.Drawing.Size(209, 193);
+            this.lvwBangGia.TabIndex = 6;
+            this.lvwBangGia.UseCompatibleStateImageBehavior = false;
+            this.lvwBangGia.View = System.Windows.Forms.View.Details;
+            // 
             // txtDienGiaiNiemYet
             // 
-            this.txtDienGiaiNiemYet.Location = new System.Drawing.Point(24, 100);
+            this.txtDienGiaiNiemYet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDienGiaiNiemYet.Location = new System.Drawing.Point(3, 33);
             this.txtDienGiaiNiemYet.Multiline = true;
             this.txtDienGiaiNiemYet.Name = "txtDienGiaiNiemYet";
             this.txtDienGiaiNiemYet.ReadOnly = true;
-            this.txtDienGiaiNiemYet.Size = new System.Drawing.Size(219, 37);
-            this.txtDienGiaiNiemYet.TabIndex = 3;
+            this.txtDienGiaiNiemYet.Size = new System.Drawing.Size(209, 195);
+            this.txtDienGiaiNiemYet.TabIndex = 6;
             // 
             // GiaInNhanhForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 378);
-            this.Controls.Add(this.txtDienGiaiNiemYet);
-            this.Controls.Add(this.lblLoaiBangGia);
+            this.ClientSize = new System.Drawing.Size(569, 387);
+            this.Controls.Add(this.tCtrlBangGia);
             this.Controls.Add(this.txtSoLuongToChay);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtSoTrangToiDa);
             this.Controls.Add(this.txtToInDigiChon);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lvwBangGia);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -339,6 +412,14 @@
             this.Load += new System.EventHandler(this.GiaInForm_Load);
             this.grbMatIn.ResumeLayout(false);
             this.grbMatIn.PerformLayout();
+            this.tCtrlBangGia.ResumeLayout(false);
+            this.tabBangGia.ResumeLayout(false);
+            this.tabDienGiai.ResumeLayout(false);
+            this.tabDienGiai.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,13 +445,19 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListView lvwBangGia;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtToInDigiChon;
+        private System.Windows.Forms.TextBox txtSoLuongToChay;
+        private System.Windows.Forms.TabControl tCtrlBangGia;
+        private System.Windows.Forms.TabPage tabBangGia;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCopyBangGia;
         private System.Windows.Forms.TextBox txtSoTrangToiDa;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtSoLuongToChay;
+        private System.Windows.Forms.TabPage tabDienGiai;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblLoaiBangGia;
+        private System.Windows.Forms.ListView lvwBangGia;
         private System.Windows.Forms.TextBox txtDienGiaiNiemYet;
     }
 }
