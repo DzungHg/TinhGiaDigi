@@ -103,12 +103,14 @@ namespace TinhGiaInClient.Presenter
         {
             var kq = 0;
             if (View.ToChayRong <= 0 || View.ToChayDai <= 0 ||
-                View.GiayLonRong <= 0 || View.GiayLonCao <= 0)                
+                View.GiayLonRong <= 0 || View.GiayLonCao <= 0)
+            
                 return kq;
 
             //vượt
             kq = TinhToan.SoConTrenToChayDigi(View.GiayLonRong, View.GiayLonCao,
                 View.ToChayRong, View.ToChayDai);
+
             return kq;
         }
         public int SoToGiayLon()
