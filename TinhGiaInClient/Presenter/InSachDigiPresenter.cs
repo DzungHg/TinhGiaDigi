@@ -16,7 +16,6 @@ namespace TinhGiaInClient.Presenter
         {
             View = view;
             this.GiaSachDigi = giaInSach;
-
             //
             View.ID = this.GiaSachDigi.ID;
             View.TieuDe = this.GiaSachDigi.TieuDe;

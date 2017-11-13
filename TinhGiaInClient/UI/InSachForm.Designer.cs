@@ -32,8 +32,15 @@
             this.radWiz1 = new Telerik.WinControls.UI.RadWizard();
             this.wzKetThuc = new Telerik.WinControls.UI.WizardCompletionPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCopyChaoKHLe = new Telerik.WinControls.UI.RadButton();
+            this.tabCtrl = new System.Windows.Forms.TabControl();
+            this.tabTomTatKH = new System.Windows.Forms.TabPage();
             this.txtTomTatTinhGiaKH = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.tabTomTatKThuat = new System.Windows.Forms.TabPage();
+            this.txtTomTatKyThuat = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.rdbKhachDV = new Telerik.WinControls.UI.RadRadioButton();
+            this.rdbKhachLe = new Telerik.WinControls.UI.RadRadioButton();
+            this.btnCopyChaoKHLe = new Telerik.WinControls.UI.RadButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkBiaLayNgoai = new Telerik.WinControls.UI.RadCheckBox();
             this.btnLayKichThuoc = new Telerik.WinControls.UI.RadButton();
@@ -74,18 +81,19 @@
             this.wzRuotBia = new Telerik.WinControls.UI.WizardPage();
             this.wzInAn = new Telerik.WinControls.UI.WizardPage();
             this.wzDongCuon = new Telerik.WinControls.UI.WizardPage();
-            this.pageViewTomTat = new Telerik.WinControls.UI.RadPageView();
-            this.pvwTomTatKH = new Telerik.WinControls.UI.RadPageViewPage();
-            this.pvwTomTatKyThuat = new Telerik.WinControls.UI.RadPageViewPage();
-            this.txtTomTatKyThuat = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
-            this.rdbKhachLe = new Telerik.WinControls.UI.RadRadioButton();
-            this.rdbKhachDV = new Telerik.WinControls.UI.RadRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).BeginInit();
             this.radWiz1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).BeginInit();
+            this.tabCtrl.SuspendLayout();
+            this.tabTomTatKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGiaKH)).BeginInit();
+            this.tabTomTatKThuat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatKyThuat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
+            this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachDV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachLe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayKichThuoc)).BeginInit();
@@ -122,15 +130,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageViewTomTat)).BeginInit();
-            this.pageViewTomTat.SuspendLayout();
-            this.pvwTomTatKH.SuspendLayout();
-            this.pvwTomTatKyThuat.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatKyThuat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
-            this.radGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachLe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,13 +169,99 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.tabCtrl);
             this.panel3.Controls.Add(this.radGroupBox1);
-            this.panel3.Controls.Add(this.pageViewTomTat);
             this.panel3.Controls.Add(this.btnCopyChaoKHLe);
             this.panel3.Location = new System.Drawing.Point(150, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(549, 309);
             this.panel3.TabIndex = 2;
+            // 
+            // tabCtrl
+            // 
+            this.tabCtrl.Controls.Add(this.tabTomTatKH);
+            this.tabCtrl.Controls.Add(this.tabTomTatKThuat);
+            this.tabCtrl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabCtrl.Location = new System.Drawing.Point(0, 0);
+            this.tabCtrl.Name = "tabCtrl";
+            this.tabCtrl.SelectedIndex = 0;
+            this.tabCtrl.Size = new System.Drawing.Size(410, 309);
+            this.tabCtrl.TabIndex = 11;
+            // 
+            // tabTomTatKH
+            // 
+            this.tabTomTatKH.Controls.Add(this.txtTomTatTinhGiaKH);
+            this.tabTomTatKH.Location = new System.Drawing.Point(4, 22);
+            this.tabTomTatKH.Name = "tabTomTatKH";
+            this.tabTomTatKH.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTomTatKH.Size = new System.Drawing.Size(402, 283);
+            this.tabTomTatKH.TabIndex = 0;
+            this.tabTomTatKH.Text = "Khách hàng";
+            this.tabTomTatKH.UseVisualStyleBackColor = true;
+            // 
+            // txtTomTatTinhGiaKH
+            // 
+            this.txtTomTatTinhGiaKH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTomTatTinhGiaKH.IsReadOnly = true;
+            this.txtTomTatTinhGiaKH.Location = new System.Drawing.Point(3, 3);
+            this.txtTomTatTinhGiaKH.Multiline = true;
+            this.txtTomTatTinhGiaKH.Name = "txtTomTatTinhGiaKH";
+            this.txtTomTatTinhGiaKH.NullText = "Tóm tắt";
+            this.txtTomTatTinhGiaKH.Size = new System.Drawing.Size(396, 277);
+            this.txtTomTatTinhGiaKH.TabIndex = 6;
+            // 
+            // tabTomTatKThuat
+            // 
+            this.tabTomTatKThuat.Controls.Add(this.txtTomTatKyThuat);
+            this.tabTomTatKThuat.Location = new System.Drawing.Point(4, 22);
+            this.tabTomTatKThuat.Name = "tabTomTatKThuat";
+            this.tabTomTatKThuat.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTomTatKThuat.Size = new System.Drawing.Size(402, 283);
+            this.tabTomTatKThuat.TabIndex = 1;
+            this.tabTomTatKThuat.Text = "Kỹ thuật";
+            this.tabTomTatKThuat.UseVisualStyleBackColor = true;
+            // 
+            // txtTomTatKyThuat
+            // 
+            this.txtTomTatKyThuat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTomTatKyThuat.IsReadOnly = true;
+            this.txtTomTatKyThuat.Location = new System.Drawing.Point(3, 3);
+            this.txtTomTatKyThuat.Multiline = true;
+            this.txtTomTatKyThuat.Name = "txtTomTatKyThuat";
+            this.txtTomTatKyThuat.NullText = "Tóm tắt";
+            this.txtTomTatKyThuat.Size = new System.Drawing.Size(396, 277);
+            this.txtTomTatKyThuat.TabIndex = 7;
+            // 
+            // radGroupBox1
+            // 
+            this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.radGroupBox1.Controls.Add(this.rdbKhachDV);
+            this.radGroupBox1.Controls.Add(this.rdbKhachLe);
+            this.radGroupBox1.HeaderText = "Loại khách hàng";
+            this.radGroupBox1.Location = new System.Drawing.Point(416, 86);
+            this.radGroupBox1.Name = "radGroupBox1";
+            this.radGroupBox1.Size = new System.Drawing.Size(121, 108);
+            this.radGroupBox1.TabIndex = 10;
+            this.radGroupBox1.Text = "Loại khách hàng";
+            // 
+            // rdbKhachDV
+            // 
+            this.rdbKhachDV.Location = new System.Drawing.Point(11, 66);
+            this.rdbKhachDV.Name = "rdbKhachDV";
+            this.rdbKhachDV.Size = new System.Drawing.Size(90, 18);
+            this.rdbKhachDV.TabIndex = 1;
+            this.rdbKhachDV.TabStop = false;
+            this.rdbKhachDV.Text = "Khách dịch vụ";
+            // 
+            // rdbKhachLe
+            // 
+            this.rdbKhachLe.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rdbKhachLe.Location = new System.Drawing.Point(11, 32);
+            this.rdbKhachLe.Name = "rdbKhachLe";
+            this.rdbKhachLe.Size = new System.Drawing.Size(62, 18);
+            this.rdbKhachLe.TabIndex = 0;
+            this.rdbKhachLe.Text = "Khách lẻ";
+            this.rdbKhachLe.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
             // 
             // btnCopyChaoKHLe
             // 
@@ -186,17 +271,6 @@
             this.btnCopyChaoKHLe.TabIndex = 7;
             this.btnCopyChaoKHLe.Text = "Copy chi tiết";
             this.btnCopyChaoKHLe.Click += new System.EventHandler(this.btnCopyChaoKHLe_Click);
-            // 
-            // txtTomTatTinhGiaKH
-            // 
-            this.txtTomTatTinhGiaKH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTomTatTinhGiaKH.IsReadOnly = true;
-            this.txtTomTatTinhGiaKH.Location = new System.Drawing.Point(0, 0);
-            this.txtTomTatTinhGiaKH.Multiline = true;
-            this.txtTomTatTinhGiaKH.Name = "txtTomTatTinhGiaKH";
-            this.txtTomTatTinhGiaKH.NullText = "Tóm tắt";
-            this.txtTomTatTinhGiaKH.Size = new System.Drawing.Size(389, 261);
-            this.txtTomTatTinhGiaKH.TabIndex = 6;
             // 
             // panel1
             // 
@@ -477,7 +551,7 @@
             // 
             // lblDongCuonDaChon
             // 
-            this.lblDongCuonDaChon.Location = new System.Drawing.Point(34, 25);
+            this.lblDongCuonDaChon.Location = new System.Drawing.Point(34, 13);
             this.lblDongCuonDaChon.Name = "lblDongCuonDaChon";
             this.lblDongCuonDaChon.Size = new System.Drawing.Size(89, 18);
             this.lblDongCuonDaChon.TabIndex = 10;
@@ -486,11 +560,11 @@
             // txtChiTietDongCuon
             // 
             this.txtChiTietDongCuon.IsReadOnly = true;
-            this.txtChiTietDongCuon.Location = new System.Drawing.Point(176, 25);
+            this.txtChiTietDongCuon.Location = new System.Drawing.Point(176, 40);
             this.txtChiTietDongCuon.Multiline = true;
             this.txtChiTietDongCuon.Name = "txtChiTietDongCuon";
             this.txtChiTietDongCuon.NullText = "Phải có đóng cuốn";
-            this.txtChiTietDongCuon.Size = new System.Drawing.Size(302, 244);
+            this.txtChiTietDongCuon.Size = new System.Drawing.Size(302, 229);
             this.txtChiTietDongCuon.TabIndex = 5;
             // 
             // btnXoaDongCuon
@@ -558,78 +632,6 @@
             this.wzDongCuon.Name = "wzDongCuon";
             this.wzDongCuon.Title = "Đóng cuốn";
             // 
-            // pageViewTomTat
-            // 
-            this.pageViewTomTat.Controls.Add(this.pvwTomTatKH);
-            this.pageViewTomTat.Controls.Add(this.pvwTomTatKyThuat);
-            this.pageViewTomTat.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pageViewTomTat.Location = new System.Drawing.Point(0, 0);
-            this.pageViewTomTat.Name = "pageViewTomTat";
-            this.pageViewTomTat.SelectedPage = this.pvwTomTatKH;
-            this.pageViewTomTat.Size = new System.Drawing.Size(410, 309);
-            this.pageViewTomTat.TabIndex = 9;
-            this.pageViewTomTat.Text = "radPageView1";
-            // 
-            // pvwTomTatKH
-            // 
-            this.pvwTomTatKH.Controls.Add(this.txtTomTatTinhGiaKH);
-            this.pvwTomTatKH.ItemSize = new System.Drawing.SizeF(97F, 28F);
-            this.pvwTomTatKH.Location = new System.Drawing.Point(10, 37);
-            this.pvwTomTatKH.Name = "pvwTomTatKH";
-            this.pvwTomTatKH.Size = new System.Drawing.Size(389, 261);
-            this.pvwTomTatKH.Text = "Cho khách hàng";
-            // 
-            // pvwTomTatKyThuat
-            // 
-            this.pvwTomTatKyThuat.Controls.Add(this.txtTomTatKyThuat);
-            this.pvwTomTatKyThuat.ItemSize = new System.Drawing.SizeF(52F, 28F);
-            this.pvwTomTatKyThuat.Location = new System.Drawing.Point(10, 37);
-            this.pvwTomTatKyThuat.Name = "pvwTomTatKyThuat";
-            this.pvwTomTatKyThuat.Size = new System.Drawing.Size(389, 261);
-            this.pvwTomTatKyThuat.Text = "Chi tiết";
-            // 
-            // txtTomTatKyThuat
-            // 
-            this.txtTomTatKyThuat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTomTatKyThuat.IsReadOnly = true;
-            this.txtTomTatKyThuat.Location = new System.Drawing.Point(0, 0);
-            this.txtTomTatKyThuat.Multiline = true;
-            this.txtTomTatKyThuat.Name = "txtTomTatKyThuat";
-            this.txtTomTatKyThuat.NullText = "Tóm tắt";
-            this.txtTomTatKyThuat.Size = new System.Drawing.Size(389, 261);
-            this.txtTomTatKyThuat.TabIndex = 7;
-            // 
-            // radGroupBox1
-            // 
-            this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
-            this.radGroupBox1.Controls.Add(this.rdbKhachDV);
-            this.radGroupBox1.Controls.Add(this.rdbKhachLe);
-            this.radGroupBox1.HeaderText = "Loại khách hàng";
-            this.radGroupBox1.Location = new System.Drawing.Point(416, 86);
-            this.radGroupBox1.Name = "radGroupBox1";
-            this.radGroupBox1.Size = new System.Drawing.Size(121, 108);
-            this.radGroupBox1.TabIndex = 10;
-            this.radGroupBox1.Text = "Loại khách hàng";
-            // 
-            // rdbKhachLe
-            // 
-            this.rdbKhachLe.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.rdbKhachLe.Location = new System.Drawing.Point(11, 32);
-            this.rdbKhachLe.Name = "rdbKhachLe";
-            this.rdbKhachLe.Size = new System.Drawing.Size(62, 18);
-            this.rdbKhachLe.TabIndex = 0;
-            this.rdbKhachLe.Text = "Khách lẻ";
-            this.rdbKhachLe.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
-            // 
-            // rdbKhachDV
-            // 
-            this.rdbKhachDV.Location = new System.Drawing.Point(11, 66);
-            this.rdbKhachDV.Name = "rdbKhachDV";
-            this.rdbKhachDV.Size = new System.Drawing.Size(90, 18);
-            this.rdbKhachDV.TabIndex = 1;
-            this.rdbKhachDV.TabStop = false;
-            this.rdbKhachDV.Text = "Khách dịch vụ";
-            // 
             // InSachForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,8 +648,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).EndInit();
             this.radWiz1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).EndInit();
+            this.tabCtrl.ResumeLayout(false);
+            this.tabTomTatKH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGiaKH)).EndInit();
+            this.tabTomTatKThuat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatKyThuat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
+            this.radGroupBox1.ResumeLayout(false);
+            this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachDV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachLe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).EndInit();
@@ -686,16 +697,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pageViewTomTat)).EndInit();
-            this.pageViewTomTat.ResumeLayout(false);
-            this.pvwTomTatKH.ResumeLayout(false);
-            this.pvwTomTatKyThuat.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatKyThuat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
-            this.radGroupBox1.ResumeLayout(false);
-            this.radGroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachLe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -748,12 +749,12 @@
         private Telerik.WinControls.UI.RadButton btnLayKichThuoc;
         private Telerik.WinControls.UI.RadCheckBox chkBiaLayNgoai;
         private Telerik.WinControls.UI.RadLabel lblDongCuonDaChon;
-        private Telerik.WinControls.UI.RadPageView pageViewTomTat;
-        private Telerik.WinControls.UI.RadPageViewPage pvwTomTatKH;
-        private Telerik.WinControls.UI.RadPageViewPage pvwTomTatKyThuat;
         private Telerik.WinControls.UI.RadTextBoxControl txtTomTatKyThuat;
         private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
         private Telerik.WinControls.UI.RadRadioButton rdbKhachDV;
         private Telerik.WinControls.UI.RadRadioButton rdbKhachLe;
+        private System.Windows.Forms.TabControl tabCtrl;
+        private System.Windows.Forms.TabPage tabTomTatKH;
+        private System.Windows.Forms.TabPage tabTomTatKThuat;
     }
 }

@@ -24,7 +24,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     DaySoLuong = x.day_so_luong,
                     KhongCon = (bool)x.khong_con,
                     DonViTinh = x.don_vi_tinh,
-                    LoaiBangGia = x.loai_bang_gia,
+                    LoaiBangGia = x.loai_bang_gia.Trim(),
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -49,7 +49,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     DaySoLuong = x.day_so_luong,
                     KhongCon = (bool)x.khong_con,
                     DonViTinh = x.don_vi_tinh,
-                    LoaiBangGia = x.loai_bang_gia, //Tự có không cần cập nhật
+                    LoaiBangGia = x.loai_bang_gia.Trim(), //Tự có không cần cập nhật
                     ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
 
@@ -143,6 +143,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.khong_con = entityBDO.KhongCon;
             entityDAO.don_vi_tinh = entityBDO.DonViTinh;
             entityDAO.thu_tu = entityBDO.ThuTu;
+            entityDAO.loai_bang_gia = entityBDO.LoaiBangGia.Trim();
         }
     }
 }

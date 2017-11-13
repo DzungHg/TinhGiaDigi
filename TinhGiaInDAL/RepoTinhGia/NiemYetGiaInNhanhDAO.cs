@@ -26,7 +26,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,                    
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    LoaiBangGia = x.LOAI_BANG_GIA,
+                    LoaiBangGia = x.LOAI_BANG_GIA.Trim(),
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -52,7 +52,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    LoaiBangGia = x.LOAI_BANG_GIA,
+                    LoaiBangGia = x.LOAI_BANG_GIA.Trim(),
                     ThuTu = (int)x.thu_tu
                 });
                 list = nguon.ToList();
@@ -78,7 +78,7 @@ namespace TinhGiaInDAL.RepoTinhGia
                     IdHangKhachHang = (int)x.ID_HANG_KHACH_HANG,
                     SoTrangToiDa = (int)x.so_trang_toi_da,
                     DaySoLuongNiemYet = x.day_so_luong_niem_yet,
-                    LoaiBangGia = x.LOAI_BANG_GIA,
+                    LoaiBangGia = x.LOAI_BANG_GIA.Trim(),
                     ThuTu = (int)x.thu_tu
                 }).SingleOrDefault();
                 
@@ -177,7 +177,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.so_trang_toi_da = entityBDO.SoTrangToiDa;
             entityDAO.duoc_gom_trang = entityBDO.DuocGomTrang;
             entityDAO.day_so_luong_niem_yet = entityBDO.DaySoLuongNiemYet;
-            entityDAO.LOAI_BANG_GIA = entityBDO.LoaiBangGia;
+            entityDAO.LOAI_BANG_GIA = entityBDO.LoaiBangGia.Trim();
             entityDAO.thu_tu = entityBDO.ThuTu;
         }
 

@@ -295,7 +295,7 @@
             this.toolStripMenuItem4,
             this.cmnuThPh_GiaCongNgoai});
             this.cmuThanhPham.Name = "cmnuGiayChoSP";
-            this.cmuThanhPham.Size = new System.Drawing.Size(157, 220);
+            this.cmuThanhPham.Size = new System.Drawing.Size(157, 242);
             this.cmuThanhPham.Opening += new System.ComponentModel.CancelEventHandler(this.cmuTabBaiIn_Opening);
             // 
             // cmnuThPh_CanPhu
@@ -342,7 +342,7 @@
             // 
             this.cmnuThPh_CatDecal.Name = "cmnuThPh_CatDecal";
             this.cmnuThPh_CatDecal.Size = new System.Drawing.Size(156, 22);
-            this.cmnuThPh_CatDecal.Text = "Cắt Decal";
+            this.cmnuThPh_CatDecal.Text = "Cắt demi decal";
             this.cmnuThPh_CatDecal.Click += new System.EventHandler(this.cmnuThPh_CatDecal_Click);
             // 
             // toolStripMenuItem5

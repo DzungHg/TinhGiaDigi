@@ -39,6 +39,9 @@ namespace TinhGiaInClient.UI
             txtSoTrangBia.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSoTrangRuot.TextChanged += new EventHandler(TextBoxes_TextChanged);
 
+            rdbKhachDV.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(RadioButtons_ToggleStateChanged);
+            rdbKhachLe.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(RadioButtons_ToggleStateChanged);
+
             txtSoTrangBia.Leave += new EventHandler(TextBoxes_Leave);
             txtSoTrangRuot.Leave += new EventHandler(TextBoxes_Leave);
 
@@ -51,6 +54,7 @@ namespace TinhGiaInClient.UI
 
             radWiz1.SelectedPageChanging += new Telerik.WinControls.UI.SelectedPageChangingEventHandler(Wizard_SelectedPageChanging);
             radWiz1.SelectedPageChanged += new Telerik.WinControls.UI.SelectedPageChangedEventHandler(Wizard_SelectedPageChanged);
+            
         }
         InSachDigiPresenter inSachPres;
 
@@ -799,7 +803,7 @@ namespace TinhGiaInClient.UI
             else
                 txtTomTatTinhGiaKH.Text = inSachPres.TomTatChaoGia_Le();
 
-            pvwTomTatKyThuat.Text = inSachPres.TomTatChiTiet_KyThuat();
+            txtTomTatKyThuat.Text = inSachPres.TomTatChiTiet_KyThuat();
         }
         private void CapNhatChiTietGiaIn()
         {
@@ -834,7 +838,7 @@ namespace TinhGiaInClient.UI
         private void lbxDongCuon_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             //Khi thay đổi cách đóng cuốn thì phải xóa đóng cuốn cũ
-            lblDongCuonDaChon.Text = "Đã chọn: " +  lbxDongCuon.SelectedItem.Text;
+            lblDongCuonDaChon.Text = "Đã chọn: " + lbxDongCuon.SelectedItem.Text;
             if (this.DongCuon != null)
             {
                 this.DongCuon = null;
@@ -857,7 +861,7 @@ namespace TinhGiaInClient.UI
 
         private void btnCopyChaoKHLe_Click(object sender, EventArgs e)
         {
-            if (pageViewTomTat.SelectedPage == pvwTomTatKH)
+            if (tabCtrl.SelectedTab == tabTomTatKH)
             {
                 if (rdbKhachDV.IsChecked)
                     Clipboard.SetText(inSachPres.TomTatChaoGia_DV());
@@ -899,6 +903,18 @@ namespace TinhGiaInClient.UI
                 this.SoTrangBia = 4;
             }
         }
-
+        private void RadioButtons_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            Telerik.WinControls.UI.RadRadioButton rdb;
+            if (sender is Telerik.WinControls.UI.RadRadioButton )
+            {
+                rdb = (Telerik.WinControls.UI.RadRadioButton)sender;
+                if (rdb == rdbKhachDV || rdb == rdbKhachLe)
+                    if (rdbKhachLe.IsChecked)
+                        txtTomTatTinhGiaKH.Text = inSachPres.TomTatChaoGia_Le();
+                    else
+                        txtTomTatTinhGiaKH.Text = inSachPres.TomTatChaoGia_DV();
+            }
+        }
     }
 }
