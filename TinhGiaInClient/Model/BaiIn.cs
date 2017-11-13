@@ -58,6 +58,26 @@ namespace TinhGiaInClient.Model
                     return false;
             }
         }
+        public bool CoIn
+        {
+            get
+            {
+                if (this.GiaInS.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        public bool CoThanhPham
+        {
+            get
+            {
+                if (this.ThanhPhamS.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
         public BaiIn(string tenBai)
         {
             _mucTPs = new List<MucThanhPham>();

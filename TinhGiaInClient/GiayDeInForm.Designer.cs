@@ -53,6 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtSoToChayTrenToLon = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTinhToChayTrenToLon = new System.Windows.Forms.Button();
             this.btnTinhGiaGiay = new System.Windows.Forms.Button();
             this.btnTinhSoConTrenToChay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,7 +71,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtSoLuongSP = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnTinhToChayTrenToLon = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grbSanPham.SuspendLayout();
             this.SuspendLayout();
@@ -150,7 +150,6 @@
             this.chkGiayKhach.TabIndex = 7;
             this.chkGiayKhach.Text = "Giấy khách đưa";
             this.chkGiayKhach.UseVisualStyleBackColor = true;
-            this.chkGiayKhach.CheckedChanged += new System.EventHandler(this.chkGiayKhach_CheckedChanged);
             // 
             // label16
             // 
@@ -323,6 +322,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thiết đặt giấy in";
             // 
+            // btnTinhToChayTrenToLon
+            // 
+            this.btnTinhToChayTrenToLon.Location = new System.Drawing.Point(241, 143);
+            this.btnTinhToChayTrenToLon.Name = "btnTinhToChayTrenToLon";
+            this.btnTinhToChayTrenToLon.Size = new System.Drawing.Size(95, 23);
+            this.btnTinhToChayTrenToLon.TabIndex = 9;
+            this.btnTinhToChayTrenToLon.Text = "Tính số tờ";
+            this.btnTinhToChayTrenToLon.UseVisualStyleBackColor = true;
+            this.btnTinhToChayTrenToLon.Click += new System.EventHandler(this.btnTinhToChayTrenToLon_Click);
+            // 
             // btnTinhGiaGiay
             // 
             this.btnTinhGiaGiay.Location = new System.Drawing.Point(241, 172);
@@ -477,16 +486,6 @@
             this.label11.Size = new System.Drawing.Size(12, 13);
             this.label11.TabIndex = 56;
             this.label11.Text = "x";
-            // 
-            // btnTinhToChayTrenToLon
-            // 
-            this.btnTinhToChayTrenToLon.Location = new System.Drawing.Point(241, 143);
-            this.btnTinhToChayTrenToLon.Name = "btnTinhToChayTrenToLon";
-            this.btnTinhToChayTrenToLon.Size = new System.Drawing.Size(95, 23);
-            this.btnTinhToChayTrenToLon.TabIndex = 9;
-            this.btnTinhToChayTrenToLon.Text = "Tính số tờ";
-            this.btnTinhToChayTrenToLon.UseVisualStyleBackColor = true;
-            this.btnTinhToChayTrenToLon.Click += new System.EventHandler(this.btnTinhToChayTrenToLon_Click);
             // 
             // GiayDeInForm
             // 

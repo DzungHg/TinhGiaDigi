@@ -119,5 +119,10 @@ namespace TinhGiaInClient.Presenter
             var giaSach = this.DocGiaSachDigi();
             return giaSach.TomTatChao_KhachLe();
         }
+        public string TomTatChiTiet_KyThuat()
+        {
+            var giaSach = this.DocGiaSachDigi();
+            return giaSach.TomTatChiTiet_KyThuat();
+        }
     }
 }

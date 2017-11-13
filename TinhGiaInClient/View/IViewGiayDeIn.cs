@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient.View
 {

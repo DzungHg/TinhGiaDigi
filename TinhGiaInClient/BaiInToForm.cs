@@ -13,6 +13,7 @@ using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.UI;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient
 {
@@ -254,6 +255,10 @@ namespace TinhGiaInClient
         private void BaiInForm_Load(object sender, EventArgs e)
         {
             lblTieuDeForm.Text = this.Text;
+            BatTatNutTabCauHinh();
+            BatTatNutTabGiay();
+            BatTatNutTabIn();
+            BatTatNutTabThPham();
             BatNutNhan();
         }
         private bool KiemTraHopLe(ref string errorMessage)
@@ -350,11 +355,12 @@ namespace TinhGiaInClient
                 XuLyNutOKTrenFormTrienKhaiSP_Click(frm);
                 CapNhatTomTatBaiIn();
             }
+
             //Khóa các control về kích thước và số lượg
             KhoaMoControlsSoLuongKichThuoc(true);
+            BatTatNutTabCauHinh();
             //Bật tắt
             BatNutNhan();
-
         }
         private void SuaCauHinhSP()
         {
@@ -374,33 +380,46 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormTrienKhaiSP_Click(frm);//Cập nhật dữ liệu
+                //Phải xóa giấy và mọi thứ còn lại sau đó mở khóa
+                XoaGiay();
+                XoaBaiInSach();
+                XoaThanhPhamSach();
+                //Cập nhật tóm tắt
                 CapNhatTomTatBaiIn();
 
             }
-            //Khóa
+
+            //Khóa các control về kích thước và số lượg
             KhoaMoControlsSoLuongKichThuoc(true);
+            BatTatNutTabCauHinh();
+            //Bật tắt
             BatNutNhan();
         }
         private void btnSuaCauHinhSP_Click(object sender, EventArgs e)
         {
-            SuaCauHinhSP();
-
+            SuaCauHinhSP();           
 
         }
         private void btnXoaCauHinhSP_Click(object sender, EventArgs e)
         {
             XoaCauHinhSP();
-            //Phải xóa giấy và mọi thứ còn lại sau đó mở khóa
-            XoaGiay();
-            XoaThanhPhamSach();
-            //Mở một số controls:
-            KhoaMoControlsSoLuongKichThuoc(false);
+            
+           
            
         }
         private void XoaCauHinhSP()
         {
             baiInPres.XoaCauHinhSanPham();
             this.TomTatCauHinhSP = baiInPres.TomTatCauHinhSP();
+            //Phải xóa giấy và mọi thứ còn lại sau đó mở khóa
+            XoaGiay();
+            XoaBaiInSach();
+            XoaThanhPhamSach();
+            //Mở một số controls:
+            KhoaMoControlsSoLuongKichThuoc(false);
+            BatTatNutTabCauHinh();
+            BatNutNhan();
+            //cập nhật
             txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();      
            
         }
@@ -532,9 +551,14 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 XuLyNutOKTrenFormChuanBiGiay_Click(frm);//Cập nhật dữ liệu
+                XoaGiay();              
+                //Cập nhật
                 CapNhatTomTatBaiIn();
             }
-
+            //Bật tắt các nút
+            //Tiếp
+            BatTatNutTabGiay();
+            //Tiếp
             BatNutNhan();
 
         }
@@ -551,7 +575,8 @@ namespace TinhGiaInClient
                 case FormStateS.Edit:
                     frm.DocGiayDeIn();//Đọc để cập nhật
                     this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
-                    //Phải xóa hết thành phẩm
+                    //Phải xóa hết In luôn
+                    XoaBaiInSach();
                     XoaThanhPhamSach();
                     break;
             }
@@ -686,6 +711,8 @@ namespace TinhGiaInClient
                     break;
 
             }
+            //bật tắt
+            BatTatNutTabIn();
             BatNutNhan();
         }
         private void SuaGiaIn()
@@ -716,6 +743,8 @@ namespace TinhGiaInClient
                     LoadGiaInLenListView();//đã cập nhật luôn 
                 }
             }
+            //bật tắt
+            BatTatNutTabIn();
             BatNutNhan();
         }
 
@@ -1410,6 +1439,9 @@ namespace TinhGiaInClient
                     }
                     break;
             }
+            //Bật tắt
+            BatTatNutTabThPham();
+            BatNutNhan();
 
         }
 #endregion
@@ -1607,18 +1639,21 @@ namespace TinhGiaInClient
         private void cmnuGanCauHinhSP_Click(object sender, EventArgs e)
         {
             ThemCauHinh();
+            BatTatNutTabCauHinh();
         }
 
         private void cmnuChuanBiGiay_Click(object sender, EventArgs e)
         {
 
             GanGiayVoBaiIn();
+            
 
         }
 
         private void btnSuaGiayIn_Click(object sender, EventArgs e)
         {
             SuaGiayIn();
+          
         }
 
 
@@ -1641,7 +1676,10 @@ namespace TinhGiaInClient
                 baiInPres.XoaGiaIn(this.IdGiaInChon);
                 LoadGiaInLenListView();//Load lại
             }
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();        
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();   
+            //batTat
+            BatTatNutTabIn();
+            BatNutNhan();
 
         }
 
@@ -1670,15 +1708,11 @@ namespace TinhGiaInClient
             //LoadChiTietBaiInTheoIdBaiIn();
         }
 
-        private void btnSuaGiayIn_Click_1(object sender, EventArgs e)
-        {
-            SuaGiayIn();
-
-        }
-
+        
         private void btnXoaGiayDeIn_Click(object sender, EventArgs e)
         {
             XoaGiay();
+           
         }
         private void XoaGiay()
         {
@@ -1687,7 +1721,12 @@ namespace TinhGiaInClient
                 baiInPres.XoaGiayDeIn();
                 this.TomTatGiayDeIn = baiInPres.TomTatGiayDeIn();
             }
-            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();    
+            txtTomTatBaiIn.Lines = baiInPres.TomTatNoiDungBaiIn_ChaoKH().ToArray();
+            //Bật tắt nút
+            //Tiếp
+            BatTatNutTabGiay();
+            //Tiếp
+            BatNutNhan();
         }
 
         private void btnXoaHetBaiInNhanh_Click(object sender, EventArgs e)
@@ -1700,7 +1739,10 @@ namespace TinhGiaInClient
             //Cập nhật lại listview
             LoadGiaInLenListView();
             //
-
+            //batTat
+            BatTatNutTabIn();
+            BatNutNhan();
+            //Cap nhat
             CapNhatTomTatBaiIn();        
         }
         private void CapNhatTomTatBaiIn()
@@ -1712,6 +1754,9 @@ namespace TinhGiaInClient
             baiInPres.XoaThanhPham(baiInPres.LayThanhPhamTheoId(this.IdThanhPhamChon));
             //Cần cập nhật lại listview Bài in
             LoadThanhPhamLenListView();
+            //Bật tắt
+            BatTatNutTabThPham();
+            BatNutNhan();
              //Cap nhat noi dung bai in
             CapNhatTomTatBaiIn();       
         }
@@ -1723,6 +1768,10 @@ namespace TinhGiaInClient
         {
             baiInPres.XoaHetThanhPham();
             LoadThanhPhamLenListView();
+            //Bật tắt
+            BatTatNutTabThPham();
+            BatNutNhan();
+            //Cap Nhat cac nhan
             CapNhatTomTatBaiIn();  
         }
         private void cmnuThPh_EpKim_Click(object sender, EventArgs e)
@@ -1783,13 +1832,13 @@ namespace TinhGiaInClient
                     {
                         btnSuaGiaInNhanh.Enabled = false;
                         btnXoaGiaInNhanh.Enabled = false;
-                        btnXoaHetBaiInNhanh.Enabled = false;
+                        btnXoaSachGiaiIn.Enabled = false;
                     }
                     else
                     {
                         btnSuaGiaInNhanh.Enabled = true;
                         btnXoaGiaInNhanh.Enabled = true;
-                        btnXoaHetBaiInNhanh.Enabled = true;
+                        btnXoaSachGiaiIn.Enabled = true;
                     }
                 }
                 if (lv == lvwThanhPham)
@@ -1873,6 +1922,67 @@ namespace TinhGiaInClient
         private void cmnuThPh_KhoanBoGoc_Click(object sender, EventArgs e)
         {
             ThemThanhPham(this.ID, LoaiThanhPhamS.KhoanBoGoc);
+        }
+        
+        private void BatTatNutTabGiay()
+        {
+            var baiIn = baiInPres.DocBaiIn();
+            if (baiIn.CoGiayIn)
+            {
+                btnSuaGiayIn.Enabled = true;
+                btnXoaGiayDeIn.Enabled = true;
+            }
+            else
+            {
+                btnSuaGiayIn.Enabled = false;
+                btnXoaGiayDeIn.Enabled = false;
+            }
+        }
+        private void BatTatNutTabCauHinh()
+        {
+            var baiIn = baiInPres.DocBaiIn();
+            if (baiIn.CoCauHinh)
+            {
+                btnSuaCauHinhSP.Enabled = true;
+                btnXoaCauHinhSP.Enabled = true;
+            }
+            else
+            {
+                btnSuaCauHinhSP.Enabled = false;
+                btnXoaCauHinhSP.Enabled = false;
+            }
+        }
+        private void BatTatNutTabIn()
+        {
+             var baiIn = baiInPres.DocBaiIn();
+             if (baiIn.CoIn)
+             {
+                 btnSuaGiaInNhanh.Enabled = true;
+                 btnXoaGiaInNhanh.Enabled = true;
+                 btnXoaSachGiaiIn.Enabled = true;
+             }
+             else
+             {
+                 btnSuaGiaInNhanh.Enabled = false;
+                 btnXoaGiaInNhanh.Enabled = false;
+                 btnXoaSachGiaiIn.Enabled = false;
+             }
+        }
+        private void BatTatNutTabThPham()
+        {
+            var baiIn = baiInPres.DocBaiIn();
+             if (baiIn.CoThanhPham)
+             {
+                 btnSuaThanhPham.Enabled = true;
+                 btnXoaThanhPham.Enabled = true;
+                 btnXoaHetThanhPham.Enabled = true;
+             }
+             else
+             {
+                 btnSuaThanhPham.Enabled = false;
+                 btnXoaThanhPham.Enabled = false;
+                 btnXoaHetThanhPham.Enabled = false;
+             }
         }
         private void BatNutNhan()
         {
@@ -1999,6 +2109,11 @@ namespace TinhGiaInClient
                 (txtTomTatBaiIn.Width - btnCopyToClipBoardNoiDungMucChon.Width) -2;
             //
             lblThongTinCanhBaoNutNhan.Left = trvMucLucBaiIn.Left + trvMucLucBaiIn.Width + 2;
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+
         }
 
        

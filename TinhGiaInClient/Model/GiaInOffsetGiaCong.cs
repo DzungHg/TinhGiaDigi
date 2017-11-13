@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient.Model
 {
@@ -11,11 +12,11 @@ namespace TinhGiaInClient.Model
         public OffsetGiaCong MayInOffset { get; set; }
         public int SoMatIn { get; set; }
         public int TyLeMarkUp { get; set; }
-        public int KieuInOffset { get; set; }
+        public KieuInOffsetS KieuInOffset { get; set; }
         public decimal PhiVanChuyen { get; set; }
         public decimal PhiCanhBai { get; set; }
-        public GiaInOffsetGiaCong(OffsetGiaCong mayInOffset, int soMatIn, int tyLeMarkUp, int kieuInOffset,
-            decimal phiVanChuyen, decimal phiCanhBai)
+        public GiaInOffsetGiaCong(OffsetGiaCong mayInOffset, int soMatIn, int tyLeMarkUp,
+            KieuInOffsetS kieuInOffset, decimal phiVanChuyen, decimal phiCanhBai)
         {
             this.MayInOffset = mayInOffset;
             this.SoMatIn = soMatIn;
@@ -39,18 +40,18 @@ namespace TinhGiaInClient.Model
 
             switch (this.KieuInOffset)
             {
-                case (int)EnumsS.KieuInOffset.MotMat:
+                case KieuInOffsetS.MotMat:
                     if (this.SoMatIn - soMatCoBan > 0)
                         soMatInVuotCoBan = this.SoMatIn - soMatCoBan;
                     tienInGiaCong = giaInMotLan + soMatInVuotCoBan * giaMotMatVuotCoBan;
                     break;
-                case (int)EnumsS.KieuInOffset.TuTro:
-                case (int)EnumsS.KieuInOffset.TuTroNhip:
+                case KieuInOffsetS.TuTro:
+                case KieuInOffsetS.TuTroNhip:
                     if (this.SoMatIn - soMatCoBan > 0)
                         soMatInVuotCoBan = this.SoMatIn - soMatCoBan;
                     tienInGiaCong = giaInMotLan + soMatInVuotCoBan * giaMotMatVuotCoBan;
                     break;
-                case (int)EnumsS.KieuInOffset.AB:// là in 2 kẽm
+                case KieuInOffsetS.AB:// là in 2 kẽm
                     if (this.SoMatIn / 2 - soMatCoBan > 0)
                         soMatInVuotCoBan = (this.SoMatIn /2 - soMatCoBan) * 2;
                     tienInGiaCong = (giaInMotLan * 2) + soMatInVuotCoBan * giaMotMatVuotCoBan;

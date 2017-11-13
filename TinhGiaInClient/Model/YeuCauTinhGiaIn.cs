@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInBDO;
 using TinhGiaInLogic;
+using TinhGiaInClient.Common.Enum;
 
 
 namespace TinhGiaInClient.Model

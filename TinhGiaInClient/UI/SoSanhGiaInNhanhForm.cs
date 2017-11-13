@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TinhGiaInClient.Model;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Common;
 
 namespace TinhGiaInClient.UI
 {
@@ -26,7 +27,7 @@ namespace TinhGiaInClient.UI
             this.TenNhaInA = "Nhà in A";
             this.TenNhaInB = "Nhà in B";
             //
-            this.DaySoLuongTrangA4 = EnumsS.cDaySoLuongA4TinhThu;
+            this.DaySoLuongTrangA4 = Global.cDaySoLuongA4TinhThu;
             //Nạp bảng giá vô combo
             LoadNiemYetGia();
             //

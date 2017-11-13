@@ -263,11 +263,9 @@ namespace TinhGiaInClient.Model.Booklet
         {
             var str = "";
             //Tiếp các tổng
-            str = string.Format(" + Tiền giấy Bìa: {0: 0,0.00}đ" + '\r' + '\n',
-                    this.TienGiayInBia())
-                    + string.Format(" + Tiền giấy Ruột: {0: 0,0.00}đ" + '\r' + '\n',
-                    this.TienGiayInRuot())
-                    + string.Format(" + Tiền In: {0: 0,0.00}đ / {1:0,0} trg" + '\r' + '\n',
+            str = string.Format(" + Tổng tiền giấy: {0:0,0.00}đ" + '\r' + '\n',
+                    this.TienGiay())                    
+                    + string.Format(" + Tổng tiền In: {0:0,0.00}đ / {1:0,0} trg" + '\r' + '\n',
                     this.TienInSach(), this.TongSoTrangA4In())
                     + string.Format(" + Tiền thành phẩm và đóng cuốn: {0: 0,0.00}đ" + '\r' + '\n',
                     this.TienThanhPhamBiaVaRuot() + this.TienDongCuon())
@@ -279,6 +277,29 @@ namespace TinhGiaInClient.Model.Booklet
             //Gộp đầu và đuôi
             return this.TomTatQuiCach() + str;
         }
+        public string TomTatChiTiet_KyThuat()
+        {
+            var str = "";
+            //Tiếp các tổng
+            str = string.Format(" + Tiền giấy bìa: {0:0,0.00}đ" + '\r' + '\n',
+                    this.TienGiayInBia())
+                    + string.Format(" + Tiền giấy ruột: {0:0,0.00}đ" + '\r' + '\n',
+                    this.TienGiayInRuot())
+                    + string.Format(" + Tổng tiền giấy: {0:0,0.00}đ" + '\r' + '\n',
+                    this.TienGiay())
+                    + string.Format(" + Tổng tiền In: {0:0,0.00}đ / {1:0,0} trg" + '\r' + '\n',
+                    this.TienInSach(), this.TongSoTrangA4In())
+                    + string.Format(" + Tiền thành phẩm và đóng cuốn: {0: 0,0.00}đ" + '\r' + '\n',
+                    this.TienThanhPhamBiaVaRuot() + this.TienDongCuon())
+                    + string.Format(" + Tổng trị giá: {0: 0,0.00}đ" + '\r' + '\n',
+                    this.GiaChaoTong())
+                    + string.Format(" + Giá: {0: 0,0.00}đ / cuốn" + '\r' + '\n',
+                    this.GiaTBTrenCuon());
+
+            //Gộp đầu và đuôi
+            return this.TomTatQuiCach() + str;
+        }
+
         #endregion
 
     }

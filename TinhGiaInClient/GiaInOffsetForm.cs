@@ -11,6 +11,7 @@ using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient
 {
@@ -61,27 +62,38 @@ namespace TinhGiaInClient
         }
 
         int _kieuIn = 0;
-        public int KieuInOffset
+        public KieuInOffsetS KieuInOffset
         {
             get {
                 if (rdbMotMat.Checked)
-                    _kieuIn = (int)EnumsS.KieuInOffset.MotMat;
+                    return KieuInOffsetS.MotMat;
+                else if (rdbTuTro.Checked)
+                    return KieuInOffsetS.TuTro;
 
-                if (rdbTuTro.Checked)
-                    _kieuIn = (int)EnumsS.KieuInOffset.TuTro;
+                else if (rdbTuTroNhip.Checked)
+                    return KieuInOffsetS.TuTroNhip;
 
-                if (rdbTuTroNhip.Checked)
-                    _kieuIn = (int)EnumsS.KieuInOffset.TuTroNhip;
-
-                if (rdbAB.Checked)
-                    _kieuIn = (int)EnumsS.KieuInOffset.AB;
-               
-               
-                    return _kieuIn;
+                else if (rdbAB.Checked)
+                    return KieuInOffsetS.AB;
+                else
+                    return KieuInOffsetS.MotMat;         
 
             }
 
-            set { _kieuIn = value; }
+            set {
+                switch ( value)
+                {
+                    case KieuInOffsetS.MotMat:
+                        rdbMotMat.Checked = true;
+                        break;
+                    case KieuInOffsetS.TuTro:
+                        rdbTuTro.Checked = true;
+                        break;
+                    case KieuInOffsetS.TuTroNhip:
+                        rdbTuTroNhip.Checked = true;
+                        break;
+                }
+                     }
         }
         public string KhoToChay
         {

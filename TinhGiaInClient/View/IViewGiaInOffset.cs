@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient.View
 {
@@ -13,7 +14,7 @@ namespace TinhGiaInClient.View
         int IdBaiIn { get; set; }
         int IdHangKH { get; set; }
         string TenHangKH { get; set; }        
-        int KieuInOffset { get; set; }
+        KieuInOffsetS KieuInOffset { get; set; }
         int IdMayIn { get; set; }
         string KhoToChay { get; set; }
         int SoTrangIn { get; }

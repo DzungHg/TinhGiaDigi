@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinhGiaInClient.Common;
 
 namespace TinhGiaInClient.Model
 {
@@ -28,15 +29,15 @@ namespace TinhGiaInClient.Model
             //Qua, tính tiếp
             switch (this.BangGiaInNhanh.LoaiBangGia.Trim())
             {
-                case EnumsS.cBangGiaLuyTien:
+                case Global.cBangGiaLuyTien:
 
                     ketQua = TinhToan.GiaInLuyTien(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
                     break;
-                case EnumsS.cBangGiaBuoc:
+                case Global.cBangGiaBuoc:
 
                     ketQua = TinhToan.GiaBuoc(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
                     break;
-                case EnumsS.cBangGiaGoi:
+                case Global.cBangGiaGoi:
                     ketQua = TinhToan.GiaGoi(this.BangGiaInNhanh.DaySoLuong, this.BangGiaInNhanh.DayGia, soLuong);
                     break;
             }

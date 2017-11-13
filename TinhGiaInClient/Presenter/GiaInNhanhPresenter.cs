@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.View;
+using TinhGiaInClient.Common;
 using TinhGiaInClient.Model;
 
 
@@ -93,15 +94,15 @@ namespace TinhGiaInClient.Presenter
             Dictionary<string, string> kq = null;
             if (this.DocBangGiaChon() != null)
             {
-                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaLuyTien)
+                if (View.LoaiBangGiaNiemYet == Global.cBangGiaLuyTien)
                     kq = HoTro.TrinhBayBangGiaLuyTien(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
 
-                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaBuoc)
+                if (View.LoaiBangGiaNiemYet == Global.cBangGiaBuoc)
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
 
-                if (View.LoaiBangGiaNiemYet == EnumsS.cBangGiaGoi)
+                if (View.LoaiBangGiaNiemYet == Global.cBangGiaGoi)
                     kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
             }
@@ -121,13 +122,13 @@ namespace TinhGiaInClient.Presenter
                 var bGiaInNhanh = this.DocBangGiaChon();
                 switch (bGiaInNhanh.LoaiBangGia.Trim())
                 { 
-                    case EnumsS.cBangGiaLuyTien:                
+                    case Global.cBangGiaLuyTien:                
                         kq = TinhToan.GiaInLuyTien(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, View.SoTrangA4);
                         break;
-                    case EnumsS.cBangGiaBuoc:
+                    case Global.cBangGiaBuoc:
                         kq = TinhToan.GiaBuoc(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, View.SoTrangA4);
                         break;
-                    case EnumsS.cBangGiaGoi:
+                    case Global.cBangGiaGoi:
                          kq = TinhToan.GiaGoi(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, View.SoTrangA4);
                         break;
                 }

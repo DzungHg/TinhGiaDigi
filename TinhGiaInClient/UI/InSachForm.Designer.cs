@@ -32,9 +32,8 @@
             this.radWiz1 = new Telerik.WinControls.UI.RadWizard();
             this.wzKetThuc = new Telerik.WinControls.UI.WizardCompletionPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCopyChaoKHDV = new Telerik.WinControls.UI.RadButton();
             this.btnCopyChaoKHLe = new Telerik.WinControls.UI.RadButton();
-            this.txtTomTatTinhGia = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.txtTomTatTinhGiaKH = new Telerik.WinControls.UI.RadTextBoxControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkBiaLayNgoai = new Telerik.WinControls.UI.RadCheckBox();
             this.btnLayKichThuoc = new Telerik.WinControls.UI.RadButton();
@@ -65,6 +64,7 @@
             this.btnXoaBia = new Telerik.WinControls.UI.RadButton();
             this.btnThemBia = new Telerik.WinControls.UI.RadButton();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblDongCuonDaChon = new Telerik.WinControls.UI.RadLabel();
             this.txtChiTietDongCuon = new Telerik.WinControls.UI.RadTextBoxControl();
             this.btnXoaDongCuon = new Telerik.WinControls.UI.RadButton();
             this.btnThemDongCuon = new Telerik.WinControls.UI.RadButton();
@@ -74,13 +74,18 @@
             this.wzRuotBia = new Telerik.WinControls.UI.WizardPage();
             this.wzInAn = new Telerik.WinControls.UI.WizardPage();
             this.wzDongCuon = new Telerik.WinControls.UI.WizardPage();
-            this.lblDongCuonDaChon = new Telerik.WinControls.UI.RadLabel();
+            this.pageViewTomTat = new Telerik.WinControls.UI.RadPageView();
+            this.pvwTomTatKH = new Telerik.WinControls.UI.RadPageViewPage();
+            this.pvwTomTatKyThuat = new Telerik.WinControls.UI.RadPageViewPage();
+            this.txtTomTatKyThuat = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.rdbKhachLe = new Telerik.WinControls.UI.RadRadioButton();
+            this.rdbKhachDV = new Telerik.WinControls.UI.RadRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).BeginInit();
             this.radWiz1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGiaKH)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLayKichThuoc)).BeginInit();
@@ -111,12 +116,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaBia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemBia)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblDongCuonDaChon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietDongCuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaDongCuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblDongCuonDaChon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageViewTomTat)).BeginInit();
+            this.pageViewTomTat.SuspendLayout();
+            this.pvwTomTatKH.SuspendLayout();
+            this.pvwTomTatKyThuat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatKyThuat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
+            this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachLe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachDV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,41 +170,33 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.btnCopyChaoKHDV);
+            this.panel3.Controls.Add(this.radGroupBox1);
+            this.panel3.Controls.Add(this.pageViewTomTat);
             this.panel3.Controls.Add(this.btnCopyChaoKHLe);
-            this.panel3.Controls.Add(this.txtTomTatTinhGia);
             this.panel3.Location = new System.Drawing.Point(150, 56);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(549, 309);
             this.panel3.TabIndex = 2;
             // 
-            // btnCopyChaoKHDV
-            // 
-            this.btnCopyChaoKHDV.Location = new System.Drawing.Point(427, 266);
-            this.btnCopyChaoKHDV.Name = "btnCopyChaoKHDV";
-            this.btnCopyChaoKHDV.Size = new System.Drawing.Size(110, 24);
-            this.btnCopyChaoKHDV.TabIndex = 8;
-            this.btnCopyChaoKHDV.Text = "Copy KH DV";
-            this.btnCopyChaoKHDV.Click += new System.EventHandler(this.btnCopyChaoKHDV_Click);
-            // 
             // btnCopyChaoKHLe
             // 
-            this.btnCopyChaoKHLe.Location = new System.Drawing.Point(427, 224);
+            this.btnCopyChaoKHLe.Location = new System.Drawing.Point(416, 274);
             this.btnCopyChaoKHLe.Name = "btnCopyChaoKHLe";
             this.btnCopyChaoKHLe.Size = new System.Drawing.Size(110, 24);
             this.btnCopyChaoKHLe.TabIndex = 7;
-            this.btnCopyChaoKHLe.Text = "Copy KH Lẻ";
+            this.btnCopyChaoKHLe.Text = "Copy chi tiết";
             this.btnCopyChaoKHLe.Click += new System.EventHandler(this.btnCopyChaoKHLe_Click);
             // 
-            // txtTomTatTinhGia
+            // txtTomTatTinhGiaKH
             // 
-            this.txtTomTatTinhGia.IsReadOnly = true;
-            this.txtTomTatTinhGia.Location = new System.Drawing.Point(23, 22);
-            this.txtTomTatTinhGia.Multiline = true;
-            this.txtTomTatTinhGia.Name = "txtTomTatTinhGia";
-            this.txtTomTatTinhGia.NullText = "Tóm tắt";
-            this.txtTomTatTinhGia.Size = new System.Drawing.Size(398, 268);
-            this.txtTomTatTinhGia.TabIndex = 6;
+            this.txtTomTatTinhGiaKH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTomTatTinhGiaKH.IsReadOnly = true;
+            this.txtTomTatTinhGiaKH.Location = new System.Drawing.Point(0, 0);
+            this.txtTomTatTinhGiaKH.Multiline = true;
+            this.txtTomTatTinhGiaKH.Name = "txtTomTatTinhGiaKH";
+            this.txtTomTatTinhGiaKH.NullText = "Tóm tắt";
+            this.txtTomTatTinhGiaKH.Size = new System.Drawing.Size(389, 261);
+            this.txtTomTatTinhGiaKH.TabIndex = 6;
             // 
             // panel1
             // 
@@ -469,6 +475,14 @@
             this.panel4.Size = new System.Drawing.Size(699, 284);
             this.panel4.TabIndex = 3;
             // 
+            // lblDongCuonDaChon
+            // 
+            this.lblDongCuonDaChon.Location = new System.Drawing.Point(34, 25);
+            this.lblDongCuonDaChon.Name = "lblDongCuonDaChon";
+            this.lblDongCuonDaChon.Size = new System.Drawing.Size(89, 18);
+            this.lblDongCuonDaChon.TabIndex = 10;
+            this.lblDongCuonDaChon.Text = "Đóng cuốn chọn";
+            // 
             // txtChiTietDongCuon
             // 
             this.txtChiTietDongCuon.IsReadOnly = true;
@@ -544,13 +558,77 @@
             this.wzDongCuon.Name = "wzDongCuon";
             this.wzDongCuon.Title = "Đóng cuốn";
             // 
-            // lblDongCuonDaChon
+            // pageViewTomTat
             // 
-            this.lblDongCuonDaChon.Location = new System.Drawing.Point(34, 25);
-            this.lblDongCuonDaChon.Name = "lblDongCuonDaChon";
-            this.lblDongCuonDaChon.Size = new System.Drawing.Size(89, 18);
-            this.lblDongCuonDaChon.TabIndex = 10;
-            this.lblDongCuonDaChon.Text = "Đóng cuốn chọn";
+            this.pageViewTomTat.Controls.Add(this.pvwTomTatKH);
+            this.pageViewTomTat.Controls.Add(this.pvwTomTatKyThuat);
+            this.pageViewTomTat.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pageViewTomTat.Location = new System.Drawing.Point(0, 0);
+            this.pageViewTomTat.Name = "pageViewTomTat";
+            this.pageViewTomTat.SelectedPage = this.pvwTomTatKH;
+            this.pageViewTomTat.Size = new System.Drawing.Size(410, 309);
+            this.pageViewTomTat.TabIndex = 9;
+            this.pageViewTomTat.Text = "radPageView1";
+            // 
+            // pvwTomTatKH
+            // 
+            this.pvwTomTatKH.Controls.Add(this.txtTomTatTinhGiaKH);
+            this.pvwTomTatKH.ItemSize = new System.Drawing.SizeF(97F, 28F);
+            this.pvwTomTatKH.Location = new System.Drawing.Point(10, 37);
+            this.pvwTomTatKH.Name = "pvwTomTatKH";
+            this.pvwTomTatKH.Size = new System.Drawing.Size(389, 261);
+            this.pvwTomTatKH.Text = "Cho khách hàng";
+            // 
+            // pvwTomTatKyThuat
+            // 
+            this.pvwTomTatKyThuat.Controls.Add(this.txtTomTatKyThuat);
+            this.pvwTomTatKyThuat.ItemSize = new System.Drawing.SizeF(52F, 28F);
+            this.pvwTomTatKyThuat.Location = new System.Drawing.Point(10, 37);
+            this.pvwTomTatKyThuat.Name = "pvwTomTatKyThuat";
+            this.pvwTomTatKyThuat.Size = new System.Drawing.Size(389, 261);
+            this.pvwTomTatKyThuat.Text = "Chi tiết";
+            // 
+            // txtTomTatKyThuat
+            // 
+            this.txtTomTatKyThuat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTomTatKyThuat.IsReadOnly = true;
+            this.txtTomTatKyThuat.Location = new System.Drawing.Point(0, 0);
+            this.txtTomTatKyThuat.Multiline = true;
+            this.txtTomTatKyThuat.Name = "txtTomTatKyThuat";
+            this.txtTomTatKyThuat.NullText = "Tóm tắt";
+            this.txtTomTatKyThuat.Size = new System.Drawing.Size(389, 261);
+            this.txtTomTatKyThuat.TabIndex = 7;
+            // 
+            // radGroupBox1
+            // 
+            this.radGroupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this.radGroupBox1.Controls.Add(this.rdbKhachDV);
+            this.radGroupBox1.Controls.Add(this.rdbKhachLe);
+            this.radGroupBox1.HeaderText = "Loại khách hàng";
+            this.radGroupBox1.Location = new System.Drawing.Point(416, 86);
+            this.radGroupBox1.Name = "radGroupBox1";
+            this.radGroupBox1.Size = new System.Drawing.Size(121, 108);
+            this.radGroupBox1.TabIndex = 10;
+            this.radGroupBox1.Text = "Loại khách hàng";
+            // 
+            // rdbKhachLe
+            // 
+            this.rdbKhachLe.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.rdbKhachLe.Location = new System.Drawing.Point(11, 32);
+            this.rdbKhachLe.Name = "rdbKhachLe";
+            this.rdbKhachLe.Size = new System.Drawing.Size(62, 18);
+            this.rdbKhachLe.TabIndex = 0;
+            this.rdbKhachLe.Text = "Khách lẻ";
+            this.rdbKhachLe.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+            // 
+            // rdbKhachDV
+            // 
+            this.rdbKhachDV.Location = new System.Drawing.Point(11, 66);
+            this.rdbKhachDV.Name = "rdbKhachDV";
+            this.rdbKhachDV.Size = new System.Drawing.Size(90, 18);
+            this.rdbKhachDV.TabIndex = 1;
+            this.rdbKhachDV.TabStop = false;
+            this.rdbKhachDV.Text = "Khách dịch vụ";
             // 
             // InSachForm
             // 
@@ -568,9 +646,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.radWiz1)).EndInit();
             this.radWiz1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCopyChaoKHLe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatTinhGiaKH)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkBiaLayNgoai)).EndInit();
@@ -603,12 +680,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnThemBia)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblDongCuonDaChon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietDongCuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnXoaDongCuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnThemDongCuon)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtChiTietIn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblDongCuonDaChon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pageViewTomTat)).EndInit();
+            this.pageViewTomTat.ResumeLayout(false);
+            this.pvwTomTatKH.ResumeLayout(false);
+            this.pvwTomTatKyThuat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTomTatKyThuat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
+            this.radGroupBox1.ResumeLayout(false);
+            this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachLe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbKhachDV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -649,7 +736,7 @@
         private Telerik.WinControls.UI.RadTextBoxControl txtChiTietDongCuon;
         private Telerik.WinControls.UI.RadButton btnXoaDongCuon;
         private Telerik.WinControls.UI.RadButton btnThemDongCuon;
-        private Telerik.WinControls.UI.RadTextBoxControl txtTomTatTinhGia;
+        private Telerik.WinControls.UI.RadTextBoxControl txtTomTatTinhGiaKH;
         private Telerik.WinControls.UI.RadLabel lblTongSoTrang;
         private Telerik.WinControls.UI.RadLabel radLabel8;
         private System.Windows.Forms.Panel panel5;
@@ -657,10 +744,16 @@
         private Telerik.WinControls.UI.WizardPage wzInAn;
         private Telerik.WinControls.UI.RadListControl lbxDongCuon;
         private Telerik.WinControls.UI.RadLabel radLabel9;
-        private Telerik.WinControls.UI.RadButton btnCopyChaoKHDV;
         private Telerik.WinControls.UI.RadButton btnCopyChaoKHLe;
         private Telerik.WinControls.UI.RadButton btnLayKichThuoc;
         private Telerik.WinControls.UI.RadCheckBox chkBiaLayNgoai;
         private Telerik.WinControls.UI.RadLabel lblDongCuonDaChon;
+        private Telerik.WinControls.UI.RadPageView pageViewTomTat;
+        private Telerik.WinControls.UI.RadPageViewPage pvwTomTatKH;
+        private Telerik.WinControls.UI.RadPageViewPage pvwTomTatKyThuat;
+        private Telerik.WinControls.UI.RadTextBoxControl txtTomTatKyThuat;
+        private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
+        private Telerik.WinControls.UI.RadRadioButton rdbKhachDV;
+        private Telerik.WinControls.UI.RadRadioButton rdbKhachLe;
     }
 }

@@ -10,6 +10,8 @@ using Telerik.WinControls;
 
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
+using TinhGiaInClient.Common.Enum;
+
 
 namespace TinhGiaInClient.UI
 {

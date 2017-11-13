@@ -79,14 +79,14 @@
             this.tabGiaIn = new System.Windows.Forms.TabPage();
             this.lvwGiaInNhanh = new System.Windows.Forms.ListView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnXoaHetBaiInNhanh = new System.Windows.Forms.Button();
+            this.btnXoaSachGiaiIn = new System.Windows.Forms.Button();
             this.btnXoaGiaInNhanh = new System.Windows.Forms.Button();
             this.btnSuaGiaInNhanh = new System.Windows.Forms.Button();
             this.tabTruocIn = new System.Windows.Forms.TabPage();
             this.lvwTruocIn = new System.Windows.Forms.ListView();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnXoaSachGiaTruocIn = new System.Windows.Forms.Button();
+            this.btnSuaGiaTruocIn = new System.Windows.Forms.Button();
             this.tabThanhPham = new System.Windows.Forms.TabPage();
             this.lvwThanhPham = new System.Windows.Forms.ListView();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -580,7 +580,7 @@
             // panel2
             // 
             this.panel2.ContextMenuStrip = this.cmnuCauHinhToiIn;
-            this.panel2.Controls.Add(this.btnXoaHetBaiInNhanh);
+            this.panel2.Controls.Add(this.btnXoaSachGiaiIn);
             this.panel2.Controls.Add(this.btnXoaGiaInNhanh);
             this.panel2.Controls.Add(this.btnSuaGiaInNhanh);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -589,15 +589,15 @@
             this.panel2.Size = new System.Drawing.Size(383, 36);
             this.panel2.TabIndex = 0;
             // 
-            // btnXoaHetBaiInNhanh
+            // btnXoaSachGiaiIn
             // 
-            this.btnXoaHetBaiInNhanh.Location = new System.Drawing.Point(222, 6);
-            this.btnXoaHetBaiInNhanh.Name = "btnXoaHetBaiInNhanh";
-            this.btnXoaHetBaiInNhanh.Size = new System.Drawing.Size(75, 23);
-            this.btnXoaHetBaiInNhanh.TabIndex = 72;
-            this.btnXoaHetBaiInNhanh.Text = "Xóa sạch";
-            this.btnXoaHetBaiInNhanh.UseVisualStyleBackColor = true;
-            this.btnXoaHetBaiInNhanh.Click += new System.EventHandler(this.btnXoaHetBaiInNhanh_Click);
+            this.btnXoaSachGiaiIn.Location = new System.Drawing.Point(222, 6);
+            this.btnXoaSachGiaiIn.Name = "btnXoaSachGiaiIn";
+            this.btnXoaSachGiaiIn.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaSachGiaiIn.TabIndex = 72;
+            this.btnXoaSachGiaiIn.Text = "Xóa sạch";
+            this.btnXoaSachGiaiIn.UseVisualStyleBackColor = true;
+            this.btnXoaSachGiaiIn.Click += new System.EventHandler(this.btnXoaHetBaiInNhanh_Click);
             // 
             // btnXoaGiaInNhanh
             // 
@@ -644,31 +644,32 @@
             // panel5
             // 
             this.panel5.ContextMenuStrip = this.cmnuCauHinhToiIn;
-            this.panel5.Controls.Add(this.button13);
-            this.panel5.Controls.Add(this.button15);
+            this.panel5.Controls.Add(this.btnXoaSachGiaTruocIn);
+            this.panel5.Controls.Add(this.btnSuaGiaTruocIn);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(377, 36);
             this.panel5.TabIndex = 2;
             // 
-            // button13
+            // btnXoaSachGiaTruocIn
             // 
-            this.button13.Location = new System.Drawing.Point(138, 7);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 72;
-            this.button13.Text = "Xóa sạch";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnXoaSachGiaTruocIn.Location = new System.Drawing.Point(138, 7);
+            this.btnXoaSachGiaTruocIn.Name = "btnXoaSachGiaTruocIn";
+            this.btnXoaSachGiaTruocIn.Size = new System.Drawing.Size(75, 23);
+            this.btnXoaSachGiaTruocIn.TabIndex = 72;
+            this.btnXoaSachGiaTruocIn.Text = "Xóa sạch";
+            this.btnXoaSachGiaTruocIn.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnSuaGiaTruocIn
             // 
-            this.button15.Location = new System.Drawing.Point(57, 7);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 70;
-            this.button15.Text = "Sửa";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnSuaGiaTruocIn.Location = new System.Drawing.Point(57, 7);
+            this.btnSuaGiaTruocIn.Name = "btnSuaGiaTruocIn";
+            this.btnSuaGiaTruocIn.Size = new System.Drawing.Size(75, 23);
+            this.btnSuaGiaTruocIn.TabIndex = 70;
+            this.btnSuaGiaTruocIn.Text = "Sửa";
+            this.btnSuaGiaTruocIn.UseVisualStyleBackColor = true;
+            this.btnSuaGiaTruocIn.Click += new System.EventHandler(this.button15_Click);
             // 
             // tabThanhPham
             // 
@@ -850,7 +851,7 @@
             this.lblThongTinCanhBaoNutNhan.TabIndex = 241;
             this.lblThongTinCanhBaoNutNhan.Text = "thông tin";
             // 
-            // InToForm
+            // BaiInToForm
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -864,7 +865,7 @@
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblTieuDeForm);
-            this.Name = "InToForm";
+            this.Name = "BaiInToForm";
             this.Text = "In theo bài";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BaiInForm_FormClosing);
             this.Load += new System.EventHandler(this.BaiInForm_Load);
@@ -926,14 +927,14 @@
         private System.Windows.Forms.TabPage tabGiaIn;
         private System.Windows.Forms.ListView lvwGiaInNhanh;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnXoaHetBaiInNhanh;
+        private System.Windows.Forms.Button btnXoaSachGiaiIn;
         private System.Windows.Forms.Button btnXoaGiaInNhanh;
         private System.Windows.Forms.Button btnSuaGiaInNhanh;
         private System.Windows.Forms.TabPage tabTruocIn;
         private System.Windows.Forms.ListView lvwTruocIn;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnXoaSachGiaTruocIn;
+        private System.Windows.Forms.Button btnSuaGiaTruocIn;
         private System.Windows.Forms.TabPage tabThanhPham;
         private System.Windows.Forms.ListView lvwThanhPham;
         private System.Windows.Forms.Panel panel7;

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Common;
+using TinhGiaInClient.Common.Enum;
 
 
 
@@ -91,15 +93,15 @@ namespace TinhGiaInClient.Presenter
             Dictionary<string, string> kq = null;
             if (this.DocBangGiaChon() != null)
             {
-                if (View.LoaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaLuyTien)
+                if (View.LoaiBangGiaNiemYet.Trim() == Global.cBangGiaLuyTien)
                     kq = HoTro.TrinhBayBangGiaLuyTien(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
 
-                if (View.LoaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaBuoc)
+                if (View.LoaiBangGiaNiemYet.Trim() == Global.cBangGiaBuoc)
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
 
-                if (View.LoaiBangGiaNiemYet.Trim() == EnumsS.cBangGiaGoi)
+                if (View.LoaiBangGiaNiemYet.Trim() == Global.cBangGiaGoi)
                     kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon().DaySoLuong,
                         this.DocBangGiaChon().DayGia, this.DocBangGiaChon().DonViTinh);
             }
@@ -155,14 +157,14 @@ namespace TinhGiaInClient.Presenter
                     return kq;
                 }
                 var bGiaINhanh = this.DocBangGiaChon();
-                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                if (bGiaINhanh.LoaiBangGia.Trim() == Global.cBangGiaLuyTien)
                 {
                     kq = TinhToan.GiaInLuyTien(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
                 }
-                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                if (bGiaINhanh.LoaiBangGia.Trim() == Global.cBangGiaBuoc)
                     kq = TinhToan.GiaBuoc(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
 
-                if (bGiaINhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
+                if (bGiaINhanh.LoaiBangGia.Trim() == Global.cBangGiaGoi)
                     kq = TinhToan.GiaGoi(bGiaINhanh.DaySoLuong, bGiaINhanh.DayGia, View.SoTrangA4);
                     
 

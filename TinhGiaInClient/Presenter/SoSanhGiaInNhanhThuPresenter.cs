@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Common;
 
 
 
@@ -75,18 +76,18 @@ namespace TinhGiaInClient.Presenter
                 return kq;
             switch (loaiBangGiaNiemYet.Trim())
             {
-                case EnumsS.cBangGiaLuyTien:
+                case Global.cBangGiaLuyTien:
 
                     kq = HoTro.TrinhBayBangGiaLuyTien(this.DocBangGiaChon(idNiemYetChon).DaySoLuong,
                         this.DocBangGiaChon(idNiemYetChon).DayGia, this.DocBangGiaChon(idNiemYetChon).DonViTinh);
                     break;
 
-                case EnumsS.cBangGiaBuoc:
+                case Global.cBangGiaBuoc:
 
                     kq = HoTro.TrinhBayBangGiaBuoc(this.DocBangGiaChon(idNiemYetChon).DaySoLuong,
                         this.DocBangGiaChon(idNiemYetChon).DayGia, this.DocBangGiaChon(idNiemYetChon).DonViTinh);
                     break;
-                case EnumsS.cBangGiaGoi:
+                case Global.cBangGiaGoi:
 
                     kq = HoTro.TrinhBayBangGiaGoi(this.DocBangGiaChon(idNiemYetChon).DaySoLuong,
                         this.DocBangGiaChon(idNiemYetChon).DayGia, this.DocBangGiaChon(idNiemYetChon).DonViTinh);
@@ -133,11 +134,11 @@ namespace TinhGiaInClient.Presenter
             if (bGiaInNhanh != null && soTrangA4 > 0)
             {
                 
-                if (bGiaInNhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                if (bGiaInNhanh.LoaiBangGia.Trim() == Global.cBangGiaLuyTien)
                 {
                     kq = TinhToan.GiaInLuyTien(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
                 }
-                if (bGiaInNhanh.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                if (bGiaInNhanh.LoaiBangGia.Trim() == Global.cBangGiaBuoc)
                     kq = TinhToan.GiaBuoc(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
                
             }

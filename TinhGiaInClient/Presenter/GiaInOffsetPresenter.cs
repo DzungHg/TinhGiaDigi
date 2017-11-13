@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Model;
+using TinhGiaInClient.Common.Enum;
 
 
 
@@ -56,12 +57,12 @@ namespace TinhGiaInClient.Presenter
             int result = 0;
             switch (View.KieuInOffset)
             {
-                case (int)EnumsS.KieuInOffset.AB:
-                case (int)EnumsS.KieuInOffset.TuTro:
-                case (int)EnumsS.KieuInOffset.TuTroNhip:
+                case KieuInOffsetS.AB:
+                case KieuInOffsetS.TuTro:
+                case KieuInOffsetS.TuTroNhip:
                     result = View.SoToChay * 2;
                     break;
-                case (int)EnumsS.KieuInOffset.MotMat:                
+                case KieuInOffsetS.MotMat:                
                     result = View.SoToChay * 1;
                     break;
             }

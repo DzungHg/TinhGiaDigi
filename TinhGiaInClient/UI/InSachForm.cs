@@ -12,6 +12,7 @@ using TinhGiaInClient.Model.Booklet;
 using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient.UI
 {
@@ -793,7 +794,12 @@ namespace TinhGiaInClient.UI
         }
         private void CapNhatTomTat()
         {
-            txtTomTatTinhGia.Text = inSachPres.TomTatChaoGia_DV();
+            if (rdbKhachDV.IsChecked)
+                txtTomTatTinhGiaKH.Text = inSachPres.TomTatChaoGia_DV();
+            else
+                txtTomTatTinhGiaKH.Text = inSachPres.TomTatChaoGia_Le();
+
+            pvwTomTatKyThuat.Text = inSachPres.TomTatChiTiet_KyThuat();
         }
         private void CapNhatChiTietGiaIn()
         {
@@ -851,14 +857,19 @@ namespace TinhGiaInClient.UI
 
         private void btnCopyChaoKHLe_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(inSachPres.TomTatChaoGia_Le());
+            if (pageViewTomTat.SelectedPage == pvwTomTatKH)
+            {
+                if (rdbKhachDV.IsChecked)
+                    Clipboard.SetText(inSachPres.TomTatChaoGia_DV());
+                else
+                    Clipboard.SetText(inSachPres.TomTatChaoGia_Le());
+            }
+            else
+                Clipboard.SetText(inSachPres.TomTatChiTiet_KyThuat());
 
         }
 
-        private void btnCopyChaoKHDV_Click(object sender, EventArgs e)
-        {
-            Clipboard.SetText(inSachPres.TomTatChaoGia_DV());
-        }
+      
 
         private void btnLayKichThuoc_Click(object sender, EventArgs e)
         {

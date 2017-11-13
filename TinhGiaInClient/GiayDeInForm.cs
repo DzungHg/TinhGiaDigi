@@ -11,6 +11,7 @@ using TinhGiaInClient.Model;
 using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.Model.Support;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInClient
 {
@@ -59,11 +60,14 @@ namespace TinhGiaInClient
             txtSoLuongSP.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSPRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtSPCao.TextChanged += new EventHandler(TextBoxes_TextChanged);
-            chkGiayKhach.CheckedChanged += new EventHandler(TextBoxes_TextChanged);
+
+            chkGiayKhach.CheckedChanged += new EventHandler(CheckBoxes_CheckChanged);
            
             lblSoToInTong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToChayRong.TextChanged += new EventHandler(TextBoxes_TextChanged);
             txtToChayDai.TextChanged += new EventHandler(TextBoxes_TextChanged);
+
+            
 
             txtSoConTrenToIn.Leave += new EventHandler(TextBoxes_Leave);
             txtSoToChayBuHao.Leave += new EventHandler(TextBoxes_Leave);
@@ -303,8 +307,7 @@ namespace TinhGiaInClient
                 }
             }
            
-            dataChanged = true;
-            BatTatNutTinhToan();
+           
            
         }
         private void TextBoxes_Leave(object sender, EventArgs e)
@@ -547,10 +550,24 @@ namespace TinhGiaInClient
 
         private void chkGiayKhach_CheckedChanged(object sender, EventArgs e)
         {
-            XuLyGiayKhachHangDua();
-            this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
+            
         }
-
+        private void CheckBoxes_CheckChanged(object sender, EventArgs e)
+        {
+            CheckBox chk;
+            if (sender is CheckBox )
+            {
+                chk = (CheckBox)sender;
+                if (chk == chkGiayKhach)
+                {
+                    XuLyGiayKhachHangDua();
+                    this.SoToChayTrenToLon = giayDeInPres.SoToChayTrenToLon();
+                }
+            }
+            dataChanged = true;
+            BatTatNutTinhToan();
+            
+        }
         private void TinhSoConTrenToChay()
         {
             this.SoConTrenToChay = TinhToan.SoConTrenToChayDigi(this.ToChayRong, this.ToChayDai,

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInBDO;
 using TinhGiaInLogic;
+using TinhGiaInClient.Common;
 
 namespace TinhGiaInClient.Model
 {
@@ -27,11 +28,11 @@ namespace TinhGiaInClient.Model
         public string TenMR
         {
             get {
-                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                if (this.LoaiBangGia.Trim() == Global.cBangGiaLuyTien)
                     _tenMR = string.Format("[L. Tiến] {0}", this.Ten);
-                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                if (this.LoaiBangGia.Trim() == Global.cBangGiaBuoc)
                     _tenMR = string.Format("[Bước] {0}", this.Ten);
-                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
+                if (this.LoaiBangGia.Trim() == Global.cBangGiaGoi)
                     _tenMR = string.Format("[Gói] {0}", this.Ten);
                 return _tenMR;
 
@@ -44,11 +45,11 @@ namespace TinhGiaInClient.Model
         {
             get
             {
-                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaLuyTien)
+                if (this.LoaiBangGia.Trim() == Global.cBangGiaLuyTien)
                     _tenLoaiBG = "Lũy tiến";
-                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaBuoc)
+                if (this.LoaiBangGia.Trim() == Global.cBangGiaBuoc)
                     _tenLoaiBG = "Theo Bước";
-                if (this.LoaiBangGia.Trim() == EnumsS.cBangGiaGoi)
+                if (this.LoaiBangGia.Trim() == Global.cBangGiaGoi)
                     _tenLoaiBG = " Theo Gói";
                 return _tenLoaiBG;
 

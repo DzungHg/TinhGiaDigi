@@ -102,9 +102,9 @@ namespace TinhGiaInClient.Presenter
         public int SoToChayTrenToLon()
         {
             var kq = 0;
+
             if (View.ToChayRong <= 0 || View.ToChayDai <= 0 ||
-                View.GiayLonRong <= 0 || View.GiayLonCao <= 0)
-            
+                View.GiayLonRong <= 0 || View.GiayLonCao <= 0)            
                 return kq;
 
             //vượt
@@ -177,7 +177,7 @@ namespace TinhGiaInClient.Presenter
                 this.MucGiayDeIn.SoToChayTong = this.SoToChayTong();
                 this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
                 this.MucGiayDeIn.SoToLonTong = View.SoToGiayLon;                
-                this.MucGiayDeIn.SoToChayTrenToLon = View.SoToChayTrenToLon;
+                
                 
                 this.MucGiayDeIn.ThanhTienGiay = View.ThanhTien;
                
