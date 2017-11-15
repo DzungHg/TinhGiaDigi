@@ -536,5 +536,16 @@ namespace TinhGiaInClient.UI
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.Show();
         }
+
+        private void btnSoSanhOffsetNhanh_Click(object sender, EventArgs e)
+        {
+            var frm = new SoSanhOffsetNhanhForm(new ThongTinBanDauChoGiaIn());
+
+            frm.Text = "SO SÁNH CHI PHÍ";
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.Show();
+        }
     }
 }
