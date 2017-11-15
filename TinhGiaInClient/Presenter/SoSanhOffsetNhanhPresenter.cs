@@ -15,41 +15,67 @@ namespace TinhGiaInClient.Presenter
     {
         IViewSoSanhOffsetNhanh View;
 
-        public SoSanhOffsetNhanhPresenter(IViewSoSanhOffsetNhanh view, MucGiaIn giaIn = null)
+        public SoSanhOffsetNhanhPresenter(IViewSoSanhOffsetNhanh view)
         {
-            View = view;//Một số giá trị ban đầu
-            View.PhiVanChuyen = 200000;
-            View.PhiCanhBai = 100000;
-            if (giaIn != null)
-            {
-                this.DocGiaIn = giaIn;
-            }
-            else
-                _giaIn = new MucGiaIn(0, 0, 0, 0, 0, "", 0,0, 2);
-            //Xem vấn đề mới và sửa
-            switch (View.TinhTrangForm)
-            {
-                case FormStateS.New:
-                    break;
-                case FormStateS.Edit:
-                    giaIn.ID = View.ID;
-                    break;
-            }
+            View = view;
+           
         }
 
-        public string TenHangKH (int idHangKH)
+        public void ResetForm()
         {
-            return HangKhachHang.LayTheoId(idHangKH).Ten;
+            View.TieuDe = "So sánh giá in digi và Offset của ...";
+            View.PhiVanChuyenOffset = 200000;
+            View.PhiCanhBaiOffset = 100000;
+            View.SoLuotInOffset = 1;
+            View.SanPhamCao = 29.7f;
+            View.SanPhamRong = 21.0f;
+            View.SoLuongSP = 1000;
         }
-        public int TyLeLoiNhuanTheoHangKH()
+
+        public List<ToInMayDigi>MayInDigiS()
         {
-            return HangKhachHang.LayTheoId(View.IdHangKH).LoiNhuanOffsetGiaCong;
+            return ToInMayDigi.DocTatCa();
         }
-        
-        
-        public string TenMayInOffsetChon()
+       
+        public List<OffsetGiaCong>MayInOffsetS()
         {
-            return OffsetGiaCong.DocTheoId(View.IdMayIn).Ten;
+            return OffsetGiaCong.DocTatCa();
+        }
+        public void CapNhatChiTietGiayDigi()
+        {
+            if (View.IdGiayDiGiChon >0)
+            {
+                var giay = Giay.DocGiayTheoId(View.IdGiayDiGiChon);
+                View.TenGiayDigi = giay.TenGiayMoRong;
+                View.GiaGiayDigi = giay.GiaMua;
+            }
+        }
+        public void CapNhatChiTietGiayOffset()
+        {
+            if (View.IdGiayOffsetChon > 0)
+            {
+                var giay = Giay.DocGiayTheoId(View.IdGiayOffsetChon);
+                View.TenGiayOfset = giay.TenGiayMoRong;
+                View.GiaGiayOffset = giay.GiaMua;
+            }
+        }
+        public void CapNhatKhoToChayDigi()
+        {
+            if (View.IdMayInDiGiChon <= 0 )
+                return;
+
+            var mayIn = ToInMayDigi.DocTheoId(View.IdMayInDiGiChon);
+            View.ToChayRongDigi = mayIn.Rong;
+            View.ToChayCaoDigi = mayIn.Cao;
+        }
+        public void CapNhatKhoToChayOffset()
+        {
+            if (View.IdMayInOffsetChon <= 0)
+                return;
+
+            var mayIn = OffsetGiaCong.DocTheoId(View.IdMayInOffsetChon);
+            View.ToChayRongOffset = mayIn.KhoInRongMax;
+            View.ToChayCaoOffset = mayIn.KhoInDaiMax;
         }
         public int SoMatIn()
         {
@@ -60,46 +86,29 @@ namespace TinhGiaInClient.Presenter
                 case KieuInOffsetS.AB:
                 case KieuInOffsetS.TuTro:
                 case KieuInOffsetS.TuTroNhip:
-                    result = View.SoToChay * 2;
+                    result = View.SoToChayLyThuyetDigi * 2;
                     break;
                 case KieuInOffsetS.MotMat:                
-                    result = View.SoToChay * 1;
+                    result = View.SoToChayLyThuyetDigi * 1;
                     break;
             }
             return result;
         }
     
        
-        public decimal GiaInOffset()
+        public decimal GiaInMotBaiOffset()
         {  
            
-            var mayInOffset = OffsetGiaCong.DocTheoId(View.IdMayIn);
+            var mayInOffset = OffsetGiaCong.DocTheoId(View.IdMayInOffsetChon);
 
-            var giaInOffset = new GiaInOffsetGiaCong(mayInOffset, SoMatIn(), this.TyLeLoiNhuanTheoHangKH(),
-                            View.KieuInOffset, View.PhiVanChuyen, View.PhiCanhBai);
+            var giaInOffset = new GiaInOffsetGiaCong(mayInOffset, SoMatIn(), 0,
+                            View.KieuInOffset, View.PhiVanChuyenOffset, View.PhiCanhBaiOffset);
                                 
             return giaInOffset.ThanhTien_In();
         }
-
-        MucGiaIn _giaIn;
-        public MucGiaIn DocGiaIn
+        public decimal PhiInOffset()
         {
-            get
-            {
-                //Điền thêm dữ liệu         
-               
-                _giaIn.IdBaiIn = View.IdBaiIn;
-                _giaIn.PhuongPhapIn = View.PhuongPhapIn;
-                _giaIn.IdMayIn = View.IdMayIn;
-                _giaIn.SoTrangIn = View.SoTrangIn;
-                _giaIn.TienIn = this.GiaInOffset();
-                if (View.TinhTrangForm == FormStateS.Edit)
-                    _giaIn.ID = View.ID;//Phòng tạo mới
-
-                return _giaIn;
-            }
-            set { _giaIn = value; }
-          
+            return GiaInMotBaiOffset() * View.SoLuotInOffset;
         }
     }
 }

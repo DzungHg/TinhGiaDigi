@@ -10,24 +10,48 @@ namespace TinhGiaInClient.View
 {
     public interface IViewSoSanhOffsetNhanh
     {
-        int ID { get; set; }
-        int IdBaiIn { get; set; }
-        int IdHangKH { get; set; }
-        string TenHangKH { get; set; }        
+        string TieuDe { get; set; }
+        float SanPhamRong { get; set; }
+        float SanPhamCao { get; set; }
+        int SoLuongSP { get; set; }
+        int IdGiayDiGiChon { get; set; }
+        int IdGiayOffsetChon { get; set; }
+        int GiaGiayDigi { get; set; }
+        int GiaGiayOffset { get; set; }
+        string TenGiayDigi { get; set; }
+        string TenGiayOfset { get; set; } 
         KieuInOffsetS KieuInOffset { get; set; }
-        int IdMayIn { get; set; }
-        string KhoToChay { get; set; }
-        int SoTrangIn { get; }
-        int SoToChay { get; set; }
-        int PhiVanChuyen { get; set; }
-        int PhiCanhBai { get; set; }
-        decimal TienIn { get; set; }
+        int IdMayInDiGiChon { get; set; }
+        int IdMayInOffsetChon { get; set; }
+        int SoSanPhamTrenToChayDigi { get; set; }
+        int SoSanPhamTrenToChayOffset { get; set; }
+        float ToChayRongDigi { get; set; }
+        float ToChayCaoDigi { get; set; }
+        float ToChayRongOffset { get; set; }
+        float ToChayCaoOffset { get; set; }
+      
+        int SoToChayLyThuyetDigi { get; set; }
+        int SoToChayLyThuyetOffset { get; set; }
+        int SoToChayBuHaoDigi { get; set; }
+        int SoToChayBuHaoOffset { get; set; }
+        int TongSoToChayDigi { get; set; }
+        int TongSoToChayOffset { get; set; }
+        int SoToChayTrenToLonDigi { get; set; }
+        int SoToChayTrenToLonOffset { get; set; }
+        int TongSoToGiayLonDigi { get; set; }
+        int TongSoToGiayLonOffset { get; set; }
+        int SoLuotInOffset { get; set; }
+        int PhiVanChuyenOffset { get; set; }
+        int PhiCanhBaiOffset { get; set; }
+        decimal PhiGiayOffset { get; set; }
+        decimal PhiGiayDigi { get; set; }
+        decimal PhiInOffset { get; set; }
+        decimal PhiInDigi { get; set; }
+        decimal TongPhiDigi { get; set; }
+        decimal TongPhiOffset { get; set; }
+
         string GiaTBTrangInfo { get; }
-        PhuongPhapInS PhuongPhapIn { get; }
-        FormStateS TinhTrangForm { get; set; }
-        /*
-        List<ToChayDigi> ToChayDigiS { get; set; }
-        List<BangGiaInNhanh> BangGiaInNhanhS { get; set; }
-        */
+        
+       
     }
 }

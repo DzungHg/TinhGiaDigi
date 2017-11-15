@@ -539,7 +539,7 @@ namespace TinhGiaInClient.UI
 
         private void btnSoSanhOffsetNhanh_Click(object sender, EventArgs e)
         {
-            var frm = new SoSanhOffsetNhanhForm(new ThongTinBanDauChoGiaIn());
+            var frm = new SoSanhOffsetNhanhForm();
 
             frm.Text = "SO SÁNH CHI PHÍ";
             frm.MinimizeBox = false;

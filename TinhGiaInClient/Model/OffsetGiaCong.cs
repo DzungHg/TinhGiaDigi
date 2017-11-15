@@ -29,6 +29,14 @@ namespace TinhGiaInClient.Model
         public int ThuTu { get; set; }
         public bool KhongDung { get; set; }
         #endregion
+        public string TenMoRong
+        {
+            get
+            {
+                return string.Format("{0}/ Max: {1} x {2}cm", this.Ten,
+                    this.KhoInRongMax, this.KhoInDaiMax);
+            }
+        }
         //Các hàm static
         public static List<OffsetGiaCong> DocTatCa()
         {
