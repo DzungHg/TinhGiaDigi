@@ -12,19 +12,15 @@ namespace TinhGiaInClient.Model
         public OffsetGiaCong MayInOffset { get; set; }
         public int SoMatIn { get; set; }
         public int TyLeMarkUp { get; set; }
-        public KieuInOffsetS KieuInOffset { get; set; }
-        public decimal PhiVanChuyen { get; set; }
-        public decimal PhiCanhBai { get; set; }
+        public KieuInOffsetS KieuInOffset { get; set; }       
         public GiaInOffsetGiaCong(OffsetGiaCong mayInOffset, int soMatIn, int tyLeMarkUp,
-            KieuInOffsetS kieuInOffset, decimal phiVanChuyen, decimal phiCanhBai)
+            KieuInOffsetS kieuInOffset )
         {
             this.MayInOffset = mayInOffset;
             this.SoMatIn = soMatIn;
             this.TyLeMarkUp = tyLeMarkUp;
             this.KieuInOffset = kieuInOffset;
-            this.PhiVanChuyen = phiVanChuyen;
-            this.PhiCanhBai = phiCanhBai;
-
+            
         }
         private decimal PhiInGiaCong()
         {
@@ -67,7 +63,7 @@ namespace TinhGiaInClient.Model
             decimal result = 0;
             decimal tyLeMK = (decimal)this.TyLeMarkUp / 100;
             decimal tienInBan = this.PhiInGiaCong() + this.PhiInGiaCong() * tyLeMK / (1 - tyLeMK);
-            result = tienInBan + this.PhiVanChuyen + this.PhiCanhBai;
+            result = tienInBan;
             return result;
         }
     }

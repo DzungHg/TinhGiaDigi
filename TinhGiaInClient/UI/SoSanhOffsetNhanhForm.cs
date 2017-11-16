@@ -33,7 +33,44 @@ namespace TinhGiaInClient.UI
             txtTongSoToChayO.KeyPress += new KeyPressEventHandler(InputValidator);
             txtPhiVanChuyen.KeyPress += new KeyPressEventHandler(InputValidator);
             txtPhiCanhBai.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtGiaGiayD.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtGiaGiayO.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoLuongSP.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoSPTrenToChayDigi.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoSPTrenToChayOffset.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToChayLyThuyetD.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToChayLyThuyetO.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToChayBuHaoD.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToChayBuHaoO.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToChayTrenToLonD.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoToChayTrenToLonO.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSoLuotInO.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtPhiVanChuyen.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtPhiCanhBai.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSanPhamRong.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtSanPhamCao.KeyPress += new KeyPressEventHandler(InputValidator);
 
+            txtToChayRongD.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtToChayCaoD.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtToChayRongO.KeyPress += new KeyPressEventHandler(InputValidator);
+            txtToChayCaoO.KeyPress += new KeyPressEventHandler(InputValidator);
+
+            
+
+            txtSoLuongSP.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtToChayRongD.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtToChayCaoD.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtToChayRongO.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtToChayCaoO.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+
+            txtSoSPTrenToChayDigi.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoSPTrenToChayOffset.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoToChayLyThuyetD.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoToChayBuHaoO.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoToChayBuHaoD.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoToChayBuHaoO.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoToChayTrenToLonD.TextChanged += new EventHandler(TextBoxes_TextedChanged);
+            txtSoToChayTrenToLonO.TextChanged += new EventHandler(TextBoxes_TextedChanged);
 
             txtPhiCanhBai.TextChanged += new EventHandler(TextBoxes_TextedChanged);
             txtPhiVanChuyen.TextChanged += new EventHandler(TextBoxes_TextedChanged);
@@ -47,6 +84,7 @@ namespace TinhGiaInClient.UI
             cboMayInOffset.SelectedIndexChanged += new EventHandler(comboBoxS_SelectedIndexChanged);
 
         }
+    
         #region implement Iview
         int _idMayInOffsetChon;
         public int IdMayInOffsetChon
@@ -70,6 +108,31 @@ namespace TinhGiaInClient.UI
         {
             get { return int.Parse(txtSoSPTrenToChayOffset.Text); }
             set { txtSoSPTrenToChayOffset.Text = value.ToString(); }
+        }
+        public MotHaiMat KieuInDigi
+        {
+            get
+            {
+                if (rdbMotMatDigi.Checked)
+                    return MotHaiMat.MotMat;
+                else if (rdbHaiMatDigi.Checked)
+                    return MotHaiMat.HaiMat;
+                else
+                    return MotHaiMat.MotMat;
+
+            }
+            set
+            {
+                switch (value)
+                {
+                    case MotHaiMat.MotMat:
+                        rdbMotMatDigi.Checked = true;
+                        break;
+                    case MotHaiMat.HaiMat:
+                        rdbHaiMatDigi.Checked = true;
+                        break;
+                }
+            }
         }
         public KieuInOffsetS KieuInOffset
         {
@@ -142,8 +205,8 @@ namespace TinhGiaInClient.UI
         }
         public int SoToChayLyThuyetDigi
         {
-            get { return int.Parse(txtTongSoToChayO.Text); }
-            set { txtTongSoToChayO.Text = value.ToString(); }
+            get { return int.Parse(txtSoToChayLyThuyetD.Text); }
+            set { txtSoToChayLyThuyetD.Text = value.ToString(); }
         }
         public string TenGiayOfset
         {
@@ -162,7 +225,7 @@ namespace TinhGiaInClient.UI
             get
             {
                 return string.Format("{0:0,0.00}đ/trang",
-                    giaInPres.GiaInMotBaiOffset() / giaInPres.SoMatIn());
+                    giaInPres.GiaInMotBaiOffset() / giaInPres.SoMatInOffset());
             }
         }
         public PhuongPhapInS PhuongPhapIn
@@ -220,6 +283,10 @@ namespace TinhGiaInClient.UI
         }
         public int IdGiayDiGiChon { get; set; }
         public int IdGiayOffsetChon { get; set; }
+        public float KhoGiayRongDigi { get; set; }
+        public float KhoGiayCaoDigi { get; set; }
+        public float KhoGiayRongOffset { get; set; }
+        public float KhoGiayCaoOffset { get; set; }
         public int GiaGiayDigi
         {
             get
@@ -484,22 +551,24 @@ namespace TinhGiaInClient.UI
             {
                 t = (TextBox)sender;
 
-
-                if (t == txtTongSoToChayO)//chỉ được nhập số chẵn 
+                
+                if (t == txtTongSoToChayO || t == txtGiaGiayD ||
+                    t == txtGiaGiayO || t == txtSoLuongSP ||
+                    t == txtSoSPTrenToChayDigi || t == txtSoSPTrenToChayOffset ||
+                    t == txtSoToChayLyThuyetD || t == txtSoToChayLyThuyetO ||
+                    t == txtSoToChayBuHaoD || t == txtSoToChayBuHaoO||
+                    t == txtSoToChayTrenToLonD || t == txtSoToChayTrenToLonO ||
+                    t == txtSoLuotInO || t == txtPhiVanChuyen ||
+                    t == txtPhiCanhBai)//chỉ được nhập số chẵn 
                 {
                     if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
                         e.Handled = true;
                 }
-                if (t == txtPhiVanChuyen)//chỉ được nhập số chẵn 
+                if (t == txtSanPhamRong || t == txtSanPhamCao ||
+                    t == txtToChayRongD || t == txtToChayCaoD ||
+                    t == txtToChayRongO || t == txtToChayCaoO) //Cho nhập số thập phân
                 {
-
-                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
-                        e.Handled = true;
-                }
-                if (t == txtPhiCanhBai)//chỉ được nhập số chẵn 
-                {
-
-                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8)
+                    if (!Char.IsNumber(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)46)
                         e.Handled = true;
                 }
             }
@@ -522,19 +591,138 @@ namespace TinhGiaInClient.UI
         {
 
         }
-
+        //Digi
+        private void CapNhatSoToToChayLyThuyetDigi()
+        {
+            this.SoToChayLyThuyetDigi = giaInPres.SoToChayLyThuyetDigi();
+        }
+        private void CapNhatTongSoToToChayDigi()
+        {
+            this.TongSoToChayDigi = giaInPres.TongSoToChayDigi();
+        }
+        private void CapNhatTongSoToGiayLonDigi()
+        {
+            this.TongSoToGiayLonDigi = giaInPres.TongSoToGiayLonDigi();
+        }
+        //offset
+        private void CapNhatSoToToChayLyThuyetOffset()
+        {
+            this.SoToChayLyThuyetOffset = giaInPres.SoToChayLyThuyetOffset();
+        }
+        private void CapNhatTongSoToToChayOffset()
+        {
+            this.TongSoToChayOffset = giaInPres.TongSoToChayOffset();
+        }
+        private void CapNhatTongSoToGiayLonOffset()
+        {
+            this.TongSoToGiayLonOffset = giaInPres.TongSoToGiayLonOffset();
+        }
         private void TextBoxes_TextedChanged(object sender, EventArgs e)
         {
             TextBox t;
             if (sender is TextBox)
             {
                 t = (TextBox)sender;
-                //Paper tab prod paper
+                if (t == txtSoLuongSP)
+                    if (!string.IsNullOrEmpty(txtSoLuongSP.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetDigi();
+                    }
+                //Digi
+                if (t == txtToChayRongD)
+                    if (!string.IsNullOrEmpty(txtToChayRongD.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetDigi();
+                        //
+                    }
+                if (t == txtToChayCaoD)
+                    if (!string.IsNullOrEmpty(txtToChayCaoD.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetDigi();
+                        //
+                    }
+                if (t == txtSoSPTrenToChayDigi)
+                    if (!string.IsNullOrEmpty(txtSoSPTrenToChayDigi.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetDigi();
+                        //
+                        //MessageBox.Show(giaInPres.SoToChayLyThuyetDigi().ToString());
+                    }
+                if (t == txtSoToChayLyThuyetD)
+                    if (!string.IsNullOrEmpty(txtSoToChayLyThuyetD.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatTongSoToToChayDigi();
+                        //
+                    }
+                if (t == txtSoToChayBuHaoD)
+                    if (!string.IsNullOrEmpty(txtSoToChayBuHaoD.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatTongSoToToChayDigi();
+                        //
+                    }
+
+                if (t == txtSoToChayTrenToLonD)
+                    if (!string.IsNullOrEmpty(txtSoToChayTrenToLonD.Text.Trim()))
+                    {
+                        //Cập nhật
+                        CapNhatTongSoToGiayLonDigi();
+                    }
+
+                //Offset
+                if (t == txtToChayRongO)
+                    if (!string.IsNullOrEmpty(txtToChayRongO.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetOffset();
+                        //
+                    }
+                if (t == txtToChayCaoO)
+                    if (!string.IsNullOrEmpty(txtToChayCaoO.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetOffset();
+                        //
+                    }
+                if (t == txtSoSPTrenToChayOffset)
+                    if (!string.IsNullOrEmpty(txtSoSPTrenToChayOffset.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatSoToToChayLyThuyetOffset();
+                        //
+                        //MessageBox.Show(giaInPres.SoToChayLyThuyetDigi().ToString());
+                    }
+                if (t == txtSoToChayLyThuyetO)
+                    if (!string.IsNullOrEmpty(txtSoToChayLyThuyetO.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatTongSoToToChayOffset();
+                        //
+                    }
+                if (t == txtSoToChayBuHaoO)
+                    if (!string.IsNullOrEmpty(txtSoToChayBuHaoO.Text.Trim()))
+                    {
+                        //Cập nhật số tờ chạy lý thuyết digi
+                        CapNhatTongSoToToChayOffset();
+                        //
+                    }
+
+                if (t == txtSoToChayTrenToLonO)
+                    if (!string.IsNullOrEmpty(txtSoToChayTrenToLonO.Text.Trim()))
+                    {
+                        //Cập nhật
+                        CapNhatTongSoToGiayLonOffset();
+                    }
                 if (t == txtTongSoToChayO)//
                 {
                     if (string.IsNullOrEmpty(txtTongSoToChayO.Text.Trim()))
                         txtTongSoToChayO.Text = "0";
-                    lblSoMatIn.Text = string.Format("{0:0,0} Mặt", giaInPres.SoMatIn());
+                    lblSoMatIn.Text = string.Format("{0:0,0} Mặt", giaInPres.SoMatInOffset());
 
                 }
                 if (t == txtPhiVanChuyen)//
@@ -547,7 +735,6 @@ namespace TinhGiaInClient.UI
                 {
                     if (string.IsNullOrEmpty(txtPhiCanhBai.Text.Trim()))
                         txtPhiCanhBai.Text = "0";
-
                 }
 
                 //Cập nhật thành tiền
@@ -584,7 +771,7 @@ namespace TinhGiaInClient.UI
                 if (rb == rdbMotMat || rb == rdbTuTro || rb == rdbTuTroNhip || rb == rdbAB)//
                 {
                     this.PhiInOffset = giaInPres.GiaInMotBaiOffset();
-                    lblSoMatIn.Text = string.Format("{0:0,0} Mặt", giaInPres.SoMatIn());
+                    lblSoMatIn.Text = string.Format("{0:0,0} Mặt", giaInPres.SoMatInOffset());
                     //lblThanhTien.Text = string.Format("{0:0,0.00}đ ", this.PhiInOffset);
 
                 }
@@ -689,6 +876,34 @@ namespace TinhGiaInClient.UI
         {
             giaInPres.ResetForm();
             //tiếp gì đó
+        }
+
+        private void btnTinhSPTrenToChayDigi_Click(object sender, EventArgs e)
+        {
+            this.SoSanPhamTrenToChayDigi = giaInPres.SoConTrenToLon(this.ToChayRongDigi,
+                                this.ToChayCaoDigi, this.SanPhamRong, this.SanPhamCao);
+        }
+
+        private void btnTinhSPTrenToChayOffset_Click(object sender, EventArgs e)
+        {
+            this.SoSanPhamTrenToChayOffset = giaInPres.SoConTrenToLon(this.ToChayRongOffset,
+                                this.ToChayCaoOffset, this.SanPhamRong, this.SanPhamCao);
+        }
+
+        private void btnTinhToChayTrenToLonDigi_Click(object sender, EventArgs e)
+        {
+            this.SoToChayTrenToLonDigi = 1;
+            if (this.IdGiayDiGiChon > 0)
+                this.SoToChayTrenToLonDigi = giaInPres.SoConTrenToLon(this.KhoGiayRongDigi,
+                               this.KhoGiayCaoDigi, this.ToChayRongDigi, this.ToChayCaoDigi);
+        }
+
+        private void btnTinhToChayTrenToLonOffset_Click(object sender, EventArgs e)
+        {
+            this.SoToChayTrenToLonOffset = 1;
+            if (this.IdGiayDiGiChon > 0)
+                this.SoToChayTrenToLonOffset = giaInPres.SoConTrenToLon(this.KhoGiayRongOffset,
+                               this.KhoGiayCaoOffset, this.ToChayRongOffset, this.ToChayCaoOffset);
         }
     }
 }

@@ -76,9 +76,10 @@ namespace TinhGiaInClient.Presenter
             var mayInOffset = OffsetGiaCong.DocTheoId(View.IdMayIn);
 
             var giaInOffset = new GiaInOffsetGiaCong(mayInOffset, SoMatIn(), this.TyLeLoiNhuanTheoHangKH(),
-                            View.KieuInOffset, View.PhiVanChuyen, View.PhiCanhBai);
+                            View.KieuInOffset);
+            
                                 
-            return giaInOffset.ThanhTien_In();
+            return giaInOffset.ThanhTien_In() +  View.PhiVanChuyen + View.PhiCanhBai;
         }
 
         MucGiaIn _giaIn;

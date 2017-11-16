@@ -16,10 +16,15 @@ namespace TinhGiaInClient.View
         int SoLuongSP { get; set; }
         int IdGiayDiGiChon { get; set; }
         int IdGiayOffsetChon { get; set; }
+        float KhoGiayRongDigi { get; set; }
+        float KhoGiayCaoDigi { get; set; }
+        float KhoGiayRongOffset { get; set; }
+        float KhoGiayCaoOffset { get; set; }
         int GiaGiayDigi { get; set; }
         int GiaGiayOffset { get; set; }
         string TenGiayDigi { get; set; }
-        string TenGiayOfset { get; set; } 
+        string TenGiayOfset { get; set; }
+        MotHaiMat KieuInDigi { get; set; }
         KieuInOffsetS KieuInOffset { get; set; }
         int IdMayInDiGiChon { get; set; }
         int IdMayInOffsetChon { get; set; }
