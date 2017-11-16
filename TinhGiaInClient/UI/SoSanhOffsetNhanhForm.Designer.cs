@@ -119,6 +119,7 @@
             this.lblKetLuan = new System.Windows.Forms.Label();
             this.btnLamLai = new System.Windows.Forms.Button();
             this.btnTinhSoSanh = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
             this.grbKieuInOffset.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -213,7 +214,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 27);
+            this.label4.Location = new System.Drawing.Point(21, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 102;
@@ -469,7 +470,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(17, 137);
+            this.label30.Location = new System.Drawing.Point(15, 137);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(67, 13);
             this.label30.TabIndex = 144;
@@ -503,7 +504,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 111);
+            this.label20.Location = new System.Drawing.Point(15, 111);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 13);
             this.label20.TabIndex = 140;
@@ -552,7 +553,7 @@
             // 
             // txtTongSoToChayD
             // 
-            this.txtTongSoToChayD.Location = new System.Drawing.Point(213, 173);
+            this.txtTongSoToChayD.Location = new System.Drawing.Point(213, 179);
             this.txtTongSoToChayD.Name = "txtTongSoToChayD";
             this.txtTongSoToChayD.ReadOnly = true;
             this.txtTongSoToChayD.Size = new System.Drawing.Size(55, 20);
@@ -579,7 +580,7 @@
             // 
             // txtSoToChayBuHaoD
             // 
-            this.txtSoToChayBuHaoD.Location = new System.Drawing.Point(152, 173);
+            this.txtSoToChayBuHaoD.Location = new System.Drawing.Point(152, 179);
             this.txtSoToChayBuHaoD.Name = "txtSoToChayBuHaoD";
             this.txtSoToChayBuHaoD.Size = new System.Drawing.Size(55, 20);
             this.txtSoToChayBuHaoD.TabIndex = 8;
@@ -587,7 +588,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(149, 157);
+            this.label16.Location = new System.Drawing.Point(149, 163);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 130;
@@ -621,7 +622,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(198, 157);
+            this.label14.Location = new System.Drawing.Point(198, 163);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(70, 13);
             this.label14.TabIndex = 127;
@@ -638,7 +639,7 @@
             // 
             // txtSoToChayLyThuyetD
             // 
-            this.txtSoToChayLyThuyetD.Location = new System.Drawing.Point(92, 173);
+            this.txtSoToChayLyThuyetD.Location = new System.Drawing.Point(92, 179);
             this.txtSoToChayLyThuyetD.Name = "txtSoToChayLyThuyetD";
             this.txtSoToChayLyThuyetD.ReadOnly = true;
             this.txtSoToChayLyThuyetD.Size = new System.Drawing.Size(55, 20);
@@ -654,7 +655,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 157);
+            this.label13.Location = new System.Drawing.Point(15, 163);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(100, 13);
             this.label13.TabIndex = 124;
@@ -765,7 +766,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(16, 137);
+            this.label31.Location = new System.Drawing.Point(21, 137);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(67, 13);
             this.label31.TabIndex = 146;
@@ -806,7 +807,7 @@
             // 
             // txtTongPhiO
             // 
-            this.txtTongPhiO.Location = new System.Drawing.Point(241, 389);
+            this.txtTongPhiO.Location = new System.Drawing.Point(256, 389);
             this.txtTongPhiO.Name = "txtTongPhiO";
             this.txtTongPhiO.ReadOnly = true;
             this.txtTongPhiO.Size = new System.Drawing.Size(102, 20);
@@ -985,11 +986,11 @@
             // 
             this.lblKetLuan.AutoSize = true;
             this.lblKetLuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKetLuan.Location = new System.Drawing.Point(509, 48);
+            this.lblKetLuan.Location = new System.Drawing.Point(527, 61);
             this.lblKetLuan.Name = "lblKetLuan";
-            this.lblKetLuan.Size = new System.Drawing.Size(50, 13);
+            this.lblKetLuan.Size = new System.Drawing.Size(54, 13);
             this.lblKetLuan.TabIndex = 122;
-            this.lblKetLuan.Text = "Tóm tắt";
+            this.lblKetLuan.Text = "Kết luận";
             // 
             // btnLamLai
             // 
@@ -1009,6 +1010,16 @@
             this.btnTinhSoSanh.TabIndex = 124;
             this.btnTinhSoSanh.Text = "Tính";
             this.btnTinhSoSanh.UseVisualStyleBackColor = true;
+            this.btnTinhSoSanh.Click += new System.EventHandler(this.btnTinhSoSanh_Click);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(509, 35);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(89, 13);
+            this.label32.TabIndex = 136;
+            this.label32.Text = "In nhanh > Offset";
             // 
             // SoSanhOffsetNhanhForm
             // 
@@ -1016,6 +1027,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 581);
+            this.Controls.Add(this.label32);
             this.Controls.Add(this.btnTinhSoSanh);
             this.Controls.Add(this.btnLamLai);
             this.Controls.Add(this.lblKetLuan);
@@ -1137,5 +1149,6 @@
         private System.Windows.Forms.Button btnTinhSPTrenToChayDigi;
         private System.Windows.Forms.Button btnTinhToChayTrenToLonOffset;
         private System.Windows.Forms.Button btnTinhSPTrenToChayOffset;
+        private System.Windows.Forms.Label label32;
     }
 }

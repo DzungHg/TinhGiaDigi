@@ -181,7 +181,7 @@ namespace TinhGiaInClient.UI
             //Qua khỏi
             if (frmTinhThu == null)
             {
-                frmTinhThu = new TinhThuForm();
+                frmTinhThu = new TinhThuForm(this.TenNguoiDung);
                 frmTinhThu.Text = "Tính thử";
                 frmTinhThu.MinimizeBox = false;
                 frmTinhThu.MaximizeBox = false;

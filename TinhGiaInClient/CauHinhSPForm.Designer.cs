@@ -67,8 +67,7 @@
             this.rdbToner = new System.Windows.Forms.RadioButton();
             this.lblDonViTinh = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.btnTinhThuInNhanh = new System.Windows.Forms.Button();
-            this.btnTinhThuOffset = new System.Windows.Forms.Button();
+            this.btnSSanhInNhanhOffset = new System.Windows.Forms.Button();
             this.grbTinhThu = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.grbTinhThu.SuspendLayout();
@@ -423,28 +422,19 @@
             this.label25.TabIndex = 195;
             this.label25.Text = "Rộng     x    Cao (cm)";
             // 
-            // btnTinhThuInNhanh
+            // btnSSanhInNhanhOffset
             // 
-            this.btnTinhThuInNhanh.Location = new System.Drawing.Point(24, 19);
-            this.btnTinhThuInNhanh.Name = "btnTinhThuInNhanh";
-            this.btnTinhThuInNhanh.Size = new System.Drawing.Size(75, 23);
-            this.btnTinhThuInNhanh.TabIndex = 225;
-            this.btnTinhThuInNhanh.Text = "In nhanh";
-            this.btnTinhThuInNhanh.UseVisualStyleBackColor = true;
-            // 
-            // btnTinhThuOffset
-            // 
-            this.btnTinhThuOffset.Location = new System.Drawing.Point(105, 19);
-            this.btnTinhThuOffset.Name = "btnTinhThuOffset";
-            this.btnTinhThuOffset.Size = new System.Drawing.Size(75, 23);
-            this.btnTinhThuOffset.TabIndex = 226;
-            this.btnTinhThuOffset.Text = "Offset";
-            this.btnTinhThuOffset.UseVisualStyleBackColor = true;
+            this.btnSSanhInNhanhOffset.Location = new System.Drawing.Point(29, 19);
+            this.btnSSanhInNhanhOffset.Name = "btnSSanhInNhanhOffset";
+            this.btnSSanhInNhanhOffset.Size = new System.Drawing.Size(120, 23);
+            this.btnSSanhInNhanhOffset.TabIndex = 225;
+            this.btnSSanhInNhanhOffset.Text = "So sánh";
+            this.btnSSanhInNhanhOffset.UseVisualStyleBackColor = true;
+            this.btnSSanhInNhanhOffset.Click += new System.EventHandler(this.btnSSanhInNhanhOffset_Click);
             // 
             // grbTinhThu
             // 
-            this.grbTinhThu.Controls.Add(this.btnTinhThuOffset);
-            this.grbTinhThu.Controls.Add(this.btnTinhThuInNhanh);
+            this.grbTinhThu.Controls.Add(this.btnSSanhInNhanhOffset);
             this.grbTinhThu.Location = new System.Drawing.Point(15, 333);
             this.grbTinhThu.Name = "grbTinhThu";
             this.grbTinhThu.Size = new System.Drawing.Size(195, 56);
@@ -540,8 +530,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.RadioButton rdbKhongIn;
-        private System.Windows.Forms.Button btnTinhThuInNhanh;
-        private System.Windows.Forms.Button btnTinhThuOffset;
+        private System.Windows.Forms.Button btnSSanhInNhanhOffset;
         private System.Windows.Forms.GroupBox grbTinhThu;
     }
 }

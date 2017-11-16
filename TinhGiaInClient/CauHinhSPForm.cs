@@ -11,6 +11,8 @@ using TinhGiaInClient.View;
 using TinhGiaInClient.Presenter;
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Common.Enum;
+using TinhGiaInClient.Common;
+using TinhGiaInClient.UI;
 
 namespace TinhGiaInClient
 {
@@ -562,6 +564,20 @@ namespace TinhGiaInClient
                 }
             }
 
+        }
+
+        private void btnSSanhInNhanhOffset_Click(object sender, EventArgs e)
+        {
+            /*if (!Global.CoTheMoFormNay("SoSanhOffsetNhanhForm", "", )) //không có tên form
+                return;*/
+            //Qua khỏi
+
+            var frm = new  SoSanhOffsetNhanhForm();
+            frm.Text = "SO SÁNH CHI PHÍ INHANH v OFFSET";
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
         }
     }
 }

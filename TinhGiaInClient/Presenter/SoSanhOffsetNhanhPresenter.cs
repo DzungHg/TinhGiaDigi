@@ -30,12 +30,20 @@ namespace TinhGiaInClient.Presenter
             View.SoLuotInOffset = 1;
             View.SanPhamCao = 29.7f;
             View.SanPhamRong = 21.0f;
+            //Digi
+            View.GiaGiayDigi = 0;
+            View.ToChayRongDigi = 32f;
+            View.ToChayCaoDigi = 48.5f;
+
             View.SoLuongSP = 1000;
             View.KieuInDigi = MotHaiMat.HaiMat;
             View.SoSanPhamTrenToChayDigi = 1;
             View.SoToChayTrenToLonDigi = 1;
             View.SoToChayBuHaoDigi = 1;
-
+            //Offset
+            View.GiaGiayOffset = 0;
+            View.ToChayRongOffset = 36f;
+            View.ToChayCaoOffset = 52f;
             View.SoSanPhamTrenToChayOffset = 1;            
             View.SoToChayTrenToLonOffset = 1;            
             View.SoToChayBuHaoOffset = 1;
@@ -252,7 +260,7 @@ namespace TinhGiaInClient.Presenter
             if (View.KieuInDigi == MotHaiMat.HaiMat)
                 soMat = 2;
 
-            var mayIn = ToInMayDigi.DocTheoId(View.IdGiayDiGiChon);
+            var mayIn = ToInMayDigi.DocTheoId(View.IdMayInDiGiChon);
 
             kq = mayIn.QuiA4 * View.TongSoToChayDigi * soMat;
             return kq;
@@ -263,7 +271,7 @@ namespace TinhGiaInClient.Presenter
             if (View.TongSoToChayDigi <= 0)
                 return kq;
 
-            var mayIn = ToInMayDigi.DocTheoId(View.IdGiayDiGiChon);
+            var mayIn = ToInMayDigi.DocTheoId(View.IdMayInDiGiChon);
             var duLieuTinhGia = new DuLieuTinhGiaInNhanhTheoMay()
                 {
                     BHR = mayIn.BHR,

@@ -12,6 +12,7 @@ using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.UI;
 using TinhGiaInClient.Common.Enum;
+using TinhGiaInClient.Common;
 
 namespace TinhGiaInClient.UI
 {
@@ -20,10 +21,11 @@ namespace TinhGiaInClient.UI
         //GiaInNhanhThuForm frmGiaInNhanh;
         GiayDeInForm frmGiayDeIn;
 
-        public TinhThuForm()
+        public TinhThuForm(string tenNguoiDung = "")
         {
             InitializeComponent();
             LoadHangKhachHang();
+            this.TenNguoiDung = tenNguoiDung;
         }
         public int IdHangKhachHang
         { 
@@ -298,17 +300,7 @@ namespace TinhGiaInClient.UI
            
         }
 
-  
- 
-
- 
-
- 
-    
-
-    
-
-     
+   
 
         private void btnBangGiaGiay_Click(object sender, EventArgs e)
         {
@@ -352,7 +344,7 @@ namespace TinhGiaInClient.UI
 
         private void NhapLieuMainForm_Load(object sender, EventArgs e)
         {
-            this.TenNguoiDung = TenMayTinhHienTai();
+            //this.TenNguoiDung = TenMayTinhHienTai();
         }
         private bool CoTheMoFormNay(string tenForm)
         {
@@ -363,7 +355,7 @@ namespace TinhGiaInClient.UI
                 return false;
             }*/
             //Kiểm tiếp
-            var nguoiDung = NguoiDung.DocTheoTenDangNhap(this.TenNguoiDung);
+            var nguoiDung = NguoiDung.DocTheoTenDangNhap(this.TenNguoiDung.Trim());
             if (nguoiDung.ID == 0)
             {
                 MessageBox.Show("Bạn chưa có tài khoản sử dụng");
@@ -539,6 +531,14 @@ namespace TinhGiaInClient.UI
 
         private void btnSoSanhOffsetNhanh_Click(object sender, EventArgs e)
         {
+            var thongTin ="";
+            if (!Global.CoTheMoFormNay("SoSanhOffsetNhanhForm", this.TenNguoiDung,
+                out thongTin)) //không có tên form
+            {
+                MessageBox.Show(thongTin);
+                return;
+            }
+            //Qua khỏi
             var frm = new SoSanhOffsetNhanhForm();
 
             frm.Text = "SO SÁNH CHI PHÍ";

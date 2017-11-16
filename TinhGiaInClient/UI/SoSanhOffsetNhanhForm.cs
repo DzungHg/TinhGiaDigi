@@ -28,6 +28,7 @@ namespace TinhGiaInClient.UI
             LoadMayIn();
             //Reset form
             giaInPres.ResetForm();
+            #region Các Events
             //-event            
 
             txtTongSoToChayO.KeyPress += new KeyPressEventHandler(InputValidator);
@@ -55,7 +56,7 @@ namespace TinhGiaInClient.UI
             txtToChayRongO.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToChayCaoO.KeyPress += new KeyPressEventHandler(InputValidator);
 
-            
+            //Text changed
 
             txtSoLuongSP.TextChanged += new EventHandler(TextBoxes_TextedChanged);
             txtToChayRongD.TextChanged += new EventHandler(TextBoxes_TextedChanged);
@@ -74,7 +75,24 @@ namespace TinhGiaInClient.UI
 
             txtPhiCanhBai.TextChanged += new EventHandler(TextBoxes_TextedChanged);
             txtPhiVanChuyen.TextChanged += new EventHandler(TextBoxes_TextedChanged);
-
+            //Text leave
+            txtTieuDe.Leave += new EventHandler(TextBoxes_Leave);
+            txtSanPhamRong.Leave += new EventHandler(TextBoxes_Leave);
+            txtSanPhamCao.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoLuongSP.Leave += new EventHandler(TextBoxes_Leave);
+            //Digi
+            txtToChayRongD.Leave += new EventHandler(TextBoxes_Leave);
+            txtToChayCaoD.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoSPTrenToChayDigi.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToChayBuHaoD.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToChayTrenToLonD.Leave += new EventHandler(TextBoxes_Leave);
+            //Offset
+            txtToChayRongO.Leave += new EventHandler(TextBoxes_Leave);
+            txtToChayCaoO.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoSPTrenToChayOffset.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToChayBuHaoO.Leave += new EventHandler(TextBoxes_Leave);
+            txtSoToChayTrenToLonO.Leave += new EventHandler(TextBoxes_Leave);
+            //
             rdbMotMat.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
             rdbTuTro.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
             rdbTuTroNhip.CheckedChanged += new EventHandler(RadioButtons_CheckChanged);
@@ -82,7 +100,7 @@ namespace TinhGiaInClient.UI
 
             cboMayInDigi.SelectedIndexChanged += new EventHandler(comboBoxS_SelectedIndexChanged);
             cboMayInOffset.SelectedIndexChanged += new EventHandler(comboBoxS_SelectedIndexChanged);
-
+            #endregion
         }
     
         #region implement Iview
@@ -214,11 +232,15 @@ namespace TinhGiaInClient.UI
             set { txtTenGiayOffset.Text = value; }
         }
 
-        decimal _tienIn = 0;
+        decimal _phiInOffset = 0;
         public decimal PhiInOffset
         {
-            get { return giaInPres.GiaInMotBaiOffset(); }
-            set { _tienIn = value; }
+            get { 
+                return _phiInOffset; }
+            set { 
+                _phiInOffset = value;
+                txtPhiInO.Text = string.Format("{0:0,0.00}đ", _phiInOffset);
+            }
         }
         public string GiaTBTrangInfo
         {
@@ -469,65 +491,73 @@ namespace TinhGiaInClient.UI
 
             }
         }
-
+        decimal _phiGiayOffset;
         public decimal PhiGiayOffset
         {
             get
             {
-                return decimal.Parse(txtPhiGiayO.Text);
+                return _phiGiayOffset;
             }
             set
             {
-                txtPhiGiayO.Text = value.ToString();
+                _phiGiayOffset = value;
+                txtPhiGiayO.Text = string.Format("{0:0,0.00}đ", _phiGiayOffset);
             }
         }
-
+        decimal _phiGiayDigi;
         public decimal PhiGiayDigi
         {
             get
             {
-                return decimal.Parse(txtPhiGiayD.Text);
+                return _phiGiayDigi;
             }
             set
             {
-                txtPhiGiayD.Text = value.ToString();
+                _phiGiayDigi = value;
+                txtPhiGiayD.Text = string.Format("{0:0,0.00}đ", _phiGiayDigi);
             }
         }
 
+        decimal _phiInDigi;
         public decimal PhiInDigi
         {
             get
             {
-                return decimal.Parse(txtPhiInD.Text);
+                return _phiInDigi;
             }
             set
             {
-                txtPhiInD.Text = value.ToString();
+                _phiInDigi = value;
+                txtPhiInD.Text = string.Format("{0:0,0.00}đ", _phiInDigi);
             }
         }
 
+        decimal _tongPhiInDigi;
         public decimal TongPhiDigi
         {
             get
             {
-                return decimal.Parse(txtTongPhiD.Text);
+                return _tongPhiInDigi;
             }
             set
             {
-                txtTongPhiD.Text = value.ToString();
+                _tongPhiInDigi = value;
+                txtTongPhiD.Text = string.Format("{0:0,0.00}đ", _tongPhiInDigi);
 
             }
         }
 
+        decimal _tongPhiInOffset;
         public decimal TongPhiOffset
         {
             get
             {
-                return decimal.Parse(txtTongPhiO.Text);
+                return _tongPhiInOffset;
             }
             set
             {
-                txtTongPhiO.Text = value.ToString();
+                _tongPhiInOffset = value;
+                txtTongPhiO.Text = string.Format("{0:0,0.00}đ", _tongPhiInOffset);
 
             }
         }
@@ -592,6 +622,11 @@ namespace TinhGiaInClient.UI
 
         }
         //Digi
+        private void TinhSoSPTrenToToChayDigi()
+        {
+            this.SoSanPhamTrenToChayDigi = giaInPres.SoConTrenToLon(this.ToChayRongDigi,
+                                this.ToChayCaoDigi, this.SanPhamRong, this.SanPhamCao);
+        }
         private void CapNhatSoToToChayLyThuyetDigi()
         {
             this.SoToChayLyThuyetDigi = giaInPres.SoToChayLyThuyetDigi();
@@ -605,6 +640,11 @@ namespace TinhGiaInClient.UI
             this.TongSoToGiayLonDigi = giaInPres.TongSoToGiayLonDigi();
         }
         //offset
+        private void TinhSoSPTrenToToChayOffset()
+        {
+            this.SoSanPhamTrenToChayOffset = giaInPres.SoConTrenToLon(this.ToChayRongOffset,
+                                this.ToChayCaoOffset, this.SanPhamRong, this.SanPhamCao);
+        }
         private void CapNhatSoToToChayLyThuyetOffset()
         {
             this.SoToChayLyThuyetOffset = giaInPres.SoToChayLyThuyetOffset();
@@ -737,10 +777,97 @@ namespace TinhGiaInClient.UI
                         txtPhiCanhBai.Text = "0";
                 }
 
-                //Cập nhật thành tiền
-                this.PhiInOffset = giaInPres.GiaInMotBaiOffset();
-                //lblThanhTien.Text = string.Format("{0:0,0.00}đ ", this.PhiInOffset);
             }
+
+        }
+        private void TextBoxes_Leave(object sender, EventArgs e)
+        {
+            TextBox t;
+            if (sender is TextBox)
+            {
+                t = (TextBox)sender;
+                //Chung
+                if (t == txtTieuDe)
+                    if (string.IsNullOrEmpty(txtTieuDe.Text.Trim()))
+                    {
+                        this.TieuDe = "So sánh";
+                    }
+                if (t == txtSanPhamRong)
+                    if (string.IsNullOrEmpty(txtSanPhamRong.Text.Trim()))
+                    {
+                        this.SanPhamRong = 21f;
+                    }
+                if (t == txtSanPhamCao)
+                    if (string.IsNullOrEmpty(txtSanPhamCao.Text.Trim()))
+                    {
+                        this.SanPhamCao = 29.7f;
+                    }
+               
+                if (t == txtSoLuongSP)
+                    if (string.IsNullOrEmpty(txtSoLuongSP.Text.Trim()))
+                    {
+                        this.SoLuongSP = 1000;
+                    }
+                //Digi
+                if (t == txtToChayRongD)
+                    if (string.IsNullOrEmpty(txtToChayRongD.Text.Trim()))
+                    {
+                        this.ToChayRongDigi = 32;
+                    }
+                if (t == txtToChayCaoD)
+                    if (!string.IsNullOrEmpty(txtToChayCaoD.Text.Trim()))
+                    {
+                        this.ToChayCaoDigi = 48.5f;
+                        //
+                    }
+                if (t == txtSoSPTrenToChayDigi)
+                    if (string.IsNullOrEmpty(txtSoSPTrenToChayDigi.Text.Trim()))
+                    {
+                        this.SoSanPhamTrenToChayDigi = 1;
+                    }
+
+                if (t == txtSoToChayBuHaoD)
+                    if (string.IsNullOrEmpty(txtSoToChayBuHaoD.Text.Trim()))
+                    {
+                        this.SoToChayBuHaoDigi = 0;
+                    }
+
+                if (t == txtSoToChayTrenToLonD)
+                    if (string.IsNullOrEmpty(txtSoToChayTrenToLonD.Text.Trim()))
+                    {
+                        this.SoToChayTrenToLonDigi = 1;
+                    }
+                //Offset
+                if (t == txtToChayRongO)
+                    if (string.IsNullOrEmpty(txtToChayRongD.Text.Trim()))
+                    {
+                        this.ToChayRongOffset = 36;
+                    }
+                if (t == txtToChayCaoO)
+                    if (!string.IsNullOrEmpty(txtToChayCaoO.Text.Trim()))
+                    {
+                        this.ToChayCaoOffset = 52f;
+                        //
+                    }
+                if (t == txtSoSPTrenToChayOffset)
+                    if (string.IsNullOrEmpty(txtSoSPTrenToChayOffset.Text.Trim()))
+                    {
+                        this.SoSanPhamTrenToChayOffset = 1;
+                    }
+
+                if (t == txtSoToChayBuHaoO)
+                    if (string.IsNullOrEmpty(txtSoToChayBuHaoO.Text.Trim()))
+                    {
+                        this.SoToChayBuHaoOffset = 0;
+                    }
+
+                if (t == txtSoToChayTrenToLonO)
+                    if (string.IsNullOrEmpty(txtSoToChayTrenToLonO.Text.Trim()))
+                    {
+                        this.SoToChayTrenToLonOffset = 1;
+                    }
+            }
+
 
         }
         private bool KiemTraHopLe(ref string errorMessage)
@@ -807,10 +934,12 @@ namespace TinhGiaInClient.UI
                 if (cb == cboMayInDigi)
                 {
                     giaInPres.CapNhatKhoToChayDigi();
+                    TinhSoSPTrenToToChayDigi();
                 }
                 if (cb == cboMayInOffset)
                 {
                     giaInPres.CapNhatKhoToChayOffset();
+                    TinhSoSPTrenToToChayOffset();
                 }
             }
         }
@@ -880,14 +1009,12 @@ namespace TinhGiaInClient.UI
 
         private void btnTinhSPTrenToChayDigi_Click(object sender, EventArgs e)
         {
-            this.SoSanPhamTrenToChayDigi = giaInPres.SoConTrenToLon(this.ToChayRongDigi,
-                                this.ToChayCaoDigi, this.SanPhamRong, this.SanPhamCao);
+            TinhSoSPTrenToToChayDigi();//Cập nhât luôn property
         }
 
         private void btnTinhSPTrenToChayOffset_Click(object sender, EventArgs e)
         {
-            this.SoSanPhamTrenToChayOffset = giaInPres.SoConTrenToLon(this.ToChayRongOffset,
-                                this.ToChayCaoOffset, this.SanPhamRong, this.SanPhamCao);
+            TinhSoSPTrenToToChayOffset();//Cập nhật luon protperty
         }
 
         private void btnTinhToChayTrenToLonDigi_Click(object sender, EventArgs e)
@@ -901,9 +1028,80 @@ namespace TinhGiaInClient.UI
         private void btnTinhToChayTrenToLonOffset_Click(object sender, EventArgs e)
         {
             this.SoToChayTrenToLonOffset = 1;
-            if (this.IdGiayDiGiChon > 0)
+            if (this.IdGiayOffsetChon > 0)
                 this.SoToChayTrenToLonOffset = giaInPres.SoConTrenToLon(this.KhoGiayRongOffset,
                                this.KhoGiayCaoOffset, this.ToChayRongOffset, this.ToChayCaoOffset);
+        }
+        private bool DatDieuKienTinh()
+        {
+            var kq = true;
+            var lstLoi = new List<string>();
+            var xuongHang = "\r" + "\n";
+            //Chung
+            if (this.SanPhamRong <= 0 || this.SanPhamCao <= 0)
+                lstLoi.Add("Khổ sản phẩm!" + xuongHang);
+            //Digi
+            if (this.IdGiayDiGiChon <= 0)
+                lstLoi.Add("Giấy in nhanh chưa có!" + xuongHang);
+            if (this.KhoGiayRongDigi <= 0 || this.KhoGiayCaoDigi <= 0)
+                lstLoi.Add("Khô giấy in nhanh!" + xuongHang);
+            if (this.GiaGiayDigi <= 0)
+                lstLoi.Add("Giá giấy in nhanh!" + xuongHang);
+            if (this.ToChayRongDigi <= 0 || this.ToChayCaoDigi <= 0)
+                lstLoi.Add("Khổ tờ chạy in nhanh" + xuongHang);
+
+
+            //Offset
+            if (this.IdGiayOffsetChon <= 0)
+                lstLoi.Add("Giấy Offset chưa có!" + xuongHang);
+            if (this.KhoGiayRongOffset <= 0 || this.KhoGiayCaoOffset <= 0)
+                lstLoi.Add("Khô giấy Offset!" + xuongHang);
+            if (this.GiaGiayOffset <= 0)
+                lstLoi.Add("Giá giấy in nhanh!" + xuongHang);
+            if (this.ToChayRongOffset <= 0 || this.ToChayCaoOffset <= 0)
+                lstLoi.Add("Khổ tờ chạy Offset" + xuongHang);
+            //Cuối cùng
+
+            if (lstLoi.Count > 0)
+            {
+                kq = false;
+                var strLoi = "";
+                foreach (string st in lstLoi)
+                {
+                    strLoi += st;
+                }
+                MessageBox.Show(strLoi);
+            }
+            return kq;
+        }
+
+        private void btnTinhSoSanh_Click(object sender, EventArgs e)
+        {
+            if (!this.DatDieuKienTinh())
+            {
+                return;
+            }
+            //Tính
+            this.PhiGiayDigi = giaInPres.PhiGiayDigi();
+            this.PhiInDigi = giaInPres.PhiInDigi();
+            //MessageBox.Show(this.PhiInDigi.ToString());
+            this.TongPhiDigi = giaInPres.TongPhiJobDigi();
+            //Offset
+            this.PhiGiayOffset = giaInPres.PhiGiayOffsetTong();
+            this.PhiInOffset = giaInPres.PhiInOffsetTong();
+            this.TongPhiOffset = giaInPres.TongPhiJobOffset();
+            //Digital vs Offset mắc hơn bao nhiêu?
+           
+            var chenhLech = this.TongPhiDigi - this.TongPhiOffset;
+            var pctChenhLech = (Math.Abs(chenhLech) / this.TongPhiOffset) * 100;
+            var chLechStr = "";
+            if (chenhLech >= 0)
+                chLechStr = string.Format("+{0}%", Math.Round(pctChenhLech));
+            else
+                chLechStr = string.Format("-{0}%", Math.Round(pctChenhLech));
+
+            lblKetLuan.Text = chLechStr;
+
         }
     }
 }
