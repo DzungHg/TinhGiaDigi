@@ -88,6 +88,7 @@
             this.txtTenGiayDigi = new System.Windows.Forms.TextBox();
             this.cboMayInDigi = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnChiTietMayOffset = new System.Windows.Forms.Button();
             this.btnTinhToChayTrenToLonOffset = new System.Windows.Forms.Button();
             this.btnTinhSPTrenToChayOffset = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
@@ -699,6 +700,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnChiTietMayOffset);
             this.groupBox3.Controls.Add(this.btnTinhToChayTrenToLonOffset);
             this.groupBox3.Controls.Add(this.btnTinhSPTrenToChayOffset);
             this.groupBox3.Controls.Add(this.label31);
@@ -742,6 +744,16 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Offset gia công";
+            // 
+            // btnChiTietMayOffset
+            // 
+            this.btnChiTietMayOffset.Location = new System.Drawing.Point(321, 22);
+            this.btnChiTietMayOffset.Name = "btnChiTietMayOffset";
+            this.btnChiTietMayOffset.Size = new System.Drawing.Size(37, 23);
+            this.btnChiTietMayOffset.TabIndex = 164;
+            this.btnChiTietMayOffset.Text = "V";
+            this.btnChiTietMayOffset.UseVisualStyleBackColor = true;
+            this.btnChiTietMayOffset.Click += new System.EventHandler(this.btnChiTietMayOffset_Click);
             // 
             // btnTinhToChayTrenToLonOffset
             // 
@@ -979,7 +991,7 @@
             this.cboMayInOffset.FormattingEnabled = true;
             this.cboMayInOffset.Location = new System.Drawing.Point(95, 24);
             this.cboMayInOffset.Name = "cboMayInOffset";
-            this.cboMayInOffset.Size = new System.Drawing.Size(253, 21);
+            this.cboMayInOffset.Size = new System.Drawing.Size(220, 21);
             this.cboMayInOffset.TabIndex = 1;
             // 
             // lblKetLuan
@@ -1038,7 +1050,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblTieuDeForm);
             this.Name = "SoSanhOffsetNhanhForm";
-            this.Text = "TinhGiaInForm";
+            this.Text = "In nhanh vs Offset";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GiaInForm_FormClosing);
             this.Load += new System.EventHandler(this.GiaInForm_Load);
             this.grbKieuInOffset.ResumeLayout(false);
@@ -1150,5 +1162,6 @@
         private System.Windows.Forms.Button btnTinhToChayTrenToLonOffset;
         private System.Windows.Forms.Button btnTinhSPTrenToChayOffset;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Button btnChiTietMayOffset;
     }
 }

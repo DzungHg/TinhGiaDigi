@@ -1103,5 +1103,14 @@ namespace TinhGiaInClient.UI
             lblKetLuan.Text = chLechStr;
 
         }
+
+        private void btnChiTietMayOffset_Click(object sender, EventArgs e)
+        {
+            var frm = new ChiTietMayInOffsetForm(this.IdMayInOffsetChon);
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
     }
 }
