@@ -131,17 +131,24 @@ namespace TinhGiaInClient.Presenter
             decimal kq = 0;
                                     
             
-            if (bGiaInNhanh != null && soTrangA4 > 0)
+            if (bGiaInNhanh == null || soTrangA4 < 0)                
             {
-                
-                if (bGiaInNhanh.LoaiBangGia.Trim() == Global.cBangGiaLuyTien)
-                {
-                    kq = TinhToan.GiaInLuyTien(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
-                }
-                if (bGiaInNhanh.LoaiBangGia.Trim() == Global.cBangGiaBuoc)
-                    kq = TinhToan.GiaBuoc(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
-               
+                return 0;
             }
+            //vượt làm tiếp
+            switch (bGiaInNhanh.LoaiBangGia.Trim())
+            {
+                case Global.cBangGiaLuyTien:
+
+                    kq = TinhToan.GiaInLuyTien(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
+                    break;
+                case Global.cBangGiaBuoc:
+                    kq = TinhToan.GiaBuoc(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
+                    break;
+                case Global.cBangGiaGoi:
+                    kq = TinhToan.GiaGoi(bGiaInNhanh.DaySoLuong, bGiaInNhanh.DayGia, soTrangA4);
+                    break;
+            }           
              
             return kq;
         }

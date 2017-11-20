@@ -50,6 +50,18 @@
             this.btnCopy = new System.Windows.Forms.Button();
             this.btnCopyBangGiaA = new System.Windows.Forms.Button();
             this.btnCopyBangGiaB = new System.Windows.Forms.Button();
+            this.tabCtrlA = new System.Windows.Forms.TabControl();
+            this.tabBangGiaA = new System.Windows.Forms.TabPage();
+            this.tabDienGiaiBGiaA = new System.Windows.Forms.TabPage();
+            this.tabCtrlB = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabCtrlA.SuspendLayout();
+            this.tabBangGiaA.SuspendLayout();
+            this.tabDienGiaiBGiaA.SuspendLayout();
+            this.tabCtrlB.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboNiemYetGiaA
@@ -74,7 +86,7 @@
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(330, 473);
+            this.btnClose.Location = new System.Drawing.Point(340, 438);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(90, 23);
             this.btnClose.TabIndex = 10;
@@ -112,9 +124,10 @@
             // 
             // lvwTrinhBayBangGiaA
             // 
-            this.lvwTrinhBayBangGiaA.Location = new System.Drawing.Point(15, 217);
+            this.lvwTrinhBayBangGiaA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwTrinhBayBangGiaA.Location = new System.Drawing.Point(3, 3);
             this.lvwTrinhBayBangGiaA.Name = "lvwTrinhBayBangGiaA";
-            this.lvwTrinhBayBangGiaA.Size = new System.Drawing.Size(197, 217);
+            this.lvwTrinhBayBangGiaA.Size = new System.Drawing.Size(186, 233);
             this.lvwTrinhBayBangGiaA.TabIndex = 3;
             this.lvwTrinhBayBangGiaA.UseCompatibleStateImageBehavior = false;
             this.lvwTrinhBayBangGiaA.View = System.Windows.Forms.View.Details;
@@ -124,7 +137,7 @@
             this.txtDayTrangA4.Location = new System.Drawing.Point(426, 126);
             this.txtDayTrangA4.Multiline = true;
             this.txtDayTrangA4.Name = "txtDayTrangA4";
-            this.txtDayTrangA4.Size = new System.Drawing.Size(82, 308);
+            this.txtDayTrangA4.Size = new System.Drawing.Size(82, 265);
             this.txtDayTrangA4.TabIndex = 111;
             this.txtDayTrangA4.Text = "0";
             // 
@@ -148,11 +161,12 @@
             // 
             // txtDienGiaiNYGiaA
             // 
-            this.txtDienGiaiNYGiaA.Location = new System.Drawing.Point(12, 126);
+            this.txtDienGiaiNYGiaA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDienGiaiNYGiaA.Location = new System.Drawing.Point(3, 3);
             this.txtDienGiaiNYGiaA.Multiline = true;
             this.txtDienGiaiNYGiaA.Name = "txtDienGiaiNYGiaA";
             this.txtDienGiaiNYGiaA.ReadOnly = true;
-            this.txtDienGiaiNYGiaA.Size = new System.Drawing.Size(200, 76);
+            this.txtDienGiaiNYGiaA.Size = new System.Drawing.Size(186, 172);
             this.txtDienGiaiNYGiaA.TabIndex = 115;
             this.txtDienGiaiNYGiaA.Text = "0";
             // 
@@ -192,19 +206,21 @@
             // 
             // txtDienGiaiNYGiaB
             // 
-            this.txtDienGiaiNYGiaB.Location = new System.Drawing.Point(220, 126);
+            this.txtDienGiaiNYGiaB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDienGiaiNYGiaB.Location = new System.Drawing.Point(3, 3);
             this.txtDienGiaiNYGiaB.Multiline = true;
             this.txtDienGiaiNYGiaB.Name = "txtDienGiaiNYGiaB";
             this.txtDienGiaiNYGiaB.ReadOnly = true;
-            this.txtDienGiaiNYGiaB.Size = new System.Drawing.Size(200, 76);
+            this.txtDienGiaiNYGiaB.Size = new System.Drawing.Size(186, 172);
             this.txtDienGiaiNYGiaB.TabIndex = 120;
             this.txtDienGiaiNYGiaB.Text = "0";
             // 
             // lvwTrinhBayBangGiaB
             // 
-            this.lvwTrinhBayBangGiaB.Location = new System.Drawing.Point(223, 217);
+            this.lvwTrinhBayBangGiaB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvwTrinhBayBangGiaB.Location = new System.Drawing.Point(3, 3);
             this.lvwTrinhBayBangGiaB.Name = "lvwTrinhBayBangGiaB";
-            this.lvwTrinhBayBangGiaB.Size = new System.Drawing.Size(197, 217);
+            this.lvwTrinhBayBangGiaB.Size = new System.Drawing.Size(186, 233);
             this.lvwTrinhBayBangGiaB.TabIndex = 121;
             this.lvwTrinhBayBangGiaB.UseCompatibleStateImageBehavior = false;
             this.lvwTrinhBayBangGiaB.View = System.Windows.Forms.View.Details;
@@ -222,14 +238,14 @@
             // 
             this.lvwKetQua.Location = new System.Drawing.Point(514, 126);
             this.lvwKetQua.Name = "lvwKetQua";
-            this.lvwKetQua.Size = new System.Drawing.Size(227, 308);
+            this.lvwKetQua.Size = new System.Drawing.Size(227, 265);
             this.lvwKetQua.TabIndex = 123;
             this.lvwKetQua.UseCompatibleStateImageBehavior = false;
             this.lvwKetQua.View = System.Windows.Forms.View.Details;
             // 
             // btnCopy
             // 
-            this.btnCopy.Location = new System.Drawing.Point(651, 440);
+            this.btnCopy.Location = new System.Drawing.Point(651, 397);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(90, 23);
             this.btnCopy.TabIndex = 125;
@@ -239,7 +255,7 @@
             // 
             // btnCopyBangGiaA
             // 
-            this.btnCopyBangGiaA.Location = new System.Drawing.Point(122, 440);
+            this.btnCopyBangGiaA.Location = new System.Drawing.Point(114, 397);
             this.btnCopyBangGiaA.Name = "btnCopyBangGiaA";
             this.btnCopyBangGiaA.Size = new System.Drawing.Size(90, 23);
             this.btnCopyBangGiaA.TabIndex = 126;
@@ -249,7 +265,7 @@
             // 
             // btnCopyBangGiaB
             // 
-            this.btnCopyBangGiaB.Location = new System.Drawing.Point(330, 440);
+            this.btnCopyBangGiaB.Location = new System.Drawing.Point(322, 397);
             this.btnCopyBangGiaB.Name = "btnCopyBangGiaB";
             this.btnCopyBangGiaB.Size = new System.Drawing.Size(90, 23);
             this.btnCopyBangGiaB.TabIndex = 127;
@@ -257,28 +273,90 @@
             this.btnCopyBangGiaB.UseVisualStyleBackColor = true;
             this.btnCopyBangGiaB.Click += new System.EventHandler(this.btnCopyBangGiaB_Click);
             // 
+            // tabCtrlA
+            // 
+            this.tabCtrlA.Controls.Add(this.tabBangGiaA);
+            this.tabCtrlA.Controls.Add(this.tabDienGiaiBGiaA);
+            this.tabCtrlA.Location = new System.Drawing.Point(10, 126);
+            this.tabCtrlA.Name = "tabCtrlA";
+            this.tabCtrlA.SelectedIndex = 0;
+            this.tabCtrlA.Size = new System.Drawing.Size(200, 265);
+            this.tabCtrlA.TabIndex = 128;
+            // 
+            // tabBangGiaA
+            // 
+            this.tabBangGiaA.Controls.Add(this.lvwTrinhBayBangGiaA);
+            this.tabBangGiaA.Location = new System.Drawing.Point(4, 22);
+            this.tabBangGiaA.Name = "tabBangGiaA";
+            this.tabBangGiaA.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBangGiaA.Size = new System.Drawing.Size(192, 239);
+            this.tabBangGiaA.TabIndex = 0;
+            this.tabBangGiaA.Text = "Bảng giá";
+            this.tabBangGiaA.UseVisualStyleBackColor = true;
+            // 
+            // tabDienGiaiBGiaA
+            // 
+            this.tabDienGiaiBGiaA.Controls.Add(this.txtDienGiaiNYGiaA);
+            this.tabDienGiaiBGiaA.Location = new System.Drawing.Point(4, 22);
+            this.tabDienGiaiBGiaA.Name = "tabDienGiaiBGiaA";
+            this.tabDienGiaiBGiaA.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDienGiaiBGiaA.Size = new System.Drawing.Size(192, 178);
+            this.tabDienGiaiBGiaA.TabIndex = 1;
+            this.tabDienGiaiBGiaA.Text = "Diễn giải";
+            this.tabDienGiaiBGiaA.UseVisualStyleBackColor = true;
+            // 
+            // tabCtrlB
+            // 
+            this.tabCtrlB.Controls.Add(this.tabPage1);
+            this.tabCtrlB.Controls.Add(this.tabPage2);
+            this.tabCtrlB.Location = new System.Drawing.Point(219, 126);
+            this.tabCtrlB.Name = "tabCtrlB";
+            this.tabCtrlB.SelectedIndex = 0;
+            this.tabCtrlB.Size = new System.Drawing.Size(200, 265);
+            this.tabCtrlB.TabIndex = 129;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.lvwTrinhBayBangGiaB);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(192, 239);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Bảng giá";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.txtDienGiaiNYGiaB);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 178);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Diễn giải";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // SoSanhGiaInNhanhForm
             // 
             this.AcceptButton = this.btnTinh;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(754, 508);
+            this.ClientSize = new System.Drawing.Size(754, 483);
+            this.Controls.Add(this.tabCtrlB);
+            this.Controls.Add(this.tabCtrlA);
             this.Controls.Add(this.btnCopyBangGiaB);
             this.Controls.Add(this.btnCopyBangGiaA);
             this.Controls.Add(this.btnCopy);
             this.Controls.Add(this.lvwKetQua);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.lvwTrinhBayBangGiaB);
-            this.Controls.Add(this.txtDienGiaiNYGiaB);
             this.Controls.Add(this.lblTenLoaiBangGiaB);
             this.Controls.Add(this.txtTenNhaInB);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtTenNhaInA);
-            this.Controls.Add(this.txtDienGiaiNYGiaA);
             this.Controls.Add(this.lblTenLoaiBangGiaA);
             this.Controls.Add(this.cboNiemYetGiaB);
             this.Controls.Add(this.txtDayTrangA4);
-            this.Controls.Add(this.lvwTrinhBayBangGiaA);
             this.Controls.Add(this.lblKetQua);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnClose);
@@ -290,6 +368,14 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GiaInForm_FormClosing);
             this.Load += new System.EventHandler(this.GiaInForm_Load);
             this.Resize += new System.EventHandler(this.SoSanhGiaInNhanhForm_Resize);
+            this.tabCtrlA.ResumeLayout(false);
+            this.tabBangGiaA.ResumeLayout(false);
+            this.tabDienGiaiBGiaA.ResumeLayout(false);
+            this.tabDienGiaiBGiaA.PerformLayout();
+            this.tabCtrlB.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +405,11 @@
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.Button btnCopyBangGiaA;
         private System.Windows.Forms.Button btnCopyBangGiaB;
+        private System.Windows.Forms.TabControl tabCtrlA;
+        private System.Windows.Forms.TabPage tabBangGiaA;
+        private System.Windows.Forms.TabPage tabDienGiaiBGiaA;
+        private System.Windows.Forms.TabControl tabCtrlB;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
