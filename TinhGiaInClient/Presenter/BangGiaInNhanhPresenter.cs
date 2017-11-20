@@ -38,14 +38,14 @@ namespace TinhGiaInClient.Presenter
         {
             return HangKhachHang.LayTheoId(View.IdHangKHChon).LoiNhuanChenhLech;
         }
-        public List<NiemYetGiaInNhanh> BangGiaInNhanhS()
+        public List<NiemYetGiaInNhanh> NiemYetGiaInNhanhS()
         {
             return NiemYetGiaInNhanh.DocConDungTheoIdHangKH(View.IdHangKHChon);
         }
        
         public void TrinhBayDuLieuInNhanhChon()
         {
-            var bangGiaInNhanh = NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetGiaChon);
+            var niemYetGia = NiemYetGiaInNhanh.DocTheoId(View.IdNiemYetGiaChon);
             //var count = MonThanhPham.DocTatCaDichVuThanhPham().Count();
             /*List<string> lst = bangGiaInNhanh.NoiDungBangGia.Split(';').ToList();
             View.NoiDungBangGia = "";
@@ -57,8 +57,9 @@ namespace TinhGiaInClient.Presenter
             View.DaySoluong = bangGiaInNhanh.DaySoLuongNiemYet;
             View.DonViTinh = "Trang A4";
             */
+            View.DaySoluong = niemYetGia.DaySoLuongNiemYet;
             View.NoiDungBangGia = "";
-            View.SoTrangToiDaTheoNiemYet = bangGiaInNhanh.SoTrangToiDa;
+            View.SoTrangToiDaTheoNiemYet = niemYetGia.SoTrangToiDa;
         }
         private BangGiaBase DocBangGiaChon()
         {

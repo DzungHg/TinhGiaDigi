@@ -63,7 +63,7 @@
             // radLabel2
             // 
             this.radLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radLabel2.Location = new System.Drawing.Point(209, 12);
+            this.radLabel2.Location = new System.Drawing.Point(228, 12);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(167, 25);
             this.radLabel2.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             // txtDaySoLuong
             // 
-            this.txtDaySoLuong.Location = new System.Drawing.Point(137, 84);
+            this.txtDaySoLuong.Location = new System.Drawing.Point(152, 84);
             this.txtDaySoLuong.Name = "txtDaySoLuong";
             this.txtDaySoLuong.Size = new System.Drawing.Size(329, 20);
             this.txtDaySoLuong.TabIndex = 6;
@@ -117,7 +117,7 @@
             // 
             this.lstBangGiaInNhanh.Location = new System.Drawing.Point(11, 110);
             this.lstBangGiaInNhanh.Name = "lstBangGiaInNhanh";
-            this.lstBangGiaInNhanh.Size = new System.Drawing.Size(120, 107);
+            this.lstBangGiaInNhanh.Size = new System.Drawing.Size(140, 107);
             this.lstBangGiaInNhanh.TabIndex = 10;
             this.lstBangGiaInNhanh.Text = "radListControl1";
             this.lstBangGiaInNhanh.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstDichVuThanhPham_SelectedIndexChanged);
@@ -148,9 +148,9 @@
             // 
             // lstSoLuongTinh
             // 
-            this.lstSoLuongTinh.Location = new System.Drawing.Point(137, 110);
+            this.lstSoLuongTinh.Location = new System.Drawing.Point(157, 110);
             this.lstSoLuongTinh.Name = "lstSoLuongTinh";
-            this.lstSoLuongTinh.Size = new System.Drawing.Size(120, 230);
+            this.lstSoLuongTinh.Size = new System.Drawing.Size(100, 230);
             this.lstSoLuongTinh.TabIndex = 12;
             this.lstSoLuongTinh.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstSoLuongTinh_SelectedIndexChanged);
             // 
@@ -165,7 +165,7 @@
             // 
             // btnRefreshDaySoLuong
             // 
-            this.btnRefreshDaySoLuong.Location = new System.Drawing.Point(472, 82);
+            this.btnRefreshDaySoLuong.Location = new System.Drawing.Point(487, 82);
             this.btnRefreshDaySoLuong.Name = "btnRefreshDaySoLuong";
             this.btnRefreshDaySoLuong.Size = new System.Drawing.Size(42, 24);
             this.btnRefreshDaySoLuong.TabIndex = 10;
@@ -187,7 +187,7 @@
             this.txtNoiDungBangGia.Location = new System.Drawing.Point(12, 223);
             this.txtNoiDungBangGia.Multiline = true;
             this.txtNoiDungBangGia.Name = "txtNoiDungBangGia";
-            this.txtNoiDungBangGia.Size = new System.Drawing.Size(120, 117);
+            this.txtNoiDungBangGia.Size = new System.Drawing.Size(139, 117);
             this.txtNoiDungBangGia.TabIndex = 0;
             // 
             // BangGiaInNhanhForm

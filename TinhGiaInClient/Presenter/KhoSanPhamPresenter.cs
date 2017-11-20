@@ -43,6 +43,10 @@ namespace TinhGiaInClient.Presenter
                 View.Rong = khoSP.KhoCatRong;
                 View.Cao = khoSP.KhoCatCao;
                 View.TenKho = khoSP.Ten;
+                View.TranLeTren = khoSP.TranLeTren;
+                View.TranLeDuoi = khoSP.TranLeDuoi;
+                View.TranLeTrong = khoSP.TranLeTrong;
+                View.TranLeNgoai = khoSP.TranLeNgoai;
             }
             else
             {

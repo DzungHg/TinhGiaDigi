@@ -340,6 +340,10 @@
           <Property Name="Ten" Type="nvarchar" MaxLength="50" />
           <Property Name="Chieu_cat_rong" Type="float" />
           <Property Name="Chieu_cat_cao" Type="float" />
+          <Property Name="tran_le_tren" Type="float" />
+          <Property Name="tran_le_duoi" Type="float" />
+          <Property Name="tran_le_trong" Type="float" />
+          <Property Name="tran_le_ngoai" Type="float" />
           <Property Name="dien_giai" Type="nvarchar" MaxLength="200" />
           <Property Name="Thu_tu" Type="int" />
         </EntityType>
@@ -1012,6 +1016,10 @@
           <Property Name="Chieu_cat_cao" Type="Double" />
           <Property Name="Thu_tu" Type="Int32" />
           <Property Name="dien_giai" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="tran_le_tren" Type="Double" />
+          <Property Name="tran_le_duoi" Type="Double" />
+          <Property Name="tran_le_trong" Type="Double" />
+          <Property Name="tran_le_ngoai" Type="Double" />
         </EntityType>
         <EntityType Name="GIAY">
           <Key>
@@ -1820,6 +1828,10 @@
           <EntitySetMapping Name="KHO_SAN_PHAM">
             <EntityTypeMapping TypeName="QuanLyGiaInModel.KHO_SAN_PHAM">
               <MappingFragment StoreEntitySet="KHO_SAN_PHAM">
+                <ScalarProperty Name="tran_le_ngoai" ColumnName="tran_le_ngoai" />
+                <ScalarProperty Name="tran_le_trong" ColumnName="tran_le_trong" />
+                <ScalarProperty Name="tran_le_duoi" ColumnName="tran_le_duoi" />
+                <ScalarProperty Name="tran_le_tren" ColumnName="tran_le_tren" />
                 <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
                 <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
                 <ScalarProperty Name="Chieu_cat_cao" ColumnName="Chieu_cat_cao" />

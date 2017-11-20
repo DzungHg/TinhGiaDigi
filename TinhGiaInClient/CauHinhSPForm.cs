@@ -315,7 +315,11 @@ namespace TinhGiaInClient
             if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
             {
                 this.KhoCatRong = frm.Rong;
-                this.KhoCatCao = frm.Cao;                
+                this.KhoCatCao = frm.Cao;
+                this.TranLeTren = frm.TranLeTren;
+                this.TranLeDuoi = frm.TranLeDuoi;
+                this.TranLeTrong = frm.TranLeTrong;
+                this.TranLeNgoai = frm.TranLeNgoai;
             }
         }
 

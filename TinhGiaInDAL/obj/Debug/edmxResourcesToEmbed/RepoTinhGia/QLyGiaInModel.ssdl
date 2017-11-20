@@ -335,6 +335,10 @@
     <Property Name="Ten" Type="nvarchar" MaxLength="50" />
     <Property Name="Chieu_cat_rong" Type="float" />
     <Property Name="Chieu_cat_cao" Type="float" />
+    <Property Name="tran_le_tren" Type="float" />
+    <Property Name="tran_le_duoi" Type="float" />
+    <Property Name="tran_le_trong" Type="float" />
+    <Property Name="tran_le_ngoai" Type="float" />
     <Property Name="dien_giai" Type="nvarchar" MaxLength="200" />
     <Property Name="Thu_tu" Type="int" />
   </EntityType>

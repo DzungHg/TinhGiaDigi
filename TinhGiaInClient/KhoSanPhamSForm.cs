@@ -42,6 +42,30 @@ namespace TinhGiaInClient
         }
         public float Cao
         { get; set; }
+        public float TranLeTren
+        {
+            get;
+            set;
+
+        }
+        public float TranLeDuoi
+        {
+            get;
+            set;
+
+        }
+        public float TranLeTrong
+        {
+            get;
+            set;
+
+        }
+        public float TranLeNgoai
+        {
+            get;
+            set;
+
+        }
 
        /* float _cao = 0;
         public float Cao

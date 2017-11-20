@@ -21,8 +21,12 @@ namespace TinhGiaInDAL.RepoTinhGia
                     ID = x.ID,
                     Ten = x.Ten,
                     KhoCatCao = (float)x.Chieu_cat_cao,
-                    KhoCatRong = (float)x.Chieu_cat_rong,
+                    KhoCatRong = (float)x.Chieu_cat_rong,                    
                     DienGiai = x.dien_giai,
+                    TranLeTren = (float)x.tran_le_tren,
+                    TranLeDuoi = (float)x.tran_le_duoi,
+                    TranLeTrong = (float)x.tran_le_trong,
+                    TranLeNgoai = (float)x.tran_le_ngoai,
                     ThuTu = (int)x.Thu_tu
                 });
                 list = nguon.ToList();
@@ -44,6 +48,10 @@ namespace TinhGiaInDAL.RepoTinhGia
                     KhoCatCao = (float)x.Chieu_cat_cao,
                     KhoCatRong = (float)x.Chieu_cat_rong,
                     DienGiai = x.dien_giai,
+                    TranLeTren = (float)x.tran_le_tren,
+                    TranLeDuoi = (float)x.tran_le_duoi,
+                    TranLeTrong = (float)x.tran_le_trong,
+                    TranLeNgoai = (float)x.tran_le_ngoai,
                     ThuTu = (int)x.Thu_tu
                 }).SingleOrDefault();
                 
@@ -115,9 +123,12 @@ namespace TinhGiaInDAL.RepoTinhGia
             entityDAO.ID = entityBDO.ID;
             entityDAO.Ten = entityBDO.Ten;
             entityDAO.Chieu_cat_rong = entityBDO.KhoCatRong;
-            entityDAO.Chieu_cat_cao = entityBDO.KhoCatCao;            
+            entityDAO.Chieu_cat_cao = entityBDO.KhoCatCao;
             entityDAO.dien_giai = entityBDO.DienGiai;
-            entityDAO.Thu_tu = entityBDO.ThuTu;
+            entityDAO.tran_le_tren = entityBDO.TranLeTren;
+            entityDAO.tran_le_duoi = entityBDO.TranLeDuoi;
+            entityDAO.tran_le_trong = entityBDO.TranLeTrong;
+            entityDAO.tran_le_ngoai = entityBDO.TranLeNgoai;
 
 
         }

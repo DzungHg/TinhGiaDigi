@@ -21,7 +21,30 @@ namespace TinhGiaInClient.View
 
         }
 
+        float TranLeTren
+        {
+            get;
+            set;
 
+        }
+        float TranLeDuoi
+        {
+            get;
+            set;
+
+        }
+        float TranLeTrong
+        {
+            get;
+            set;
+
+        }
+        float TranLeNgoai
+        {
+            get;
+            set;
+
+        }
         string TenKho
         {
             get;set;

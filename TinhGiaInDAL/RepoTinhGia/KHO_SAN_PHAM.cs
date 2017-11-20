@@ -20,5 +20,9 @@ namespace TinhGiaInDAL.RepoTinhGia
         public Nullable<double> Chieu_cat_cao { get; set; }
         public Nullable<int> Thu_tu { get; set; }
         public string dien_giai { get; set; }
+        public Nullable<double> tran_le_tren { get; set; }
+        public Nullable<double> tran_le_duoi { get; set; }
+        public Nullable<double> tran_le_trong { get; set; }
+        public Nullable<double> tran_le_ngoai { get; set; }
     }
 }

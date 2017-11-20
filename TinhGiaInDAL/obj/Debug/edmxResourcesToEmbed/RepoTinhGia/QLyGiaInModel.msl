@@ -14,6 +14,10 @@
     <EntitySetMapping Name="KHO_SAN_PHAM">
       <EntityTypeMapping TypeName="QuanLyGiaInModel.KHO_SAN_PHAM">
         <MappingFragment StoreEntitySet="KHO_SAN_PHAM">
+          <ScalarProperty Name="tran_le_ngoai" ColumnName="tran_le_ngoai" />
+          <ScalarProperty Name="tran_le_trong" ColumnName="tran_le_trong" />
+          <ScalarProperty Name="tran_le_duoi" ColumnName="tran_le_duoi" />
+          <ScalarProperty Name="tran_le_tren" ColumnName="tran_le_tren" />
           <ScalarProperty Name="dien_giai" ColumnName="dien_giai" />
           <ScalarProperty Name="Thu_tu" ColumnName="Thu_tu" />
           <ScalarProperty Name="Chieu_cat_cao" ColumnName="Chieu_cat_cao" />

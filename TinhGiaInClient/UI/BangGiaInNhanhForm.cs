@@ -20,7 +20,7 @@ namespace TinhGiaInClient.UI
             bangGiaInNhanhPres = new BangGiaInNhanhPresenter(this);
 
             LoadHangKhachHang();
-            LoadDanhSachBanGia();
+            LoadDanhSachNiemYet();
         }
         BangGiaInNhanhPresenter bangGiaInNhanhPres;
         int _idHangKHChon = 0;
@@ -75,11 +75,11 @@ namespace TinhGiaInClient.UI
             drpHangKH.ValueMember = "ID";
             drpHangKH.DataSource = bangGiaInNhanhPres.HangKhachHangS();
         }
-        private void LoadDanhSachBanGia()
+        private void LoadDanhSachNiemYet()
         {
-            lstBangGiaInNhanh.DisplayMember = "TenBangGia";
+            lstBangGiaInNhanh.DisplayMember = "TenMR";
             lstBangGiaInNhanh.ValueMember = "ID";
-            lstBangGiaInNhanh.DataSource = bangGiaInNhanhPres.BangGiaInNhanhS();
+            lstBangGiaInNhanh.DataSource = bangGiaInNhanhPres.NiemYetGiaInNhanhS();
         }
         private void LoadSoLuongTinh()
         {
@@ -176,7 +176,7 @@ namespace TinhGiaInClient.UI
 
         private void drpHangKH_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
-            LoadDanhSachBanGia();
+            LoadDanhSachNiemYet();
             btnXoaBang_Click(btnXoaBang, e);
             //MessageBox.Show(bangGiaThPhPres.TiLeMarkUpTheoHangKH().ToString());
         }

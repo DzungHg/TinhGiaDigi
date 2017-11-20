@@ -122,6 +122,10 @@
     <Property Name="Chieu_cat_cao" Type="Double" />
     <Property Name="Thu_tu" Type="Int32" />
     <Property Name="dien_giai" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="tran_le_tren" Type="Double" />
+    <Property Name="tran_le_duoi" Type="Double" />
+    <Property Name="tran_le_trong" Type="Double" />
+    <Property Name="tran_le_ngoai" Type="Double" />
   </EntityType>
   <EntityType Name="GIAY">
     <Key>
