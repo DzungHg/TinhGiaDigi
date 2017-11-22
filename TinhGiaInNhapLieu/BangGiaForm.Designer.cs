@@ -135,7 +135,7 @@
             // 
             // chkKhongSuDung
             // 
-            this.chkKhongSuDung.Location = new System.Drawing.Point(100, 278);
+            this.chkKhongSuDung.Location = new System.Drawing.Point(100, 267);
             this.chkKhongSuDung.Name = "chkKhongSuDung";
             this.chkKhongSuDung.Size = new System.Drawing.Size(84, 18);
             this.chkKhongSuDung.TabIndex = 8;
@@ -167,14 +167,14 @@
             // 
             // txtThuTu
             // 
-            this.txtThuTu.Location = new System.Drawing.Point(98, 252);
+            this.txtThuTu.Location = new System.Drawing.Point(98, 241);
             this.txtThuTu.Name = "txtThuTu";
             this.txtThuTu.Size = new System.Drawing.Size(36, 20);
             this.txtThuTu.TabIndex = 7;
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(15, 253);
+            this.radLabel8.Location = new System.Drawing.Point(15, 242);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(39, 18);
             this.radLabel8.TabIndex = 53;
@@ -207,13 +207,13 @@
             // 
             this.lstTrinhBayBG.Location = new System.Drawing.Point(416, 59);
             this.lstTrinhBayBG.Name = "lstTrinhBayBG";
-            this.lstTrinhBayBG.Size = new System.Drawing.Size(264, 200);
+            this.lstTrinhBayBG.Size = new System.Drawing.Size(264, 226);
             this.lstTrinhBayBG.TabIndex = 8;
             this.lstTrinhBayBG.UseCompatibleStateImageBehavior = false;
             // 
             // btnTrinhBay
             // 
-            this.btnTrinhBay.Location = new System.Drawing.Point(310, 272);
+            this.btnTrinhBay.Location = new System.Drawing.Point(299, 261);
             this.btnTrinhBay.Name = "btnTrinhBay";
             this.btnTrinhBay.Size = new System.Drawing.Size(100, 24);
             this.btnTrinhBay.TabIndex = 9;

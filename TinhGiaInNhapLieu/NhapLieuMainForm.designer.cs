@@ -532,7 +532,7 @@
             this.btnNY_GiaInNhanh.Name = "btnNY_GiaInNhanh";
             this.btnNY_GiaInNhanh.Size = new System.Drawing.Size(92, 37);
             this.btnNY_GiaInNhanh.TabIndex = 10;
-            this.btnNY_GiaInNhanh.Text = "Giá in nhanh";
+            this.btnNY_GiaInNhanh.Text = "Niêm yêt Giá in nhanh";
             this.btnNY_GiaInNhanh.UseVisualStyleBackColor = true;
             this.btnNY_GiaInNhanh.Click += new System.EventHandler(this.btnNY_GiaInNhanh_Click);
             // 

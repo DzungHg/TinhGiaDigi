@@ -17,6 +17,8 @@ namespace TinhGiaInNhapLieu.Presenter
         public QuanLyBangGiaPresenter(IViewQuanLyBangGia view)
         {
             View = view;
+
+            View.SoTrangTinhThu = 100;
         }       
         public List<BangGiaBase>BangGiaTheoLoai()
         {
@@ -92,6 +94,23 @@ namespace TinhGiaInNhapLieu.Presenter
             var bangGia = DanhSachBangGia.DocTheoIDvaLoai(View.IdBangGiaChon, this.LoaiBanGiaStr());
             kq = bangGia.DienGiai;
             return kq;
+        }
+        public decimal TinhThuSoTrang(ref string giaTBA4)
+        {
+            var kq = 0m;
+            if (View.IdBangGiaChon <= 0 || View.SoTrangTinhThu <=0)
+            {
+                giaTBA4 = "0đ";
+                return kq;
+            }
+            //
+            var bangGia = DanhSachBangGia.DocTheoIDvaLoai(View.IdBangGiaChon, this.LoaiBanGiaStr());
+            var giaInNhanhNiemYet = new GiaInNhanhNiemYet(View.SoTrangTinhThu, bangGia);
+            kq = giaInNhanhNiemYet.ThanhTienSales();
+
+            giaTBA4 = string.Format("{0:0,0}đ/A4", Math.Round(kq / View.SoTrangTinhThu));
+            return kq;
+
         }
     }
 }

@@ -75,6 +75,11 @@ namespace TinhGiaInNhapLieu
                 }
             }
         }
+        public int SoTrangTinhThu
+        {
+            get { return int.Parse(txtSoTrangTinhThu.Text);}
+            set {txtSoTrangTinhThu.Text = value.ToString();}
+        }
 #endregion
         private void LoadBangGia()
         {
@@ -120,6 +125,9 @@ namespace TinhGiaInNhapLieu
         {
             TrinhBayBangGia();
             txtCtrDienGiai.Text = quanLyBGPres.DienGiaiBangGia();
+            //Clear tính thử
+            lblTinhThu_TBA4.Text = "";
+            lblTinhThu_TriGia.Text = "";
         }
 
         private void lstBangGia_ColumnCreating(object sender, Telerik.WinControls.UI.ListViewColumnCreatingEventArgs e)
@@ -213,6 +221,23 @@ namespace TinhGiaInNhapLieu
         private void btnXoa_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Chưa thực thi");
+        }
+
+        private void btnTinhThu_Click(object sender, EventArgs e)
+        {
+            var message = "";
+            lblTinhThu_TriGia.Text = string.Format("{0:0,0.00}đ", quanLyBGPres.TinhThuSoTrang(ref message));
+            lblTinhThu_TBA4.Text = message;
+        }
+
+        private void radPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void QuanLyBangGiaForm_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

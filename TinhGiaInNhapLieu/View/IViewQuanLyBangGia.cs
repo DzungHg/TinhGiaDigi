@@ -11,5 +11,6 @@ namespace TinhGiaInNhapLieu.View
     {
         int IdBangGiaChon { get;set; }
         LoaiBangGiaS LoaiBangGia { get; set; }
+        int SoTrangTinhThu { get; set; }
     }
 }
