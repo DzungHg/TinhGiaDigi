@@ -88,6 +88,7 @@ namespace TinhGiaInClient.Model
             bangGiaBDO.ID = bangGia.ID;
             bangGiaBDO.Ten = bangGia.Ten;
             bangGiaBDO.DienGiai = bangGia.DienGiai;
+            bangGiaBDO.LoaiBangGia = bangGia.LoaiBangGia;
             bangGiaBDO.DaySoLuong = bangGia.DaySoLuong;
             bangGiaBDO.DayGia = bangGia.DayGia;
             bangGiaBDO.DonViTinh = bangGia.DonViTinh;

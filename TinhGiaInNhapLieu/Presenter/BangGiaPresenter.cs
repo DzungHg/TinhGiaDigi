@@ -36,7 +36,7 @@ namespace TinhGiaInNhapLieu.Presenter
             View.DayGiaTrang = ";";
       
             View.ThuTu = 100;
-       
+            View.DonViTinh = "trang a4";
        
             View.KhongSuDung = false;
         }
@@ -68,21 +68,37 @@ namespace TinhGiaInNhapLieu.Presenter
             View.DaySoLuong = bangGiaIn.DaySoLuong;
             View.DayGiaTrang = bangGiaIn.DayGia;      
             View.ThuTu = bangGiaIn.ThuTu;          
-            View.KhongSuDung = bangGiaIn.KhongCon;            
+            View.KhongSuDung = bangGiaIn.KhongCon;
+            View.DonViTinh = bangGiaIn.DonViTinh;
         }
 
 
         public void Luu(ref string thongDiep)
         {
-            BangGiaBase bangGia = new BangGiaBase();
-            bangGia.ID = View.ID;
-            bangGia.Ten = View.Ten;
-            bangGia.DienGiai = View.DienGiai;
-
-            bangGia.DaySoLuong = View.DaySoLuong;
-            bangGia.DayGia = View.DayGiaTrang;
-            bangGia.ThuTu = View.ThuTu;
-            bangGia.KhongCon = View.KhongSuDung;
+            var bangGiaLT = new BangGiaLuyTien
+            {
+                ID = View.ID,
+                Ten = View.Ten,
+                DienGiai = View.DienGiai,
+                LoaiBangGia = View.LoaiBangGia,
+                DaySoLuong = View.DaySoLuong,
+                DayGia = View.DayGiaTrang,
+                DonViTinh = View.DonViTinh,
+                ThuTu = View.ThuTu,
+                KhongCon = View.KhongSuDung
+            };
+            var bangGiaBuoc = new BangGiaTheoBuoc
+            {
+                ID = View.ID,
+                Ten = View.Ten,
+                DienGiai = View.DienGiai,
+                LoaiBangGia = View.LoaiBangGia,
+                DaySoLuong = View.DaySoLuong,
+                DayGia = View.DayGiaTrang,
+                DonViTinh = View.DonViTinh,
+                ThuTu = View.ThuTu,
+                KhongCon = View.KhongSuDung
+            };
             // case từng bảng
 
             switch (View.LoaiBangGia)
@@ -90,11 +106,11 @@ namespace TinhGiaInNhapLieu.Presenter
                 case Global.cBangGiaLuyTien:
                     switch (View.TinhTrangForm)
                     {
-                        case FormStateS.Edit:
-                            thongDiep = BangGiaLuyTien.Sua((BangGiaLuyTien)bangGia);
+                        case FormStateS.Edit:                            
+                            thongDiep = BangGiaLuyTien.Sua(bangGiaLT);
                             break;
                         case FormStateS.New:
-                            thongDiep = BangGiaLuyTien.Them((BangGiaLuyTien)bangGia);
+                            thongDiep = BangGiaLuyTien.Them(bangGiaLT);
                             break;
                     }
 
@@ -104,10 +120,10 @@ namespace TinhGiaInNhapLieu.Presenter
                     switch (View.TinhTrangForm)
                     {
                         case FormStateS.Edit:
-                            thongDiep = BangGiaTheoBuoc.Sua((BangGiaTheoBuoc)bangGia);
+                            thongDiep = BangGiaTheoBuoc.Sua(bangGiaBuoc);
                             break;
                         case FormStateS.New:
-                            thongDiep = BangGiaTheoBuoc.Them((BangGiaTheoBuoc)bangGia);
+                            thongDiep = BangGiaTheoBuoc.Them(bangGiaBuoc);
                             break;
                     }
 

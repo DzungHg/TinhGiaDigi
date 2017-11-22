@@ -15,7 +15,7 @@ namespace TinhGiaInNhapLieu.View
         string DienGiai { get; set; }
         string DaySoLuong { get; set; }
         string DayGiaTrang { get; set; }
-              
+        string DonViTinh { get; set; }      
         string LoaiBangGia { get; set; }
         int ThuTu { get; set; }
        

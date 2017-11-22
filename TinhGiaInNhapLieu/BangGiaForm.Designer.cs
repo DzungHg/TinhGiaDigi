@@ -48,6 +48,8 @@
             this.btnTrinhBay = new Telerik.WinControls.UI.RadButton();
             this.txtLoaiBangGia = new Telerik.WinControls.UI.RadTextBox();
             this.btnKiemTraBG = new Telerik.WinControls.UI.RadButton();
+            this.txtDonViTinh = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btnLuu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDong)).BeginInit();
@@ -67,12 +69,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnTrinhBay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoaiBangGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKiemTraBG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDonViTinh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(365, 280);
+            this.btnLuu.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnLuu.Location = new System.Drawing.Point(365, 317);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(110, 24);
             this.btnLuu.TabIndex = 10;
@@ -90,7 +95,8 @@
             // 
             // btnDong
             // 
-            this.btnDong.Location = new System.Drawing.Point(204, 280);
+            this.btnDong.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnDong.Location = new System.Drawing.Point(204, 317);
             this.btnDong.Name = "btnDong";
             this.btnDong.Size = new System.Drawing.Size(110, 24);
             this.btnDong.TabIndex = 11;
@@ -129,7 +135,7 @@
             // 
             // chkKhongSuDung
             // 
-            this.chkKhongSuDung.Location = new System.Drawing.Point(100, 241);
+            this.chkKhongSuDung.Location = new System.Drawing.Point(100, 278);
             this.chkKhongSuDung.Name = "chkKhongSuDung";
             this.chkKhongSuDung.Size = new System.Drawing.Size(84, 18);
             this.chkKhongSuDung.TabIndex = 8;
@@ -161,14 +167,14 @@
             // 
             // txtThuTu
             // 
-            this.txtThuTu.Location = new System.Drawing.Point(98, 215);
+            this.txtThuTu.Location = new System.Drawing.Point(98, 252);
             this.txtThuTu.Name = "txtThuTu";
             this.txtThuTu.Size = new System.Drawing.Size(36, 20);
             this.txtThuTu.TabIndex = 7;
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(15, 216);
+            this.radLabel8.Location = new System.Drawing.Point(15, 253);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(39, 18);
             this.radLabel8.TabIndex = 53;
@@ -207,7 +213,7 @@
             // 
             // btnTrinhBay
             // 
-            this.btnTrinhBay.Location = new System.Drawing.Point(310, 235);
+            this.btnTrinhBay.Location = new System.Drawing.Point(310, 272);
             this.btnTrinhBay.Name = "btnTrinhBay";
             this.btnTrinhBay.Size = new System.Drawing.Size(100, 24);
             this.btnTrinhBay.TabIndex = 9;
@@ -232,11 +238,28 @@
             this.btnKiemTraBG.Text = "Check";
             this.btnKiemTraBG.Click += new System.EventHandler(this.btnKiemTraBG_Click);
             // 
+            // txtDonViTinh
+            // 
+            this.txtDonViTinh.Location = new System.Drawing.Point(100, 215);
+            this.txtDonViTinh.Name = "txtDonViTinh";
+            this.txtDonViTinh.Size = new System.Drawing.Size(104, 20);
+            this.txtDonViTinh.TabIndex = 6;
+            // 
+            // radLabel4
+            // 
+            this.radLabel4.Location = new System.Drawing.Point(15, 217);
+            this.radLabel4.Name = "radLabel4";
+            this.radLabel4.Size = new System.Drawing.Size(61, 18);
+            this.radLabel4.TabIndex = 54;
+            this.radLabel4.Text = "Đơn vị tính";
+            // 
             // BangGiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 326);
+            this.ClientSize = new System.Drawing.Size(690, 356);
+            this.Controls.Add(this.radLabel4);
+            this.Controls.Add(this.txtDonViTinh);
             this.Controls.Add(this.btnKiemTraBG);
             this.Controls.Add(this.txtLoaiBangGia);
             this.Controls.Add(this.btnTrinhBay);
@@ -283,6 +306,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnTrinhBay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLoaiBangGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnKiemTraBG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDonViTinh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,5 +336,7 @@
         private Telerik.WinControls.UI.RadButton btnTrinhBay;
         private Telerik.WinControls.UI.RadTextBox txtLoaiBangGia;
         private Telerik.WinControls.UI.RadButton btnKiemTraBG;
+        private Telerik.WinControls.UI.RadTextBox txtDonViTinh;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
     }
 }

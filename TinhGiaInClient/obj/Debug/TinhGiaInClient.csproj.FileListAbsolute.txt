@@ -759,3 +759,4 @@ D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.BaiInToForm.reso
 D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.SoSanhOffsetNhanhForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.SoSanhOffsetNhanhForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ChiTietMayInOffsetForm.resources
+D:\GitHub\TinhGiaDigi\TinhGiaInClient\obj\Debug\TinhGiaInClient.UI.ChiTietMayInOffsetForm.resources

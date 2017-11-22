@@ -89,7 +89,11 @@ namespace TinhGiaInNhapLieu
             get { return txtLoaiBangGia.Text; }
             set { txtLoaiBangGia.Text = value; }
         }
-      
+        public string DonViTinh
+        {
+            get { return txtDonViTinh.Text; }
+            set { txtDonViTinh.Text = value; }
+        }
         public int ThuTu
         {
             get
