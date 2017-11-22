@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInNhapLieu.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu.Presenter
 {
@@ -68,10 +69,10 @@ namespace TinhGiaInNhapLieu.Presenter
            
             switch (View.TinhTrangForm)
             {
-                case TinhGiaInClient.FormStateS.Edit:                                     
+                case FormStateS.Edit:                                     
                     kq = ToLotMoPhang.Sua(toLotMP);
                     break;
-                case TinhGiaInClient.FormStateS.New:
+                case FormStateS.New:
                     kq = ToLotMoPhang.Them(toLotMP);
                     break;
 

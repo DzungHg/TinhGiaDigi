@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using TinhGiaInClient;
 using TinhGiaInNhapLieu.View;
 using TinhGiaInNhapLieu.Presenter;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu
 {

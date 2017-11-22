@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinhGiaInClient.Presenter;
+using TinhGiaInClient.Common;
 
 
 namespace TinhGiaInClient.Model
@@ -32,6 +34,34 @@ namespace TinhGiaInClient.Model
             bg = DanhSachBangGia.DanhSachS().Where(x => x.ID == id && x.LoaiBangGia == loai).SingleOrDefault();
             return bg;
         }
-        
+        public static Dictionary<string, string> TrinhBayBangGia(int idBangGia, string loaiBangGia)
+        {
+            Dictionary<string, string> kq = null;
+            if (idBangGia <= 0)
+                return kq;
+
+
+            var bangGiaChon = DanhSachBangGia.DocTheoIDvaLoai(idBangGia, loaiBangGia);
+            switch (loaiBangGia)
+            {
+                case Global.cBangGiaLuyTien:
+
+                    kq = HoTro.TrinhBayBangGiaLuyTien(bangGiaChon.DaySoLuong,
+                        bangGiaChon.DayGia, bangGiaChon.DonViTinh);
+                    break;
+
+                case Global.cBangGiaBuoc:
+
+                    kq = HoTro.TrinhBayBangGiaBuoc(bangGiaChon.DaySoLuong,
+                        bangGiaChon.DayGia, bangGiaChon.DonViTinh);
+                    break;
+                case Global.cBangGiaGoi:
+
+                    kq = HoTro.TrinhBayBangGiaGoi(bangGiaChon.DaySoLuong,
+                        bangGiaChon.DayGia, bangGiaChon.DonViTinh);
+                    break;
+            }
+            return kq;
+        }
     }
 }

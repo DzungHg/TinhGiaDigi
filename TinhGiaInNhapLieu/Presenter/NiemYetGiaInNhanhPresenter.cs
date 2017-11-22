@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInNhapLieu.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu.Presenter
 {
@@ -117,10 +118,10 @@ namespace TinhGiaInNhapLieu.Presenter
             niemYetGia.DuocGomTrang = View.DuocGomTrang;
             switch (View.TinhTrangForm)
             {
-                case TinhGiaInClient.FormStateS.Edit:
+                case FormStateS.Edit:
                     NiemYetGiaInNhanh.Sua(ref thongDiep, niemYetGia);
                     break;
-                case TinhGiaInClient.FormStateS.New:
+                case FormStateS.New:
                     thongDiep =  NiemYetGiaInNhanh.Them(niemYetGia);
                     break;
 

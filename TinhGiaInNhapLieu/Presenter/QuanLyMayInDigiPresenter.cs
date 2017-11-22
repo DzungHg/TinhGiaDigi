@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInNhapLieu.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu.Presenter
 {
@@ -72,10 +73,10 @@ namespace TinhGiaInNhapLieu.Presenter
             mayInDigi.ClickA4_6M = View.ClickA4_6M;
             switch (View.TinhTrangForm)
             {
-                case TinhGiaInClient.FormStateS.Edit:                                     
+                case FormStateS.Edit:                                     
                     MayInDigi.Sua(mayInDigi);
                     break;
-                case TinhGiaInClient.FormStateS.New:
+                case FormStateS.New:
                     MayInDigi.Them(mayInDigi);
                     break;
 

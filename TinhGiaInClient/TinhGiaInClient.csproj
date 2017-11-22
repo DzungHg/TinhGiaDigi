@@ -85,10 +85,11 @@
     <Compile Include="AboutBox.designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\Enum\LoaiBangGia.cs" />
     <Compile Include="Common\Enum\KieuInOffset.cs" />
     <Compile Include="Common\Enum\MauIn.cs" />
     <Compile Include="Common\Enum\KieuBoiNhieuLop.cs" />
-    <Compile Include="Common\Enum\LoaiBangGia.cs" />
+    <Compile Include="Common\Enum\LoaiTinhGia.cs" />
     <Compile Include="Common\Enum\PrintSideColor.cs" />
     <Compile Include="Common\Enum\MotMaiHaiMat.cs" />
     <Compile Include="Common\Enum\PhuongPhapIn.cs" />

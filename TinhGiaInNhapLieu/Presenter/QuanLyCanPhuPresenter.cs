@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInNhapLieu.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu.Presenter
 {
@@ -85,7 +86,7 @@ namespace TinhGiaInNhapLieu.Presenter
           
             switch (View.TinhTrangForm)
             {
-                case TinhGiaInClient.FormStateS.Edit:
+                case FormStateS.Edit:
                     thongDiep = CanPhu.Sua(canPhu);
                     break;
                 /*case TinhGiaInClient.FormStateS.New:

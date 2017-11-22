@@ -1,5 +1,5 @@
 ﻿
 namespace TinhGiaInClient.Common.Enum
 {
-    public enum LoaiBangGia { InNhanh = 0, InNhanhTheoMay = 1, InOffset = 2, InKhoLon = 3 }
+    public enum LoaiBangGiaS { LuyTien = 1, Buoc = 2, Goi = 3 }
 }

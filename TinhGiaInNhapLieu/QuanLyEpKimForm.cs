@@ -9,6 +9,7 @@ using Telerik.WinControls;
 using TinhGiaInNhapLieu.View;
 using TinhGiaInNhapLieu.Presenter;
 using TinhGiaInClient;
+using TinhGiaInClient.Common.Enum;
 
 
 namespace TinhGiaInNhapLieu
@@ -154,7 +155,7 @@ namespace TinhGiaInNhapLieu
 
        
 
-        public TinhGiaInClient.FormStateS TinhTrangForm
+        public FormStateS TinhTrangForm
         {
             get;
             set;
@@ -382,7 +383,7 @@ namespace TinhGiaInNhapLieu
             MessageBox.Show(thongDiep);
             //Lưu xong:
             this.DuLieuDaThayDoi = false;
-            this.TinhTrangForm = TinhGiaInClient.FormStateS.View;
+            this.TinhTrangForm = FormStateS.View;
             btnLuu.Enabled = this.DuLieuDaThayDoi;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
@@ -395,7 +396,7 @@ namespace TinhGiaInNhapLieu
 
         private void radButton1_Click(object sender, EventArgs e)
         {
-            this.TinhTrangForm = TinhGiaInClient.FormStateS.New;
+            this.TinhTrangForm = FormStateS.New;
             lstThanhPham.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
@@ -420,7 +421,7 @@ namespace TinhGiaInNhapLieu
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            this.TinhTrangForm = TinhGiaInClient.FormStateS.Edit;
+            this.TinhTrangForm = FormStateS.Edit;
             lstThanhPham.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;

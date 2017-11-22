@@ -78,6 +78,8 @@
     </Compile>
     <Compile Include="Presenter\GiayPresenter.cs" />
     <Compile Include="Presenter\NiemYetGiaInNhanhPresenter.cs" />
+    <Compile Include="Presenter\QuanLyBangGiaPresenter.cs" />
+    <Compile Include="Presenter\BangGiaPresenter.cs" />
     <Compile Include="Presenter\QuanLyBGiaThNhuaPresenter.cs" />
     <Compile Include="Presenter\QuanLyBGiaDThiepPresenter.cs" />
     <Compile Include="Presenter\QuanLyCanGapPresenter.cs" />
@@ -102,6 +104,18 @@
     </Compile>
     <Compile Include="NiemYetGiaInNhanhForm.Designer.cs">
       <DependentUpon>NiemYetGiaInNhanhForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyBangGiaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyBangGiaForm.Designer.cs">
+      <DependentUpon>QuanLyBangGiaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BangGiaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BangGiaForm.Designer.cs">
+      <DependentUpon>BangGiaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="QuanLyBGiaThNhuaForm.cs">
       <SubType>Form</SubType>
@@ -266,6 +280,8 @@
       <DependentUpon>QuanLyMayInDigiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IViewNiemYetGiaInNhanh.cs" />
+    <Compile Include="View\IViewQuanLyBangGia.cs" />
+    <Compile Include="View\IViewBangGia.cs" />
     <Compile Include="View\IViewQuanLyBGiaThNhua.cs" />
     <Compile Include="View\IViewQuanLyBGiaDThiep.cs" />
     <Compile Include="View\IViewQuanLyDongCuonLX.cs" />
@@ -300,6 +316,12 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="NiemYetGiaInNhanhForm.resx">
       <DependentUpon>NiemYetGiaInNhanhForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyBangGiaForm.resx">
+      <DependentUpon>QuanLyBangGiaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BangGiaForm.resx">
+      <DependentUpon>BangGiaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLyBGiaThNhuaForm.resx">
       <DependentUpon>QuanLyBGiaThNhuaForm.cs</DependentUpon>

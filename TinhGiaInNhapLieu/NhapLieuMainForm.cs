@@ -11,6 +11,7 @@ using TinhGiaInClient;
 using TinhGiaInClient.Model;
 using TinhGiaInClient.Model.Support;
 using TinhGiaInClient.UI;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu
 {
@@ -519,6 +520,20 @@ namespace TinhGiaInNhapLieu
             frm.MaximizeBox = false;
             frm.MinimizeBox = false;
             frm.Text = "Niêm yết giá in nhanh";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+        }
+
+        private void btnQuanLyBangGia_Click(object sender, EventArgs e)
+        {
+            var frm = new QuanLyBangGiaForm();
+            
+            //if (!CoTheMoFormNay(frm.Name)) //không có tên form
+            //   return;
+            //Qua khỏi
+            frm.MaximizeBox = false;
+            frm.MinimizeBox = false;
+            frm.Text = "Quản lý các Bảng giá";
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.ShowDialog();
         }

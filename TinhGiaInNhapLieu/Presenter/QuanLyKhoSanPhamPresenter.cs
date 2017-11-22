@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInNhapLieu.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu.Presenter
 {
@@ -55,10 +56,10 @@ namespace TinhGiaInNhapLieu.Presenter
             khoSPh.ThuTu = View.ThuTu;
             switch (View.TinhTrangForm)
             {
-                case TinhGiaInClient.FormStateS.Edit:                                     
+                case FormStateS.Edit:                                     
                     KhoSanPham.Sua(khoSPh);
                     break;
-                case TinhGiaInClient.FormStateS.New:
+                case FormStateS.New:
                     KhoSanPham.Them(khoSPh);
                     break;
 

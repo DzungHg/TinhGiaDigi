@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Model;
 using TinhGiaInNhapLieu.View;
+using TinhGiaInClient.Common.Enum;
 
 namespace TinhGiaInNhapLieu.Presenter
 {
@@ -105,10 +106,10 @@ namespace TinhGiaInNhapLieu.Presenter
             toInMayDigi.KhongSuDung = View.KhongSuDung;
             switch (View.TinhTrangForm)
             {
-                case TinhGiaInClient.FormStateS.Edit:                                     
+                case FormStateS.Edit:                                     
                     ToInMayDigi.Sua(ref thongDiep, toInMayDigi);
                     break;
-                case TinhGiaInClient.FormStateS.New:
+                case FormStateS.New:
                     ToInMayDigi.Them(ref thongDiep, toInMayDigi);
                     break;
 

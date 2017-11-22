@@ -40,7 +40,7 @@ namespace TinhGiaInDAL.RepoTinhGia
             BangGiaLuyTienBDO item = null;
             try
             {
-                item = db.BANG_GIA_THEO_BUOC.Where(x => x.ID == iD).Select(x => new BangGiaLuyTienBDO
+                item = db.BANG_GIA_LUY_TIEN.Where(x => x.ID == iD).Select(x => new BangGiaLuyTienBDO
                 {
                     ID = x.ID,
                     Ten = x.ten,

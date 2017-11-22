@@ -71,6 +71,7 @@
             this.btnGiaTuyChonTheNhua = new System.Windows.Forms.Button();
             this.tabNiemYetGia = new System.Windows.Forms.TabPage();
             this.btnNY_GiaInNhanh = new System.Windows.Forms.Button();
+            this.btnQuanLyBangGia = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlTop.SuspendLayout();
             this.pnlBottom.SuspendLayout();
@@ -516,6 +517,7 @@
             // tabNiemYetGia
             // 
             this.tabNiemYetGia.Controls.Add(this.btnNY_GiaInNhanh);
+            this.tabNiemYetGia.Controls.Add(this.btnQuanLyBangGia);
             this.tabNiemYetGia.Location = new System.Drawing.Point(4, 22);
             this.tabNiemYetGia.Name = "tabNiemYetGia";
             this.tabNiemYetGia.Padding = new System.Windows.Forms.Padding(3);
@@ -526,13 +528,23 @@
             // 
             // btnNY_GiaInNhanh
             // 
-            this.btnNY_GiaInNhanh.Location = new System.Drawing.Point(8, 6);
+            this.btnNY_GiaInNhanh.Location = new System.Drawing.Point(119, 40);
             this.btnNY_GiaInNhanh.Name = "btnNY_GiaInNhanh";
             this.btnNY_GiaInNhanh.Size = new System.Drawing.Size(92, 37);
             this.btnNY_GiaInNhanh.TabIndex = 10;
             this.btnNY_GiaInNhanh.Text = "Giá in nhanh";
             this.btnNY_GiaInNhanh.UseVisualStyleBackColor = true;
             this.btnNY_GiaInNhanh.Click += new System.EventHandler(this.btnNY_GiaInNhanh_Click);
+            // 
+            // btnQuanLyBangGia
+            // 
+            this.btnQuanLyBangGia.Location = new System.Drawing.Point(21, 6);
+            this.btnQuanLyBangGia.Name = "btnQuanLyBangGia";
+            this.btnQuanLyBangGia.Size = new System.Drawing.Size(92, 37);
+            this.btnQuanLyBangGia.TabIndex = 11;
+            this.btnQuanLyBangGia.Text = "Các loại Bảng giá";
+            this.btnQuanLyBangGia.UseVisualStyleBackColor = true;
+            this.btnQuanLyBangGia.Click += new System.EventHandler(this.btnQuanLyBangGia_Click);
             // 
             // NhapLieuMainForm
             // 
@@ -616,6 +628,7 @@
         private System.Windows.Forms.Button btnQuanLy_DCuonLXo;
         private System.Windows.Forms.TabPage tabNiemYetGia;
         private System.Windows.Forms.Button btnNY_GiaInNhanh;
+        private System.Windows.Forms.Button btnQuanLyBangGia;
 
     }
 }

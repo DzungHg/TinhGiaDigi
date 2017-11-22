@@ -411,3 +411,5 @@ E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.DSBangGiaFor
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.DSBangGiaForm.resources
 D:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.NiemYetGiaInNhanhForm.resources
 E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.NiemYetGiaInNhanhForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.QuanLyBangGiaForm.resources
+E:\GitHub\TinhGiaDigi\TinhGiaInNhapLieu\obj\Debug\TinhGiaInNhapLieu.BangGiaForm.resources
