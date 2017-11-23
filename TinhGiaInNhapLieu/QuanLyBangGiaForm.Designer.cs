@@ -49,13 +49,14 @@
             this.tabDienGiaiBG = new System.Windows.Forms.TabPage();
             this.txtCtrDienGiai = new Telerik.WinControls.UI.RadTextBoxControl();
             this.tabTinhThu = new System.Windows.Forms.TabPage();
-            this.txtSoTrangTinhThu = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.lblTinhThu_TriGia = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
-            this.lblTinhThu_TBA4 = new Telerik.WinControls.UI.RadLabel();
             this.btnTinhThu = new Telerik.WinControls.UI.RadButton();
+            this.lblTinhThu_TBA4 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            this.lblTinhThu_TriGia = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.txtSoTrangTinhThu = new Telerik.WinControls.UI.RadTextBox();
+            this.btnCopyBangGia = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
             this.radPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -82,18 +83,20 @@
             this.tabDienGiaiBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCtrDienGiai)).BeginInit();
             this.tabTinhThu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoTrangTinhThu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TriGia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TBA4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTinhThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TBA4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TriGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoTrangTinhThu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyBangGia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radPanel2
             // 
+            this.radPanel2.Controls.Add(this.btnCopyBangGia);
             this.radPanel2.Controls.Add(this.btnClose);
             this.radPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.radPanel2.Location = new System.Drawing.Point(0, 331);
@@ -105,7 +108,7 @@
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(302, 13);
+            this.btnClose.Location = new System.Drawing.Point(135, 13);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 24);
             this.btnClose.TabIndex = 0;
@@ -327,46 +330,14 @@
             this.tabTinhThu.Text = "Tính thử";
             this.tabTinhThu.UseVisualStyleBackColor = true;
             // 
-            // txtSoTrangTinhThu
+            // btnTinhThu
             // 
-            this.txtSoTrangTinhThu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoTrangTinhThu.Location = new System.Drawing.Point(88, 18);
-            this.txtSoTrangTinhThu.Name = "txtSoTrangTinhThu";
-            this.txtSoTrangTinhThu.Size = new System.Drawing.Size(100, 31);
-            this.txtSoTrangTinhThu.TabIndex = 0;
-            // 
-            // radLabel1
-            // 
-            this.radLabel1.Location = new System.Drawing.Point(10, 28);
-            this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(68, 18);
-            this.radLabel1.TabIndex = 1;
-            this.radLabel1.Text = "Số trang A4:";
-            // 
-            // lblTinhThu_TriGia
-            // 
-            this.lblTinhThu_TriGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTinhThu_TriGia.Location = new System.Drawing.Point(88, 68);
-            this.lblTinhThu_TriGia.Name = "lblTinhThu_TriGia";
-            this.lblTinhThu_TriGia.Size = new System.Drawing.Size(50, 25);
-            this.lblTinhThu_TriGia.TabIndex = 2;
-            this.lblTinhThu_TriGia.Text = "trị giá";
-            // 
-            // radLabel3
-            // 
-            this.radLabel3.Location = new System.Drawing.Point(10, 75);
-            this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(62, 18);
-            this.radLabel3.TabIndex = 2;
-            this.radLabel3.Text = "Thành tiền:";
-            // 
-            // radLabel4
-            // 
-            this.radLabel4.Location = new System.Drawing.Point(10, 106);
-            this.radLabel4.Name = "radLabel4";
-            this.radLabel4.Size = new System.Drawing.Size(58, 18);
-            this.radLabel4.TabIndex = 3;
-            this.radLabel4.Text = "Giá TB/A4:";
+            this.btnTinhThu.Location = new System.Drawing.Point(88, 145);
+            this.btnTinhThu.Name = "btnTinhThu";
+            this.btnTinhThu.Size = new System.Drawing.Size(100, 24);
+            this.btnTinhThu.TabIndex = 10;
+            this.btnTinhThu.Text = "Tính";
+            this.btnTinhThu.Click += new System.EventHandler(this.btnTinhThu_Click);
             // 
             // lblTinhThu_TBA4
             // 
@@ -377,14 +348,55 @@
             this.lblTinhThu_TBA4.TabIndex = 3;
             this.lblTinhThu_TBA4.Text = "trị giá";
             // 
-            // btnTinhThu
+            // radLabel4
             // 
-            this.btnTinhThu.Location = new System.Drawing.Point(88, 145);
-            this.btnTinhThu.Name = "btnTinhThu";
-            this.btnTinhThu.Size = new System.Drawing.Size(100, 24);
-            this.btnTinhThu.TabIndex = 10;
-            this.btnTinhThu.Text = "Tính";
-            this.btnTinhThu.Click += new System.EventHandler(this.btnTinhThu_Click);
+            this.radLabel4.Location = new System.Drawing.Point(10, 106);
+            this.radLabel4.Name = "radLabel4";
+            this.radLabel4.Size = new System.Drawing.Size(58, 18);
+            this.radLabel4.TabIndex = 3;
+            this.radLabel4.Text = "Giá TB/A4:";
+            // 
+            // radLabel3
+            // 
+            this.radLabel3.Location = new System.Drawing.Point(10, 75);
+            this.radLabel3.Name = "radLabel3";
+            this.radLabel3.Size = new System.Drawing.Size(62, 18);
+            this.radLabel3.TabIndex = 2;
+            this.radLabel3.Text = "Thành tiền:";
+            // 
+            // lblTinhThu_TriGia
+            // 
+            this.lblTinhThu_TriGia.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTinhThu_TriGia.Location = new System.Drawing.Point(88, 68);
+            this.lblTinhThu_TriGia.Name = "lblTinhThu_TriGia";
+            this.lblTinhThu_TriGia.Size = new System.Drawing.Size(50, 25);
+            this.lblTinhThu_TriGia.TabIndex = 2;
+            this.lblTinhThu_TriGia.Text = "trị giá";
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Location = new System.Drawing.Point(10, 28);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(68, 18);
+            this.radLabel1.TabIndex = 1;
+            this.radLabel1.Text = "Số trang A4:";
+            // 
+            // txtSoTrangTinhThu
+            // 
+            this.txtSoTrangTinhThu.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoTrangTinhThu.Location = new System.Drawing.Point(88, 18);
+            this.txtSoTrangTinhThu.Name = "txtSoTrangTinhThu";
+            this.txtSoTrangTinhThu.Size = new System.Drawing.Size(100, 31);
+            this.txtSoTrangTinhThu.TabIndex = 0;
+            // 
+            // btnCopyBangGia
+            // 
+            this.btnCopyBangGia.Location = new System.Drawing.Point(529, 13);
+            this.btnCopyBangGia.Name = "btnCopyBangGia";
+            this.btnCopyBangGia.Size = new System.Drawing.Size(100, 24);
+            this.btnCopyBangGia.TabIndex = 11;
+            this.btnCopyBangGia.Text = "Copy bảng giá";
+            this.btnCopyBangGia.Click += new System.EventHandler(this.btnCopyBangGia_Click);
             // 
             // QuanLyBangGiaForm
             // 
@@ -430,13 +442,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCtrDienGiai)).EndInit();
             this.tabTinhThu.ResumeLayout(false);
             this.tabTinhThu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSoTrangTinhThu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TriGia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TBA4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnTinhThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TBA4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblTinhThu_TriGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoTrangTinhThu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCopyBangGia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -472,6 +485,7 @@
         private Telerik.WinControls.UI.RadLabel lblTinhThu_TriGia;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadTextBox txtSoTrangTinhThu;
+        private Telerik.WinControls.UI.RadButton btnCopyBangGia;
 
     }
 }
