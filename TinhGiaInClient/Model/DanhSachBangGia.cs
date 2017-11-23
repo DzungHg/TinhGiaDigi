@@ -34,7 +34,7 @@ namespace TinhGiaInClient.Model
             bg = DanhSachBangGia.DanhSachS().Where(x => x.ID == id && x.LoaiBangGia == loai).SingleOrDefault();
             return bg;
         }
-        public static Dictionary<string, string> TrinhBayBangGia(int idBangGia, string loaiBangGia)
+        public static Dictionary<string, string> TrinhBayBangGiaTuDB(int idBangGia, string loaiBangGia)
         {
             Dictionary<string, string> kq = null;
             if (idBangGia <= 0)
@@ -59,6 +59,52 @@ namespace TinhGiaInClient.Model
 
                     kq = HoTro.TrinhBayBangGiaGoi(bangGiaChon.DaySoLuong,
                         bangGiaChon.DayGia, bangGiaChon.DonViTinh);
+                    break;
+            }
+            return kq;
+        }
+        public static Dictionary<string, string> TrinhBayBangGia(string daySoLuong, string dayGia,
+                string loaiBangGia, string donViTinh = "trang A4")
+        {
+            Dictionary<string, string> kq = null;
+            //Kiểm tra bản giá có hợp lệ
+            
+            string[] daySoLuongArr;
+            string[] dayGiaArr;
+            try
+            {
+                daySoLuongArr = daySoLuong.Split(';');
+                dayGiaArr = dayGia.Split(';');
+            }
+            catch
+            {
+                
+                return kq;
+            }
+            //kiểm tiếp n
+
+            if (!(daySoLuongArr.Length == dayGiaArr.Length))
+                return kq;
+            //Vượt
+
+            
+            switch (loaiBangGia)
+            {
+                case Global.cBangGiaLuyTien:
+
+                    kq = HoTro.TrinhBayBangGiaLuyTien(daySoLuong,
+                        dayGia, donViTinh);
+                    break;
+
+                case Global.cBangGiaBuoc:
+
+                    kq = HoTro.TrinhBayBangGiaBuoc(daySoLuong,
+                        dayGia, donViTinh);
+                    break;
+                case Global.cBangGiaGoi:
+
+                    kq = HoTro.TrinhBayBangGiaGoi(daySoLuong,
+                        dayGia, donViTinh);
                     break;
             }
             return kq;

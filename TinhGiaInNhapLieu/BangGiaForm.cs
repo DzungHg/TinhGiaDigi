@@ -178,7 +178,8 @@ namespace TinhGiaInNhapLieu
             if (sender is Telerik.WinControls.UI.RadTextBox)
             {
                 tb = (Telerik.WinControls.UI.RadTextBox)sender;
-                if (tb == txtTen ||  tb == txtThuTu 
+                if (tb == txtTen ||  tb == txtThuTu  ||
+                    tb == txtDaySoLuong || tb == txtMucGia
                     )
                 {
                     this.DataChanged = true;

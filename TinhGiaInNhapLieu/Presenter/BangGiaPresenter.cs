@@ -134,10 +134,10 @@ namespace TinhGiaInNhapLieu.Presenter
         public Dictionary<string, string> TrinhBayBangGia()
         {
             Dictionary<string, string> kq = null;
-            if (View.ID <= 0)
-                return kq;
-            //
-            kq = DanhSachBangGia.TrinhBayBangGia(View.ID, View.LoaiBangGia);
+         
+            // làm treenform là được
+            kq = DanhSachBangGia.TrinhBayBangGia(View.DaySoLuong, View.DayGiaTrang,
+                View.LoaiBangGia, View.DonViTinh);
 
             return kq;
         }
