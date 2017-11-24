@@ -276,6 +276,9 @@ namespace TinhGiaInNhapLieu
             //Bật tắt các nút
             btnDong.Enabled = true;
             btnLuu.Enabled = this.DataChanged;
+            //Nếu load để xem bấm trình bày bảng giá luôn
+            if (this.TinhTrangForm == FormStateS.View)
+                TrinhBayBangGia();
            
         }
 

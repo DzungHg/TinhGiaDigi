@@ -57,16 +57,39 @@ namespace TinhGiaInClient.Presenter
             int result = 0;
             switch (View.KieuInOffset)
             {
-                case KieuInOffsetS.AB:
+                case KieuInOffsetS.MotMat:
+                     result = View.SoToChay * 1;
+                    break;
                 case KieuInOffsetS.TuTro:
                 case KieuInOffsetS.TuTroNhip:
                     result = View.SoToChay * 2;
                     break;
-                case KieuInOffsetS.MotMat:                
-                    result = View.SoToChay * 1;
+                case KieuInOffsetS.AB:               
+                    result = View.SoToChay * 1; //nó là 2 lần in 2 kẽm
                     break;
+               
+                
             }
             return result;
+        }
+        public int SoKem()
+        {
+
+            int kq = 1;
+            switch (View.KieuInOffset)
+            {
+                case KieuInOffsetS.MotMat:                
+                case KieuInOffsetS.TuTro:
+                case KieuInOffsetS.TuTroNhip:
+                    kq = 1;
+                    break;
+                case KieuInOffsetS.AB:
+                    kq = 2; //nó là 2 lần in 2 kẽm
+                    break;
+
+
+            }
+            return kq;
         }
     
        

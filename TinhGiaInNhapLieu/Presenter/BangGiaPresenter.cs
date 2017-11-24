@@ -22,6 +22,8 @@ namespace TinhGiaInNhapLieu.Presenter
                 TrinhBayThemMoi();
             else if (View.TinhTrangForm == FormStateS.Edit)
                 TrinhBayChiTietBangGia();
+            else if (view.TinhTrangForm == FormStateS.View)
+                TrinhBayChiTietBangGia();
 
         }
        

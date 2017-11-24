@@ -76,6 +76,16 @@ namespace TinhGiaInNhapLieu.Presenter
             }
             return kq;
         }
+        public string DienGiaiBangGia(int iDBangGia, string loaiBangGia)
+        {
+            var kq = "";
+            if (iDBangGia > 0 && !string.IsNullOrEmpty(loaiBangGia))
+            {
+                kq = DanhSachBangGia.DocTheoIDvaLoai(iDBangGia, loaiBangGia).DienGiai;
+
+            }
+            return kq;
+        }
         public void CapNhatChiTietBangGia()
         {
             try

@@ -450,9 +450,13 @@ namespace TinhGiaInNhapLieu
             {
                 this.IdBangGia = frm.IdBangGiaChon;
                 this.LoaiBangGia = frm.LoaiBangGia;
-                if (string.IsNullOrEmpty(this.TenNiemYet))
+                if (string.IsNullOrEmpty(this.TenNiemYet) 
+                    || this.TinhTrangForm == FormStateS.New)
                     this.TenNiemYet = niemYetGiaPres.TenBangGia(this.IdBangGia, this.LoaiBangGia);
-                
+
+                if (string.IsNullOrEmpty(this.DienGiai.Trim())
+                    || this.TinhTrangForm == FormStateS.New)
+                    this.DienGiai = niemYetGiaPres.DienGiaiBangGia(this.IdBangGia, this.LoaiBangGia);
 
             }
         }
@@ -475,6 +479,20 @@ namespace TinhGiaInNhapLieu
         private void txtSoTrangToiDaTinh_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnXemBangGiaKem_Click(object sender, EventArgs e)
+        {
+            if (this.IdBangGia <= 0)
+                return;
+            //
+            var frm = new BangGiaForm(this.LoaiBangGia, FormStateS.View, this.IdBangGia);
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.Text = "[Xem]";
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+           
         }
 
 
