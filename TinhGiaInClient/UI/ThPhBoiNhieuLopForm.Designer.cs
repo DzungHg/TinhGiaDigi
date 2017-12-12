@@ -37,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSoLopLot = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblSoLopLot = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,8 +55,8 @@
             this.btnLayGiay = new Telerik.WinControls.UI.RadButton();
             this.btnTinh = new Telerik.WinControls.UI.RadButton();
             this.grbKieuBoi = new Telerik.WinControls.UI.RadGroupBox();
-            this.rdbBoiDap = new Telerik.WinControls.UI.RadRadioButton();
             this.rdbBoiLotGiua = new Telerik.WinControls.UI.RadRadioButton();
+            this.rdbBoiDap = new Telerik.WinControls.UI.RadRadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.cboMayBoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNhan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnHuy)).BeginInit();
@@ -65,8 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnTinh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grbKieuBoi)).BeginInit();
             this.grbKieuBoi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiDap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdbBoiLotGiua)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiDap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,14 +145,14 @@
             this.txtSoLopLot.Size = new System.Drawing.Size(62, 20);
             this.txtSoLopLot.TabIndex = 5;
             // 
-            // label6
+            // lblSoLopLot
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 162);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 109;
-            this.label6.Text = "Số lớp lót";
+            this.lblSoLopLot.AutoSize = true;
+            this.lblSoLopLot.Location = new System.Drawing.Point(11, 162);
+            this.lblSoLopLot.Name = "lblSoLopLot";
+            this.lblSoLopLot.Size = new System.Drawing.Size(57, 13);
+            this.lblSoLopLot.TabIndex = 109;
+            this.lblSoLopLot.Text = "Số lớp lót";
             // 
             // label7
             // 
@@ -307,14 +307,6 @@
             this.grbKieuBoi.TabIndex = 4;
             this.grbKieuBoi.Text = "Kiểu bồi";
             // 
-            // rdbBoiDap
-            // 
-            this.rdbBoiDap.Location = new System.Drawing.Point(10, 21);
-            this.rdbBoiDap.Name = "rdbBoiDap";
-            this.rdbBoiDap.Size = new System.Drawing.Size(58, 18);
-            this.rdbBoiDap.TabIndex = 0;
-            this.rdbBoiDap.Text = "Bồi đắp";
-            // 
             // rdbBoiLotGiua
             // 
             this.rdbBoiLotGiua.Location = new System.Drawing.Point(10, 45);
@@ -322,6 +314,14 @@
             this.rdbBoiLotGiua.Size = new System.Drawing.Size(77, 18);
             this.rdbBoiLotGiua.TabIndex = 1;
             this.rdbBoiLotGiua.Text = "Bồi lót giữa";
+            // 
+            // rdbBoiDap
+            // 
+            this.rdbBoiDap.Location = new System.Drawing.Point(10, 21);
+            this.rdbBoiDap.Name = "rdbBoiDap";
+            this.rdbBoiDap.Size = new System.Drawing.Size(87, 18);
+            this.rdbBoiDap.TabIndex = 0;
+            this.rdbBoiDap.Text = "Bồi đắp thêm";
             // 
             // ThPhBoiNhieuLopForm
             // 
@@ -345,7 +345,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblSoLopLot);
             this.Controls.Add(this.txtSoLopLot);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtDonViTinh);
@@ -372,8 +372,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grbKieuBoi)).EndInit();
             this.grbKieuBoi.ResumeLayout(false);
             this.grbKieuBoi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiDap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rdbBoiLotGiua)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdbBoiDap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -391,7 +391,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtSoLopLot;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblSoLopLot;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;

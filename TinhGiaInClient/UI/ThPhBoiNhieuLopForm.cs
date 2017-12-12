@@ -71,7 +71,9 @@ namespace TinhGiaInClient.UI
             txtToBoiRong.KeyPress += new KeyPressEventHandler(InputValidator);
             txtToBoiCao.KeyPress += new KeyPressEventHandler(InputValidator);
 
-           
+            rdbBoiDap.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(RadioButtons_ToggleStateChanged);
+            rdbBoiLotGiua.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(RadioButtons_ToggleStateChanged);
+
 
             cboMayBoi.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(DropDownList_SelectedIndexChanged);
 
@@ -221,9 +223,17 @@ namespace TinhGiaInClient.UI
             set
             {
                 if (value == KieuBoiNhieuLop.BoiDap)
+                {
                     rdbBoiDap.IsChecked = true;
+                    lblSoLopLot.Text = "Số tờ đắp thêm";
+                    this.SoLopLotGiua = 1; //ít nhất là 1 lớp thêm
+                }
                 else
+                {
                     rdbBoiLotGiua.IsChecked = true;
+                    lblSoLopLot.Text = "Số tờ lót giữa";
+                    this.SoLopLotGiua = 0;
+                }
             }
         }
 
@@ -662,6 +672,25 @@ namespace TinhGiaInClient.UI
                 }
             }
             btnNhan.Enabled = kq;
+        }
+        private void RadioButtons_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            Telerik.WinControls.UI.RadRadioButton rb;
+            if (sender is Telerik.WinControls.UI.RadRadioButton)
+            {
+                rb = (Telerik.WinControls.UI.RadRadioButton)sender;
+                if (rdbBoiDap.IsChecked)
+                {
+                    
+                    lblSoLopLot.Text = "Số tờ đắp thêm";
+                    this.SoLopLotGiua = 1; //ít nhất là 1 lớp thêm
+                }
+                else
+                {
+                    lblSoLopLot.Text = "Số tờ lót giữa";
+                    this.SoLopLotGiua = 0; //Bắt đầu là 0
+                }
+            }
         }
   
     }
