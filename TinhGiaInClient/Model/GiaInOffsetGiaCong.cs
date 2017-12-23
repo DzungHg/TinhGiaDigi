@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TinhGiaInClient.Common.Enum;
+using TinhGiaInClient.Model.Support;
 
 namespace TinhGiaInClient.Model
 {

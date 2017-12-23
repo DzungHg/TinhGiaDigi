@@ -226,6 +226,7 @@
     <Compile Include="Model\Support\GiaTuyChonDanhThiepChon.cs" />
     <Compile Include="Model\Support\GiaTuyChonTheNhuaChon.cs" />
     <Compile Include="Model\Support\IThongTinBanDauChoGiayIn.cs" />
+    <Compile Include="Model\Support\PhiInOffsetGCMotKem.cs" />
     <Compile Include="Model\Support\ThongTinBanDauChoGiayInDanhThiep.cs" />
     <Compile Include="Model\Support\ThongTinBanDauBaiBe.cs" />
     <Compile Include="Model\TuyChonTheNhua.cs" />
